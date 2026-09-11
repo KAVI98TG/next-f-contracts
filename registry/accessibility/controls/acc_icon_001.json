@@ -1,0 +1,35 @@
+{
+  "controlId": "ACC-ICON-001",
+  "name": "Handle icon semantics correctly",
+  "category": "structure",
+  "requirement": "Decorative icons must be hidden from assistive technology; meaningful icon-only controls must receive an accessible name.",
+  "rationale": "Repeated decorative icon names can create noise while unlabeled icon buttons hide control purpose.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "navigation",
+    "form",
+    "dialog",
+    "drawer",
+    "menu"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_icon_001.json"
+}

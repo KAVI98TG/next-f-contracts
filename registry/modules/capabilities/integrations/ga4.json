@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.integrations.ga4",
+  "capabilityId": "integrations.ga4",
+  "name": "Google Analytics 4",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "integrations",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Google Analytics 4 capability within the Integrations module.",
+  "contractBindings": [
+    "integrations.googleAnalytics4"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

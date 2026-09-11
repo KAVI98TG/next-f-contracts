@@ -1,0 +1,28 @@
+{
+  "$id": "platform.users.edit",
+  "name": "Edit Users",
+  "permissionId": "platform.users.edit",
+  "domain": "platform",
+  "resource": "users",
+  "action": "edit",
+  "scopeKind": "platform",
+  "riskLevel": "elevated",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Edit Users within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

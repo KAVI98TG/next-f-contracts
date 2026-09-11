@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "search.searchIndexSchema",
+  "title": "NEXT F Global Search Index",
+  "type": "object",
+  "required": ["registryVersion", "schemaVersion", "stats", "documents"],
+  "properties": {
+    "registryVersion": {"type":"string"},
+    "schemaVersion": {"type":"integer","minimum":1},
+    "stats": {
+      "type":"object",
+      "required":["documents","registry","fields","routes","documentation"],
+      "properties": {
+        "documents":{"type":"integer","minimum":0},
+        "registry":{"type":"integer","minimum":0},
+        "fields":{"type":"integer","minimum":0},
+        "routes":{"type":"integer","minimum":0},
+        "documentation":{"type":"integer","minimum":0}
+      },
+      "additionalProperties": true
+    },
+    "documents": {
+      "type":"array",
+      "items": {
+        "type":"object",
+        "required":["id","kind","title","description","target","searchText"],
+        "properties": {
+          "id":{"type":"string","minLength":1},
+          "kind":{"enum":["registry","field","route","document"]},
+          "title":{"type":"string"},
+          "subtitle":{"type":"string"},
+          "description":{"type":"string"},
+          "target":{"type":"string","minLength":1},
+          "machineId":{"type":"string"},
+          "parentId":{"type":"string"},
+          "domain":{"type":"string"},
+          "type":{"type":"string"},
+          "status":{"type":"string"},
+          "phase":{"type":["integer","null"]},
+          "source":{"type":"string"},
+          "aliases":{"type":"array","items":{"type":"string"}},
+          "searchText":{"type":"string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

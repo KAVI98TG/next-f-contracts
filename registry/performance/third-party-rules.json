@@ -1,0 +1,30 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "rules": [
+    {
+      "id": "non-blocking",
+      "requirement": "Optional integrations must not block initial rendering or primary navigation."
+    },
+    {
+      "id": "consent-aware",
+      "requirement": "Analytics/advertising providers requiring consent must load or dispatch only when consent permits."
+    },
+    {
+      "id": "no-duplicates",
+      "requirement": "Do not load duplicate copies of the same provider runtime."
+    },
+    {
+      "id": "enabled-only",
+      "requirement": "Load only connectors enabled for the current Site/environment."
+    },
+    {
+      "id": "failure-isolation",
+      "requirement": "Provider failure must not break primary content or unrelated core flows."
+    },
+    {
+      "id": "future-observability",
+      "requirement": "Future Site Runtime should expose connector timing/failure observability without leaking protected data."
+    }
+  ]
+}

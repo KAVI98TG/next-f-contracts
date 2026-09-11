@@ -1,0 +1,127 @@
+{
+  "$id": "marketing.consentState",
+  "name": "Consent State",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "consent",
+  "description": "Current normalized tracking consent state for visitor/session context.",
+  "purpose": "Provides one source for deciding optional tracking destination eligibility.",
+  "marketingModel": {
+    "kind": "state",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "stateId",
+      "required": true,
+      "nullable": false,
+      "description": "Unique state/snapshot ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "sessionId",
+      "required": false,
+      "nullable": true,
+      "description": "Associated session ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "anonymousVisitorId",
+      "required": false,
+      "nullable": true,
+      "description": "Associated anonymous visitor ID if allowed.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "preferences",
+      "required": true,
+      "nullable": false,
+      "description": "Current category preferences.",
+      "itemsSchema": "marketing.consentPreference",
+      "config": {
+        "minItems": 1,
+        "maxItems": 50
+      }
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Most recent state change.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "marketing.consentPreference",
+      "description": "Contains category preferences."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "onePreferencePerCategory",
+      "description": "At most one active preference per category."
+    },
+    {
+      "id": "noImplicitMarketingGrant",
+      "description": "Missing preference is not marketing consent."
+    },
+    {
+      "id": "identityOptional",
+      "description": "Consent works without authenticated identity."
+    },
+    {
+      "id": "notLegalConclusion",
+      "description": "Technical state is not itself legal compliance proof."
+    }
+  ],
+  "cms": {
+    "label": "Consent State",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "stateId",
+      "sessionId",
+      "anonymousVisitorId",
+      "preferences"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.media.library",
+  "capabilityId": "media.library",
+  "name": "Media Library",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "media",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Media Library capability within the Media module.",
+  "contractBindings": [
+    "shared.mediaAsset",
+    "shared.mediaReference"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

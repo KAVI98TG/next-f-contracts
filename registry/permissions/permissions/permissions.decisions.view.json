@@ -1,0 +1,28 @@
+{
+  "$id": "permissions.decisions.view",
+  "name": "View Decisions",
+  "permissionId": "permissions.decisions.view",
+  "domain": "permissions",
+  "resource": "decisions",
+  "action": "view",
+  "scopeKind": "organization",
+  "riskLevel": "sensitive",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Decisions within the authorized organization scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

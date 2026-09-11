@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.media.audio",
+  "capabilityId": "media.audio",
+  "name": "Audio Assets",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "media",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Audio Assets capability within the Media module.",
+  "contractBindings": [
+    "shared.mediaAsset",
+    "shared.mediaReference"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

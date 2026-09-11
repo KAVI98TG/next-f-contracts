@@ -1,0 +1,159 @@
+{
+  "$id": "commerce.paymentAttempt",
+  "name": "Payment Attempt",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "payments",
+  "description": "One Payment attempt.",
+  "purpose": "Preserves retries/failures without logging protected provider credentials.",
+  "commerceModel": {
+    "kind": "transaction",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "paymentId",
+      "required": true,
+      "nullable": false,
+      "description": "Parent Payment ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "providerKey",
+      "required": true,
+      "nullable": false,
+      "description": "Provider key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "providerAttemptId",
+      "required": false,
+      "nullable": true,
+      "description": "Provider attempt reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "amount",
+      "required": true,
+      "nullable": false,
+      "description": "Attempted amount.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Attempt status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "created",
+          "requires-action",
+          "processing",
+          "succeeded",
+          "failed",
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "key": "failureCode",
+      "required": false,
+      "nullable": true,
+      "description": "Safe normalized failure code.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "failureMessage",
+      "required": false,
+      "nullable": true,
+      "description": "Safe merchant-facing failure message.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "attemptedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Attempt time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "commerce.payment",
+      "description": "References commerce.payment."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.moneySnapshot",
+      "description": "References commerce.moneySnapshot."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "safeFailureOnly",
+      "description": "Failure details cannot include secrets or raw provider payloads."
+    },
+    {
+      "id": "appendOnly",
+      "description": "Attempts are historical records."
+    }
+  ],
+  "cms": {
+    "label": "Payment Attempt",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "paymentId",
+      "providerKey"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

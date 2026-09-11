@@ -1,0 +1,122 @@
+{
+  "eventKey": "webhook.redelivery-requested",
+  "name": "Webhook Redelivery Requested",
+  "category": "webhooks",
+  "producerKey": "webhook-service",
+  "subjectContracts": [
+    "webhooks.redeliveryRequest"
+  ],
+  "trigger": "An authorized operator requests another HTTP attempt for an existing logical Delivery.",
+  "dataPolicy": {
+    "sensitivity": "internal",
+    "containsPersonalData": false,
+    "containsFinancialData": false,
+    "containsSecrets": false,
+    "redactionRequired": true
+  },
+  "webhookEligible": false,
+  "consumers": [
+    "audit",
+    "nextf-admin",
+    "notification",
+    "automation"
+  ],
+  "payloadFields": [
+    {
+      "key": "requestId",
+      "required": true,
+      "description": "Redelivery request ID.",
+      "type": "id"
+    },
+    {
+      "key": "deliveryId",
+      "required": true,
+      "description": "Existing Delivery ID.",
+      "type": "id"
+    },
+    {
+      "key": "requestedAt",
+      "required": true,
+      "description": "Request timestamp.",
+      "type": "dateTime"
+    }
+  ],
+  "$id": "webhook.redelivery-requested",
+  "version": "0.15.0",
+  "eventVersion": "1.0.0",
+  "status": "stable",
+  "domain": "events",
+  "description": "An authorized operator requests another HTTP attempt for an existing logical Delivery.",
+  "purpose": "Provides a canonical internal lifecycle fact for webhook redelivery requested without allowing recursive webhook delivery.",
+  "semantics": {
+    "factOnly": true,
+    "authoritativeAfterCommit": true,
+    "immutableOccurrence": true,
+    "transportIndependent": true,
+    "marketingTrackingEquivalent": null
+  },
+  "productionPolicy": {
+    "durability": "durable",
+    "commitBoundary": "transactional-outbox",
+    "failureBehavior": "fail-domain-commit-or-durable-recovery"
+  },
+  "idempotency": {
+    "dedupeKey": "eventId",
+    "replayedIdempotentCommand": "no-new-semantic-event",
+    "consumerIdempotencyRequired": true
+  },
+  "orderingPolicy": {
+    "scope": "webhook-object",
+    "strict": false
+  },
+  "retention": {
+    "class": "standard-audit"
+  },
+  "relationships": [
+    {
+      "type": "references",
+      "target": "webhooks.redeliveryRequest",
+      "description": "Event subject is webhooks.redeliveryRequest."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "emitAfterAuthoritativeCommit",
+      "description": "Event is produced only after the authoritative webhook lifecycle transition is durably accepted."
+    },
+    {
+      "id": "immutableOccurrence",
+      "description": "Recorded event occurrences are immutable."
+    },
+    {
+      "id": "eventIdUnique",
+      "description": "Every semantic occurrence has one globally unique eventId."
+    },
+    {
+      "id": "noRecursiveWebhook",
+      "description": "This webhook lifecycle event is never itself webhook eligible and cannot create recursive webhook delivery."
+    },
+    {
+      "id": "payloadMinimumNecessary",
+      "description": "Payload contains only data required by declared consumers."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Payload never includes signing secrets, destination credentials, Authorization values or raw webhook signatures."
+    },
+    {
+      "id": "tenantScope",
+      "description": "Organization/Site scope must match the authoritative webhook object."
+    },
+    {
+      "id": "transportIndependent",
+      "description": "Event meaning remains independent of queue, HTTP and storage implementation."
+    }
+  ],
+  "futureBindings": {
+    "webhooks": "phase-14-implemented",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17"
+  }
+}

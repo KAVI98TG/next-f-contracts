@@ -1,0 +1,160 @@
+{
+  "eventKey": "lead.updated",
+  "name": "Lead Updated",
+  "category": "forms-leads",
+  "producerKey": "leads-domain",
+  "subjectContracts": [
+    "forms.lead"
+  ],
+  "trigger": "Material Lead business data is committed.",
+  "dataPolicy": {
+    "sensitivity": "personal",
+    "containsPersonalData": true,
+    "containsFinancialData": false,
+    "containsSecrets": false,
+    "redactionRequired": true
+  },
+  "webhookEligible": true,
+  "consumers": [
+    "audit",
+    "customer-cms",
+    "nextf-admin",
+    "notification",
+    "integration-dispatch",
+    "analytics",
+    "webhook-bridge"
+  ],
+  "payloadFields": [
+    {
+      "key": "submissionId",
+      "required": false,
+      "description": "Relevant Submission ID.",
+      "type": "id"
+    },
+    {
+      "key": "leadId",
+      "required": false,
+      "description": "Relevant Lead ID.",
+      "type": "id"
+    },
+    {
+      "key": "reasonCode",
+      "required": false,
+      "description": "Safe rejection/change reason code.",
+      "type": "string"
+    },
+    {
+      "key": "fromStatus",
+      "required": false,
+      "description": "Previous status key.",
+      "type": "string"
+    },
+    {
+      "key": "toStatus",
+      "required": false,
+      "description": "New status key.",
+      "type": "string"
+    }
+  ],
+  "$id": "lead.updated",
+  "version": "0.14.0",
+  "eventVersion": "1.0.0",
+  "status": "stable",
+  "domain": "events",
+  "description": "Material Lead business data is committed.",
+  "purpose": "Provides a canonical, reusable fact event for lead updated across NEXT F systems.",
+  "semantics": {
+    "factOnly": true,
+    "authoritativeAfterCommit": true,
+    "immutableOccurrence": true,
+    "transportIndependent": true,
+    "marketingTrackingEquivalent": null
+  },
+  "productionPolicy": {
+    "durability": "durable",
+    "commitBoundary": "transactional-outbox",
+    "failureBehavior": "fail-domain-commit-or-durable-recovery"
+  },
+  "idempotency": {
+    "dedupeKey": "eventId",
+    "replayedIdempotentCommand": "no-new-semantic-event",
+    "consumerIdempotencyRequired": true
+  },
+  "orderingPolicy": {
+    "scope": "subject",
+    "strict": false
+  },
+  "retention": {
+    "class": "standard-audit"
+  },
+  "relationships": [
+    {
+      "type": "references",
+      "target": "forms.lead",
+      "description": "Event subject may be forms.lead."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "emitAfterAuthoritativeCommit",
+      "description": "Event is produced only after the authoritative domain transition is accepted; atomic outbox/equivalent durability is required for transactional mutations."
+    },
+    {
+      "id": "immutableOccurrence",
+      "description": "Recorded event occurrences are immutable."
+    },
+    {
+      "id": "eventIdUnique",
+      "description": "Every semantic occurrence has one globally unique eventId."
+    },
+    {
+      "id": "idempotentReplay",
+      "description": "Retrying the same idempotent command must return/reuse the original outcome and must not emit a second semantic fact event."
+    },
+    {
+      "id": "payloadMinimumNecessary",
+      "description": "Payload contains only data required by declared consumers; consumers fetch additional authorized data separately when needed."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Payload must never contain API secrets, auth tokens, signing secrets, raw payment-card data or other credentials."
+    },
+    {
+      "id": "tenantScope",
+      "description": "Organization/Site scope must match the authoritative subject and producing operation."
+    },
+    {
+      "id": "transportIndependent",
+      "description": "Event semantics do not depend on webhook, queue, HTTP, database or provider transport implementation."
+    },
+    {
+      "id": "personalDataMinimized",
+      "description": "Personal data is minimized and may require redaction in logs, diagnostics and external delivery."
+    }
+  ],
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [
+      {
+        "eventKey": "lead.updated",
+        "eventVersion": "1.0.0",
+        "eventId": "evt_example",
+        "occurredAt": "2026-09-10T00:00:00Z"
+      }
+    ],
+    "invalid": [
+      {
+        "eventKey": "lead.updated",
+        "eventId": "evt_duplicate",
+        "problem": "duplicate semantic event emitted for an idempotent command replay"
+      }
+    ]
+  }
+}

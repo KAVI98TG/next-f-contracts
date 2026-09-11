@@ -1,0 +1,8 @@
+{
+  "$id": "performance.performanceRule",
+  "name": "Performance Rule",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "performance",
+  "description": "Machine-readable implementation requirement for performance behavior."
+}

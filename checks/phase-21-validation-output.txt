@@ -1,0 +1,13 @@
+NEXT F Contracts Phase 21 validation
+Version: 0.22.0
+Workflow stages: 10
+Task types: 13
+Stop conditions: 18
+Required artifacts: 9
+Quality gates: 10
+Support schemas: 6
+Registry entries: 1755
+Passes: 1925
+Failures: 0
+
+PASS - Codex Development Standard is internally consistent.

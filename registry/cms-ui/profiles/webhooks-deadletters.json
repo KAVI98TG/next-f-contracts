@@ -1,0 +1,270 @@
+{
+  "$id": "cmsUi.profile.webhooks.deadletters",
+  "name": "Dead Letters",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "webhooks.deadletters",
+  "moduleId": "integrations",
+  "description": "Customer CMS presentation metadata for Dead Letters within authorized Site scope.",
+  "targetContracts": [
+    "webhooks.deadLetter"
+  ],
+  "primaryTargetContract": "webhooks.deadLetter",
+  "route": "/settings/webhooks/deadletters",
+  "screenKind": "report",
+  "layoutTemplate": "operational-detail",
+  "responsivePolicy": "operational",
+  "fieldBindings": [
+    {
+      "field": "deadLetterId",
+      "label": "Dead Letter ID",
+      "description": "Opaque dead-letter record ID.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "deliveryId",
+      "label": "Delivery ID",
+      "description": "Logical Delivery ID.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "reasonCode",
+      "label": "Reason Code",
+      "description": "Canonical reason.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "lastFailure",
+      "label": "Last Failure",
+      "description": "Final failure summary.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "webhooks.deliveryFailure",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "deadLetteredAt",
+      "label": "Dead Lettered At",
+      "description": "Transition timestamp.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "expiresAt",
+      "label": "Expires At",
+      "description": "Metadata retention expiry.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "redeliveryEligibleUntil",
+      "label": "Redelivery Eligible Until",
+      "description": "Manual redelivery eligibility cutoff.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "deadLetterId",
+        "label": "Dead Letter ID",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "deliveryId",
+        "label": "Delivery ID",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "reasonCode",
+        "label": "Reason Code",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "lastFailure",
+        "label": "Last Failure",
+        "rendererId": "text",
+        "order": 40,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [],
+    "searchFields": []
+  },
+  "actions": [
+    {
+      "actionId": "manage",
+      "permissionId": "webhooks.deadletters.manage",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "webhooks.deadletters.view",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "webhooks.deadletters.manage",
+    "webhooks.deadletters.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": false,
+    "warnOnLeave": false,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/settings/webhooks/deadletters",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "webhooks.deadletters.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "detail",
+      "route": "/settings/webhooks/deadletters/:id",
+      "layoutTemplate": "operational-detail",
+      "requiresPermission": "webhooks.deadletters.manage",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

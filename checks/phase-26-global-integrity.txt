@@ -1,0 +1,21 @@
+NEXT F Contracts Phase 26 global integrity
+Version: 0.27.0
+Registry items: 1812
+Search documents: 5923
+Relationship nodes: 1812
+Relationship edges: 6597
+Compatibility schemas: 16
+Compatibility statuses: 7
+Support levels: 8
+Compatibility dimensions: 13
+Release rows: 27
+Exact release snapshots: 22
+Platform surfaces: 17
+Reference Site assessments: 6
+JavaScript/module files syntax checked: 146
+Duplicate HTML IDs: 0
+Missing local HTML assets: 0
+Missing Registry sources: 0
+Phase 26 validation failures: 0
+Phase 26 smoke failures: 0
+Status: PASS

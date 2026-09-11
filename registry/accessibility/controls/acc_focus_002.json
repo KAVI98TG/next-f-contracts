@@ -1,0 +1,34 @@
+{
+  "controlId": "ACC-FOCUS-002",
+  "name": "Manage focus across UI transitions",
+  "category": "keyboard",
+  "requirement": "Dialogs, drawers and route-level transitions must move, contain, restore or announce focus intentionally according to the interaction pattern.",
+  "rationale": "Unmanaged focus can leave keyboard and screen-reader users disoriented.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "dialog",
+    "drawer",
+    "command-palette",
+    "page"
+  ],
+  "verificationMethods": [
+    "keyboard-manual",
+    "integration-test"
+  ],
+  "severity": "critical",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_focus_002.json"
+}

@@ -1,0 +1,78 @@
+{
+  "$id": "fields.relation",
+  "name": "Relation",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "relationship",
+  "description": "Reference to one or more entities governed by a declared target contract and cardinality.",
+  "value": {
+    "jsonType": "string-or-array",
+    "canonical": "Opaque canonical entity ID for cardinality one, or array of IDs for cardinality many.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "relation-picker",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": false,
+    "filterable": true,
+    "sortable": false,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "relationshipTarget",
+    "relationshipCardinality",
+    "minItems",
+    "maxItems",
+    "uniqueItems"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "relationTarget",
+    "relationExists",
+    "minItems",
+    "maxItems",
+    "uniqueItems"
+  ],
+  "examples": {
+    "valid": [
+      "prod_01ABC",
+      [
+        "prod_01ABC",
+        "prod_01XYZ"
+      ]
+    ],
+    "invalid": [
+      {
+        "id": "prod_01ABC"
+      }
+    ]
+  },
+  "notes": [
+    "Authorization and existence checks are server-side.",
+    "A relation never embeds the full target entity as its canonical value."
+  ]
+}

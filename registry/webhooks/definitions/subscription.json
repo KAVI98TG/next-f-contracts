@@ -1,0 +1,196 @@
+{
+  "$id": "webhooks.subscription",
+  "name": "Webhook Subscription",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "subscriptions",
+  "description": "Explicit binding between one verified endpoint and an exact allow-list of canonical Events.",
+  "purpose": "Controls which eligible domain facts may create outbound webhook deliveries.",
+  "webhookModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "ownership",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization/Site.",
+      "schema": "webhooks.subscriptionOwnership"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable subscription name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "endpointId",
+      "required": true,
+      "nullable": false,
+      "description": "Verified endpoint ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "Bound environment.",
+      "schema": "webhooks.environmentBinding"
+    },
+    {
+      "key": "selection",
+      "required": true,
+      "nullable": false,
+      "description": "Exact Event allow-list.",
+      "schema": "webhooks.eventSelection"
+    },
+    {
+      "key": "filters",
+      "required": false,
+      "nullable": true,
+      "description": "Optional bounded filters.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "dataAccess",
+      "required": true,
+      "nullable": false,
+      "description": "Approved event-data classifications.",
+      "schema": "webhooks.dataAccessPolicy"
+    },
+    {
+      "key": "state",
+      "required": true,
+      "nullable": false,
+      "description": "Current subscription state.",
+      "schema": "webhooks.subscriptionState"
+    },
+    {
+      "key": "pausePolicy",
+      "required": true,
+      "nullable": false,
+      "description": "Pause and deferred-delivery behavior.",
+      "schema": "webhooks.pausePolicy"
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Creation timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Last update timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "References core.entityIdentity."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.subscriptionOwnership",
+      "description": "References webhooks.subscriptionOwnership."
+    },
+    {
+      "type": "references",
+      "target": "webhooks.endpoint",
+      "description": "References webhooks.endpoint."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.environmentBinding",
+      "description": "References webhooks.environmentBinding."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.eventSelection",
+      "description": "References webhooks.eventSelection."
+    },
+    {
+      "type": "optionallyComposesMany",
+      "target": "webhooks.subscriptionFilter",
+      "description": "References webhooks.subscriptionFilter."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.dataAccessPolicy",
+      "description": "References webhooks.dataAccessPolicy."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.subscriptionState",
+      "description": "References webhooks.subscriptionState."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.pausePolicy",
+      "description": "References webhooks.pausePolicy."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "verifiedEndpoint",
+      "description": "Subscription can become active only when endpoint is active and verified."
+    },
+    {
+      "id": "exactEventAllowList",
+      "description": "V1 subscriptions select exact canonical event keys; wildcards are prohibited."
+    },
+    {
+      "id": "eligibleOnly",
+      "description": "All selected events must be webhookEligible in the Event Registry."
+    },
+    {
+      "id": "sameEnvironment",
+      "description": "Subscription and endpoint environment must match."
+    },
+    {
+      "id": "noHistoricalBackfill",
+      "description": "V1 does not backfill historical events before activation."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Subscription",
+    "icon": "fa-webhook",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "webhook-subscription",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "identity",
+      "ownership",
+      "name",
+      "endpointId"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": true,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

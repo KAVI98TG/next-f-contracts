@@ -1,0 +1,245 @@
+{
+  "$id": "seo.auditIssue",
+  "name": "SEO Audit Issue",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "audit",
+  "description": "One diagnostic SEO finding with severity and remediation guidance.",
+  "purpose": "Standardizes audit findings while clearly separating advisory analysis from search-engine ranking guarantees.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "derived": true,
+    "supportsRevision": false,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "ruleId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable audit rule identifier.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 160,
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "severity",
+      "required": true,
+      "nullable": false,
+      "description": "Finding severity.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "info",
+            "label": "Info"
+          },
+          {
+            "value": "warning",
+            "label": "Warning"
+          },
+          {
+            "value": "error",
+            "label": "Error"
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "category",
+      "required": true,
+      "nullable": false,
+      "description": "Finding category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "metadata",
+            "label": "Metadata"
+          },
+          {
+            "value": "content",
+            "label": "Content"
+          },
+          {
+            "value": "indexing",
+            "label": "Indexing"
+          },
+          {
+            "value": "links",
+            "label": "Links"
+          },
+          {
+            "value": "structured-data",
+            "label": "Structured Data"
+          },
+          {
+            "value": "social",
+            "label": "Social"
+          },
+          {
+            "value": "sitemap",
+            "label": "Sitemap"
+          },
+          {
+            "value": "robots",
+            "label": "Robots"
+          },
+          {
+            "value": "performance",
+            "label": "Performance"
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "fieldPath",
+      "required": false,
+      "nullable": true,
+      "description": "Optional contract field path associated with the issue.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "message",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable finding.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 2000,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "recommendation",
+      "required": false,
+      "nullable": true,
+      "description": "Recommended remediation.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 4000,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "evidence",
+      "required": false,
+      "nullable": true,
+      "description": "Non-secret supporting evidence.",
+      "primitive": "fields.json",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Workflow status for this finding.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "open",
+            "label": "Open"
+          },
+          {
+            "value": "ignored",
+            "label": "Ignored"
+          },
+          {
+            "value": "resolved",
+            "label": "Resolved"
+          }
+        ],
+        "defaultValue": "open",
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "evidenceNoSecrets",
+      "description": "Audit evidence must not contain secrets or unnecessary personal data."
+    },
+    {
+      "id": "advisoryNotGuarantee",
+      "description": "A warning or passing check is advisory and must not be represented as a search ranking guarantee."
+    }
+  ],
+  "cms": {
+    "label": "SEO Audit Issue",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "ruleId",
+      "severity",
+      "category",
+      "fieldPath"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "ruleId": "metadata.title.missing",
+        "severity": "error",
+        "category": "metadata",
+        "fieldPath": "metaTitle",
+        "message": "Meta title is missing.",
+        "status": "open"
+      }
+    ],
+    "invalid": [
+      {
+        "ruleId": "",
+        "severity": "critical",
+        "category": "ranking",
+        "message": "Guaranteed #1",
+        "status": "open"
+      }
+    ]
+  },
+  "notes": []
+}

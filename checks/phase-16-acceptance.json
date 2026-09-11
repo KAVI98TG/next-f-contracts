@@ -1,0 +1,157 @@
+{
+  "phase": 16,
+  "version": "0.17.0",
+  "status": "passed",
+  "checks": [
+    {
+      "id": "P16-001",
+      "name": "Canonical nextf.site.json filename and specification defined",
+      "passed": true
+    },
+    {
+      "id": "P16-002",
+      "name": "Manifest specification version is independent from Contract Version",
+      "passed": true
+    },
+    {
+      "id": "P16-003",
+      "name": "Exact Contract Version pinning enforced",
+      "passed": true
+    },
+    {
+      "id": "P16-004",
+      "name": "Canonical Site identity and descriptive Site types defined",
+      "passed": true
+    },
+    {
+      "id": "P16-005",
+      "name": "Development, preview, staging and production environment declarations defined",
+      "passed": true
+    },
+    {
+      "id": "P16-006",
+      "name": "Localization and IANA timezone declaration defined",
+      "passed": true
+    },
+    {
+      "id": "P16-007",
+      "name": "Runtime, build-time and hybrid content delivery modes defined",
+      "passed": true
+    },
+    {
+      "id": "P16-008",
+      "name": "Module and Capability selection shape defined without fabricating Phase 17 registry",
+      "passed": true
+    },
+    {
+      "id": "P16-009",
+      "name": "Five mandatory NEXT F runtime capabilities defined",
+      "passed": true
+    },
+    {
+      "id": "P16-010",
+      "name": "Customer CMS structured-editing boundary defined",
+      "passed": true
+    },
+    {
+      "id": "P16-011",
+      "name": "Arbitrary CMS code editing explicitly prohibited",
+      "passed": true
+    },
+    {
+      "id": "P16-012",
+      "name": "Future API binding structure defined without fabricating Phase 18 API IDs",
+      "passed": true
+    },
+    {
+      "id": "P16-013",
+      "name": "Canonical domain Event support separated from tracking support",
+      "passed": true
+    },
+    {
+      "id": "P16-014",
+      "name": "Phase 9 tracking event support defined",
+      "passed": true
+    },
+    {
+      "id": "P16-015",
+      "name": "Phase 10 Integration connector support defined",
+      "passed": true
+    },
+    {
+      "id": "P16-016",
+      "name": "Integration support separated from connection/credential state",
+      "passed": true
+    },
+    {
+      "id": "P16-017",
+      "name": "Configuration exposure classes public/server/secret defined",
+      "passed": true
+    },
+    {
+      "id": "P16-018",
+      "name": "Configuration values and secrets prohibited from Manifest",
+      "passed": true
+    },
+    {
+      "id": "P16-019",
+      "name": "Site-specific extension namespace and non-override rules defined",
+      "passed": true
+    },
+    {
+      "id": "P16-020",
+      "name": "Customer content excluded from Manifest",
+      "passed": true
+    },
+    {
+      "id": "P16-021",
+      "name": "Hosting and domain service/credential data excluded",
+      "passed": true
+    },
+    {
+      "id": "P16-022",
+      "name": "Self-contained Draft 2020-12 JSON Schema created",
+      "passed": true
+    },
+    {
+      "id": "P16-023",
+      "name": "Six reference Site manifests created and schema-validated",
+      "passed": true
+    },
+    {
+      "id": "P16-024",
+      "name": "Manifest Registry integrated into global Contract Registry",
+      "passed": true
+    },
+    {
+      "id": "P16-025",
+      "name": "Site Manifest portal route activated",
+      "passed": true
+    },
+    {
+      "id": "P16-026",
+      "name": "Dedicated Manifest Explorer and schema detail views added",
+      "passed": true
+    },
+    {
+      "id": "P16-027",
+      "name": "Generated local fallback checksum-bound to authoritative index",
+      "passed": true
+    },
+    {
+      "id": "P16-028",
+      "name": "Codex Site Manifest instructions added",
+      "passed": true
+    },
+    {
+      "id": "P16-029",
+      "name": "Light-only paper SaaS visual rules preserved",
+      "passed": true
+    },
+    {
+      "id": "P16-030",
+      "name": "Phase 16 and global integrity validation pass",
+      "passed": true
+    }
+  ]
+}

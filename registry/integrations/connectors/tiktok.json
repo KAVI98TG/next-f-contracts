@@ -1,0 +1,93 @@
+{
+  "$id": "integrations.tiktok",
+  "name": "TikTok",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "tiktok",
+  "family": "advertising",
+  "description": "TikTok advertising measurement connector using canonical NEXT F events and conversions.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "site-runtime",
+    "nextf-server",
+    "provider-api"
+  ],
+  "capabilities": [
+    "event.dispatch.client",
+    "event.dispatch.server",
+    "conversion.dispatch.client",
+    "conversion.dispatch.server",
+    "reporting.read"
+  ],
+  "authentication": {
+    "type": "mixed",
+    "supported": [
+      "none",
+      "bearer"
+    ]
+  },
+  "configurationFields": [
+    {
+      "key": "pixelId",
+      "label": "Pixel ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Pixel ID",
+      "validation": {}
+    },
+    {
+      "key": "advertiserId",
+      "label": "Advertiser ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Advertiser ID",
+      "validation": {}
+    },
+    {
+      "key": "accessTokenSecretRef",
+      "label": "Access Token Secret Reference",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": true,
+      "customerEditable": false,
+      "helpText": "Access Token Secret Reference",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [
+      "marketing"
+    ]
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [],
+  "aliases": [
+    "TikTok Pixel"
+  ]
+}

@@ -1,0 +1,9 @@
+
+> next-f-contracts@0.12.0 smoke:phase11
+> node scripts/smoke-phase-11.mjs
+
+NEXT F Contracts Phase 11 smoke test
+Passes: 50
+Failures: 0
+
+PASS - Phase 11 portal/repository runtime smoke checks passed.

@@ -1,0 +1,34 @@
+{
+  "controlId": "SEC-REDIR-001",
+  "name": "Safe redirects",
+  "category": "browser",
+  "requirement": "Redirect destinations derived from input must be constrained to explicitly allowed destinations or validated safe origins.",
+  "rationale": "Open redirects enable phishing and token leakage.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "medium",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_redir_001.json"
+}

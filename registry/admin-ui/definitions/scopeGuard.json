@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.scopeGuard",
+  "name": "Scope Guard",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines how direct URLs and context switches must be server-authorized.",
+  "purpose": "Defines how direct URLs and context switches must be server-authorized.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

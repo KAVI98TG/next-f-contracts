@@ -1,0 +1,124 @@
+{
+  "$id": "commerce.inventoryLocation",
+  "name": "Inventory Location",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "inventory",
+  "description": "Physical or logical stock-holding location.",
+  "purpose": "Supports multi-location inventory without coupling to hosting/server regions.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Location name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "code",
+      "required": true,
+      "nullable": false,
+      "description": "Stable location code.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "address",
+      "required": false,
+      "nullable": true,
+      "description": "Optional facility address.",
+      "schema": "shared.address"
+    },
+    {
+      "key": "active",
+      "required": true,
+      "nullable": false,
+      "description": "Whether stock may be held here.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "fulfillsOnlineOrders",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this location fulfills online orders.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "shared.address",
+      "description": "References shared.address."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "notHostingRegion",
+      "description": "Inventory Location is never a hosting/server region."
+    },
+    {
+      "id": "codeUnique",
+      "description": "Location code is unique within Site."
+    }
+  ],
+  "cms": {
+    "label": "Inventory Location",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "name",
+      "code"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

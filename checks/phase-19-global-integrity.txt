@@ -1,0 +1,17 @@
+Version: 0.20.0
+JSON files: 1511 invalid: 0
+Registry items: 1519 duplicate IDs: 0
+Missing registry sources: 0
+Missing relationship targets: 0
+Raw definition $id duplicates: 0
+HTML duplicate IDs: 0
+Missing local HTML assets: 0
+Customer permission resources: 74
+Resource UI profiles: 74 coverage exact: True
+UI profiles total: 75
+Editor types: 63
+UI support schemas: 20
+Screen kinds: 10
+Layout templates: 12
+PASS
+JavaScript/module syntax files checked: 104

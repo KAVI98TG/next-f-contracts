@@ -1,0 +1,56 @@
+{
+  "$id": "api.errorEnvelope",
+  "name": "Error Envelope",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "envelopes",
+  "description": "Canonical unsuccessful API response wrapper.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "success",
+      "required": true,
+      "nullable": false,
+      "description": "success",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "error",
+      "required": true,
+      "nullable": false,
+      "description": "error",
+      "schema": "api.error"
+    },
+    {
+      "key": "requestId",
+      "required": true,
+      "nullable": false,
+      "description": "requestId",
+      "primitive": "fields.text"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

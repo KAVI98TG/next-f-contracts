@@ -1,0 +1,13 @@
+
+> next-f-contracts@0.8.0 validate
+> node scripts/validate-phase-7.mjs
+
+NEXT F Contracts Phase 7 validation
+Version: 0.8.0
+SEO Contracts: 22
+SEO fields inspected: 143
+Registry items: 155
+Passes: 432
+Failures: 0
+
+PASS - Phase 7 SEO Contract Registry is internally consistent.

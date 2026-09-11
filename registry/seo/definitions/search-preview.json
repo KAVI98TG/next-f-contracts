@@ -1,0 +1,165 @@
+{
+  "$id": "seo.searchPreview",
+  "name": "Search Preview",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "metadata",
+  "description": "Derived search-result preview from canonical SEO metadata and Site defaults.",
+  "purpose": "Supports the Customer CMS editor preview while making clear that actual search engines may render different titles and snippets.",
+  "seoModel": {
+    "kind": "derived",
+    "customerManaged": true,
+    "derived": true,
+    "supportsRevision": false,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Rendered preview title.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Rendered preview description.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 2000,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "displayUrl",
+      "required": true,
+      "nullable": false,
+      "description": "Preview URL.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "titleCharacters",
+      "required": true,
+      "nullable": false,
+      "description": "Character count for UI guidance.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "descriptionCharacters",
+      "required": true,
+      "nullable": false,
+      "description": "Description character count for UI guidance.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "Whether values came from explicit metadata, site defaults or content fallback.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "metadata",
+            "label": "Metadata"
+          },
+          {
+            "value": "defaults",
+            "label": "Site Defaults"
+          },
+          {
+            "value": "content-fallback",
+            "label": "Content Fallback"
+          },
+          {
+            "value": "mixed",
+            "label": "Mixed"
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "previewNotGuarantee",
+      "description": "The preview is an approximation; search engines may rewrite titles, snippets and displayed URLs."
+    },
+    {
+      "id": "lengthAdvisory",
+      "description": "Character counts are editor guidance only and must not be enforced as hard search-engine limits."
+    }
+  ],
+  "cms": {
+    "label": "Search Preview",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "title",
+      "description",
+      "displayUrl",
+      "titleCharacters"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "title": "Web Development | Example",
+        "description": "Conversion-focused website development.",
+        "displayUrl": "https://example.lk/web-development",
+        "titleCharacters": 25,
+        "descriptionCharacters": 39,
+        "source": "mixed"
+      }
+    ],
+    "invalid": [
+      {
+        "displayUrl": "/relative",
+        "source": "guaranteed-google"
+      }
+    ]
+  },
+  "notes": []
+}

@@ -1,0 +1,324 @@
+{
+  "$id": "cmsUi.profile.forms.notifications",
+  "name": "Form Notifications",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "forms.notifications",
+  "moduleId": "forms",
+  "description": "Customer CMS presentation metadata for Form Notifications within authorized Site scope.",
+  "targetContracts": [
+    "forms.notificationRule",
+    "forms.autoResponse"
+  ],
+  "primaryTargetContract": "forms.notificationRule",
+  "route": "/growth/forms/notifications",
+  "screenKind": "editor",
+  "layoutTemplate": "standard-editor",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "id",
+      "label": "ID",
+      "description": "Opaque notification rule ID.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "formId",
+      "label": "Form ID",
+      "description": "Owning Form.",
+      "editorId": "relation-picker",
+      "group": "relationships",
+      "zone": "main",
+      "order": 20,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.relation",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "enabled",
+      "label": "Enabled",
+      "description": "Whether the rule is active.",
+      "editorId": "toggle",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.boolean",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "outcome",
+      "label": "Outcome",
+      "description": "Submission outcome that triggers this rule.",
+      "editorId": "select",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "recipients",
+      "label": "Recipients",
+      "description": "Resolved recipients.",
+      "editorId": "structured-list",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "forms.notificationRecipient",
+      "validationHint": {
+        "minItems": 1,
+        "maxItems": 20
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "subjectTemplate",
+      "label": "Subject Template",
+      "description": "Allowlisted-variable subject template.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 300
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "bodyTemplate",
+      "label": "Body Template",
+      "description": "Notification body template using allowlisted placeholders only.",
+      "editorId": "rich-text-editor",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.richText",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "includeFieldKeys",
+      "label": "Include Field Keys",
+      "description": "Explicit submission fields allowed in the message.",
+      "editorId": "structured-list",
+      "group": "configuration",
+      "zone": "main",
+      "order": 80,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "includeSensitiveFields",
+      "label": "Include Sensitive Fields",
+      "description": "Whether fields marked sensitive may be included; default false and requires elevated authorization later.",
+      "editorId": "toggle",
+      "group": "configuration",
+      "zone": "main",
+      "order": 90,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.boolean",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "id",
+        "label": "ID",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "formId",
+        "label": "Form ID",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "enabled",
+        "label": "Enabled",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "outcome",
+        "label": "Outcome",
+        "rendererId": "text",
+        "order": 40,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [],
+    "searchFields": []
+  },
+  "actions": [
+    {
+      "actionId": "edit",
+      "permissionId": "forms.notifications.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "forms.notifications.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "forms.notifications.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "forms.notifications.edit",
+    "forms.notifications.manage",
+    "forms.notifications.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/growth/forms/notifications",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "forms.notifications.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "editor",
+      "route": "/growth/forms/notifications/:id",
+      "layoutTemplate": "standard-editor",
+      "requiresPermission": "forms.notifications.edit",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

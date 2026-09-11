@@ -1,0 +1,35 @@
+{
+  "controlId": "SEC-QUERY-001",
+  "name": "Sensitive values excluded from URLs",
+  "category": "browser",
+  "requirement": "Sensitive values must not be placed in query strings or fragments unless an explicit contract permits a narrowly scoped safe token.",
+  "rationale": "URLs leak through history, logs, referrers and screenshots.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "api"
+  ],
+  "obligation": "mandatory",
+  "scope": "both",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_query_001.json"
+}

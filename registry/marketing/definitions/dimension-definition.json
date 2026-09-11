@@ -1,0 +1,183 @@
+{
+  "$id": "marketing.dimensionDefinition",
+  "name": "Analytics Dimension Definition",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "reporting",
+  "description": "Canonical grouping/filtering dimension for analytics reports.",
+  "purpose": "Standardizes dimensions such as channel, page, campaign and device category.",
+  "marketingModel": {
+    "kind": "definition",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "dataSensitivity": "public"
+  },
+  "fields": [
+    {
+      "key": "dimensionKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable dimension key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Dimension name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 200
+      }
+    },
+    {
+      "key": "description",
+      "required": true,
+      "nullable": false,
+      "description": "Grouping semantics.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1500
+      }
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "Dimension source.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "event",
+            "label": "Event"
+          },
+          {
+            "value": "context",
+            "label": "Context"
+          },
+          {
+            "value": "attribution",
+            "label": "Attribution"
+          },
+          {
+            "value": "derived",
+            "label": "Derived"
+          }
+        ]
+      }
+    },
+    {
+      "key": "sourceKey",
+      "required": true,
+      "nullable": false,
+      "description": "Source property/path or rule key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "valueType",
+      "required": true,
+      "nullable": false,
+      "description": "Value type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "text",
+            "label": "Text"
+          },
+          {
+            "value": "boolean",
+            "label": "Boolean"
+          },
+          {
+            "value": "date",
+            "label": "Date"
+          },
+          {
+            "value": "number",
+            "label": "Number"
+          }
+        ]
+      }
+    },
+    {
+      "key": "containsPersonalData",
+      "required": true,
+      "nullable": false,
+      "description": "Whether values can relate to a person.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "highCardinality",
+      "required": true,
+      "nullable": false,
+      "description": "Whether dimension can create high-cardinality reports.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "personalDimensionsRestricted",
+      "description": "Personal dimensions require privacy/permission treatment."
+    },
+    {
+      "id": "highCardinalityReview",
+      "description": "High-cardinality dimensions not enabled by default."
+    },
+    {
+      "id": "sourceStable",
+      "description": "sourceKey semantics remain stable."
+    }
+  ],
+  "cms": {
+    "label": "Analytics Dimension Definition",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "dimensionKey",
+      "name",
+      "description",
+      "source"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,14 @@
+{
+  "$id": "privacy.privacyOperation",
+  "name": "Privacy Operation",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 30,
+  "description": "Future-safe export/deletion/anonymization/retention/legal-hold/consent-history operation primitive.",
+  "domain": "privacy",
+  "type": "schema",
+  "tags": [
+    "privacy",
+    "phase-30"
+  ]
+}

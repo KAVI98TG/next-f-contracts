@@ -1,0 +1,28 @@
+{
+  "$id": "platform.support.view",
+  "name": "View Support",
+  "permissionId": "platform.support.view",
+  "domain": "platform",
+  "resource": "support",
+  "action": "view",
+  "scopeKind": "platform",
+  "riskLevel": "sensitive",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Support within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

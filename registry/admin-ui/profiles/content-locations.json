@@ -1,0 +1,121 @@
+{
+  "$id": "adminUi.profile.content.locations",
+  "name": "Locations Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "content.locations",
+  "permissionDomain": "content",
+  "moduleId": "pages",
+  "description": "Internal NEXT F Admin metadata for Locations. Applies only within server-authorized administrative scope.",
+  "route": "/sites/:siteId/content/locations",
+  "screenKind": "admin-editor",
+  "layoutTemplate": "inherited-resource",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "site",
+    "requiresOrganization": false,
+    "requiresSite": true,
+    "allowsCrossTenant": false,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": "cmsUi.profile.content.locations",
+  "inheritanceMode": "reference-not-copy",
+  "targetContracts": [
+    "content.location"
+  ],
+  "primaryTargetContract": "content.location",
+  "permissions": [
+    "content.locations.approve",
+    "content.locations.create",
+    "content.locations.delete",
+    "content.locations.edit",
+    "content.locations.publish",
+    "content.locations.view"
+  ],
+  "actions": [
+    {
+      "actionId": "approve",
+      "permissionId": "content.locations.approve",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "create",
+      "permissionId": "content.locations.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "content.locations.delete",
+      "riskLevel": "destructive",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "content.locations.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "publish",
+      "permissionId": "content.locations.publish",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "content.locations.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions",
+    "customer-ui-reference",
+    "publishing"
+  ],
+  "controls": [
+    "risk-badge",
+    "explicit-confirmation"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": [
+    "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
+  ]
+}

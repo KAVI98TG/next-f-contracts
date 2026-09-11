@@ -1,0 +1,92 @@
+{
+  "$id": "manifest.integrationSupport",
+  "name": "Integration Support",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "surfaces-bindings",
+  "description": "Declares external connector types that the Site implementation is prepared to support.",
+  "purpose": "Allows integrations to be connected after launch through NEXT F CMS without hardcoding credentials into the customer website.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "connectorId",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Phase 10 Integration connector ID.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^integrations\\\\.[A-Za-z0-9]+$",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "environments",
+      "required": true,
+      "nullable": false,
+      "description": "Environment IDs where the connector may operate.",
+      "primitive": "fields.tag",
+      "config": {
+        "minItems": 1,
+        "uniqueItems": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the capability is currently permitted by this Site implementation.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "integrations.connectorDefinition",
+      "description": "connectorId must resolve to a canonical Phase 10 connector."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "connectorMustResolve",
+      "description": "connectorId must resolve to an existing Phase 10 Integration connector."
+    },
+    {
+      "id": "supportIsNotConnection",
+      "description": "Declaring support does not mean the customer has connected or authorized the external account."
+    },
+    {
+      "id": "noCredentialsInManifest",
+      "description": "Credentials and secrets are prohibited from Integration Support declarations."
+    }
+  ],
+  "cms": {
+    "label": "Integration Support",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "connectorId",
+      "environments",
+      "enabled"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

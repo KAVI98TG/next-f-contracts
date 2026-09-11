@@ -1,0 +1,61 @@
+{
+  "registryVersion": "1.0.0",
+  "levels": [
+    {
+      "id": "current-development",
+      "label": "Current development",
+      "production": false,
+      "newSitesAllowed": true,
+      "description": "Current pre-1.0 development foundation release."
+    },
+    {
+      "id": "historical-development",
+      "label": "Historical development",
+      "production": false,
+      "newSitesAllowed": false,
+      "description": "Exact previous pre-1.0 development release retained for comparison/migration work."
+    },
+    {
+      "id": "production-current",
+      "label": "Production current",
+      "production": true,
+      "newSitesAllowed": true,
+      "description": "Current production support train release after formal Production Acceptance."
+    },
+    {
+      "id": "production-supported",
+      "label": "Production supported",
+      "production": true,
+      "newSitesAllowed": true,
+      "description": "Supported production release within an explicit support window."
+    },
+    {
+      "id": "maintenance",
+      "label": "Maintenance",
+      "production": true,
+      "newSitesAllowed": false,
+      "description": "Limited production maintenance; upgrade recommended."
+    },
+    {
+      "id": "deprecated",
+      "label": "Deprecated",
+      "production": false,
+      "newSitesAllowed": false,
+      "description": "Support is ending/ended; migration required according to declared policy."
+    },
+    {
+      "id": "unsupported",
+      "label": "Unsupported",
+      "production": false,
+      "newSitesAllowed": false,
+      "description": "No active support declaration."
+    },
+    {
+      "id": "history-only",
+      "label": "History only",
+      "production": false,
+      "newSitesAllowed": false,
+      "description": "Release metadata exists but evidence/support is insufficient for runtime compatibility claims."
+    }
+  ]
+}

@@ -1,0 +1,2672 @@
+// GENERATED FILE - DO NOT EDIT DIRECTLY.
+// Source: registry/core/index.json
+// SHA-256: 0f847d3ac9c7ebc18ba3915f501361702474a138bd2520bec18fdc99fa5425a6
+export const GENERATED_CORE_SCHEMAS_SOURCE_SHA256 = "0f847d3ac9c7ebc18ba3915f501361702474a138bd2520bec18fdc99fa5425a6";
+export const GENERATED_CORE_SCHEMAS = {
+  "registryVersion": "0.9.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Shared Core Schema Registry",
+  "description": "Generated index of authoritative Phase 4 Shared Core Schema definitions.",
+  "definitionCount": 19,
+  "sourceDirectory": "registry/core/definitions",
+  "schemas": [
+    {
+      "$id": "core.actorReference",
+      "name": "Actor Reference",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "identity",
+      "description": "Compact reference to the actor responsible for an auditable or publishing action.",
+      "purpose": "Avoids embedding entire user records in audit, publishing and version contracts.",
+      "fields": [
+        {
+          "key": "actorType",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical actor category.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "organizationUser",
+                "label": "Organization User"
+              },
+              {
+                "value": "nextfUser",
+                "label": "NEXT F User"
+              },
+              {
+                "value": "system",
+                "label": "System"
+              },
+              {
+                "value": "integration",
+                "label": "Integration"
+              }
+            ],
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "actorId",
+          "required": false,
+          "nullable": true,
+          "description": "Opaque actor ID when the actor has a persistent identity.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 128,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "displayName",
+          "required": false,
+          "nullable": true,
+          "description": "Non-authoritative display snapshot used for human audit readability.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "source",
+          "required": false,
+          "nullable": true,
+          "description": "System or integration source identifier for non-human actors.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "humanActorHasId",
+          "description": "Human actor types require actorId."
+        },
+        {
+          "id": "systemActorHasSource",
+          "description": "System/integration actors should identify their source."
+        }
+      ],
+      "cms": {
+        "label": "Actor",
+        "icon": "fa-user-clock",
+        "customerVisible": false,
+        "adminVisible": true,
+        "defaultPlacement": "system",
+        "summaryFields": [
+          "displayName",
+          "actorType"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Actor references are internal audit metadata unless another contract explicitly exposes attribution."
+      },
+      "examples": {
+        "valid": [
+          {
+            "actorType": "organizationUser",
+            "actorId": "usr_01ABC",
+            "displayName": "Editor"
+          },
+          {
+            "actorType": "system",
+            "actorId": null,
+            "source": "publishingScheduler"
+          }
+        ],
+        "invalid": [
+          {
+            "actorType": "Organization User",
+            "actorId": "usr_01ABC"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "core.auditRecord",
+      "name": "Audit Record",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "audit",
+      "description": "Append-only record of a meaningful platform or customer action.",
+      "purpose": "Creates one canonical audit envelope for Admin, Customer CMS, integrations and future commerce operations.",
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque audit record ID.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 4,
+            "maxLength": 128,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "occurredAt",
+          "required": true,
+          "nullable": false,
+          "description": "Authoritative event timestamp.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        },
+        {
+          "key": "actor",
+          "required": true,
+          "nullable": false,
+          "description": "Actor responsible for the action.",
+          "schema": "core.actorReference"
+        },
+        {
+          "key": "action",
+          "required": true,
+          "nullable": false,
+          "description": "Stable auditable action identifier.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 3,
+            "maxLength": 160,
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true,
+            "filterable": true
+          }
+        },
+        {
+          "key": "entity",
+          "required": false,
+          "nullable": true,
+          "description": "Affected entity when applicable.",
+          "schema": "core.entityReference"
+        },
+        {
+          "key": "summary",
+          "required": true,
+          "nullable": false,
+          "description": "Human-readable non-secret action summary.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300,
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true
+          }
+        },
+        {
+          "key": "before",
+          "required": false,
+          "nullable": true,
+          "description": "Minimized before-state data permitted by the affected contract.",
+          "primitive": "fields.json",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "after",
+          "required": false,
+          "nullable": true,
+          "description": "Minimized after-state data permitted by the affected contract.",
+          "primitive": "fields.json",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "requestId",
+          "required": false,
+          "nullable": true,
+          "description": "Request correlation ID when available.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 128,
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true
+          }
+        },
+        {
+          "key": "metadata",
+          "required": false,
+          "nullable": true,
+          "description": "Non-secret structured diagnostic metadata.",
+          "primitive": "fields.json",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "core.actorReference",
+          "description": "Audit records identify actors through the shared reference."
+        },
+        {
+          "type": "references",
+          "target": "core.entityReference",
+          "description": "Audit records target canonical entities when applicable."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "appendOnly",
+          "description": "Audit Records are append-only."
+        },
+        {
+          "id": "noSecrets",
+          "description": "before, after, summary and metadata must not contain secrets."
+        },
+        {
+          "id": "actionStable",
+          "description": "action must use a stable machine identifier defined by the producing domain."
+        }
+      ],
+      "cms": {
+        "label": "Audit Record",
+        "icon": "fa-clock-rotate-left",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "activity",
+        "summaryFields": [
+          "summary",
+          "occurredAt"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Audit history is authenticated operational data."
+      },
+      "examples": {
+        "valid": [
+          {
+            "id": "audit_01ABC",
+            "occurredAt": "2026-09-09T12:00:00Z",
+            "actor": {
+              "actorType": "organizationUser",
+              "actorId": "usr_01ABC"
+            },
+            "action": "content.page.published",
+            "entity": {
+              "entityType": "content.page",
+              "entityId": "page_01ABC"
+            },
+            "summary": "Published About page",
+            "before": null,
+            "after": {
+              "status": "published"
+            },
+            "requestId": "req_01ABC"
+          }
+        ],
+        "invalid": [
+          {
+            "id": "audit_01ABC",
+            "occurredAt": "2026-09-09T12:00:00Z",
+            "actor": {
+              "actorType": "organizationUser"
+            },
+            "action": "changed",
+            "summary": "API secret sk-live-..."
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "core.entityIdentity",
+      "name": "Entity Identity",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "identity",
+      "description": "Stable identity metadata for a canonical NEXT F entity.",
+      "purpose": "Provides one reusable identity object so later schemas do not redefine primary IDs and identity creation semantics.",
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque stable entity identifier.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 4,
+            "maxLength": 128,
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true,
+            "filterable": true,
+            "sortable": true,
+            "revisionTracked": false
+          }
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Timestamp when the entity was first created.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "revisionTracked": false
+          }
+        },
+        {
+          "key": "updatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Timestamp of the latest authoritative mutation.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "revisionTracked": false
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "entityIdStable",
+          "description": "id must remain stable for the lifetime of the entity."
+        },
+        {
+          "id": "updatedNotBeforeCreated",
+          "description": "updatedAt must not be earlier than createdAt."
+        }
+      ],
+      "cms": {
+        "label": "Identity",
+        "icon": "fa-fingerprint",
+        "customerVisible": false,
+        "adminVisible": true,
+        "defaultPlacement": "system",
+        "summaryFields": [
+          "id"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Opaque public entity IDs may be delivered only when the parent contract permits them."
+      },
+      "examples": {
+        "valid": [
+          {
+            "id": "prod_01ABC",
+            "createdAt": "2026-09-09T10:00:00Z",
+            "updatedAt": "2026-09-09T10:00:00Z"
+          }
+        ],
+        "invalid": [
+          {
+            "id": "",
+            "createdAt": "yesterday",
+            "updatedAt": "today"
+          }
+        ]
+      },
+      "notes": [
+        "Entity IDs are identifiers, not authorization evidence.",
+        "ID prefixes are governed by the Phase 0 naming standard."
+      ]
+    },
+    {
+      "$id": "core.entityReference",
+      "name": "Entity Reference",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "identity",
+      "description": "Compact typed reference to another canonical entity.",
+      "purpose": "Provides a stable provider-neutral way to reference an entity in logs, versions, events and generic relationships.",
+      "fields": [
+        {
+          "key": "entityType",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical target contract/entity machine identifier.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 3,
+            "maxLength": 160,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "entityId",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque target entity ID.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 4,
+            "maxLength": 128,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "canonicalEntityType",
+          "description": "entityType must use a canonical registry machine ID when available."
+        }
+      ],
+      "cms": {
+        "label": "Entity Reference",
+        "icon": "fa-link",
+        "customerVisible": false,
+        "adminVisible": true,
+        "defaultPlacement": "system",
+        "summaryFields": [
+          "entityType",
+          "entityId"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "May be public only when the referenced entity itself is publicly addressable."
+      },
+      "examples": {
+        "valid": [
+          {
+            "entityType": "commerce.product",
+            "entityId": "prod_01ABC"
+          }
+        ],
+        "invalid": [
+          {
+            "entityType": "Product",
+            "entityId": ""
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "core.organization",
+      "name": "Organization",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "identity",
+      "description": "Minimal canonical tenant organization identity used to scope Sites and platform records.",
+      "purpose": "Defines NEXT F business-customer tenancy without treating the customer organization as a commerce buyer or hosting account.",
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical entity identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Organization display/business name.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 200,
+            "customerEditable": true,
+            "adminEditable": true,
+            "searchable": true,
+            "sortable": true
+          }
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Platform organization lifecycle status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "active",
+                "label": "Active"
+              },
+              {
+                "value": "suspended",
+                "label": "Suspended"
+              },
+              {
+                "value": "archived",
+                "label": "Archived"
+              }
+            ],
+            "defaultValue": "active",
+            "customerEditable": false,
+            "adminEditable": true,
+            "filterable": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "Organizations use canonical entity identity."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "organizationNameRequired",
+          "description": "Organization name must remain non-empty."
+        },
+        {
+          "id": "archivedOrganizationRestricted",
+          "description": "Archived Organizations cannot gain new active Site operations without an explicit restoration process."
+        }
+      ],
+      "cms": {
+        "label": "Organization",
+        "icon": "fa-building",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "platform",
+        "summaryFields": [
+          "name",
+          "status"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Organization tenancy metadata is authenticated platform data. Public business profile content belongs in later content/site settings contracts."
+      },
+      "examples": {
+        "valid": [
+          {
+            "identity": {
+              "id": "org_01ABC",
+              "createdAt": "2026-09-09T10:00:00Z",
+              "updatedAt": "2026-09-09T10:00:00Z"
+            },
+            "name": "Example Engineering",
+            "status": "active"
+          }
+        ],
+        "invalid": [
+          {
+            "identity": {
+              "id": "org_01ABC",
+              "createdAt": "2026-09-09T10:00:00Z",
+              "updatedAt": "2026-09-09T10:00:00Z"
+            },
+            "name": "",
+            "status": "enabled"
+          }
+        ]
+      },
+      "notes": [
+        "Organization is the canonical NEXT F tenant term. Do not use Client or generic Customer as the machine tenant schema."
+      ]
+    },
+    {
+      "$id": "core.publishing",
+      "name": "Publishing",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "lifecycle",
+      "description": "Reusable publishing lifecycle state for customer-managed content and records.",
+      "purpose": "Standardizes draft, review, scheduling, publication and archive state while composing visibility and scheduling.",
+      "fields": [
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical publishing state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "draft",
+                "label": "Draft"
+              },
+              {
+                "value": "inReview",
+                "label": "In review"
+              },
+              {
+                "value": "approved",
+                "label": "Approved"
+              },
+              {
+                "value": "scheduled",
+                "label": "Scheduled"
+              },
+              {
+                "value": "published",
+                "label": "Published"
+              },
+              {
+                "value": "archived",
+                "label": "Archived"
+              }
+            ],
+            "defaultValue": "draft",
+            "customerEditable": true,
+            "adminEditable": true,
+            "filterable": true
+          }
+        },
+        {
+          "key": "visibility",
+          "required": true,
+          "nullable": false,
+          "description": "Visibility policy for the resource.",
+          "schema": "core.visibility"
+        },
+        {
+          "key": "schedule",
+          "required": false,
+          "nullable": true,
+          "description": "Optional publication window.",
+          "schema": "core.scheduleWindow"
+        },
+        {
+          "key": "publishedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Timestamp when the current published state became effective.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "publishedBy",
+          "required": false,
+          "nullable": true,
+          "description": "Actor that published the current version.",
+          "schema": "core.actorReference"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.visibility",
+          "description": "Publishing uses canonical visibility semantics."
+        },
+        {
+          "type": "composes",
+          "target": "core.scheduleWindow",
+          "description": "Publishing uses reusable scheduling semantics."
+        },
+        {
+          "type": "composes",
+          "target": "core.actorReference",
+          "description": "Publishing attribution uses compact actor references."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "publishedRequiresTimestamp",
+          "description": "published status requires publishedAt."
+        },
+        {
+          "id": "scheduledRequiresStart",
+          "description": "scheduled status requires schedule.startsAt."
+        },
+        {
+          "id": "archiveNotPubliclyActive",
+          "description": "archived records are not treated as current public content."
+        }
+      ],
+      "cms": {
+        "label": "Publishing",
+        "icon": "fa-paper-plane",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "sidebar",
+        "summaryFields": [
+          "status",
+          "publishedAt"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public payloads may expose selected publication metadata; draft/review operational details should normally remain private."
+      },
+      "examples": {
+        "valid": [
+          {
+            "status": "draft",
+            "visibility": {
+              "mode": "public",
+              "requiresAuthentication": false
+            },
+            "schedule": null,
+            "publishedAt": null,
+            "publishedBy": null
+          },
+          {
+            "status": "published",
+            "visibility": {
+              "mode": "public",
+              "requiresAuthentication": false
+            },
+            "publishedAt": "2026-09-09T12:00:00Z",
+            "publishedBy": {
+              "actorType": "organizationUser",
+              "actorId": "usr_01ABC",
+              "displayName": "Editor"
+            }
+          }
+        ],
+        "invalid": [
+          {
+            "status": "published",
+            "visibility": {
+              "mode": "public",
+              "requiresAuthentication": false
+            },
+            "publishedAt": null
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "core.revisionPointer",
+      "name": "Revision Pointer",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "audit",
+      "description": "Current/published version pointers for a versioned entity.",
+      "purpose": "Allows CMS and API implementations to identify working and published revisions without duplicating version-state fields.",
+      "fields": [
+        {
+          "key": "currentVersionId",
+          "required": true,
+          "nullable": false,
+          "description": "Latest working Version Record.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "core.versionRecord",
+            "relationshipCardinality": "one",
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "publishedVersionId",
+          "required": false,
+          "nullable": true,
+          "description": "Currently published Version Record when one exists.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "core.versionRecord",
+            "relationshipCardinality": "one",
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "hasUnpublishedChanges",
+          "required": true,
+          "nullable": false,
+          "description": "Whether currentVersionId differs from the active published revision.",
+          "primitive": "fields.boolean",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "core.versionRecord",
+          "description": "Both pointers target canonical Version Records."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "revisionFlagDerived",
+          "description": "hasUnpublishedChanges must accurately reflect current and published pointers."
+        }
+      ],
+      "cms": {
+        "label": "Revision State",
+        "icon": "fa-code-compare",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "history",
+        "summaryFields": [
+          "hasUnpublishedChanges"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Revision pointers are operational CMS metadata."
+      },
+      "examples": {
+        "valid": [
+          {
+            "currentVersionId": "ver_0004",
+            "publishedVersionId": "ver_0003",
+            "hasUnpublishedChanges": true
+          },
+          {
+            "currentVersionId": "ver_0003",
+            "publishedVersionId": "ver_0003",
+            "hasUnpublishedChanges": false
+          }
+        ],
+        "invalid": [
+          {
+            "currentVersionId": "ver_0003",
+            "publishedVersionId": "ver_0003",
+            "hasUnpublishedChanges": true
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "core.scheduleWindow",
+      "name": "Schedule Window",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "lifecycle",
+      "description": "Optional start/end window with explicit timezone semantics.",
+      "purpose": "Provides reusable scheduling semantics for publishing and future campaigns without relying on browser-local time.",
+      "fields": [
+        {
+          "key": "startsAt",
+          "required": false,
+          "nullable": true,
+          "description": "Inclusive start timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "endsAt",
+          "required": false,
+          "nullable": true,
+          "description": "Exclusive or effective end timestamp as defined by the parent contract.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "timeZone",
+          "required": true,
+          "nullable": false,
+          "description": "IANA timezone identifier used for human-entered scheduling.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 3,
+            "maxLength": 64,
+            "defaultValue": "UTC"
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "scheduleOrder",
+          "description": "When both timestamps exist, endsAt must be later than startsAt."
+        },
+        {
+          "id": "ianaTimeZone",
+          "description": "timeZone must be a valid IANA timezone identifier."
+        }
+      ],
+      "cms": {
+        "label": "Schedule",
+        "icon": "fa-calendar-days",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "sidebar",
+        "summaryFields": [
+          "startsAt",
+          "endsAt"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Scheduling metadata is normally operational and omitted from public payloads unless explicitly needed."
+      },
+      "examples": {
+        "valid": [
+          {
+            "startsAt": "2026-09-15T03:30:00Z",
+            "endsAt": "2026-09-30T03:30:00Z",
+            "timeZone": "Asia/Colombo"
+          },
+          {
+            "startsAt": null,
+            "endsAt": null,
+            "timeZone": "UTC"
+          }
+        ],
+        "invalid": [
+          {
+            "startsAt": "2026-10-01T00:00:00Z",
+            "endsAt": "2026-09-01T00:00:00Z",
+            "timeZone": "Asia/Colombo"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "core.site",
+      "name": "Site",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "identity",
+      "description": "Minimal canonical customer website identity and Organization ownership reference.",
+      "purpose": "Provides one host-provider-neutral Site record that later manifests, CMS workspaces, content, integrations and health contracts can reference.",
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical entity identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "organizationId",
+          "required": true,
+          "nullable": false,
+          "description": "Organization that owns the Site.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "core.organization",
+            "relationshipCardinality": "one",
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true,
+            "filterable": true
+          }
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Human-readable Site name.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 200,
+            "customerEditable": true,
+            "adminEditable": true,
+            "searchable": true,
+            "sortable": true
+          }
+        },
+        {
+          "key": "primaryUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Current primary public URL reference when configured.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": true,
+            "searchable": true
+          }
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "NEXT F platform Site lifecycle status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "active",
+                "label": "Active"
+              },
+              {
+                "value": "paused",
+                "label": "Paused"
+              },
+              {
+                "value": "archived",
+                "label": "Archived"
+              }
+            ],
+            "defaultValue": "active",
+            "customerEditable": false,
+            "adminEditable": true,
+            "filterable": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "Sites use canonical entity identity."
+        },
+        {
+          "type": "references",
+          "target": "core.organization",
+          "description": "Every Site belongs to one Organization."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "siteBelongsToOrganization",
+          "description": "organizationId must resolve to the owning Organization."
+        },
+        {
+          "id": "primaryUrlIsReferenceOnly",
+          "description": "primaryUrl identifies the website and must not imply NEXT F owns the domain or hosting service."
+        }
+      ],
+      "cms": {
+        "label": "Site",
+        "icon": "fa-globe",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "platform",
+        "summaryFields": [
+          "name",
+          "primaryUrl",
+          "status"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Selected Site identity such as name/primaryUrl may be public when a parent API explicitly exposes it. Tenant/control metadata remains private."
+      },
+      "examples": {
+        "valid": [
+          {
+            "identity": {
+              "id": "site_01ABC",
+              "createdAt": "2026-09-09T10:00:00Z",
+              "updatedAt": "2026-09-09T10:00:00Z"
+            },
+            "organizationId": "org_01ABC",
+            "name": "Example Engineering Website",
+            "primaryUrl": "https://example.com",
+            "status": "active"
+          }
+        ],
+        "invalid": [
+          {
+            "identity": {
+              "id": "site_01ABC",
+              "createdAt": "2026-09-09T10:00:00Z",
+              "updatedAt": "2026-09-09T10:00:00Z"
+            },
+            "organizationId": "org_01ABC",
+            "name": "",
+            "primaryUrl": "ftp://example.com",
+            "status": "active"
+          }
+        ]
+      },
+      "notes": [
+        "Site is hosting-provider neutral. Domain and hosting ownership remain with the customer Organization."
+      ]
+    },
+    {
+      "$id": "core.tenantScope",
+      "name": "Tenant Scope",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "identity",
+      "description": "Organization and Site ownership context for tenant-scoped entities.",
+      "purpose": "Provides a consistent ownership boundary for multi-tenant storage and authorization.",
+      "fields": [
+        {
+          "key": "organizationId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Organization ID.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "core.organization",
+            "relationshipCardinality": "one",
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true,
+            "filterable": true,
+            "revisionTracked": false
+          }
+        },
+        {
+          "key": "siteId",
+          "required": false,
+          "nullable": true,
+          "description": "Owning Site ID when the entity is Site-scoped.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "core.site",
+            "relationshipCardinality": "one",
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true,
+            "filterable": true,
+            "revisionTracked": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "foundation.contractConstitution",
+          "description": "Tenant isolation follows the constitutional boundary."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "organizationRequired",
+          "description": "Every tenant-scoped entity requires an Organization."
+        },
+        {
+          "id": "siteBelongsToOrganization",
+          "description": "When siteId is present it must belong to organizationId."
+        }
+      ],
+      "cms": {
+        "label": "Tenant Scope",
+        "icon": "fa-building",
+        "customerVisible": false,
+        "adminVisible": true,
+        "defaultPlacement": "system",
+        "summaryFields": [
+          "organizationId",
+          "siteId"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Tenant scope is internal routing/authorization metadata and is not part of ordinary public content payloads."
+      },
+      "examples": {
+        "valid": [
+          {
+            "organizationId": "org_01ABC",
+            "siteId": "site_01ABC"
+          },
+          {
+            "organizationId": "org_01ABC",
+            "siteId": null
+          }
+        ],
+        "invalid": [
+          {
+            "siteId": "site_01ABC"
+          }
+        ]
+      },
+      "notes": [
+        "Client-supplied organizationId/siteId values must be re-authorized server-side."
+      ]
+    },
+    {
+      "$id": "core.versionRecord",
+      "name": "Version Record",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "audit",
+      "description": "Immutable historical version snapshot for a versioned entity.",
+      "purpose": "Provides one reusable revision format for pages, blog posts, documents, products and other versioned entities.",
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque Version Record ID.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 4,
+            "maxLength": 128,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "entity",
+          "required": true,
+          "nullable": false,
+          "description": "Entity this version belongs to.",
+          "schema": "core.entityReference"
+        },
+        {
+          "key": "versionNumber",
+          "required": true,
+          "nullable": false,
+          "description": "Monotonically increasing version number within the entity.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        },
+        {
+          "key": "snapshot",
+          "required": true,
+          "nullable": false,
+          "description": "Immutable canonical entity snapshot for this version.",
+          "primitive": "fields.json",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "revisionTracked": false
+          }
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Version creation timestamp.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "createdBy",
+          "required": true,
+          "nullable": false,
+          "description": "Actor responsible for the version.",
+          "schema": "core.actorReference"
+        },
+        {
+          "key": "reason",
+          "required": false,
+          "nullable": true,
+          "description": "Optional human-readable reason or change note.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "published",
+          "required": true,
+          "nullable": false,
+          "description": "Whether this version was published at least once.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "core.entityReference",
+          "description": "Versions target canonical entities."
+        },
+        {
+          "type": "references",
+          "target": "core.actorReference",
+          "description": "Versions record a canonical actor."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "versionMonotonic",
+          "description": "versionNumber increases monotonically per entity."
+        },
+        {
+          "id": "snapshotImmutable",
+          "description": "snapshot is immutable after Version Record creation."
+        },
+        {
+          "id": "snapshotMatchesContract",
+          "description": "snapshot must validate against the entity contract/version applicable to the version."
+        }
+      ],
+      "cms": {
+        "label": "Version",
+        "icon": "fa-code-branch",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "history",
+        "summaryFields": [
+          "versionNumber",
+          "createdAt"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Version history is operational metadata and must not be publicly exposed by default."
+      },
+      "examples": {
+        "valid": [
+          {
+            "id": "ver_0003",
+            "entity": {
+              "entityType": "content.page",
+              "entityId": "page_01ABC"
+            },
+            "versionNumber": 3,
+            "snapshot": {
+              "title": "About"
+            },
+            "createdAt": "2026-09-09T10:00:00Z",
+            "createdBy": {
+              "actorType": "organizationUser",
+              "actorId": "usr_01ABC"
+            },
+            "published": false
+          }
+        ],
+        "invalid": [
+          {
+            "id": "ver_0003",
+            "entity": {
+              "entityType": "content.page",
+              "entityId": "page_01ABC"
+            },
+            "versionNumber": 0,
+            "snapshot": {},
+            "createdAt": "invalid",
+            "createdBy": {
+              "actorType": "organizationUser"
+            },
+            "published": false
+          }
+        ]
+      },
+      "notes": [
+        "Historical snapshots must not contain secrets excluded by the entity contract."
+      ]
+    },
+    {
+      "$id": "core.visibility",
+      "name": "Visibility",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "core",
+      "category": "lifecycle",
+      "description": "Canonical visibility policy for publishable resources.",
+      "purpose": "Separates public discoverability from publishing state so later content types do not invent incompatible visibility labels.",
+      "fields": [
+        {
+          "key": "mode",
+          "required": true,
+          "nullable": false,
+          "description": "Visibility machine value.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "public",
+                "label": "Public"
+              },
+              {
+                "value": "unlisted",
+                "label": "Unlisted"
+              },
+              {
+                "value": "private",
+                "label": "Private"
+              },
+              {
+                "value": "members",
+                "label": "Members only"
+              }
+            ],
+            "defaultValue": "public",
+            "customerEditable": true,
+            "adminEditable": true,
+            "filterable": true
+          }
+        },
+        {
+          "key": "requiresAuthentication",
+          "required": true,
+          "nullable": false,
+          "description": "Whether access requires authenticated identity.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false,
+            "customerEditable": false,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "notes",
+          "required": false,
+          "nullable": true,
+          "description": "Internal explanation for exceptional visibility configuration.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": false,
+            "adminEditable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "privateRequiresAuthentication",
+          "description": "private and members modes require authentication."
+        },
+        {
+          "id": "publicDoesNotRequireAuthentication",
+          "description": "public visibility must not require authentication."
+        }
+      ],
+      "cms": {
+        "label": "Visibility",
+        "icon": "fa-eye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "sidebar",
+        "summaryFields": [
+          "mode"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "The visibility object may be exposed selectively, but private/members content itself must not be delivered publicly."
+      },
+      "examples": {
+        "valid": [
+          {
+            "mode": "public",
+            "requiresAuthentication": false
+          },
+          {
+            "mode": "private",
+            "requiresAuthentication": true
+          }
+        ],
+        "invalid": [
+          {
+            "mode": "Public",
+            "requiresAuthentication": false
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "shared.address",
+      "name": "Address",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "shared",
+      "category": "contact",
+      "description": "Reusable structured postal or business address.",
+      "purpose": "Provides one first-class address object for organizations, commerce customers, locations, billing and shipping contexts.",
+      "fields": [
+        {
+          "key": "name",
+          "required": false,
+          "nullable": true,
+          "description": "Recipient or location label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "company",
+          "required": false,
+          "nullable": true,
+          "description": "Company or organization name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 200
+          }
+        },
+        {
+          "key": "line1",
+          "required": true,
+          "nullable": false,
+          "description": "Primary street/address line.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240
+          }
+        },
+        {
+          "key": "line2",
+          "required": false,
+          "nullable": true,
+          "description": "Secondary address line.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240
+          }
+        },
+        {
+          "key": "city",
+          "required": true,
+          "nullable": false,
+          "description": "City/locality.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "region",
+          "required": false,
+          "nullable": true,
+          "description": "State, province or region.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "postalCode",
+          "required": false,
+          "nullable": true,
+          "description": "Postal or ZIP code.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 32
+          }
+        },
+        {
+          "key": "country",
+          "required": true,
+          "nullable": false,
+          "description": "ISO 3166-1 alpha-2 country code.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 2,
+            "maxLength": 2,
+            "pattern": "^[A-Z]{2}$",
+            "caseSensitive": true
+          }
+        },
+        {
+          "key": "phone",
+          "required": false,
+          "nullable": true,
+          "description": "Contact phone associated with this address.",
+          "primitive": "fields.phone"
+        },
+        {
+          "key": "coordinates",
+          "required": false,
+          "nullable": true,
+          "description": "Optional geospatial coordinates.",
+          "primitive": "fields.coordinates"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "alignsWith",
+          "target": "fields.address",
+          "description": "The primitive Address value shape aligns with this first-class reusable schema."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "countryIso2",
+          "description": "country must use ISO 3166-1 alpha-2 uppercase code."
+        },
+        {
+          "id": "postalRequirementsByParent",
+          "description": "Postal-code requirements are defined by parent business rules, not globally assumed."
+        }
+      ],
+      "cms": {
+        "label": "Address",
+        "icon": "fa-location-dot",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "main",
+        "summaryFields": [
+          "line1",
+          "city",
+          "country"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public eligibility depends on the parent entity. Private customer billing/shipping addresses remain authenticated data."
+      },
+      "examples": {
+        "valid": [
+          {
+            "name": "Receiving",
+            "line1": "1 Example Road",
+            "city": "Kandy",
+            "country": "LK",
+            "phone": "+94770000000"
+          }
+        ],
+        "invalid": [
+          {
+            "line1": "1 Example Road",
+            "city": "Kandy",
+            "country": "Sri Lanka"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "shared.contactPoint",
+      "name": "Contact Point",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "shared",
+      "category": "contact",
+      "description": "Reusable contact method for organizations, locations and customer-facing content.",
+      "purpose": "Standardizes phone, email, URL and messaging contact data without hardcoding business-specific fields everywhere.",
+      "fields": [
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Contact method type.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "phone",
+                "label": "Phone"
+              },
+              {
+                "value": "email",
+                "label": "Email"
+              },
+              {
+                "value": "url",
+                "label": "URL"
+              },
+              {
+                "value": "whatsapp",
+                "label": "WhatsApp"
+              }
+            ]
+          }
+        },
+        {
+          "key": "label",
+          "required": false,
+          "nullable": true,
+          "description": "Human-readable label such as Sales or Support.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120,
+            "localizable": true
+          }
+        },
+        {
+          "key": "value",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical contact value validated according to type.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        {
+          "key": "isPrimary",
+          "required": true,
+          "nullable": false,
+          "description": "Whether this is the primary contact point within its parent context.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "public",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the parent may expose this contact point publicly.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "contactValueMatchesType",
+          "description": "value must validate according to the declared type."
+        },
+        {
+          "id": "singlePrimaryByParent",
+          "description": "A parent collection should define at most one primary contact point per applicable contact category unless explicitly allowed."
+        }
+      ],
+      "cms": {
+        "label": "Contact Point",
+        "icon": "fa-address-book",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "main",
+        "summaryFields": [
+          "label",
+          "type",
+          "value"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only instances with public=true may be exposed by a public parent payload."
+      },
+      "examples": {
+        "valid": [
+          {
+            "type": "email",
+            "label": "Sales",
+            "value": "sales@example.com",
+            "isPrimary": true,
+            "public": true
+          }
+        ],
+        "invalid": [
+          {
+            "type": "email",
+            "value": "not-an-email",
+            "isPrimary": false,
+            "public": true
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "shared.cta",
+      "name": "Call to Action",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "shared",
+      "category": "action",
+      "description": "Reusable call-to-action content and destination.",
+      "purpose": "Lets pages, services, blog content and commerce surfaces express action intent consistently without defining button presentation.",
+      "fields": [
+        {
+          "key": "label",
+          "required": true,
+          "nullable": false,
+          "description": "Visible CTA label.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 120,
+            "localizable": true
+          }
+        },
+        {
+          "key": "link",
+          "required": true,
+          "nullable": false,
+          "description": "CTA destination and behavior.",
+          "schema": "shared.link"
+        },
+        {
+          "key": "analyticsLabel",
+          "required": false,
+          "nullable": true,
+          "description": "Stable human-readable analytics label when separate from visible text.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "customerEditable": false,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the CTA should currently be rendered.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "shared.link",
+          "description": "CTA behavior is represented by the canonical Link schema."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "labelRequiredWhenEnabled",
+          "description": "Enabled CTAs require a non-empty label and valid link."
+        }
+      ],
+      "cms": {
+        "label": "Call to Action",
+        "icon": "fa-arrow-pointer",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "main",
+        "summaryFields": [
+          "label",
+          "enabled"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "CTA content is generally eligible for public delivery."
+      },
+      "examples": {
+        "valid": [
+          {
+            "label": "Request a Quote",
+            "link": {
+              "type": "internal",
+              "destination": "/contact",
+              "newTab": false
+            },
+            "enabled": true
+          }
+        ],
+        "invalid": [
+          {
+            "label": "",
+            "link": {
+              "type": "internal",
+              "destination": "",
+              "newTab": false
+            },
+            "enabled": true
+          }
+        ]
+      },
+      "notes": [
+        "Visual style, radius, color and layout remain frontend concerns unless a later component contract defines controlled variants."
+      ]
+    },
+    {
+      "$id": "shared.externalReference",
+      "name": "External Reference",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "shared",
+      "category": "integration",
+      "description": "Provider-neutral reference from a NEXT F entity to an identifier in an external system.",
+      "purpose": "Supports adapters and integrations without changing canonical NEXT F entities to mirror vendor models.",
+      "fields": [
+        {
+          "key": "provider",
+          "required": true,
+          "nullable": false,
+          "description": "Stable provider/connector machine identifier.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 2,
+            "maxLength": 120,
+            "customerEditable": false,
+            "adminEditable": true,
+            "filterable": true
+          }
+        },
+        {
+          "key": "externalId",
+          "required": true,
+          "nullable": false,
+          "description": "Identifier assigned by the external provider.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 512,
+            "customerEditable": false,
+            "adminEditable": true,
+            "searchable": true
+          }
+        },
+        {
+          "key": "externalUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Optional non-secret provider URL for human navigation.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "syncedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Timestamp of the last successful synchronization.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "metadata",
+          "required": false,
+          "nullable": true,
+          "description": "Non-secret adapter metadata needed for synchronization.",
+          "primitive": "fields.json",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "providerCanonical",
+          "description": "provider should resolve to a canonical connector/integration identifier when one exists."
+        },
+        {
+          "id": "metadataNoSecrets",
+          "description": "metadata must not contain secrets, refresh tokens or privileged credentials."
+        }
+      ],
+      "cms": {
+        "label": "External Reference",
+        "icon": "fa-arrow-up-right-from-square",
+        "customerVisible": false,
+        "adminVisible": true,
+        "defaultPlacement": "technical",
+        "summaryFields": [
+          "provider",
+          "externalId"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "External provider identifiers are technical integration metadata and are private by default."
+      },
+      "examples": {
+        "valid": [
+          {
+            "provider": "google-search-console",
+            "externalId": "sc-domain:example.com",
+            "externalUrl": "https://search.google.com/",
+            "syncedAt": "2026-09-09T12:00:00Z"
+          }
+        ],
+        "invalid": [
+          {
+            "provider": "stripe",
+            "externalId": "",
+            "metadata": {
+              "secret": "sk_live_example"
+            }
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "shared.link",
+      "name": "Link",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "shared",
+      "category": "action",
+      "description": "Canonical destination and behavior metadata for an interactive link.",
+      "purpose": "Keeps navigation, CTA, media and content links consistent while leaving visual styling to the frontend.",
+      "fields": [
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical destination/action type.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "internal",
+                "label": "Internal page"
+              },
+              {
+                "value": "external",
+                "label": "External URL"
+              },
+              {
+                "value": "phone",
+                "label": "Phone"
+              },
+              {
+                "value": "email",
+                "label": "Email"
+              },
+              {
+                "value": "whatsapp",
+                "label": "WhatsApp"
+              },
+              {
+                "value": "download",
+                "label": "Download"
+              },
+              {
+                "value": "form",
+                "label": "Form"
+              },
+              {
+                "value": "modal",
+                "label": "Modal"
+              }
+            ]
+          }
+        },
+        {
+          "key": "destination",
+          "required": true,
+          "nullable": false,
+          "description": "Destination value interpreted according to type.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 2048
+          }
+        },
+        {
+          "key": "newTab",
+          "required": true,
+          "nullable": false,
+          "description": "Request a new browsing context where appropriate.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "rel",
+          "required": false,
+          "nullable": true,
+          "description": "Controlled relationship tokens when applicable.",
+          "primitive": "fields.multiSelect",
+          "config": {
+            "options": [
+              {
+                "value": "nofollow",
+                "label": "nofollow"
+              },
+              {
+                "value": "sponsored",
+                "label": "sponsored"
+              },
+              {
+                "value": "ugc",
+                "label": "ugc"
+              },
+              {
+                "value": "noopener",
+                "label": "noopener"
+              },
+              {
+                "value": "noreferrer",
+                "label": "noreferrer"
+              }
+            ]
+          }
+        },
+        {
+          "key": "accessibilityLabel",
+          "required": false,
+          "nullable": true,
+          "description": "Accessible label override when visible context is insufficient.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240,
+            "localizable": true
+          }
+        },
+        {
+          "key": "trackingEvent",
+          "required": false,
+          "nullable": true,
+          "description": "Canonical NEXT F event name emitted for the interaction when configured.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "customerEditable": false,
+            "adminEditable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "destinationMatchesType",
+          "description": "destination must match the declared link type."
+        },
+        {
+          "id": "unsafeSchemesRejected",
+          "description": "Executable or unsafe URL schemes are prohibited."
+        },
+        {
+          "id": "newTabSafety",
+          "description": "External new-tab links should use appropriate rel protection where the renderer does not enforce it automatically."
+        }
+      ],
+      "cms": {
+        "label": "Link",
+        "icon": "fa-link",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "inline",
+        "summaryFields": [
+          "type",
+          "destination"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public links are allowed after destination validation."
+      },
+      "examples": {
+        "valid": [
+          {
+            "type": "internal",
+            "destination": "/contact",
+            "newTab": false
+          },
+          {
+            "type": "external",
+            "destination": "https://example.com",
+            "newTab": true,
+            "rel": [
+              "noopener",
+              "noreferrer"
+            ]
+          }
+        ],
+        "invalid": [
+          {
+            "type": "external",
+            "destination": "javascript:alert(1)",
+            "newTab": false
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "shared.mediaAsset",
+      "name": "Media Asset",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "shared",
+      "category": "media",
+      "description": "Provider-neutral metadata for an uploaded or connected media asset.",
+      "purpose": "Lets Content, Commerce, Documentation and other modules reference media consistently without coupling contracts to a storage provider.",
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque Media Asset ID.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 4,
+            "maxLength": 128,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "siteId",
+          "required": true,
+          "nullable": false,
+          "description": "Site owning the asset.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "core.site",
+            "relationshipCardinality": "one",
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "kind",
+          "required": true,
+          "nullable": false,
+          "description": "High-level media kind.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "image",
+                "label": "Image"
+              },
+              {
+                "value": "video",
+                "label": "Video"
+              },
+              {
+                "value": "audio",
+                "label": "Audio"
+              },
+              {
+                "value": "document",
+                "label": "Document"
+              },
+              {
+                "value": "file",
+                "label": "File"
+              }
+            ],
+            "filterable": true
+          }
+        },
+        {
+          "key": "fileName",
+          "required": true,
+          "nullable": false,
+          "description": "Sanitized display filename.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255,
+            "searchable": true
+          }
+        },
+        {
+          "key": "mimeType",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical MIME type.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "filterable": true
+          }
+        },
+        {
+          "key": "sizeBytes",
+          "required": true,
+          "nullable": false,
+          "description": "Asset size in bytes.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0,
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        },
+        {
+          "key": "width",
+          "required": false,
+          "nullable": true,
+          "description": "Pixel width when applicable.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "height",
+          "required": false,
+          "nullable": true,
+          "description": "Pixel height when applicable.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "durationSeconds",
+          "required": false,
+          "nullable": true,
+          "description": "Media duration in seconds when applicable.",
+          "primitive": "fields.decimal",
+          "config": {
+            "minimum": 0,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "checksum",
+          "required": false,
+          "nullable": true,
+          "description": "Non-secret content checksum for integrity/deduplication.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "title",
+          "required": false,
+          "nullable": true,
+          "description": "Human-readable media title.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 200
+          }
+        },
+        {
+          "key": "altText",
+          "required": false,
+          "nullable": true,
+          "description": "Default accessible alternative text for meaningful images.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300,
+            "localizable": true
+          }
+        },
+        {
+          "key": "caption",
+          "required": false,
+          "nullable": true,
+          "description": "Default media caption.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "localizable": true
+          }
+        },
+        {
+          "key": "credit",
+          "required": false,
+          "nullable": true,
+          "description": "Attribution/credit text.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300
+          }
+        },
+        {
+          "key": "copyright",
+          "required": false,
+          "nullable": true,
+          "description": "Copyright statement if applicable.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300
+          }
+        },
+        {
+          "key": "focalPoint",
+          "required": false,
+          "nullable": true,
+          "description": "Normalized/presentation focal point when supported.",
+          "primitive": "fields.coordinates"
+        },
+        {
+          "key": "publicUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Public delivery URL only when the asset is intentionally public.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Asset creation/import timestamp.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "core.tenantScope",
+          "description": "Media ownership follows Site tenant boundaries."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "dimensionsMatchKind",
+          "description": "width/height apply only to media kinds with dimensions."
+        },
+        {
+          "id": "durationMatchKind",
+          "description": "durationSeconds applies only when the media kind supports duration."
+        },
+        {
+          "id": "publicUrlNotSecret",
+          "description": "publicUrl must never contain embedded credentials or secrets."
+        },
+        {
+          "id": "altTextContextual",
+          "description": "Meaningful public images require appropriate alt text either at asset or reference context."
+        }
+      ],
+      "cms": {
+        "label": "Media Asset",
+        "icon": "fa-photo-film",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "media-library",
+        "summaryFields": [
+          "fileName",
+          "kind",
+          "sizeBytes"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only media explicitly intended for public access may expose publicUrl."
+      },
+      "examples": {
+        "valid": [
+          {
+            "id": "media_01ABC",
+            "siteId": "site_01ABC",
+            "kind": "image",
+            "fileName": "factory.jpg",
+            "mimeType": "image/jpeg",
+            "sizeBytes": 245000,
+            "width": 1600,
+            "height": 900,
+            "title": "Factory",
+            "altText": "Exterior of the factory",
+            "createdAt": "2026-09-09T12:00:00Z"
+          }
+        ],
+        "invalid": [
+          {
+            "id": "media_01ABC",
+            "siteId": "site_01ABC",
+            "kind": "image",
+            "fileName": "x.jpg",
+            "mimeType": "image/jpeg",
+            "sizeBytes": -1,
+            "createdAt": "invalid"
+          }
+        ]
+      },
+      "notes": [
+        "Storage bucket names, private object keys and provider credentials are implementation details and are not required in the public contract."
+      ]
+    },
+    {
+      "$id": "shared.mediaReference",
+      "name": "Media Reference",
+      "version": "0.5.0",
+      "status": "stable",
+      "domain": "shared",
+      "category": "media",
+      "description": "Contextual reference to a canonical Media Asset.",
+      "purpose": "Allows one asset to be reused with context-specific accessibility, caption and role metadata without duplicating the asset.",
+      "fields": [
+        {
+          "key": "assetId",
+          "required": true,
+          "nullable": false,
+          "description": "Referenced Media Asset ID.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "shared.mediaAsset",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "altTextOverride",
+          "required": false,
+          "nullable": true,
+          "description": "Context-specific alternative text override.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300,
+            "localizable": true
+          }
+        },
+        {
+          "key": "captionOverride",
+          "required": false,
+          "nullable": true,
+          "description": "Context-specific caption override.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "localizable": true
+          }
+        },
+        {
+          "key": "role",
+          "required": false,
+          "nullable": true,
+          "description": "Contextual media role.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "content",
+                "label": "Content"
+              },
+              {
+                "value": "decorative",
+                "label": "Decorative"
+              },
+              {
+                "value": "featured",
+                "label": "Featured"
+              },
+              {
+                "value": "social",
+                "label": "Social"
+              },
+              {
+                "value": "download",
+                "label": "Download"
+              }
+            ]
+          }
+        },
+        {
+          "key": "link",
+          "required": false,
+          "nullable": true,
+          "description": "Optional destination when media itself is interactive.",
+          "schema": "shared.link"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "shared.mediaAsset",
+          "description": "References one canonical asset."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "shared.link",
+          "description": "Interactive media may use a shared Link."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "decorativeAltEmpty",
+          "description": "Decorative media should not carry misleading descriptive alt text."
+        },
+        {
+          "id": "assetExists",
+          "description": "assetId must resolve inside the authorized Site scope."
+        }
+      ],
+      "cms": {
+        "label": "Media Reference",
+        "icon": "fa-image",
+        "customerVisible": true,
+        "adminVisible": true,
+        "defaultPlacement": "main",
+        "summaryFields": [
+          "assetId",
+          "role"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Safe contextual media references may appear in public content payloads."
+      },
+      "examples": {
+        "valid": [
+          {
+            "assetId": "media_01ABC",
+            "role": "featured",
+            "altTextOverride": "Production facility at sunset"
+          }
+        ],
+        "invalid": [
+          {
+            "assetId": "",
+            "role": "hero"
+          }
+        ]
+      },
+      "notes": []
+    }
+  ]
+};

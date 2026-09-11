@@ -1,0 +1,34 @@
+{
+  "controlId": "SEC-DEP-001",
+  "name": "Dependency vulnerability management",
+  "category": "supply-chain",
+  "requirement": "Runtime and build dependencies must be inventoried, reviewed and updated when security risk requires it.",
+  "rationale": "Known vulnerable dependencies can compromise otherwise-correct application code.",
+  "applicability": [
+    "build-tooling",
+    "portal",
+    "customer-sites"
+  ],
+  "obligation": "mandatory",
+  "scope": "build",
+  "affectedModules": [],
+  "verificationMethods": [
+    "dependency-scan",
+    "manual-review"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_dep_001.json"
+}

@@ -1,0 +1,171 @@
+{
+  "eventKey": "order.partially-fulfilled",
+  "name": "Order Partially Fulfilled",
+  "category": "commerce-orders",
+  "producerKey": "commerce-domain",
+  "subjectContracts": [
+    "commerce.order"
+  ],
+  "trigger": "Fulfillment reconciliation confirms some but not all fulfillable quantity is fulfilled.",
+  "dataPolicy": {
+    "sensitivity": "sensitive",
+    "containsPersonalData": true,
+    "containsFinancialData": true,
+    "containsSecrets": false,
+    "redactionRequired": true
+  },
+  "webhookEligible": true,
+  "consumers": [
+    "audit",
+    "customer-cms",
+    "nextf-admin",
+    "notification",
+    "commerce-reconciliation",
+    "integration-dispatch",
+    "analytics",
+    "webhook-bridge"
+  ],
+  "payloadFields": [
+    {
+      "key": "orderId",
+      "required": true,
+      "description": "Order ID.",
+      "type": "id"
+    },
+    {
+      "key": "orderNumber",
+      "required": true,
+      "description": "Customer-facing Order number.",
+      "type": "string"
+    },
+    {
+      "key": "previousStatus",
+      "required": false,
+      "description": "Relevant previous status.",
+      "type": "string"
+    },
+    {
+      "key": "newStatus",
+      "required": false,
+      "description": "Relevant new status.",
+      "type": "string"
+    },
+    {
+      "key": "currency",
+      "required": false,
+      "description": "Transaction currency when financial.",
+      "type": "currency-code"
+    },
+    {
+      "key": "amount",
+      "required": false,
+      "description": "Relevant reconciled monetary amount when necessary.",
+      "type": "decimal"
+    }
+  ],
+  "$id": "order.partially-fulfilled",
+  "version": "0.14.0",
+  "eventVersion": "1.0.0",
+  "status": "stable",
+  "domain": "events",
+  "description": "Fulfillment reconciliation confirms some but not all fulfillable quantity is fulfilled.",
+  "purpose": "Provides a canonical, reusable fact event for order partially fulfilled across NEXT F systems.",
+  "semantics": {
+    "factOnly": true,
+    "authoritativeAfterCommit": true,
+    "immutableOccurrence": true,
+    "transportIndependent": true,
+    "marketingTrackingEquivalent": null
+  },
+  "productionPolicy": {
+    "durability": "durable",
+    "commitBoundary": "transactional-outbox",
+    "failureBehavior": "fail-domain-commit-or-durable-recovery"
+  },
+  "idempotency": {
+    "dedupeKey": "eventId",
+    "replayedIdempotentCommand": "no-new-semantic-event",
+    "consumerIdempotencyRequired": true
+  },
+  "orderingPolicy": {
+    "scope": "order",
+    "strict": false
+  },
+  "retention": {
+    "class": "transaction-history"
+  },
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.order",
+      "description": "Event subject may be commerce.order."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "emitAfterAuthoritativeCommit",
+      "description": "Event is produced only after the authoritative domain transition is accepted; atomic outbox/equivalent durability is required for transactional mutations."
+    },
+    {
+      "id": "immutableOccurrence",
+      "description": "Recorded event occurrences are immutable."
+    },
+    {
+      "id": "eventIdUnique",
+      "description": "Every semantic occurrence has one globally unique eventId."
+    },
+    {
+      "id": "idempotentReplay",
+      "description": "Retrying the same idempotent command must return/reuse the original outcome and must not emit a second semantic fact event."
+    },
+    {
+      "id": "payloadMinimumNecessary",
+      "description": "Payload contains only data required by declared consumers; consumers fetch additional authorized data separately when needed."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Payload must never contain API secrets, auth tokens, signing secrets, raw payment-card data or other credentials."
+    },
+    {
+      "id": "tenantScope",
+      "description": "Organization/Site scope must match the authoritative subject and producing operation."
+    },
+    {
+      "id": "transportIndependent",
+      "description": "Event semantics do not depend on webhook, queue, HTTP, database or provider transport implementation."
+    },
+    {
+      "id": "personalDataMinimized",
+      "description": "Personal data is minimized and may require redaction in logs, diagnostics and external delivery."
+    },
+    {
+      "id": "financialSnapshot",
+      "description": "Financial values are explicit snapshots and include/resolve currency; event payload never becomes the source ledger."
+    }
+  ],
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [
+      {
+        "eventKey": "order.partially-fulfilled",
+        "eventVersion": "1.0.0",
+        "eventId": "evt_example",
+        "occurredAt": "2026-09-10T00:00:00Z"
+      }
+    ],
+    "invalid": [
+      {
+        "eventKey": "order.partially-fulfilled",
+        "eventId": "evt_duplicate",
+        "problem": "duplicate semantic event emitted for an idempotent command replay"
+      }
+    ]
+  }
+}

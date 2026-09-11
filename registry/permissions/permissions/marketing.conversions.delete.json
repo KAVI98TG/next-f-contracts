@@ -1,0 +1,31 @@
+{
+  "$id": "marketing.conversions.delete",
+  "name": "Delete Conversions",
+  "permissionId": "marketing.conversions.delete",
+  "domain": "marketing",
+  "resource": "conversions",
+  "action": "delete",
+  "scopeKind": "site",
+  "riskLevel": "destructive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": true,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Delete Conversions within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [
+    "Delete permission never overrides the underlying entity lifecycle, retention, legal-hold or archive rules."
+  ],
+  "version": "0.16.0",
+  "status": "stable"
+}

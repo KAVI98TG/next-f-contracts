@@ -1,0 +1,4361 @@
+// GENERATED FILE - DO NOT EDIT DIRECTLY.
+// Source: registry/blocks/index.json
+// SHA-256: 4f31191c55a4c01fabb0be990637535f0c531ece501a6449e8696e28c7f21984
+export const GENERATED_BLOCKS_SOURCE_SHA256 = "4f31191c55a4c01fabb0be990637535f0c531ece501a6449e8696e28c7f21984";
+export const GENERATED_BLOCKS = {
+  "registryVersion": "0.9.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Block Contract Registry",
+  "description": "Generated index of authoritative Phase 6 reusable Block Contract definitions.",
+  "definitionCount": 29,
+  "sectionBlockCount": 20,
+  "embeddedSchemaCount": 9,
+  "sourceDirectory": "registry/blocks/definitions",
+  "schemas": [
+    {
+      "$id": "blocks.actionGroup",
+      "name": "Action Group",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "foundation",
+      "description": "Reusable primary and secondary CTA group.",
+      "purpose": "Prevents blocks from redefining CTA semantics and tracking destinations.",
+      "blockModel": {
+        "kind": "embedded",
+        "placement": "nested-only",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "primary",
+          "required": false,
+          "nullable": true,
+          "description": "Primary CTA.",
+          "schema": "shared.cta"
+        },
+        {
+          "key": "secondary",
+          "required": false,
+          "nullable": true,
+          "description": "Optional secondary CTA.",
+          "schema": "shared.cta"
+        },
+        {
+          "key": "supportingLinkLabel",
+          "required": false,
+          "nullable": true,
+          "description": "Optional accessible label for a small supporting link.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "supportingLink",
+          "required": false,
+          "nullable": true,
+          "description": "Optional tertiary/supporting link.",
+          "schema": "shared.link"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "shared.cta",
+          "description": "Uses canonical CTA semantics."
+        },
+        {
+          "type": "composes",
+          "target": "shared.link",
+          "description": "Uses canonical link semantics."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "atLeastOneOptional",
+          "description": "Action Group may be empty; the parent Block decides whether an action is required."
+        },
+        {
+          "id": "noDuplicateDestination",
+          "description": "Primary and secondary actions should not duplicate the same label and destination without an explicit business reason."
+        }
+      ],
+      "cms": {
+        "label": "Action Group",
+        "icon": "fa-arrow-pointer",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "embedded-item-editor",
+        "summaryFields": [
+          "primary",
+          "secondary",
+          "supportingLinkLabel"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": false,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "CTA labels must describe the action or destination."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "primary": {
+              "label": "Get a quote"
+            }
+          }
+        ],
+        "invalid": [
+          {
+            "supportingLinkLabel": "More",
+            "supportingLink": null
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.cta",
+      "name": "CTA",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "conversion",
+      "description": "Focused conversion call-to-action section.",
+      "purpose": "Standardizes conversion copy and actions without encoding button styling in content.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": true,
+          "nullable": false,
+          "description": "Shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "actions",
+          "required": false,
+          "nullable": true,
+          "description": "Optional primary and secondary conversion actions.",
+          "schema": "blocks.actionGroup"
+        },
+        {
+          "key": "media",
+          "required": false,
+          "nullable": true,
+          "description": "Optional supporting media.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "trustNote",
+          "required": false,
+          "nullable": true,
+          "description": "Optional concise reassurance or qualification.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 220,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "blocks.heading",
+          "description": "Uses shared heading semantics."
+        },
+        {
+          "type": "composes",
+          "target": "blocks.actionGroup",
+          "description": "Uses canonical CTA actions."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "shared.mediaReference",
+          "description": "May use supporting media."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "actionRecommended",
+          "description": "A CTA section should normally include at least one actionable destination even though preview/draft states may be incomplete."
+        }
+      ],
+      "cms": {
+        "label": "CTA",
+        "icon": "fa-arrow-up-right-dots",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "actions",
+          "media"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Actions must have clear accessible labels and visible focus states in the frontend."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.custom",
+      "name": "Registered Custom Block",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "extension",
+      "description": "Escape hatch for a Site-specific structured Block contract registered by NEXT F.",
+      "purpose": "Allows truly customer-specific sections without weakening the platform by permitting arbitrary HTML, CSS or JavaScript.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "extensionId",
+          "required": true,
+          "nullable": false,
+          "description": "Registered Site-specific extension contract identifier.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 3,
+            "maxLength": 180,
+            "pattern": "^extensions\\.[a-zA-Z0-9.-]+$",
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "extensionVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Pinned extension contract version.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 5,
+            "maxLength": 32,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "data",
+          "required": true,
+          "nullable": false,
+          "description": "Structured payload validated against the registered extension schema.",
+          "primitive": "fields.json",
+          "config": {
+            "format": "object",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "extensionRegistered",
+          "description": "extensionId and extensionVersion must resolve to a Site-authorized registered extension contract."
+        },
+        {
+          "id": "payloadConforms",
+          "description": "data must validate against that registered extension schema."
+        },
+        {
+          "id": "noExecutablePayload",
+          "description": "Extension payload must not contain executable JavaScript, unrestricted HTML/CSS or secrets."
+        },
+        {
+          "id": "noCanonicalOverride",
+          "description": "Custom extensions must not redefine the semantics of an existing canonical NEXT F Block."
+        }
+      ],
+      "cms": {
+        "label": "Registered Custom Block",
+        "icon": "fa-puzzle-piece",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "extensionId",
+          "extensionVersion",
+          "data"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": []
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": [
+        "Use only when no canonical Block can express the business requirement.",
+        "Promote broadly reusable extensions into the canonical registry through the normal contract lifecycle."
+      ]
+    },
+    {
+      "$id": "blocks.documents",
+      "name": "Documents",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "utility",
+      "description": "Documentation/article listing block.",
+      "purpose": "Allows approved documentation to be selected or queried without duplicating article content in page data.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "selectionMode",
+          "required": true,
+          "nullable": false,
+          "description": "How documents are selected.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "manual",
+                "label": "Manual selection"
+              },
+              {
+                "value": "collection",
+                "label": "Documentation collection"
+              },
+              {
+                "value": "category",
+                "label": "Documentation category"
+              }
+            ],
+            "defaultValue": "manual",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "documents",
+          "required": false,
+          "nullable": true,
+          "description": "Manual documentation article selection.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "content.documentationArticle",
+            "relationshipCardinality": "many",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true,
+            "uniqueItems": true,
+            "minItems": 1,
+            "maxItems": 50
+          }
+        },
+        {
+          "key": "collection",
+          "required": false,
+          "nullable": true,
+          "description": "Documentation collection used by collection mode.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "content.documentationCollection",
+            "relationshipCardinality": "one",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "category",
+          "required": false,
+          "nullable": true,
+          "description": "Documentation category used by category mode.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "content.documentationCategory",
+            "relationshipCardinality": "one",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "limit",
+          "required": false,
+          "nullable": true,
+          "description": "Maximum automatically selected documents.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 100,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "content.documentationArticle",
+          "description": "May list Documentation Articles."
+        },
+        {
+          "type": "references",
+          "target": "content.documentationCollection",
+          "description": "May query a Documentation Collection."
+        },
+        {
+          "type": "references",
+          "target": "content.documentationCategory",
+          "description": "May query a Documentation Category."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "modeRequirement",
+          "description": "Manual mode requires documents, collection mode requires collection, and category mode requires category."
+        },
+        {
+          "id": "publishedOnly",
+          "description": "Only public-eligible published documents may be rendered publicly."
+        }
+      ],
+      "cms": {
+        "label": "Documents",
+        "icon": "fa-book-open",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "selectionMode",
+          "documents"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": []
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.faq",
+      "name": "FAQ",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "business",
+      "description": "FAQ section sourced from reusable FAQ entities.",
+      "purpose": "Allows FAQs to be maintained once and reused while preserving structured question-and-answer semantics.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "selectionMode",
+          "required": true,
+          "nullable": false,
+          "description": "How FAQs are selected.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "manual",
+                "label": "Manual selection"
+              },
+              {
+                "value": "group",
+                "label": "By group"
+              }
+            ],
+            "defaultValue": "manual",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "faqs",
+          "required": false,
+          "nullable": true,
+          "description": "Manual FAQ selection.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "content.faq",
+            "relationshipCardinality": "many",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true,
+            "uniqueItems": true,
+            "minItems": 1,
+            "maxItems": 40
+          }
+        },
+        {
+          "key": "group",
+          "required": false,
+          "nullable": true,
+          "description": "FAQ group when selectionMode is group.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "content.faq",
+          "description": "Uses canonical reusable FAQs."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "selectionRequirements",
+          "description": "Manual mode requires faqs; group mode requires a non-empty group."
+        },
+        {
+          "id": "publishedOnly",
+          "description": "Only eligible published FAQs may be delivered publicly."
+        }
+      ],
+      "cms": {
+        "label": "FAQ",
+        "icon": "fa-circle-question",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "selectionMode",
+          "faqs"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Expandable FAQ controls must expose expanded/collapsed state to assistive technology."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.featureGrid",
+      "name": "Feature Grid",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "listing",
+      "description": "Grid/list of structured feature items.",
+      "purpose": "Lets customers manage benefits and features while NEXT F controls card composition and responsive layout.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "items",
+          "required": true,
+          "nullable": false,
+          "description": "Ordered feature items.",
+          "primitive": "fields.json",
+          "config": {
+            "format": "array",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          },
+          "itemsSchema": "blocks.featureItem",
+          "collectionRules": {
+            "minItems": 1,
+            "maxItems": 24
+          }
+        },
+        {
+          "key": "actions",
+          "required": false,
+          "nullable": true,
+          "description": "Optional primary and secondary conversion actions.",
+          "schema": "blocks.actionGroup"
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "blocks.featureItem",
+          "description": "Every item validates against Feature Item."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "blocks.heading",
+          "description": "May include a heading."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "blocks.actionGroup",
+          "description": "May include section actions."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "itemsConform",
+          "description": "Every items entry must validate against blocks.featureItem."
+        },
+        {
+          "id": "reasonableCount",
+          "description": "Implementations may enforce lower display limits based on the selected approved variant."
+        }
+      ],
+      "cms": {
+        "label": "Feature Grid",
+        "icon": "fa-grip",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "items",
+          "actions"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Feature cards must preserve logical source order independent of responsive columns."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.featureItem",
+      "name": "Feature Item",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "foundation",
+      "description": "Reusable feature/card content item.",
+      "purpose": "Provides one consistent feature-item structure for grids and future reusable components.",
+      "blockModel": {
+        "kind": "embedded",
+        "placement": "nested-only",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "iconKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional approved icon identifier from the Site implementation.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "title",
+          "required": true,
+          "nullable": false,
+          "description": "Feature title.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 180,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Feature description.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1200,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "media",
+          "required": false,
+          "nullable": true,
+          "description": "Optional feature media.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "link",
+          "required": false,
+          "nullable": true,
+          "description": "Optional feature destination.",
+          "schema": "shared.link"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "shared.mediaReference",
+          "description": "Feature may include media."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "shared.link",
+          "description": "Feature may link to another destination."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "iconKeyApproved",
+          "description": "When iconKey is used it must resolve to an icon made available by the Site implementation; it must not contain raw SVG/HTML."
+        }
+      ],
+      "cms": {
+        "label": "Feature Item",
+        "icon": "fa-square-check",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "embedded-item-editor",
+        "summaryFields": [
+          "iconKey",
+          "title",
+          "description"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": false,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Decorative icons should be hidden from assistive technology unless they convey unique information."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.form",
+      "name": "Form",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "conversion",
+      "description": "Form placement block that references the canonical Forms module when available.",
+      "purpose": "Keeps form placement separate from form-definition logic and prevents page content from embedding arbitrary form scripts.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "form",
+          "required": true,
+          "nullable": false,
+          "description": "Reference to the canonical form entity when Forms is enabled.",
+          "schema": "core.entityReference"
+        },
+        {
+          "key": "successContext",
+          "required": false,
+          "nullable": true,
+          "description": "Optional contextual copy shown around a successful submission; the Form contract remains authoritative for submission behavior.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1200,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "core.entityReference",
+          "description": "Uses an entity reference until the Forms contract becomes authoritative in Phase 8."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "formTargetType",
+          "description": "When Phase 8 is active, form must reference an entity conforming to the canonical forms.form contract."
+        },
+        {
+          "id": "noEmbeddedFormScript",
+          "description": "Arbitrary form HTML or third-party script snippets are prohibited in this block."
+        }
+      ],
+      "cms": {
+        "label": "Form",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "form",
+          "successContext"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Referenced forms must provide programmatic labels, instructions, validation feedback and keyboard-operable controls."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": "phase-8-required",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.gallery",
+      "name": "Gallery",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "media",
+      "description": "Structured media gallery section.",
+      "purpose": "Allows editorial gallery management without exposing arbitrary slideshow or layout code.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "items",
+          "required": true,
+          "nullable": false,
+          "description": "Ordered gallery items.",
+          "primitive": "fields.json",
+          "config": {
+            "format": "array",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          },
+          "itemsSchema": "blocks.galleryItem",
+          "collectionRules": {
+            "minItems": 1,
+            "maxItems": 60
+          }
+        },
+        {
+          "key": "lightboxEnabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the approved frontend may offer an expanded media view.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "blocks.galleryItem",
+          "description": "Every gallery item validates against Gallery Item."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "itemsConform",
+          "description": "Every items entry must validate against blocks.galleryItem."
+        }
+      ],
+      "cms": {
+        "label": "Gallery",
+        "icon": "fa-images",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "items",
+          "lightboxEnabled"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Lightbox interaction must be keyboard accessible when enabled.",
+          "Expanded media UI must manage focus and provide a close control."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.galleryItem",
+      "name": "Gallery Item",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "foundation",
+      "description": "Reusable gallery media item with optional contextual copy and destination.",
+      "purpose": "Adds per-placement context around a canonical media asset without duplicating the asset.",
+      "blockModel": {
+        "kind": "embedded",
+        "placement": "nested-only",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "media",
+          "required": true,
+          "nullable": false,
+          "description": "Gallery media.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "title",
+          "required": false,
+          "nullable": true,
+          "description": "Optional item title.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "caption",
+          "required": false,
+          "nullable": true,
+          "description": "Optional item caption.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 800,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "link",
+          "required": false,
+          "nullable": true,
+          "description": "Optional destination.",
+          "schema": "shared.link"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "shared.mediaReference",
+          "description": "Uses canonical media references."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "shared.link",
+          "description": "May link to an approved destination."
+        }
+      ],
+      "validationRules": [],
+      "cms": {
+        "label": "Gallery Item",
+        "icon": "fa-image",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "embedded-item-editor",
+        "summaryFields": [
+          "media",
+          "title",
+          "caption"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": false,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Informative media must have meaningful alternative text through the media reference."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.heading",
+      "name": "Section Heading",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "foundation",
+      "description": "Reusable heading group for section-level blocks.",
+      "purpose": "Keeps eyebrow, heading and description semantics consistent without forcing visual layout.",
+      "blockModel": {
+        "kind": "embedded",
+        "placement": "nested-only",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "eyebrow",
+          "required": false,
+          "nullable": true,
+          "description": "Optional short contextual label above the heading.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "heading",
+          "required": true,
+          "nullable": false,
+          "description": "Primary section heading.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 220,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Optional supporting description.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 2000,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "semanticLevel",
+          "required": true,
+          "nullable": false,
+          "description": "Developer-controlled semantic heading level.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "h1",
+                "label": "H1"
+              },
+              {
+                "value": "h2",
+                "label": "H2"
+              },
+              {
+                "value": "h3",
+                "label": "H3"
+              },
+              {
+                "value": "h4",
+                "label": "H4"
+              }
+            ],
+            "defaultValue": "h2",
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "fields.text",
+          "description": "Uses canonical text primitives."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "semanticLevelControlled",
+          "description": "semanticLevel is controlled by NEXT F/developer configuration so customer edits cannot break heading hierarchy."
+        }
+      ],
+      "cms": {
+        "label": "Section Heading",
+        "icon": "fa-heading",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "embedded-item-editor",
+        "summaryFields": [
+          "eyebrow",
+          "heading",
+          "description"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": false,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Rendered heading level must match semanticLevel.",
+          "Do not use visual size as a substitute for semantic heading order."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "heading": "Engineering solutions",
+            "semanticLevel": "h2"
+          }
+        ],
+        "invalid": [
+          {
+            "heading": "",
+            "semanticLevel": "h9"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.hero",
+      "name": "Hero",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "hero",
+      "description": "Primary introductory section for a page or landing experience.",
+      "purpose": "Standardizes editable hero content while keeping layout, animation, responsive composition and visual treatment in the coded frontend.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": true,
+          "nullable": false,
+          "description": "Shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "actions",
+          "required": false,
+          "nullable": true,
+          "description": "Optional primary and secondary conversion actions.",
+          "schema": "blocks.actionGroup"
+        },
+        {
+          "key": "media",
+          "required": false,
+          "nullable": true,
+          "description": "Optional primary hero media.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "supportingNote",
+          "required": false,
+          "nullable": true,
+          "description": "Optional concise supporting note such as availability or trust copy.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 180,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "blocks.heading",
+          "description": "Uses shared heading semantics."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "blocks.actionGroup",
+          "description": "May include conversion actions."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "shared.mediaReference",
+          "description": "May include hero media."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "singlePageH1",
+          "description": "When heading.semanticLevel is h1, the rendered page must not introduce another primary H1 unless the page contract explicitly permits it."
+        },
+        {
+          "id": "variantImplemented",
+          "description": "Non-null variantKey must be implemented and approved by the Site frontend."
+        }
+      ],
+      "cms": {
+        "label": "Hero",
+        "icon": "fa-bullhorn",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "actions",
+          "media"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Hero media must not replace the textual heading.",
+          "CTA labels must remain understandable outside their visual styling."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "heading": {
+              "heading": "Build with confidence",
+              "semanticLevel": "h1"
+            },
+            "variantKey": "split"
+          }
+        ],
+        "invalid": [
+          {
+            "heading": null,
+            "variantKey": "<script>"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.locations",
+      "name": "Locations",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "business",
+      "description": "Business location listing sourced from reusable Business Location entities.",
+      "purpose": "Provides location presentation without confusing business locations with hosting regions or infrastructure.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "selectionMode",
+          "required": true,
+          "nullable": false,
+          "description": "How locations are selected.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "manual",
+                "label": "Manual selection"
+              },
+              {
+                "value": "all",
+                "label": "All published locations"
+              }
+            ],
+            "defaultValue": "manual",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "locations",
+          "required": false,
+          "nullable": true,
+          "description": "Manual business location selection.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "content.location",
+            "relationshipCardinality": "many",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true,
+            "uniqueItems": true,
+            "minItems": 1,
+            "maxItems": 80
+          }
+        },
+        {
+          "key": "showMapLinks",
+          "required": true,
+          "nullable": false,
+          "description": "Whether approved map/directions links may be shown when location data supports them.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "content.location",
+          "description": "Uses canonical Business Location entities."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "manualRequiresLocations",
+          "description": "Manual mode requires locations."
+        },
+        {
+          "id": "notInfrastructureRegion",
+          "description": "Business Location records must never be interpreted as hosting/server regions."
+        }
+      ],
+      "cms": {
+        "label": "Locations",
+        "icon": "fa-location-dot",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "selectionMode",
+          "locations"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Location information must remain available as text even when a map or visual representation is used."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.logoGrid",
+      "name": "Logo Grid",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "proof",
+      "description": "Structured collection of partner, customer, certification or technology logos.",
+      "purpose": "Keeps logos and their names accessible while frontend controls grid presentation.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "items",
+          "required": true,
+          "nullable": false,
+          "description": "Ordered logo items.",
+          "primitive": "fields.json",
+          "config": {
+            "format": "array",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          },
+          "itemsSchema": "blocks.logoItem",
+          "collectionRules": {
+            "minItems": 1,
+            "maxItems": 40
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "blocks.logoItem",
+          "description": "Every item validates against Logo Item."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "itemsConform",
+          "description": "Every items entry must validate against blocks.logoItem."
+        }
+      ],
+      "cms": {
+        "label": "Logo Grid",
+        "icon": "fa-table-cells-large",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "items",
+          "variantKey"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Logos that convey identity need appropriate text alternatives."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.logoItem",
+      "name": "Logo Item",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "foundation",
+      "description": "Reusable organization/partner/client logo item.",
+      "purpose": "Keeps logo media, human-readable name and optional link together.",
+      "blockModel": {
+        "kind": "embedded",
+        "placement": "nested-only",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Organization or brand name represented by the logo.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 180,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "logo",
+          "required": true,
+          "nullable": false,
+          "description": "Logo asset.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "link",
+          "required": false,
+          "nullable": true,
+          "description": "Optional destination.",
+          "schema": "shared.link"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "shared.mediaReference",
+          "description": "Uses a media reference for the logo."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "shared.link",
+          "description": "May link to an organization website or related page."
+        }
+      ],
+      "validationRules": [],
+      "cms": {
+        "label": "Logo Item",
+        "icon": "fa-certificate",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "embedded-item-editor",
+        "summaryFields": [
+          "name",
+          "logo",
+          "link"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": false,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Logo alternative text should identify the represented organization when the logo conveys content."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.pricing",
+      "name": "Pricing",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "business",
+      "description": "Marketing pricing/package comparison section.",
+      "purpose": "Provides controlled pricing presentation while keeping transactional ecommerce pricing in Commerce contracts.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "plans",
+          "required": true,
+          "nullable": false,
+          "description": "Ordered marketing pricing plans.",
+          "primitive": "fields.json",
+          "config": {
+            "format": "array",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          },
+          "itemsSchema": "blocks.pricingPlan",
+          "collectionRules": {
+            "minItems": 1,
+            "maxItems": 12
+          }
+        },
+        {
+          "key": "disclaimer",
+          "required": false,
+          "nullable": true,
+          "description": "Optional section-level pricing qualification.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1600,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "blocks.pricingPlan",
+          "description": "Every plan validates against Pricing Plan."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "plansConform",
+          "description": "Every plans entry must validate against blocks.pricingPlan."
+        },
+        {
+          "id": "notCommerceAuthority",
+          "description": "Pricing Block data must not be used as the authoritative checkout price for Commerce transactions."
+        }
+      ],
+      "cms": {
+        "label": "Pricing",
+        "icon": "fa-money-check-dollar",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "plans",
+          "disclaimer"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Pricing differences must be understandable in text, not only through color or highlighted cards."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.pricingPlan",
+      "name": "Pricing Plan",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "foundation",
+      "description": "Display-oriented pricing plan item for marketing pages.",
+      "purpose": "Supports service/package price presentation without pretending to be a transactional commerce price or checkout contract.",
+      "blockModel": {
+        "kind": "embedded",
+        "placement": "nested-only",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Plan or package name.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 160,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "badge",
+          "required": false,
+          "nullable": true,
+          "description": "Optional merchandising badge such as Most Popular.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Optional plan summary.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1200,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "priceLabel",
+          "required": true,
+          "nullable": false,
+          "description": "Display price text such as From LKR 25,000 or Contact us.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 100,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "billingLabel",
+          "required": false,
+          "nullable": true,
+          "description": "Optional billing-period text such as per month.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "features",
+          "required": false,
+          "nullable": true,
+          "description": "Ordered human-readable feature strings.",
+          "primitive": "fields.json",
+          "config": {
+            "format": "array",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "cta",
+          "required": false,
+          "nullable": true,
+          "description": "Optional plan CTA.",
+          "schema": "shared.cta"
+        },
+        {
+          "key": "highlighted",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the approved frontend may visually prioritize this plan.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "disclaimer",
+          "required": false,
+          "nullable": true,
+          "description": "Optional pricing qualification or terms note.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "shared.cta",
+          "description": "Plan may include a CTA."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "displayOnlyPricing",
+          "description": "priceLabel is display content and must not be used as an authoritative commerce checkout amount."
+        },
+        {
+          "id": "featuresStringsOnly",
+          "description": "features must contain non-empty plain text strings only."
+        }
+      ],
+      "cms": {
+        "label": "Pricing Plan",
+        "icon": "fa-tags",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "embedded-item-editor",
+        "summaryFields": [
+          "name",
+          "badge",
+          "description"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": false,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Pricing qualifications must remain available as text and not only through visual decoration."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.process",
+      "name": "Process / Steps",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "business",
+      "description": "Ordered process, journey or timeline section.",
+      "purpose": "Creates predictable step structures while frontend controls visual timeline treatment.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "steps",
+          "required": true,
+          "nullable": false,
+          "description": "Ordered process steps.",
+          "primitive": "fields.json",
+          "config": {
+            "format": "array",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          },
+          "itemsSchema": "blocks.processStep",
+          "collectionRules": {
+            "minItems": 1,
+            "maxItems": 20
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "blocks.processStep",
+          "description": "Every step validates against Process Step."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "stepsConform",
+          "description": "Every steps entry must validate against blocks.processStep."
+        },
+        {
+          "id": "sequenceOrder",
+          "description": "Array order is the canonical logical sequence."
+        }
+      ],
+      "cms": {
+        "label": "Process / Steps",
+        "icon": "fa-list-ol",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "steps",
+          "variantKey"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Rendered visual order must match the canonical logical step sequence."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.processStep",
+      "name": "Process Step",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "foundation",
+      "description": "Reusable ordered process or timeline step.",
+      "purpose": "Provides consistent step data for process, journey and timeline sections.",
+      "blockModel": {
+        "kind": "embedded",
+        "placement": "nested-only",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "stepLabel",
+          "required": false,
+          "nullable": true,
+          "description": "Optional short step marker such as 01 or Discovery.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 60,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "title",
+          "required": true,
+          "nullable": false,
+          "description": "Step title.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 180,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Step description.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1500,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "media",
+          "required": false,
+          "nullable": true,
+          "description": "Optional step media.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "link",
+          "required": false,
+          "nullable": true,
+          "description": "Optional step destination.",
+          "schema": "shared.link"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "shared.mediaReference",
+          "description": "Step may include media."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "shared.link",
+          "description": "Step may link to supporting content."
+        }
+      ],
+      "validationRules": [],
+      "cms": {
+        "label": "Process Step",
+        "icon": "fa-list-ol",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "embedded-item-editor",
+        "summaryFields": [
+          "stepLabel",
+          "title",
+          "description"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": false,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Visual numbering must not be the only way step sequence is conveyed."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.relatedContent",
+      "name": "Related Content",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "utility",
+      "description": "Cross-content recommendation section using canonical entity references.",
+      "purpose": "Provides structured related/recommended content without hardcoding duplicate card content.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "items",
+          "required": true,
+          "nullable": false,
+          "description": "Ordered related content references.",
+          "primitive": "fields.json",
+          "config": {
+            "format": "array",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          },
+          "itemsSchema": "blocks.relatedContentItem",
+          "collectionRules": {
+            "minItems": 1,
+            "maxItems": 24
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "blocks.relatedContentItem",
+          "description": "Every item validates against Related Content Item."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "itemsConform",
+          "description": "Every items entry must validate against blocks.relatedContentItem."
+        },
+        {
+          "id": "sameSiteDefault",
+          "description": "Related items must belong to the same Site unless an explicit cross-site contract permits otherwise."
+        }
+      ],
+      "cms": {
+        "label": "Related Content",
+        "icon": "fa-link",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "items",
+          "variantKey"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": []
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.relatedContentItem",
+      "name": "Related Content Item",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "foundation",
+      "description": "Reference wrapper for content presented as related or recommended.",
+      "purpose": "Allows related content to target different canonical content entities while keeping optional contextual overrides structured.",
+      "blockModel": {
+        "kind": "embedded",
+        "placement": "nested-only",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "entity",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical target entity reference.",
+          "schema": "core.entityReference"
+        },
+        {
+          "key": "titleOverride",
+          "required": false,
+          "nullable": true,
+          "description": "Optional contextual title override without changing the target entity.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 180,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "summaryOverride",
+          "required": false,
+          "nullable": true,
+          "description": "Optional contextual summary override.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 800,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "mediaOverride",
+          "required": false,
+          "nullable": true,
+          "description": "Optional contextual media override.",
+          "schema": "shared.mediaReference"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityReference",
+          "description": "Targets a canonical entity."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "shared.mediaReference",
+          "description": "May override display media for this placement."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "targetPublicEligible",
+          "description": "When delivered publicly, the target entity must be public-eligible and published in the same Site unless an explicit contract permits otherwise."
+        }
+      ],
+      "cms": {
+        "label": "Related Content Item",
+        "icon": "fa-link",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "embedded-item-editor",
+        "summaryFields": [
+          "entity",
+          "titleOverride",
+          "summaryOverride"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": false,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": []
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.richText",
+      "name": "Rich Text",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "editorial",
+      "description": "Long-form structured editorial section.",
+      "purpose": "Provides safe rich editorial content without arbitrary executable HTML.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "content",
+          "required": true,
+          "nullable": false,
+          "description": "Structured rich-text document.",
+          "primitive": "fields.richText",
+          "config": {
+            "minLength": 1,
+            "maxLength": 80000,
+            "format": "nextf-rich-content",
+            "customerEditable": true,
+            "adminEditable": true,
+            "searchable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "blocks.heading",
+          "description": "May include a separate section heading."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "safeStructuredContent",
+          "description": "content must use the canonical safe rich-content envelope and must not contain executable script semantics."
+        }
+      ],
+      "cms": {
+        "label": "Rich Text",
+        "icon": "fa-align-left",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "content",
+          "variantKey"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Heading nodes inside content must preserve logical hierarchy.",
+          "Links must have meaningful accessible labels."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.services",
+      "name": "Services",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "business",
+      "description": "Service listing sourced from reusable Service entities.",
+      "purpose": "Prevents service information from being duplicated across page sections and keeps selection behavior explicit.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "selectionMode",
+          "required": true,
+          "nullable": false,
+          "description": "How services are selected.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "manual",
+                "label": "Manual selection"
+              },
+              {
+                "value": "featured",
+                "label": "Featured services"
+              },
+              {
+                "value": "all",
+                "label": "All published services"
+              }
+            ],
+            "defaultValue": "manual",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "services",
+          "required": false,
+          "nullable": true,
+          "description": "Manual service selection.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "content.service",
+            "relationshipCardinality": "many",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true,
+            "uniqueItems": true,
+            "minItems": 1,
+            "maxItems": 24
+          }
+        },
+        {
+          "key": "limit",
+          "required": false,
+          "nullable": true,
+          "description": "Maximum automatically selected services.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 50,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "actions",
+          "required": false,
+          "nullable": true,
+          "description": "Optional primary and secondary conversion actions.",
+          "schema": "blocks.actionGroup"
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "content.service",
+          "description": "Uses canonical Service entities."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "blocks.heading",
+          "description": "May include heading content."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "manualRequiresServices",
+          "description": "selectionMode manual requires at least one services reference."
+        },
+        {
+          "id": "automaticUsesPublished",
+          "description": "featured/all selection may include only eligible published services from the same Site."
+        },
+        {
+          "id": "sameSite",
+          "description": "Service references must remain within the same Site unless an explicit cross-site contract is introduced."
+        }
+      ],
+      "cms": {
+        "label": "Services",
+        "icon": "fa-briefcase",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "selectionMode",
+          "services"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Service cards must have accessible names and destinations when clickable."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.statItem",
+      "name": "Stat Item",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "foundation",
+      "description": "Reusable statistic or metric content item.",
+      "purpose": "Allows human-readable metrics such as 99.9%, 24/7 and 250+ without forcing numeric-only storage.",
+      "blockModel": {
+        "kind": "embedded",
+        "placement": "nested-only",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "value",
+          "required": true,
+          "nullable": false,
+          "description": "Displayed metric value.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 80,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "prefix",
+          "required": false,
+          "nullable": true,
+          "description": "Optional prefix such as currency or approximation.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 20,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "suffix",
+          "required": false,
+          "nullable": true,
+          "description": "Optional suffix such as %, + or years.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 40,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "label",
+          "required": true,
+          "nullable": false,
+          "description": "Metric label.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 140,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Optional context or methodology note.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 600,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "metricNotFabricated",
+          "description": "Values are editorial claims and must be backed by the Organization when they represent factual business performance."
+        }
+      ],
+      "cms": {
+        "label": "Stat Item",
+        "icon": "fa-chart-simple",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "embedded-item-editor",
+        "summaryFields": [
+          "value",
+          "prefix",
+          "suffix"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": false,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Rendered text must make the relationship between value and label understandable without relying only on visual proximity."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.stats",
+      "name": "Stats",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "proof",
+      "description": "Section presenting a set of business statistics or metrics.",
+      "purpose": "Standardizes metric content while allowing frontend-specific visual presentation.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "items",
+          "required": true,
+          "nullable": false,
+          "description": "Ordered statistics.",
+          "primitive": "fields.json",
+          "config": {
+            "format": "array",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          },
+          "itemsSchema": "blocks.statItem",
+          "collectionRules": {
+            "minItems": 1,
+            "maxItems": 16
+          }
+        },
+        {
+          "key": "footnote",
+          "required": false,
+          "nullable": true,
+          "description": "Optional methodology or qualification note.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "blocks.statItem",
+          "description": "Every metric validates against Stat Item."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "itemsConform",
+          "description": "Every items entry must validate against blocks.statItem."
+        }
+      ],
+      "cms": {
+        "label": "Stats",
+        "icon": "fa-chart-column",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "items",
+          "footnote"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Do not communicate metric meaning only with color, iconography or animation."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.team",
+      "name": "Team",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "business",
+      "description": "Team listing sourced from reusable Team Member entities.",
+      "purpose": "Prevents team profile duplication and gives customers controlled member selection.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "selectionMode",
+          "required": true,
+          "nullable": false,
+          "description": "How members are selected.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "manual",
+                "label": "Manual selection"
+              },
+              {
+                "value": "all",
+                "label": "All published members"
+              }
+            ],
+            "defaultValue": "manual",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "members",
+          "required": false,
+          "nullable": true,
+          "description": "Manual team member selection.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "content.teamMember",
+            "relationshipCardinality": "many",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true,
+            "uniqueItems": true,
+            "minItems": 1,
+            "maxItems": 60
+          }
+        },
+        {
+          "key": "limit",
+          "required": false,
+          "nullable": true,
+          "description": "Maximum automatically selected members.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 100,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "content.teamMember",
+          "description": "Uses canonical Team Member entities."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "manualRequiresMembers",
+          "description": "Manual mode requires at least one member."
+        },
+        {
+          "id": "publishedOnly",
+          "description": "Only eligible published team profiles may be delivered publicly."
+        }
+      ],
+      "cms": {
+        "label": "Team",
+        "icon": "fa-people-group",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "selectionMode",
+          "members"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": []
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.testimonials",
+      "name": "Testimonials",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "proof",
+      "description": "Testimonial listing sourced from reusable Testimonial entities.",
+      "purpose": "Keeps testimonial claims reusable and avoids copied quote data across pages.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "selectionMode",
+          "required": true,
+          "nullable": false,
+          "description": "How testimonials are selected.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "manual",
+                "label": "Manual selection"
+              },
+              {
+                "value": "featured",
+                "label": "Featured testimonials"
+              },
+              {
+                "value": "all",
+                "label": "All published testimonials"
+              }
+            ],
+            "defaultValue": "manual",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "testimonials",
+          "required": false,
+          "nullable": true,
+          "description": "Manual testimonial selection.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "content.testimonial",
+            "relationshipCardinality": "many",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true,
+            "uniqueItems": true,
+            "minItems": 1,
+            "maxItems": 24
+          }
+        },
+        {
+          "key": "limit",
+          "required": false,
+          "nullable": true,
+          "description": "Maximum automatically selected testimonials.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 50,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "content.testimonial",
+          "description": "Uses canonical Testimonial entities."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "manualRequiresTestimonials",
+          "description": "selectionMode manual requires at least one testimonial reference."
+        },
+        {
+          "id": "publishedOnly",
+          "description": "Public delivery includes only eligible published testimonials."
+        }
+      ],
+      "cms": {
+        "label": "Testimonials",
+        "icon": "fa-quote-left",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "selectionMode",
+          "testimonials"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Auto-rotating presentation, if implemented, must provide pause/control behavior appropriate to accessibility requirements."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.textImage",
+      "name": "Text + Image",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "editorial",
+      "description": "Combined structured copy and media section.",
+      "purpose": "Supports common editorial layouts without letting customer content define arbitrary grid or CSS structure.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "content",
+          "required": true,
+          "nullable": false,
+          "description": "Structured body content.",
+          "primitive": "fields.richText",
+          "config": {
+            "minLength": 1,
+            "maxLength": 40000,
+            "format": "nextf-rich-content",
+            "customerEditable": true,
+            "adminEditable": true,
+            "searchable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "media",
+          "required": true,
+          "nullable": false,
+          "description": "Primary section media.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "actions",
+          "required": false,
+          "nullable": true,
+          "description": "Optional primary and secondary conversion actions.",
+          "schema": "blocks.actionGroup"
+        },
+        {
+          "key": "mediaPositionKey",
+          "required": true,
+          "nullable": false,
+          "description": "Approved semantic placement hint.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "start",
+                "label": "Start"
+              },
+              {
+                "value": "end",
+                "label": "End"
+              }
+            ],
+            "defaultValue": "end",
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "blocks.heading",
+          "description": "May use shared section heading."
+        },
+        {
+          "type": "composes",
+          "target": "shared.mediaReference",
+          "description": "Requires media."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "blocks.actionGroup",
+          "description": "May include actions."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "mediaPositionPresentationOnly",
+          "description": "mediaPositionKey is an approved layout hint; responsive behavior remains frontend-controlled."
+        }
+      ],
+      "cms": {
+        "label": "Text + Image",
+        "icon": "fa-columns",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "content",
+          "media"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Informative images require suitable alternative text.",
+          "Responsive visual reordering must not create an illogical reading order."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "blocks.video",
+      "name": "Video",
+      "version": "0.7.0",
+      "status": "stable",
+      "domain": "blocks",
+      "category": "media",
+      "description": "Single video presentation with poster, caption and transcript support.",
+      "purpose": "Provides a safe media-oriented video block without arbitrary embed HTML.",
+      "blockModel": {
+        "kind": "section",
+        "placement": "page-section",
+        "customerManaged": true,
+        "developerControlledPresentation": true,
+        "supportsRevision": true,
+        "allowsArbitraryHtml": false,
+        "allowsArbitraryCss": false,
+        "allowsArbitraryScript": false
+      },
+      "fields": [
+        {
+          "key": "heading",
+          "required": false,
+          "nullable": true,
+          "description": "Optional shared section heading content.",
+          "schema": "blocks.heading"
+        },
+        {
+          "key": "sourceType",
+          "required": true,
+          "nullable": false,
+          "description": "Video source mode.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "media",
+                "label": "Managed media"
+              },
+              {
+                "value": "external",
+                "label": "Approved external URL"
+              }
+            ],
+            "defaultValue": "media",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "media",
+          "required": false,
+          "nullable": true,
+          "description": "Managed video asset when sourceType is media.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "externalUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Approved external video URL when sourceType is external.",
+          "primitive": "fields.url",
+          "config": {
+            "maxLength": 2000,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "poster",
+          "required": false,
+          "nullable": true,
+          "description": "Optional poster image.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "caption",
+          "required": false,
+          "nullable": true,
+          "description": "Optional visible caption.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "transcript",
+          "required": false,
+          "nullable": true,
+          "description": "Optional accessible transcript.",
+          "primitive": "fields.richText",
+          "config": {
+            "maxLength": 60000,
+            "format": "nextf-rich-content",
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "variantKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 100,
+            "customerEditable": false,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "shared.mediaReference",
+          "description": "May use managed video and poster assets."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "sourceExclusive",
+          "description": "sourceType media requires media and must not require externalUrl; sourceType external requires externalUrl."
+        },
+        {
+          "id": "noRawEmbed",
+          "description": "External video must use an approved URL/provider adapter; arbitrary iframe/embed HTML is prohibited."
+        }
+      ],
+      "cms": {
+        "label": "Video",
+        "icon": "fa-circle-play",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "block-editor",
+        "summaryFields": [
+          "heading",
+          "sourceType",
+          "media"
+        ],
+        "fieldGroups": [
+          "content",
+          "media",
+          "actions",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "presentation": {
+        "layoutControlledBy": "frontend",
+        "styleControlledBy": "frontend",
+        "componentMappingRequired": true,
+        "variantKeyPolicy": "developer-defined-approved-key-only"
+      },
+      "accessibility": {
+        "requirements": [
+          "Video controls must be keyboard accessible.",
+          "Captions should be provided for spoken content where required.",
+          "Transcript should be available for important spoken/informational content."
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Block data may be delivered only through an eligible published parent content entity."
+      },
+      "futureBindings": {
+        "seo": null,
+        "forms": null,
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {}
+        ],
+        "invalid": []
+      },
+      "notes": []
+    }
+  ]
+};

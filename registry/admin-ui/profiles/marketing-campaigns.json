@@ -1,0 +1,114 @@
+{
+  "$id": "adminUi.profile.marketing.campaigns",
+  "name": "Campaigns Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "marketing.campaigns",
+  "permissionDomain": "marketing",
+  "moduleId": "marketing",
+  "description": "Internal NEXT F Admin metadata for Campaigns. Applies only within server-authorized administrative scope.",
+  "route": "/sites/:siteId/marketing/campaigns",
+  "screenKind": "admin-editor",
+  "layoutTemplate": "inherited-resource",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "site",
+    "requiresOrganization": false,
+    "requiresSite": true,
+    "allowsCrossTenant": false,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": "cmsUi.profile.marketing.campaigns",
+  "inheritanceMode": "reference-not-copy",
+  "targetContracts": [
+    "marketing.campaignDefinition",
+    "marketing.campaignPerformanceSnapshot"
+  ],
+  "primaryTargetContract": "marketing.campaignDefinition",
+  "permissions": [
+    "marketing.campaigns.create",
+    "marketing.campaigns.delete",
+    "marketing.campaigns.edit",
+    "marketing.campaigns.manage",
+    "marketing.campaigns.view"
+  ],
+  "actions": [
+    {
+      "actionId": "create",
+      "permissionId": "marketing.campaigns.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "marketing.campaigns.delete",
+      "riskLevel": "destructive",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "marketing.campaigns.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "marketing.campaigns.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "marketing.campaigns.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions",
+    "customer-ui-reference",
+    "tracking-consent",
+    "data-governance"
+  ],
+  "controls": [
+    "risk-badge",
+    "explicit-confirmation"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": [
+    "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
+  ]
+}

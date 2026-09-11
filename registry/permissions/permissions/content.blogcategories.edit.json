@@ -1,0 +1,29 @@
+{
+  "$id": "content.blogcategories.edit",
+  "name": "Edit Blogcategories",
+  "permissionId": "content.blogcategories.edit",
+  "domain": "content",
+  "resource": "blogcategories",
+  "action": "edit",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Edit Blogcategories within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

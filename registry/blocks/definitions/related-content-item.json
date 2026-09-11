@@ -1,0 +1,130 @@
+{
+  "$id": "blocks.relatedContentItem",
+  "name": "Related Content Item",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "foundation",
+  "description": "Reference wrapper for content presented as related or recommended.",
+  "purpose": "Allows related content to target different canonical content entities while keeping optional contextual overrides structured.",
+  "blockModel": {
+    "kind": "embedded",
+    "placement": "nested-only",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "entity",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical target entity reference.",
+      "schema": "core.entityReference"
+    },
+    {
+      "key": "titleOverride",
+      "required": false,
+      "nullable": true,
+      "description": "Optional contextual title override without changing the target entity.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "summaryOverride",
+      "required": false,
+      "nullable": true,
+      "description": "Optional contextual summary override.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 800,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "mediaOverride",
+      "required": false,
+      "nullable": true,
+      "description": "Optional contextual media override.",
+      "schema": "shared.mediaReference"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityReference",
+      "description": "Targets a canonical entity."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "May override display media for this placement."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "targetPublicEligible",
+      "description": "When delivered publicly, the target entity must be public-eligible and published in the same Site unless an explicit contract permits otherwise."
+    }
+  ],
+  "cms": {
+    "label": "Related Content Item",
+    "icon": "fa-link",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "embedded-item-editor",
+    "summaryFields": [
+      "entity",
+      "titleOverride",
+      "summaryOverride"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": false,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": []
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

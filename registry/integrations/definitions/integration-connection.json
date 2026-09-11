@@ -1,0 +1,185 @@
+{
+  "$id": "integrations.integrationConnection",
+  "name": "Integration Connection",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "foundation",
+  "description": "A configured Site/environment connection to one connector.",
+  "purpose": "Represents a real customer integration instance without mixing provider secrets into public Site data.",
+  "integrationModel": {
+    "kind": "connection",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable connection identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "connectorKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical connector key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Normalized connection state.",
+      "schema": "integrations.connectionStatus"
+    },
+    {
+      "key": "environmentBindings",
+      "required": true,
+      "nullable": false,
+      "description": "Environment-specific configuration.",
+      "itemsSchema": "integrations.environmentBinding"
+    },
+    {
+      "key": "capabilities",
+      "required": false,
+      "nullable": true,
+      "description": "Enabled connection capabilities.",
+      "itemsSchema": "integrations.capabilityBinding"
+    },
+    {
+      "key": "consent",
+      "required": false,
+      "nullable": true,
+      "description": "Consent policy binding.",
+      "schema": "integrations.consentBinding"
+    },
+    {
+      "key": "dataPolicy",
+      "required": false,
+      "nullable": true,
+      "description": "Data minimization policy.",
+      "schema": "integrations.dataPolicyBinding"
+    },
+    {
+      "key": "health",
+      "required": false,
+      "nullable": true,
+      "description": "Latest safe health snapshot.",
+      "schema": "integrations.healthSnapshot"
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Last connection update.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composes",
+      "target": "integrations.connectionStatus",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composesMany",
+      "target": "integrations.environmentBinding",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composesMany",
+      "target": "integrations.capabilityBinding",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composes",
+      "target": "integrations.consentBinding",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composes",
+      "target": "integrations.dataPolicyBinding",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composes",
+      "target": "integrations.healthSnapshot",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "siteScoped",
+      "description": "Connections belong to one Site."
+    },
+    {
+      "id": "environmentExplicit",
+      "description": "Provider resources and credentials are explicitly environment-bound."
+    },
+    {
+      "id": "noRawSecrets",
+      "description": "Connection records never contain raw secret values."
+    },
+    {
+      "id": "disabledMeansNoDispatch",
+      "description": "Disabled/revoked connections cannot dispatch or sync."
+    }
+  ],
+  "cms": {
+    "label": "Integration Connection",
+    "icon": "fa-plug",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "connectorKey",
+      "status"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

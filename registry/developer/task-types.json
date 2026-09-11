@@ -1,0 +1,288 @@
+{
+  "registryVersion": "0.22.0",
+  "taskTypes": [
+    {
+      "id": "new-site",
+      "label": "New Customer Site",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "manifest-first",
+        "mandatory-runtime-capabilities",
+        "cms-editability",
+        "api-bindings"
+      ]
+    },
+    {
+      "id": "existing-site-change",
+      "label": "Existing Site Feature",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "inspect-before-change",
+        "preserve-out-of-scope-behavior",
+        "compatibility-review"
+      ]
+    },
+    {
+      "id": "bug-fix",
+      "label": "Bug Fix",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "reproduce-or-establish-failure",
+        "smallest-fix",
+        "regression-coverage"
+      ]
+    },
+    {
+      "id": "customer-cms",
+      "label": "Customer CMS Work",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "resolve-cms-ui-profile",
+        "server-authorization",
+        "no-duplicate-customer-admin"
+      ]
+    },
+    {
+      "id": "nextf-admin",
+      "label": "NEXT F Admin Work",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "resolve-admin-ui-profile",
+        "platform-scope",
+        "no-impersonation",
+        "no-business-rule-bypass"
+      ]
+    },
+    {
+      "id": "api-integration",
+      "label": "API Integration",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "exact-api-binding",
+        "request-response-contracts",
+        "authz-idempotency-concurrency"
+      ]
+    },
+    {
+      "id": "commerce-feature",
+      "label": "Commerce Feature",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "commerce-core",
+        "commerce-rules",
+        "transaction-history",
+        "financial-idempotency"
+      ]
+    },
+    {
+      "id": "marketing-tracking",
+      "label": "Marketing / Tracking",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "canonical-tracking-events",
+        "consent",
+        "data-minimization",
+        "environment-isolation"
+      ]
+    },
+    {
+      "id": "external-integration",
+      "label": "External Integration",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "canonical-connector",
+        "secret-reference",
+        "mapping-boundary",
+        "health-and-retry-policy"
+      ]
+    },
+    {
+      "id": "contract-upgrade",
+      "label": "Contract Version Upgrade",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "compatibility-review",
+        "migration-plan",
+        "deprecations",
+        "manifest-update"
+      ]
+    },
+    {
+      "id": "data-migration",
+      "label": "Data Migration",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "dry-run",
+        "backup-or-recovery-plan",
+        "idempotency",
+        "data-integrity"
+      ]
+    },
+    {
+      "id": "contract-registry-change",
+      "label": "NEXT F Contract Change",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "global-id-uniqueness",
+        "compatibility-classification",
+        "registry-sync",
+        "changelog",
+        "full-validation"
+      ]
+    },
+    {
+      "id": "security-fix",
+      "label": "Security Fix",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "minimum-disclosure",
+        "authorization-review",
+        "secret-handling",
+        "regression-test"
+      ]
+    }
+  ]
+}

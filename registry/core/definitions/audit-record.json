@@ -1,0 +1,201 @@
+{
+  "$id": "core.auditRecord",
+  "name": "Audit Record",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "audit",
+  "description": "Append-only record of a meaningful platform or customer action.",
+  "purpose": "Creates one canonical audit envelope for Admin, Customer CMS, integrations and future commerce operations.",
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque audit record ID.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 4,
+        "maxLength": 128,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "occurredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Authoritative event timestamp.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    },
+    {
+      "key": "actor",
+      "required": true,
+      "nullable": false,
+      "description": "Actor responsible for the action.",
+      "schema": "core.actorReference"
+    },
+    {
+      "key": "action",
+      "required": true,
+      "nullable": false,
+      "description": "Stable auditable action identifier.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 3,
+        "maxLength": 160,
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "entity",
+      "required": false,
+      "nullable": true,
+      "description": "Affected entity when applicable.",
+      "schema": "core.entityReference"
+    },
+    {
+      "key": "summary",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable non-secret action summary.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300,
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true
+      }
+    },
+    {
+      "key": "before",
+      "required": false,
+      "nullable": true,
+      "description": "Minimized before-state data permitted by the affected contract.",
+      "primitive": "fields.json",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "after",
+      "required": false,
+      "nullable": true,
+      "description": "Minimized after-state data permitted by the affected contract.",
+      "primitive": "fields.json",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "requestId",
+      "required": false,
+      "nullable": true,
+      "description": "Request correlation ID when available.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 128,
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true
+      }
+    },
+    {
+      "key": "metadata",
+      "required": false,
+      "nullable": true,
+      "description": "Non-secret structured diagnostic metadata.",
+      "primitive": "fields.json",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "core.actorReference",
+      "description": "Audit records identify actors through the shared reference."
+    },
+    {
+      "type": "references",
+      "target": "core.entityReference",
+      "description": "Audit records target canonical entities when applicable."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "appendOnly",
+      "description": "Audit Records are append-only."
+    },
+    {
+      "id": "noSecrets",
+      "description": "before, after, summary and metadata must not contain secrets."
+    },
+    {
+      "id": "actionStable",
+      "description": "action must use a stable machine identifier defined by the producing domain."
+    }
+  ],
+  "cms": {
+    "label": "Audit Record",
+    "icon": "fa-clock-rotate-left",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "activity",
+    "summaryFields": [
+      "summary",
+      "occurredAt"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Audit history is authenticated operational data."
+  },
+  "examples": {
+    "valid": [
+      {
+        "id": "audit_01ABC",
+        "occurredAt": "2026-09-09T12:00:00Z",
+        "actor": {
+          "actorType": "organizationUser",
+          "actorId": "usr_01ABC"
+        },
+        "action": "content.page.published",
+        "entity": {
+          "entityType": "content.page",
+          "entityId": "page_01ABC"
+        },
+        "summary": "Published About page",
+        "before": null,
+        "after": {
+          "status": "published"
+        },
+        "requestId": "req_01ABC"
+      }
+    ],
+    "invalid": [
+      {
+        "id": "audit_01ABC",
+        "occurredAt": "2026-09-09T12:00:00Z",
+        "actor": {
+          "actorType": "organizationUser"
+        },
+        "action": "changed",
+        "summary": "API secret sk-live-..."
+      }
+    ]
+  },
+  "notes": []
+}

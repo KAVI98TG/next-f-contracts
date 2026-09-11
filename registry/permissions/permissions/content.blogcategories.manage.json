@@ -1,0 +1,29 @@
+{
+  "$id": "content.blogcategories.manage",
+  "name": "Manage Blogcategories",
+  "permissionId": "content.blogcategories.manage",
+  "domain": "content",
+  "resource": "blogcategories",
+  "action": "manage",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage Blogcategories within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

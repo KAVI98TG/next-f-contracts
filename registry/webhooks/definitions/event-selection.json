@@ -1,0 +1,80 @@
+{
+  "$id": "webhooks.eventSelection",
+  "name": "Webhook Event Selection",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "subscriptions",
+  "description": "Exact canonical Event allow-list for a webhook subscription.",
+  "purpose": "Prevents ambiguous wildcard subscriptions and provides deterministic delivery eligibility.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "eventKeys",
+      "required": true,
+      "nullable": false,
+      "description": "Exact Event Registry keys.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "catalogVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Contract Registry version used to validate selection.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "events.eventDefinition",
+      "description": "Each selected key must resolve to a canonical Event definition."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "nonEmpty",
+      "description": "At least one exact event key is required for an active subscription."
+    },
+    {
+      "id": "noWildcards",
+      "description": "Wildcard and prefix matching are prohibited in V1."
+    },
+    {
+      "id": "eligibleOnly",
+      "description": "Selected definitions must have webhookEligible=true."
+    },
+    {
+      "id": "unique",
+      "description": "Duplicate event keys are prohibited."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Event Selection",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "eventKeys",
+      "catalogVersion"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

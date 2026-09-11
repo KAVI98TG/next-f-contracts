@@ -1,0 +1,3 @@
+Generated js/generated-registry.js from registry/registry.json
+SHA-256 ac394e34066774965d8af9cef85591d9e1cc6dbe5b932be7f2b02c5e83351742
+Synchronized 22 SEO Contracts.

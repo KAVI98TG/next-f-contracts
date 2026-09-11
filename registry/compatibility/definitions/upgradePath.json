@@ -1,0 +1,120 @@
+{
+  "$id": "compatibility.upgradePath",
+  "name": "Compatibility Upgrade Path",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Describes an explicit non-executing path from a source release to a target.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "sourceVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Source Contract Version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "targetVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Target Contract Version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Upgrade readiness.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "intermediateVersions",
+      "required": false,
+      "nullable": true,
+      "description": "Required intermediate releases if any.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "diffRoute",
+      "required": false,
+      "nullable": true,
+      "description": "Contract Diff route.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "migrationRefs",
+      "required": false,
+      "nullable": true,
+      "description": "Migration references when available.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "reviewRequirements",
+      "required": false,
+      "nullable": true,
+      "description": "Required manual review gates.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "validationRequired",
+      "required": true,
+      "nullable": false,
+      "description": "Target validation requirement.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "automatic",
+      "required": true,
+      "nullable": false,
+      "description": "Must remain false for NEXT F contract upgrades.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "sourceVersion uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "status uses fields.select."
+    },
+    {
+      "type": "uses",
+      "target": "fields.multiSelect",
+      "description": "intermediateVersions uses fields.multiSelect."
+    },
+    {
+      "type": "uses",
+      "target": "fields.url",
+      "description": "diffRoute uses fields.url."
+    },
+    {
+      "type": "uses",
+      "target": "fields.boolean",
+      "description": "validationRequired uses fields.boolean."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

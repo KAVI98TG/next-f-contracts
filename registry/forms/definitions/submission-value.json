@@ -1,0 +1,126 @@
+{
+  "$id": "forms.submissionValue",
+  "name": "Submission Field Value",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "submission",
+  "description": "Immutable snapshot of one submitted field value and its field metadata.",
+  "purpose": "Prevents historical submissions from changing meaning when a Form field is renamed or reconfigured.",
+  "formsModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false
+  },
+  "fields": [
+    {
+      "key": "fieldKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable field key at submission time.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "labelSnapshot",
+      "required": true,
+      "nullable": false,
+      "description": "Field label at submission time.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240
+      }
+    },
+    {
+      "key": "primitiveIdSnapshot",
+      "required": true,
+      "nullable": false,
+      "description": "Primitive field contract ID at submission time.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "value",
+      "required": false,
+      "nullable": true,
+      "description": "Validated canonical value.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "sensitive",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the field was marked sensitive.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "redacted",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the stored/displayed value is redacted.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "valueMatchesPrimitiveSnapshot",
+      "description": "value must conform to primitiveIdSnapshot unless it is intentionally redacted."
+    },
+    {
+      "id": "historicalSnapshotImmutable",
+      "description": "fieldKey, labelSnapshot and primitiveIdSnapshot are immutable after acceptance."
+    },
+    {
+      "id": "sensitiveDisplayRestricted",
+      "description": "Sensitive values require permission-aware rendering and must not be exposed through public APIs."
+    }
+  ],
+  "cms": {
+    "label": "Submission Field Value",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "fieldKey",
+      "labelSnapshot",
+      "primitiveIdSnapshot",
+      "value"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

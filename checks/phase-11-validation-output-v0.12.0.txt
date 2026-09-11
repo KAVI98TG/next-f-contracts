@@ -1,0 +1,16 @@
+
+> next-f-contracts@0.12.0 validate
+> node scripts/validate-phase-11.mjs
+
+NEXT F Contracts Phase 11 validation
+Version: 0.12.0
+Commerce schemas: 71
+Commerce categories: 11
+Schema fields inspected: 498
+Relationships inspected: 130
+Validation rules inspected: 113
+Registry items: 358
+Passes: 3765
+Failures: 0
+
+PASS - Phase 11 Commerce Core is internally consistent.

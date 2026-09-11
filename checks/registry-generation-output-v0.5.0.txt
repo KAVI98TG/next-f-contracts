@@ -1,0 +1,2 @@
+Generated js/generated-registry.js from registry/registry.json
+SHA-256 43f14c8266ff421210ef3de8aa4276f98c3c5d5a4d15aa8a72f871410b9915ff

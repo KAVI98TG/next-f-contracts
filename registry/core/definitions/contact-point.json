@@ -1,0 +1,128 @@
+{
+  "$id": "shared.contactPoint",
+  "name": "Contact Point",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "shared",
+  "category": "contact",
+  "description": "Reusable contact method for organizations, locations and customer-facing content.",
+  "purpose": "Standardizes phone, email, URL and messaging contact data without hardcoding business-specific fields everywhere.",
+  "fields": [
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Contact method type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "phone",
+            "label": "Phone"
+          },
+          {
+            "value": "email",
+            "label": "Email"
+          },
+          {
+            "value": "url",
+            "label": "URL"
+          },
+          {
+            "value": "whatsapp",
+            "label": "WhatsApp"
+          }
+        ]
+      }
+    },
+    {
+      "key": "label",
+      "required": false,
+      "nullable": true,
+      "description": "Human-readable label such as Sales or Support.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120,
+        "localizable": true
+      }
+    },
+    {
+      "key": "value",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical contact value validated according to type.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 2048
+      }
+    },
+    {
+      "key": "isPrimary",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this is the primary contact point within its parent context.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "public",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the parent may expose this contact point publicly.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "contactValueMatchesType",
+      "description": "value must validate according to the declared type."
+    },
+    {
+      "id": "singlePrimaryByParent",
+      "description": "A parent collection should define at most one primary contact point per applicable contact category unless explicitly allowed."
+    }
+  ],
+  "cms": {
+    "label": "Contact Point",
+    "icon": "fa-address-book",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "label",
+      "type",
+      "value"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only instances with public=true may be exposed by a public parent payload."
+  },
+  "examples": {
+    "valid": [
+      {
+        "type": "email",
+        "label": "Sales",
+        "value": "sales@example.com",
+        "isPrimary": true,
+        "public": true
+      }
+    ],
+    "invalid": [
+      {
+        "type": "email",
+        "value": "not-an-email",
+        "isPrimary": false,
+        "public": true
+      }
+    ]
+  },
+  "notes": []
+}

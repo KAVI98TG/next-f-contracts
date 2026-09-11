@@ -1,0 +1,144 @@
+{
+  "$id": "forms.leadDedupePolicy",
+  "name": "Lead Deduplication Policy",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "leads",
+  "description": "Defines how potential duplicate Leads are detected and handled.",
+  "purpose": "Prevents inconsistent ad-hoc merging when repeated form submissions use the same contact details.",
+  "formsModel": {
+    "kind": "policy",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "strategy",
+      "required": true,
+      "nullable": false,
+      "description": "Duplicate matching strategy.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "email",
+            "label": "Email"
+          },
+          {
+            "value": "phone",
+            "label": "Phone"
+          },
+          {
+            "value": "emailOrPhone",
+            "label": "Email or phone"
+          }
+        ]
+      }
+    },
+    {
+      "key": "lookbackDays",
+      "required": false,
+      "nullable": true,
+      "description": "Optional matching window in days.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 3650
+      }
+    },
+    {
+      "key": "onMatch",
+      "required": true,
+      "nullable": false,
+      "description": "Action when a candidate match is found.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "createNew",
+            "label": "Create new"
+          },
+          {
+            "value": "linkSubmission",
+            "label": "Link submission"
+          },
+          {
+            "value": "updateExisting",
+            "label": "Update existing"
+          },
+          {
+            "value": "manualReview",
+            "label": "Manual review"
+          }
+        ]
+      }
+    },
+    {
+      "key": "overwriteExistingValues",
+      "required": true,
+      "nullable": false,
+      "description": "Whether mapped non-empty lead fields may be overwritten.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "normalizedComparison",
+      "description": "Email/phone matching must use canonical normalized values."
+    },
+    {
+      "id": "noSilentDestructiveMerge",
+      "description": "Duplicate handling must not silently destroy historical lead information."
+    },
+    {
+      "id": "sensitiveComparisonProtected",
+      "description": "Deduplication indexes/derivatives must be protected and not exposed publicly."
+    }
+  ],
+  "cms": {
+    "label": "Lead Deduplication Policy",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "strategy",
+      "lookbackDays",
+      "onMatch",
+      "overwriteExistingValues"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

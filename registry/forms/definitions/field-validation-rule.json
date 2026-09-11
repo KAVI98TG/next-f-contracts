@@ -1,0 +1,164 @@
+{
+  "$id": "forms.fieldValidationRule",
+  "name": "Form Field Validation Rule",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "builder",
+  "description": "Declarative validation applied to a form field.",
+  "purpose": "Keeps server and client validation intent synchronized without executable custom scripts.",
+  "formsModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "rule",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical validation rule.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "required",
+            "label": "required"
+          },
+          {
+            "value": "minLength",
+            "label": "minLength"
+          },
+          {
+            "value": "maxLength",
+            "label": "maxLength"
+          },
+          {
+            "value": "minimum",
+            "label": "minimum"
+          },
+          {
+            "value": "maximum",
+            "label": "maximum"
+          },
+          {
+            "value": "pattern",
+            "label": "pattern"
+          },
+          {
+            "value": "email",
+            "label": "email"
+          },
+          {
+            "value": "url",
+            "label": "url"
+          },
+          {
+            "value": "phone",
+            "label": "phone"
+          },
+          {
+            "value": "fileSize",
+            "label": "fileSize"
+          },
+          {
+            "value": "fileType",
+            "label": "fileType"
+          },
+          {
+            "value": "minItems",
+            "label": "minItems"
+          },
+          {
+            "value": "maxItems",
+            "label": "maxItems"
+          },
+          {
+            "value": "customRegistered",
+            "label": "customRegistered"
+          }
+        ]
+      }
+    },
+    {
+      "key": "parameters",
+      "required": false,
+      "nullable": true,
+      "description": "Rule parameters appropriate to the rule type.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "message",
+      "required": false,
+      "nullable": true,
+      "description": "Localized validation message shown to users.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500,
+        "localizable": true
+      }
+    },
+    {
+      "key": "registeredValidator",
+      "required": false,
+      "nullable": true,
+      "description": "Registered validator ID when rule=customRegistered; never inline code.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "serverValidationAuthoritative",
+      "description": "Every rule affecting acceptance must be enforced server-side; browser validation is UX only."
+    },
+    {
+      "id": "customValidatorMustBeRegistered",
+      "description": "customRegistered requires a registered server-side validator identifier and must not contain executable code."
+    },
+    {
+      "id": "parametersMatchRule",
+      "description": "parameters must match the selected rule semantics."
+    }
+  ],
+  "cms": {
+    "label": "Form Field Validation Rule",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "rule",
+      "parameters",
+      "message",
+      "registeredValidator"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

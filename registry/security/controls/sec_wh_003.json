@@ -1,0 +1,35 @@
+{
+  "controlId": "SEC-WH-003",
+  "name": "Webhook replay resistance",
+  "category": "webhooks",
+  "requirement": "Webhook delivery/verification must apply timestamp, signature and replay-protection rules so captured valid requests cannot be reused outside policy.",
+  "rationale": "Signed messages can still be replayed if freshness and uniqueness are ignored.",
+  "applicability": [
+    "webhooks"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [
+    "webhooks.replayProtection",
+    "webhooks.deliveryAttempt"
+  ],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_wh_003.json"
+}

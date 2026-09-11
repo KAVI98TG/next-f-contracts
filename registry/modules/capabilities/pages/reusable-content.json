@@ -1,0 +1,35 @@
+{
+  "$id": "modules.capability.pages.reusable-content",
+  "capabilityId": "pages.reusable-content",
+  "name": "Reusable Content",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "pages",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Reusable Content capability within the Pages module.",
+  "contractBindings": [
+    "content.reusableContent"
+  ],
+  "permissionBindings": [
+    "content.reusablecontent.approve",
+    "content.reusablecontent.create",
+    "content.reusablecontent.delete",
+    "content.reusablecontent.edit",
+    "content.reusablecontent.publish",
+    "content.reusablecontent.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

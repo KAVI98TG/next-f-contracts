@@ -1,0 +1,36 @@
+{
+  "$id": "modules.capability.marketing.conversions",
+  "capabilityId": "marketing.conversions",
+  "name": "Conversions",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "marketing",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Conversions capability within the Marketing module.",
+  "contractBindings": [
+    "marketing.conversionDefinition",
+    "marketing.conversionOccurrence",
+    "marketing.conversionValue"
+  ],
+  "permissionBindings": [
+    "marketing.conversions.create",
+    "marketing.conversions.delete",
+    "marketing.conversions.edit",
+    "marketing.conversions.manage",
+    "marketing.conversions.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

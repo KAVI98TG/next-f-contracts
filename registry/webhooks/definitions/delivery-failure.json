@@ -1,0 +1,116 @@
+{
+  "$id": "webhooks.deliveryFailure",
+  "name": "Webhook Delivery Failure",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "delivery",
+  "description": "Canonical failure record for one webhook attempt or terminal delivery outcome.",
+  "purpose": "Normalizes network, policy, configuration and HTTP failures for retry and diagnostics.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "code",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical webhook failure code.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "classification",
+      "required": true,
+      "nullable": false,
+      "description": "Failure handling class.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "retryable",
+          "terminal",
+          "disable-endpoint",
+          "deferred",
+          "dead-letter"
+        ]
+      }
+    },
+    {
+      "key": "message",
+      "required": true,
+      "nullable": false,
+      "description": "Safe operator-facing summary.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "httpStatus",
+      "required": false,
+      "nullable": true,
+      "description": "Optional associated HTTP status.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "occurredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Failure timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "retryable",
+      "required": true,
+      "nullable": false,
+      "description": "Resolved retry decision.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "details",
+      "required": false,
+      "nullable": true,
+      "description": "Sanitized bounded diagnostics.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "registeredCode",
+      "description": "code must exist in the webhook failure-code vocabulary."
+    },
+    {
+      "id": "classificationConsistent",
+      "description": "classification and retryable must agree with canonical failure policy unless an explicitly documented policy override applies."
+    },
+    {
+      "id": "safeMessage",
+      "description": "message/details never include secrets or unrestricted receiver content."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Delivery Failure",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "code",
+      "classification",
+      "message",
+      "httpStatus"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

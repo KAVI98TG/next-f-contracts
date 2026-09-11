@@ -1,0 +1,58 @@
+{
+  "$id": "permissions.permissionCheck",
+  "name": "Permission Check",
+  "domain": "permissions",
+  "type": "schema",
+  "version": "0.16.0",
+  "status": "stable",
+  "category": "foundation",
+  "description": "Canonical request shape for checking one exact permission against one trusted scope.",
+  "purpose": "Canonical request shape for checking one exact permission against one trusted scope.",
+  "permissionModel": {
+    "kind": "foundation",
+    "publicEligible": false,
+    "customerManaged": false
+  },
+  "fields": [
+    {
+      "key": "permissionId",
+      "required": true,
+      "nullable": false,
+      "description": "permissionId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "scope",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "context",
+      "required": false,
+      "nullable": true,
+      "description": "context",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "permissions.permissionCheck.rule.1",
+      "description": "Permission checks use exact canonical identifiers."
+    },
+    {
+      "id": "permissions.permissionCheck.rule.2",
+      "description": "No wildcard matching is permitted in authorization decisions."
+    }
+  ],
+  "cms": {
+    "adminVisible": true,
+    "customerVisible": false
+  },
+  "delivery": {
+    "publicAllowed": false
+  },
+  "notes": []
+}

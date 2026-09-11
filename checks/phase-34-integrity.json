@@ -1,0 +1,18 @@
+{
+  "phase": 34,
+  "version": "0.35.0",
+  "registrySha256": "c818a23d1a8c42743916ad7545c964b27ccfe2096e8200d75a03fd80bc523e36",
+  "diffSnapshotSha256": "c818a23d1a8c42743916ad7545c964b27ccfe2096e8200d75a03fd80bc523e36",
+  "registryDiffMatch": true,
+  "registryItems": 2160,
+  "searchDocuments": 7206,
+  "relationshipNodes": 2160,
+  "relationshipEdges": 7406,
+  "changelogReleases": 35,
+  "changelogEntries": 576,
+  "exactDiffReleases": 30,
+  "compatibilityTarget": "0.35.0",
+  "cliCommands": 7,
+  "cliExitCodes": 5,
+  "fixtureParityCases": 11
+}

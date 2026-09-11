@@ -1,0 +1,99 @@
+{
+  "$id": "forms.conditionGroup",
+  "name": "Form Condition Group",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "logic",
+  "description": "A safe all/any group of form conditions.",
+  "purpose": "Supports deterministic conditional visibility and behavior while limiting complexity.",
+  "formsModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "logic",
+      "required": true,
+      "nullable": false,
+      "description": "How child conditions are combined.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "all",
+            "label": "All conditions"
+          },
+          {
+            "value": "any",
+            "label": "Any condition"
+          }
+        ]
+      }
+    },
+    {
+      "key": "conditions",
+      "required": true,
+      "nullable": false,
+      "description": "Conditions evaluated in this group.",
+      "itemsSchema": "forms.condition",
+      "config": {
+        "minItems": 1,
+        "maxItems": 20
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "contains",
+      "target": "forms.condition",
+      "description": "Contains safe declarative conditions."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "boundedConditions",
+      "description": "A single condition group is limited to a bounded number of conditions."
+    },
+    {
+      "id": "noRecursiveArbitraryTree",
+      "description": "Phase 8 condition groups do not recursively embed arbitrary nested groups."
+    }
+  ],
+  "cms": {
+    "label": "Form Condition Group",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "logic",
+      "conditions"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,128 @@
+{
+  "$id": "integrations.syncResult",
+  "name": "Sync Result",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "sync",
+  "description": "Normalized result of a synchronization run.",
+  "purpose": "Provides provider-neutral counts and safe failure information.",
+  "integrationModel": {
+    "kind": "operation-result",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Result state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "succeeded",
+          "partial",
+          "failed",
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "key": "readCount",
+      "required": false,
+      "nullable": true,
+      "description": "Records read.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "createdCount",
+      "required": false,
+      "nullable": true,
+      "description": "Records created.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "updatedCount",
+      "required": false,
+      "nullable": true,
+      "description": "Records updated.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "skippedCount",
+      "required": false,
+      "nullable": true,
+      "description": "Records skipped.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "failedCount",
+      "required": false,
+      "nullable": true,
+      "description": "Records failed.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "errors",
+      "required": false,
+      "nullable": true,
+      "description": "Normalized errors.",
+      "itemsSchema": "integrations.integrationError"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "integrations.integrationError",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "countsNonNegative",
+      "description": "All counters are non-negative."
+    },
+    {
+      "id": "noRawProviderDump",
+      "description": "Result does not store whole provider responses."
+    }
+  ],
+  "cms": {
+    "label": "Sync Result",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "status",
+      "readCount",
+      "createdCount",
+      "updatedCount"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

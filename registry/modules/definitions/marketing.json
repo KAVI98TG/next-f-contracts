@@ -1,0 +1,155 @@
+{
+  "$id": "modules.marketing",
+  "moduleId": "marketing",
+  "name": "Marketing",
+  "version": "0.18.0",
+  "status": "stable",
+  "category": "growth",
+  "icon": "fa-bullseye",
+  "order": 240,
+  "description": "Conversions, campaign attribution, UTM/click identifiers, marketing destinations and provider-neutral tracking configuration.",
+  "selection": {
+    "mandatory": false,
+    "defaultEnabled": false,
+    "explicitManifestSelection": true,
+    "customerCanEnable": false,
+    "nextfAdminCanEnable": true
+  },
+  "dependencies": [
+    {
+      "moduleId": "core",
+      "kind": "required",
+      "reason": "Marketing configuration is Site-scoped."
+    },
+    {
+      "moduleId": "consent",
+      "kind": "required",
+      "reason": "Optional marketing destinations must honor consent."
+    },
+    {
+      "moduleId": "analytics",
+      "kind": "recommended",
+      "reason": "Attribution and reporting can consume Analytics capability."
+    },
+    {
+      "moduleId": "integrations",
+      "kind": "recommended",
+      "reason": "Ad platforms and marketing tools connect through canonical connectors."
+    }
+  ],
+  "conflicts": [],
+  "capabilityIds": [
+    "marketing.conversions",
+    "marketing.campaigns",
+    "marketing.utm-attribution",
+    "marketing.ad-click-identifiers",
+    "marketing.destinations"
+  ],
+  "defaultCapabilityIds": [
+    "marketing.conversions",
+    "marketing.utm-attribution",
+    "marketing.destinations"
+  ],
+  "contractBindings": [
+    "marketing.adClickIdentifier",
+    "marketing.analyticsConfiguration",
+    "marketing.attributionCredit",
+    "marketing.attributionModel",
+    "marketing.attributionTouchpoint",
+    "marketing.campaignAttribution",
+    "marketing.campaignContext",
+    "marketing.campaignDefinition",
+    "marketing.campaignPerformanceSnapshot",
+    "marketing.conversionAttribution",
+    "marketing.conversionDeduplicationPolicy",
+    "marketing.conversionDefinition",
+    "marketing.conversionOccurrence",
+    "marketing.conversionSummary",
+    "marketing.conversionValue",
+    "marketing.dataLayerConfiguration",
+    "marketing.destinationMapping",
+    "marketing.deviceContext",
+    "marketing.dimensionDefinition",
+    "marketing.dispatchRequest",
+    "marketing.dispatchResult",
+    "marketing.eventContext",
+    "marketing.eventDestination",
+    "marketing.eventPropertyDefinition",
+    "marketing.marketingDestination",
+    "marketing.marketingTrackingContractStandard",
+    "marketing.metricDefinition",
+    "marketing.pageContext",
+    "marketing.referrerContext",
+    "marketing.sessionContext",
+    "marketing.standardTrackingEvents",
+    "marketing.trackingConfiguration",
+    "marketing.trackingDataPolicy",
+    "marketing.trackingEvent",
+    "marketing.trackingEventDefinition",
+    "marketing.trafficSource",
+    "marketing.utmParameters",
+    "marketing.visitorContext"
+  ],
+  "permissionBindings": [
+    "marketing.attribution.export",
+    "marketing.attribution.manage",
+    "marketing.attribution.view",
+    "marketing.campaigns.create",
+    "marketing.campaigns.delete",
+    "marketing.campaigns.edit",
+    "marketing.campaigns.manage",
+    "marketing.campaigns.view",
+    "marketing.conversions.create",
+    "marketing.conversions.delete",
+    "marketing.conversions.edit",
+    "marketing.conversions.manage",
+    "marketing.conversions.view",
+    "marketing.destinations.create",
+    "marketing.destinations.delete",
+    "marketing.destinations.edit",
+    "marketing.destinations.manage",
+    "marketing.destinations.view",
+    "marketing.tracking.edit",
+    "marketing.tracking.manage",
+    "marketing.tracking.view"
+  ],
+  "eventBindings": [
+    "conversion.recorded"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "group": "Growth",
+    "navigation": [
+      {
+        "label": "Conversions",
+        "path": "/growth/conversions",
+        "icon": "fa-bullseye",
+        "order": 50
+      },
+      {
+        "label": "Marketing",
+        "path": "/growth/marketing",
+        "icon": "fa-megaphone",
+        "order": 60
+      }
+    ]
+  },
+  "admin": {
+    "visible": true,
+    "group": "Sites",
+    "navigation": [
+      {
+        "label": "Marketing",
+        "path": "/sites/:siteId/marketing",
+        "icon": "fa-bullseye",
+        "order": 70
+      }
+    ]
+  },
+  "manifest": {
+    "moduleId": "marketing",
+    "capabilitySelection": "module-scoped",
+    "dependencyValidation": "strict"
+  },
+  "notes": []
+}

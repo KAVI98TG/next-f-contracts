@@ -1,0 +1,28 @@
+{
+  "$id": "platform.permissions.view",
+  "name": "View Permissions",
+  "permissionId": "platform.permissions.view",
+  "domain": "platform",
+  "resource": "permissions",
+  "action": "view",
+  "scopeKind": "platform",
+  "riskLevel": "standard",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Permissions within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

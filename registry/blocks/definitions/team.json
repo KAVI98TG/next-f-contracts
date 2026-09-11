@@ -1,0 +1,161 @@
+{
+  "$id": "blocks.team",
+  "name": "Team",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "business",
+  "description": "Team listing sourced from reusable Team Member entities.",
+  "purpose": "Prevents team profile duplication and gives customers controlled member selection.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "selectionMode",
+      "required": true,
+      "nullable": false,
+      "description": "How members are selected.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "manual",
+            "label": "Manual selection"
+          },
+          {
+            "value": "all",
+            "label": "All published members"
+          }
+        ],
+        "defaultValue": "manual",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "members",
+      "required": false,
+      "nullable": true,
+      "description": "Manual team member selection.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.teamMember",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true,
+        "uniqueItems": true,
+        "minItems": 1,
+        "maxItems": 60
+      }
+    },
+    {
+      "key": "limit",
+      "required": false,
+      "nullable": true,
+      "description": "Maximum automatically selected members.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 100,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "content.teamMember",
+      "description": "Uses canonical Team Member entities."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "manualRequiresMembers",
+      "description": "Manual mode requires at least one member."
+    },
+    {
+      "id": "publishedOnly",
+      "description": "Only eligible published team profiles may be delivered publicly."
+    }
+  ],
+  "cms": {
+    "label": "Team",
+    "icon": "fa-people-group",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "selectionMode",
+      "members"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": []
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

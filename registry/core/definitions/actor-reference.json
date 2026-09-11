@@ -1,0 +1,124 @@
+{
+  "$id": "core.actorReference",
+  "name": "Actor Reference",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "identity",
+  "description": "Compact reference to the actor responsible for an auditable or publishing action.",
+  "purpose": "Avoids embedding entire user records in audit, publishing and version contracts.",
+  "fields": [
+    {
+      "key": "actorType",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical actor category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "organizationUser",
+            "label": "Organization User"
+          },
+          {
+            "value": "nextfUser",
+            "label": "NEXT F User"
+          },
+          {
+            "value": "system",
+            "label": "System"
+          },
+          {
+            "value": "integration",
+            "label": "Integration"
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "actorId",
+      "required": false,
+      "nullable": true,
+      "description": "Opaque actor ID when the actor has a persistent identity.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 128,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "displayName",
+      "required": false,
+      "nullable": true,
+      "description": "Non-authoritative display snapshot used for human audit readability.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "source",
+      "required": false,
+      "nullable": true,
+      "description": "System or integration source identifier for non-human actors.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "humanActorHasId",
+      "description": "Human actor types require actorId."
+    },
+    {
+      "id": "systemActorHasSource",
+      "description": "System/integration actors should identify their source."
+    }
+  ],
+  "cms": {
+    "label": "Actor",
+    "icon": "fa-user-clock",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "system",
+    "summaryFields": [
+      "displayName",
+      "actorType"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Actor references are internal audit metadata unless another contract explicitly exposes attribution."
+  },
+  "examples": {
+    "valid": [
+      {
+        "actorType": "organizationUser",
+        "actorId": "usr_01ABC",
+        "displayName": "Editor"
+      },
+      {
+        "actorType": "system",
+        "actorId": null,
+        "source": "publishingScheduler"
+      }
+    ],
+    "invalid": [
+      {
+        "actorType": "Organization User",
+        "actorId": "usr_01ABC"
+      }
+    ]
+  },
+  "notes": []
+}

@@ -1,0 +1,127 @@
+{
+  "$id": "integrations.eventMapping",
+  "name": "Event Mapping",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "mapping",
+  "description": "Maps one canonical NEXT F event to a provider event/action representation.",
+  "purpose": "Allows provider adapters to translate Phase 9 event vocabulary without changing Site event names.",
+  "integrationModel": {
+    "kind": "mapping",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "canonicalEventKey",
+      "required": true,
+      "nullable": false,
+      "description": "NEXT F canonical event key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "providerEventName",
+      "required": true,
+      "nullable": false,
+      "description": "Provider event name/action.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether mapping is active.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "parameterMappings",
+      "required": false,
+      "nullable": true,
+      "description": "Field mappings.",
+      "itemsSchema": "integrations.dataMappingField"
+    },
+    {
+      "key": "resource",
+      "required": false,
+      "nullable": true,
+      "description": "Target provider resource.",
+      "schema": "integrations.resourceReference"
+    },
+    {
+      "key": "deduplicationKeyPath",
+      "required": false,
+      "nullable": true,
+      "description": "Canonical path used for deduplication.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "integrations.dataMappingField",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composes",
+      "target": "integrations.resourceReference",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "references",
+      "target": "marketing.standardTrackingEvents",
+      "description": "Uses Phase 9 canonical tracking vocabulary."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "canonicalKeyAuthoritative",
+      "description": "Provider event name never replaces canonical event key."
+    },
+    {
+      "id": "mappingMinimized",
+      "description": "Only needed fields are mapped."
+    },
+    {
+      "id": "deduplicationExplicit",
+      "description": "Dual client/server event delivery uses explicit deduplication where provider supports it."
+    }
+  ],
+  "cms": {
+    "label": "Event Mapping",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "canonicalEventKey",
+      "providerEventName",
+      "enabled",
+      "parameterMappings"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,24 @@
+{
+  "ruleId": "PERF-RULE-023",
+  "name": "Bounded Relationship Explorer",
+  "category": "relationships",
+  "requirement": "Relationship traversal, neighbor rendering, path depth and edge-table rows must remain bounded by machine-readable configuration.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "static-analysis",
+    "browser-profile"
+  ],
+  "relatedRegistryIds": [
+    "relationships.relationshipIndex",
+    "relationships.relationshipConfiguration"
+  ],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_023.json"
+}

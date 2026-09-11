@@ -1,0 +1,24 @@
+{
+  "budgetId": "PERF-BUDGET-014",
+  "name": "Eager Diff imports",
+  "category": "diff",
+  "scope": "contract-portal",
+  "metric": "portal.eagerDiffImportCount",
+  "target": 0,
+  "warningThreshold": 0,
+  "comparator": "lte",
+  "unit": "count",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-import-graph",
+  "environment": "Hosted runtime",
+  "notes": "Contract Diff history must remain route-lazy and must not load during normal portal bootstrap.",
+  "relatedRegistryIds": [
+    "diff.releaseIndex"
+  ],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_014.json"
+}

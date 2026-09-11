@@ -1,0 +1,93 @@
+{
+  "$id": "webhooks.redactionPolicy",
+  "name": "Webhook Redaction Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "operations",
+  "description": "Mandatory diagnostic redaction rules.",
+  "purpose": "Prevents secret and sensitive transport values from leaking through logs, UI or persisted diagnostics.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "redactAuthorization",
+      "required": true,
+      "nullable": false,
+      "description": "Always redact Authorization values.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "redactSignature",
+      "required": true,
+      "nullable": false,
+      "description": "Always redact NEXT F webhook signatures.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "redactSecretBackedHeaders",
+      "required": true,
+      "nullable": false,
+      "description": "Always redact secret-backed custom header values.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "redactSensitiveQueryValues",
+      "required": true,
+      "nullable": false,
+      "description": "Redact sensitive URL query parameter values.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "redactConfiguredFields",
+      "required": false,
+      "nullable": true,
+      "description": "Additional explicit field/path redactions.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "beforePersistence",
+      "description": "Redaction happens before diagnostic persistence."
+    },
+    {
+      "id": "cannotDisableMandatory",
+      "description": "Mandatory secret/auth/signature redactions cannot be disabled."
+    },
+    {
+      "id": "payloadPolicyStillApplies",
+      "description": "Redaction is not a substitute for data-access/exposure policy."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Redaction Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "redactAuthorization",
+      "redactSignature",
+      "redactSecretBackedHeaders",
+      "redactSensitiveQueryValues"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

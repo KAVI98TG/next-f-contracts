@@ -1,0 +1,38 @@
+{
+  "controlId": "SEC-IDEMP-001",
+  "name": "Replay-safe idempotency for sensitive commands",
+  "category": "api",
+  "requirement": "Sensitive retried commands must use contract-defined idempotency/replay protections where duplicate execution could alter security or financial state.",
+  "rationale": "Retries and replay can otherwise duplicate privileged or financial effects.",
+  "applicability": [
+    "api",
+    "commerce",
+    "webhooks"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [
+    "commerce.rule.providerCallbackDeduplication"
+  ],
+  "relatedRegistryIds": [
+    "api.idempotencyContext"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_idemp_001.json"
+}

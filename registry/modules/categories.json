@@ -1,0 +1,30 @@
+{
+  "registryVersion": "0.18.0",
+  "items": [
+    {
+      "id": "foundation",
+      "label": "Foundation",
+      "description": "Baseline identity, shared media and cross-site operational primitives."
+    },
+    {
+      "id": "content",
+      "label": "Content",
+      "description": "Structured content modules used to manage coded website experiences."
+    },
+    {
+      "id": "growth",
+      "label": "Growth",
+      "description": "SEO, forms, leads, analytics and marketing capabilities."
+    },
+    {
+      "id": "platform",
+      "label": "Platform",
+      "description": "Cross-cutting consent and third-party integration capabilities."
+    },
+    {
+      "id": "commerce",
+      "label": "Commerce",
+      "description": "Transactional ecommerce capabilities and operational workflows."
+    }
+  ]
+}

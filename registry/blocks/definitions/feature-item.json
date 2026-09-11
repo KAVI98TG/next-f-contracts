@@ -1,0 +1,146 @@
+{
+  "$id": "blocks.featureItem",
+  "name": "Feature Item",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "foundation",
+  "description": "Reusable feature/card content item.",
+  "purpose": "Provides one consistent feature-item structure for grids and future reusable components.",
+  "blockModel": {
+    "kind": "embedded",
+    "placement": "nested-only",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "iconKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional approved icon identifier from the Site implementation.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Feature title.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Feature description.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1200,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "media",
+      "required": false,
+      "nullable": true,
+      "description": "Optional feature media.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "link",
+      "required": false,
+      "nullable": true,
+      "description": "Optional feature destination.",
+      "schema": "shared.link"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "Feature may include media."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.link",
+      "description": "Feature may link to another destination."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "iconKeyApproved",
+      "description": "When iconKey is used it must resolve to an icon made available by the Site implementation; it must not contain raw SVG/HTML."
+    }
+  ],
+  "cms": {
+    "label": "Feature Item",
+    "icon": "fa-square-check",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "embedded-item-editor",
+    "summaryFields": [
+      "iconKey",
+      "title",
+      "description"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": false,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Decorative icons should be hidden from assistive technology unless they convey unique information."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

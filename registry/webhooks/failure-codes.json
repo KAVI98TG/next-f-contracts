@@ -1,0 +1,160 @@
+{
+  "registryVersion": "0.15.0",
+  "failureCodes": [
+    {
+      "code": "network.dns-failure",
+      "classification": "retryable",
+      "description": "DNS resolution failed or returned no allowed address."
+    },
+    {
+      "code": "network.blocked-address",
+      "classification": "terminal",
+      "description": "Resolved destination is private, loopback, link-local, reserved, multicast or otherwise prohibited."
+    },
+    {
+      "code": "network.connect-timeout",
+      "classification": "retryable",
+      "description": "Connection was not established before the configured connect timeout."
+    },
+    {
+      "code": "network.tls-failure",
+      "classification": "retryable",
+      "description": "TLS negotiation or certificate validation failed; repeated configuration failures may degrade endpoint health."
+    },
+    {
+      "code": "network.connection-reset",
+      "classification": "retryable",
+      "description": "Connection closed unexpectedly."
+    },
+    {
+      "code": "request.total-timeout",
+      "classification": "retryable",
+      "description": "Total request execution exceeded the configured timeout."
+    },
+    {
+      "code": "request.payload-too-large",
+      "classification": "terminal",
+      "description": "Serialized webhook payload exceeded the permitted maximum."
+    },
+    {
+      "code": "http.redirect",
+      "classification": "terminal",
+      "description": "A 3xx response was returned. Redirects are never automatically followed."
+    },
+    {
+      "code": "http.unauthorized",
+      "classification": "terminal",
+      "description": "Receiver returned HTTP 401."
+    },
+    {
+      "code": "http.forbidden",
+      "classification": "terminal",
+      "description": "Receiver returned HTTP 403."
+    },
+    {
+      "code": "http.not-found",
+      "classification": "terminal",
+      "description": "Receiver returned HTTP 404."
+    },
+    {
+      "code": "http.gone",
+      "classification": "disable-endpoint",
+      "description": "Receiver returned HTTP 410 and explicitly indicates the endpoint is gone."
+    },
+    {
+      "code": "http.request-timeout",
+      "classification": "retryable",
+      "description": "Receiver returned HTTP 408."
+    },
+    {
+      "code": "http.too-early",
+      "classification": "retryable",
+      "description": "Receiver returned HTTP 425."
+    },
+    {
+      "code": "http.rate-limited",
+      "classification": "retryable",
+      "description": "Receiver returned HTTP 429. A valid bounded Retry-After may influence scheduling."
+    },
+    {
+      "code": "http.client-error",
+      "classification": "terminal",
+      "description": "Receiver returned a non-retryable 4xx response."
+    },
+    {
+      "code": "http.server-error",
+      "classification": "retryable",
+      "description": "Receiver returned a retryable 5xx response."
+    },
+    {
+      "code": "response.body-too-large",
+      "classification": "terminal",
+      "description": "Response body exceeded the diagnostic read limit."
+    },
+    {
+      "code": "endpoint.unverified",
+      "classification": "terminal",
+      "description": "Delivery cannot start because destination verification is incomplete."
+    },
+    {
+      "code": "endpoint.disabled",
+      "classification": "terminal",
+      "description": "Delivery cannot start because the endpoint is disabled."
+    },
+    {
+      "code": "subscription.paused",
+      "classification": "deferred",
+      "description": "Delivery is held while the subscription is paused."
+    },
+    {
+      "code": "subscription.disabled",
+      "classification": "terminal",
+      "description": "Delivery cannot start because the subscription is disabled."
+    },
+    {
+      "code": "event.not-eligible",
+      "classification": "terminal",
+      "description": "Selected canonical Event is not webhook eligible."
+    },
+    {
+      "code": "policy.environment-mismatch",
+      "classification": "terminal",
+      "description": "Event and subscription environment bindings do not match."
+    },
+    {
+      "code": "policy.data-not-authorized",
+      "classification": "terminal",
+      "description": "Subscription is not approved for the Event data classification."
+    },
+    {
+      "code": "policy.event-not-selected",
+      "classification": "terminal",
+      "description": "Event is not explicitly selected by the subscription."
+    },
+    {
+      "code": "config.invalid",
+      "classification": "terminal",
+      "description": "Webhook configuration failed contract validation."
+    },
+    {
+      "code": "delivery.max-attempts",
+      "classification": "dead-letter",
+      "description": "Retryable failures exhausted the permitted attempt budget."
+    },
+    {
+      "code": "delivery.pause-retention-expired",
+      "classification": "dead-letter",
+      "description": "A deferred delivery exceeded the paused-subscription retention window."
+    },
+    {
+      "code": "delivery.cancelled",
+      "classification": "terminal",
+      "description": "Delivery was explicitly cancelled by an authorized platform operation."
+    },
+    {
+      "code": "unknown",
+      "classification": "retryable",
+      "description": "An unexpected transport failure occurred; bounded retry policy still applies."
+    }
+  ]
+}

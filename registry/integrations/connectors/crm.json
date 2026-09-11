@@ -1,0 +1,107 @@
+{
+  "$id": "integrations.crm",
+  "name": "CRM",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "generic-crm",
+  "family": "crm",
+  "description": "Generic CRM connector using explicit canonical field mappings for leads and other approved records.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "nextf-server",
+    "provider-api"
+  ],
+  "capabilities": [
+    "crm.record.push",
+    "crm.record.pull",
+    "data.sync.pull",
+    "data.sync.push",
+    "account.verify",
+    "resource.discover"
+  ],
+  "authentication": {
+    "type": "configurable",
+    "supported": [
+      "oauth2",
+      "api-key",
+      "bearer",
+      "provider-managed"
+    ]
+  },
+  "configurationFields": [
+    {
+      "key": "providerKey",
+      "label": "Provider Adapter Key",
+      "primitive": "fields.text",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Provider Adapter Key",
+      "validation": {}
+    },
+    {
+      "key": "accountId",
+      "label": "Account ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Account ID",
+      "validation": {}
+    },
+    {
+      "key": "credentialRef",
+      "label": "Credential Reference",
+      "primitive": "fields.text",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": true,
+      "customerEditable": false,
+      "helpText": "Credential Reference",
+      "validation": {}
+    },
+    {
+      "key": "defaultObjectType",
+      "label": "Default Object Type",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Default Object Type",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [],
+    "mode": "mapped-data-purpose"
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [
+    "Complete form payloads must not be forwarded by default."
+  ],
+  "aliases": [
+    "CRM"
+  ]
+}

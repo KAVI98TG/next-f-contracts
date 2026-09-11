@@ -1,0 +1,22 @@
+{
+  "budgetId": "PERF-BUDGET-010",
+  "name": "Inline script payload",
+  "category": "payload",
+  "scope": "contract-portal",
+  "metric": "portal.inlineScriptBytes",
+  "target": 0,
+  "warningThreshold": 4096,
+  "comparator": "lte",
+  "unit": "bytes",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-html-scan",
+  "environment": "Hosted and file review",
+  "notes": "Avoid large inline scripts that bypass caching and content-policy boundaries.",
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_010.json"
+}

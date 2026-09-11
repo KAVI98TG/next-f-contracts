@@ -1,0 +1,129 @@
+{
+  "$id": "starters.documentation",
+  "slug": "documentation",
+  "name": "Documentation Site Starter",
+  "version": "1.0.0",
+  "status": "stable",
+  "siteType": "documentation",
+  "sourceExampleId": "examples.documentation-site",
+  "bundlePath": "starters/documentation",
+  "manifestPath": "starters/documentation/nextf.site.json",
+  "summary": "Documentation and knowledge-base website with collections, articles, structured navigation, search, SEO, analytics and controlled downloads.",
+  "modules": [
+    "core",
+    "media",
+    "pages",
+    "documentation",
+    "seo",
+    "consent",
+    "analytics",
+    "integrations"
+  ],
+  "capabilities": [
+    "core.identity",
+    "core.publishing",
+    "core.versioning",
+    "core.audit",
+    "core.tenant-isolation",
+    "media.library",
+    "media.images",
+    "media.contextual-metadata",
+    "pages.sections",
+    "pages.reusable-content",
+    "pages.navigation",
+    "documentation.collections",
+    "documentation.categories",
+    "documentation.versioning",
+    "documentation.visibility",
+    "seo.metadata",
+    "seo.social-sharing",
+    "seo.sitemap",
+    "seo.robots",
+    "seo.redirects",
+    "consent.preferences",
+    "consent.records",
+    "consent.categories",
+    "consent.integration-gating",
+    "analytics.measurement",
+    "analytics.reporting",
+    "integrations.health"
+  ],
+  "contractCount": 203,
+  "apiBindings": [
+    {
+      "apiId": "api.public-content",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.public-interaction",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    }
+  ],
+  "trackingEvents": [
+    "page.viewed",
+    "search.performed",
+    "document.downloaded"
+  ],
+  "integrations": [
+    {
+      "connectorId": "integrations.googleAnalytics4",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleSearchConsole",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleTagManager",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.microsoftClarity",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    }
+  ],
+  "permissionCount": 114,
+  "eventCount": 46,
+  "files": [
+    "nextf.site.json",
+    "AGENTS.md",
+    "README.md",
+    "CONTRACT-RESOLUTION-SUMMARY.md",
+    "INTEGRATION-ARCHITECTURE.md",
+    ".env.example",
+    "CONTENT-CONTRACT-MAP.json",
+    "EVENT-MAP.json",
+    "TRACKING-EVENT-MAP.json",
+    "PERMISSION-EXPECTATIONS.md",
+    "API-BINDINGS.md",
+    "CMS-MAPPING.json",
+    "ADMIN-MAPPING.json",
+    "EXTENSIONS.md",
+    "VALIDATION.md",
+    "ACCEPTANCE-CHECKLIST.md"
+  ],
+  "validationCommand": "node bin/nextf-contract.mjs validate starters/documentation/nextf.site.json --verbose",
+  "codexInstruction": "Read `AGENTS.md` and `nextf.site.json`, resolve the pinned NEXT F Contract Version, use only enabled Modules/Capabilities, reuse canonical contracts, run NEXT F validation before completion, and report deviations."
+}

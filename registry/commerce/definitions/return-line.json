@@ -1,0 +1,130 @@
+{
+  "$id": "commerce.returnLine",
+  "name": "Return Line",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "returns",
+  "description": "One purchased line requested for return.",
+  "purpose": "Standardizes Return quantity and reason against an Order Line.",
+  "commerceModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "orderLineId",
+      "required": true,
+      "nullable": false,
+      "description": "Order Line ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "quantity",
+      "required": true,
+      "nullable": false,
+      "description": "Requested return quantity.",
+      "schema": "commerce.quantity"
+    },
+    {
+      "key": "reason",
+      "required": true,
+      "nullable": false,
+      "description": "Return reason.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "changed-mind",
+          "damaged",
+          "defective",
+          "wrong-item",
+          "not-as-described",
+          "late-delivery",
+          "other"
+        ]
+      }
+    },
+    {
+      "key": "condition",
+      "required": false,
+      "nullable": true,
+      "description": "Item condition.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "unopened",
+          "opened",
+          "used",
+          "damaged",
+          "unknown"
+        ]
+      }
+    },
+    {
+      "key": "customerNote",
+      "required": false,
+      "nullable": true,
+      "description": "Optional customer note.",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.orderLine",
+      "description": "References commerce.orderLine."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.quantity",
+      "description": "References commerce.quantity."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "positive",
+      "description": "Return quantity is greater than zero."
+    }
+  ],
+  "cms": {
+    "label": "Return Line",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "orderLineId",
+      "quantity",
+      "reason",
+      "condition"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

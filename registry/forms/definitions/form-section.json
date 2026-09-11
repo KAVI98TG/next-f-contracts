@@ -1,0 +1,143 @@
+{
+  "$id": "forms.formSection",
+  "name": "Form Section",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "builder",
+  "description": "A semantic grouping of fields within a form or step.",
+  "purpose": "Lets CMS authors organize large forms without granting layout-code control.",
+  "formsModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque section ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "formId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Form.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.form",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "title",
+      "required": false,
+      "nullable": true,
+      "description": "Optional section heading.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240,
+        "localizable": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional section description.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1500,
+        "localizable": true
+      }
+    },
+    {
+      "key": "fieldIds",
+      "required": true,
+      "nullable": false,
+      "description": "Ordered field IDs in the section.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "minItems": 1
+      }
+    },
+    {
+      "key": "visibleWhen",
+      "required": false,
+      "nullable": true,
+      "description": "Optional conditional section visibility.",
+      "schema": "forms.conditionGroup"
+    },
+    {
+      "key": "sortOrder",
+      "required": true,
+      "nullable": false,
+      "description": "Section order.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "forms.form",
+      "description": "Section belongs to one Form."
+    },
+    {
+      "type": "contains",
+      "target": "forms.formField",
+      "description": "Section orders Form Fields."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "fieldsBelongToSameForm",
+      "description": "Every fieldId must belong to the same Form."
+    },
+    {
+      "id": "fieldSinglePlacement",
+      "description": "A field must not be placed multiple times in one rendered form unless explicitly supported by a future contract."
+    }
+  ],
+  "cms": {
+    "label": "Form Section",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "id",
+      "formId",
+      "title",
+      "description"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

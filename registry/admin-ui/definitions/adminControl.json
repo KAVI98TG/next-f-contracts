@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.adminControl",
+  "name": "Admin Control",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines a reusable privileged UI control.",
+  "purpose": "Defines a reusable privileged UI control.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

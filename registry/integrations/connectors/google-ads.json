@@ -1,0 +1,122 @@
+{
+  "$id": "integrations.googleAds",
+  "name": "Google Ads",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "google",
+  "family": "advertising",
+  "description": "Google Ads conversion and reporting connector preserving canonical NEXT F conversion keys.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "site-runtime",
+    "nextf-server",
+    "provider-api"
+  ],
+  "capabilities": [
+    "conversion.dispatch.client",
+    "conversion.dispatch.server",
+    "reporting.read",
+    "resource.discover",
+    "account.verify"
+  ],
+  "authentication": {
+    "type": "mixed",
+    "supported": [
+      "none",
+      "oauth2"
+    ]
+  },
+  "configurationFields": [
+    {
+      "key": "customerId",
+      "label": "Customer ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Customer ID",
+      "validation": {}
+    },
+    {
+      "key": "conversionId",
+      "label": "Conversion ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Conversion ID",
+      "validation": {
+        "pattern": "^AW-[0-9]+$"
+      }
+    },
+    {
+      "key": "conversionActionId",
+      "label": "Conversion Action ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Conversion Action ID",
+      "validation": {}
+    },
+    {
+      "key": "conversionLabel",
+      "label": "Conversion Label",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Conversion Label",
+      "validation": {}
+    },
+    {
+      "key": "oauthProfileRef",
+      "label": "OAuth Profile",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": false,
+      "helpText": "OAuth Profile",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [
+      "marketing"
+    ],
+    "requiredFor": [
+      "conversion.dispatch.client",
+      "conversion.dispatch.server"
+    ]
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [],
+  "aliases": [
+    "Google Ads",
+    "GAds"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.leads.activity",
+  "capabilityId": "leads.activity",
+  "name": "Activity Timeline",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "leads",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Activity Timeline capability within the Leads module.",
+  "contractBindings": [
+    "forms.leadActivity"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

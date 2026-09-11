@@ -1,0 +1,85 @@
+{
+  "registryVersion": "1.0.0",
+  "types": [
+    {
+      "id": "page",
+      "label": "Page"
+    },
+    {
+      "id": "navigation",
+      "label": "Navigation"
+    },
+    {
+      "id": "form",
+      "label": "Form"
+    },
+    {
+      "id": "dialog",
+      "label": "Dialog"
+    },
+    {
+      "id": "drawer",
+      "label": "Drawer"
+    },
+    {
+      "id": "menu",
+      "label": "Menu"
+    },
+    {
+      "id": "table",
+      "label": "Table"
+    },
+    {
+      "id": "drag-drop",
+      "label": "Drag and Drop"
+    },
+    {
+      "id": "rich-text-editor",
+      "label": "Rich Text Editor"
+    },
+    {
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "id": "audio-video",
+      "label": "Audio/Video"
+    },
+    {
+      "id": "status-message",
+      "label": "Status Message"
+    },
+    {
+      "id": "chart",
+      "label": "Chart/Data Visualization"
+    },
+    {
+      "id": "checkout",
+      "label": "Checkout"
+    },
+    {
+      "id": "authentication",
+      "label": "Authentication Flow"
+    },
+    {
+      "id": "customer-cms",
+      "label": "Customer CMS"
+    },
+    {
+      "id": "admin",
+      "label": "NEXT F Admin"
+    },
+    {
+      "id": "code-viewer",
+      "label": "Code Viewer"
+    },
+    {
+      "id": "filter",
+      "label": "Filter Controls"
+    },
+    {
+      "id": "command-palette",
+      "label": "Command Palette"
+    }
+  ]
+}

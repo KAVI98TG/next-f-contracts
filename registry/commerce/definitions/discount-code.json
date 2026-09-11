@@ -1,0 +1,134 @@
+{
+  "$id": "commerce.discountCode",
+  "name": "Discount Code",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "promotions",
+  "description": "Redeemable code that activates a Discount.",
+  "purpose": "Separates discount economics from customer-entered codes.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "discountId",
+      "required": true,
+      "nullable": false,
+      "description": "Discount ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "code",
+      "required": true,
+      "nullable": false,
+      "description": "Redeemable code.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "caseSensitive",
+      "required": true,
+      "nullable": false,
+      "description": "Whether matching is case-sensitive.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Code state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "active",
+          "disabled",
+          "expired"
+        ]
+      }
+    },
+    {
+      "key": "usageCount",
+      "required": true,
+      "nullable": false,
+      "description": "Derived usage count.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "commerce.discount",
+      "description": "References commerce.discount."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "codeUnique",
+      "description": "Active code is unique within Site under matching policy."
+    },
+    {
+      "id": "usageDerived",
+      "description": "usageCount is derived from committed redemptions."
+    }
+  ],
+  "cms": {
+    "label": "Discount Code",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "discountId",
+      "code"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

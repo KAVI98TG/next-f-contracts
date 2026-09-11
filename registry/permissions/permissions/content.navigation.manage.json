@@ -1,0 +1,29 @@
+{
+  "$id": "content.navigation.manage",
+  "name": "Manage Navigation",
+  "permissionId": "content.navigation.manage",
+  "domain": "content",
+  "resource": "navigation",
+  "action": "manage",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage Navigation within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

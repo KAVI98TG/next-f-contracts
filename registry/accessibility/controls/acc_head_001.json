@@ -1,0 +1,40 @@
+{
+  "controlId": "ACC-HEAD-001",
+  "name": "Logical heading structure",
+  "category": "structure",
+  "requirement": "Pages and authored content must use a logical heading hierarchy without using heading level only for visual styling.",
+  "rationale": "Heading structure supports orientation and efficient navigation.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "page",
+    "rich-text-editor"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "content-review"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [
+    "cmsUi.editorDefinition"
+  ],
+  "relatedBlocks": [
+    "blocks.heading",
+    "blocks.richText"
+  ],
+  "relatedFields": [
+    "fields.richText",
+    "fields.text"
+  ],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_head_001.json"
+}

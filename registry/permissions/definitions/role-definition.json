@@ -1,0 +1,90 @@
+{
+  "$id": "permissions.roleDefinition",
+  "name": "Role Definition",
+  "domain": "permissions",
+  "type": "schema",
+  "version": "0.16.0",
+  "status": "stable",
+  "category": "foundation",
+  "description": "Defines a named bundle of explicit canonical permissions with scope and assignment constraints.",
+  "purpose": "Defines a named bundle of explicit canonical permissions with scope and assignment constraints.",
+  "permissionModel": {
+    "kind": "foundation",
+    "publicEligible": false,
+    "customerManaged": false
+  },
+  "fields": [
+    {
+      "key": "roleKey",
+      "required": true,
+      "nullable": false,
+      "description": "roleKey",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "displayName",
+      "required": true,
+      "nullable": false,
+      "description": "displayName",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "roleType",
+      "required": true,
+      "nullable": false,
+      "description": "roleType",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "scopeKind",
+      "required": true,
+      "nullable": false,
+      "description": "scopeKind",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "permissionIds",
+      "required": true,
+      "nullable": false,
+      "description": "Explicit canonical permission IDs; wildcards are prohibited.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "assignableByCustomer",
+      "required": true,
+      "nullable": false,
+      "description": "assignableByCustomer",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "systemProtected",
+      "required": true,
+      "nullable": false,
+      "description": "systemProtected",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "permissions.roleDefinition.rule.1",
+      "description": "Role permission lists must contain only canonical permission IDs."
+    },
+    {
+      "id": "permissions.roleDefinition.rule.2",
+      "description": "Wildcard permission grants are prohibited."
+    },
+    {
+      "id": "permissions.roleDefinition.rule.3",
+      "description": "A customer-defined role cannot contain a permission outside the creator’s grantable permission ceiling."
+    }
+  ],
+  "cms": {
+    "adminVisible": true,
+    "customerVisible": false
+  },
+  "delivery": {
+    "publicAllowed": false
+  },
+  "notes": []
+}

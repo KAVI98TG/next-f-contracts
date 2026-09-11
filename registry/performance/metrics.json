@@ -1,0 +1,91 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "metrics": [
+    {
+      "id": "portal.indexHtmlBytes",
+      "label": "Index HTML bytes",
+      "unit": "bytes"
+    },
+    {
+      "id": "portal.localCssBytes",
+      "label": "Local CSS aggregate bytes",
+      "unit": "bytes"
+    },
+    {
+      "id": "portal.localJsSourceBytes",
+      "label": "Non-generated portal JavaScript bytes",
+      "unit": "bytes"
+    },
+    {
+      "id": "portal.generatedFallbackBytes",
+      "label": "Generated local fallback aggregate bytes",
+      "unit": "bytes"
+    },
+    {
+      "id": "portal.eagerGeneratedFallbackBytes",
+      "label": "Generated fallback bytes statically reachable from app bootstrap",
+      "unit": "bytes"
+    },
+    {
+      "id": "registry.registryJsonBytes",
+      "label": "Registry JSON bytes",
+      "unit": "bytes"
+    },
+    {
+      "id": "search.indexBytes",
+      "label": "Global Search index bytes",
+      "unit": "bytes"
+    },
+    {
+      "id": "relationships.indexBytes",
+      "label": "Relationship index bytes",
+      "unit": "bytes"
+    },
+    {
+      "id": "diff.snapshotsBytes",
+      "label": "Contract Diff snapshot storage bytes",
+      "unit": "bytes"
+    },
+    {
+      "id": "portal.inlineScriptBytes",
+      "label": "Inline script bytes",
+      "unit": "bytes"
+    },
+    {
+      "id": "portal.inlineStyleBytes",
+      "label": "Inline style bytes",
+      "unit": "bytes"
+    },
+    {
+      "id": "portal.externalScriptCount",
+      "label": "External script count",
+      "unit": "count"
+    },
+    {
+      "id": "portal.externalStylesheetCount",
+      "label": "External stylesheet count",
+      "unit": "count"
+    },
+    {
+      "id": "portal.eagerDiffImportCount",
+      "label": "Eager Contract Diff import count",
+      "unit": "count"
+    },
+    {
+      "id": "relationships.maxRenderedNeighbors",
+      "label": "Relationship maximum rendered neighbors",
+      "unit": "count"
+    },
+    {
+      "id": "search.defaultPageLimit",
+      "label": "Global Search default page result limit",
+      "unit": "count"
+    },
+    {
+      "id": "portal.bootstrapRegistryLoaderCount",
+      "label": "Registry/data loaders invoked by app bootstrap",
+      "unit": "count"
+    }
+  ]
+}

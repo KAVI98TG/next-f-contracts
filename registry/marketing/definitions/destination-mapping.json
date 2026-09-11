@@ -1,0 +1,154 @@
+{
+  "$id": "marketing.destinationMapping",
+  "name": "Destination Mapping",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "destination",
+  "description": "Maps canonical tracking/conversion keys to a logical destination action key.",
+  "purpose": "Provides provider-neutral handoff; provider event names/IDs remain connector-owned in Phase 10.",
+  "marketingModel": {
+    "kind": "mapping",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "mappingKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable mapping ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "destinationKey",
+      "required": true,
+      "nullable": false,
+      "description": "Logical destination key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "sourceType",
+      "required": true,
+      "nullable": false,
+      "description": "Source object type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "trackingEvent",
+            "label": "Tracking Event"
+          },
+          {
+            "value": "conversion",
+            "label": "Conversion"
+          }
+        ]
+      }
+    },
+    {
+      "key": "sourceKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical eventKey/conversionKey.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "destinationActionKey",
+      "required": true,
+      "nullable": false,
+      "description": "Provider-neutral action alias resolved by connector.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether mapping active.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "marketing.marketingDestination",
+      "description": "Targets destination."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.trackingEventDefinition",
+      "description": "Tracking sources resolve here."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.conversionDefinition",
+      "description": "Conversion sources resolve here."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "providerSpecificIdsExcluded",
+      "description": "Provider conversion/pixel IDs do not belong here."
+    },
+    {
+      "id": "sourceKeyResolvable",
+      "description": "sourceKey resolves according to sourceType."
+    },
+    {
+      "id": "destinationActionConnectorOwned",
+      "description": "Phase 10 connector resolves provider semantics."
+    }
+  ],
+  "cms": {
+    "label": "Destination Mapping",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "mappingKey",
+      "destinationKey",
+      "sourceType",
+      "sourceKey"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

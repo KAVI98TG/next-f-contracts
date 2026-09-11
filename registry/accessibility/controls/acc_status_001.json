@@ -1,0 +1,36 @@
+{
+  "controlId": "ACC-STATUS-001",
+  "name": "Announce important status changes",
+  "category": "status",
+  "requirement": "Important asynchronous status changes must be exposed to assistive technology without unexpectedly moving focus.",
+  "rationale": "Users need feedback when operations complete, fail or update asynchronously.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "status-message",
+    "form",
+    "checkout",
+    "customer-cms",
+    "admin"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "screen-reader-manual",
+    "integration-test"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_status_001.json"
+}

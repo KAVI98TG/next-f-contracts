@@ -1,0 +1,36 @@
+{
+  "controlId": "SEC-SUPPLY-001",
+  "name": "Build and generated-artifact integrity",
+  "category": "supply-chain",
+  "requirement": "Generated contract artifacts and release packages must retain integrity evidence and must not silently diverge from authoritative source.",
+  "rationale": "Supply-chain integrity protects consumers from tampered or stale generated data.",
+  "applicability": [
+    "portal",
+    "build-tooling",
+    "customer-sites"
+  ],
+  "obligation": "mandatory",
+  "scope": "build",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "registry.index"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_supply_001.json"
+}

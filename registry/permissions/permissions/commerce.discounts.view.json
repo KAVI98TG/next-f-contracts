@@ -1,0 +1,29 @@
+{
+  "$id": "commerce.discounts.view",
+  "name": "View Discounts",
+  "permissionId": "commerce.discounts.view",
+  "domain": "commerce",
+  "resource": "discounts",
+  "action": "view",
+  "scopeKind": "site",
+  "riskLevel": "standard",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Discounts within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

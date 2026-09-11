@@ -1,0 +1,99 @@
+{
+  "$id": "commerce.customerSnapshot",
+  "name": "Customer Snapshot",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "customer",
+  "description": "Immutable transaction-time customer snapshot.",
+  "purpose": "Preserves transaction history when profile data later changes.",
+  "commerceModel": {
+    "kind": "snapshot",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "customerId",
+      "required": false,
+      "nullable": true,
+      "description": "Commerce Customer ID when known.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "email",
+      "required": false,
+      "nullable": true,
+      "description": "Transaction-time email.",
+      "primitive": "fields.email"
+    },
+    {
+      "key": "phone",
+      "required": false,
+      "nullable": true,
+      "description": "Transaction-time phone.",
+      "primitive": "fields.phone"
+    },
+    {
+      "key": "firstName",
+      "required": false,
+      "nullable": true,
+      "description": "First name snapshot.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "lastName",
+      "required": false,
+      "nullable": true,
+      "description": "Last name snapshot.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "immutable",
+      "description": "Committed snapshots do not follow later Customer profile edits."
+    }
+  ],
+  "cms": {
+    "label": "Customer Snapshot",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "customerId",
+      "email",
+      "phone",
+      "firstName"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,146 @@
+{
+  "$id": "forms.spamSignal",
+  "name": "Spam Signal",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "anti-abuse",
+  "description": "One anti-spam observation attached to a submission.",
+  "purpose": "Provides explainable evidence for a spam decision without exposing provider secrets.",
+  "formsModel": {
+    "kind": "operational-record",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false
+  },
+  "fields": [
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Signal category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "honeypot",
+            "label": "honeypot"
+          },
+          {
+            "value": "completionTime",
+            "label": "completionTime"
+          },
+          {
+            "value": "linkCount",
+            "label": "linkCount"
+          },
+          {
+            "value": "blockedTerm",
+            "label": "blockedTerm"
+          },
+          {
+            "value": "rateLimit",
+            "label": "rateLimit"
+          },
+          {
+            "value": "challenge",
+            "label": "challenge"
+          },
+          {
+            "value": "providerScore",
+            "label": "providerScore"
+          },
+          {
+            "value": "duplicatePattern",
+            "label": "duplicatePattern"
+          },
+          {
+            "value": "other",
+            "label": "other"
+          }
+        ]
+      }
+    },
+    {
+      "key": "score",
+      "required": false,
+      "nullable": true,
+      "description": "Normalized suspicion score contribution where applicable.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    {
+      "key": "reason",
+      "required": true,
+      "nullable": false,
+      "description": "Non-secret human-readable reason.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500
+      }
+    },
+    {
+      "key": "providerReference",
+      "required": false,
+      "nullable": true,
+      "description": "Optional non-secret external provider reference.",
+      "schema": "shared.externalReference"
+    },
+    {
+      "key": "observedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Observation timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Signal reason/provider metadata must not contain challenge secrets, raw tokens or hidden provider credentials."
+    },
+    {
+      "id": "signalNotDecision",
+      "description": "One signal alone is not necessarily the final spam classification."
+    }
+  ],
+  "cms": {
+    "label": "Spam Signal",
+    "icon": "fa-rectangle-list",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "type",
+      "score",
+      "reason",
+      "providerReference"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,88 @@
+{
+  "$id": "webhooks.subscriptionFilter",
+  "name": "Webhook Subscription Filter",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "subscriptions",
+  "description": "Optional bounded filter applied after event selection and before delivery creation.",
+  "purpose": "Allows narrow subscription routing without introducing arbitrary executable predicates.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "fieldPath",
+      "required": true,
+      "nullable": false,
+      "description": "Approved event metadata/payload field path.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "operator",
+      "required": true,
+      "nullable": false,
+      "description": "Supported deterministic operator.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "equals",
+          "not-equals",
+          "in",
+          "not-in",
+          "exists",
+          "not-exists"
+        ]
+      }
+    },
+    {
+      "key": "value",
+      "required": false,
+      "nullable": true,
+      "description": "Comparison value where required.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "allowListedPaths",
+      "description": "Filter paths must be explicitly permitted by the selected Event definition or platform policy."
+    },
+    {
+      "id": "noCode",
+      "description": "Regular-expression execution, scripts and arbitrary expressions are prohibited in V1."
+    },
+    {
+      "id": "filterDoesNotAuthorizeData",
+      "description": "Matching a field does not grant permission to expose that field in the outbound payload."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Subscription Filter",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "fieldPath",
+      "operator",
+      "value"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

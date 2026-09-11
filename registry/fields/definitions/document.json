@@ -1,0 +1,69 @@
+{
+  "$id": "fields.document",
+  "name": "Document",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "media",
+  "description": "Reference to a downloadable or viewable document asset such as PDF or office document, constrained by allowlist.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "Opaque Media Asset ID resolving to an allowed document MIME type.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "document-picker",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": false,
+    "filterable": false,
+    "sortable": false,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "allowedMimeTypes",
+    "allowedExtensions",
+    "maxFileSizeBytes",
+    "accept"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "relationExists",
+    "mimeType",
+    "extension",
+    "fileSize"
+  ],
+  "examples": {
+    "valid": [
+      "media_01DOC"
+    ],
+    "invalid": [
+      "https://unknown.example/file.pdf"
+    ]
+  },
+  "notes": [
+    "Document content indexing is a separate capability and not implied by this primitive."
+  ]
+}

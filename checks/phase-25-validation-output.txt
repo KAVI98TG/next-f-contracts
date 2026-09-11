@@ -1,0 +1,9 @@
+NEXT F Contracts Phase 25 validation
+Version: 0.26.0
+Passes: 5515
+Failures: 0
+Exact releases: 21
+Snapshots: 1950
+Registry items: 1785
+
+PASS - Contract Diff foundation is internally consistent.

@@ -1,0 +1,20 @@
+{
+  "ruleId": "PERF-RULE-010",
+  "name": "Responsive images",
+  "category": "media",
+  "requirement": "Use srcset/sizes or equivalent responsive-image delivery when one image asset serves materially different viewport sizes.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "manual-review"
+  ],
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_010.json"
+}

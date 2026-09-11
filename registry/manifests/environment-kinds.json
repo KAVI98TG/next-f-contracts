@@ -1,0 +1,25 @@
+{
+  "registryVersion": "0.17.0",
+  "environmentKinds": [
+    {
+      "key": "development",
+      "label": "Development",
+      "description": "Local or developer-controlled non-public execution environment."
+    },
+    {
+      "key": "preview",
+      "label": "Preview",
+      "description": "Ephemeral or controlled review environment for unpublished work."
+    },
+    {
+      "key": "staging",
+      "label": "Staging",
+      "description": "Persistent non-production environment used for acceptance/integration testing."
+    },
+    {
+      "key": "production",
+      "label": "Production",
+      "description": "Authoritative public/live environment."
+    }
+  ]
+}

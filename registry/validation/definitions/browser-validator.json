@@ -1,0 +1,12 @@
+{
+  "$id": "validation.browserValidator",
+  "name": "Browser Contract Validator",
+  "description": "Local-only deterministic validator for nextf.site.json using authoritative NEXT F Contract Registry data.",
+  "status": "stable",
+  "phase": 33,
+  "input": "nextf.site.json",
+  "privacy": "local-only",
+  "mutatesInput": false,
+  "autoUpgrades": false,
+  "sharedCore": "js/manifest-validation-core.js"
+}

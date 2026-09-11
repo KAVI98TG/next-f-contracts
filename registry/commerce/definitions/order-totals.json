@@ -1,0 +1,112 @@
+{
+  "$id": "commerce.orderTotals",
+  "name": "Order Totals",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "orders",
+  "description": "Committed Order monetary summary.",
+  "purpose": "Preserves historical totals independently from mutable catalog, shipping, tax and promotion settings.",
+  "commerceModel": {
+    "kind": "snapshot",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "subtotal",
+      "required": true,
+      "nullable": false,
+      "description": "Line subtotal.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "discountTotal",
+      "required": true,
+      "nullable": false,
+      "description": "Discount total.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "shippingTotal",
+      "required": true,
+      "nullable": false,
+      "description": "Shipping total.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "taxTotal",
+      "required": true,
+      "nullable": false,
+      "description": "Tax total.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "grandTotal",
+      "required": true,
+      "nullable": false,
+      "description": "Final Order total.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "refundedTotal",
+      "required": false,
+      "nullable": true,
+      "description": "Aggregate refunded total.",
+      "schema": "commerce.moneySnapshot"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "commerce.moneySnapshot",
+      "description": "References commerce.moneySnapshot."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "singleCurrency",
+      "description": "All totals share one currency."
+    }
+  ],
+  "cms": {
+    "label": "Order Totals",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "subtotal",
+      "discountTotal",
+      "shippingTotal",
+      "taxTotal"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

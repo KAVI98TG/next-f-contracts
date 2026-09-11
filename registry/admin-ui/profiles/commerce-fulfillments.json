@@ -1,0 +1,106 @@
+{
+  "$id": "adminUi.profile.commerce.fulfillments",
+  "name": "Fulfillments Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "commerce.fulfillments",
+  "permissionDomain": "commerce",
+  "moduleId": "commerce",
+  "description": "Internal NEXT F Admin metadata for Fulfillments. Applies only within server-authorized administrative scope.",
+  "route": "/sites/:siteId/commerce/fulfillments",
+  "screenKind": "admin-operations",
+  "layoutTemplate": "inherited-resource",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "site",
+    "requiresOrganization": false,
+    "requiresSite": true,
+    "allowsCrossTenant": false,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": "cmsUi.profile.commerce.fulfillments",
+  "inheritanceMode": "reference-not-copy",
+  "targetContracts": [
+    "commerce.fulfillment",
+    "commerce.shipment"
+  ],
+  "primaryTargetContract": "commerce.fulfillment",
+  "permissions": [
+    "commerce.fulfillments.create",
+    "commerce.fulfillments.edit",
+    "commerce.fulfillments.manage",
+    "commerce.fulfillments.view"
+  ],
+  "actions": [
+    {
+      "actionId": "create",
+      "permissionId": "commerce.fulfillments.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "commerce.fulfillments.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "commerce.fulfillments.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "commerce.fulfillments.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions",
+    "customer-ui-reference",
+    "commerce-invariants",
+    "delivery-integrity",
+    "data-governance"
+  ],
+  "controls": [
+    "risk-badge"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": [
+    "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate.",
+    "Administrative permission never bypasses Phase 12 Commerce Rules or transaction invariants."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$id": "platform.migrations.view",
+  "name": "View Migrations",
+  "permissionId": "platform.migrations.view",
+  "domain": "platform",
+  "resource": "migrations",
+  "action": "view",
+  "scopeKind": "platform",
+  "riskLevel": "standard",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Migrations within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

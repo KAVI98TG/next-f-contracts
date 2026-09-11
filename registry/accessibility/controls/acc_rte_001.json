@@ -1,0 +1,36 @@
+{
+  "controlId": "ACC-RTE-001",
+  "name": "Accessible rich-text editing",
+  "category": "authoring",
+  "requirement": "Rich-text editors must expose toolbar controls, editing context and formatting actions to keyboard and assistive technology, with a non-pointer path for all supported operations.",
+  "rationale": "Authoring tools must not make content editing dependent on pointer input.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "rich-text-editor"
+  ],
+  "verificationMethods": [
+    "keyboard-manual",
+    "screen-reader-manual",
+    "integration-test"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [
+    "cmsUi.editorDefinition"
+  ],
+  "relatedBlocks": [],
+  "relatedFields": [
+    "fields.richText"
+  ],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_rte_001.json"
+}

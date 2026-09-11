@@ -1,0 +1,24 @@
+{
+  "budgetId": "PERF-BUDGET-009",
+  "name": "Diff snapshot storage",
+  "category": "diff",
+  "scope": "contract-portal",
+  "metric": "diff.snapshotsBytes",
+  "target": 367001600,
+  "warningThreshold": 536870912,
+  "comparator": "lte",
+  "unit": "bytes",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-file-size",
+  "environment": "Repository storage",
+  "notes": "Phase 36 RC keeps the original 350 MiB target but expands the hard-fail ceiling to 512 MiB for accumulated exact Diff history; crossing the target remains a visible storage warning and does not affect initial-route transfer.",
+  "relatedRegistryIds": [
+    "diff.releaseIndex"
+  ],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_009.json"
+}

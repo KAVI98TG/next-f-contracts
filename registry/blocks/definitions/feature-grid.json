@@ -1,0 +1,144 @@
+{
+  "$id": "blocks.featureGrid",
+  "name": "Feature Grid",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "listing",
+  "description": "Grid/list of structured feature items.",
+  "purpose": "Lets customers manage benefits and features while NEXT F controls card composition and responsive layout.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "items",
+      "required": true,
+      "nullable": false,
+      "description": "Ordered feature items.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "array",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      },
+      "itemsSchema": "blocks.featureItem",
+      "collectionRules": {
+        "minItems": 1,
+        "maxItems": 24
+      }
+    },
+    {
+      "key": "actions",
+      "required": false,
+      "nullable": true,
+      "description": "Optional primary and secondary conversion actions.",
+      "schema": "blocks.actionGroup"
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "blocks.featureItem",
+      "description": "Every item validates against Feature Item."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "blocks.heading",
+      "description": "May include a heading."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "blocks.actionGroup",
+      "description": "May include section actions."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "itemsConform",
+      "description": "Every items entry must validate against blocks.featureItem."
+    },
+    {
+      "id": "reasonableCount",
+      "description": "Implementations may enforce lower display limits based on the selected approved variant."
+    }
+  ],
+  "cms": {
+    "label": "Feature Grid",
+    "icon": "fa-grip",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "items",
+      "actions"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Feature cards must preserve logical source order independent of responsive columns."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

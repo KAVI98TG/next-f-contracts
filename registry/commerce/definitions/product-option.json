@@ -1,0 +1,95 @@
+{
+  "$id": "commerce.productOption",
+  "name": "Product Option",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "catalog",
+  "description": "Variant-generating option such as Size or Color.",
+  "purpose": "Defines option dimensions used to construct Product Variants.",
+  "commerceModel": {
+    "kind": "embedded",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable option key.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Display name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "values",
+      "required": true,
+      "nullable": false,
+      "description": "Allowed option values.",
+      "itemsSchema": "commerce.productOptionValue",
+      "config": {
+        "minItems": 1,
+        "uniqueItems": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "commerce.productOptionValue",
+      "description": "References commerce.productOptionValue."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "uniqueValueKeys",
+      "description": "Option value keys are unique within the option."
+    }
+  ],
+  "cms": {
+    "label": "Product Option",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "key",
+      "name",
+      "values"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly public storefront fields may be delivered; operational, personal, payment and internal metadata remain private."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

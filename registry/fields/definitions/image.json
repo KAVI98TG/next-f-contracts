@@ -1,0 +1,75 @@
+{
+  "$id": "fields.image",
+  "name": "Image",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "media",
+  "description": "Reference to one image Media Asset with optional image-specific constraints.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "Opaque Media Asset ID whose resolved asset is an allowed image MIME type.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "image-picker",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": false,
+    "filterable": false,
+    "sortable": false,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "allowedMimeTypes",
+    "allowedExtensions",
+    "maxFileSizeBytes",
+    "accept",
+    "minWidth",
+    "maxWidth",
+    "minHeight",
+    "maxHeight",
+    "aspectRatio"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "relationExists",
+    "mimeType",
+    "extension",
+    "fileSize",
+    "imageDimensions"
+  ],
+  "examples": {
+    "valid": [
+      "media_01IMAGE"
+    ],
+    "invalid": [
+      "https://example.com/image.jpg"
+    ]
+  },
+  "notes": [
+    "ALT text belongs to the consuming image/media usage schema where contextual alternative text can be provided."
+  ]
+}

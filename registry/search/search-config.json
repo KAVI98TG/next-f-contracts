@@ -1,0 +1,157 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": 1,
+  "defaultPaletteLimit": 14,
+  "defaultPageLimit": 50,
+  "maxQueryLength": 160,
+  "minFuzzyTokenLength": 5,
+  "kinds": [
+    {
+      "id": "registry",
+      "label": "Registry",
+      "icon": "fa-database",
+      "priority": 10
+    },
+    {
+      "id": "field",
+      "label": "Field",
+      "icon": "fa-i-cursor",
+      "priority": 20
+    },
+    {
+      "id": "route",
+      "label": "Portal",
+      "icon": "fa-compass",
+      "priority": 30
+    },
+    {
+      "id": "document",
+      "label": "Documentation",
+      "icon": "fa-book-open",
+      "priority": 40
+    },
+    {
+      "id": "release",
+      "label": "Release",
+      "icon": "fa-code-branch",
+      "priority": 35
+    },
+    {
+      "id": "change",
+      "label": "Change",
+      "icon": "fa-clock-rotate-left",
+      "priority": 36
+    },
+    {
+      "id": "deprecation",
+      "label": "Deprecation",
+      "icon": "fa-triangle-exclamation",
+      "priority": 37
+    }
+  ],
+  "stopWords": [
+    "a",
+    "an",
+    "and",
+    "as",
+    "at",
+    "by",
+    "for",
+    "from",
+    "in",
+    "of",
+    "on",
+    "or",
+    "the",
+    "to",
+    "with"
+  ],
+  "synonyms": {
+    "ecommerce": [
+      "commerce",
+      "store",
+      "shop"
+    ],
+    "store": [
+      "commerce",
+      "ecommerce",
+      "shop"
+    ],
+    "shop": [
+      "commerce",
+      "ecommerce",
+      "store"
+    ],
+    "facebook": [
+      "meta"
+    ],
+    "meta": [
+      "facebook"
+    ],
+    "ga4": [
+      "google",
+      "analytics"
+    ],
+    "gtm": [
+      "google",
+      "tag",
+      "manager"
+    ],
+    "cms": [
+      "content",
+      "management",
+      "customer"
+    ],
+    "seo": [
+      "search",
+      "optimization",
+      "metadata"
+    ],
+    "api": [
+      "endpoint",
+      "operation",
+      "interface"
+    ],
+    "webhook": [
+      "delivery",
+      "subscription",
+      "event"
+    ],
+    "permission": [
+      "authorization",
+      "role",
+      "access"
+    ],
+    "blog": [
+      "post",
+      "editorial"
+    ],
+    "lead": [
+      "form",
+      "submission",
+      "prospect"
+    ],
+    "product": [
+      "commerce",
+      "catalog"
+    ],
+    "order": [
+      "commerce",
+      "checkout"
+    ],
+    "tracking": [
+      "analytics",
+      "marketing",
+      "event"
+    ],
+    "pixel": [
+      "meta",
+      "tracking"
+    ],
+    "ads": [
+      "advertising",
+      "marketing",
+      "conversion"
+    ]
+  }
+}

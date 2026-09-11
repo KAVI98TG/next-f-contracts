@@ -1,0 +1,106 @@
+{
+  "$id": "compatibility.runtimeDeclaration",
+  "name": "Runtime Compatibility Declaration",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Declares an implemented runtime surface and the exact contracts/specifications it supports.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "runtimeId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable runtime identifier.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "runtimeVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Exact runtime release version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "supportedContractVersions",
+      "required": true,
+      "nullable": false,
+      "description": "Explicit supported Contract Versions.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "supportedManifestVersions",
+      "required": true,
+      "nullable": false,
+      "description": "Supported Site Manifest schema versions.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "supportedApiVersions",
+      "required": false,
+      "nullable": true,
+      "description": "API group/version support.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Runtime release status.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "Authoritative runtime release source.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.slug",
+      "description": "runtimeId uses fields.slug."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "runtimeVersion uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.multiSelect",
+      "description": "supportedContractVersions uses fields.multiSelect."
+    },
+    {
+      "type": "uses",
+      "target": "fields.json",
+      "description": "supportedApiVersions uses fields.json."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "status uses fields.select."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

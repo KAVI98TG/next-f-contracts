@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/schemas/starter-pack.schema.json",
+  "title": "NEXT F Site Starter Pack Definition",
+  "type": "object",
+  "required": ["$id","slug","name","version","status","siteType","sourceExampleId","bundlePath","manifestPath","summary","files","validationCommand","codexInstruction"],
+  "properties": {
+    "$id": {"type":"string","pattern":"^starters\\.[a-z0-9-]+$"},
+    "slug": {"type":"string","pattern":"^[a-z0-9-]+$"},
+    "name": {"type":"string","minLength":3},
+    "version": {"type":"string"},
+    "status": {"const":"stable"},
+    "siteType": {"type":"string"},
+    "sourceExampleId": {"type":"string","pattern":"^examples\\."},
+    "bundlePath": {"type":"string","pattern":"^starters/"},
+    "manifestPath": {"type":"string"},
+    "summary": {"type":"string"},
+    "modules": {"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "capabilities": {"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "files": {"type":"array","items":{"type":"string"},"minItems":16,"uniqueItems":true},
+    "validationCommand": {"type":"string"},
+    "codexInstruction": {"type":"string"}
+  },
+  "additionalProperties": true
+}

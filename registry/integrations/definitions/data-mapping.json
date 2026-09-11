@@ -1,0 +1,124 @@
+{
+  "$id": "integrations.dataMapping",
+  "name": "Mapping",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "mapping",
+  "description": "Reusable directional data mapping between a canonical NEXT F object and a provider object.",
+  "purpose": "Supports CRM, email, API and sync adapters without dumping raw records to providers.",
+  "integrationModel": {
+    "kind": "mapping",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "mappingKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable mapping key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sourceContract",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical source contract ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "targetObject",
+      "required": true,
+      "nullable": false,
+      "description": "Provider target object/type.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "direction",
+      "required": true,
+      "nullable": false,
+      "description": "Mapping direction.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "outbound",
+          "inbound",
+          "bidirectional"
+        ]
+      }
+    },
+    {
+      "key": "fields",
+      "required": true,
+      "nullable": false,
+      "description": "Explicit field mappings.",
+      "itemsSchema": "integrations.dataMappingField"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether mapping is enabled.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "integrations.dataMappingField",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "explicitFieldsOnly",
+      "description": "Only explicitly mapped fields cross provider boundary."
+    },
+    {
+      "id": "noRawPayloadDump",
+      "description": "Whole canonical objects are not sent by default."
+    },
+    {
+      "id": "typeConversionExplicit",
+      "description": "Non-trivial type conversion is explicit."
+    }
+  ],
+  "cms": {
+    "label": "Mapping",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "mappingKey",
+      "sourceContract",
+      "targetObject",
+      "direction"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

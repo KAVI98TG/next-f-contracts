@@ -1,0 +1,181 @@
+{
+  "$id": "starters.lead-generation",
+  "slug": "lead-generation",
+  "name": "Lead Generation Site Starter",
+  "version": "1.0.0",
+  "status": "stable",
+  "siteType": "lead-generation",
+  "sourceExampleId": "examples.lead-generation-site",
+  "bundlePath": "starters/lead-generation",
+  "manifestPath": "starters/lead-generation/nextf.site.json",
+  "summary": "Campaign and organic landing-page system centered on forms, Leads, attribution, conversions, analytics and controlled ad integrations.",
+  "modules": [
+    "core",
+    "media",
+    "pages",
+    "seo",
+    "forms",
+    "leads",
+    "consent",
+    "analytics",
+    "marketing",
+    "integrations"
+  ],
+  "capabilities": [
+    "core.identity",
+    "core.publishing",
+    "core.versioning",
+    "core.audit",
+    "core.tenant-isolation",
+    "media.library",
+    "media.images",
+    "media.contextual-metadata",
+    "pages.sections",
+    "pages.reusable-content",
+    "pages.navigation",
+    "seo.metadata",
+    "seo.social-sharing",
+    "seo.sitemap",
+    "seo.robots",
+    "seo.redirects",
+    "forms.notifications",
+    "forms.spam-protection",
+    "forms.consent-fields",
+    "forms.multi-step",
+    "forms.conditional-logic",
+    "leads.status",
+    "leads.activity",
+    "leads.deduplication",
+    "leads.assignment",
+    "consent.preferences",
+    "consent.records",
+    "consent.categories",
+    "consent.integration-gating",
+    "analytics.measurement",
+    "analytics.reporting",
+    "marketing.conversions",
+    "marketing.utm-attribution",
+    "marketing.destinations",
+    "integrations.health"
+  ],
+  "contractCount": 264,
+  "apiBindings": [
+    {
+      "apiId": "api.public-content",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.public-interaction",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.events",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    }
+  ],
+  "trackingEvents": [
+    "page.viewed",
+    "cta.clicked",
+    "phone.clicked",
+    "email.clicked",
+    "whatsapp.clicked",
+    "form.started",
+    "form.submitted",
+    "lead.created"
+  ],
+  "integrations": [
+    {
+      "connectorId": "integrations.googleTagManager",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleAnalytics4",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleAds",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.meta",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleSearchConsole",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.microsoftClarity",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.crm",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.emailProvider",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    }
+  ],
+  "permissionCount": 147,
+  "eventCount": 57,
+  "files": [
+    "nextf.site.json",
+    "AGENTS.md",
+    "README.md",
+    "CONTRACT-RESOLUTION-SUMMARY.md",
+    "INTEGRATION-ARCHITECTURE.md",
+    ".env.example",
+    "CONTENT-CONTRACT-MAP.json",
+    "EVENT-MAP.json",
+    "TRACKING-EVENT-MAP.json",
+    "PERMISSION-EXPECTATIONS.md",
+    "API-BINDINGS.md",
+    "CMS-MAPPING.json",
+    "ADMIN-MAPPING.json",
+    "EXTENSIONS.md",
+    "VALIDATION.md",
+    "ACCEPTANCE-CHECKLIST.md"
+  ],
+  "validationCommand": "node bin/nextf-contract.mjs validate starters/lead-generation/nextf.site.json --verbose",
+  "codexInstruction": "Read `AGENTS.md` and `nextf.site.json`, resolve the pinned NEXT F Contract Version, use only enabled Modules/Capabilities, reuse canonical contracts, run NEXT F validation before completion, and report deviations."
+}

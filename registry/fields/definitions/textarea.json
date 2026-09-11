@@ -1,0 +1,75 @@
+{
+  "$id": "fields.textarea",
+  "name": "Textarea",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "text",
+  "description": "Multi-line plain text without rich formatting semantics.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "UTF-8 plain text preserving line breaks.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "multi-line-text",
+    "inputMode": "text",
+    "supportsPlaceholder": true,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": false,
+    "localizable": true,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "placeholder",
+    "minLength",
+    "maxLength",
+    "pattern",
+    "trim",
+    "normalizeWhitespace",
+    "allowEmptyString",
+    "autocomplete",
+    "inputMode",
+    "caseSensitive"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "minLength",
+    "maxLength",
+    "pattern"
+  ],
+  "examples": {
+    "valid": [
+      "Line one\nLine two"
+    ],
+    "invalid": [
+      42,
+      [
+        "line"
+      ]
+    ]
+  },
+  "notes": []
+}

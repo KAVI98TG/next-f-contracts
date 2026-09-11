@@ -1,0 +1,20 @@
+{
+  "ruleId": "PERF-RULE-018",
+  "name": "Connector failure isolation",
+  "category": "resilience",
+  "requirement": "Third-party provider failure must not break primary site content, forms unrelated to that provider, or navigation.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "manual-review"
+  ],
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_018.json"
+}

@@ -1,0 +1,22 @@
+{
+  "budgetId": "PERF-BUDGET-002",
+  "name": "Local CSS aggregate",
+  "category": "payload",
+  "scope": "contract-portal",
+  "metric": "portal.localCssBytes",
+  "target": 196608,
+  "warningThreshold": 262144,
+  "comparator": "lte",
+  "unit": "bytes",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-file-size",
+  "environment": "Hosted and file review",
+  "notes": "All portal CSS combined. Route-specific growth should be monitored even though styles remain static assets.",
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_002.json"
+}

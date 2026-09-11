@@ -1,0 +1,91 @@
+{
+  "$id": "manifest.contractBinding",
+  "name": "Contract Binding",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "identity-versioning",
+  "description": "Pins the Site to one exact NEXT F Contract Registry release.",
+  "purpose": "Prevents production Sites and Codex builds from silently following a moving latest contract.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "contractVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Exact NEXT F Contract Registry semantic version.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^\\\\d+\\\\.\\\\d+\\\\.\\\\d+$",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "manifestSpecVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Exact Site Manifest specification version used by this file.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^\\\\d+\\\\.\\\\d+\\\\.\\\\d+$",
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "compatibilityMode",
+      "required": true,
+      "nullable": false,
+      "description": "Compatibility behavior for unknown optional fields.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "strict-major",
+            "label": "Strict Major"
+          }
+        ],
+        "defaultValue": "strict-major",
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "exactContractVersionRequired",
+      "description": "contractVersion must be an exact semantic version and must never use latest, *, ranges or floating tags."
+    },
+    {
+      "id": "manifestSpecPinned",
+      "description": "manifestSpecVersion must identify the exact manifest specification used to validate the file."
+    },
+    {
+      "id": "majorChangesRequireMigration",
+      "description": "A Site must not cross a breaking Contract major version without an explicit migration."
+    }
+  ],
+  "cms": {
+    "label": "Contract Binding",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "contractVersion",
+      "manifestSpecVersion",
+      "compatibilityMode"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

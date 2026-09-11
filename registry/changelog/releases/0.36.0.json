@@ -1,0 +1,400 @@
+{
+  "$id": "changelog.release.0.36.0",
+  "version": "0.36.0",
+  "phase": 35,
+  "title": "Site Starter Contract Pack",
+  "releaseStatus": "published-development",
+  "releaseDate": null,
+  "summary": "Phase 35 - Site Starter Contract Pack.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_cf90356a70af36",
+          "releaseVersion": "0.36.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Six framework-neutral Site Starter Contract Packs are now available for Corporate, Service Business, Lead Generation, Ecommerce, Documentation and Custom Extension projects.",
+          "affectedRegistryIds": [
+            "starters.corporate",
+            "starters.custom-extension",
+            "starters.documentation",
+            "starters.ecommerce",
+            "starters.lead-generation",
+            "starters.service-business"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Six framework-neutral Site Starter Contract Packs are now available for Corporate, Service Business, Lead Generation, Ecommerce, Documentation and Custom Extension projects.",
+          "description": "Six framework-neutral Site Starter Contract Packs are now available for Corporate, Service Business, Lead Generation, Ecommerce, Documentation and Custom Extension projects.",
+          "changeType": "added",
+          "affectedDomains": [
+            "developer"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.36.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_138ec354064570",
+          "releaseVersion": "0.36.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Every starter includes a pinned Site Manifest, AGENTS handoff, contract-resolution template, integration/environment notes, contract/Event/tracking maps, permission/API/CMS/Admin expectations, extension guidance, validation commands and acceptance checklist.",
+          "affectedRegistryIds": [
+            "starters.definition",
+            "starters.index",
+            "starters.siteStarterContractPackStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Every starter includes a pinned Site Manifest, AGENTS handoff, contract-resolution template, integration/environment notes, contract/Event/tracking maps, permission/API/CMS/Admin expectations, extension guidance, validation commands and acceptance checklist.",
+          "description": "Every starter includes a pinned Site Manifest, AGENTS handoff, contract-resolution template, integration/environment notes, contract/Event/tracking maps, permission/API/CMS/Admin expectations, extension guidance, validation commands and acceptance checklist.",
+          "changeType": "added",
+          "affectedDomains": [
+            "developer"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.36.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_7ac7972dafd7cb",
+          "releaseVersion": "0.36.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Development -> Starter Packs provides a local/offline-capable portal entry point backed by authoritative starter metadata and a generated fallback.",
+          "affectedRegistryIds": [
+            "starters.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Development -> Starter Packs provides a local/offline-capable portal entry point backed by authoritative starter metadata and a generated fallback.",
+          "description": "Development -> Starter Packs provides a local/offline-capable portal entry point backed by authoritative starter metadata and a generated fallback.",
+          "changeType": "added",
+          "affectedDomains": [
+            "developer"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.36.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "changed",
+      "label": "Changed",
+      "entries": [
+        {
+          "entryId": "chg_eb5433226b1587",
+          "releaseVersion": "0.36.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Starter manifests pin NEXT F Contracts 0.36.0 while the Phase 22 reference examples remain historical compositions at their original pinned Contract Version.",
+          "affectedRegistryIds": [
+            "examples.examplesLibraryStandard",
+            "manifest.siteManifestStandard",
+            "starters.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Starter manifests pin NEXT F Contracts 0.36.0 while the Phase 22 reference examples remain historical compositions at their original pinned Contract Version.",
+          "description": "Starter manifests pin NEXT F Contracts 0.36.0 while the Phase 22 reference examples remain historical compositions at their original pinned Contract Version.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "developer",
+            "examples",
+            "manifest"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.36.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_a9c7957ccb4313",
+          "releaseVersion": "0.36.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "New customer-site bootstrapping now has a single Codex instruction that resolves the pinned Contract Version, restricts work to enabled Modules/Capabilities and requires validation evidence before completion.",
+          "affectedRegistryIds": [
+            "developer.codexDevelopmentStandard",
+            "starters.siteStarterContractPackStandard",
+            "validation.cliStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "New customer-site bootstrapping now has a single Codex instruction that resolves the pinned Contract Version, restricts work to enabled Modules/Capabilities and requires validation evidence before completion.",
+          "description": "New customer-site bootstrapping now has a single Codex instruction that resolves the pinned Contract Version, restricts work to enabled Modules/Capabilities and requires validation evidence before completion.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "developer",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.36.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_2ca922b9ffb104",
+          "releaseVersion": "0.36.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Ecommerce, Lead Generation and Custom Extension starter packs carry explicit transaction, consent/event, Submission/Lead and namespaced-extension safeguards.",
+          "affectedRegistryIds": [
+            "starters.custom-extension",
+            "starters.ecommerce",
+            "starters.lead-generation"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Ecommerce, Lead Generation and Custom Extension starter packs carry explicit transaction, consent/event, Submission/Lead and namespaced-extension safeguards.",
+          "description": "Ecommerce, Lead Generation and Custom Extension starter packs carry explicit transaction, consent/event, Submission/Lead and namespaced-extension safeguards.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "developer"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.36.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "documentation",
+      "label": "Documentation",
+      "entries": [
+        {
+          "entryId": "chg_e407d5121f9eaf",
+          "releaseVersion": "0.36.0",
+          "category": "documentation",
+          "originalSection": "Documentation",
+          "summary": "Site Starter Contract Pack Standard documents framework neutrality, required pack contents, runtime boundaries, special starter requirements and Codex bootstrap behavior.",
+          "affectedRegistryIds": [
+            "starters.siteStarterContractPackStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Site Starter Contract Pack Standard documents framework neutrality, required pack contents, runtime boundaries, special starter requirements and Codex bootstrap behavior.",
+          "description": "Site Starter Contract Pack Standard documents framework neutrality, required pack contents, runtime boundaries, special starter requirements and Codex bootstrap behavior.",
+          "changeType": "documentation",
+          "affectedDomains": [
+            "developer"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.36.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "internal",
+      "label": "Internal / Tooling",
+      "entries": [
+        {
+          "entryId": "chg_2276849b9aeb6d",
+          "releaseVersion": "0.36.0",
+          "category": "internal",
+          "originalSection": "Internal / Tooling",
+          "summary": "Phase 35 adds deterministic starter generation plus acceptance, CLI-manifest and forward-regression validation coverage.",
+          "affectedRegistryIds": [
+            "starters.index",
+            "validation.cli"
+          ],
+          "compatibilityImpact": "metadata",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 35 adds deterministic starter generation plus acceptance, CLI-manifest and forward-regression validation coverage.",
+          "description": "Phase 35 adds deterministic starter generation plus acceptance, CLI-manifest and forward-regression validation coverage.",
+          "changeType": "internal",
+          "affectedDomains": [
+            "developer",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "metadata",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.36.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    }
+  ],
+  "migrationNotes": null,
+  "recommendedAction": "For new customer Sites, select the closest starter pack, keep its manifest pinned to 0.36.0, customize the customer presentation separately, and run NEXT F validation before completion. Existing Sites remain pinned to their declared Contract Version.",
+  "support": {
+    "registryProductionStable": false,
+    "runtimeCompatibility": "unknown"
+  },
+  "evidence": [
+    "registry/starters/index.json",
+    "standards/43-site-starter-contract-pack-standard.md",
+    "starters/",
+    "scripts/sync-site-starter-packs.mjs",
+    "scripts/validate-phase-35.mjs",
+    "scripts/smoke-phase-35.mjs"
+  ],
+  "provenance": {
+    "sourceType": "authoritative-release-json",
+    "sourceReference": "registry/changelog/releases/0.36.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "registry/registry.json"
+  },
+  "sourceVersion": "0.35.0",
+  "targetVersion": "0.36.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "entryCount": 8,
+  "categoryCounts": {
+    "added": 3,
+    "changed": 3,
+    "documentation": 1,
+    "internal": 1
+  },
+  "breakingChange": false,
+  "migrationRequired": false,
+  "corrections": [],
+  "affected": {
+    "domains": [
+      "developer",
+      "examples",
+      "manifest",
+      "validation"
+    ],
+    "modules": [],
+    "contracts": [
+      "developer.codexDevelopmentStandard",
+      "examples.examplesLibraryStandard",
+      "manifest.siteManifestStandard",
+      "starters.corporate",
+      "starters.custom-extension",
+      "starters.definition",
+      "starters.documentation",
+      "starters.ecommerce",
+      "starters.index",
+      "starters.lead-generation",
+      "starters.service-business",
+      "starters.siteStarterContractPackStandard",
+      "validation.cli",
+      "validation.cliStandard"
+    ],
+    "events": [],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "registryVersion": "0.26.0",
+  "importedAt": "2026-09-10",
+  "method": "Phase 25 import from exact archived NEXT F Contracts ZIP release bundles available in the build workspace. Missing releases remain explicitly unavailable and are never reconstructed as exact.",
+  "availableReleaseCount": 20,
+  "unavailableReleaseCount": 5,
+  "snapshotCount": 1919,
+  "sourceArchives": [
+    "NEXT-F-CONTRACTS-PHASE-0-V0.1.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-1-V0.2.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-2-V0.3.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-3-V0.4.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-4-V0.5.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-5-V0.6.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-6-V0.7.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-7-V0.8.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-8-V0.9.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-9-V0.10.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-10-V0.11.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-11-V0.12.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-13-V0.14.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-15-V0.16.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-16-V0.17.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-17-V0.18.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-19-V0.20.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-20-V0.21.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-21-V0.22.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-22-V0.23.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-23-V0.24.0.zip",
+    "NEXT-F-CONTRACTS-PHASE-24-V0.25.0.zip"
+  ],
+  "snapshotFormat": "compact semantic JSON with prose/examples removed; raw source integrity retained through SHA-256"
+}

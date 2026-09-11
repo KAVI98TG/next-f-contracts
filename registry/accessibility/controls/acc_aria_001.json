@@ -1,0 +1,35 @@
+{
+  "controlId": "ACC-ARIA-001",
+  "name": "Use ARIA with restraint",
+  "category": "structure",
+  "requirement": "ARIA must supplement native semantics only when necessary and must not contradict native roles, states or properties.",
+  "rationale": "Incorrect ARIA can make otherwise accessible native controls unusable.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "page",
+    "dialog",
+    "drawer",
+    "menu",
+    "table"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_aria_001.json"
+}

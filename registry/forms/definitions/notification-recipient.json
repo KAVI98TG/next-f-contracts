@@ -1,0 +1,116 @@
+{
+  "$id": "forms.notificationRecipient",
+  "name": "Notification Recipient",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "automation",
+  "description": "A safe recipient definition used by form notification rules.",
+  "purpose": "Avoids arbitrary recipient expressions and keeps static addresses separate from field- or user-derived recipients.",
+  "formsModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Recipient resolution mode.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "staticEmail",
+            "label": "Static email"
+          },
+          {
+            "value": "formEmailField",
+            "label": "Form email field"
+          },
+          {
+            "value": "organizationUser",
+            "label": "Organization user"
+          }
+        ]
+      }
+    },
+    {
+      "key": "email",
+      "required": false,
+      "nullable": true,
+      "description": "Static email when type=staticEmail.",
+      "primitive": "fields.email"
+    },
+    {
+      "key": "fieldKey",
+      "required": false,
+      "nullable": true,
+      "description": "Email field key when type=formEmailField.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "organizationUser",
+      "required": false,
+      "nullable": true,
+      "description": "Organization user recipient when type=organizationUser.",
+      "schema": "core.actorReference"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "recipientModeExclusive",
+      "description": "Populate only the recipient field required by type."
+    },
+    {
+      "id": "fieldMustBeEmail",
+      "description": "formEmailField must resolve to a compatible email field in the same Form."
+    },
+    {
+      "id": "noHeaderInjection",
+      "description": "Resolved email values must be validated and must not allow mail header injection."
+    }
+  ],
+  "cms": {
+    "label": "Notification Recipient",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "type",
+      "email",
+      "fieldKey",
+      "organizationUser"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

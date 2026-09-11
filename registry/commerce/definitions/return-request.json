@@ -1,0 +1,172 @@
+{
+  "$id": "commerce.returnRequest",
+  "name": "Return Request",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "returns",
+  "description": "Merchandise Return workflow.",
+  "purpose": "Models merchandise return separately from financial Refund processing.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "orderId",
+      "required": true,
+      "nullable": false,
+      "description": "Order ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "customerId",
+      "required": false,
+      "nullable": true,
+      "description": "Commerce Customer ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "lines",
+      "required": true,
+      "nullable": false,
+      "description": "Requested lines.",
+      "itemsSchema": "commerce.returnLine",
+      "config": {
+        "minItems": 1
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Return lifecycle.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "requested",
+          "approved",
+          "rejected",
+          "in-transit",
+          "received",
+          "resolved",
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "key": "requestedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Request time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Update time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "resolution",
+      "required": false,
+      "nullable": true,
+      "description": "Resolved outcome, when complete.",
+      "schema": "commerce.returnResolution"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.order",
+      "description": "References commerce.order."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.commerceCustomer",
+      "description": "References commerce.commerceCustomer."
+    },
+    {
+      "type": "composesMany",
+      "target": "commerce.returnLine",
+      "description": "References commerce.returnLine."
+    },
+    {
+      "type": "relatedTo",
+      "target": "commerce.refund",
+      "description": "References commerce.refund."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.returnResolution",
+      "description": "References commerce.returnResolution."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "quantityBound",
+      "description": "Cumulative return quantity cannot exceed eligible purchased quantity."
+    },
+    {
+      "id": "refundSeparate",
+      "description": "Refund resolutions create/use canonical Refund records rather than rewriting Payment state."
+    }
+  ],
+  "cms": {
+    "label": "Return Request",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "orderId",
+      "customerId"
+    ],
+    "primaryActions": [
+      "view",
+      "manage"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

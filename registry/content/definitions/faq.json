@@ -1,0 +1,166 @@
+{
+  "$id": "content.faq",
+  "name": "FAQ",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "business",
+  "description": "Reusable question-and-answer content record.",
+  "purpose": "Allows FAQs to be authored once and referenced by pages, services and future structured blocks without duplication.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "none",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "question",
+      "required": true,
+      "nullable": false,
+      "description": "FAQ question.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 320,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "answer",
+      "required": true,
+      "nullable": false,
+      "description": "Structured FAQ answer.",
+      "primitive": "fields.richText",
+      "config": {
+        "minLength": 1,
+        "maxLength": 20000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "group",
+      "required": false,
+      "nullable": true,
+      "description": "Optional human-readable grouping label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120,
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "order",
+      "required": false,
+      "nullable": true,
+      "description": "Optional default ordering hint.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": true,
+        "adminEditable": true,
+        "sortable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "questionNonEmpty",
+      "description": "Published FAQ requires a non-empty question."
+    },
+    {
+      "id": "answerNonEmpty",
+      "description": "Published FAQ requires a non-empty structured answer."
+    }
+  ],
+  "cms": {
+    "label": "FAQ",
+    "icon": "fa-circle-question",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "question",
+      "group",
+      "publishing"
+    ],
+    "editorMode": "compact-rich-editor",
+    "primaryActions": [
+      "saveDraft",
+      "publish",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published FAQs may be reused across public pages and services."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "question": "How long does delivery take?",
+        "answer": {
+          "type": "doc",
+          "content": []
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "question": "",
+        "answer": null
+      }
+    ]
+  },
+  "notes": []
+}

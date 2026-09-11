@@ -1,0 +1,45 @@
+{
+  "registryVersion": "1.0.0",
+  "methods": [
+    {
+      "id": "schema-validation",
+      "label": "Schema validation"
+    },
+    {
+      "id": "static-analysis",
+      "label": "Static analysis"
+    },
+    {
+      "id": "unit-test",
+      "label": "Unit test"
+    },
+    {
+      "id": "integration-test",
+      "label": "Integration test"
+    },
+    {
+      "id": "security-test",
+      "label": "Security test"
+    },
+    {
+      "id": "configuration-review",
+      "label": "Configuration review"
+    },
+    {
+      "id": "dependency-scan",
+      "label": "Dependency scan"
+    },
+    {
+      "id": "manual-review",
+      "label": "Manual review"
+    },
+    {
+      "id": "runtime-observation",
+      "label": "Runtime observation"
+    },
+    {
+      "id": "audit-log-review",
+      "label": "Audit-log review"
+    }
+  ]
+}

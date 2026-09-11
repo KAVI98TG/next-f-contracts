@@ -1,0 +1,120 @@
+{
+  "$id": "integrations.resourceReference",
+  "name": "Resource Reference",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "configuration",
+  "description": "Reference to a provider resource within an account.",
+  "purpose": "Standardizes identifiers for properties, containers, pixels, datasets, conversion actions and similar resources.",
+  "integrationModel": {
+    "kind": "external-reference",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "providerKey",
+      "required": true,
+      "nullable": false,
+      "description": "Provider key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "resourceType",
+      "required": true,
+      "nullable": false,
+      "description": "Provider resource type.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "externalResourceId",
+      "required": true,
+      "nullable": false,
+      "description": "Provider resource identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "displayName",
+      "required": false,
+      "nullable": true,
+      "description": "Human label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "account",
+      "required": false,
+      "nullable": true,
+      "description": "Owning external account.",
+      "schema": "integrations.accountReference"
+    },
+    {
+      "key": "environment",
+      "required": false,
+      "nullable": true,
+      "description": "NEXT F environment binding.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "preview",
+          "staging",
+          "production"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "integrations.accountReference",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecretResourceIds",
+      "description": "Resource references must not be used to store secret tokens."
+    },
+    {
+      "id": "environmentAware",
+      "description": "Environment-specific provider resources are identified explicitly."
+    }
+  ],
+  "cms": {
+    "label": "Resource Reference",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "providerKey",
+      "resourceType",
+      "externalResourceId",
+      "displayName"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

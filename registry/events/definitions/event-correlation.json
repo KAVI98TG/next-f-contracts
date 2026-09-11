@@ -1,0 +1,93 @@
+{
+  "$id": "events.eventCorrelation",
+  "name": "Event Correlation",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Correlation and causation identifiers that connect an event to the command/request and prior event chain.",
+  "purpose": "Correlation and causation identifiers that connect an event to the command/request and prior event chain.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "correlationId",
+      "required": false,
+      "nullable": true,
+      "description": "Stable identifier joining related operations/events.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "causationEventId",
+      "required": false,
+      "nullable": true,
+      "description": "Immediate prior event that caused this event, when applicable.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "requestId",
+      "required": false,
+      "nullable": true,
+      "description": "Originating server request identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "commandId",
+      "required": false,
+      "nullable": true,
+      "description": "Originating domain command identifier.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "noCircularCausation",
+      "description": "An event cannot causally reference itself."
+    },
+    {
+      "id": "correlationStable",
+      "description": "Correlation IDs must remain stable through one logical workflow."
+    }
+  ],
+  "cms": {
+    "label": "Event Correlation",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "correlationId",
+      "causationEventId",
+      "requestId",
+      "commandId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

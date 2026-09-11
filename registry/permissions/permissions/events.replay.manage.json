@@ -1,0 +1,28 @@
+{
+  "$id": "events.replay.manage",
+  "name": "Manage Replay",
+  "permissionId": "events.replay.manage",
+  "domain": "events",
+  "resource": "replay",
+  "action": "manage",
+  "scopeKind": "platform",
+  "riskLevel": "privileged",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage Replay within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

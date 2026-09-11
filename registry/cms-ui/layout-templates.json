@@ -1,0 +1,65 @@
+{
+  "registryVersion": "0.20.0",
+  "layoutTemplates": [
+    {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "description": "Metric cards, attention feed, shortcuts and recent activity."
+    },
+    {
+      "id": "data-list",
+      "label": "Data List",
+      "description": "Filter toolbar plus table/card result set."
+    },
+    {
+      "id": "standard-editor",
+      "label": "Standard Editor",
+      "description": "Primary form in main column with secondary metadata sidebar."
+    },
+    {
+      "id": "editorial-editor",
+      "label": "Editorial Editor",
+      "description": "Large title/content canvas with publishing, taxonomy, media and SEO side panels."
+    },
+    {
+      "id": "builder-editor",
+      "label": "Builder Editor",
+      "description": "Structured composition canvas, palette/configuration side panel and sticky actions."
+    },
+    {
+      "id": "settings-page",
+      "label": "Settings Page",
+      "description": "Grouped settings with clear save boundaries and optional connection tests."
+    },
+    {
+      "id": "operational-detail",
+      "label": "Operational Detail",
+      "description": "Read-first summary, timeline and bounded server-side commands."
+    },
+    {
+      "id": "analytics-report",
+      "label": "Analytics Report",
+      "description": "Time range controls, metrics, dimensions, charts/tables and provenance."
+    },
+    {
+      "id": "media-library",
+      "label": "Media Library",
+      "description": "Grid/list asset browser with upload, filters and metadata drawer."
+    },
+    {
+      "id": "access-manager",
+      "label": "Access Manager",
+      "description": "Members/roles/assignments with explicit scope and permission summaries."
+    },
+    {
+      "id": "commerce-editor",
+      "label": "Commerce Editor",
+      "description": "Product/catalog editing with pricing, variants, inventory, media and publishing panels."
+    },
+    {
+      "id": "commerce-operations",
+      "label": "Commerce Operations",
+      "description": "Order/payment/inventory operational detail with immutable transaction snapshots."
+    }
+  ]
+}

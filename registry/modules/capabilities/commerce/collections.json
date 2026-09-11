@@ -1,0 +1,32 @@
+{
+  "$id": "modules.capability.commerce.collections",
+  "capabilityId": "commerce.collections",
+  "name": "Collections",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Collections capability within the Commerce module.",
+  "contractBindings": [],
+  "permissionBindings": [
+    "commerce.collections.create",
+    "commerce.collections.delete",
+    "commerce.collections.edit",
+    "commerce.collections.manage",
+    "commerce.collections.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

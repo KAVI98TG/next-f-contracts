@@ -1,0 +1,68 @@
+{
+  "$id": "api.commerce.list-collections",
+  "operationId": "api.commerce.list-collections",
+  "name": "List Product Collections",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.commerce",
+  "method": "GET",
+  "path": "/storefront/collections",
+  "description": "List Product Collections",
+  "authentication": {
+    "mode": "anonymous-or-commerce-customer",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "commerce.productCollection",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "module_disabled"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "public-short",
+    "rateLimit": "public-read",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "commerce"
+  ],
+  "contractBindings": [
+    "commerce.productCollection"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "public",
+  "notes": []
+}

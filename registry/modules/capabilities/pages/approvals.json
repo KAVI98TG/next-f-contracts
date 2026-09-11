@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.pages.approvals",
+  "capabilityId": "pages.approvals",
+  "name": "Approval Workflow",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "pages",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Approval Workflow capability within the Pages module.",
+  "contractBindings": [
+    "core.publishing"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

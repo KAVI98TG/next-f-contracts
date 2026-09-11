@@ -1,0 +1,88 @@
+{
+  "$id": "modules.consent",
+  "moduleId": "consent",
+  "name": "Consent",
+  "version": "0.18.0",
+  "status": "stable",
+  "category": "platform",
+  "icon": "fa-shield-halved",
+  "order": 300,
+  "description": "Tracking and marketing consent preferences, states, policies and immutable consent records used to gate optional integrations.",
+  "selection": {
+    "mandatory": false,
+    "defaultEnabled": false,
+    "explicitManifestSelection": true,
+    "customerCanEnable": false,
+    "nextfAdminCanEnable": true
+  },
+  "dependencies": [
+    {
+      "moduleId": "core",
+      "kind": "required",
+      "reason": "Consent state is Site-scoped and auditable."
+    }
+  ],
+  "conflicts": [],
+  "capabilityIds": [
+    "consent.preferences",
+    "consent.records",
+    "consent.categories",
+    "consent.integration-gating"
+  ],
+  "defaultCapabilityIds": [
+    "consent.preferences",
+    "consent.records",
+    "consent.categories",
+    "consent.integration-gating"
+  ],
+  "contractBindings": [
+    "forms.consentFieldConfig",
+    "forms.consentRecord",
+    "marketing.consentCategory",
+    "marketing.consentPolicy",
+    "marketing.consentPreference",
+    "marketing.consentState",
+    "marketing.trackingConsentRecord"
+  ],
+  "permissionBindings": [
+    "forms.consent.export",
+    "forms.consent.view",
+    "marketing.consent.edit",
+    "marketing.consent.manage",
+    "marketing.consent.view"
+  ],
+  "eventBindings": [
+    "consent.recorded",
+    "consent.updated"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "group": "Platform",
+    "navigation": [
+      {
+        "label": "Consent & Privacy",
+        "path": "/website/consent",
+        "icon": "fa-shield-halved",
+        "order": 20
+      }
+    ]
+  },
+  "admin": {
+    "visible": true,
+    "group": "Sites",
+    "navigation": [
+      {
+        "label": "Consent",
+        "path": "/sites/:siteId/consent",
+        "icon": "fa-shield-halved",
+        "order": 60
+      }
+    ]
+  },
+  "manifest": {
+    "moduleId": "consent",
+    "capabilitySelection": "module-scoped",
+    "dependencyValidation": "strict"
+  },
+  "notes": []
+}

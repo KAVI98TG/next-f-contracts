@@ -1,0 +1,73 @@
+{
+  "$id": "api.commerce.add-cart-item",
+  "operationId": "api.commerce.add-cart-item",
+  "name": "Add Cart Item",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.commerce",
+  "method": "POST",
+  "path": "/carts/{cartId}/items",
+  "description": "Add Cart Item",
+  "authentication": {
+    "mode": "anonymous-or-commerce-customer",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "cartId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "commerce.cart",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "inventory_conflict",
+      "invariant_violation",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "commerce-checkout",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "commerce"
+  ],
+  "contractBindings": [
+    "commerce.cart"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "pseudonymous",
+  "notes": []
+}

@@ -1,0 +1,97 @@
+{
+  "registryVersion": "0.15.0",
+  "requestHeaders": [
+    {
+      "name": "Content-Type",
+      "required": true,
+      "value": "application/json; charset=utf-8",
+      "sensitive": false
+    },
+    {
+      "name": "User-Agent",
+      "required": true,
+      "value": "NEXT-F-Webhooks/<contract-version>",
+      "sensitive": false
+    },
+    {
+      "name": "NextF-Webhook-Id",
+      "required": true,
+      "source": "deliveryId",
+      "sensitive": false
+    },
+    {
+      "name": "NextF-Webhook-Subscription-Id",
+      "required": true,
+      "source": "subscriptionId",
+      "sensitive": false
+    },
+    {
+      "name": "NextF-Event-Id",
+      "required": true,
+      "source": "eventId",
+      "sensitive": false
+    },
+    {
+      "name": "NextF-Event-Key",
+      "required": true,
+      "source": "eventKey",
+      "sensitive": false
+    },
+    {
+      "name": "NextF-Event-Version",
+      "required": true,
+      "source": "eventVersion",
+      "sensitive": false
+    },
+    {
+      "name": "NextF-Contract-Version",
+      "required": true,
+      "source": "contractVersion",
+      "sensitive": false
+    },
+    {
+      "name": "NextF-Environment",
+      "required": true,
+      "source": "environment",
+      "sensitive": false
+    },
+    {
+      "name": "NextF-Webhook-Attempt",
+      "required": true,
+      "source": "attemptNumber",
+      "sensitive": false
+    },
+    {
+      "name": "NextF-Webhook-Signature",
+      "required": true,
+      "source": "signaturePolicy",
+      "sensitive": true
+    }
+  ],
+  "reservedHeaders": [
+    "Host",
+    "Content-Length",
+    "Transfer-Encoding",
+    "Connection",
+    "Proxy-Authorization",
+    "Proxy-Authenticate",
+    "Forwarded",
+    "X-Forwarded-For",
+    "X-Forwarded-Host",
+    "Cookie",
+    "Set-Cookie",
+    "NextF-Webhook-Signature",
+    "NextF-Webhook-Id",
+    "NextF-Webhook-Subscription-Id",
+    "NextF-Event-Id",
+    "NextF-Event-Key",
+    "NextF-Event-Version",
+    "NextF-Contract-Version",
+    "NextF-Environment",
+    "NextF-Webhook-Attempt"
+  ],
+  "notes": [
+    "Authorization is configured through structured destination authentication, not arbitrary custom headers.",
+    "Header values classified as secrets are never displayed after initial secure setup."
+  ]
+}

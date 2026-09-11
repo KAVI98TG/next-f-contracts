@@ -1,0 +1,21 @@
+{
+  "ruleId": "PERF-RULE-014",
+  "name": "Third-party scripts are non-blocking",
+  "category": "third-party",
+  "requirement": "Optional third-party integrations must not block primary content rendering or core navigation.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "static-analysis",
+    "browser-profile"
+  ],
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_014.json"
+}

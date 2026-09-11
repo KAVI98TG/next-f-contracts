@@ -1,0 +1,80 @@
+{
+  "$id": "api.customer-cms.get-submission",
+  "operationId": "api.customer-cms.get-submission",
+  "name": "Get Form Submission",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.customer-cms",
+  "method": "GET",
+  "path": "/forms/submissions/{submissionId}",
+  "description": "Get Form Submission",
+  "authentication": {
+    "mode": "organization-user",
+    "permissions": [
+      "forms.submissions.view"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "submissionId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "forms.submission",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "pages",
+    "blog",
+    "documentation",
+    "seo",
+    "forms",
+    "leads"
+  ],
+  "contractBindings": [
+    "forms.submission"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "personal",
+  "notes": []
+}

@@ -1,0 +1,87 @@
+{
+  "$id": "commerce.checkoutContact",
+  "name": "Checkout Contact",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "cart-checkout",
+  "description": "Checkout contact details.",
+  "purpose": "Provides a minimal provider-neutral Checkout identity structure.",
+  "commerceModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "email",
+      "required": false,
+      "nullable": true,
+      "description": "Checkout email.",
+      "primitive": "fields.email"
+    },
+    {
+      "key": "phone",
+      "required": false,
+      "nullable": true,
+      "description": "Checkout phone.",
+      "primitive": "fields.phone"
+    },
+    {
+      "key": "firstName",
+      "required": false,
+      "nullable": true,
+      "description": "First name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "lastName",
+      "required": false,
+      "nullable": true,
+      "description": "Last name.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [],
+  "cms": {
+    "label": "Checkout Contact",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "email",
+      "phone",
+      "firstName",
+      "lastName"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

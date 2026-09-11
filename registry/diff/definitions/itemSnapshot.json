@@ -1,0 +1,67 @@
+{
+  "$id": "diff.itemSnapshot",
+  "name": "Diff Item Snapshot",
+  "version": "0.26.0",
+  "status": "stable",
+  "domain": "diff",
+  "category": "contract-diff",
+  "description": "Content-addressed historical source snapshot for one canonical Registry item",
+  "purpose": "Content-addressed historical source snapshot for one canonical Registry item",
+  "fields": [
+    {
+      "key": "hash",
+      "required": true,
+      "nullable": false,
+      "description": "hash",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "format",
+      "required": true,
+      "nullable": false,
+      "description": "format",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "itemId",
+      "required": true,
+      "nullable": false,
+      "description": "itemId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "source",
+      "required": false,
+      "nullable": true,
+      "description": "source",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sourceHash",
+      "required": true,
+      "nullable": false,
+      "description": "sourceHash",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "data",
+      "required": false,
+      "nullable": true,
+      "description": "data",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "contractDiffOnly",
+      "description": "Contains contract/release analysis metadata only and never customer runtime data."
+    }
+  ],
+  "cms": {
+    "label": "Diff Item Snapshot",
+    "customerEditable": false,
+    "adminEditable": false,
+    "publicEligible": true
+  }
+}

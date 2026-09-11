@@ -1,0 +1,28 @@
+{
+  "$id": "platform.organizations.manage",
+  "name": "Manage Organizations",
+  "permissionId": "platform.organizations.manage",
+  "domain": "platform",
+  "resource": "organizations",
+  "action": "manage",
+  "scopeKind": "platform",
+  "riskLevel": "privileged",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage Organizations within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

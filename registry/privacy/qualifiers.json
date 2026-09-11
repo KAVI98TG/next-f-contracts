@@ -1,0 +1,32 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "Data Qualifiers",
+  "description": "Operational purpose/context qualifiers that do not replace the primary sensitivity class.",
+  "qualifiers": [
+    {
+      "id": "financial",
+      "label": "Financial",
+      "description": "Payment, refund, billing or transaction context."
+    },
+    {
+      "id": "authentication",
+      "label": "Authentication",
+      "description": "Identity, principal, session, authorization or credential context."
+    },
+    {
+      "id": "tracking",
+      "label": "Tracking",
+      "description": "Analytics, advertising, attribution, consent or visitor-observation context."
+    },
+    {
+      "id": "content",
+      "label": "Content",
+      "description": "Editorial/customer-managed content or content metadata."
+    },
+    {
+      "id": "system-metadata",
+      "label": "System Metadata",
+      "description": "IDs, timestamps, status, diagnostics or other operational metadata."
+    }
+  ]
+}

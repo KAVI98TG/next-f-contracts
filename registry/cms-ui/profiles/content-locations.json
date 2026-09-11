@@ -1,0 +1,482 @@
+{
+  "$id": "cmsUi.profile.content.locations",
+  "name": "Locations",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "content.locations",
+  "moduleId": "pages",
+  "description": "Customer CMS presentation metadata for Locations within authorized Site scope.",
+  "targetContracts": [
+    "content.location"
+  ],
+  "primaryTargetContract": "content.location",
+  "route": "/content/locations",
+  "screenKind": "editor",
+  "layoutTemplate": "standard-editor",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "identity",
+      "label": "Identity",
+      "description": "Stable entity identity.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.entityIdentity",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "scope",
+      "label": "Scope",
+      "description": "Owning Organization and Site scope.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.tenantScope",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "name",
+      "label": "Name",
+      "description": "Public location/branch name.",
+      "editorId": "single-line-text",
+      "group": "content",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "minLength": 1,
+        "maxLength": 180
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "slug",
+      "label": "Slug",
+      "description": "Optional public location page slug.",
+      "editorId": "slug",
+      "group": "configuration",
+      "zone": "sidebar",
+      "order": 40,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.slug",
+      "validationHint": {
+        "maxLength": 160
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "address",
+      "label": "Address",
+      "description": "Structured postal address.",
+      "editorId": "address",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "shared.address",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "coordinates",
+      "label": "Coordinates",
+      "description": "Optional map coordinates.",
+      "editorId": "coordinates",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.coordinates",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "contact",
+      "label": "Contact",
+      "description": "Optional location-specific contact details.",
+      "editorId": "nested-object",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "shared.contactPoint",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "businessHours",
+      "label": "Business Hours",
+      "description": "Structured weekly opening-hours data using future-normalized day/time entries.",
+      "editorId": "json-editor",
+      "group": "configuration",
+      "zone": "main",
+      "order": 80,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.json",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "directionsUrl",
+      "label": "Directions URL",
+      "description": "Optional external maps/directions URL.",
+      "editorId": "url",
+      "group": "configuration",
+      "zone": "main",
+      "order": 90,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.url",
+      "validationHint": {
+        "maxLength": 2048
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "featuredMedia",
+      "label": "Featured Media",
+      "description": "Optional branch/location media.",
+      "editorId": "media-reference-picker",
+      "group": "media",
+      "zone": "sidebar",
+      "order": 100,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "shared.mediaReference",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "displayOrder",
+      "label": "Display Order",
+      "description": "Default location listing order.",
+      "editorId": "integer",
+      "group": "configuration",
+      "zone": "main",
+      "order": 110,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.integer",
+      "validationHint": {
+        "minimum": 0
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "publishing",
+      "label": "Publishing",
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "editorId": "publishing-panel",
+      "group": "publishing",
+      "zone": "sidebar",
+      "order": 120,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "core.publishing",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "revision",
+      "label": "Revision",
+      "description": "Current and published revision pointers.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 130,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.revisionPointer",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [
+    {
+      "id": "publishing",
+      "label": "Publishing",
+      "contractId": "core.publishing",
+      "zone": "sidebar",
+      "editorId": "publishing-panel",
+      "availability": "always"
+    },
+    {
+      "id": "revisions",
+      "label": "Version History",
+      "contractId": "core.revisionPointer",
+      "zone": "tabs",
+      "editorId": "revision-history",
+      "availability": "when-capability-enabled:core.versioning"
+    }
+  ],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "name",
+        "label": "Name",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "address",
+        "label": "Address",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "publishing",
+        "label": "Publishing",
+        "rendererId": "status",
+        "order": 30,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [
+      {
+        "field": "name",
+        "label": "Name"
+      },
+      {
+        "field": "displayOrder",
+        "label": "Display Order"
+      }
+    ],
+    "searchFields": [
+      "name",
+      "slug"
+    ]
+  },
+  "actions": [
+    {
+      "actionId": "approve",
+      "permissionId": "content.locations.approve",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "create",
+      "permissionId": "content.locations.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "content.locations.delete",
+      "riskLevel": "destructive",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "content.locations.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "publish",
+      "permissionId": "content.locations.publish",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "content.locations.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "save-draft",
+      "permissionId": "content.locations.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "preview",
+      "permissionId": "content.locations.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "schedule",
+      "permissionId": "content.locations.publish",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "content.locations.approve",
+    "content.locations.create",
+    "content.locations.delete",
+    "content.locations.edit",
+    "content.locations.publish",
+    "content.locations.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/content/locations",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "content.locations.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "create",
+      "kind": "editor",
+      "route": "/content/locations/new",
+      "layoutTemplate": "standard-editor",
+      "requiresPermission": "content.locations.create",
+      "purpose": "Create a new canonical resource."
+    },
+    {
+      "id": "record",
+      "kind": "editor",
+      "route": "/content/locations/:id",
+      "layoutTemplate": "standard-editor",
+      "requiresPermission": "content.locations.edit",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

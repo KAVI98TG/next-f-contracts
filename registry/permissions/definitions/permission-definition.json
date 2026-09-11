@@ -1,0 +1,104 @@
+{
+  "$id": "permissions.permissionDefinition",
+  "name": "Permission Definition",
+  "domain": "permissions",
+  "type": "schema",
+  "version": "0.16.0",
+  "status": "stable",
+  "category": "foundation",
+  "description": "Authoritative metadata for one canonical domain.resource.action permission identifier.",
+  "purpose": "Authoritative metadata for one canonical domain.resource.action permission identifier.",
+  "permissionModel": {
+    "kind": "foundation",
+    "publicEligible": false,
+    "customerManaged": false
+  },
+  "fields": [
+    {
+      "key": "permissionId",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical permission identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "domain",
+      "required": true,
+      "nullable": false,
+      "description": "domain",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "resource",
+      "required": true,
+      "nullable": false,
+      "description": "resource",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "action",
+      "required": true,
+      "nullable": false,
+      "description": "action",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "scopeKind",
+      "required": true,
+      "nullable": false,
+      "description": "scopeKind",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "riskLevel",
+      "required": true,
+      "nullable": false,
+      "description": "riskLevel",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "customerEligible",
+      "required": true,
+      "nullable": false,
+      "description": "customerEligible",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "adminEligible",
+      "required": true,
+      "nullable": false,
+      "description": "adminEligible",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "grantable",
+      "required": true,
+      "nullable": false,
+      "description": "grantable",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "permissions.permissionDefinition.rule.1",
+      "description": "permissionId must exactly equal domain.resource.action."
+    },
+    {
+      "id": "permissions.permissionDefinition.rule.2",
+      "description": "Permission identifiers are immutable once stable."
+    },
+    {
+      "id": "permissions.permissionDefinition.rule.3",
+      "description": "A non-grantable permission cannot be placed in customer-defined roles."
+    }
+  ],
+  "cms": {
+    "adminVisible": true,
+    "customerVisible": false
+  },
+  "delivery": {
+    "publicAllowed": false
+  },
+  "notes": []
+}

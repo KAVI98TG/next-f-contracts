@@ -1,0 +1,757 @@
+{
+  "registryVersion": "0.20.0",
+  "editors": [
+    {
+      "id": "address",
+      "label": "Address",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.address"
+      ],
+      "description": "Canonical Address editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "analytics-report",
+      "label": "Analytics Report",
+      "kind": "report",
+      "primitiveFields": [],
+      "description": "Displays provenance-aware analytics metrics and dimensions.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "audio-picker",
+      "label": "Audio Picker",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.audio"
+      ],
+      "description": "Canonical Audio editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "audit-timeline",
+      "label": "Audit Timeline",
+      "kind": "report",
+      "primitiveFields": [],
+      "description": "Chronological immutable audit/activity presentation.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "block-composer",
+      "label": "Block Composer",
+      "kind": "builder",
+      "primitiveFields": [],
+      "description": "Composes only registered Block contracts supported by the Site.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "code-editor",
+      "label": "Code Editor",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.code"
+      ],
+      "description": "Canonical Code editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "color",
+      "label": "Color",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.color"
+      ],
+      "description": "Canonical Color editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "connection-health",
+      "label": "Connection Health",
+      "kind": "report",
+      "primitiveFields": [],
+      "description": "Displays tests, sync state and health without exposing secrets.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "consent-matrix",
+      "label": "Consent Matrix",
+      "kind": "settings",
+      "primitiveFields": [],
+      "description": "Edits consent categories/policies without bypassing canonical consent semantics.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "conversion-manager",
+      "label": "Conversion Manager",
+      "kind": "settings",
+      "primitiveFields": [],
+      "description": "Maps canonical conversion definitions to destinations/events.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "coordinates",
+      "label": "Coordinates",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.coordinates"
+      ],
+      "description": "Canonical Coordinates editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.currency"
+      ],
+      "description": "Canonical Currency editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "date",
+      "label": "Date",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.date"
+      ],
+      "description": "Canonical Date editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "date-time",
+      "label": "Date Time",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.dateTime"
+      ],
+      "description": "Canonical DateTime editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "decimal",
+      "label": "Decimal",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.decimal"
+      ],
+      "description": "Canonical Decimal editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "document-picker",
+      "label": "Document Picker",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.document"
+      ],
+      "description": "Canonical Document editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.email"
+      ],
+      "description": "Canonical Email editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "file-picker",
+      "label": "File Picker",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.file"
+      ],
+      "description": "Canonical File editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "form-builder",
+      "label": "Form Builder",
+      "kind": "builder",
+      "primitiveFields": [],
+      "description": "Builds canonical Form fields, sections, steps, logic, confirmation and policies.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "gallery-picker",
+      "label": "Gallery Picker",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.gallery"
+      ],
+      "description": "Canonical Gallery editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "hidden",
+      "label": "Hidden",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.hidden"
+      ],
+      "description": "Canonical Hidden editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "image-picker",
+      "label": "Image Picker",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.image"
+      ],
+      "description": "Canonical Image editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "integer",
+      "label": "Integer",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.integer"
+      ],
+      "description": "Canonical Integer editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "integration-configurator",
+      "label": "Integration Configurator",
+      "kind": "settings",
+      "primitiveFields": [],
+      "description": "Configures a registered connector using protected credential references and environment bindings.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "inventory-grid",
+      "label": "Inventory Grid",
+      "kind": "operations",
+      "primitiveFields": [],
+      "description": "Displays and commands stock across inventory locations with concurrency-safe operations.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "json-editor",
+      "label": "Json Editor",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.json"
+      ],
+      "description": "Canonical JSON editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "location",
+      "label": "Location",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.location"
+      ],
+      "description": "Canonical Location editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "media-reference-picker",
+      "label": "Media Reference Picker",
+      "kind": "composite",
+      "primitiveFields": [],
+      "description": "Selects a Media Asset with contextual alt/caption overrides.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "metric-cards",
+      "label": "Metric Cards",
+      "kind": "display",
+      "primitiveFields": [],
+      "description": "Summary metrics with provenance and time range context.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "multi-line-text",
+      "label": "Multi Line Text",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.textarea"
+      ],
+      "description": "Canonical Textarea editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "multi-select",
+      "label": "Multi Select",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.multiSelect"
+      ],
+      "description": "Canonical Multi Select editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "navigation-builder",
+      "label": "Navigation Builder",
+      "kind": "builder",
+      "primitiveFields": [],
+      "description": "Hierarchical menu editor with accessible reorder controls.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "nested-object",
+      "label": "Nested Object",
+      "kind": "composite",
+      "primitiveFields": [],
+      "description": "Edits a canonical nested schema without flattening or redefining it.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "order-lines",
+      "label": "Order Lines",
+      "kind": "operations",
+      "primitiveFields": [],
+      "description": "Read-only historical purchased line snapshots.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "order-summary",
+      "label": "Order Summary",
+      "kind": "operations",
+      "primitiveFields": [],
+      "description": "Read-oriented order snapshot, statuses, totals and timeline.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "payment-summary",
+      "label": "Payment Summary",
+      "kind": "operations",
+      "primitiveFields": [],
+      "description": "Displays provider-neutral payment/capture/refund state.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "percentage",
+      "label": "Percentage",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.percentage"
+      ],
+      "description": "Canonical Percentage editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "phone",
+      "label": "Phone",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.phone"
+      ],
+      "description": "Canonical Phone editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "publishing-panel",
+      "label": "Publishing Panel",
+      "kind": "composite",
+      "primitiveFields": [],
+      "description": "Draft, review, scheduling, visibility and publish state controls.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "read-only",
+      "label": "Read Only",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.readonly"
+      ],
+      "description": "Canonical Readonly editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "read-only-json",
+      "label": "Read-only JSON",
+      "kind": "display",
+      "primitiveFields": [],
+      "description": "Formatted diagnostic JSON with no arbitrary edit capability.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "relation-list",
+      "label": "Relation List",
+      "kind": "composite",
+      "primitiveFields": [],
+      "description": "Many-relation selector storing canonical target IDs.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "relation-picker",
+      "label": "Relation Picker",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.relation"
+      ],
+      "description": "Canonical Relation editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "revision-history",
+      "label": "Revision History",
+      "kind": "report",
+      "primitiveFields": [],
+      "description": "Version comparison and restore entry point governed by publishing/version permissions.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "rich-text-editor",
+      "label": "Rich Text Editor",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.richText"
+      ],
+      "description": "Canonical Rich Text editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "role-assignment-manager",
+      "label": "Role Assignment Manager",
+      "kind": "settings",
+      "primitiveFields": [],
+      "description": "Assigns canonical roles/permissions within authorized Organization/Site scope.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "schema-driven-entry",
+      "label": "Schema-driven Entry",
+      "kind": "builder",
+      "primitiveFields": [],
+      "description": "Generates entry fields from a registered Custom Collection schema.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "secure-secret-entry",
+      "label": "Secure Secret Entry",
+      "kind": "security",
+      "primitiveFields": [],
+      "description": "One-way protected secret input that never re-renders stored secret material.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "select",
+      "label": "Select",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.select"
+      ],
+      "description": "Canonical Select editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "seo-workspace",
+      "label": "SEO Workspace",
+      "kind": "workspace",
+      "primitiveFields": [],
+      "description": "SEO metadata, keyword guidance, search preview, social metadata and structured data tabs.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "single-line-text",
+      "label": "Single Line Text",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.text"
+      ],
+      "description": "Canonical Text editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "slug",
+      "label": "Slug",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.slug"
+      ],
+      "description": "Canonical Slug editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "status-summary",
+      "label": "Status Summary",
+      "kind": "display",
+      "primitiveFields": [],
+      "description": "Read-only status presentation with text and non-color indicator.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "structured-list",
+      "label": "Structured List",
+      "kind": "composite",
+      "primitiveFields": [],
+      "description": "Ordered or unordered list of primitive/schema values with per-item validation.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "tag-input",
+      "label": "Tag Input",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.tag"
+      ],
+      "description": "Canonical Tag editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "time",
+      "label": "Time",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.time"
+      ],
+      "description": "Canonical Time editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "timeline",
+      "label": "Timeline",
+      "kind": "display",
+      "primitiveFields": [],
+      "description": "Accessible chronological event/activity list.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "toggle",
+      "label": "Toggle",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.boolean"
+      ],
+      "description": "Canonical Boolean editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "url",
+      "label": "URL",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.url"
+      ],
+      "description": "Canonical URL editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "variant-builder",
+      "label": "Variant Builder",
+      "kind": "builder",
+      "primitiveFields": [],
+      "description": "Manages product options/variant combinations without redefining Product contracts.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    },
+    {
+      "id": "video-picker",
+      "label": "Video Picker",
+      "kind": "primitive",
+      "primitiveFields": [
+        "fields.video"
+      ],
+      "description": "Canonical Video editor from the Primitive Field Registry.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": [
+        "Must preserve canonical field semantics and server validation."
+      ]
+    },
+    {
+      "id": "webhook-configurator",
+      "label": "Webhook Configurator",
+      "kind": "settings",
+      "primitiveFields": [],
+      "description": "Configures endpoints/subscriptions using Phase 14 security rules.",
+      "supportsHelpText": true,
+      "supportsResponsive": true,
+      "securityNotes": []
+    }
+  ]
+}

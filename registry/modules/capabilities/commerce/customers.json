@@ -1,0 +1,33 @@
+{
+  "$id": "modules.capability.commerce.customers",
+  "capabilityId": "commerce.customers",
+  "name": "Commerce Customers",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Commerce Customers capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.customerAddress"
+  ],
+  "permissionBindings": [
+    "commerce.customers.edit",
+    "commerce.customers.export",
+    "commerce.customers.manage",
+    "commerce.customers.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

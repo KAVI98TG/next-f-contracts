@@ -1,0 +1,269 @@
+{
+  "$id": "content.legalPage",
+  "name": "Legal Page",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "legal",
+  "description": "Structured versioned legal/policy page managed as customer content.",
+  "purpose": "Standardizes common legal content lifecycle while preserving that NEXT F is not automatically the author or legal authority for customer policies.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "required",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Public legal page title.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 220,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Legal page slug.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "legalType",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical policy category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "privacy",
+            "label": "Privacy Policy"
+          },
+          {
+            "value": "terms",
+            "label": "Terms"
+          },
+          {
+            "value": "refund",
+            "label": "Refund Policy"
+          },
+          {
+            "value": "return",
+            "label": "Return Policy"
+          },
+          {
+            "value": "shipping",
+            "label": "Shipping Policy"
+          },
+          {
+            "value": "cancellation",
+            "label": "Cancellation Policy"
+          },
+          {
+            "value": "cookie",
+            "label": "Cookie Policy"
+          },
+          {
+            "value": "disclaimer",
+            "label": "Disclaimer"
+          },
+          {
+            "value": "accessibility",
+            "label": "Accessibility Statement"
+          },
+          {
+            "value": "custom",
+            "label": "Custom"
+          }
+        ],
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "content",
+      "required": true,
+      "nullable": false,
+      "description": "Structured legal/policy content.",
+      "primitive": "fields.richText",
+      "config": {
+        "minLength": 1,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "effectiveDate",
+      "required": false,
+      "nullable": true,
+      "description": "Date this policy becomes effective.",
+      "primitive": "fields.date",
+      "config": {
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "lastReviewedDate",
+      "required": false,
+      "nullable": true,
+      "description": "Date the Organization last reviewed the policy.",
+      "primitive": "fields.date",
+      "config": {
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "jurisdiction",
+      "required": false,
+      "nullable": true,
+      "description": "Optional human-readable jurisdiction context.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "contact",
+      "required": false,
+      "nullable": true,
+      "description": "Optional policy contact information.",
+      "schema": "shared.contactPoint"
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "shared.contactPoint",
+      "description": "Legal pages may include policy contact information."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "legalSlugUnique",
+      "description": "slug must be unique within the Site."
+    },
+    {
+      "id": "publishedLegalContentRequired",
+      "description": "Published legal pages require non-empty content."
+    },
+    {
+      "id": "reviewNotBeforeEffective",
+      "description": "When both dates exist, lastReviewedDate should not precede effectiveDate unless the review explicitly prepared a future effective revision."
+    }
+  ],
+  "cms": {
+    "label": "Legal Page",
+    "icon": "fa-scale-balanced",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "title",
+      "legalType",
+      "effectiveDate",
+      "publishing"
+    ],
+    "editorMode": "editorial-workspace",
+    "primaryActions": [
+      "saveDraft",
+      "preview",
+      "publish",
+      "schedule",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published legal content may be delivered publicly."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "title": "Privacy Policy",
+        "slug": "privacy",
+        "legalType": "privacy",
+        "content": {
+          "type": "doc",
+          "content": []
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "title": "Privacy",
+        "slug": "privacy",
+        "legalType": "privacy",
+        "content": ""
+      }
+    ]
+  },
+  "notes": [
+    "The contract structures legal content; it does not provide legal advice or guarantee legal compliance."
+  ]
+}

@@ -1,0 +1,12 @@
+
+> next-f-contracts@0.35.0 validate:phase34
+> node scripts/validate-phase-34.mjs
+
+NEXT F Contracts Phase 34 validation
+Version: 0.35.0
+Passes: 115
+Failures: 0
+CLI fixture parity cases: 11
+Registry items: 2160
+JSON files checked: 1996
+PASS - Developer Validation CLI satisfies the Phase 34 acceptance model.

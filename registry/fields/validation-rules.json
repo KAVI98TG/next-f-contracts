@@ -1,0 +1,153 @@
+{
+  "registryVersion": "0.7.0",
+  "rules": [
+    {
+      "id": "required",
+      "description": "Presence check for a required field."
+    },
+    {
+      "id": "type",
+      "description": "Canonical JSON/value type check."
+    },
+    {
+      "id": "notNull",
+      "description": "Reject explicit null when nullable is false."
+    },
+    {
+      "id": "minLength",
+      "description": "Minimum string length."
+    },
+    {
+      "id": "maxLength",
+      "description": "Maximum string length."
+    },
+    {
+      "id": "pattern",
+      "description": "Configured regular-expression match."
+    },
+    {
+      "id": "emailFormat",
+      "description": "Syntactic email address format validation without claiming mailbox existence."
+    },
+    {
+      "id": "urlFormat",
+      "description": "Absolute or contract-allowed URL format validation."
+    },
+    {
+      "id": "phoneFormat",
+      "description": "Phone normalization/format validation according to declared phone policy."
+    },
+    {
+      "id": "slugFormat",
+      "description": "Lowercase URL-safe slug validation."
+    },
+    {
+      "id": "colorFormat",
+      "description": "Canonical CSS color token format permitted by the field contract."
+    },
+    {
+      "id": "minimum",
+      "description": "Minimum numeric value."
+    },
+    {
+      "id": "maximum",
+      "description": "Maximum numeric value."
+    },
+    {
+      "id": "integer",
+      "description": "No fractional component."
+    },
+    {
+      "id": "precision",
+      "description": "Maximum decimal places."
+    },
+    {
+      "id": "step",
+      "description": "Configured numeric increment."
+    },
+    {
+      "id": "percentageRange",
+      "description": "Configured percentage boundary validation."
+    },
+    {
+      "id": "dateFormat",
+      "description": "ISO calendar date validation."
+    },
+    {
+      "id": "timeFormat",
+      "description": "ISO local time validation."
+    },
+    {
+      "id": "dateTimeFormat",
+      "description": "ISO 8601 timestamp validation with required timezone policy."
+    },
+    {
+      "id": "allowedValues",
+      "description": "Value must be one of configured options."
+    },
+    {
+      "id": "minItems",
+      "description": "Minimum array length."
+    },
+    {
+      "id": "maxItems",
+      "description": "Maximum array length."
+    },
+    {
+      "id": "uniqueItems",
+      "description": "Canonical items must be unique."
+    },
+    {
+      "id": "relationTarget",
+      "description": "Referenced value must target the declared contract/entity type."
+    },
+    {
+      "id": "relationExists",
+      "description": "Referenced record must exist and be visible to the validating server context."
+    },
+    {
+      "id": "mimeType",
+      "description": "Asset MIME type must match the allowlist."
+    },
+    {
+      "id": "extension",
+      "description": "File extension must match the allowlist when configured."
+    },
+    {
+      "id": "fileSize",
+      "description": "Asset size must not exceed configured limit."
+    },
+    {
+      "id": "imageDimensions",
+      "description": "Image dimensions must meet configured bounds."
+    },
+    {
+      "id": "jsonValid",
+      "description": "Value must be valid structured JSON according to the field policy."
+    },
+    {
+      "id": "codeText",
+      "description": "Code value remains inert text and cannot imply execution permission."
+    },
+    {
+      "id": "coordinateRange",
+      "description": "Latitude must be -90..90 and longitude -180..180."
+    },
+    {
+      "id": "addressShape",
+      "description": "Address object must use the primitive address value shape."
+    },
+    {
+      "id": "locationShape",
+      "description": "Location object must use the primitive location value shape."
+    },
+    {
+      "id": "readonly",
+      "description": "Reject direct write attempts when field is read-only in the active context."
+    },
+    {
+      "id": "hiddenWritePolicy",
+      "description": "Hidden field writes follow server-side field authorization, never UI visibility alone."
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "$id": "modules.leads",
+  "moduleId": "leads",
+  "name": "Leads",
+  "version": "0.18.0",
+  "status": "stable",
+  "category": "growth",
+  "icon": "fa-user-plus",
+  "order": 220,
+  "description": "Lead records, status, assignment, notes, activity, deduplication and export generated from approved sources such as Forms.",
+  "selection": {
+    "mandatory": false,
+    "defaultEnabled": false,
+    "explicitManifestSelection": true,
+    "customerCanEnable": false,
+    "nextfAdminCanEnable": true
+  },
+  "dependencies": [
+    {
+      "moduleId": "core",
+      "kind": "required",
+      "reason": "Leads are Site-scoped business records."
+    },
+    {
+      "moduleId": "forms",
+      "kind": "required",
+      "reason": "Phase 17 Lead workflows use the Forms/Lead contract family as their canonical source."
+    }
+  ],
+  "conflicts": [],
+  "capabilityIds": [
+    "leads.status",
+    "leads.assignment",
+    "leads.notes",
+    "leads.activity",
+    "leads.deduplication",
+    "leads.export"
+  ],
+  "defaultCapabilityIds": [
+    "leads.status",
+    "leads.activity",
+    "leads.deduplication"
+  ],
+  "contractBindings": [
+    "forms.fieldMapping",
+    "forms.lead",
+    "forms.leadActivity",
+    "forms.leadAssignment",
+    "forms.leadDedupePolicy",
+    "forms.leadMapping",
+    "forms.leadNote",
+    "forms.leadSource",
+    "forms.leadStatusDefinition"
+  ],
+  "permissionBindings": [
+    "forms.leads.create",
+    "forms.leads.delete",
+    "forms.leads.edit",
+    "forms.leads.export",
+    "forms.leads.manage",
+    "forms.leads.view"
+  ],
+  "eventBindings": [
+    "lead.assigned",
+    "lead.created",
+    "lead.merged",
+    "lead.status-changed",
+    "lead.updated"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "group": "Growth",
+    "navigation": [
+      {
+        "label": "Leads",
+        "path": "/growth/leads",
+        "icon": "fa-user-plus",
+        "order": 30
+      }
+    ]
+  },
+  "admin": {
+    "visible": true,
+    "group": "Sites",
+    "navigation": [
+      {
+        "label": "Leads",
+        "path": "/sites/:siteId/leads",
+        "icon": "fa-user-plus",
+        "order": 55
+      }
+    ]
+  },
+  "manifest": {
+    "moduleId": "leads",
+    "capabilitySelection": "module-scoped",
+    "dependencyValidation": "strict"
+  },
+  "notes": []
+}

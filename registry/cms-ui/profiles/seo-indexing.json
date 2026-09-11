@@ -1,0 +1,197 @@
+{
+  "$id": "cmsUi.profile.seo.indexing",
+  "name": "Indexing",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "seo.indexing",
+  "moduleId": "seo",
+  "description": "Customer CMS presentation metadata for Indexing within authorized Site scope.",
+  "targetContracts": [
+    "seo.indexingStatus",
+    "seo.urlInspectionResult"
+  ],
+  "primaryTargetContract": "seo.indexingStatus",
+  "route": "/growth/seo/indexing",
+  "screenKind": "report",
+  "layoutTemplate": "operational-detail",
+  "responsivePolicy": "operational",
+  "fieldBindings": [
+    {
+      "field": "state",
+      "label": "State",
+      "description": "Normalized indexing state.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "reason",
+      "label": "Reason",
+      "description": "Provider or NEXT F normalized explanation.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 20,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.textarea",
+      "validationHint": {
+        "maxLength": 4000
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "source",
+      "label": "Source",
+      "description": "Source of the indexing determination.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 120
+      },
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "state",
+        "label": "State",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "reason",
+        "label": "Reason",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "source",
+        "label": "Source",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [
+      {
+        "field": "state",
+        "label": "State"
+      },
+      {
+        "field": "source",
+        "label": "Source"
+      }
+    ],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [],
+    "searchFields": []
+  },
+  "actions": [
+    {
+      "actionId": "manage",
+      "permissionId": "seo.indexing.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "seo.indexing.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "seo.indexing.manage",
+    "seo.indexing.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": false,
+    "warnOnLeave": false,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/growth/seo/indexing",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "seo.indexing.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "detail",
+      "route": "/growth/seo/indexing/:id",
+      "layoutTemplate": "operational-detail",
+      "requiresPermission": "seo.indexing.manage",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

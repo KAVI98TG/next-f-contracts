@@ -1,0 +1,31 @@
+{
+  "controlId": "ACC-DRAG-001",
+  "name": "Provide alternatives to drag and drop",
+  "category": "components",
+  "requirement": "Any drag-and-drop operation must have a keyboard-accessible non-drag alternative that performs the same action.",
+  "rationale": "Dragging can be inaccessible to keyboard and some motor-input users.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "drag-drop"
+  ],
+  "verificationMethods": [
+    "keyboard-manual",
+    "integration-test"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_drag_001.json"
+}

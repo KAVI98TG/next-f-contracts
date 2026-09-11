@@ -1,0 +1,31 @@
+{
+  "$id": "modules.capability.core.identity",
+  "capabilityId": "core.identity",
+  "name": "Identity and Tenant Scope",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "core",
+  "mode": "always-on",
+  "selectable": false,
+  "defaultEnabled": true,
+  "description": "Identity and Tenant Scope capability within the Core module.",
+  "contractBindings": [
+    "core.organization",
+    "core.site",
+    "core.entityIdentity",
+    "core.tenantScope"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

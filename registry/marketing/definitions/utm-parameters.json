@@ -1,0 +1,163 @@
+{
+  "$id": "marketing.utmParameters",
+  "name": "UTM Parameters",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "campaign-attribution",
+  "description": "Normalized UTM campaign parameters captured from eligible landing URLs.",
+  "purpose": "Prevents every customer site from inventing different campaign parameter names and supports consistent attribution.",
+  "marketingModel": {
+    "kind": "context",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "source",
+      "required": false,
+      "nullable": true,
+      "description": "utm_source value.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "medium",
+      "required": false,
+      "nullable": true,
+      "description": "utm_medium value.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "campaign",
+      "required": false,
+      "nullable": true,
+      "description": "utm_campaign value.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500
+      }
+    },
+    {
+      "key": "term",
+      "required": false,
+      "nullable": true,
+      "description": "utm_term value.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500
+      }
+    },
+    {
+      "key": "content",
+      "required": false,
+      "nullable": true,
+      "description": "utm_content value.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500
+      }
+    },
+    {
+      "key": "campaignId",
+      "required": false,
+      "nullable": true,
+      "description": "utm_id value.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "sourcePlatform",
+      "required": false,
+      "nullable": true,
+      "description": "utm_source_platform value.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "creativeFormat",
+      "required": false,
+      "nullable": true,
+      "description": "utm_creative_format value.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "marketingTactic",
+      "required": false,
+      "nullable": true,
+      "description": "utm_marketing_tactic value.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "decodedOnce",
+      "description": "Values must be safely URL-decoded exactly once at the defined input boundary."
+    },
+    {
+      "id": "lengthBounded",
+      "description": "Campaign parameters are bounded and must not become arbitrary data storage."
+    },
+    {
+      "id": "notTrustedInput",
+      "description": "UTM values are untrusted visitor-controlled input."
+    },
+    {
+      "id": "noAutomaticPii",
+      "description": "NEXT F implementations must not intentionally put personal data in UTM values."
+    }
+  ],
+  "cms": {
+    "label": "UTM Parameters",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "source",
+      "medium",
+      "campaign",
+      "term"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

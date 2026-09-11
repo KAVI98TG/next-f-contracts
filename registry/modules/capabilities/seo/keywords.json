@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.seo.keywords",
+  "capabilityId": "seo.keywords",
+  "name": "Keywords",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "seo",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Keywords capability within the SEO module.",
+  "contractBindings": [
+    "seo.keywordSet",
+    "seo.keywordTarget"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

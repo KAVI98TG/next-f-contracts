@@ -1,0 +1,129 @@
+{
+  "$id": "webhooks.redeliveryRequest",
+  "name": "Webhook Redelivery Request",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "resilience",
+  "description": "Audited operator request to attempt delivery again for an existing logical Delivery.",
+  "purpose": "Supports controlled recovery without creating a duplicate canonical Event or duplicate logical Delivery.",
+  "webhookModel": {
+    "kind": "entity",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "requestId",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque redelivery request ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "deliveryId",
+      "required": true,
+      "nullable": false,
+      "description": "Existing logical Delivery.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "requestedBy",
+      "required": true,
+      "nullable": false,
+      "description": "Authorized actor.",
+      "schema": "core.actorReference"
+    },
+    {
+      "key": "requestedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Request timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "reason",
+      "required": true,
+      "nullable": false,
+      "description": "Operator reason.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Request status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "accepted",
+          "rejected",
+          "attempt-created"
+        ]
+      }
+    },
+    {
+      "key": "rejectionReason",
+      "required": false,
+      "nullable": true,
+      "description": "Reason when request is rejected.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "webhooks.delivery",
+      "description": "References webhooks.delivery."
+    },
+    {
+      "type": "composes",
+      "target": "core.actorReference",
+      "description": "References core.actorReference."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "sameDelivery",
+      "description": "Accepted redelivery creates another Attempt on the same logical Delivery."
+    },
+    {
+      "id": "sameEvent",
+      "description": "Redelivery never creates or mutates the canonical Event."
+    },
+    {
+      "id": "withinWindow",
+      "description": "Request must be inside the exact-payload/manual-redelivery availability window."
+    },
+    {
+      "id": "permissioned",
+      "description": "Manual redelivery requires explicit administrative permission and audit."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Redelivery Request",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "requestId",
+      "deliveryId",
+      "requestedBy",
+      "requestedAt"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

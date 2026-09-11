@@ -1,0 +1,20 @@
+{
+  "ruleId": "PERF-RULE-009",
+  "name": "Image optimization",
+  "category": "media",
+  "requirement": "Customer sites should deliver appropriately compressed images sized for their rendered use.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "manual-review"
+  ],
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_009.json"
+}

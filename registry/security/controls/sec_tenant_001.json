@@ -1,0 +1,36 @@
+{
+  "controlId": "SEC-TENANT-001",
+  "name": "Organization and Site isolation",
+  "category": "isolation",
+  "requirement": "Tenant and Site scope must be derived and enforced server-side; browser-supplied tenant identifiers are never proof of authorization.",
+  "rationale": "Cross-tenant access is a critical platform boundary.",
+  "applicability": [
+    "api",
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "permissions.authorizationContext"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_tenant_001.json"
+}

@@ -1,0 +1,74 @@
+{
+  "$id": "api.webhooks.get-delivery",
+  "operationId": "api.webhooks.get-delivery",
+  "name": "Get Webhook Delivery",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.webhooks",
+  "method": "GET",
+  "path": "/deliveries/{deliveryId}",
+  "description": "Get Webhook Delivery",
+  "authentication": {
+    "mode": "organization-user",
+    "permissions": [
+      "webhooks.deliveries.view"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "deliveryId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "webhooks.delivery",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "integrations"
+  ],
+  "contractBindings": [
+    "webhooks.delivery"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": []
+}

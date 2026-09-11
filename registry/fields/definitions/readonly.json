@@ -1,0 +1,62 @@
+{
+  "$id": "fields.readonly",
+  "name": "Readonly",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "system",
+  "description": "Field displayed to authorized users but not directly editable, typically derived or system-managed.",
+  "value": {
+    "jsonType": "any-json",
+    "canonical": "Value type is declared by the parent schema or referenced primitive; read-only affects write policy and editor behavior.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "read-only",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": true,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "readOnlyReason",
+    "computedFrom"
+  ],
+  "validationRules": [
+    "required",
+    "notNull",
+    "readonly"
+  ],
+  "examples": {
+    "valid": [
+      "Derived value",
+      123
+    ],
+    "invalid": []
+  },
+  "notes": [
+    "Read-only values may still change through trusted system processes."
+  ]
+}

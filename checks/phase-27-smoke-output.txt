@@ -1,0 +1,8 @@
+
+> next-f-contracts@0.28.0 smoke:phase27
+> node scripts/smoke-phase-27.mjs
+
+NEXT F Contracts Phase 27 smoke
+Passes: 69
+Failures: 0
+PASS

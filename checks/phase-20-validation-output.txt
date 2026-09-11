@@ -1,0 +1,10 @@
+NEXT F Contracts Phase 20 validation
+Version: 0.21.0
+Admin profiles: 90
+Controls: 25
+Panels: 25
+Support schemas: 22
+Passes: 4108
+Failures: 0
+
+PASS - NEXT F Admin UI Metadata is internally consistent.

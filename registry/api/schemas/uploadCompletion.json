@@ -1,0 +1,63 @@
+{
+  "$id": "api.uploadCompletion",
+  "name": "Upload Completion",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "files",
+  "description": "Server-verified completion of an upload session.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "sessionId",
+      "required": true,
+      "nullable": false,
+      "description": "sessionId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "media",
+      "required": true,
+      "nullable": false,
+      "description": "media",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "checksum",
+      "required": true,
+      "nullable": false,
+      "description": "checksum",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scanStatus",
+      "required": true,
+      "nullable": false,
+      "description": "scanStatus",
+      "primitive": "fields.text"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

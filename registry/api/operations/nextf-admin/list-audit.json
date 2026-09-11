@@ -1,0 +1,82 @@
+{
+  "$id": "api.nextf-admin.list-audit",
+  "operationId": "api.nextf-admin.list-audit",
+  "name": "List Platform Audit",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.nextf-admin",
+  "method": "GET",
+  "path": "/audit",
+  "description": "List Platform Audit",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "platform.audit.view"
+    ],
+    "permissionMode": "all",
+    "scope": "platform"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [
+      {
+        "name": "cursor",
+        "contract": "api.paginationRequest"
+      },
+      {
+        "name": "limit",
+        "contract": "api.paginationRequest"
+      },
+      {
+        "name": "locale",
+        "contract": "api.localeContext"
+      }
+    ],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "core.auditRecord",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "module_disabled"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "admin-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "integrations"
+  ],
+  "contractBindings": [
+    "core.auditRecord"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": []
+}

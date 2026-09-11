@@ -1,0 +1,38 @@
+{
+  "controlId": "ACC-HEADING-002",
+  "name": "Constrain authored heading levels",
+  "category": "authoring",
+  "requirement": "Structured content blocks that expose headings must support a valid content outline and must not use heading levels only for typography.",
+  "rationale": "Schema-driven content can otherwise generate invalid heading hierarchy even when the editor shell is accessible.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "rich-text-editor",
+    "page"
+  ],
+  "verificationMethods": [
+    "content-review",
+    "automated-static"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [
+    "blocks.heading",
+    "blocks.hero",
+    "blocks.richText"
+  ],
+  "relatedFields": [
+    "fields.richText"
+  ],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_heading_002.json"
+}

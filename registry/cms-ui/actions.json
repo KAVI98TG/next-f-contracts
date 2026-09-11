@@ -1,0 +1,253 @@
+{
+  "registryVersion": "0.20.0",
+  "actions": [
+    {
+      "id": "view",
+      "label": "View",
+      "tone": "neutral",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "View action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "create",
+      "label": "Create",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Create action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "edit",
+      "label": "Edit",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Edit action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "save",
+      "label": "Save",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Save action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "save-draft",
+      "label": "Save Draft",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Save Draft action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "preview",
+      "label": "Preview",
+      "tone": "neutral",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Preview action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "publish",
+      "label": "Publish",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Publish action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "schedule",
+      "label": "Schedule",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Schedule action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "approve",
+      "label": "Approve",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Approve action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "unpublish",
+      "label": "Unpublish",
+      "tone": "warning",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Unpublish action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "archive",
+      "label": "Archive",
+      "tone": "warning",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Archive action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "restore",
+      "label": "Restore",
+      "tone": "primary",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Restore action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "delete",
+      "label": "Delete",
+      "tone": "danger",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Delete action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "duplicate",
+      "label": "Duplicate",
+      "tone": "neutral",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Duplicate action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "export",
+      "label": "Export",
+      "tone": "neutral",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Export action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "manage",
+      "label": "Manage",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Manage action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "upload",
+      "label": "Upload",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Upload action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "assign",
+      "label": "Assign",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Assign action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "change-status",
+      "label": "Change Status",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Change Status action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "connect",
+      "label": "Connect",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Connect action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "disconnect",
+      "label": "Disconnect",
+      "tone": "danger",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": true,
+      "description": "Disconnect action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "test-connection",
+      "label": "Test Connection",
+      "tone": "neutral",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Test Connection action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "sync",
+      "label": "Run Sync",
+      "tone": "primary",
+      "requiresConfirmation": false,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Run Sync action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "redeliver",
+      "label": "Redeliver",
+      "tone": "warning",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Redeliver action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "refund",
+      "label": "Refund",
+      "tone": "danger",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": true,
+      "description": "Refund action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "fulfill",
+      "label": "Fulfill",
+      "tone": "primary",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Fulfill action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "restock",
+      "label": "Restock",
+      "tone": "warning",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Restock action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "rotate-secret",
+      "label": "Rotate Secret",
+      "tone": "danger",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": true,
+      "description": "Rotate Secret action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "mark-spam",
+      "label": "Mark Spam",
+      "tone": "warning",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Mark Spam action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "bulk-edit",
+      "label": "Bulk Edit",
+      "tone": "warning",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Bulk Edit action presentation metadata. Authorization and business rules remain server authoritative."
+    },
+    {
+      "id": "bulk-delete",
+      "label": "Bulk Delete",
+      "tone": "danger",
+      "requiresConfirmation": true,
+      "requiresRecentAuthenticationByDefault": false,
+      "description": "Bulk Delete action presentation metadata. Authorization and business rules remain server authoritative."
+    }
+  ]
+}

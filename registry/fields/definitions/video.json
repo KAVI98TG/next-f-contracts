@@ -1,0 +1,69 @@
+{
+  "$id": "fields.video",
+  "name": "Video",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "media",
+  "description": "Reference to one video Media Asset or approved media provider reference through a future wrapper contract.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "Opaque Media Asset ID resolving to an allowed video MIME type.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "video-picker",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": false,
+    "filterable": false,
+    "sortable": false,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "allowedMimeTypes",
+    "allowedExtensions",
+    "maxFileSizeBytes",
+    "accept"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "relationExists",
+    "mimeType",
+    "extension",
+    "fileSize"
+  ],
+  "examples": {
+    "valid": [
+      "media_01VIDEO"
+    ],
+    "invalid": [
+      "<iframe>...</iframe>"
+    ]
+  },
+  "notes": [
+    "Arbitrary embed HTML is not a primitive video value."
+  ]
+}

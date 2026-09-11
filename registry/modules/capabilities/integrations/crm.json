@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.integrations.crm",
+  "capabilityId": "integrations.crm",
+  "name": "CRM",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "integrations",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "CRM capability within the Integrations module.",
+  "contractBindings": [
+    "integrations.crm"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

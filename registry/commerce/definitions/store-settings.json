@@ -1,0 +1,161 @@
+{
+  "$id": "commerce.storeSettings",
+  "name": "Store Settings",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "foundation",
+  "description": "Site-level operational defaults for a commerce-enabled Site.",
+  "purpose": "Provides provider-neutral store configuration without hosting/domain/payment-provider coupling.",
+  "commerceModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "storeName",
+      "required": true,
+      "nullable": false,
+      "description": "Customer-facing store name.",
+      "primitive": "fields.text",
+      "config": {
+        "customerEditable": true,
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "defaultCurrency",
+      "required": true,
+      "nullable": false,
+      "description": "Default ISO-style currency code.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^[A-Z]{3}$",
+        "customerEditable": true
+      }
+    },
+    {
+      "key": "country",
+      "required": true,
+      "nullable": false,
+      "description": "Primary operating country code.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 2,
+        "maxLength": 2,
+        "customerEditable": true
+      }
+    },
+    {
+      "key": "timeZone",
+      "required": true,
+      "nullable": false,
+      "description": "IANA display timezone.",
+      "primitive": "fields.text",
+      "config": {
+        "customerEditable": true
+      }
+    },
+    {
+      "key": "weightUnit",
+      "required": true,
+      "nullable": false,
+      "description": "Default weight unit.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "g",
+          "kg",
+          "oz",
+          "lb"
+        ],
+        "customerEditable": true
+      }
+    },
+    {
+      "key": "customerAccounts",
+      "required": true,
+      "nullable": false,
+      "description": "Customer account policy.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "disabled",
+          "optional",
+          "required"
+        ],
+        "customerEditable": true
+      }
+    },
+    {
+      "key": "inventoryTrackingEnabled",
+      "required": true,
+      "nullable": false,
+      "description": "Default inventory tracking setting.",
+      "primitive": "fields.boolean",
+      "config": {
+        "customerEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "noHostingSettings",
+      "description": "Store settings do not model hosting or domain subscriptions."
+    },
+    {
+      "id": "currencyExplicit",
+      "description": "Store currency is always explicit."
+    }
+  ],
+  "cms": {
+    "label": "Store Settings",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "scope",
+      "storeName",
+      "defaultCurrency",
+      "country"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

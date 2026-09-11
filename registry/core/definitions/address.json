@@ -1,0 +1,161 @@
+{
+  "$id": "shared.address",
+  "name": "Address",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "shared",
+  "category": "contact",
+  "description": "Reusable structured postal or business address.",
+  "purpose": "Provides one first-class address object for organizations, commerce customers, locations, billing and shipping contexts.",
+  "fields": [
+    {
+      "key": "name",
+      "required": false,
+      "nullable": true,
+      "description": "Recipient or location label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "company",
+      "required": false,
+      "nullable": true,
+      "description": "Company or organization name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 200
+      }
+    },
+    {
+      "key": "line1",
+      "required": true,
+      "nullable": false,
+      "description": "Primary street/address line.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240
+      }
+    },
+    {
+      "key": "line2",
+      "required": false,
+      "nullable": true,
+      "description": "Secondary address line.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240
+      }
+    },
+    {
+      "key": "city",
+      "required": true,
+      "nullable": false,
+      "description": "City/locality.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "region",
+      "required": false,
+      "nullable": true,
+      "description": "State, province or region.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "postalCode",
+      "required": false,
+      "nullable": true,
+      "description": "Postal or ZIP code.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 32
+      }
+    },
+    {
+      "key": "country",
+      "required": true,
+      "nullable": false,
+      "description": "ISO 3166-1 alpha-2 country code.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 2,
+        "maxLength": 2,
+        "pattern": "^[A-Z]{2}$",
+        "caseSensitive": true
+      }
+    },
+    {
+      "key": "phone",
+      "required": false,
+      "nullable": true,
+      "description": "Contact phone associated with this address.",
+      "primitive": "fields.phone"
+    },
+    {
+      "key": "coordinates",
+      "required": false,
+      "nullable": true,
+      "description": "Optional geospatial coordinates.",
+      "primitive": "fields.coordinates"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "alignsWith",
+      "target": "fields.address",
+      "description": "The primitive Address value shape aligns with this first-class reusable schema."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "countryIso2",
+      "description": "country must use ISO 3166-1 alpha-2 uppercase code."
+    },
+    {
+      "id": "postalRequirementsByParent",
+      "description": "Postal-code requirements are defined by parent business rules, not globally assumed."
+    }
+  ],
+  "cms": {
+    "label": "Address",
+    "icon": "fa-location-dot",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "line1",
+      "city",
+      "country"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public eligibility depends on the parent entity. Private customer billing/shipping addresses remain authenticated data."
+  },
+  "examples": {
+    "valid": [
+      {
+        "name": "Receiving",
+        "line1": "1 Example Road",
+        "city": "Kandy",
+        "country": "LK",
+        "phone": "+94770000000"
+      }
+    ],
+    "invalid": [
+      {
+        "line1": "1 Example Road",
+        "city": "Kandy",
+        "country": "Sri Lanka"
+      }
+    ]
+  },
+  "notes": []
+}

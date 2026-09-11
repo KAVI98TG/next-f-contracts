@@ -1,0 +1,202 @@
+{
+  "$id": "marketing.metricDefinition",
+  "name": "Analytics Metric Definition",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "reporting",
+  "description": "Canonical definition of one analytics metric.",
+  "purpose": "Prevents dashboard metrics from changing meaning between customer websites.",
+  "marketingModel": {
+    "kind": "definition",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "dataSensitivity": "public"
+  },
+  "fields": [
+    {
+      "key": "metricKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable metric key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Metric name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 200
+      }
+    },
+    {
+      "key": "description",
+      "required": true,
+      "nullable": false,
+      "description": "Exact metric semantics.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1500
+      }
+    },
+    {
+      "key": "aggregation",
+      "required": true,
+      "nullable": false,
+      "description": "Aggregation operation.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "count",
+            "label": "Count"
+          },
+          {
+            "value": "sum",
+            "label": "Sum"
+          },
+          {
+            "value": "average",
+            "label": "Average"
+          },
+          {
+            "value": "minimum",
+            "label": "Minimum"
+          },
+          {
+            "value": "maximum",
+            "label": "Maximum"
+          },
+          {
+            "value": "ratio",
+            "label": "Ratio"
+          }
+        ]
+      }
+    },
+    {
+      "key": "sourceEventKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional source tracking event.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "sourcePropertyKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional source property.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "unit",
+      "required": true,
+      "nullable": false,
+      "description": "Metric unit.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "count",
+            "label": "Count"
+          },
+          {
+            "value": "currency",
+            "label": "Currency"
+          },
+          {
+            "value": "percentage",
+            "label": "Percentage"
+          },
+          {
+            "value": "seconds",
+            "label": "Seconds"
+          },
+          {
+            "value": "milliseconds",
+            "label": "Milliseconds"
+          },
+          {
+            "value": "number",
+            "label": "Number"
+          }
+        ]
+      }
+    },
+    {
+      "key": "higherIsBetter",
+      "required": false,
+      "nullable": true,
+      "description": "Optional display hint only.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.trackingEventDefinition",
+      "description": "sourceEventKey may resolve to tracking event."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "semanticStability",
+      "description": "metricKey meaning cannot silently change."
+    },
+    {
+      "id": "ratioDenominatorDefined",
+      "description": "Ratio metrics need documented numerator/denominator."
+    },
+    {
+      "id": "displayHintNotBusinessTruth",
+      "description": "higherIsBetter is only UI hint."
+    }
+  ],
+  "cms": {
+    "label": "Analytics Metric Definition",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "metricKey",
+      "name",
+      "description",
+      "aggregation"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

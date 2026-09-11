@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.commandPresentation",
+  "name": "Command Presentation",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines server-authoritative command execution/result behavior.",
+  "purpose": "Defines server-authoritative command execution/result behavior.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

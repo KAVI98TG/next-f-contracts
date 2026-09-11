@@ -1,0 +1,154 @@
+{
+  "$id": "marketing.eventContext",
+  "name": "Tracking Event Context",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "context",
+  "description": "Sanitized context bundle attached to one tracking event observation.",
+  "purpose": "Provides one reusable context contract while page, session, visitor, device, traffic and consent remain separately modeled.",
+  "marketingModel": {
+    "kind": "context",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "page",
+      "required": false,
+      "nullable": true,
+      "description": "Page/route context.",
+      "schema": "marketing.pageContext"
+    },
+    {
+      "key": "session",
+      "required": false,
+      "nullable": true,
+      "description": "Analytics session context.",
+      "schema": "marketing.sessionContext"
+    },
+    {
+      "key": "visitor",
+      "required": false,
+      "nullable": true,
+      "description": "Minimal visitor context.",
+      "schema": "marketing.visitorContext"
+    },
+    {
+      "key": "device",
+      "required": false,
+      "nullable": true,
+      "description": "Coarse device context.",
+      "schema": "marketing.deviceContext"
+    },
+    {
+      "key": "trafficSource",
+      "required": false,
+      "nullable": true,
+      "description": "Acquisition context.",
+      "schema": "marketing.trafficSource"
+    },
+    {
+      "key": "campaign",
+      "required": false,
+      "nullable": true,
+      "description": "Campaign context.",
+      "schema": "marketing.campaignContext"
+    },
+    {
+      "key": "consent",
+      "required": false,
+      "nullable": true,
+      "description": "Consent state.",
+      "schema": "marketing.consentState"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.pageContext",
+      "description": "May contain page."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.sessionContext",
+      "description": "May contain session."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.visitorContext",
+      "description": "May contain visitor."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.deviceContext",
+      "description": "May contain device."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.trafficSource",
+      "description": "May contain source."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.campaignContext",
+      "description": "May contain campaign."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.consentState",
+      "description": "May contain consent."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "minimizedPerEvent",
+      "description": "Only context required by event/destinations is attached."
+    },
+    {
+      "id": "consentSnapshotNotAuthority",
+      "description": "Embedded consent context does not bypass current rules."
+    },
+    {
+      "id": "noCredentials",
+      "description": "Context never contains auth/session secrets."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Event Context",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "page",
+      "session",
+      "visitor",
+      "device"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

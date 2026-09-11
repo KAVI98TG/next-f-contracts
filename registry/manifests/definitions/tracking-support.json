@@ -1,0 +1,59 @@
+{
+  "$id": "manifest.trackingSupport",
+  "name": "Tracking Event Support",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "surfaces-bindings",
+  "description": "Declares Phase 9 visitor/marketing tracking events implemented by the Site UI.",
+  "purpose": "Keeps visitor measurement observations distinct from authoritative Phase 13 domain Events.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "events",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical NEXT F Marketing tracking event IDs supported by the Site.",
+      "primitive": "fields.tag",
+      "config": {
+        "uniqueItems": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "trackingEventsMustResolve",
+      "description": "Every tracking event must resolve to registry/marketing/tracking-events.json."
+    },
+    {
+      "id": "trackingIsNotDomainEvent",
+      "description": "Tracking support must never be interpreted as authoritative domain-event production."
+    },
+    {
+      "id": "trackingRespectsConsent",
+      "description": "Optional analytics/marketing dispatch remains governed by consent and destination data policy."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Event Support",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "events"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

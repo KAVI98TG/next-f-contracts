@@ -1,0 +1,53 @@
+{
+  "$id": "changelog.releaseSection",
+  "name": "Changelog Release Section",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "changelog",
+  "type": "schema",
+  "category": "release-lifecycle",
+  "description": "Groups release entries under one canonical change category while preserving the human section label.",
+  "fields": [
+    {
+      "key": "category",
+      "required": true,
+      "nullable": false,
+      "description": "category",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "label",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "entries",
+      "required": true,
+      "nullable": false,
+      "description": "entries",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "changelog.changelogStandard",
+      "description": "Governed by the NEXT F Changelog Standard."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "nonEmptySection",
+      "description": "A serialized section must contain at least one entry."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": true
+}

@@ -1,0 +1,35 @@
+NEXT F Contracts Phase 16 validation
+Version: 0.18.0
+Manifest schemas: 16
+Reference manifests: 6
+Site types: 6
+Runtime capabilities: 5
+Registry entries: 1197
+Passes: 409
+Failures: 25
+Failures:
+- Version is 0.17.0: 0.18.0
+- Manifest registry version
+- manifest.contractBinding version current
+- manifest.siteDescriptor version current
+- manifest.localization version current
+- manifest.environment version current
+- manifest.contentDelivery version current
+- manifest.capabilitySelection version current
+- manifest.moduleSelection version current
+- manifest.runtime version current
+- manifest.cms version current
+- manifest.apiBinding version current
+- manifest.eventSupport version current
+- manifest.trackingSupport version current
+- manifest.integrationSupport version current
+- manifest.configurationBinding version current
+- manifest.extensionDeclaration version current
+- manifest.siteManifest version current
+- corporate current contract version
+- service current contract version
+- lead-generation current contract version
+- commerce current contract version
+- documentation current contract version
+- custom current contract version
+- Version chip current

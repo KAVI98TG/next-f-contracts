@@ -1,0 +1,29 @@
+{
+  "$id": "marketing.conversions.view",
+  "name": "View Conversions",
+  "permissionId": "marketing.conversions.view",
+  "domain": "marketing",
+  "resource": "conversions",
+  "action": "view",
+  "scopeKind": "site",
+  "riskLevel": "standard",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Conversions within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

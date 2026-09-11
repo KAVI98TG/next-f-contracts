@@ -1,0 +1,32 @@
+{
+  "controlId": "ACC-SKIP-001",
+  "name": "Provide skip navigation",
+  "category": "navigation",
+  "requirement": "Repeated navigation must provide a keyboard-accessible mechanism to move directly to main content.",
+  "rationale": "Skip links reduce repetitive keyboard navigation.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "navigation",
+    "page"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "keyboard-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_skip_001.json"
+}

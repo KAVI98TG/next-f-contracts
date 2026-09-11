@@ -1,0 +1,14 @@
+{
+  "$id": "privacy.consentBoundary",
+  "name": "Consent Boundary",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 30,
+  "description": "Rule distinguishing business-purpose consent/acknowledgement from analytics and marketing consent.",
+  "domain": "privacy",
+  "type": "schema",
+  "tags": [
+    "privacy",
+    "phase-30"
+  ]
+}

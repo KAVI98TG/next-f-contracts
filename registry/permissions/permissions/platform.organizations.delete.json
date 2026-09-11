@@ -1,0 +1,30 @@
+{
+  "$id": "platform.organizations.delete",
+  "name": "Delete Organizations",
+  "permissionId": "platform.organizations.delete",
+  "domain": "platform",
+  "resource": "organizations",
+  "action": "delete",
+  "scopeKind": "platform",
+  "riskLevel": "privileged",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Delete Organizations within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [
+    "Delete permission never overrides the underlying entity lifecycle, retention, legal-hold or archive rules."
+  ],
+  "version": "0.16.0",
+  "status": "stable"
+}

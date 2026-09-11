@@ -1,0 +1,72 @@
+{
+  "$id": "api.nextf-admin.get-organization",
+  "operationId": "api.nextf-admin.get-organization",
+  "name": "Get Organization",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.nextf-admin",
+  "method": "GET",
+  "path": "/organizations/{organizationId}",
+  "description": "Get Organization",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "platform.organizations.view"
+    ],
+    "permissionMode": "all",
+    "scope": "platform"
+  },
+  "request": {
+    "pathParameters": [
+      "organizationId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "core.organization",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "admin-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "admin-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "integrations"
+  ],
+  "contractBindings": [
+    "core.organization"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "internal",
+  "notes": []
+}

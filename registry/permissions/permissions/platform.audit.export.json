@@ -1,0 +1,30 @@
+{
+  "$id": "platform.audit.export",
+  "name": "Export Audit",
+  "permissionId": "platform.audit.export",
+  "domain": "platform",
+  "resource": "audit",
+  "action": "export",
+  "scopeKind": "platform",
+  "riskLevel": "sensitive",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Export Audit within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [
+    "Export remains subject to field-level data minimization and the resource data policy."
+  ],
+  "version": "0.16.0",
+  "status": "stable"
+}

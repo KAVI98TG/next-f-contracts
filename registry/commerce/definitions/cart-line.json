@@ -1,0 +1,156 @@
+{
+  "$id": "commerce.cartLine",
+  "name": "Cart Line",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "cart-checkout",
+  "description": "One purchasable Cart line.",
+  "purpose": "Captures selected merchandise, quantity and calculated price without mutating catalog state.",
+  "commerceModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "lineId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable line ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "productId",
+      "required": true,
+      "nullable": false,
+      "description": "Product ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "variantId",
+      "required": false,
+      "nullable": true,
+      "description": "Variant ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Display title snapshot.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "quantity",
+      "required": true,
+      "nullable": false,
+      "description": "Requested quantity.",
+      "schema": "commerce.quantity"
+    },
+    {
+      "key": "unitPrice",
+      "required": true,
+      "nullable": false,
+      "description": "Unit price snapshot.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "lineTotal",
+      "required": true,
+      "nullable": false,
+      "description": "Calculated line total.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "requiresShipping",
+      "required": true,
+      "nullable": false,
+      "description": "Shipping requirement snapshot.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "discountAllocations",
+      "required": false,
+      "nullable": true,
+      "description": "Discount allocations applied to this line.",
+      "itemsSchema": "commerce.discountAllocation",
+      "config": {
+        "minItems": 0
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.product",
+      "description": "References commerce.product."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.productVariant",
+      "description": "References commerce.productVariant."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.quantity",
+      "description": "References commerce.quantity."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.moneySnapshot",
+      "description": "References commerce.moneySnapshot."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.discountAllocation",
+      "description": "References commerce.discountAllocation."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "quantityPositive",
+      "description": "Cart-line quantity must be greater than zero."
+    }
+  ],
+  "cms": {
+    "label": "Cart Line",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "lineId",
+      "productId",
+      "variantId",
+      "title"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

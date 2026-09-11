@@ -1,0 +1,275 @@
+{
+  "$id": "cmsUi.profile.marketing.consent",
+  "name": "Consent",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "marketing.consent",
+  "moduleId": "consent",
+  "description": "Customer CMS presentation metadata for Consent within authorized Site scope.",
+  "targetContracts": [
+    "marketing.consentPolicy",
+    "marketing.consentState"
+  ],
+  "primaryTargetContract": "marketing.consentPolicy",
+  "route": "/website/consent",
+  "screenKind": "settings",
+  "layoutTemplate": "settings-page",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "identity",
+      "label": "Identity",
+      "description": "Stable policy identity.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.entityIdentity",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "scope",
+      "label": "Scope",
+      "description": "Owning Site.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.tenantScope",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "policyVersion",
+      "label": "Policy Version",
+      "description": "Published policy version.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 40
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "categories",
+      "label": "Categories",
+      "description": "Configured categories.",
+      "editorId": "structured-list",
+      "group": "taxonomy",
+      "zone": "sidebar",
+      "order": 40,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "marketing.consentCategory",
+      "validationHint": {
+        "minItems": 1,
+        "maxItems": 50
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "unknownOptionalBehavior",
+      "label": "Unknown Optional Behavior",
+      "description": "Behavior when optional choice unset.",
+      "editorId": "select",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "regionStrategy",
+      "label": "Region Strategy",
+      "description": "How region-specific policy selection is resolved.",
+      "editorId": "select",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "effectiveAt",
+      "label": "Effective At",
+      "description": "Policy effective time.",
+      "editorId": "date-time",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": false,
+    "columns": [
+      {
+        "field": "identity",
+        "label": "Identity",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "scope",
+        "label": "Scope",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "policyVersion",
+        "label": "Policy Version",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "categories",
+        "label": "Categories",
+        "rendererId": "text",
+        "order": 40,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": "contract-and-permission-allowlisted",
+    "bulkActions": "permission-and-rule-bound"
+  },
+  "actions": [
+    {
+      "actionId": "edit",
+      "permissionId": "marketing.consent.edit",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "marketing.consent.manage",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "marketing.consent.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "marketing.consent.edit",
+    "marketing.consent.manage",
+    "marketing.consent.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "primaryEditorId": "consent-matrix",
+  "views": [
+    {
+      "id": "primary",
+      "kind": "settings",
+      "route": "/website/consent",
+      "layoutTemplate": "settings-page",
+      "requiresPermission": "marketing.consent.edit",
+      "purpose": "Primary Site-scoped Customer CMS surface."
+    }
+  ]
+}

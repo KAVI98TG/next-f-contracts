@@ -1,0 +1,105 @@
+{
+  "$id": "events.productionPolicy",
+  "name": "Event Production Policy",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Durability and commit-boundary rules for producing authoritative events.",
+  "purpose": "Durability and commit-boundary rules for producing authoritative events.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "durability",
+      "required": true,
+      "nullable": false,
+      "description": "Required durability.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "durable",
+          "best-effort-telemetry"
+        ]
+      }
+    },
+    {
+      "key": "commitBoundary",
+      "required": true,
+      "nullable": false,
+      "description": "Commit relationship to authoritative state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "transactional-outbox",
+          "after-commit-durable",
+          "observation-only"
+        ]
+      }
+    },
+    {
+      "key": "failureBehavior",
+      "required": true,
+      "nullable": false,
+      "description": "Behavior when durable event persistence cannot be guaranteed.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "fail-domain-commit",
+          "queue-recovery-required",
+          "drop-allowed-telemetry-only"
+        ]
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "businessFactsDurable",
+      "description": "Authoritative business/domain facts use durable production; best-effort is reserved for non-authoritative telemetry."
+    },
+    {
+      "id": "outboxPreferred",
+      "description": "When a domain mutation is transactional, a transactional outbox or equivalent atomic mechanism is required to prevent committed state without its required event."
+    }
+  ],
+  "cms": {
+    "label": "Event Production Policy",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "durability",
+      "commitBoundary",
+      "failureBehavior"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

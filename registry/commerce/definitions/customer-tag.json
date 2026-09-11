@@ -1,0 +1,97 @@
+{
+  "$id": "commerce.customerTag",
+  "name": "Commerce Customer Tag",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "customer",
+  "description": "Reusable operational tag for Commerce Customers.",
+  "purpose": "Supports segmentation without conflating tags with permissions, consent or authoritative customer status.",
+  "commerceModel": {
+    "kind": "taxonomy",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable tag key.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Display label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional description.",
+      "itemsPrimitive": "fields.textarea"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether tag is available.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "notPermission",
+      "description": "Customer tags must never grant platform permissions."
+    },
+    {
+      "id": "notConsent",
+      "description": "Customer tags must never be treated as marketing consent."
+    }
+  ],
+  "cms": {
+    "label": "Commerce Customer Tag",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "key",
+      "label",
+      "description",
+      "enabled"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

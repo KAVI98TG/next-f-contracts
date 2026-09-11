@@ -1,0 +1,29 @@
+{
+  "$id": "forms.forms.publish",
+  "name": "Publish Forms",
+  "permissionId": "forms.forms.publish",
+  "domain": "forms",
+  "resource": "forms",
+  "action": "publish",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Publish Forms within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

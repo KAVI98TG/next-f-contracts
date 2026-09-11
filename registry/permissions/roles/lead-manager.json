@@ -1,0 +1,29 @@
+{
+  "$id": "permissions.role.leadManager",
+  "roleKey": "leadManager",
+  "name": "Lead Manager",
+  "displayName": "Lead Manager",
+  "description": "Works with form submissions, lead qualification, assignments and notifications without form-design or destructive access.",
+  "domain": "permissions",
+  "type": "role",
+  "version": "0.16.0",
+  "status": "stable",
+  "roleType": "reference",
+  "scopeKind": "site",
+  "permissionIds": [
+    "forms.leads.create",
+    "forms.leads.edit",
+    "forms.leads.export",
+    "forms.leads.manage",
+    "forms.leads.view",
+    "forms.notifications.edit",
+    "forms.notifications.manage",
+    "forms.notifications.view",
+    "forms.submissions.export",
+    "forms.submissions.manage",
+    "forms.submissions.view"
+  ],
+  "assignableByCustomer": true,
+  "systemProtected": false,
+  "notes": []
+}

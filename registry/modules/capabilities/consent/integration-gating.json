@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.consent.integration-gating",
+  "capabilityId": "consent.integration-gating",
+  "name": "Integration Gating",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "consent",
+  "mode": "always-on",
+  "selectable": false,
+  "defaultEnabled": true,
+  "description": "Integration Gating capability within the Consent module.",
+  "contractBindings": [
+    "marketing.consentPolicy"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

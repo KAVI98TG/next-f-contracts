@@ -1,0 +1,264 @@
+{
+  "$id": "content.page",
+  "name": "Page",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "pages",
+  "description": "Customer-managed routable website page.",
+  "purpose": "Defines editable page identity, routing content and section composition while the coded frontend retains presentation control.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "required",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Public page title.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "internalName",
+      "required": false,
+      "nullable": true,
+      "description": "CMS-only label used when a page needs a different internal name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Site-relative canonical page slug.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "filterable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "pageKind",
+      "required": true,
+      "nullable": false,
+      "description": "Functional page classification.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "home",
+            "label": "Home"
+          },
+          {
+            "value": "landing",
+            "label": "Landing"
+          },
+          {
+            "value": "system",
+            "label": "System"
+          }
+        ],
+        "defaultValue": "standard",
+        "customerEditable": false,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "templateKey",
+      "required": false,
+      "nullable": true,
+      "description": "Developer-defined presentation template key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120,
+        "customerEditable": false,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "summary",
+      "required": false,
+      "nullable": true,
+      "description": "Optional page summary for CMS discovery and approved frontend use.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "sections",
+      "required": false,
+      "nullable": true,
+      "description": "Ordered section records used by the coded page renderer.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.pageSection",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "minItems": 0,
+        "uniqueItems": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "featuredMedia",
+      "required": false,
+      "nullable": true,
+      "description": "Optional featured media reference.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "content.pageSection",
+      "description": "Pages compose ordered section envelopes."
+    },
+    {
+      "type": "composes",
+      "target": "core.publishing",
+      "description": "Pages use canonical publication state."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "Pages may identify featured media."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "siteSlugUnique",
+      "description": "Published page slugs must be unique within the Site and relevant locale."
+    },
+    {
+      "id": "homePageUnique",
+      "description": "Only one active home page may exist per Site and locale."
+    },
+    {
+      "id": "sectionsSameSite",
+      "description": "Every referenced section must belong to the same Site."
+    },
+    {
+      "id": "templateKeyDeveloperControlled",
+      "description": "templateKey cannot be changed by ordinary customer editors."
+    },
+    {
+      "id": "publishedPageHasTitle",
+      "description": "Published pages require a non-empty title."
+    }
+  ],
+  "cms": {
+    "label": "Page",
+    "icon": "fa-file-lines",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "title",
+      "slug",
+      "publishing"
+    ],
+    "editorMode": "full-page-editor",
+    "primaryActions": [
+      "saveDraft",
+      "preview",
+      "publish",
+      "schedule",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only the published, visibility-eligible version and approved public fields may be delivered."
+  },
+  "futureBindings": {
+    "blocks": "phase-6",
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "title": "About Us",
+        "slug": "about-us",
+        "pageKind": "standard"
+      }
+    ],
+    "invalid": [
+      {
+        "title": "",
+        "slug": "about us"
+      }
+    ]
+  },
+  "notes": [
+    "SEO metadata is intentionally not embedded until the Phase 7 SEO contract exists.",
+    "Page sections store structured data; customer editors do not receive arbitrary HTML/CSS/JavaScript control."
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "$id": "api.listMeta",
+  "name": "List Meta",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "query",
+  "description": "Collection response metadata.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "page",
+      "required": true,
+      "nullable": false,
+      "description": "page",
+      "schema": "api.pageInfo"
+    },
+    {
+      "key": "totalApproximate",
+      "required": false,
+      "nullable": false,
+      "description": "totalApproximate",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "sort",
+      "required": false,
+      "nullable": false,
+      "description": "sort",
+      "primitive": "fields.tag"
+    },
+    {
+      "key": "filters",
+      "required": false,
+      "nullable": false,
+      "description": "filters",
+      "primitive": "fields.json"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

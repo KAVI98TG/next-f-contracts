@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/api/api-operation-definition.schema.json",
+  "title": "Api Operation Definition",
+  "type": "object",
+  "required": [
+    "$id",
+    "operationId",
+    "groupId",
+    "method",
+    "path",
+    "authentication",
+    "request",
+    "response",
+    "policies"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^api\\."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    }
+  },
+  "additionalProperties": true
+}

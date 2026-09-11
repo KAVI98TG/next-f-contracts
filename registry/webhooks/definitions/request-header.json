@@ -1,0 +1,96 @@
+{
+  "$id": "webhooks.requestHeader",
+  "name": "Webhook Request Header",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "endpoints",
+  "description": "Controlled non-reserved request header configured for a webhook endpoint.",
+  "purpose": "Allows bounded receiver-specific metadata without creating an arbitrary raw-request interface.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Header name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "value",
+      "required": false,
+      "nullable": true,
+      "description": "Non-secret literal value.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "secretReference",
+      "required": false,
+      "nullable": true,
+      "description": "Optional secret-backed value.",
+      "schema": "integrations.secretReference"
+    },
+    {
+      "key": "sensitive",
+      "required": true,
+      "nullable": false,
+      "description": "Whether diagnostics must always redact the value.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "integrations.secretReference",
+      "description": "References integrations.secretReference."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "oneValueSource",
+      "description": "Use either literal value or secretReference, never both."
+    },
+    {
+      "id": "reservedProhibited",
+      "description": "Reserved NEXT F, Authorization, proxy, cookie and hop-by-hop headers cannot be overridden."
+    },
+    {
+      "id": "validHeaderName",
+      "description": "Header name must satisfy HTTP token syntax."
+    },
+    {
+      "id": "noControlChars",
+      "description": "Header values cannot contain CR/LF or control-character injection."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Request Header",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "name",
+      "value",
+      "secretReference",
+      "sensitive"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

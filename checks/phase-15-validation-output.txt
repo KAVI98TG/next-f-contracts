@@ -1,0 +1,16 @@
+$ node scripts/validate-phase-15.mjs
+NEXT F Contracts Phase 15 validation
+Version: 0.16.0
+Permissions: 329
+Roles: 14
+Support schemas: 9
+Registry entries: 1056
+Passes: 4973
+Failures: 0
+PASS - Phase 15 Permission Registry is internally consistent.
+
+
+$ node scripts/smoke-phase-15.mjs
+Phase 15 smoke passes: 31
+Phase 15 smoke failures: 0
+PASS - Phase 15 portal smoke test passed.

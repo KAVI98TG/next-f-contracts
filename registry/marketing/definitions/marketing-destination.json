@@ -1,0 +1,212 @@
+{
+  "$id": "marketing.marketingDestination",
+  "name": "Marketing Destination",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "destination",
+  "description": "Logical analytics, advertising or internal measurement destination for a Site.",
+  "purpose": "Separates routing intent from Phase 10 provider connector credentials and details.",
+  "marketingModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable destination identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "destinationKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable logical key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Display name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 200
+      }
+    },
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Logical destination family.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "analytics",
+            "label": "Analytics"
+          },
+          {
+            "value": "advertising",
+            "label": "Advertising"
+          },
+          {
+            "value": "internalAnalytics",
+            "label": "Internal Analytics"
+          },
+          {
+            "value": "crm",
+            "label": "CRM"
+          },
+          {
+            "value": "webhook",
+            "label": "Webhook"
+          },
+          {
+            "value": "other",
+            "label": "Other"
+          }
+        ]
+      }
+    },
+    {
+      "key": "connectorKey",
+      "required": false,
+      "nullable": true,
+      "description": "Phase 10 connector key when attached.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether routing is enabled.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "requiredConsentCategoryKey",
+      "required": false,
+      "nullable": true,
+      "description": "Consent category needed for optional dispatch.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80
+      }
+    },
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "Applicable environment.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "preview",
+            "label": "Preview"
+          },
+          {
+            "value": "staging",
+            "label": "Staging"
+          },
+          {
+            "value": "production",
+            "label": "Production"
+          }
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "Uses identity."
+    },
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "references",
+      "target": "marketing.consentCategory",
+      "description": "May require consent category."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noCredentials",
+      "description": "Credentials/tokens/secrets are not fields here."
+    },
+    {
+      "id": "connectorForwardReference",
+      "description": "connectorKey resolves in Phase 10."
+    },
+    {
+      "id": "environmentIsolation",
+      "description": "Non-production destinations cannot accidentally dispatch to production accounts."
+    },
+    {
+      "id": "disabledNoDispatch",
+      "description": "Disabled destinations receive no events."
+    }
+  ],
+  "cms": {
+    "label": "Marketing Destination",
+    "icon": "fa-bullseye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "destination-settings",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "destinationKey",
+      "name"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

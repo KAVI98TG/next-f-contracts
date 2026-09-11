@@ -1,0 +1,32 @@
+{
+  "controlId": "ACC-COPY-001",
+  "name": "Accessible copy actions",
+  "category": "components",
+  "requirement": "Copy actions must be semantic buttons with an accessible name and must expose success/failure feedback without relying only on visual change.",
+  "rationale": "Copy is a frequent action in technical interfaces.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "code-viewer",
+    "status-message"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "keyboard-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_copy_001.json"
+}

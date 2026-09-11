@@ -1,0 +1,118 @@
+{
+  "$id": "starters.custom-extension",
+  "slug": "custom-extension",
+  "name": "Custom Extension Site Starter",
+  "version": "1.0.0",
+  "status": "stable",
+  "siteType": "custom",
+  "sourceExampleId": "examples.custom-site",
+  "bundlePath": "starters/custom-extension",
+  "manifestPath": "starters/custom-extension/nextf.site.json",
+  "summary": "Controlled reference for a Site whose requirements exceed canonical site types while still reusing all existing NEXT F contracts first.",
+  "modules": [
+    "core",
+    "media",
+    "pages",
+    "seo",
+    "forms",
+    "consent",
+    "integrations"
+  ],
+  "capabilities": [
+    "core.identity",
+    "core.publishing",
+    "core.versioning",
+    "core.audit",
+    "core.tenant-isolation",
+    "media.library",
+    "media.images",
+    "media.contextual-metadata",
+    "pages.sections",
+    "pages.reusable-content",
+    "pages.navigation",
+    "pages.custom-collections",
+    "seo.metadata",
+    "seo.social-sharing",
+    "seo.sitemap",
+    "seo.robots",
+    "seo.redirects",
+    "forms.notifications",
+    "forms.spam-protection",
+    "forms.consent-fields",
+    "consent.preferences",
+    "consent.records",
+    "consent.categories",
+    "consent.integration-gating",
+    "integrations.health"
+  ],
+  "contractCount": 215,
+  "apiBindings": [
+    {
+      "apiId": "api.public-content",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    }
+  ],
+  "trackingEvents": [
+    "page.viewed",
+    "cta.clicked",
+    "form.started",
+    "form.submitted"
+  ],
+  "integrations": [
+    {
+      "connectorId": "integrations.googleTagManager",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleAnalytics4",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleSearchConsole",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.microsoftClarity",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    }
+  ],
+  "permissionCount": 118,
+  "eventCount": 51,
+  "files": [
+    "nextf.site.json",
+    "AGENTS.md",
+    "README.md",
+    "CONTRACT-RESOLUTION-SUMMARY.md",
+    "INTEGRATION-ARCHITECTURE.md",
+    ".env.example",
+    "CONTENT-CONTRACT-MAP.json",
+    "EVENT-MAP.json",
+    "TRACKING-EVENT-MAP.json",
+    "PERMISSION-EXPECTATIONS.md",
+    "API-BINDINGS.md",
+    "CMS-MAPPING.json",
+    "ADMIN-MAPPING.json",
+    "EXTENSIONS.md",
+    "VALIDATION.md",
+    "ACCEPTANCE-CHECKLIST.md"
+  ],
+  "validationCommand": "node bin/nextf-contract.mjs validate starters/custom-extension/nextf.site.json --verbose",
+  "codexInstruction": "Read `AGENTS.md` and `nextf.site.json`, resolve the pinned NEXT F Contract Version, use only enabled Modules/Capabilities, reuse canonical contracts, run NEXT F validation before completion, and report deviations."
+}

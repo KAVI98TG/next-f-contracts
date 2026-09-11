@@ -1,0 +1,75 @@
+{
+  "$id": "fields.multiSelect",
+  "name": "Multi Select",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "choice",
+  "description": "Array of canonical values selected from configured options.",
+  "value": {
+    "jsonType": "array",
+    "canonical": "Array of stable option machine values.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "multi-select",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": false,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "minItems",
+    "maxItems",
+    "uniqueItems",
+    "options",
+    "allowCustomOptions"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "allowedValues",
+    "minItems",
+    "maxItems",
+    "uniqueItems"
+  ],
+  "examples": {
+    "valid": [
+      [
+        "seo",
+        "web-development"
+      ]
+    ],
+    "invalid": [
+      "seo",
+      [
+        "SEO",
+        "SEO"
+      ]
+    ]
+  },
+  "notes": []
+}

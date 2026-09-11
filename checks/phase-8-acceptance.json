@@ -1,0 +1,157 @@
+{
+  "phase": "8",
+  "version": "0.9.0",
+  "status": "passed",
+  "checks": [
+    {
+      "id": "P8-001",
+      "name": "Forms domain registered",
+      "passed": true
+    },
+    {
+      "id": "P8-002",
+      "name": "Forms standard created",
+      "passed": true
+    },
+    {
+      "id": "P8-003",
+      "name": "35 Forms/Leads schemas created",
+      "passed": true
+    },
+    {
+      "id": "P8-004",
+      "name": "Form Builder definition complete",
+      "passed": true
+    },
+    {
+      "id": "P8-005",
+      "name": "Safe conditional logic defined",
+      "passed": true
+    },
+    {
+      "id": "P8-006",
+      "name": "Server validation boundary defined",
+      "passed": true
+    },
+    {
+      "id": "P8-007",
+      "name": "Form availability server-enforced",
+      "passed": true
+    },
+    {
+      "id": "P8-008",
+      "name": "Upload policy private-by-default",
+      "passed": true
+    },
+    {
+      "id": "P8-009",
+      "name": "Submission snapshots preserve form/field versions",
+      "passed": true
+    },
+    {
+      "id": "P8-010",
+      "name": "Consent snapshots immutable",
+      "passed": true
+    },
+    {
+      "id": "P8-011",
+      "name": "Data minimization policy defined",
+      "passed": true
+    },
+    {
+      "id": "P8-012",
+      "name": "Spam signals separated from spam decisions",
+      "passed": true
+    },
+    {
+      "id": "P8-013",
+      "name": "Rate limiting separated from authentication",
+      "passed": true
+    },
+    {
+      "id": "P8-014",
+      "name": "Notifications separate from auto-response",
+      "passed": true
+    },
+    {
+      "id": "P8-015",
+      "name": "Sensitive notification values excluded by default",
+      "passed": true
+    },
+    {
+      "id": "P8-016",
+      "name": "Lead distinct from Submission",
+      "passed": true
+    },
+    {
+      "id": "P8-017",
+      "name": "Lead distinct from Organization and Commerce Customer",
+      "passed": true
+    },
+    {
+      "id": "P8-018",
+      "name": "Lead status workflow defined",
+      "passed": true
+    },
+    {
+      "id": "P8-019",
+      "name": "Lead source defined without duplicating Marketing attribution",
+      "passed": true
+    },
+    {
+      "id": "P8-020",
+      "name": "Lead assignment/history defined",
+      "passed": true
+    },
+    {
+      "id": "P8-021",
+      "name": "Lead notes private",
+      "passed": true
+    },
+    {
+      "id": "P8-022",
+      "name": "Lead activity not confused with global events",
+      "passed": true
+    },
+    {
+      "id": "P8-023",
+      "name": "Lead dedupe explicit",
+      "passed": true
+    },
+    {
+      "id": "P8-024",
+      "name": "Form-to-Lead mapping declarative",
+      "passed": true
+    },
+    {
+      "id": "P8-025",
+      "name": "Conversion mapping contains no vendor scripts",
+      "passed": true
+    },
+    {
+      "id": "P8-026",
+      "name": "Future phase bindings preserved",
+      "passed": true
+    },
+    {
+      "id": "P8-027",
+      "name": "Forms portal route available",
+      "passed": true
+    },
+    {
+      "id": "P8-028",
+      "name": "Forms registry engine added",
+      "passed": true
+    },
+    {
+      "id": "P8-029",
+      "name": "Generated Forms fallback checksum-bound",
+      "passed": true
+    },
+    {
+      "id": "P8-030",
+      "name": "Light-only UI preserved",
+      "passed": true
+    }
+  ]
+}

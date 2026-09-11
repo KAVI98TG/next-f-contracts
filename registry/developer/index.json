@@ -1,0 +1,875 @@
+{
+  "registryVersion": "0.22.0",
+  "standardVersion": "1.0.0",
+  "title": "NEXT F Codex Development Registry",
+  "description": "Machine-readable operational standard for Codex and other AI coding agents implementing NEXT F-integrated systems.",
+  "standardId": "developer.codexDevelopmentStandard",
+  "standardSource": "standards/29-codex-development-standard.md",
+  "quickStart": "developer/CODEX-QUICKSTART.md",
+  "masterEntryPoint": "NEXT-F-WEBSITE-DEVELOPMENT-STANDARD.md",
+  "authorityModel": {
+    "registryVersion": "0.22.0",
+    "$id": "developer.authorityModel",
+    "name": "Codex Authority Model",
+    "version": "0.22.0",
+    "status": "stable",
+    "canonicalSemanticsOrder": [
+      "machine-readable-contract",
+      "site-manifest",
+      "contract-specific-standard",
+      "codex-development-standard",
+      "approved-extension-or-migration",
+      "generated-portal-docs",
+      "examples"
+    ],
+    "projectIntentSources": [
+      "explicit-project-requirement",
+      "site-manifest",
+      "approved-extension"
+    ],
+    "rules": [
+      {
+        "id": "AUTH-001",
+        "statement": "Machine-readable NEXT F contracts are authoritative for canonical semantics."
+      },
+      {
+        "id": "AUTH-002",
+        "statement": "The Site Manifest is authoritative for the project pinned version, enabled Modules, Capabilities, environments and bindings."
+      },
+      {
+        "id": "AUTH-003",
+        "statement": "Customer requirements may choose supported presentation and behavior but may not silently redefine canonical semantics."
+      },
+      {
+        "id": "AUTH-004",
+        "statement": "Existing code is implementation state, not authority over a canonical contract."
+      },
+      {
+        "id": "AUTH-005",
+        "statement": "Examples and generated documentation are never more authoritative than their source contracts."
+      },
+      {
+        "id": "AUTH-006",
+        "statement": "Security, tenant isolation, permissions and business invariants cannot be waived for implementation convenience."
+      }
+    ]
+  },
+  "principles": [
+    "manifest-first",
+    "contract-first",
+    "smallest-safe-change",
+    "inspect-before-modify",
+    "no-parallel-architecture",
+    "server-side-authorization",
+    "tenant-isolation",
+    "secrets-server-side",
+    "environment-isolation",
+    "business-rule-integrity",
+    "generated-source-authority",
+    "explicit-migrations",
+    "explicit-extensions",
+    "explicit-deviations",
+    "verification-truthfulness",
+    "complete-handoff"
+  ],
+  "workflowStages": [
+    {
+      "id": "intake",
+      "order": 1,
+      "label": "Intake",
+      "goal": "Resolve requested outcome, repository, Site, target environment and allowed change boundary.",
+      "requiredEvidence": [
+        "task goal",
+        "repository scope",
+        "target environment"
+      ],
+      "blocksOn": [
+        "unclear-target-repository"
+      ]
+    },
+    {
+      "id": "repository-discovery",
+      "order": 2,
+      "label": "Repository Discovery",
+      "goal": "Inspect existing stack, structure, commands, manifest, adapters, migrations and tests before modification.",
+      "requiredEvidence": [
+        "framework/runtime",
+        "package manager",
+        "build/test commands",
+        "manifest location or absence"
+      ]
+    },
+    {
+      "id": "manifest-resolution",
+      "order": 3,
+      "label": "Manifest Resolution",
+      "goal": "Resolve the exact Site Manifest and pinned Contract/API versions.",
+      "requiredEvidence": [
+        "siteId",
+        "contractVersion",
+        "module selections",
+        "api bindings"
+      ],
+      "blocksOn": [
+        "missing-required-manifest",
+        "invalid-manifest",
+        "unsupported-contract-version"
+      ]
+    },
+    {
+      "id": "registry-resolution",
+      "order": 4,
+      "label": "Registry Resolution",
+      "goal": "Resolve canonical contracts, Modules, Capabilities, APIs, Permissions, Events, Webhooks, Integrations and UI metadata.",
+      "requiredEvidence": [
+        "contract mapping"
+      ],
+      "blocksOn": [
+        "unknown-module-or-capability",
+        "canonical-conflict"
+      ]
+    },
+    {
+      "id": "requirement-mapping",
+      "order": 5,
+      "label": "Requirement Mapping",
+      "goal": "Map each requested behavior to canonical NEXT F definitions and identify missing coverage.",
+      "requiredEvidence": [
+        "feature-to-contract map"
+      ],
+      "blocksOn": [
+        "missing-required-contract"
+      ]
+    },
+    {
+      "id": "implementation-plan",
+      "order": 6,
+      "label": "Implementation Plan",
+      "goal": "Define the smallest compatible change set, boundaries, tests, migrations and risks.",
+      "requiredEvidence": [
+        "implementation plan"
+      ]
+    },
+    {
+      "id": "implementation",
+      "order": 7,
+      "label": "Implementation",
+      "goal": "Implement customer-specific behavior against canonical contracts without parallel architecture.",
+      "requiredEvidence": [
+        "changed files",
+        "adapter boundaries"
+      ]
+    },
+    {
+      "id": "verification",
+      "order": 8,
+      "label": "Verification",
+      "goal": "Run relevant syntax, type, lint, test, build, migration and contract checks that are available.",
+      "requiredEvidence": [
+        "executed commands",
+        "results",
+        "unrun checks"
+      ]
+    },
+    {
+      "id": "deviation-review",
+      "order": 9,
+      "label": "Deviation Review",
+      "goal": "Compare implementation with Manifest/contracts and record every deviation or extension.",
+      "requiredEvidence": [
+        "deviation list",
+        "extension records when required"
+      ]
+    },
+    {
+      "id": "handoff",
+      "order": 10,
+      "label": "Handoff",
+      "goal": "Produce a complete implementation report and unresolved-risk summary.",
+      "requiredEvidence": [
+        "implementation report"
+      ]
+    }
+  ],
+  "taskTypes": [
+    {
+      "id": "new-site",
+      "label": "New Customer Site",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "manifest-first",
+        "mandatory-runtime-capabilities",
+        "cms-editability",
+        "api-bindings"
+      ]
+    },
+    {
+      "id": "existing-site-change",
+      "label": "Existing Site Feature",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "inspect-before-change",
+        "preserve-out-of-scope-behavior",
+        "compatibility-review"
+      ]
+    },
+    {
+      "id": "bug-fix",
+      "label": "Bug Fix",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "reproduce-or-establish-failure",
+        "smallest-fix",
+        "regression-coverage"
+      ]
+    },
+    {
+      "id": "customer-cms",
+      "label": "Customer CMS Work",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "resolve-cms-ui-profile",
+        "server-authorization",
+        "no-duplicate-customer-admin"
+      ]
+    },
+    {
+      "id": "nextf-admin",
+      "label": "NEXT F Admin Work",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "resolve-admin-ui-profile",
+        "platform-scope",
+        "no-impersonation",
+        "no-business-rule-bypass"
+      ]
+    },
+    {
+      "id": "api-integration",
+      "label": "API Integration",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "exact-api-binding",
+        "request-response-contracts",
+        "authz-idempotency-concurrency"
+      ]
+    },
+    {
+      "id": "commerce-feature",
+      "label": "Commerce Feature",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "commerce-core",
+        "commerce-rules",
+        "transaction-history",
+        "financial-idempotency"
+      ]
+    },
+    {
+      "id": "marketing-tracking",
+      "label": "Marketing / Tracking",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "canonical-tracking-events",
+        "consent",
+        "data-minimization",
+        "environment-isolation"
+      ]
+    },
+    {
+      "id": "external-integration",
+      "label": "External Integration",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "canonical-connector",
+        "secret-reference",
+        "mapping-boundary",
+        "health-and-retry-policy"
+      ]
+    },
+    {
+      "id": "contract-upgrade",
+      "label": "Contract Version Upgrade",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "compatibility-review",
+        "migration-plan",
+        "deprecations",
+        "manifest-update"
+      ]
+    },
+    {
+      "id": "data-migration",
+      "label": "Data Migration",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "dry-run",
+        "backup-or-recovery-plan",
+        "idempotency",
+        "data-integrity"
+      ]
+    },
+    {
+      "id": "contract-registry-change",
+      "label": "NEXT F Contract Change",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "global-id-uniqueness",
+        "compatibility-classification",
+        "registry-sync",
+        "changelog",
+        "full-validation"
+      ]
+    },
+    {
+      "id": "security-fix",
+      "label": "Security Fix",
+      "requiredStages": [
+        "intake",
+        "repository-discovery",
+        "manifest-resolution",
+        "registry-resolution",
+        "requirement-mapping",
+        "implementation-plan",
+        "implementation",
+        "verification",
+        "deviation-review",
+        "handoff"
+      ],
+      "specialRequirements": [
+        "minimum-disclosure",
+        "authorization-review",
+        "secret-handling",
+        "regression-test"
+      ]
+    }
+  ],
+  "stopConditions": [
+    {
+      "id": "missing-required-manifest",
+      "label": "Missing required Site Manifest",
+      "level": "hard-stop",
+      "reason": "Contract-dependent implementation cannot safely resolve project intent.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "invalid-manifest",
+      "label": "Invalid Site Manifest",
+      "level": "hard-stop",
+      "reason": "Fix or explicitly migrate the Manifest before contract-dependent work.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "unsupported-contract-version",
+      "label": "Unsupported pinned Contract Version",
+      "level": "needs-migration",
+      "reason": "Do not silently move to a supported version.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "unknown-module-or-capability",
+      "label": "Unknown Module or Capability",
+      "level": "needs-extension",
+      "reason": "Do not invent a project-local canonical identifier.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "canonical-conflict",
+      "label": "Conflicting canonical definitions",
+      "level": "hard-stop",
+      "reason": "Resolve the authoritative contract before implementation.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "missing-required-contract",
+      "label": "No canonical contract covers required shared behavior",
+      "level": "needs-extension",
+      "reason": "Create a Contract Extension Proposal.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "missing-api-operation",
+      "label": "Required canonical API operation is missing",
+      "level": "needs-extension",
+      "reason": "Report API contract extension requirement.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "missing-permission",
+      "label": "Protected operation lacks a canonical Permission",
+      "level": "needs-extension",
+      "reason": "Report Permission extension requirement.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "missing-event",
+      "label": "Required authoritative Event is missing",
+      "level": "needs-extension",
+      "reason": "Report Event extension requirement.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "missing-connector",
+      "label": "Required external provider behavior lacks a canonical Connector",
+      "level": "needs-extension",
+      "reason": "Use an approved extension/adapter path.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "client-secret-exposure",
+      "label": "Implementation would expose a secret to public client code",
+      "level": "hard-stop",
+      "reason": "Move the operation to a trusted server boundary.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "cross-tenant-ambiguity",
+      "label": "Tenant/scope authorization cannot be proven",
+      "level": "hard-stop",
+      "reason": "Resolve server-side Organization/Site scope.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "commerce-invariant-ambiguity",
+      "label": "Commerce transaction invariant or state transition is ambiguous",
+      "level": "hard-stop",
+      "reason": "Do not guess financial/inventory behavior.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "destructive-migration-unplanned",
+      "label": "Destructive persisted-data change lacks migration/recovery plan",
+      "level": "hard-stop",
+      "reason": "Create and review migration/recovery plan.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "production-destructive-ambiguity",
+      "label": "Production-destructive action lacks explicit scope/intent",
+      "level": "needs-clarification",
+      "reason": "Do not infer permission to destroy production data or state.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "sensitive-data-classification-unknown",
+      "label": "Sensitive/personal data transmission or retention classification is unknown",
+      "level": "needs-clarification",
+      "reason": "Resolve handling before transmitting/persisting.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "contract-version-upgrade-implicit",
+      "label": "Task would require changing pinned Contract Version implicitly",
+      "level": "needs-migration",
+      "reason": "Upgrade must be explicit and compatibility-reviewed.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "generated-file-source-unknown",
+      "label": "Required change targets generated output but authoritative source/generator is unclear",
+      "level": "needs-clarification",
+      "reason": "Find and change the source rather than hand-editing generated output.",
+      "blocksAffectedPath": true
+    }
+  ],
+  "requiredArtifacts": [
+    {
+      "id": "contract-resolution-summary",
+      "label": "Contract Resolution Summary",
+      "requiredWhen": [
+        "all-substantial-tasks"
+      ],
+      "purpose": "Records pinned versions, Modules, Capabilities and canonical definitions resolved for the task."
+    },
+    {
+      "id": "implementation-plan",
+      "label": "Implementation Plan",
+      "requiredWhen": [
+        "all-substantial-tasks"
+      ],
+      "purpose": "Defines change scope, boundaries, adapters, tests, migrations and risks before implementation."
+    },
+    {
+      "id": "implementation-report",
+      "label": "Implementation Report",
+      "requiredWhen": [
+        "all-substantial-tasks"
+      ],
+      "purpose": "Reports what changed, which contracts were consumed and what was actually verified."
+    },
+    {
+      "id": "deviation-record",
+      "label": "Deviation Record",
+      "requiredWhen": [
+        "implementation-deviates-from-manifest-or-contract-intent"
+      ],
+      "purpose": "Makes a known implementation deviation visible and bounded."
+    },
+    {
+      "id": "contract-extension-proposal",
+      "label": "Contract Extension Proposal",
+      "requiredWhen": [
+        "canonical-coverage-missing"
+      ],
+      "purpose": "Proposes new shared canonical coverage instead of silently inventing it in a project."
+    },
+    {
+      "id": "migration-plan",
+      "label": "Migration Plan",
+      "requiredWhen": [
+        "persisted-data-change",
+        "contract-upgrade"
+      ],
+      "purpose": "Defines dry-run, compatibility, execution, recovery and integrity checks."
+    },
+    {
+      "id": "security-impact-note",
+      "label": "Security / Data Impact Note",
+      "requiredWhen": [
+        "sensitive-data",
+        "privileged-operation",
+        "authn-authz-change"
+      ],
+      "purpose": "Documents boundary, classification and security implications."
+    },
+    {
+      "id": "verification-evidence",
+      "label": "Verification Evidence",
+      "requiredWhen": [
+        "all-substantial-tasks"
+      ],
+      "purpose": "Lists checks that actually ran, results and checks not run."
+    },
+    {
+      "id": "handoff-summary",
+      "label": "Handoff Summary",
+      "requiredWhen": [
+        "all-substantial-tasks"
+      ],
+      "purpose": "Leaves the next developer/agent a concise current state and remaining actions."
+    }
+  ],
+  "changeClasses": [
+    {
+      "id": "presentation-only",
+      "label": "Presentation Only",
+      "compatibilityRisk": "low",
+      "examples": [
+        "layout",
+        "responsive styling",
+        "animation"
+      ],
+      "contractReview": "confirm no data semantics changed"
+    },
+    {
+      "id": "implementation-compatible",
+      "label": "Implementation Compatible",
+      "compatibilityRisk": "medium",
+      "examples": [
+        "adapter refactor",
+        "internal performance change"
+      ],
+      "contractReview": "canonical behavior must remain identical"
+    },
+    {
+      "id": "additive-contract",
+      "label": "Additive Contract Change",
+      "compatibilityRisk": "medium",
+      "examples": [
+        "optional field",
+        "new capability"
+      ],
+      "contractReview": "requires NEXT F Contract minor-release classification"
+    },
+    {
+      "id": "breaking-contract",
+      "label": "Breaking Contract Change",
+      "compatibilityRisk": "high",
+      "examples": [
+        "rename/remove stable field",
+        "semantic change"
+      ],
+      "contractReview": "requires major-version/migration path"
+    },
+    {
+      "id": "data-migration",
+      "label": "Persisted Data Migration",
+      "compatibilityRisk": "high",
+      "examples": [
+        "storage schema change",
+        "contract upgrade migration"
+      ],
+      "contractReview": "requires migration and recovery plan"
+    }
+  ],
+  "qualityGates": [
+    {
+      "id": "scope",
+      "label": "Scope Integrity",
+      "checks": [
+        "requested behavior covered",
+        "unrelated refactor avoided",
+        "target environment explicit"
+      ]
+    },
+    {
+      "id": "contracts",
+      "label": "Contract Integrity",
+      "checks": [
+        "pinned version used",
+        "canonical definitions reused",
+        "no parallel schema/event/permission/API"
+      ]
+    },
+    {
+      "id": "manifest",
+      "label": "Manifest Integrity",
+      "checks": [
+        "manifest remains accurate",
+        "modules/capabilities match implementation",
+        "api bindings exact"
+      ]
+    },
+    {
+      "id": "security",
+      "label": "Security Boundary",
+      "checks": [
+        "authorization server-side",
+        "secrets server-side",
+        "tenant isolation preserved"
+      ]
+    },
+    {
+      "id": "data",
+      "label": "Data Integrity",
+      "checks": [
+        "validation preserved",
+        "historical semantics preserved",
+        "migration accounted for"
+      ]
+    },
+    {
+      "id": "commerce",
+      "label": "Commerce Integrity",
+      "checks": [
+        "rules enforced",
+        "financial idempotency preserved",
+        "browser values not authoritative"
+      ],
+      "conditional": "commerce-enabled"
+    },
+    {
+      "id": "integration",
+      "label": "Integration Integrity",
+      "checks": [
+        "canonical connector used",
+        "consent applied",
+        "environment isolation preserved"
+      ],
+      "conditional": "integration-or-tracking-change"
+    },
+    {
+      "id": "ui",
+      "label": "UI Quality",
+      "checks": [
+        "customer editability preserved",
+        "responsive behavior checked",
+        "accessibility considered"
+      ],
+      "conditional": "ui-change"
+    },
+    {
+      "id": "verification",
+      "label": "Verification Evidence",
+      "checks": [
+        "relevant commands run",
+        "results recorded",
+        "unrun checks disclosed"
+      ]
+    },
+    {
+      "id": "handoff",
+      "label": "Handoff Completeness",
+      "checks": [
+        "extensions listed",
+        "deviations listed",
+        "remaining risks listed"
+      ]
+    }
+  ],
+  "supportSchemas": [
+    {
+      "$id": "developer.projectContext",
+      "name": "Codex Project Context",
+      "source": "registry/developer/schemas/project-context.schema.json"
+    },
+    {
+      "$id": "developer.implementationPlan",
+      "name": "Codex Implementation Plan",
+      "source": "registry/developer/schemas/implementation-plan.schema.json"
+    },
+    {
+      "$id": "developer.contractExtensionProposal",
+      "name": "Contract Extension Proposal",
+      "source": "registry/developer/schemas/contract-extension-proposal.schema.json"
+    },
+    {
+      "$id": "developer.deviationRecord",
+      "name": "Implementation Deviation Record",
+      "source": "registry/developer/schemas/deviation-record.schema.json"
+    },
+    {
+      "$id": "developer.implementationReport",
+      "name": "Codex Implementation Report",
+      "source": "registry/developer/schemas/implementation-report.schema.json"
+    },
+    {
+      "$id": "developer.handoffReport",
+      "name": "Codex Handoff Report",
+      "source": "registry/developer/schemas/handoff-report.schema.json"
+    }
+  ],
+  "counts": {
+    "workflowStages": 10,
+    "taskTypes": 13,
+    "stopConditions": 18,
+    "requiredArtifacts": 9,
+    "changeClasses": 5,
+    "qualityGates": 10,
+    "supportSchemas": 6
+  },
+  "phase": 21,
+  "status": "stable"
+}

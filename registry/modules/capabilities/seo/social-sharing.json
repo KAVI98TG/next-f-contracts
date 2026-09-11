@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.seo.social-sharing",
+  "capabilityId": "seo.social-sharing",
+  "name": "Social Sharing",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "seo",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Social Sharing capability within the SEO module.",
+  "contractBindings": [
+    "seo.openGraph",
+    "seo.socialCard"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

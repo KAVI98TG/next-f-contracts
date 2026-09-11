@@ -1,0 +1,34 @@
+{
+  "$id": "modules.capability.blog.categories",
+  "capabilityId": "blog.categories",
+  "name": "Categories",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "blog",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Categories capability within the Blog module.",
+  "contractBindings": [
+    "content.blogCategory"
+  ],
+  "permissionBindings": [
+    "content.blogcategories.create",
+    "content.blogcategories.delete",
+    "content.blogcategories.edit",
+    "content.blogcategories.manage",
+    "content.blogcategories.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

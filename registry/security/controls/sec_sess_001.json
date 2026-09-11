@@ -1,0 +1,35 @@
+{
+  "controlId": "SEC-SESS-001",
+  "name": "Secure session lifecycle",
+  "category": "sessions",
+  "requirement": "Sessions must have bounded lifetime, secure invalidation, rotation where appropriate, and server-authoritative revocation.",
+  "rationale": "Stale or stolen sessions must not remain indefinitely usable.",
+  "applicability": [
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "permissions.authorizationContext"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_sess_001.json"
+}

@@ -1,0 +1,73 @@
+{
+  "$id": "api.public-content.get-blog-post",
+  "operationId": "api.public-content.get-blog-post",
+  "name": "Get Published Blog Post",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.public-content",
+  "method": "GET",
+  "path": "/blog/posts/{slug}",
+  "description": "Get Published Blog Post",
+  "authentication": {
+    "mode": "anonymous",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "slug"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "content.blogPost",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "public-edge",
+    "rateLimit": "public-read",
+    "cors": "public-read"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "pages",
+    "blog",
+    "documentation",
+    "seo"
+  ],
+  "contractBindings": [
+    "content.blogPost"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "public",
+  "notes": []
+}

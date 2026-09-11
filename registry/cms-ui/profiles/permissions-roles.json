@@ -1,0 +1,291 @@
+{
+  "$id": "cmsUi.profile.permissions.roles",
+  "name": "Roles",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "permissions.roles",
+  "moduleId": "core",
+  "description": "Customer CMS presentation metadata for Roles within authorized Site scope.",
+  "targetContracts": [
+    "permissions.roleDefinition"
+  ],
+  "primaryTargetContract": "permissions.roleDefinition",
+  "route": "/settings/access/roles",
+  "screenKind": "settings",
+  "layoutTemplate": "access-manager",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "roleKey",
+      "label": "Role Key",
+      "description": "roleKey",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "displayName",
+      "label": "Display Name",
+      "description": "displayName",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "roleType",
+      "label": "Role Type",
+      "description": "roleType",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "scopeKind",
+      "label": "Scope Kind",
+      "description": "scopeKind",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "permissionIds",
+      "label": "Permission Ids",
+      "description": "Explicit canonical permission IDs; wildcards are prohibited.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 50,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.json",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "assignableByCustomer",
+      "label": "Assignable By Customer",
+      "description": "assignableByCustomer",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.boolean",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "systemProtected",
+      "label": "System Protected",
+      "description": "systemProtected",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.boolean",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": false,
+    "columns": [
+      {
+        "field": "roleKey",
+        "label": "Role Key",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "displayName",
+        "label": "Display Name",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "roleType",
+        "label": "Role Type",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "scopeKind",
+        "label": "Scope Kind",
+        "rendererId": "text",
+        "order": 40,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "assignableByCustomer",
+        "label": "Assignable By Customer",
+        "rendererId": "text",
+        "order": 50,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": "contract-and-permission-allowlisted",
+    "bulkActions": "permission-and-rule-bound"
+  },
+  "actions": [
+    {
+      "actionId": "create",
+      "permissionId": "permissions.roles.create",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "permissions.roles.delete",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "permissions.roles.edit",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "permissions.roles.manage",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "permissions.roles.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "permissions.roles.create",
+    "permissions.roles.delete",
+    "permissions.roles.edit",
+    "permissions.roles.manage",
+    "permissions.roles.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "primary",
+      "kind": "settings",
+      "route": "/settings/access/roles",
+      "layoutTemplate": "access-manager",
+      "requiresPermission": "permissions.roles.edit",
+      "purpose": "Primary Site-scoped Customer CMS surface."
+    }
+  ]
+}

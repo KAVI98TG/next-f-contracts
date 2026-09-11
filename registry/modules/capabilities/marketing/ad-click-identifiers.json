@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.marketing.ad-click-identifiers",
+  "capabilityId": "marketing.ad-click-identifiers",
+  "name": "Ad Click Identifiers",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "marketing",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Ad Click Identifiers capability within the Marketing module.",
+  "contractBindings": [
+    "marketing.adClickIdentifier"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

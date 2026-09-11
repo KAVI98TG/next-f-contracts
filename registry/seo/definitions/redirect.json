@@ -1,0 +1,214 @@
+{
+  "$id": "seo.redirect",
+  "name": "Redirect",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "routing",
+  "description": "Canonical Site redirect rule.",
+  "purpose": "Allows Customer CMS and runtime adapters to manage redirects without embedding provider-specific server configuration in content code.",
+  "seoModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Redirect identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "sourcePath",
+      "required": true,
+      "nullable": false,
+      "description": "Site-relative source path including leading slash.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 2048,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "destinationUrl",
+      "required": true,
+      "nullable": false,
+      "description": "Absolute HTTP(S) destination URL.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true
+      }
+    },
+    {
+      "key": "statusCode",
+      "required": true,
+      "nullable": false,
+      "description": "HTTP redirect status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "301",
+            "label": "301 Permanent"
+          },
+          {
+            "value": "302",
+            "label": "302 Temporary"
+          },
+          {
+            "value": "307",
+            "label": "307 Temporary"
+          },
+          {
+            "value": "308",
+            "label": "308 Permanent"
+          }
+        ],
+        "defaultValue": "301",
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "preserveQuery",
+      "required": true,
+      "nullable": false,
+      "description": "Whether incoming query parameters are preserved when supported by the adapter.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this redirect is active.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "note",
+      "required": false,
+      "nullable": true,
+      "description": "Internal management note.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Redirects are Site scoped."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "sourcePathRelative",
+      "description": "sourcePath must start with / and must not include scheme or host."
+    },
+    {
+      "id": "noRedirectLoop",
+      "description": "A redirect must not resolve back to its source or create a detected cycle."
+    },
+    {
+      "id": "avoidRedirectChains",
+      "description": "Implementations should identify and consolidate avoidable multi-hop redirect chains."
+    },
+    {
+      "id": "sourceUnique",
+      "description": "Only one enabled redirect may own the same normalized sourcePath per Site."
+    },
+    {
+      "id": "safeDestinationScheme",
+      "description": "destinationUrl must use HTTP or HTTPS."
+    }
+  ],
+  "cms": {
+    "label": "Redirect",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "sourcePath",
+      "destinationUrl"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "identity": {
+          "id": "redir_01",
+          "createdAt": "2026-09-10T00:00:00Z",
+          "updatedAt": "2026-09-10T00:00:00Z"
+        },
+        "scope": {
+          "organizationId": "org_01",
+          "siteId": "site_01"
+        },
+        "sourcePath": "/old-service",
+        "destinationUrl": "https://example.lk/services/new-service",
+        "statusCode": "301",
+        "preserveQuery": true,
+        "enabled": true
+      }
+    ],
+    "invalid": [
+      {
+        "sourcePath": "https://example.lk/old",
+        "destinationUrl": "javascript:alert(1)",
+        "statusCode": "301"
+      }
+    ]
+  },
+  "notes": []
+}

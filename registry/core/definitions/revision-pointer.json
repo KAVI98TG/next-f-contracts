@@ -1,0 +1,99 @@
+{
+  "$id": "core.revisionPointer",
+  "name": "Revision Pointer",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "audit",
+  "description": "Current/published version pointers for a versioned entity.",
+  "purpose": "Allows CMS and API implementations to identify working and published revisions without duplicating version-state fields.",
+  "fields": [
+    {
+      "key": "currentVersionId",
+      "required": true,
+      "nullable": false,
+      "description": "Latest working Version Record.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "core.versionRecord",
+        "relationshipCardinality": "one",
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "publishedVersionId",
+      "required": false,
+      "nullable": true,
+      "description": "Currently published Version Record when one exists.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "core.versionRecord",
+        "relationshipCardinality": "one",
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "hasUnpublishedChanges",
+      "required": true,
+      "nullable": false,
+      "description": "Whether currentVersionId differs from the active published revision.",
+      "primitive": "fields.boolean",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "core.versionRecord",
+      "description": "Both pointers target canonical Version Records."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "revisionFlagDerived",
+      "description": "hasUnpublishedChanges must accurately reflect current and published pointers."
+    }
+  ],
+  "cms": {
+    "label": "Revision State",
+    "icon": "fa-code-compare",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "history",
+    "summaryFields": [
+      "hasUnpublishedChanges"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Revision pointers are operational CMS metadata."
+  },
+  "examples": {
+    "valid": [
+      {
+        "currentVersionId": "ver_0004",
+        "publishedVersionId": "ver_0003",
+        "hasUnpublishedChanges": true
+      },
+      {
+        "currentVersionId": "ver_0003",
+        "publishedVersionId": "ver_0003",
+        "hasUnpublishedChanges": false
+      }
+    ],
+    "invalid": [
+      {
+        "currentVersionId": "ver_0003",
+        "publishedVersionId": "ver_0003",
+        "hasUnpublishedChanges": true
+      }
+    ]
+  },
+  "notes": []
+}

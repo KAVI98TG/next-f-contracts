@@ -1,0 +1,105 @@
+{
+  "$id": "integrations.linkedin",
+  "name": "LinkedIn",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "linkedin",
+  "family": "advertising",
+  "description": "LinkedIn Insight/advertising connector with provider-specific conversion identifiers isolated in mappings.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "site-runtime",
+    "nextf-server",
+    "provider-api"
+  ],
+  "capabilities": [
+    "tag.load",
+    "conversion.dispatch.client",
+    "conversion.dispatch.server",
+    "reporting.read",
+    "resource.discover"
+  ],
+  "authentication": {
+    "type": "mixed",
+    "supported": [
+      "none",
+      "oauth2"
+    ]
+  },
+  "configurationFields": [
+    {
+      "key": "partnerId",
+      "label": "Partner ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Partner ID",
+      "validation": {}
+    },
+    {
+      "key": "adAccountId",
+      "label": "Ad Account ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Ad Account ID",
+      "validation": {}
+    },
+    {
+      "key": "conversionRuleId",
+      "label": "Conversion Rule ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Conversion Rule ID",
+      "validation": {}
+    },
+    {
+      "key": "oauthProfileRef",
+      "label": "OAuth Profile",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": false,
+      "helpText": "OAuth Profile",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [
+      "marketing"
+    ]
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [],
+  "aliases": [
+    "LinkedIn Insight Tag",
+    "Insight Tag"
+  ]
+}

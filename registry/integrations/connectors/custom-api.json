@@ -1,0 +1,125 @@
+{
+  "$id": "integrations.customApi",
+  "name": "Custom API",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "generic-api",
+  "family": "api",
+  "description": "Restricted server-side custom API connector for integrations not covered by a dedicated provider adapter.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "nextf-server",
+    "provider-api"
+  ],
+  "capabilities": [
+    "api.request",
+    "data.sync.pull",
+    "data.sync.push"
+  ],
+  "authentication": {
+    "type": "configurable",
+    "supported": [
+      "none",
+      "oauth2",
+      "api-key",
+      "bearer",
+      "signed"
+    ]
+  },
+  "configurationFields": [
+    {
+      "key": "providerLabel",
+      "label": "Provider Label",
+      "primitive": "fields.text",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Provider Label",
+      "validation": {}
+    },
+    {
+      "key": "baseUrl",
+      "label": "Base URL",
+      "primitive": "fields.url",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "HTTPS base URL.",
+      "validation": {
+        "scheme": "https"
+      }
+    },
+    {
+      "key": "authProfileRef",
+      "label": "Authentication Profile",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": false,
+      "helpText": "Authentication Profile",
+      "validation": {}
+    },
+    {
+      "key": "timeoutSeconds",
+      "label": "Timeout Seconds",
+      "primitive": "fields.integer",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Bounded timeout.",
+      "validation": {
+        "minimum": 1,
+        "maximum": 30
+      }
+    },
+    {
+      "key": "allowedPaths",
+      "label": "Allowed Paths",
+      "primitive": "fields.multiSelect",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": false,
+      "helpText": "Explicit path allowlist.",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [],
+    "mode": "mapping-specific"
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [
+    "Hosts and paths must be allowlisted.",
+    "This connector is not an arbitrary script runner or unrestricted URL fetcher.",
+    "Outbound requests must reject loopback, link-local, metadata-service and private-network destinations by default.",
+    "DNS resolution and HTTP redirects must remain inside the configured host/path allowlist."
+  ],
+  "aliases": [
+    "API",
+    "Custom API"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "controlId": "SEC-CSP-001",
+  "name": "Content Security Policy",
+  "category": "transport",
+  "requirement": "Web applications should use a restrictive, deployment-appropriate CSP and integrations must not silently weaken it with uncontrolled script origins.",
+  "rationale": "CSP limits the blast radius of injection and third-party script compromise.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [
+    "modules.integrations",
+    "modules.marketing"
+  ],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_csp_001.json"
+}

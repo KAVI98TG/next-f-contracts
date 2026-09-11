@@ -1,0 +1,111 @@
+{
+  "$id": "events.eventDataPolicy",
+  "name": "Event Data Policy",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Data-minimization and sensitivity policy applied to an event payload.",
+  "purpose": "Data-minimization and sensitivity policy applied to an event payload.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "sensitivity",
+      "required": true,
+      "nullable": false,
+      "description": "Provisional sensitivity classification pending the Phase 30 privacy registry.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "public",
+          "internal",
+          "personal",
+          "sensitive"
+        ]
+      }
+    },
+    {
+      "key": "containsPersonalData",
+      "required": true,
+      "nullable": false,
+      "description": "Whether payload may contain personal data.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "containsFinancialData",
+      "required": true,
+      "nullable": false,
+      "description": "Whether payload may contain financial/transactional data.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "containsSecrets",
+      "required": true,
+      "nullable": false,
+      "description": "Must always be false for event payloads.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "redactionRequired",
+      "required": true,
+      "nullable": false,
+      "description": "Whether consumer-facing/log views require redaction.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "secretsProhibited",
+      "description": "Canonical event payloads must never contain secrets, raw credentials or raw card data."
+    },
+    {
+      "id": "minimumNecessary",
+      "description": "Payload includes only data required by declared consumers."
+    }
+  ],
+  "cms": {
+    "label": "Event Data Policy",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "sensitivity",
+      "containsPersonalData",
+      "containsFinancialData",
+      "containsSecrets"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

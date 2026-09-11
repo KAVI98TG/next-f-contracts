@@ -1,0 +1,161 @@
+{
+  "$id": "forms.leadStatusDefinition",
+  "name": "Lead Status Definition",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "leads",
+  "description": "Site-level configurable lead workflow status.",
+  "purpose": "Allows customer businesses to label and order their lead workflow while preserving stable status keys and lifecycle categories.",
+  "formsModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable machine status key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120
+      }
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Customer-facing status label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "localizable": true
+      }
+    },
+    {
+      "key": "category",
+      "required": true,
+      "nullable": false,
+      "description": "High-level lifecycle category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "open",
+            "label": "Open"
+          },
+          {
+            "value": "qualified",
+            "label": "Qualified"
+          },
+          {
+            "value": "won",
+            "label": "Won"
+          },
+          {
+            "value": "lost",
+            "label": "Lost"
+          },
+          {
+            "value": "closed",
+            "label": "Closed"
+          }
+        ]
+      }
+    },
+    {
+      "key": "sortOrder",
+      "required": true,
+      "nullable": false,
+      "description": "Workflow display order.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "isDefault",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this is the default status for new leads.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "isClosed",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this status closes normal active follow-up.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "active",
+      "required": true,
+      "nullable": false,
+      "description": "Whether new transitions may target this status.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "uniqueKeyPerSite",
+      "description": "Lead status key must be unique per Site."
+    },
+    {
+      "id": "singleDefault",
+      "description": "A Site has at most one active default lead status."
+    },
+    {
+      "id": "closedCategoryConsistency",
+      "description": "won/lost/closed categories should be configured as closed statuses."
+    }
+  ],
+  "cms": {
+    "label": "Lead Status Definition",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "key",
+      "label",
+      "category",
+      "sortOrder"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

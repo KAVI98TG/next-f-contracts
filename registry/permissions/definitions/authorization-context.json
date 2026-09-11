@@ -1,0 +1,86 @@
+{
+  "$id": "permissions.authorizationContext",
+  "name": "Authorization Context",
+  "domain": "permissions",
+  "type": "schema",
+  "version": "0.16.0",
+  "status": "stable",
+  "category": "foundation",
+  "description": "Trusted server-side context used to evaluate whether a principal may perform a requested action.",
+  "purpose": "Trusted server-side context used to evaluate whether a principal may perform a requested action.",
+  "permissionModel": {
+    "kind": "foundation",
+    "publicEligible": false,
+    "customerManaged": false
+  },
+  "fields": [
+    {
+      "key": "principal",
+      "required": true,
+      "nullable": false,
+      "description": "principal",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "permissionId",
+      "required": true,
+      "nullable": false,
+      "description": "permissionId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "scope",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "requestId",
+      "required": false,
+      "nullable": true,
+      "description": "requestId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "environment",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "recentAuthentication",
+      "required": true,
+      "nullable": false,
+      "description": "recentAuthentication",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "attributes",
+      "required": false,
+      "nullable": true,
+      "description": "attributes",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "permissions.authorizationContext.rule.1",
+      "description": "Browser-supplied Organization/Site identifiers are context inputs, not proof of access."
+    },
+    {
+      "id": "permissions.authorizationContext.rule.2",
+      "description": "Authorization context must be assembled by trusted server-side code."
+    }
+  ],
+  "cms": {
+    "adminVisible": true,
+    "customerVisible": false
+  },
+  "delivery": {
+    "publicAllowed": false
+  },
+  "notes": []
+}

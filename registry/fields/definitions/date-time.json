@@ -1,0 +1,64 @@
+{
+  "$id": "fields.dateTime",
+  "name": "DateTime",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "temporal",
+  "description": "Instant or explicitly zoned date-time for events and system timestamps.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "ISO 8601 date-time with explicit timezone offset or Z when timezoneMode requires an instant.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "date-time",
+    "inputMode": "numeric",
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": true,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "minimum",
+    "maximum",
+    "timezoneMode"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "dateTimeFormat"
+  ],
+  "examples": {
+    "valid": [
+      "2026-09-09T16:30:00Z",
+      "2026-09-09T22:00:00+05:30"
+    ],
+    "invalid": [
+      "2026-09-09 22:00"
+    ]
+  },
+  "notes": []
+}

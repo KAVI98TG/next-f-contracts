@@ -1,0 +1,73 @@
+{
+  "$id": "integrations.microsoftClarity",
+  "name": "Microsoft Clarity",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "microsoft",
+  "family": "analytics",
+  "description": "Browser-side Microsoft Clarity connector controlled by Site consent and runtime policy.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "site-runtime"
+  ],
+  "capabilities": [
+    "tag.load",
+    "event.dispatch.client"
+  ],
+  "authentication": {
+    "type": "none"
+  },
+  "configurationFields": [
+    {
+      "key": "projectId",
+      "label": "Project ID",
+      "primitive": "fields.text",
+      "required": true,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Project ID",
+      "validation": {}
+    },
+    {
+      "key": "enabled",
+      "label": "Enabled",
+      "primitive": "fields.boolean",
+      "required": true,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Enabled",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [
+      "analytics"
+    ]
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [],
+  "aliases": [
+    "Clarity"
+  ]
+}

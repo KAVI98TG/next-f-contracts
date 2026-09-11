@@ -1,0 +1,180 @@
+{
+  "$id": "commerce.commerceCustomer",
+  "name": "Commerce Customer",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "customer",
+  "description": "Storefront buyer/customer record.",
+  "purpose": "Separates ecommerce buyers from the NEXT F tenant Organization and Organization Users.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable buyer identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "email",
+      "required": false,
+      "nullable": true,
+      "description": "Customer email.",
+      "primitive": "fields.email"
+    },
+    {
+      "key": "phone",
+      "required": false,
+      "nullable": true,
+      "description": "Customer phone.",
+      "primitive": "fields.phone"
+    },
+    {
+      "key": "firstName",
+      "required": false,
+      "nullable": true,
+      "description": "First name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "lastName",
+      "required": false,
+      "nullable": true,
+      "description": "Last name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "accountStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Account status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "guest",
+          "active",
+          "disabled",
+          "archived"
+        ]
+      }
+    },
+    {
+      "key": "addresses",
+      "required": false,
+      "nullable": true,
+      "description": "Saved addresses.",
+      "itemsSchema": "commerce.customerAddress"
+    },
+    {
+      "key": "marketingConsentStateId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional Marketing consent-state reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Creation time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Update time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "tagKeys",
+      "required": false,
+      "nullable": true,
+      "description": "Operational Commerce Customer tag keys.",
+      "itemsPrimitive": "fields.slug",
+      "config": {
+        "uniqueItems": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposesMany",
+      "target": "commerce.customerAddress",
+      "description": "References commerce.customerAddress."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.consentState",
+      "description": "References marketing.consentState."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.customerTag",
+      "description": "References commerce.customerTag."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "notOrganization",
+      "description": "Commerce Customer must never represent the NEXT F business tenant Organization."
+    },
+    {
+      "id": "siteScoped",
+      "description": "Commerce Customer identity is Site scoped unless a future shared-account contract explicitly says otherwise."
+    }
+  ],
+  "cms": {
+    "label": "Commerce Customer",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "email",
+      "phone"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

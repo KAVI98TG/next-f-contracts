@@ -1,0 +1,69 @@
+{
+  "$id": "fields.code",
+  "name": "Code",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "text",
+  "description": "Source/code text stored as inert content for documentation or configuration displays.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "UTF-8 inert code text. Language is metadata, not execution permission.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "code-editor",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": false,
+    "sortable": false,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "minLength",
+    "maxLength",
+    "language"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "minLength",
+    "maxLength",
+    "codeText"
+  ],
+  "examples": {
+    "valid": [
+      "const answer = 42;"
+    ],
+    "invalid": [
+      {
+        "code": "x"
+      }
+    ]
+  },
+  "notes": [
+    "The CMS must never execute this primitive merely because it contains code."
+  ]
+}

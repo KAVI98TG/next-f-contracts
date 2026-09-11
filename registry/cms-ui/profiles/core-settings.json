@@ -1,0 +1,226 @@
+{
+  "$id": "cmsUi.profile.core.settings",
+  "name": "Website Settings",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "core.settings",
+  "moduleId": "core",
+  "description": "Customer CMS presentation metadata for Website Settings within authorized Site scope.",
+  "targetContracts": [
+    "core.site",
+    "shared.contactPoint",
+    "shared.address"
+  ],
+  "primaryTargetContract": "core.site",
+  "route": "/settings/website",
+  "screenKind": "settings",
+  "layoutTemplate": "settings-page",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "identity",
+      "label": "Identity",
+      "description": "Canonical entity identity.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.entityIdentity",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "organizationId",
+      "label": "Organization ID",
+      "description": "Organization that owns the Site.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.relation",
+      "validationHint": {},
+      "searchable": true,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "name",
+      "label": "Name",
+      "description": "Human-readable Site name.",
+      "editorId": "single-line-text",
+      "group": "content",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "primaryUrl",
+      "label": "Primary URL",
+      "description": "Current primary public URL reference when configured.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.url",
+      "validationHint": {},
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "status",
+      "label": "Status",
+      "description": "NEXT F platform Site lifecycle status.",
+      "editorId": "read-only",
+      "group": "publishing",
+      "zone": "sidebar",
+      "order": 50,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": false,
+    "columns": [
+      {
+        "field": "name",
+        "label": "Name",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "primaryUrl",
+        "label": "Primary URL",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "status",
+        "label": "Status",
+        "rendererId": "status",
+        "order": 30,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": "contract-and-permission-allowlisted",
+    "bulkActions": "permission-and-rule-bound"
+  },
+  "actions": [
+    {
+      "actionId": "edit",
+      "permissionId": "core.settings.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "core.settings.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "core.settings.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "core.settings.edit",
+    "core.settings.manage",
+    "core.settings.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "primary",
+      "kind": "settings",
+      "route": "/settings/website",
+      "layoutTemplate": "settings-page",
+      "requiresPermission": "core.settings.edit",
+      "purpose": "Primary Site-scoped Customer CMS surface."
+    }
+  ]
+}

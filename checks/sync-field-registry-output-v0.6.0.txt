@@ -1,0 +1,3 @@
+Generated js/generated-registry.js from registry/registry.json
+SHA-256 fd9c2038dc395a21594e7b24fd91ecf18835eec341da5044fcc91c5fc249ec71
+Synchronized 33 primitive fields.

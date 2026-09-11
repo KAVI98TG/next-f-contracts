@@ -1,0 +1,31 @@
+{
+  "controlId": "ACC-CHART-001",
+  "name": "Provide data alternatives for charts",
+  "category": "data-viz",
+  "requirement": "Charts and visual data representations must provide an accessible textual/table alternative or equivalent programmatic data representation.",
+  "rationale": "Visual position and color cannot be the only path to underlying data.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "chart"
+  ],
+  "verificationMethods": [
+    "content-review",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_chart_001.json"
+}

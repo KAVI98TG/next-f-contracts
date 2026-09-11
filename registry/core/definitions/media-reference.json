@@ -1,0 +1,136 @@
+{
+  "$id": "shared.mediaReference",
+  "name": "Media Reference",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "shared",
+  "category": "media",
+  "description": "Contextual reference to a canonical Media Asset.",
+  "purpose": "Allows one asset to be reused with context-specific accessibility, caption and role metadata without duplicating the asset.",
+  "fields": [
+    {
+      "key": "assetId",
+      "required": true,
+      "nullable": false,
+      "description": "Referenced Media Asset ID.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "shared.mediaAsset",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "altTextOverride",
+      "required": false,
+      "nullable": true,
+      "description": "Context-specific alternative text override.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300,
+        "localizable": true
+      }
+    },
+    {
+      "key": "captionOverride",
+      "required": false,
+      "nullable": true,
+      "description": "Context-specific caption override.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "localizable": true
+      }
+    },
+    {
+      "key": "role",
+      "required": false,
+      "nullable": true,
+      "description": "Contextual media role.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "content",
+            "label": "Content"
+          },
+          {
+            "value": "decorative",
+            "label": "Decorative"
+          },
+          {
+            "value": "featured",
+            "label": "Featured"
+          },
+          {
+            "value": "social",
+            "label": "Social"
+          },
+          {
+            "value": "download",
+            "label": "Download"
+          }
+        ]
+      }
+    },
+    {
+      "key": "link",
+      "required": false,
+      "nullable": true,
+      "description": "Optional destination when media itself is interactive.",
+      "schema": "shared.link"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "shared.mediaAsset",
+      "description": "References one canonical asset."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.link",
+      "description": "Interactive media may use a shared Link."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "decorativeAltEmpty",
+      "description": "Decorative media should not carry misleading descriptive alt text."
+    },
+    {
+      "id": "assetExists",
+      "description": "assetId must resolve inside the authorized Site scope."
+    }
+  ],
+  "cms": {
+    "label": "Media Reference",
+    "icon": "fa-image",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "assetId",
+      "role"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Safe contextual media references may appear in public content payloads."
+  },
+  "examples": {
+    "valid": [
+      {
+        "assetId": "media_01ABC",
+        "role": "featured",
+        "altTextOverride": "Production facility at sunset"
+      }
+    ],
+    "invalid": [
+      {
+        "assetId": "",
+        "role": "hero"
+      }
+    ]
+  },
+  "notes": []
+}

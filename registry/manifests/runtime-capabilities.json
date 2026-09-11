@@ -1,0 +1,35 @@
+{
+  "registryVersion": "0.17.0",
+  "runtimeCapabilities": [
+    {
+      "key": "siteIdentity",
+      "label": "Site Identity",
+      "required": true,
+      "description": "Makes the canonical Site ID and contract context available to the NEXT F runtime."
+    },
+    {
+      "key": "contentConnector",
+      "label": "Content Connector",
+      "required": true,
+      "description": "Connects coded presentation to published NEXT F structured content."
+    },
+    {
+      "key": "eventLayer",
+      "label": "Event Layer",
+      "required": true,
+      "description": "Provides standardized NEXT F tracking/domain-event integration boundaries."
+    },
+    {
+      "key": "consentLayer",
+      "label": "Consent Layer",
+      "required": true,
+      "description": "Provides consent state to optional analytics/marketing integrations."
+    },
+    {
+      "key": "integrationLoader",
+      "label": "Integration Loader",
+      "required": true,
+      "description": "Loads approved integrations through canonical connector/runtime rules."
+    }
+  ]
+}

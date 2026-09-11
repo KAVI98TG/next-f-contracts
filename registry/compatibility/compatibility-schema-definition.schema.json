@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/schemas/compatibility-schema-definition.schema.json",
+  "title": "NEXT F Compatibility Schema Definition",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "type",
+    "description",
+    "fields",
+    "relationships",
+    "validationRules"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^compatibility\\."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "domain": {
+      "const": "lifecycle"
+    },
+    "type": {
+      "const": "schema"
+    },
+    "description": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "array"
+    },
+    "relationships": {
+      "type": "array"
+    },
+    "validationRules": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

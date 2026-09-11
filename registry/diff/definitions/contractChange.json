@@ -1,0 +1,88 @@
+{
+  "$id": "diff.contractChange",
+  "name": "Contract Change",
+  "version": "0.26.0",
+  "status": "stable",
+  "domain": "diff",
+  "category": "contract-diff",
+  "description": "Item-level release comparison result",
+  "purpose": "Item-level release comparison result",
+  "fields": [
+    {
+      "key": "itemId",
+      "required": true,
+      "nullable": false,
+      "description": "itemId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "name",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "domain",
+      "required": true,
+      "nullable": false,
+      "description": "domain",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "type",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "changeKind",
+      "required": true,
+      "nullable": false,
+      "description": "changeKind",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "impact",
+      "required": true,
+      "nullable": false,
+      "description": "impact",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "fromVersion",
+      "required": true,
+      "nullable": false,
+      "description": "fromVersion",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "toVersion",
+      "required": true,
+      "nullable": false,
+      "description": "toVersion",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "pathChanges",
+      "required": false,
+      "nullable": true,
+      "description": "pathChanges",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "contractDiffOnly",
+      "description": "Contains contract/release analysis metadata only and never customer runtime data."
+    }
+  ],
+  "cms": {
+    "label": "Contract Change",
+    "customerEditable": false,
+    "adminEditable": false,
+    "publicEligible": true
+  }
+}

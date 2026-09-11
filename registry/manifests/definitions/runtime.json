@@ -1,0 +1,106 @@
+{
+  "$id": "manifest.runtime",
+  "name": "NEXT F Runtime Declaration",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "capability-runtime",
+  "description": "Declares the mandatory baseline runtime capabilities embedded in every NEXT F-integrated customer website.",
+  "purpose": "Ensures future Sites have the common content, event, consent, integration and identity hooks needed after launch.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "siteIdentity",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Site identity runtime is present and enabled.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "contentConnector",
+      "required": true,
+      "nullable": false,
+      "description": "NEXT F structured-content connector is present and enabled.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "eventLayer",
+      "required": true,
+      "nullable": false,
+      "description": "NEXT F event/tracking abstraction is present and enabled.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "consentLayer",
+      "required": true,
+      "nullable": false,
+      "description": "NEXT F consent state layer is present and enabled.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "integrationLoader",
+      "required": true,
+      "nullable": false,
+      "description": "NEXT F approved-integration loader is present and enabled.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "baselineRuntimeMandatory",
+      "description": "All five baseline runtime capabilities must be true for a Site claiming full NEXT F Website Platform integration."
+    },
+    {
+      "id": "runtimeIsImplementationContract",
+      "description": "The declaration asserts implementation support; it does not contain credentials, customer content or provider-specific configuration."
+    }
+  ],
+  "cms": {
+    "label": "NEXT F Runtime Declaration",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "siteIdentity",
+      "contentConnector",
+      "eventLayer",
+      "consentLayer"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

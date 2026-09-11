@@ -1,0 +1,13 @@
+{
+  "valid-corporate.json": null,
+  "valid-commerce.json": null,
+  "missing-module-dependency.json": "module.required-dependency",
+  "unknown-capability.json": "capability.unknown",
+  "reserved-capability.json": "capability.reserved",
+  "unsupported-contract-version.json": "contract-version.unknown",
+  "invalid-api-binding.json": "api.unknown",
+  "unknown-event.json": "event.unknown",
+  "unsafe-configuration-exposure.json": "configuration.public-secret-name",
+  "invalid-extension-namespace.json": "schema.pattern",
+  "malformed-json.json": "json.parse"
+}

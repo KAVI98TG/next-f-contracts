@@ -1,0 +1,4 @@
+NEXT F Contracts Phase 37 smoke
+Passes: 13
+Failures: 0
+PASS

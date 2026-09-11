@@ -1,0 +1,122 @@
+{
+  "$id": "compatibility.siteSnapshot",
+  "name": "Site Compatibility Snapshot",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Non-secret Site declaration projected from nextf.site.json for compatibility evaluation.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "siteType",
+      "required": true,
+      "nullable": false,
+      "description": "Declared Site type.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "contractVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Pinned Contract Version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "manifestSchemaVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Manifest schema/specification version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "modules",
+      "required": true,
+      "nullable": false,
+      "description": "Enabled Modules.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "capabilities",
+      "required": false,
+      "nullable": true,
+      "description": "Enabled Capabilities.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "apiBindings",
+      "required": false,
+      "nullable": true,
+      "description": "Exact API bindings.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "events",
+      "required": false,
+      "nullable": true,
+      "description": "Declared canonical Events.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "trackingEvents",
+      "required": false,
+      "nullable": true,
+      "description": "Declared tracking observations.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "integrations",
+      "required": false,
+      "nullable": true,
+      "description": "Declared connectors.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "runtimeCapabilities",
+      "required": true,
+      "nullable": false,
+      "description": "Mandatory Site Runtime primitives.",
+      "primitive": "fields.multiSelect"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "siteType uses fields.select."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "contractVersion uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.multiSelect",
+      "description": "modules uses fields.multiSelect."
+    },
+    {
+      "type": "uses",
+      "target": "fields.json",
+      "description": "apiBindings uses fields.json."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

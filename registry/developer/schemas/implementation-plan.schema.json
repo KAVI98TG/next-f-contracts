@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "developer.implementationPlan",
+  "title": "Codex Implementation Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "taskId",
+    "contractVersion",
+    "changes",
+    "contracts",
+    "verification"
+  ],
+  "properties": {
+    "taskId": {
+      "type": "string"
+    },
+    "contractVersion": {
+      "type": "string"
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "contracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "apiOperations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "integrations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "migrations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    }
+  }
+}

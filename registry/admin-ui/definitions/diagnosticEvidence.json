@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.diagnosticEvidence",
+  "name": "Diagnostic Evidence",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines bounded diagnostic evidence and request identifiers.",
+  "purpose": "Defines bounded diagnostic evidence and request identifiers.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

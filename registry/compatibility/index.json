@@ -1,0 +1,30 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Compatibility Center",
+  "description": "Operational release, Site Manifest and platform-surface compatibility metadata for contract.nextf.lk.",
+  "standard": "standards/34-compatibility-center-standard.md",
+  "baselinePolicy": "standards/07-compatibility-policy.md",
+  "targetContractVersion": "1.0.0",
+  "definitionCount": 16,
+  "statusCount": 7,
+  "supportLevelCount": 8,
+  "dimensionCount": 13,
+  "sources": {
+    "statuses": "registry/compatibility/statuses.json",
+    "supportLevels": "registry/compatibility/support-levels.json",
+    "dimensions": "registry/compatibility/dimensions.json",
+    "componentTypes": "registry/compatibility/component-types.json",
+    "findingCodes": "registry/compatibility/finding-codes.json",
+    "policy": "registry/compatibility/policy.json",
+    "releaseCompatibility": "registry/compatibility/release-compatibility.json",
+    "componentMatrix": "registry/compatibility/component-matrix.json",
+    "referenceSites": "registry/compatibility/reference-site-assessments.json",
+    "definitions": "registry/compatibility/definitions"
+  },
+  "releaseCount": 38,
+  "exactReleaseCount": 33,
+  "componentCount": 17,
+  "referenceAssessmentCount": 6,
+  "productionEligible": true
+}

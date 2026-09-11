@@ -1,0 +1,74 @@
+{
+  "$id": "api.public-content.get-seo",
+  "operationId": "api.public-content.get-seo",
+  "name": "Get Public SEO Metadata",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.public-content",
+  "method": "GET",
+  "path": "/seo/{resourceType}/{resourceKey}",
+  "description": "Get Public SEO Metadata",
+  "authentication": {
+    "mode": "anonymous",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "resourceType",
+      "resourceKey"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "seo.metadata",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "public-edge",
+    "rateLimit": "public-read",
+    "cors": "public-read"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "pages",
+    "blog",
+    "documentation",
+    "seo"
+  ],
+  "contractBindings": [
+    "seo.metadata"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "public",
+  "notes": []
+}

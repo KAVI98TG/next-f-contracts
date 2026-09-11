@@ -1,0 +1,135 @@
+{
+  "$id": "modules.seo",
+  "moduleId": "seo",
+  "name": "SEO",
+  "version": "0.18.0",
+  "status": "stable",
+  "category": "growth",
+  "icon": "fa-magnifying-glass-chart",
+  "order": 200,
+  "description": "Canonical metadata, keywords, social metadata, structured data, redirects, sitemap, robots, audits and search-performance records.",
+  "selection": {
+    "mandatory": false,
+    "defaultEnabled": false,
+    "explicitManifestSelection": true,
+    "customerCanEnable": false,
+    "nextfAdminCanEnable": true
+  },
+  "dependencies": [
+    {
+      "moduleId": "core",
+      "kind": "required",
+      "reason": "SEO records belong to a Site and target canonical entities."
+    },
+    {
+      "moduleId": "integrations",
+      "kind": "optional",
+      "reason": "Search performance and indexing data may be sourced through supported connectors."
+    }
+  ],
+  "conflicts": [],
+  "capabilityIds": [
+    "seo.metadata",
+    "seo.keywords",
+    "seo.social-sharing",
+    "seo.structured-data",
+    "seo.redirects",
+    "seo.sitemap",
+    "seo.robots",
+    "seo.audits",
+    "seo.search-performance",
+    "seo.indexing"
+  ],
+  "defaultCapabilityIds": [
+    "seo.metadata",
+    "seo.social-sharing",
+    "seo.sitemap",
+    "seo.robots"
+  ],
+  "contractBindings": [
+    "seo.alternateLanguage",
+    "seo.auditIssue",
+    "seo.auditResult",
+    "seo.brokenLink",
+    "seo.indexingStatus",
+    "seo.internalLink",
+    "seo.keywordSet",
+    "seo.keywordTarget",
+    "seo.metadata",
+    "seo.openGraph",
+    "seo.redirect",
+    "seo.robotsDirective",
+    "seo.robotsPolicy",
+    "seo.robotsRule",
+    "seo.searchPerformance",
+    "seo.searchPreview",
+    "seo.searchQuery",
+    "seo.seoContractStandard",
+    "seo.siteDefaults",
+    "seo.sitemapEntry",
+    "seo.socialCard",
+    "seo.structuredData",
+    "seo.urlInspectionResult"
+  ],
+  "permissionBindings": [
+    "seo.audits.export",
+    "seo.audits.manage",
+    "seo.audits.view",
+    "seo.indexing.manage",
+    "seo.indexing.view",
+    "seo.metadata.edit",
+    "seo.metadata.view",
+    "seo.redirects.create",
+    "seo.redirects.delete",
+    "seo.redirects.edit",
+    "seo.redirects.manage",
+    "seo.redirects.view",
+    "seo.robots.edit",
+    "seo.robots.manage",
+    "seo.robots.view",
+    "seo.searchperformance.export",
+    "seo.searchperformance.view",
+    "seo.sitemap.edit",
+    "seo.sitemap.manage",
+    "seo.sitemap.view",
+    "seo.structureddata.edit",
+    "seo.structureddata.view"
+  ],
+  "eventBindings": [
+    "redirect.created",
+    "redirect.deleted",
+    "redirect.updated",
+    "seo.updated",
+    "sitemap.updated"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "group": "Growth",
+    "navigation": [
+      {
+        "label": "SEO",
+        "path": "/growth/seo",
+        "icon": "fa-magnifying-glass-chart",
+        "order": 10
+      }
+    ]
+  },
+  "admin": {
+    "visible": true,
+    "group": "Sites",
+    "navigation": [
+      {
+        "label": "SEO",
+        "path": "/sites/:siteId/seo",
+        "icon": "fa-magnifying-glass-chart",
+        "order": 40
+      }
+    ]
+  },
+  "manifest": {
+    "moduleId": "seo",
+    "capabilitySelection": "module-scoped",
+    "dependencyValidation": "strict"
+  },
+  "notes": []
+}

@@ -1,0 +1,483 @@
+{
+  "$id": "cmsUi.profile.content.pages",
+  "name": "Pages",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "content.pages",
+  "moduleId": "pages",
+  "description": "Customer CMS presentation metadata for Pages within authorized Site scope.",
+  "targetContracts": [
+    "content.page",
+    "content.pageSection"
+  ],
+  "primaryTargetContract": "content.page",
+  "route": "/content/pages",
+  "screenKind": "builder",
+  "layoutTemplate": "builder-editor",
+  "responsivePolicy": "builder",
+  "fieldBindings": [
+    {
+      "field": "identity",
+      "label": "Identity",
+      "description": "Stable entity identity.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.entityIdentity",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "scope",
+      "label": "Scope",
+      "description": "Owning Organization and Site scope.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.tenantScope",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "title",
+      "label": "Title",
+      "description": "Public page title.",
+      "editorId": "single-line-text",
+      "group": "content",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "minLength": 1,
+        "maxLength": 180
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": true,
+      "revisionTracked": true
+    },
+    {
+      "field": "internalName",
+      "label": "Internal Name",
+      "description": "CMS-only label used when a page needs a different internal name.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 180
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "slug",
+      "label": "Slug",
+      "description": "Site-relative canonical page slug.",
+      "editorId": "slug",
+      "group": "configuration",
+      "zone": "sidebar",
+      "order": 50,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.slug",
+      "validationHint": {
+        "minLength": 1,
+        "maxLength": 180
+      },
+      "searchable": true,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "pageKind",
+      "label": "Page Kind",
+      "description": "Functional page classification.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "templateKey",
+      "label": "Template Key",
+      "description": "Developer-defined presentation template key.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 120
+      },
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "summary",
+      "label": "Summary",
+      "description": "Optional page summary for CMS discovery and approved frontend use.",
+      "editorId": "multi-line-text",
+      "group": "content",
+      "zone": "main",
+      "order": 80,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.textarea",
+      "validationHint": {
+        "maxLength": 1000
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": true,
+      "revisionTracked": true
+    },
+    {
+      "field": "sections",
+      "label": "Sections",
+      "description": "Ordered section records used by the coded page renderer.",
+      "editorId": "block-composer",
+      "group": "content",
+      "zone": "main",
+      "order": 90,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.relation",
+      "validationHint": {
+        "minItems": 0
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "featuredMedia",
+      "label": "Featured Media",
+      "description": "Optional featured media reference.",
+      "editorId": "media-reference-picker",
+      "group": "media",
+      "zone": "sidebar",
+      "order": 100,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "shared.mediaReference",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "publishing",
+      "label": "Publishing",
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "editorId": "publishing-panel",
+      "group": "publishing",
+      "zone": "sidebar",
+      "order": 110,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "core.publishing",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "revision",
+      "label": "Revision",
+      "description": "Current and published revision pointers.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 120,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.revisionPointer",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [
+    {
+      "id": "seo",
+      "label": "SEO",
+      "contractId": "seo.metadata",
+      "zone": "tabs",
+      "editorId": "seo-workspace",
+      "availability": "when-module-enabled:seo"
+    },
+    {
+      "id": "publishing",
+      "label": "Publishing",
+      "contractId": "core.publishing",
+      "zone": "sidebar",
+      "editorId": "publishing-panel",
+      "availability": "always"
+    },
+    {
+      "id": "revisions",
+      "label": "Version History",
+      "contractId": "core.revisionPointer",
+      "zone": "tabs",
+      "editorId": "revision-history",
+      "availability": "when-capability-enabled:core.versioning"
+    }
+  ],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "title",
+        "label": "Title",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "slug",
+        "label": "Slug",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "publishing",
+        "label": "Publishing",
+        "rendererId": "status",
+        "order": 30,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [
+      {
+        "field": "slug",
+        "label": "Slug"
+      },
+      {
+        "field": "pageKind",
+        "label": "Page Kind"
+      },
+      {
+        "field": "templateKey",
+        "label": "Template Key"
+      }
+    ],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [],
+    "searchFields": [
+      "title",
+      "internalName",
+      "slug",
+      "summary"
+    ]
+  },
+  "actions": [
+    {
+      "actionId": "approve",
+      "permissionId": "content.pages.approve",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "create",
+      "permissionId": "content.pages.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "content.pages.delete",
+      "riskLevel": "destructive",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "content.pages.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "publish",
+      "permissionId": "content.pages.publish",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "content.pages.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "save-draft",
+      "permissionId": "content.pages.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "preview",
+      "permissionId": "content.pages.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "schedule",
+      "permissionId": "content.pages.publish",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "content.pages.approve",
+    "content.pages.create",
+    "content.pages.delete",
+    "content.pages.edit",
+    "content.pages.publish",
+    "content.pages.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": true
+  },
+  "notes": [],
+  "primaryEditorId": "block-composer",
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/content/pages",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "content.pages.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "create",
+      "kind": "builder",
+      "route": "/content/pages/new",
+      "layoutTemplate": "builder-editor",
+      "requiresPermission": "content.pages.create",
+      "purpose": "Create a new canonical resource."
+    },
+    {
+      "id": "record",
+      "kind": "editor",
+      "route": "/content/pages/:id",
+      "layoutTemplate": "builder-editor",
+      "requiresPermission": "content.pages.edit",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

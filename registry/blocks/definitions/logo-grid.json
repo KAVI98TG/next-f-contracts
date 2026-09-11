@@ -1,0 +1,123 @@
+{
+  "$id": "blocks.logoGrid",
+  "name": "Logo Grid",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "proof",
+  "description": "Structured collection of partner, customer, certification or technology logos.",
+  "purpose": "Keeps logos and their names accessible while frontend controls grid presentation.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "items",
+      "required": true,
+      "nullable": false,
+      "description": "Ordered logo items.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "array",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      },
+      "itemsSchema": "blocks.logoItem",
+      "collectionRules": {
+        "minItems": 1,
+        "maxItems": 40
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "blocks.logoItem",
+      "description": "Every item validates against Logo Item."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "itemsConform",
+      "description": "Every items entry must validate against blocks.logoItem."
+    }
+  ],
+  "cms": {
+    "label": "Logo Grid",
+    "icon": "fa-table-cells-large",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "items",
+      "variantKey"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Logos that convey identity need appropriate text alternatives."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

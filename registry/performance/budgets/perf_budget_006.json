@@ -1,0 +1,22 @@
+{
+  "budgetId": "PERF-BUDGET-006",
+  "name": "Registry index size",
+  "category": "large-data",
+  "scope": "contract-portal",
+  "metric": "registry.registryJsonBytes",
+  "target": 3145728,
+  "warningThreshold": 4194304,
+  "comparator": "lte",
+  "unit": "bytes",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-file-size",
+  "environment": "Repository and hosted runtime",
+  "notes": "Canonical Registry index size budget.",
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_006.json"
+}

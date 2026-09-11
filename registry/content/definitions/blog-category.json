@@ -1,0 +1,180 @@
+{
+  "$id": "content.blogCategory",
+  "name": "Blog Category",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "blog",
+  "description": "Hierarchical classification for Blog Posts.",
+  "purpose": "Provides reusable blog taxonomy instead of storing free-form category labels on every post.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "optional",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Category name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 120,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "sortable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Category slug.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 140,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional category description.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 2000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "parentCategory",
+      "required": false,
+      "nullable": true,
+      "description": "Optional parent category.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.blogCategory",
+        "relationshipCardinality": "one",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "featuredMedia",
+      "required": false,
+      "nullable": true,
+      "description": "Optional category image.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "selfReferences",
+      "target": "content.blogCategory",
+      "description": "Categories may form a hierarchy through parentCategory."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "categorySlugUnique",
+      "description": "slug must be unique within the Site blog taxonomy."
+    },
+    {
+      "id": "noCategoryCycles",
+      "description": "Parent relationships must not create cycles."
+    },
+    {
+      "id": "cannotParentSelf",
+      "description": "A category cannot be its own parent."
+    }
+  ],
+  "cms": {
+    "label": "Blog Category",
+    "icon": "fa-folder-tree",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "name",
+      "slug",
+      "publishing"
+    ],
+    "editorMode": "compact-editor",
+    "primaryActions": [
+      "save",
+      "publish"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published categories may be used for archive routes and post classification."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "name": "Maintenance",
+        "slug": "maintenance"
+      }
+    ],
+    "invalid": [
+      {
+        "name": "Maintenance",
+        "slug": "maintenance",
+        "parentCategory": "self"
+      }
+    ]
+  },
+  "notes": []
+}

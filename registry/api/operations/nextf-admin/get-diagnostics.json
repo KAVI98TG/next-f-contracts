@@ -1,0 +1,69 @@
+{
+  "$id": "api.nextf-admin.get-diagnostics",
+  "operationId": "api.nextf-admin.get-diagnostics",
+  "name": "Get Platform Diagnostics",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.nextf-admin",
+  "method": "GET",
+  "path": "/diagnostics",
+  "description": "Get Platform Diagnostics",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "platform.diagnostics.view"
+    ],
+    "permissionMode": "all",
+    "scope": "platform"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "api.health",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "module_disabled"
+    ],
+    "projection": "admin-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "admin-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "integrations"
+  ],
+  "contractBindings": [
+    "api.health"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "internal",
+  "notes": []
+}

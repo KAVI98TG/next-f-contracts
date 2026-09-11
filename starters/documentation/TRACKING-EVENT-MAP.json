@@ -1,0 +1,24 @@
+{
+  "contractVersion": "1.0.0",
+  "trackingEvents": [
+    {
+      "eventId": "page.viewed",
+      "consentAware": true,
+      "destinationMappingRequired": true
+    },
+    {
+      "eventId": "search.performed",
+      "consentAware": true,
+      "destinationMappingRequired": true
+    },
+    {
+      "eventId": "document.downloaded",
+      "consentAware": true,
+      "destinationMappingRequired": true
+    }
+  ],
+  "notes": [
+    "Tracking observations are not authoritative Domain Events.",
+    "Consent and destination mapping must be resolved before dispatch."
+  ]
+}

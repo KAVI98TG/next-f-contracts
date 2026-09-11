@@ -1,0 +1,143 @@
+{
+  "$id": "marketing.campaignContext",
+  "name": "Campaign Context",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "campaign-attribution",
+  "description": "Captured campaign, creative and placement context attached to a touchpoint.",
+  "purpose": "Separates campaign dimensions from the core event so reporting can evolve independently.",
+  "marketingModel": {
+    "kind": "context",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "campaignKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional NEXT F campaign key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "adGroupKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional ad group/ad set key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "adKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional advertisement key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "creativeKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional creative key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "placement",
+      "required": false,
+      "nullable": true,
+      "description": "Optional placement label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "utm",
+      "required": false,
+      "nullable": true,
+      "description": "Captured UTM context.",
+      "schema": "marketing.utmParameters"
+    },
+    {
+      "key": "externalReferences",
+      "required": false,
+      "nullable": true,
+      "description": "Provider object references.",
+      "itemsSchema": "shared.externalReference",
+      "config": {
+        "maxItems": 20
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.utmParameters",
+      "description": "May carry UTM."
+    },
+    {
+      "type": "optionallyComposesMany",
+      "target": "shared.externalReference",
+      "description": "May reference external objects."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "keysNotCredentials",
+      "description": "Campaign/ad/creative keys never contain credentials."
+    },
+    {
+      "id": "untrustedUrlContext",
+      "description": "UTM-derived values remain untrusted."
+    }
+  ],
+  "cms": {
+    "label": "Campaign Context",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "campaignKey",
+      "adGroupKey",
+      "adKey",
+      "creativeKey"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,173 @@
+{
+  "$id": "modules.pages",
+  "moduleId": "pages",
+  "name": "Pages",
+  "version": "0.18.0",
+  "status": "stable",
+  "category": "content",
+  "icon": "fa-file-lines",
+  "order": 100,
+  "description": "Structured pages, sections, reusable content, navigation, legal content and custom collections for coded customer websites.",
+  "selection": {
+    "mandatory": false,
+    "defaultEnabled": false,
+    "explicitManifestSelection": true,
+    "customerCanEnable": false,
+    "nextfAdminCanEnable": true
+  },
+  "dependencies": [
+    {
+      "moduleId": "core",
+      "kind": "required",
+      "reason": "All page content is Site-scoped and publishable."
+    },
+    {
+      "moduleId": "media",
+      "kind": "required",
+      "reason": "Page blocks may reference canonical media assets."
+    },
+    {
+      "moduleId": "seo",
+      "kind": "recommended",
+      "reason": "Routable pages should normally use canonical SEO metadata."
+    }
+  ],
+  "conflicts": [],
+  "capabilityIds": [
+    "pages.sections",
+    "pages.reusable-content",
+    "pages.navigation",
+    "pages.legal-pages",
+    "pages.custom-collections",
+    "pages.scheduling",
+    "pages.approvals"
+  ],
+  "defaultCapabilityIds": [
+    "pages.sections",
+    "pages.reusable-content",
+    "pages.navigation"
+  ],
+  "contractBindings": [
+    "content.page",
+    "content.pageSection",
+    "content.reusableContent",
+    "content.navigation",
+    "content.navigationItem",
+    "content.legalPage",
+    "content.customCollection",
+    "content.customCollectionEntry",
+    "blocks.actionGroup",
+    "blocks.blockContractStandard",
+    "blocks.cta",
+    "blocks.custom",
+    "blocks.documents",
+    "blocks.faq",
+    "blocks.featureGrid",
+    "blocks.featureItem",
+    "blocks.form",
+    "blocks.gallery",
+    "blocks.galleryItem",
+    "blocks.heading",
+    "blocks.hero",
+    "blocks.locations",
+    "blocks.logoGrid",
+    "blocks.logoItem",
+    "blocks.pricing",
+    "blocks.pricingPlan",
+    "blocks.process",
+    "blocks.processStep",
+    "blocks.relatedContent",
+    "blocks.relatedContentItem",
+    "blocks.richText",
+    "blocks.services",
+    "blocks.statItem",
+    "blocks.stats",
+    "blocks.team",
+    "blocks.testimonials",
+    "blocks.textImage",
+    "blocks.video"
+  ],
+  "permissionBindings": [
+    "content.customcollections.create",
+    "content.customcollections.delete",
+    "content.customcollections.edit",
+    "content.customcollections.manage",
+    "content.customcollections.view",
+    "content.navigation.edit",
+    "content.navigation.manage",
+    "content.navigation.publish",
+    "content.navigation.view",
+    "content.pages.approve",
+    "content.pages.create",
+    "content.pages.delete",
+    "content.pages.edit",
+    "content.pages.publish",
+    "content.pages.view",
+    "content.reusablecontent.approve",
+    "content.reusablecontent.create",
+    "content.reusablecontent.delete",
+    "content.reusablecontent.edit",
+    "content.reusablecontent.publish",
+    "content.reusablecontent.view"
+  ],
+  "eventBindings": [
+    "content.archived",
+    "content.created",
+    "content.deleted",
+    "content.published",
+    "content.restored",
+    "content.scheduled",
+    "content.unpublished",
+    "content.updated",
+    "content.version-created",
+    "navigation.updated"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "group": "Content",
+    "navigation": [
+      {
+        "label": "Pages",
+        "path": "/content/pages",
+        "icon": "fa-file-lines",
+        "order": 10
+      },
+      {
+        "label": "Reusable Content",
+        "path": "/content/reusable",
+        "icon": "fa-clone",
+        "order": 20
+      },
+      {
+        "label": "Navigation",
+        "path": "/website/navigation",
+        "icon": "fa-bars",
+        "order": 30
+      },
+      {
+        "label": "Custom Collections",
+        "path": "/content/collections",
+        "icon": "fa-table-list",
+        "order": 50
+      }
+    ]
+  },
+  "admin": {
+    "visible": true,
+    "group": "Sites",
+    "navigation": [
+      {
+        "label": "Content Model",
+        "path": "/sites/:siteId/content",
+        "icon": "fa-diagram-project",
+        "order": 20
+      }
+    ]
+  },
+  "manifest": {
+    "moduleId": "pages",
+    "capabilitySelection": "module-scoped",
+    "dependencyValidation": "strict"
+  },
+  "notes": []
+}

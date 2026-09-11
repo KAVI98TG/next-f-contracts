@@ -1,0 +1,30 @@
+{
+  "registryVersion": "0.16.0",
+  "scopeKinds": [
+    {
+      "key": "platform",
+      "label": "Platform",
+      "description": "Applies across the NEXT F platform and is restricted to NEXT F privileged administration."
+    },
+    {
+      "key": "organization",
+      "label": "Organization",
+      "description": "Applies to one NEXT F customer Organization and its authorized child Sites where explicitly permitted."
+    },
+    {
+      "key": "site",
+      "label": "Site",
+      "description": "Applies to one customer Site / Customer CMS Workspace."
+    },
+    {
+      "key": "resource",
+      "label": "Resource",
+      "description": "Applies to a specific resource instance beneath an Organization or Site scope."
+    },
+    {
+      "key": "self",
+      "label": "Self",
+      "description": "Applies only to the principal’s own profile or self-service data."
+    }
+  ]
+}

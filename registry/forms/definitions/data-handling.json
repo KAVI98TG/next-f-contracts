@@ -1,0 +1,158 @@
+{
+  "$id": "forms.dataHandling",
+  "name": "Form Data Handling",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "consent-data",
+  "description": "Controls storage and minimization behavior for form submission data.",
+  "purpose": "Makes retention and request-metadata choices explicit before the broader Privacy phase adds jurisdiction-specific policy metadata.",
+  "formsModel": {
+    "kind": "policy",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "storeSubmissions",
+      "required": true,
+      "nullable": false,
+      "description": "Whether accepted submission records are retained.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "retentionDays",
+      "required": false,
+      "nullable": true,
+      "description": "Optional retention period in days.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 3650
+      }
+    },
+    {
+      "key": "ipHandling",
+      "required": true,
+      "nullable": false,
+      "description": "How source IP information may be handled.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "none",
+            "label": "Do not retain"
+          },
+          {
+            "value": "transient",
+            "label": "Use transiently"
+          },
+          {
+            "value": "hashed",
+            "label": "Store protected derivative"
+          }
+        ],
+        "defaultValue": "none"
+      }
+    },
+    {
+      "key": "storeUserAgent",
+      "required": true,
+      "nullable": false,
+      "description": "Whether user-agent metadata is retained.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "storeReferrer",
+      "required": true,
+      "nullable": false,
+      "description": "Whether referrer URL is retained.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "storeLandingUrl",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the landing/source page URL is retained.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "allowCustomerExport",
+      "required": true,
+      "nullable": false,
+      "description": "Whether authorized customer roles may export submissions.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "dataMinimization",
+      "description": "Only metadata required for the configured business purpose should be retained."
+    },
+    {
+      "id": "retentionRequiredWhenStored",
+      "description": "When submissions are stored, retention behavior must be explicit at Site policy level even if retentionDays is inherited."
+    },
+    {
+      "id": "ipNotAuthorization",
+      "description": "IP metadata is not a reliable identity or authorization mechanism."
+    },
+    {
+      "id": "notLegalPolicy",
+      "description": "This contract expresses system behavior and does not replace a customer privacy policy or legal review."
+    }
+  ],
+  "cms": {
+    "label": "Form Data Handling",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "storeSubmissions",
+      "retentionDays",
+      "ipHandling",
+      "storeUserAgent"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

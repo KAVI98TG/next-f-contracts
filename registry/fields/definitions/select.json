@@ -1,0 +1,65 @@
+{
+  "$id": "fields.select",
+  "name": "Select",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "choice",
+  "description": "Single value selected from configured canonical options.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "Stable option machine value, never the display label.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "select",
+    "inputMode": null,
+    "supportsPlaceholder": true,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": true,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "placeholder",
+    "options",
+    "allowCustomOptions"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "allowedValues"
+  ],
+  "examples": {
+    "valid": [
+      "draft"
+    ],
+    "invalid": [
+      "Draft"
+    ]
+  },
+  "notes": [
+    "Option labels may be localized. Option machine values remain stable."
+  ]
+}

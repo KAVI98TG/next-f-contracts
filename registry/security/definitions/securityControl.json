@@ -1,0 +1,14 @@
+{
+  "$id": "security.securityControl",
+  "name": "Security Control",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 29,
+  "description": "Machine-readable security requirement with applicability, verification and cross-registry bindings.",
+  "domain": "security",
+  "type": "schema",
+  "tags": [
+    "security",
+    "phase-29"
+  ]
+}

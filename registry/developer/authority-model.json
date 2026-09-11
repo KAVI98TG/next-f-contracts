@@ -1,0 +1,47 @@
+{
+  "registryVersion": "0.22.0",
+  "$id": "developer.authorityModel",
+  "name": "Codex Authority Model",
+  "version": "0.22.0",
+  "status": "stable",
+  "canonicalSemanticsOrder": [
+    "machine-readable-contract",
+    "site-manifest",
+    "contract-specific-standard",
+    "codex-development-standard",
+    "approved-extension-or-migration",
+    "generated-portal-docs",
+    "examples"
+  ],
+  "projectIntentSources": [
+    "explicit-project-requirement",
+    "site-manifest",
+    "approved-extension"
+  ],
+  "rules": [
+    {
+      "id": "AUTH-001",
+      "statement": "Machine-readable NEXT F contracts are authoritative for canonical semantics."
+    },
+    {
+      "id": "AUTH-002",
+      "statement": "The Site Manifest is authoritative for the project pinned version, enabled Modules, Capabilities, environments and bindings."
+    },
+    {
+      "id": "AUTH-003",
+      "statement": "Customer requirements may choose supported presentation and behavior but may not silently redefine canonical semantics."
+    },
+    {
+      "id": "AUTH-004",
+      "statement": "Existing code is implementation state, not authority over a canonical contract."
+    },
+    {
+      "id": "AUTH-005",
+      "statement": "Examples and generated documentation are never more authoritative than their source contracts."
+    },
+    {
+      "id": "AUTH-006",
+      "statement": "Security, tenant isolation, permissions and business invariants cannot be waived for implementation convenience."
+    }
+  ]
+}

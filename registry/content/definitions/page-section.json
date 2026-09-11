@@ -1,0 +1,221 @@
+{
+  "$id": "content.pageSection",
+  "name": "Page Section",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "pages",
+  "description": "Structured envelope for one ordered page section.",
+  "purpose": "Provides a stable page-to-block boundary so page composition can be stored before concrete Block contracts are introduced in Phase 6.",
+  "contentModel": {
+    "kind": "embedded",
+    "routing": "none",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": false,
+    "supportsRevision": false
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "sectionKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable developer-readable key within the parent page.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 120,
+        "customerEditable": false,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "blockType",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Block contract ID to be validated against the Phase 6 Block Registry.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 3,
+        "maxLength": 160,
+        "customerEditable": false,
+        "adminEditable": true,
+        "filterable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "blockVersion",
+      "required": false,
+      "nullable": true,
+      "description": "Pinned compatible version of the referenced Block contract.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 32,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "anchor",
+      "required": false,
+      "nullable": true,
+      "description": "Optional stable in-page anchor.",
+      "primitive": "fields.slug",
+      "config": {
+        "maxLength": 120,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "order",
+      "required": true,
+      "nullable": false,
+      "description": "Zero-based or implementation-normalized display order within the parent page.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": true,
+        "adminEditable": true,
+        "sortable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the section participates in the rendered page.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "lockedByNextF",
+      "required": true,
+      "nullable": false,
+      "description": "Whether ordinary customer editors may change the section structure.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": false,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "content",
+      "required": true,
+      "nullable": false,
+      "description": "Structured Block payload; must validate against blockType once the Block Registry is available.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "object",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "content.page",
+      "description": "Sections are composed by Pages."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "blockPayloadStructured",
+      "description": "content must be structured data and must never imply arbitrary executable HTML or JavaScript."
+    },
+    {
+      "id": "blockContractRequiredAtRuntime",
+      "description": "Once Phase 6 is active, blockType must resolve to a compatible Block contract and content must validate against it."
+    },
+    {
+      "id": "lockedStructureProtected",
+      "description": "When lockedByNextF is true, ordinary customer users cannot change blockType or structural configuration."
+    },
+    {
+      "id": "anchorUniqueWithinPage",
+      "description": "Non-null anchors must be unique within the parent page."
+    }
+  ],
+  "cms": {
+    "label": "Page Section",
+    "icon": "fa-table-columns",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "sectionKey",
+      "blockType",
+      "enabled"
+    ],
+    "editorMode": "embedded-section-editor",
+    "primaryActions": [
+      "edit",
+      "duplicate",
+      "reorder"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Enabled sections may be included only through an eligible published parent Page."
+  },
+  "futureBindings": {
+    "blocks": "phase-6-required",
+    "seo": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "sectionKey": "hero",
+        "blockType": "blocks.hero",
+        "order": 0,
+        "enabled": true,
+        "lockedByNextF": false,
+        "content": {}
+      }
+    ],
+    "invalid": [
+      {
+        "sectionKey": "hero",
+        "blockType": "<script>",
+        "order": -1,
+        "enabled": true,
+        "content": "<script>alert(1)</script>"
+      }
+    ]
+  },
+  "notes": [
+    "Phase 5 defines the section envelope only. Concrete block field contracts arrive in Phase 6."
+  ]
+}

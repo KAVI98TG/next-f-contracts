@@ -1,0 +1,200 @@
+{
+  "$id": "cmsUi.profile.seo.sitemap",
+  "name": "Sitemap",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "seo.sitemap",
+  "moduleId": "seo",
+  "description": "Customer CMS presentation metadata for Sitemap within authorized Site scope.",
+  "targetContracts": [
+    "seo.sitemapEntry"
+  ],
+  "primaryTargetContract": "seo.sitemapEntry",
+  "route": "/growth/seo/sitemap",
+  "screenKind": "editor",
+  "layoutTemplate": "standard-editor",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "url",
+      "label": "URL",
+      "description": "Absolute canonical URL.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.url",
+      "validationHint": {},
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "lastModifiedAt",
+      "label": "Last Modified At",
+      "description": "Optional truthful last meaningful content modification time.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 20,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "alternates",
+      "label": "Alternates",
+      "description": "Optional alternate-language URLs.",
+      "editorId": "structured-list",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "seo.alternateLanguage",
+      "validationHint": {
+        "maxItems": 50
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "url",
+        "label": "URL",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "lastModifiedAt",
+        "label": "Last Modified At",
+        "rendererId": "date-time",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "alternates",
+        "label": "Alternates",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [
+      {
+        "field": "lastModifiedAt",
+        "label": "Last Modified At"
+      }
+    ],
+    "searchFields": [
+      "url"
+    ]
+  },
+  "actions": [
+    {
+      "actionId": "edit",
+      "permissionId": "seo.sitemap.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "seo.sitemap.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "seo.sitemap.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "seo.sitemap.edit",
+    "seo.sitemap.manage",
+    "seo.sitemap.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/growth/seo/sitemap",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "seo.sitemap.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "editor",
+      "route": "/growth/seo/sitemap/:id",
+      "layoutTemplate": "standard-editor",
+      "requiresPermission": "seo.sitemap.edit",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "$id": "webhooks.payloadEnvelope",
+  "name": "Webhook Payload Envelope",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "payload",
+  "description": "Canonical outbound JSON envelope wrapping an exact NEXT F domain Event occurrence.",
+  "purpose": "Adds delivery metadata without changing the authoritative Event identity or payload semantics.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "deliveryId",
+      "required": true,
+      "nullable": false,
+      "description": "Logical webhook delivery ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "subscriptionId",
+      "required": true,
+      "nullable": false,
+      "description": "Subscription responsible for the delivery.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "attemptNumber",
+      "required": true,
+      "nullable": false,
+      "description": "Current delivery attempt number.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "sentAt",
+      "required": true,
+      "nullable": false,
+      "description": "Timestamp immediately before request dispatch.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "event",
+      "required": true,
+      "nullable": false,
+      "description": "Exact canonical event occurrence.",
+      "schema": "events.eventEnvelope"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "events.eventEnvelope",
+      "description": "References events.eventEnvelope."
+    },
+    {
+      "type": "references",
+      "target": "webhooks.subscription",
+      "description": "References webhooks.subscription."
+    },
+    {
+      "type": "references",
+      "target": "webhooks.delivery",
+      "description": "References webhooks.delivery."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "eventUnmodified",
+      "description": "Canonical Event identity, key, version and semantics must not be rewritten for the receiver."
+    },
+    {
+      "id": "sameEventAcrossRetries",
+      "description": "All retries/redeliveries of one logical Delivery preserve the same canonical eventId."
+    },
+    {
+      "id": "jsonUtf8",
+      "description": "Payload is serialized as UTF-8 JSON."
+    },
+    {
+      "id": "sizeLimit",
+      "description": "Serialized payload must not exceed the configured maximum, default 256 KiB."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Payload Envelope",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "deliveryId",
+      "subscriptionId",
+      "attemptNumber",
+      "sentAt"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

@@ -1,0 +1,141 @@
+{
+  "$id": "blocks.pricing",
+  "name": "Pricing",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "business",
+  "description": "Marketing pricing/package comparison section.",
+  "purpose": "Provides controlled pricing presentation while keeping transactional ecommerce pricing in Commerce contracts.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "plans",
+      "required": true,
+      "nullable": false,
+      "description": "Ordered marketing pricing plans.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "array",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      },
+      "itemsSchema": "blocks.pricingPlan",
+      "collectionRules": {
+        "minItems": 1,
+        "maxItems": 12
+      }
+    },
+    {
+      "key": "disclaimer",
+      "required": false,
+      "nullable": true,
+      "description": "Optional section-level pricing qualification.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1600,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "blocks.pricingPlan",
+      "description": "Every plan validates against Pricing Plan."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "plansConform",
+      "description": "Every plans entry must validate against blocks.pricingPlan."
+    },
+    {
+      "id": "notCommerceAuthority",
+      "description": "Pricing Block data must not be used as the authoritative checkout price for Commerce transactions."
+    }
+  ],
+  "cms": {
+    "label": "Pricing",
+    "icon": "fa-money-check-dollar",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "plans",
+      "disclaimer"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Pricing differences must be understandable in text, not only through color or highlighted cards."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

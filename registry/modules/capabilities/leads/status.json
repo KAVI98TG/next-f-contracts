@@ -1,0 +1,30 @@
+{
+  "$id": "modules.capability.leads.status",
+  "capabilityId": "leads.status",
+  "name": "Lead Status",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "leads",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Lead Status capability within the Leads module.",
+  "contractBindings": [
+    "forms.lead"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [
+    "lead.status-changed"
+  ],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

@@ -1,0 +1,36 @@
+{
+  "controlId": "ACC-CHECKOUT-001",
+  "name": "Accessible checkout flow",
+  "category": "commerce",
+  "requirement": "Checkout must preserve labels, validation, error recovery, keyboard operation, progress/status context and review/confirmation access without pointer-only interaction.",
+  "rationale": "Checkout is a critical transaction flow where accessibility failures can block purchase completion.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "checkout",
+    "form"
+  ],
+  "verificationMethods": [
+    "keyboard-manual",
+    "screen-reader-manual",
+    "integration-test"
+  ],
+  "severity": "critical",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [
+    "commerce.checkout",
+    "commerce.order"
+  ],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_checkout_001.json"
+}

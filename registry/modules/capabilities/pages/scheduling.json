@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.pages.scheduling",
+  "capabilityId": "pages.scheduling",
+  "name": "Scheduled Publishing",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "pages",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Scheduled Publishing capability within the Pages module.",
+  "contractBindings": [
+    "core.scheduleWindow",
+    "core.publishing"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

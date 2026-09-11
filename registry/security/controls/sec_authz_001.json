@@ -1,0 +1,37 @@
+{
+  "controlId": "SEC-AUTHZ-001",
+  "name": "Server-side permission enforcement",
+  "category": "authorization",
+  "requirement": "Every privileged operation must enforce canonical permissions at the server boundary; UI visibility is never the authorization decision.",
+  "rationale": "Client-side controls are bypassable and cannot protect authoritative state.",
+  "applicability": [
+    "customer-cms",
+    "admin",
+    "api"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "permissions.authorizationDecision",
+    "permissions.authorizationContext"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_authz_001.json"
+}

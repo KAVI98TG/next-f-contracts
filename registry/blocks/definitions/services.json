@@ -1,0 +1,183 @@
+{
+  "$id": "blocks.services",
+  "name": "Services",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "business",
+  "description": "Service listing sourced from reusable Service entities.",
+  "purpose": "Prevents service information from being duplicated across page sections and keeps selection behavior explicit.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "selectionMode",
+      "required": true,
+      "nullable": false,
+      "description": "How services are selected.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "manual",
+            "label": "Manual selection"
+          },
+          {
+            "value": "featured",
+            "label": "Featured services"
+          },
+          {
+            "value": "all",
+            "label": "All published services"
+          }
+        ],
+        "defaultValue": "manual",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "services",
+      "required": false,
+      "nullable": true,
+      "description": "Manual service selection.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.service",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true,
+        "uniqueItems": true,
+        "minItems": 1,
+        "maxItems": 24
+      }
+    },
+    {
+      "key": "limit",
+      "required": false,
+      "nullable": true,
+      "description": "Maximum automatically selected services.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 50,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "actions",
+      "required": false,
+      "nullable": true,
+      "description": "Optional primary and secondary conversion actions.",
+      "schema": "blocks.actionGroup"
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "content.service",
+      "description": "Uses canonical Service entities."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "blocks.heading",
+      "description": "May include heading content."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "manualRequiresServices",
+      "description": "selectionMode manual requires at least one services reference."
+    },
+    {
+      "id": "automaticUsesPublished",
+      "description": "featured/all selection may include only eligible published services from the same Site."
+    },
+    {
+      "id": "sameSite",
+      "description": "Service references must remain within the same Site unless an explicit cross-site contract is introduced."
+    }
+  ],
+  "cms": {
+    "label": "Services",
+    "icon": "fa-briefcase",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "selectionMode",
+      "services"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Service cards must have accessible names and destinations when clickable."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,60 @@
+{
+  "registryVersion": "0.15.0",
+  "producers": [
+    {
+      "key": "site-domain",
+      "label": "Site Domain",
+      "description": "Authoritative Site/platform operation boundary."
+    },
+    {
+      "key": "content-domain",
+      "label": "Content Domain",
+      "description": "Authoritative content and publishing boundary."
+    },
+    {
+      "key": "seo-domain",
+      "label": "SEO Domain",
+      "description": "Authoritative SEO configuration boundary."
+    },
+    {
+      "key": "forms-domain",
+      "label": "Forms Domain",
+      "description": "Authoritative forms/submission boundary."
+    },
+    {
+      "key": "leads-domain",
+      "label": "Leads Domain",
+      "description": "Authoritative Lead management boundary."
+    },
+    {
+      "key": "commerce-domain",
+      "label": "Commerce Domain",
+      "description": "Authoritative commerce transaction/catalog boundary."
+    },
+    {
+      "key": "inventory-domain",
+      "label": "Inventory Domain",
+      "description": "Authoritative stock/reservation boundary."
+    },
+    {
+      "key": "fulfillment-domain",
+      "label": "Fulfillment Domain",
+      "description": "Authoritative fulfillment/shipping/return boundary."
+    },
+    {
+      "key": "marketing-domain",
+      "label": "Marketing Domain",
+      "description": "Authoritative conversion/consent business boundary."
+    },
+    {
+      "key": "integration-domain",
+      "label": "Integration Domain",
+      "description": "Authoritative external-connection/sync boundary."
+    },
+    {
+      "key": "webhook-service",
+      "label": "Webhook Service",
+      "description": "Authoritative webhook endpoint, subscription, delivery and signing lifecycle boundary."
+    }
+  ]
+}

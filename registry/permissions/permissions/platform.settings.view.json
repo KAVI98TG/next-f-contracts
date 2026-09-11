@@ -1,0 +1,28 @@
+{
+  "$id": "platform.settings.view",
+  "name": "View Settings",
+  "permissionId": "platform.settings.view",
+  "domain": "platform",
+  "resource": "settings",
+  "action": "view",
+  "scopeKind": "platform",
+  "riskLevel": "standard",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Settings within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

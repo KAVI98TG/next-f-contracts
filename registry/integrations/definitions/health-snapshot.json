@@ -1,0 +1,116 @@
+{
+  "$id": "integrations.healthSnapshot",
+  "name": "Health Snapshot",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "health",
+  "description": "Latest normalized health status for an integration connection.",
+  "purpose": "Allows Customer CMS/Admin to show integration health without leaking provider diagnostics.",
+  "integrationModel": {
+    "kind": "health-state",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "state",
+      "required": true,
+      "nullable": false,
+      "description": "Health state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "unknown",
+          "healthy",
+          "degraded",
+          "unhealthy",
+          "reauthorizationRequired",
+          "disabled"
+        ]
+      }
+    },
+    {
+      "key": "checkedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Health check time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "checks",
+      "required": false,
+      "nullable": true,
+      "description": "Safe check results.",
+      "itemsSchema": "integrations.connectionTest"
+    },
+    {
+      "key": "summary",
+      "required": false,
+      "nullable": true,
+      "description": "Safe summary.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "nextCheckAt",
+      "required": false,
+      "nullable": true,
+      "description": "Scheduled next check.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "integrations.connectionTest",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "safeSummary",
+      "description": "Health output cannot expose credentials or raw personal data."
+    },
+    {
+      "id": "freshnessExplicit",
+      "description": "Health has explicit checkedAt timestamp."
+    }
+  ],
+  "cms": {
+    "label": "Health Snapshot",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "state",
+      "checkedAt",
+      "checks",
+      "summary"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

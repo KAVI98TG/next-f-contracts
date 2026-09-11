@@ -1,0 +1,101 @@
+{
+  "$id": "commerce.customerAddress",
+  "name": "Customer Address",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "customer",
+  "description": "Saved Commerce Customer address.",
+  "purpose": "Reuses shared address semantics with commerce-specific purpose.",
+  "commerceModel": {
+    "kind": "embedded",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "address",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical address.",
+      "schema": "shared.address"
+    },
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Address purpose.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "shipping",
+          "billing",
+          "both"
+        ]
+      }
+    },
+    {
+      "key": "label",
+      "required": false,
+      "nullable": true,
+      "description": "Optional customer label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "isDefault",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this is default for its purpose.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "shared.address",
+      "description": "References shared.address."
+    }
+  ],
+  "validationRules": [],
+  "cms": {
+    "label": "Customer Address",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "address",
+      "type",
+      "label",
+      "isDefault"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

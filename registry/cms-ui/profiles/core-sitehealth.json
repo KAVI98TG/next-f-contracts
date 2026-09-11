@@ -1,0 +1,231 @@
+{
+  "$id": "cmsUi.profile.core.sitehealth",
+  "name": "Website Health",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "core.sitehealth",
+  "moduleId": "core",
+  "description": "Customer CMS presentation metadata for Website Health within authorized Site scope.",
+  "targetContracts": [
+    "core.site"
+  ],
+  "primaryTargetContract": "core.site",
+  "route": "/website/health",
+  "screenKind": "report",
+  "layoutTemplate": "operational-detail",
+  "responsivePolicy": "operational",
+  "fieldBindings": [
+    {
+      "field": "identity",
+      "label": "Identity",
+      "description": "Canonical entity identity.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.entityIdentity",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "organizationId",
+      "label": "Organization ID",
+      "description": "Organization that owns the Site.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.relation",
+      "validationHint": {},
+      "searchable": true,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "name",
+      "label": "Name",
+      "description": "Human-readable Site name.",
+      "editorId": "single-line-text",
+      "group": "content",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "minLength": 1,
+        "maxLength": 200
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "primaryUrl",
+      "label": "Primary URL",
+      "description": "Current primary public URL reference when configured.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.url",
+      "validationHint": {},
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "status",
+      "label": "Status",
+      "description": "NEXT F platform Site lifecycle status.",
+      "editorId": "read-only",
+      "group": "publishing",
+      "zone": "sidebar",
+      "order": 50,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "name",
+        "label": "Name",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "primaryUrl",
+        "label": "Primary URL",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "status",
+        "label": "Status",
+        "rendererId": "status",
+        "order": 30,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [
+      {
+        "field": "status",
+        "label": "Status"
+      }
+    ],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [
+      {
+        "field": "name",
+        "label": "Name"
+      }
+    ],
+    "searchFields": [
+      "name",
+      "primaryUrl"
+    ]
+  },
+  "actions": [
+    {
+      "actionId": "view",
+      "permissionId": "core.sitehealth.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "core.sitehealth.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": false,
+    "warnOnLeave": false,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/website/health",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "core.sitehealth.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "detail",
+      "route": "/website/health/:id",
+      "layoutTemplate": "operational-detail",
+      "requiresPermission": "core.sitehealth.view",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

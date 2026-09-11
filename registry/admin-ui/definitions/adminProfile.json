@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.adminProfile",
+  "name": "Admin UI Profile",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines a NEXT F Admin resource/screen profile.",
+  "purpose": "Defines a NEXT F Admin resource/screen profile.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

@@ -1,0 +1,88 @@
+{
+  "$id": "changelog.releaseCorrection",
+  "name": "Changelog Release Correction",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "changelog",
+  "type": "schema",
+  "category": "release-lifecycle",
+  "description": "Explicit semantic correction record for a previously published historical release note.",
+  "fields": [
+    {
+      "key": "correctionId",
+      "required": true,
+      "nullable": false,
+      "description": "correctionId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "releaseVersion",
+      "required": true,
+      "nullable": false,
+      "description": "releaseVersion",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "entryId",
+      "required": false,
+      "nullable": true,
+      "description": "entryId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "previousText",
+      "required": true,
+      "nullable": false,
+      "description": "previousText",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "correctedText",
+      "required": true,
+      "nullable": false,
+      "description": "correctedText",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "reason",
+      "required": true,
+      "nullable": false,
+      "description": "reason",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "recordedInVersion",
+      "required": true,
+      "nullable": false,
+      "description": "recordedInVersion",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "recordedAt",
+      "required": false,
+      "nullable": true,
+      "description": "recordedAt",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "changelog.changelogStandard",
+      "description": "Governed by the NEXT F Changelog Standard."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSilentSemanticRewrite",
+      "description": "A correction is required when a published historical note changes technical meaning."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": true
+}

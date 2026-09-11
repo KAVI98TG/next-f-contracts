@@ -1,0 +1,372 @@
+{
+  "$id": "cmsUi.profile.marketing.campaigns",
+  "name": "Campaigns",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "marketing.campaigns",
+  "moduleId": "marketing",
+  "description": "Customer CMS presentation metadata for Campaigns within authorized Site scope.",
+  "targetContracts": [
+    "marketing.campaignDefinition",
+    "marketing.campaignPerformanceSnapshot"
+  ],
+  "primaryTargetContract": "marketing.campaignDefinition",
+  "route": "/growth/marketing/campaigns",
+  "screenKind": "editor",
+  "layoutTemplate": "standard-editor",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "identity",
+      "label": "Identity",
+      "description": "Stable campaign identity.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.entityIdentity",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "scope",
+      "label": "Scope",
+      "description": "Owning Organization/Site.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.tenantScope",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "campaignKey",
+      "label": "Campaign Key",
+      "description": "Stable NEXT F campaign key.",
+      "editorId": "single-line-text",
+      "group": "marketing",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 160,
+        "pattern": "^[a-zA-Z0-9._-]+$"
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "name",
+      "label": "Name",
+      "description": "Campaign name.",
+      "editorId": "single-line-text",
+      "group": "content",
+      "zone": "main",
+      "order": 40,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 300
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "status",
+      "label": "Status",
+      "description": "Campaign lifecycle.",
+      "editorId": "select",
+      "group": "publishing",
+      "zone": "sidebar",
+      "order": 50,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "objective",
+      "label": "Objective",
+      "description": "Business objective.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 500
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "startsAt",
+      "label": "Starts At",
+      "description": "Optional start.",
+      "editorId": "date-time",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "endsAt",
+      "label": "Ends At",
+      "description": "Optional end.",
+      "editorId": "date-time",
+      "group": "configuration",
+      "zone": "main",
+      "order": 80,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "externalReferences",
+      "label": "External References",
+      "description": "External campaign references.",
+      "editorId": "structured-list",
+      "group": "configuration",
+      "zone": "main",
+      "order": 90,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "shared.externalReference",
+      "validationHint": {
+        "maxItems": 20
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "sourceOfTruth",
+      "label": "Source Of Truth",
+      "description": "Primary operational source.",
+      "editorId": "select",
+      "group": "configuration",
+      "zone": "main",
+      "order": 100,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "identity",
+        "label": "Identity",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "scope",
+        "label": "Scope",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "campaignKey",
+        "label": "Campaign Key",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "name",
+        "label": "Name",
+        "rendererId": "text",
+        "order": 40,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [],
+    "searchFields": []
+  },
+  "actions": [
+    {
+      "actionId": "create",
+      "permissionId": "marketing.campaigns.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "marketing.campaigns.delete",
+      "riskLevel": "destructive",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "marketing.campaigns.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "marketing.campaigns.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "marketing.campaigns.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "marketing.campaigns.create",
+    "marketing.campaigns.delete",
+    "marketing.campaigns.edit",
+    "marketing.campaigns.manage",
+    "marketing.campaigns.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/growth/marketing/campaigns",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "marketing.campaigns.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "create",
+      "kind": "editor",
+      "route": "/growth/marketing/campaigns/new",
+      "layoutTemplate": "standard-editor",
+      "requiresPermission": "marketing.campaigns.create",
+      "purpose": "Create a new canonical resource."
+    },
+    {
+      "id": "record",
+      "kind": "editor",
+      "route": "/growth/marketing/campaigns/:id",
+      "layoutTemplate": "standard-editor",
+      "requiresPermission": "marketing.campaigns.edit",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

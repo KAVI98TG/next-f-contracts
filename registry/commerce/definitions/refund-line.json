@@ -1,0 +1,113 @@
+{
+  "$id": "commerce.refundLine",
+  "name": "Refund Line",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "payments",
+  "description": "Line-level refund allocation.",
+  "purpose": "Preserves which purchased quantities and amounts were financially refunded.",
+  "commerceModel": {
+    "kind": "transaction-line",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "orderLineId",
+      "required": true,
+      "nullable": false,
+      "description": "Order Line being refunded.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "quantity",
+      "required": true,
+      "nullable": false,
+      "description": "Refunded quantity.",
+      "schema": "commerce.quantity"
+    },
+    {
+      "key": "amount",
+      "required": true,
+      "nullable": false,
+      "description": "Refund amount assigned to the line.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "reason",
+      "required": false,
+      "nullable": true,
+      "description": "Optional normalized/customer-facing reason.",
+      "itemsPrimitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.orderLine",
+      "description": "References commerce.orderLine."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.quantity",
+      "description": "References commerce.quantity."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.moneySnapshot",
+      "description": "References commerce.moneySnapshot."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "quantityBound",
+      "description": "Refunded quantity cannot exceed refundable purchased quantity."
+    },
+    {
+      "id": "amountBound",
+      "description": "Line refund amount cannot exceed the refundable line amount."
+    }
+  ],
+  "cms": {
+    "label": "Refund Line",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "orderLineId",
+      "quantity",
+      "amount",
+      "reason"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

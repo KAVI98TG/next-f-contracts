@@ -1,0 +1,7 @@
+
+> next-f-contracts@0.13.0 generate:commerce-rules
+> node scripts/sync-commerce-rules-registry.mjs
+
+Generated js/generated-registry.js from registry/registry.json
+SHA-256 504d714124963bd1d060f7bc1a3694f97cf4d19e1e402071ca79e9226a071a3f
+Synchronized 139 Commerce Rules, 16 state machines, 20 command policies and 30 domain errors.

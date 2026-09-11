@@ -1,0 +1,82 @@
+{
+  "registryVersion": "0.15.0",
+  "protocol": {
+    "method": "POST",
+    "contentType": "application/json; charset=utf-8",
+    "encoding": "UTF-8",
+    "contentEncoding": "identity",
+    "automaticRedirects": false,
+    "maximumPayloadBytes": 262144,
+    "maximumResponseDiagnosticBytes": 65536
+  },
+  "timeouts": {
+    "connectTimeoutSeconds": 5,
+    "totalTimeoutSeconds": 15
+  },
+  "signature": {
+    "algorithm": "HMAC-SHA256",
+    "version": "v1",
+    "timestampToleranceSeconds": 300,
+    "bodyMode": "raw-utf8",
+    "format": "t=<unix-seconds>,v1=<lowercase-hex-hmac>",
+    "minimumSecretEntropyBytes": 32,
+    "rotationOverlapHours": 24
+  },
+  "retry": {
+    "maxAttempts": 8,
+    "retryDelaysSeconds": [
+      60,
+      300,
+      900,
+      3600,
+      14400,
+      43200,
+      86400
+    ],
+    "jitterPercent": 20,
+    "retryAfterMinimumSeconds": 5,
+    "retryAfterMaximumSeconds": 86400
+  },
+  "rate": {
+    "requestsPerSecond": 10,
+    "maxConcurrentRequests": 4
+  },
+  "health": {
+    "degradedAfterConsecutiveFailures": 5,
+    "pauseAfterConsecutiveFailures": 20,
+    "pauseQueueRetentionHours": 72
+  },
+  "retention": {
+    "payloadAfterTerminalDays": 7,
+    "attemptResponseSnippetHours": 24,
+    "deliveryMetadataDays": 30,
+    "deadLetterMetadataDays": 30,
+    "manualRedeliveryWindowDays": 7
+  },
+  "verification": {
+    "challengeTtlSeconds": 600,
+    "requiredHttpStatus": 200,
+    "challengeResponseField": "challenge"
+  },
+  "network": {
+    "httpsOnly": true,
+    "minimumTlsVersion": "1.2",
+    "allowPrivateNetworks": false,
+    "allowLoopback": false,
+    "allowLinkLocal": false,
+    "allowMulticast": false,
+    "allowReservedNetworks": false,
+    "allowCloudMetadata": false,
+    "allowUrlUserInfo": false,
+    "followRedirects": false,
+    "allowedPorts": [
+      443,
+      8443
+    ]
+  },
+  "subscription": {
+    "wildcardsAllowed": false,
+    "historicalBackfill": false,
+    "crossEnvironmentDelivery": false
+  }
+}

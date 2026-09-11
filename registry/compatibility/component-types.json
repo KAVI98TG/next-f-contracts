@@ -1,0 +1,53 @@
+{
+  "registryVersion": "1.0.0",
+  "types": [
+    {
+      "id": "contract-registry",
+      "label": "Contract Registry"
+    },
+    {
+      "id": "site-manifest-spec",
+      "label": "Site Manifest Specification"
+    },
+    {
+      "id": "module-registry",
+      "label": "Module Registry"
+    },
+    {
+      "id": "permission-registry",
+      "label": "Permission Registry"
+    },
+    {
+      "id": "event-registry",
+      "label": "Event Registry"
+    },
+    {
+      "id": "webhook-registry",
+      "label": "Webhook Registry"
+    },
+    {
+      "id": "integration-registry",
+      "label": "Integration Registry"
+    },
+    {
+      "id": "api-group",
+      "label": "API Group"
+    },
+    {
+      "id": "customer-cms-ui-metadata",
+      "label": "Customer CMS UI Metadata"
+    },
+    {
+      "id": "nextf-admin-ui-metadata",
+      "label": "NEXT F Admin UI Metadata"
+    },
+    {
+      "id": "site-runtime",
+      "label": "Site Runtime / SDK"
+    },
+    {
+      "id": "reference-site",
+      "label": "Reference Site"
+    }
+  ]
+}

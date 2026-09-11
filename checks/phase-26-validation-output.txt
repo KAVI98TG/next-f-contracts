@@ -1,0 +1,12 @@
+NEXT F Contracts Phase 26 validation
+Version: 0.27.0
+Passes: 6235
+Failures: 0
+Compatibility schemas: 16
+Release rows: 27
+Platform surfaces: 17
+Reference Sites: 6
+Registry items: 1812
+JSON files checked: 1686
+
+PASS - Compatibility Center is internally consistent.

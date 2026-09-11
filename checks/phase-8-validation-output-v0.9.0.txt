@@ -1,0 +1,9 @@
+NEXT F Contracts Phase 8 validation
+Version: 0.9.0
+Forms Contracts: 35
+Forms fields inspected: 252
+Registry items: 191
+Passes: 729
+Failures: 0
+
+PASS - Phase 8 Forms and Leads Contract Registry is internally consistent.

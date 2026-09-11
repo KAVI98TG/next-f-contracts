@@ -1,0 +1,95 @@
+{
+  "$id": "events.eventOrderingPolicy",
+  "name": "Event Ordering Policy",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Defines the scope in which consumers may reason about ordering.",
+  "purpose": "Defines the scope in which consumers may reason about ordering.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Ordering scope.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "none",
+          "site",
+          "subject",
+          "order",
+          "payment",
+          "inventory-item",
+          "integration"
+        ]
+      }
+    },
+    {
+      "key": "sequenceField",
+      "required": false,
+      "nullable": true,
+      "description": "Optional monotonic sequence field name when an implementation provides one.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "strict",
+      "required": true,
+      "nullable": false,
+      "description": "Whether strict order is required by the event contract.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "timestampNotTotalOrder",
+      "description": "occurredAt timestamps alone must not be treated as a globally total event order."
+    }
+  ],
+  "cms": {
+    "label": "Event Ordering Policy",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "scope",
+      "sequenceField",
+      "strict"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

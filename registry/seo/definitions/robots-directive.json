@@ -1,0 +1,176 @@
+{
+  "$id": "seo.robotsDirective",
+  "name": "Robots Directive",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "directives",
+  "description": "Per-document meta robots behavior.",
+  "purpose": "Separates page-level indexing directives from robots.txt crawl policy.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "index",
+      "required": true,
+      "nullable": false,
+      "description": "Whether indexing is requested.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "follow",
+      "required": true,
+      "nullable": false,
+      "description": "Whether link following is requested.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "noArchive",
+      "required": true,
+      "nullable": false,
+      "description": "Whether cached/archive presentation should be discouraged where supported.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "noSnippet",
+      "required": true,
+      "nullable": false,
+      "description": "Whether snippets should be suppressed where supported.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "maxSnippet",
+      "required": false,
+      "nullable": true,
+      "description": "Optional maximum snippet length directive, -1 meaning no explicit limit where supported.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": -1,
+        "maximum": 1000,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "maxImagePreview",
+      "required": false,
+      "nullable": true,
+      "description": "Optional image preview size directive.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "standard",
+            "label": "Standard"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ],
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "maxVideoPreview",
+      "required": false,
+      "nullable": true,
+      "description": "Optional maximum video preview seconds, -1 meaning no explicit limit where supported.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": -1,
+        "maximum": 3600,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "metaRobotsNotRobotsTxt",
+      "description": "This contract governs page-level robots metadata and must not be used as a robots.txt replacement."
+    },
+    {
+      "id": "noSnippetPrecedence",
+      "description": "When noSnippet is true, maxSnippet is advisory/ignored by renderers."
+    }
+  ],
+  "cms": {
+    "label": "Robots Directive",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "index",
+      "follow",
+      "noArchive",
+      "noSnippet"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "index": true,
+        "follow": true,
+        "noArchive": false,
+        "noSnippet": false,
+        "maxImagePreview": "large"
+      }
+    ],
+    "invalid": [
+      {
+        "index": "yes",
+        "follow": true
+      }
+    ]
+  },
+  "notes": []
+}

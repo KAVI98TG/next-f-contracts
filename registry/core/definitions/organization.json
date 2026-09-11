@@ -1,0 +1,120 @@
+{
+  "$id": "core.organization",
+  "name": "Organization",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "identity",
+  "description": "Minimal canonical tenant organization identity used to scope Sites and platform records.",
+  "purpose": "Defines NEXT F business-customer tenancy without treating the customer organization as a commerce buyer or hosting account.",
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Organization display/business name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 200,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "sortable": true
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Platform organization lifecycle status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "active",
+            "label": "Active"
+          },
+          {
+            "value": "suspended",
+            "label": "Suspended"
+          },
+          {
+            "value": "archived",
+            "label": "Archived"
+          }
+        ],
+        "defaultValue": "active",
+        "customerEditable": false,
+        "adminEditable": true,
+        "filterable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "Organizations use canonical entity identity."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "organizationNameRequired",
+      "description": "Organization name must remain non-empty."
+    },
+    {
+      "id": "archivedOrganizationRestricted",
+      "description": "Archived Organizations cannot gain new active Site operations without an explicit restoration process."
+    }
+  ],
+  "cms": {
+    "label": "Organization",
+    "icon": "fa-building",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "platform",
+    "summaryFields": [
+      "name",
+      "status"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Organization tenancy metadata is authenticated platform data. Public business profile content belongs in later content/site settings contracts."
+  },
+  "examples": {
+    "valid": [
+      {
+        "identity": {
+          "id": "org_01ABC",
+          "createdAt": "2026-09-09T10:00:00Z",
+          "updatedAt": "2026-09-09T10:00:00Z"
+        },
+        "name": "Example Engineering",
+        "status": "active"
+      }
+    ],
+    "invalid": [
+      {
+        "identity": {
+          "id": "org_01ABC",
+          "createdAt": "2026-09-09T10:00:00Z",
+          "updatedAt": "2026-09-09T10:00:00Z"
+        },
+        "name": "",
+        "status": "enabled"
+      }
+    ]
+  },
+  "notes": [
+    "Organization is the canonical NEXT F tenant term. Do not use Client or generic Customer as the machine tenant schema."
+  ]
+}

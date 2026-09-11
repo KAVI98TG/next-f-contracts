@@ -1,0 +1,152 @@
+{
+  "$id": "seo.indexingStatus",
+  "name": "Indexing Status",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "indexing",
+  "description": "Normalized indexability/indexing state for one inspected URL.",
+  "purpose": "Provides a stable provider-neutral indexing status that can be shown in CMS diagnostics.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": false,
+    "derived": true,
+    "supportsRevision": false,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "state",
+      "required": true,
+      "nullable": false,
+      "description": "Normalized indexing state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "indexable",
+            "label": "Indexable"
+          },
+          {
+            "value": "noindex",
+            "label": "Noindex"
+          },
+          {
+            "value": "blocked-by-robots",
+            "label": "Blocked By Robots"
+          },
+          {
+            "value": "redirect",
+            "label": "Redirect"
+          },
+          {
+            "value": "not-found",
+            "label": "Not Found"
+          },
+          {
+            "value": "server-error",
+            "label": "Server Error"
+          },
+          {
+            "value": "duplicate",
+            "label": "Duplicate"
+          },
+          {
+            "value": "discovered",
+            "label": "Discovered"
+          },
+          {
+            "value": "crawled-not-indexed",
+            "label": "Crawled Not Indexed"
+          },
+          {
+            "value": "unknown",
+            "label": "Unknown"
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "reason",
+      "required": false,
+      "nullable": true,
+      "description": "Provider or NEXT F normalized explanation.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 4000,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "Source of the indexing determination.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120,
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "statusNotPromise",
+      "description": "indexable means the URL is eligible according to known rules; it does not promise a search engine will index or rank it."
+    },
+    {
+      "id": "sourceExplicit",
+      "description": "Indexing state must identify the source of the determination."
+    }
+  ],
+  "cms": {
+    "label": "Indexing Status",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "state",
+      "reason",
+      "source"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "state": "indexable",
+        "reason": "No blocking directives detected.",
+        "source": "nextf-audit"
+      }
+    ],
+    "invalid": [
+      {
+        "state": "ranked-1",
+        "source": ""
+      }
+    ]
+  },
+  "notes": []
+}

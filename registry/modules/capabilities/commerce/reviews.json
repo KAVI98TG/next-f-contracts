@@ -1,0 +1,33 @@
+{
+  "$id": "modules.capability.commerce.reviews",
+  "capabilityId": "commerce.reviews",
+  "name": "Reviews",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Reviews capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.productReview"
+  ],
+  "permissionBindings": [
+    "commerce.reviews.delete",
+    "commerce.reviews.edit",
+    "commerce.reviews.manage",
+    "commerce.reviews.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

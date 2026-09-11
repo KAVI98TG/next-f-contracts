@@ -1,0 +1,151 @@
+{
+  "$id": "blocks.statItem",
+  "name": "Stat Item",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "foundation",
+  "description": "Reusable statistic or metric content item.",
+  "purpose": "Allows human-readable metrics such as 99.9%, 24/7 and 250+ without forcing numeric-only storage.",
+  "blockModel": {
+    "kind": "embedded",
+    "placement": "nested-only",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "value",
+      "required": true,
+      "nullable": false,
+      "description": "Displayed metric value.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 80,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "prefix",
+      "required": false,
+      "nullable": true,
+      "description": "Optional prefix such as currency or approximation.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 20,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "suffix",
+      "required": false,
+      "nullable": true,
+      "description": "Optional suffix such as %, + or years.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Metric label.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 140,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional context or methodology note.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 600,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "metricNotFabricated",
+      "description": "Values are editorial claims and must be backed by the Organization when they represent factual business performance."
+    }
+  ],
+  "cms": {
+    "label": "Stat Item",
+    "icon": "fa-chart-simple",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "embedded-item-editor",
+    "summaryFields": [
+      "value",
+      "prefix",
+      "suffix"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": false,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Rendered text must make the relationship between value and label understandable without relying only on visual proximity."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

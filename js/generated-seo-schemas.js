@@ -1,0 +1,3973 @@
+// GENERATED FILE - DO NOT EDIT DIRECTLY.
+// Source: registry/seo/index.json
+// SHA-256: 283af82b0c773d19086351a947097f5ff14cd8132f033e1764c30d0fada137a5
+export const GENERATED_SEO_SCHEMAS_SOURCE_SHA256 = "283af82b0c773d19086351a947097f5ff14cd8132f033e1764c30d0fada137a5";
+export const GENERATED_SEO_SCHEMAS = {
+  "registryVersion": "0.9.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F SEO Contract Registry",
+  "description": "Generated index of authoritative Phase 7 SEO definitions.",
+  "definitionCount": 22,
+  "sourceDirectory": "registry/seo/definitions",
+  "schemas": [
+    {
+      "$id": "seo.alternateLanguage",
+      "name": "Alternate Language URL",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "directives",
+      "description": "One hreflang-style alternate URL declaration.",
+      "purpose": "Standardizes multilingual alternate URL data used by metadata and sitemaps.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "languageTag",
+          "required": false,
+          "nullable": true,
+          "description": "BCP 47 language/region tag. Null only for x-default.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 35,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "url",
+          "required": true,
+          "nullable": false,
+          "description": "Absolute canonical alternate URL.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "isDefault",
+          "required": true,
+          "nullable": false,
+          "description": "Whether this is the x-default alternate.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "languageOrDefault",
+          "description": "Exactly one of a languageTag or isDefault=true must identify the alternate."
+        },
+        {
+          "id": "absoluteAlternate",
+          "description": "url must be an absolute HTTP(S) URL."
+        },
+        {
+          "id": "reciprocalRecommended",
+          "description": "Implementations should validate reciprocal alternate relationships where applicable."
+        }
+      ],
+      "cms": {
+        "label": "Alternate Language URL",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "languageTag",
+          "url",
+          "isDefault"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "languageTag": "en-LK",
+            "url": "https://example.lk/en/service",
+            "isDefault": false
+          },
+          {
+            "languageTag": null,
+            "url": "https://example.lk/service",
+            "isDefault": true
+          }
+        ],
+        "invalid": [
+          {
+            "languageTag": null,
+            "url": "https://example.lk/xx",
+            "isDefault": false
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.auditIssue",
+      "name": "SEO Audit Issue",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "audit",
+      "description": "One diagnostic SEO finding with severity and remediation guidance.",
+      "purpose": "Standardizes audit findings while clearly separating advisory analysis from search-engine ranking guarantees.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "derived": true,
+        "supportsRevision": false,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "ruleId",
+          "required": true,
+          "nullable": false,
+          "description": "Stable audit rule identifier.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 160,
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true,
+            "filterable": true
+          }
+        },
+        {
+          "key": "severity",
+          "required": true,
+          "nullable": false,
+          "description": "Finding severity.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "info",
+                "label": "Info"
+              },
+              {
+                "value": "warning",
+                "label": "Warning"
+              },
+              {
+                "value": "error",
+                "label": "Error"
+              }
+            ],
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "category",
+          "required": true,
+          "nullable": false,
+          "description": "Finding category.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "metadata",
+                "label": "Metadata"
+              },
+              {
+                "value": "content",
+                "label": "Content"
+              },
+              {
+                "value": "indexing",
+                "label": "Indexing"
+              },
+              {
+                "value": "links",
+                "label": "Links"
+              },
+              {
+                "value": "structured-data",
+                "label": "Structured Data"
+              },
+              {
+                "value": "social",
+                "label": "Social"
+              },
+              {
+                "value": "sitemap",
+                "label": "Sitemap"
+              },
+              {
+                "value": "robots",
+                "label": "Robots"
+              },
+              {
+                "value": "performance",
+                "label": "Performance"
+              }
+            ],
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "fieldPath",
+          "required": false,
+          "nullable": true,
+          "description": "Optional contract field path associated with the issue.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "message",
+          "required": true,
+          "nullable": false,
+          "description": "Human-readable finding.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 2000,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "recommendation",
+          "required": false,
+          "nullable": true,
+          "description": "Recommended remediation.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 4000,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "evidence",
+          "required": false,
+          "nullable": true,
+          "description": "Non-secret supporting evidence.",
+          "primitive": "fields.json",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Workflow status for this finding.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "open",
+                "label": "Open"
+              },
+              {
+                "value": "ignored",
+                "label": "Ignored"
+              },
+              {
+                "value": "resolved",
+                "label": "Resolved"
+              }
+            ],
+            "defaultValue": "open",
+            "customerEditable": true,
+            "adminEditable": true,
+            "filterable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "evidenceNoSecrets",
+          "description": "Audit evidence must not contain secrets or unnecessary personal data."
+        },
+        {
+          "id": "advisoryNotGuarantee",
+          "description": "A warning or passing check is advisory and must not be represented as a search ranking guarantee."
+        }
+      ],
+      "cms": {
+        "label": "SEO Audit Issue",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "ruleId",
+          "severity",
+          "category",
+          "fieldPath"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "ruleId": "metadata.title.missing",
+            "severity": "error",
+            "category": "metadata",
+            "fieldPath": "metaTitle",
+            "message": "Meta title is missing.",
+            "status": "open"
+          }
+        ],
+        "invalid": [
+          {
+            "ruleId": "",
+            "severity": "critical",
+            "category": "ranking",
+            "message": "Guaranteed #1",
+            "status": "open"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.auditResult",
+      "name": "SEO Audit Result",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "audit",
+      "description": "Timestamped SEO analysis summary for a Site URL or target entity.",
+      "purpose": "Creates a reusable operational result for CMS SEO health dashboards and automated checks.",
+      "seoModel": {
+        "kind": "derived",
+        "customerManaged": true,
+        "derived": true,
+        "supportsRevision": false,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Audit result identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Site scope.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "target",
+          "required": false,
+          "nullable": true,
+          "description": "Optional canonical entity target.",
+          "schema": "core.entityReference"
+        },
+        {
+          "key": "url",
+          "required": true,
+          "nullable": false,
+          "description": "Audited absolute URL.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true
+          }
+        },
+        {
+          "key": "checkedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Audit execution time.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        },
+        {
+          "key": "score",
+          "required": true,
+          "nullable": false,
+          "description": "NEXT F audit score expressed in percentage points.",
+          "primitive": "fields.percentage",
+          "config": {
+            "minimum": 0,
+            "maximum": 100,
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Overall diagnostic state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "pass",
+                "label": "Pass"
+              },
+              {
+                "value": "warning",
+                "label": "Warning"
+              },
+              {
+                "value": "fail",
+                "label": "Fail"
+              }
+            ],
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "checksPassed",
+          "required": true,
+          "nullable": false,
+          "description": "Number of checks passed.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "checksFailed",
+          "required": true,
+          "nullable": false,
+          "description": "Number of checks failed.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "issues",
+          "required": false,
+          "nullable": true,
+          "description": "Audit issues.",
+          "itemsSchema": "seo.auditIssue",
+          "config": {
+            "maxItems": 1000
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyReferences",
+          "target": "core.entityReference",
+          "description": "May audit a canonical content/entity target."
+        },
+        {
+          "type": "composesMany",
+          "target": "seo.auditIssue",
+          "description": "Contains zero or more standardized findings."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "scoreIsNextFDiagnostic",
+          "description": "score is a NEXT F diagnostic metric only and is not a Google, Bing or other search-engine score."
+        },
+        {
+          "id": "countsConsistent",
+          "description": "checksPassed and checksFailed must be non-negative and reflect the executed audit rule set."
+        },
+        {
+          "id": "checkedAtImmutable",
+          "description": "checkedAt and derived findings represent a historical run and should not be edited as current content."
+        }
+      ],
+      "cms": {
+        "label": "SEO Audit Result",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "target",
+          "url"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "identity": {
+              "id": "audit_01",
+              "createdAt": "2026-09-10T00:00:00Z",
+              "updatedAt": "2026-09-10T00:00:00Z"
+            },
+            "scope": {
+              "organizationId": "org_01",
+              "siteId": "site_01"
+            },
+            "url": "https://example.lk/services",
+            "checkedAt": "2026-09-10T00:00:00Z",
+            "score": 92,
+            "status": "warning",
+            "checksPassed": 23,
+            "checksFailed": 2,
+            "issues": []
+          }
+        ],
+        "invalid": [
+          {
+            "url": "https://example.lk",
+            "score": 120,
+            "status": "perfect"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.brokenLink",
+      "name": "Broken Link Record",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "links",
+      "description": "Operational record for a link that fails or resolves undesirably.",
+      "purpose": "Standardizes broken-link health reporting and remediation workflow.",
+      "seoModel": {
+        "kind": "derived",
+        "customerManaged": true,
+        "derived": true,
+        "supportsRevision": false,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Finding identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Site scope.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "sourceUrl",
+          "required": true,
+          "nullable": false,
+          "description": "URL containing the broken link.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true
+          }
+        },
+        {
+          "key": "targetUrl",
+          "required": true,
+          "nullable": false,
+          "description": "Destination that failed or behaved unexpectedly.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true
+          }
+        },
+        {
+          "key": "linkType",
+          "required": true,
+          "nullable": false,
+          "description": "Internal or external link classification.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "internal",
+                "label": "Internal"
+              },
+              {
+                "value": "external",
+                "label": "External"
+              }
+            ],
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "httpStatus",
+          "required": false,
+          "nullable": true,
+          "description": "Observed HTTP status when available.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 100,
+            "maximum": 599,
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "failureType",
+          "required": true,
+          "nullable": false,
+          "description": "Normalized failure classification.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "http-error",
+                "label": "Http Error"
+              },
+              {
+                "value": "timeout",
+                "label": "Timeout"
+              },
+              {
+                "value": "dns",
+                "label": "Dns"
+              },
+              {
+                "value": "tls",
+                "label": "Tls"
+              },
+              {
+                "value": "redirect-loop",
+                "label": "Redirect Loop"
+              },
+              {
+                "value": "invalid-url",
+                "label": "Invalid Url"
+              },
+              {
+                "value": "blocked",
+                "label": "Blocked"
+              },
+              {
+                "value": "unknown",
+                "label": "Unknown"
+              }
+            ],
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "detectedAt",
+          "required": true,
+          "nullable": false,
+          "description": "First detection time for this finding.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "lastCheckedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Most recent check time.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Remediation workflow state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "open",
+                "label": "Open"
+              },
+              {
+                "value": "ignored",
+                "label": "Ignored"
+              },
+              {
+                "value": "resolved",
+                "label": "Resolved"
+              }
+            ],
+            "defaultValue": "open",
+            "customerEditable": true,
+            "adminEditable": true,
+            "filterable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "observedNotAssumed",
+          "description": "httpStatus and failureType record observed checks and must not be fabricated."
+        },
+        {
+          "id": "resolutionRequiresRecheck",
+          "description": "resolved should normally follow a successful recheck or explicit human override."
+        }
+      ],
+      "cms": {
+        "label": "Broken Link Record",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "sourceUrl",
+          "targetUrl"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "identity": {
+              "id": "broken_01",
+              "createdAt": "2026-09-10T00:00:00Z",
+              "updatedAt": "2026-09-10T00:00:00Z"
+            },
+            "scope": {
+              "organizationId": "org_01",
+              "siteId": "site_01"
+            },
+            "sourceUrl": "https://example.lk/blog/a",
+            "targetUrl": "https://example.lk/missing",
+            "linkType": "internal",
+            "httpStatus": 404,
+            "failureType": "http-error",
+            "detectedAt": "2026-09-10T00:00:00Z",
+            "lastCheckedAt": "2026-09-10T00:00:00Z",
+            "status": "open"
+          }
+        ],
+        "invalid": [
+          {
+            "httpStatus": 999,
+            "failureType": "404"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.indexingStatus",
+      "name": "Indexing Status",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "indexing",
+      "description": "Normalized indexability/indexing state for one inspected URL.",
+      "purpose": "Provides a stable provider-neutral indexing status that can be shown in CMS diagnostics.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": false,
+        "derived": true,
+        "supportsRevision": false,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "state",
+          "required": true,
+          "nullable": false,
+          "description": "Normalized indexing state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "indexable",
+                "label": "Indexable"
+              },
+              {
+                "value": "noindex",
+                "label": "Noindex"
+              },
+              {
+                "value": "blocked-by-robots",
+                "label": "Blocked By Robots"
+              },
+              {
+                "value": "redirect",
+                "label": "Redirect"
+              },
+              {
+                "value": "not-found",
+                "label": "Not Found"
+              },
+              {
+                "value": "server-error",
+                "label": "Server Error"
+              },
+              {
+                "value": "duplicate",
+                "label": "Duplicate"
+              },
+              {
+                "value": "discovered",
+                "label": "Discovered"
+              },
+              {
+                "value": "crawled-not-indexed",
+                "label": "Crawled Not Indexed"
+              },
+              {
+                "value": "unknown",
+                "label": "Unknown"
+              }
+            ],
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "reason",
+          "required": false,
+          "nullable": true,
+          "description": "Provider or NEXT F normalized explanation.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 4000,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "source",
+          "required": true,
+          "nullable": false,
+          "description": "Source of the indexing determination.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120,
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "statusNotPromise",
+          "description": "indexable means the URL is eligible according to known rules; it does not promise a search engine will index or rank it."
+        },
+        {
+          "id": "sourceExplicit",
+          "description": "Indexing state must identify the source of the determination."
+        }
+      ],
+      "cms": {
+        "label": "Indexing Status",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "state",
+          "reason",
+          "source"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "state": "indexable",
+            "reason": "No blocking directives detected.",
+            "source": "nextf-audit"
+          }
+        ],
+        "invalid": [
+          {
+            "state": "ranked-1",
+            "source": ""
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.internalLink",
+      "name": "Internal Link Record",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "links",
+      "description": "Derived record of one internal link between two Site URLs.",
+      "purpose": "Supports link audits and internal-link analysis without turning operational crawl data into editable content.",
+      "seoModel": {
+        "kind": "derived",
+        "customerManaged": false,
+        "derived": true,
+        "supportsRevision": false,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Site scope.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "sourceUrl",
+          "required": true,
+          "nullable": false,
+          "description": "Page containing the link.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true
+          }
+        },
+        {
+          "key": "targetUrl",
+          "required": true,
+          "nullable": false,
+          "description": "Internal link destination.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true
+          }
+        },
+        {
+          "key": "anchorText",
+          "required": false,
+          "nullable": true,
+          "description": "Rendered anchor text when applicable.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true
+          }
+        },
+        {
+          "key": "context",
+          "required": true,
+          "nullable": false,
+          "description": "Where the link was discovered.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "content",
+                "label": "Content"
+              },
+              {
+                "value": "navigation",
+                "label": "Navigation"
+              },
+              {
+                "value": "footer",
+                "label": "Footer"
+              },
+              {
+                "value": "structured",
+                "label": "Structured Component"
+              },
+              {
+                "value": "unknown",
+                "label": "Unknown"
+              }
+            ],
+            "defaultValue": "unknown",
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "rel",
+          "required": false,
+          "nullable": true,
+          "description": "Normalized rel token values.",
+          "primitive": "fields.tag",
+          "config": {
+            "maxItems": 20,
+            "uniqueItems": true,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "discoveredAt",
+          "required": true,
+          "nullable": false,
+          "description": "When this link relationship was last discovered.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "sameSite",
+          "description": "sourceUrl and targetUrl must belong to the same logical Site after canonical host/URL normalization."
+        },
+        {
+          "id": "derivedNotEditable",
+          "description": "Internal link records are derived; customers edit the source content rather than this record."
+        }
+      ],
+      "cms": {
+        "label": "Internal Link Record",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "scope",
+          "sourceUrl",
+          "targetUrl",
+          "anchorText"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "scope": {
+              "organizationId": "org_01",
+              "siteId": "site_01"
+            },
+            "sourceUrl": "https://example.lk/services",
+            "targetUrl": "https://example.lk/contact",
+            "anchorText": "Start a project",
+            "context": "content",
+            "discoveredAt": "2026-09-10T00:00:00Z"
+          }
+        ],
+        "invalid": [
+          {
+            "sourceUrl": "https://example.lk",
+            "targetUrl": "https://other.example",
+            "context": "content"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.keywordSet",
+      "name": "Keyword Set",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "keywords",
+      "description": "Primary focus keyword plus secondary and semantically related terms.",
+      "purpose": "Provides one reusable keyword-planning object for CMS SEO editors.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "primary",
+          "required": true,
+          "nullable": false,
+          "description": "Primary focus keyword target.",
+          "schema": "seo.keywordTarget"
+        },
+        {
+          "key": "secondaryKeywords",
+          "required": false,
+          "nullable": true,
+          "description": "Secondary keyword phrases.",
+          "primitive": "fields.tag",
+          "config": {
+            "maxItems": 20,
+            "uniqueItems": true,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "relatedTerms",
+          "required": false,
+          "nullable": true,
+          "description": "Related entities, terms or semantic phrases.",
+          "primitive": "fields.tag",
+          "config": {
+            "maxItems": 40,
+            "uniqueItems": true,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "seo.keywordTarget",
+          "description": "Uses one canonical primary Keyword Target."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "primaryNotDuplicated",
+          "description": "The primary phrase must not be duplicated in secondaryKeywords after normalization."
+        },
+        {
+          "id": "keywordSetsAreEditorial",
+          "description": "Keyword sets are editorial optimization inputs, not search-volume or ranking claims."
+        }
+      ],
+      "cms": {
+        "label": "Keyword Set",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "primary",
+          "secondaryKeywords",
+          "relatedTerms"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "primary": {
+              "phrase": "web development sri lanka",
+              "intent": "commercial"
+            },
+            "secondaryKeywords": [
+              "business website development"
+            ],
+            "relatedTerms": [
+              "conversion-focused website"
+            ]
+          }
+        ],
+        "invalid": [
+          {
+            "primary": null
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.keywordTarget",
+      "name": "Keyword Target",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "keywords",
+      "description": "One intentional search phrase and its targeting context.",
+      "purpose": "Standardizes focus-keyword targeting without treating keyword repetition as a ranking guarantee.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "phrase",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical keyword or search phrase.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 200,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "intent",
+          "required": false,
+          "nullable": true,
+          "description": "Search intent classification.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "informational",
+                "label": "Informational"
+              },
+              {
+                "value": "navigational",
+                "label": "Navigational"
+              },
+              {
+                "value": "commercial",
+                "label": "Commercial"
+              },
+              {
+                "value": "transactional",
+                "label": "Transactional"
+              },
+              {
+                "value": "local",
+                "label": "Local"
+              },
+              {
+                "value": "mixed",
+                "label": "Mixed"
+              },
+              {
+                "value": "unknown",
+                "label": "Unknown"
+              }
+            ],
+            "defaultValue": "unknown",
+            "customerEditable": true,
+            "adminEditable": true,
+            "filterable": true
+          }
+        },
+        {
+          "key": "locale",
+          "required": false,
+          "nullable": true,
+          "description": "Optional BCP 47 language/locale tag.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 35,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "targetLocation",
+          "required": false,
+          "nullable": true,
+          "description": "Optional geographic market descriptor.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "targetUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Optional intended canonical landing URL.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "notes",
+          "required": false,
+          "nullable": true,
+          "description": "Internal optimization notes.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1200,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "keywordNoStuffingGuarantee",
+          "description": "The contract records targeting intent only and must not imply keyword density or repetition guarantees ranking."
+        },
+        {
+          "id": "localeFormat",
+          "description": "Non-null locale should use a valid BCP 47 language tag."
+        }
+      ],
+      "cms": {
+        "label": "Keyword Target",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "phrase",
+          "intent",
+          "locale",
+          "targetLocation"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "phrase": "preventive maintenance services",
+            "intent": "commercial",
+            "locale": "en-LK",
+            "targetLocation": "Sri Lanka"
+          }
+        ],
+        "invalid": [
+          {
+            "phrase": "",
+            "intent": "guaranteed-rank"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.metadata",
+      "name": "SEO Metadata",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "metadata",
+      "description": "Canonical per-target SEO metadata record used by Customer CMS editors and website renderers.",
+      "purpose": "Centralizes title, description, keywords, canonical, robots, social metadata, structured data and language alternates without duplicating SEO fields in every Content contract.",
+      "seoModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable SEO record identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Organization and Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "target",
+          "required": true,
+          "nullable": false,
+          "description": "Content or other routable entity this metadata describes.",
+          "schema": "core.entityReference"
+        },
+        {
+          "key": "metaTitle",
+          "required": false,
+          "nullable": true,
+          "description": "Search-result title override. Length guidance is an audit recommendation, not a hard ranking rule.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "metaDescription",
+          "required": false,
+          "nullable": true,
+          "description": "Search-result description suggestion. Search engines may choose different snippets.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "keywords",
+          "required": false,
+          "nullable": true,
+          "description": "Optional focus and supporting keyword targets.",
+          "schema": "seo.keywordSet"
+        },
+        {
+          "key": "canonicalUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Preferred absolute canonical URL.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "robots",
+          "required": false,
+          "nullable": true,
+          "description": "Page-level robots directives.",
+          "schema": "seo.robotsDirective"
+        },
+        {
+          "key": "openGraph",
+          "required": false,
+          "nullable": true,
+          "description": "Open Graph overrides.",
+          "schema": "seo.openGraph"
+        },
+        {
+          "key": "socialCard",
+          "required": false,
+          "nullable": true,
+          "description": "Generic social-card overrides.",
+          "schema": "seo.socialCard"
+        },
+        {
+          "key": "structuredData",
+          "required": false,
+          "nullable": true,
+          "description": "Zero or more structured-data objects.",
+          "itemsSchema": "seo.structuredData",
+          "config": {
+            "maxItems": 20
+          }
+        },
+        {
+          "key": "alternates",
+          "required": false,
+          "nullable": true,
+          "description": "Language/region alternate URLs.",
+          "itemsSchema": "seo.alternateLanguage",
+          "config": {
+            "maxItems": 50
+          }
+        },
+        {
+          "key": "updatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Most recent SEO metadata update timestamp.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "SEO records use canonical identity."
+        },
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "SEO records are tenant scoped."
+        },
+        {
+          "type": "references",
+          "target": "core.entityReference",
+          "description": "Attaches metadata to a canonical target entity."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "seo.keywordSet",
+          "description": "May include keyword targeting."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "seo.robotsDirective",
+          "description": "May include page-level robots directives."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "seo.openGraph",
+          "description": "May include Open Graph values."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "seo.socialCard",
+          "description": "May include social-card values."
+        },
+        {
+          "type": "optionallyComposesMany",
+          "target": "seo.structuredData",
+          "description": "May include multiple structured-data objects."
+        },
+        {
+          "type": "optionallyComposesMany",
+          "target": "seo.alternateLanguage",
+          "description": "May include alternate language URLs."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "oneRecordPerTargetLocale",
+          "description": "At most one active seo.metadata record may exist for a target entity and locale context unless a future localization contract defines variants."
+        },
+        {
+          "id": "canonicalNoFragment",
+          "description": "canonicalUrl must not include a URL fragment."
+        },
+        {
+          "id": "canonicalHttpsProduction",
+          "description": "Production canonical URLs should use HTTPS except explicitly approved exceptional environments."
+        },
+        {
+          "id": "noRankingGuarantee",
+          "description": "Metadata validation and scores must never be presented as ranking guarantees."
+        },
+        {
+          "id": "descriptionIsSuggestion",
+          "description": "metaDescription is a suggested snippet and must not be represented as controlling a search engine result."
+        }
+      ],
+      "cms": {
+        "label": "SEO",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "seo-workspace",
+        "summaryFields": [
+          "metaTitle",
+          "metaDescription",
+          "canonicalUrl",
+          "robots"
+        ],
+        "fieldGroups": [
+          "search-preview",
+          "keywords",
+          "indexing",
+          "social",
+          "structured-data",
+          "advanced"
+        ],
+        "primaryActions": [
+          "edit",
+          "analyze",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "identity": {
+              "id": "seo_01",
+              "createdAt": "2026-09-10T00:00:00Z",
+              "updatedAt": "2026-09-10T00:00:00Z"
+            },
+            "scope": {
+              "organizationId": "org_01",
+              "siteId": "site_01"
+            },
+            "target": {
+              "entityType": "content.blogPost",
+              "entityId": "post_01"
+            },
+            "metaTitle": "Preventive Maintenance Guide",
+            "metaDescription": "Practical guidance for reducing downtime.",
+            "canonicalUrl": "https://example.lk/blog/preventive-maintenance",
+            "updatedAt": "2026-09-10T00:00:00Z"
+          }
+        ],
+        "invalid": [
+          {
+            "target": null,
+            "canonicalUrl": "javascript:alert(1)"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.openGraph",
+      "name": "Open Graph Metadata",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "social",
+      "description": "Open Graph sharing metadata for a routable target.",
+      "purpose": "Provides provider-neutral social sharing values without hardcoding tags into customer site templates.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "title",
+          "required": false,
+          "nullable": true,
+          "description": "Open Graph title override.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Open Graph description override.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "image",
+          "required": false,
+          "nullable": true,
+          "description": "Open Graph image.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "type",
+          "required": false,
+          "nullable": true,
+          "description": "Open Graph object type.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "website",
+                "label": "Website"
+              },
+              {
+                "value": "article",
+                "label": "Article"
+              },
+              {
+                "value": "product",
+                "label": "Product"
+              },
+              {
+                "value": "profile",
+                "label": "Profile"
+              }
+            ],
+            "defaultValue": "website",
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "siteName",
+          "required": false,
+          "nullable": true,
+          "description": "Optional site name override.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 200,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true
+          }
+        },
+        {
+          "key": "locale",
+          "required": false,
+          "nullable": true,
+          "description": "Optional Open Graph locale.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 35,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "shared.mediaReference",
+          "description": "Uses canonical media references for social images."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "imagePubliclyResolvable",
+          "description": "Rendered social image must resolve publicly when the target is public."
+        },
+        {
+          "id": "fallbackAllowed",
+          "description": "Null values may fall back to seo.metadata or seo.siteDefaults according to implementation rules."
+        }
+      ],
+      "cms": {
+        "label": "Open Graph Metadata",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "title",
+          "description",
+          "image",
+          "type"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "title": "Example service",
+            "type": "website",
+            "locale": "en_LK"
+          }
+        ],
+        "invalid": [
+          {
+            "title": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.redirect",
+      "name": "Redirect",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "routing",
+      "description": "Canonical Site redirect rule.",
+      "purpose": "Allows Customer CMS and runtime adapters to manage redirects without embedding provider-specific server configuration in content code.",
+      "seoModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Redirect identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Site scope.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "sourcePath",
+          "required": true,
+          "nullable": false,
+          "description": "Site-relative source path including leading slash.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 2048,
+            "customerEditable": true,
+            "adminEditable": true,
+            "searchable": true,
+            "filterable": true
+          }
+        },
+        {
+          "key": "destinationUrl",
+          "required": true,
+          "nullable": false,
+          "description": "Absolute HTTP(S) destination URL.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": true,
+            "adminEditable": true,
+            "searchable": true
+          }
+        },
+        {
+          "key": "statusCode",
+          "required": true,
+          "nullable": false,
+          "description": "HTTP redirect status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "301",
+                "label": "301 Permanent"
+              },
+              {
+                "value": "302",
+                "label": "302 Temporary"
+              },
+              {
+                "value": "307",
+                "label": "307 Temporary"
+              },
+              {
+                "value": "308",
+                "label": "308 Permanent"
+              }
+            ],
+            "defaultValue": "301",
+            "customerEditable": true,
+            "adminEditable": true,
+            "filterable": true
+          }
+        },
+        {
+          "key": "preserveQuery",
+          "required": true,
+          "nullable": false,
+          "description": "Whether incoming query parameters are preserved when supported by the adapter.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether this redirect is active.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true,
+            "customerEditable": true,
+            "adminEditable": true,
+            "filterable": true
+          }
+        },
+        {
+          "key": "note",
+          "required": false,
+          "nullable": true,
+          "description": "Internal management note.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Redirects are Site scoped."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "sourcePathRelative",
+          "description": "sourcePath must start with / and must not include scheme or host."
+        },
+        {
+          "id": "noRedirectLoop",
+          "description": "A redirect must not resolve back to its source or create a detected cycle."
+        },
+        {
+          "id": "avoidRedirectChains",
+          "description": "Implementations should identify and consolidate avoidable multi-hop redirect chains."
+        },
+        {
+          "id": "sourceUnique",
+          "description": "Only one enabled redirect may own the same normalized sourcePath per Site."
+        },
+        {
+          "id": "safeDestinationScheme",
+          "description": "destinationUrl must use HTTP or HTTPS."
+        }
+      ],
+      "cms": {
+        "label": "Redirect",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "sourcePath",
+          "destinationUrl"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "identity": {
+              "id": "redir_01",
+              "createdAt": "2026-09-10T00:00:00Z",
+              "updatedAt": "2026-09-10T00:00:00Z"
+            },
+            "scope": {
+              "organizationId": "org_01",
+              "siteId": "site_01"
+            },
+            "sourcePath": "/old-service",
+            "destinationUrl": "https://example.lk/services/new-service",
+            "statusCode": "301",
+            "preserveQuery": true,
+            "enabled": true
+          }
+        ],
+        "invalid": [
+          {
+            "sourcePath": "https://example.lk/old",
+            "destinationUrl": "javascript:alert(1)",
+            "statusCode": "301"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.robotsDirective",
+      "name": "Robots Directive",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "directives",
+      "description": "Per-document meta robots behavior.",
+      "purpose": "Separates page-level indexing directives from robots.txt crawl policy.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "index",
+          "required": true,
+          "nullable": false,
+          "description": "Whether indexing is requested.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "follow",
+          "required": true,
+          "nullable": false,
+          "description": "Whether link following is requested.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "noArchive",
+          "required": true,
+          "nullable": false,
+          "description": "Whether cached/archive presentation should be discouraged where supported.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "noSnippet",
+          "required": true,
+          "nullable": false,
+          "description": "Whether snippets should be suppressed where supported.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "maxSnippet",
+          "required": false,
+          "nullable": true,
+          "description": "Optional maximum snippet length directive, -1 meaning no explicit limit where supported.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": -1,
+            "maximum": 1000,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "maxImagePreview",
+          "required": false,
+          "nullable": true,
+          "description": "Optional image preview size directive.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "standard",
+                "label": "Standard"
+              },
+              {
+                "value": "large",
+                "label": "Large"
+              }
+            ],
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "maxVideoPreview",
+          "required": false,
+          "nullable": true,
+          "description": "Optional maximum video preview seconds, -1 meaning no explicit limit where supported.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": -1,
+            "maximum": 3600,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "metaRobotsNotRobotsTxt",
+          "description": "This contract governs page-level robots metadata and must not be used as a robots.txt replacement."
+        },
+        {
+          "id": "noSnippetPrecedence",
+          "description": "When noSnippet is true, maxSnippet is advisory/ignored by renderers."
+        }
+      ],
+      "cms": {
+        "label": "Robots Directive",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "index",
+          "follow",
+          "noArchive",
+          "noSnippet"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "index": true,
+            "follow": true,
+            "noArchive": false,
+            "noSnippet": false,
+            "maxImagePreview": "large"
+          }
+        ],
+        "invalid": [
+          {
+            "index": "yes",
+            "follow": true
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.robotsPolicy",
+      "name": "Robots.txt Policy",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "directives",
+      "description": "Site-level robots.txt rules and sitemap references.",
+      "purpose": "Provides a structured robots.txt source without exposing arbitrary server configuration.",
+      "seoModel": {
+        "kind": "configuration",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Policy identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Site scope.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "rules",
+          "required": false,
+          "nullable": true,
+          "description": "Ordered robots.txt rules.",
+          "itemsSchema": "seo.robotsRule",
+          "config": {
+            "maxItems": 500
+          }
+        },
+        {
+          "key": "sitemapUrls",
+          "required": false,
+          "nullable": true,
+          "description": "Absolute sitemap URLs.",
+          "itemsPrimitive": "fields.url",
+          "config": {
+            "maxItems": 50
+          }
+        },
+        {
+          "key": "additionalComment",
+          "required": false,
+          "nullable": true,
+          "description": "Optional non-directive comment text for generated robots.txt.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 2000,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composesMany",
+          "target": "seo.robotsRule",
+          "description": "Policy contains robots.txt rules."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "noNoindexDirective",
+          "description": "robots.txt policy must not invent a noindex directive; indexing directives belong in seo.robotsDirective."
+        },
+        {
+          "id": "sitemapsAbsolute",
+          "description": "Every sitemap URL must be absolute HTTP(S)."
+        },
+        {
+          "id": "policyDoesNotAuthorizeAccess",
+          "description": "Allow rules do not grant application authorization; security cannot rely on robots.txt."
+        }
+      ],
+      "cms": {
+        "label": "Robots.txt Policy",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "rules",
+          "sitemapUrls"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "identity": {
+              "id": "robots_01",
+              "createdAt": "2026-09-10T00:00:00Z",
+              "updatedAt": "2026-09-10T00:00:00Z"
+            },
+            "scope": {
+              "organizationId": "org_01",
+              "siteId": "site_01"
+            },
+            "rules": [
+              {
+                "userAgent": "*",
+                "directive": "disallow",
+                "path": "/preview/"
+              }
+            ],
+            "sitemapUrls": [
+              "https://example.lk/sitemap.xml"
+            ]
+          }
+        ],
+        "invalid": [
+          {
+            "rules": [
+              {
+                "userAgent": "*",
+                "directive": "noindex",
+                "path": "/"
+              }
+            ]
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.robotsRule",
+      "name": "Robots.txt Rule",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "directives",
+      "description": "One robots.txt user-agent allow/disallow rule.",
+      "purpose": "Keeps crawler-path policy separate from page-level meta robots.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "userAgent",
+          "required": true,
+          "nullable": false,
+          "description": "Crawler user-agent token.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 200,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "directive",
+          "required": true,
+          "nullable": false,
+          "description": "Robots path directive.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "allow",
+                "label": "Allow"
+              },
+              {
+                "value": "disallow",
+                "label": "Disallow"
+              }
+            ],
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "path",
+          "required": true,
+          "nullable": false,
+          "description": "Path pattern used by robots.txt.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 2048,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "robotsTxtOnly",
+          "description": "This contract is only for robots.txt crawl policy, not index/noindex metadata."
+        },
+        {
+          "id": "pathStartsSlashOrEmpty",
+          "description": "path should be empty or begin with / according to the intended robots.txt semantics."
+        }
+      ],
+      "cms": {
+        "label": "Robots.txt Rule",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "userAgent",
+          "directive",
+          "path"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "userAgent": "*",
+            "directive": "disallow",
+            "path": "/private/"
+          }
+        ],
+        "invalid": [
+          {
+            "userAgent": "",
+            "directive": "noindex",
+            "path": "/"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.searchPerformance",
+      "name": "Search Performance",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "search",
+      "description": "Provider-neutral organic search performance metrics for a defined date range and dimensions.",
+      "purpose": "Supports CMS SEO reporting while keeping external provider identity and freshness explicit.",
+      "seoModel": {
+        "kind": "derived",
+        "customerManaged": false,
+        "derived": true,
+        "supportsRevision": false,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Site scope.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "query",
+          "required": false,
+          "nullable": true,
+          "description": "Optional query dimension.",
+          "schema": "seo.searchQuery"
+        },
+        {
+          "key": "pageUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Optional page dimension.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true
+          }
+        },
+        {
+          "key": "startDate",
+          "required": true,
+          "nullable": false,
+          "description": "Inclusive reporting start date.",
+          "primitive": "fields.date",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "endDate",
+          "required": true,
+          "nullable": false,
+          "description": "Inclusive reporting end date.",
+          "primitive": "fields.date",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "clicks",
+          "required": true,
+          "nullable": false,
+          "description": "Observed organic clicks.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0,
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        },
+        {
+          "key": "impressions",
+          "required": true,
+          "nullable": false,
+          "description": "Observed organic impressions.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0,
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        },
+        {
+          "key": "ctr",
+          "required": true,
+          "nullable": false,
+          "description": "Observed click-through rate in percentage points.",
+          "primitive": "fields.percentage",
+          "config": {
+            "minimum": 0,
+            "maximum": 100,
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        },
+        {
+          "key": "averagePosition",
+          "required": false,
+          "nullable": true,
+          "description": "Observed average position when supplied by the provider.",
+          "primitive": "fields.decimal",
+          "config": {
+            "minimum": 0,
+            "precision": 4,
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        },
+        {
+          "key": "sourceProvider",
+          "required": true,
+          "nullable": false,
+          "description": "Provider/source identifier such as google-search-console.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120,
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "importedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Time NEXT F received/imported this metric set.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "seo.searchQuery",
+          "description": "May be dimensioned by one search query."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "dateRangeValid",
+          "description": "endDate must not precede startDate."
+        },
+        {
+          "id": "clicksNotAboveImpressions",
+          "description": "clicks must not exceed impressions for comparable provider semantics."
+        },
+        {
+          "id": "ctrConsistent",
+          "description": "ctr should equal clicks / impressions * 100 within accepted rounding tolerance when impressions > 0."
+        },
+        {
+          "id": "sourceRequired",
+          "description": "Metrics must identify their source provider and import time; the CMS must not present stale or synthetic data as live provider data."
+        }
+      ],
+      "cms": {
+        "label": "Search Performance",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "scope",
+          "query",
+          "pageUrl",
+          "startDate"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "scope": {
+              "organizationId": "org_01",
+              "siteId": "site_01"
+            },
+            "startDate": "2026-09-01",
+            "endDate": "2026-09-07",
+            "clicks": 120,
+            "impressions": 2400,
+            "ctr": 5,
+            "averagePosition": 8.42,
+            "sourceProvider": "google-search-console",
+            "importedAt": "2026-09-10T00:00:00Z"
+          }
+        ],
+        "invalid": [
+          {
+            "startDate": "2026-09-10",
+            "endDate": "2026-09-01",
+            "clicks": 200,
+            "impressions": 100,
+            "ctr": 200
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.searchPreview",
+      "name": "Search Preview",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "metadata",
+      "description": "Derived search-result preview from canonical SEO metadata and Site defaults.",
+      "purpose": "Supports the Customer CMS editor preview while making clear that actual search engines may render different titles and snippets.",
+      "seoModel": {
+        "kind": "derived",
+        "customerManaged": true,
+        "derived": true,
+        "supportsRevision": false,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "title",
+          "required": true,
+          "nullable": false,
+          "description": "Rendered preview title.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Rendered preview description.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 2000,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "displayUrl",
+          "required": true,
+          "nullable": false,
+          "description": "Preview URL.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "titleCharacters",
+          "required": true,
+          "nullable": false,
+          "description": "Character count for UI guidance.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "descriptionCharacters",
+          "required": true,
+          "nullable": false,
+          "description": "Description character count for UI guidance.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "source",
+          "required": true,
+          "nullable": false,
+          "description": "Whether values came from explicit metadata, site defaults or content fallback.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "metadata",
+                "label": "Metadata"
+              },
+              {
+                "value": "defaults",
+                "label": "Site Defaults"
+              },
+              {
+                "value": "content-fallback",
+                "label": "Content Fallback"
+              },
+              {
+                "value": "mixed",
+                "label": "Mixed"
+              }
+            ],
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "previewNotGuarantee",
+          "description": "The preview is an approximation; search engines may rewrite titles, snippets and displayed URLs."
+        },
+        {
+          "id": "lengthAdvisory",
+          "description": "Character counts are editor guidance only and must not be enforced as hard search-engine limits."
+        }
+      ],
+      "cms": {
+        "label": "Search Preview",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "title",
+          "description",
+          "displayUrl",
+          "titleCharacters"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "title": "Web Development | Example",
+            "description": "Conversion-focused website development.",
+            "displayUrl": "https://example.lk/web-development",
+            "titleCharacters": 25,
+            "descriptionCharacters": 39,
+            "source": "mixed"
+          }
+        ],
+        "invalid": [
+          {
+            "displayUrl": "/relative",
+            "source": "guaranteed-google"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.searchQuery",
+      "name": "Search Query Dimension",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "search",
+      "description": "Normalized organic-search query dimension used in imported performance data.",
+      "purpose": "Provides provider-neutral query context for search performance reports without treating external integrations as canonical content.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": false,
+        "derived": true,
+        "supportsRevision": false,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "query",
+          "required": true,
+          "nullable": false,
+          "description": "Observed query text.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 2000,
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true
+          }
+        },
+        {
+          "key": "country",
+          "required": false,
+          "nullable": true,
+          "description": "Optional ISO-style country/market code supplied by the data source.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 20,
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "device",
+          "required": false,
+          "nullable": true,
+          "description": "Optional device dimension.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "desktop",
+                "label": "Desktop"
+              },
+              {
+                "value": "mobile",
+                "label": "Mobile"
+              },
+              {
+                "value": "tablet",
+                "label": "Tablet"
+              },
+              {
+                "value": "other",
+                "label": "Other"
+              }
+            ],
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "searchType",
+          "required": false,
+          "nullable": true,
+          "description": "Optional search vertical/type.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "web",
+                "label": "Web"
+              },
+              {
+                "value": "image",
+                "label": "Image"
+              },
+              {
+                "value": "video",
+                "label": "Video"
+              },
+              {
+                "value": "news",
+                "label": "News"
+              },
+              {
+                "value": "discover",
+                "label": "Discover"
+              },
+              {
+                "value": "other",
+                "label": "Other"
+              }
+            ],
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "observedData",
+          "description": "query represents observed/imported data and must not be auto-generated as if it were measured performance."
+        }
+      ],
+      "cms": {
+        "label": "Search Query Dimension",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "query",
+          "country",
+          "device",
+          "searchType"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "query": "web development sri lanka",
+            "country": "LK",
+            "device": "mobile",
+            "searchType": "web"
+          }
+        ],
+        "invalid": [
+          {
+            "query": ""
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.siteDefaults",
+      "name": "Site SEO Defaults",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "metadata",
+      "description": "Site-level default SEO values applied when target-specific metadata does not override them.",
+      "purpose": "Gives Customer CMS one safe place for default title templates, descriptions, robots and social metadata.",
+      "seoModel": {
+        "kind": "configuration",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable configuration identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Site scope.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "titleTemplate",
+          "required": false,
+          "nullable": true,
+          "description": "Optional page-title template containing a single %s placeholder.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300,
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "defaultMetaDescription",
+          "required": false,
+          "nullable": true,
+          "description": "Optional fallback meta description.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "defaultRobots",
+          "required": false,
+          "nullable": true,
+          "description": "Default page-level robots behavior.",
+          "schema": "seo.robotsDirective"
+        },
+        {
+          "key": "defaultOpenGraph",
+          "required": false,
+          "nullable": true,
+          "description": "Default Open Graph values.",
+          "schema": "seo.openGraph"
+        },
+        {
+          "key": "defaultSocialCard",
+          "required": false,
+          "nullable": true,
+          "description": "Default social-card values.",
+          "schema": "seo.socialCard"
+        },
+        {
+          "key": "defaultSocialImage",
+          "required": false,
+          "nullable": true,
+          "description": "Default social image fallback.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "defaultLocale",
+          "required": false,
+          "nullable": true,
+          "description": "Site default BCP 47 locale.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 35,
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Defaults are scoped to one Site."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "seo.robotsDirective",
+          "description": "May define default robots behavior."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "seo.openGraph",
+          "description": "May define default Open Graph values."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "seo.socialCard",
+          "description": "May define default social-card values."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "oneSiteDefaultsRecord",
+          "description": "At most one active Site SEO Defaults record exists per Site and locale strategy."
+        },
+        {
+          "id": "titleTemplatePlaceholder",
+          "description": "When titleTemplate is non-null it must contain exactly one %s content-title placeholder unless a future template contract defines additional tokens."
+        },
+        {
+          "id": "defaultsDoNotOverrideExplicit",
+          "description": "Target-specific seo.metadata values override defaults."
+        }
+      ],
+      "cms": {
+        "label": "Site SEO Defaults",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "titleTemplate",
+          "defaultMetaDescription"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "identity": {
+              "id": "seo_default_01",
+              "createdAt": "2026-09-10T00:00:00Z",
+              "updatedAt": "2026-09-10T00:00:00Z"
+            },
+            "scope": {
+              "organizationId": "org_01",
+              "siteId": "site_01"
+            },
+            "titleTemplate": "%s | Example Engineering",
+            "defaultLocale": "en-LK"
+          }
+        ],
+        "invalid": [
+          {
+            "titleTemplate": "Example without placeholder"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.sitemapEntry",
+      "name": "Sitemap Entry",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "indexing",
+      "description": "One canonical URL eligible for an XML sitemap.",
+      "purpose": "Provides a host-independent sitemap data contract for public indexable URLs and multilingual alternates.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "url",
+          "required": true,
+          "nullable": false,
+          "description": "Absolute canonical URL.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": true,
+            "searchable": true
+          }
+        },
+        {
+          "key": "lastModifiedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Optional truthful last meaningful content modification time.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": true,
+            "sortable": true
+          }
+        },
+        {
+          "key": "alternates",
+          "required": false,
+          "nullable": true,
+          "description": "Optional alternate-language URLs.",
+          "itemsSchema": "seo.alternateLanguage",
+          "config": {
+            "maxItems": 50
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposesMany",
+          "target": "seo.alternateLanguage",
+          "description": "May include hreflang-style alternate URLs."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "publicCanonicalOnly",
+          "description": "Sitemap URLs must be public canonical URLs eligible for indexing."
+        },
+        {
+          "id": "excludeNoindex",
+          "description": "Targets explicitly marked noindex must not appear in a generated public sitemap."
+        },
+        {
+          "id": "truthfulLastModified",
+          "description": "lastModifiedAt must reflect meaningful content modification and must not be automatically refreshed solely because of deployment."
+        }
+      ],
+      "cms": {
+        "label": "Sitemap Entry",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "url",
+          "lastModifiedAt",
+          "alternates"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "url": "https://example.lk/services/web-development",
+            "lastModifiedAt": "2026-09-09T12:00:00Z"
+          }
+        ],
+        "invalid": [
+          {
+            "url": "/relative-page"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.socialCard",
+      "name": "Social Card Metadata",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "social",
+      "description": "Generic social-card metadata for networks that use title, description and image card values.",
+      "purpose": "Allows CMS social-preview controls without coupling canonical content to one advertising/social vendor.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "title",
+          "required": false,
+          "nullable": true,
+          "description": "Social-card title override.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Social-card description override.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "customerEditable": true,
+            "adminEditable": true,
+            "localizable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "image",
+          "required": false,
+          "nullable": true,
+          "description": "Social-card image.",
+          "schema": "shared.mediaReference"
+        },
+        {
+          "key": "cardType",
+          "required": false,
+          "nullable": true,
+          "description": "Preferred generic card size/style.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "summary",
+                "label": "Summary"
+              },
+              {
+                "value": "summary-large-image",
+                "label": "Summary Large Image"
+              }
+            ],
+            "defaultValue": "summary-large-image",
+            "customerEditable": true,
+            "adminEditable": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "shared.mediaReference",
+          "description": "Uses canonical media reference for card images."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "vendorNeutral",
+          "description": "Vendor-specific account handles and API credentials do not belong in this canonical social-card contract."
+        }
+      ],
+      "cms": {
+        "label": "Social Card Metadata",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "title",
+          "description",
+          "image",
+          "cardType"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "title": "Case study",
+            "cardType": "summary-large-image"
+          }
+        ],
+        "invalid": [
+          {
+            "cardType": "facebook-only"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.structuredData",
+      "name": "Structured Data",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "structured-data",
+      "description": "One structured-data JSON-LD object and validation state.",
+      "purpose": "Supports schema.org-style structured data without allowing executable script payloads or fabricated claims.",
+      "seoModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "derived": false,
+        "supportsRevision": true,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "schemaType",
+          "required": true,
+          "nullable": false,
+          "description": "Primary structured-data type name, such as Organization, Article, Product or FAQPage.",
+          "primitive": "fields.text",
+          "config": {
+            "minLength": 1,
+            "maxLength": 120,
+            "customerEditable": true,
+            "adminEditable": true,
+            "searchable": true
+          }
+        },
+        {
+          "key": "payload",
+          "required": true,
+          "nullable": false,
+          "description": "JSON-compatible structured-data object without script tags or executable values.",
+          "primitive": "fields.json",
+          "config": {
+            "format": "json-ld-object",
+            "customerEditable": true,
+            "adminEditable": true,
+            "revisionTracked": true
+          }
+        },
+        {
+          "key": "source",
+          "required": true,
+          "nullable": false,
+          "description": "How the structured-data object was produced.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "generated",
+                "label": "Generated"
+              },
+              {
+                "value": "managed",
+                "label": "Managed"
+              },
+              {
+                "value": "imported",
+                "label": "Imported"
+              }
+            ],
+            "defaultValue": "generated",
+            "customerEditable": false,
+            "adminEditable": true
+          }
+        },
+        {
+          "key": "validationStatus",
+          "required": true,
+          "nullable": false,
+          "description": "Most recent validation state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "unknown",
+                "label": "Unknown"
+              },
+              {
+                "value": "valid",
+                "label": "Valid"
+              },
+              {
+                "value": "warning",
+                "label": "Warning"
+              },
+              {
+                "value": "invalid",
+                "label": "Invalid"
+              }
+            ],
+            "defaultValue": "unknown",
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "jsonObjectOnly",
+          "description": "payload must be a JSON object/array appropriate for JSON-LD and must not include executable code, functions or <script> markup."
+        },
+        {
+          "id": "claimsMustBeTruthful",
+          "description": "Structured data must describe visible or otherwise legitimately represented content and must not fabricate reviews, prices, availability or organizational claims."
+        },
+        {
+          "id": "typeMatchesPayload",
+          "description": "schemaType must correspond to the primary @type represented by payload when present."
+        }
+      ],
+      "cms": {
+        "label": "Structured Data",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "schemaType",
+          "payload",
+          "source",
+          "validationStatus"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "edit",
+          "preview"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "schemaType": "Article",
+            "payload": {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "Example"
+            },
+            "source": "generated",
+            "validationStatus": "valid"
+          }
+        ],
+        "invalid": [
+          {
+            "schemaType": "Review",
+            "payload": "<script>alert(1)</script>",
+            "source": "managed",
+            "validationStatus": "valid"
+          }
+        ]
+      },
+      "notes": []
+    },
+    {
+      "$id": "seo.urlInspectionResult",
+      "name": "URL Inspection Result",
+      "version": "0.8.0",
+      "status": "stable",
+      "domain": "seo",
+      "category": "indexing",
+      "description": "Timestamped crawl/indexing inspection details for a Site URL.",
+      "purpose": "Supports provider and NEXT F URL inspection diagnostics without making external provider output part of editable content.",
+      "seoModel": {
+        "kind": "derived",
+        "customerManaged": false,
+        "derived": true,
+        "supportsRevision": false,
+        "target": "site-or-entity"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Inspection result identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Site scope.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "url",
+          "required": true,
+          "nullable": false,
+          "description": "Inspected absolute URL.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "searchable": true
+          }
+        },
+        {
+          "key": "checkedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Inspection time.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false,
+            "sortable": true
+          }
+        },
+        {
+          "key": "sourceProvider",
+          "required": true,
+          "nullable": false,
+          "description": "Inspection source/provider.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120,
+            "customerEditable": false,
+            "adminEditable": false,
+            "filterable": true
+          }
+        },
+        {
+          "key": "indexing",
+          "required": true,
+          "nullable": false,
+          "description": "Normalized indexing state.",
+          "schema": "seo.indexingStatus"
+        },
+        {
+          "key": "declaredCanonical",
+          "required": false,
+          "nullable": true,
+          "description": "Canonical declared by the inspected page when available.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "selectedCanonical",
+          "required": false,
+          "nullable": true,
+          "description": "Canonical selected/reported by the inspection source when available.",
+          "primitive": "fields.url",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "crawlAllowed",
+          "required": false,
+          "nullable": true,
+          "description": "Whether crawling was reported as allowed when available.",
+          "primitive": "fields.boolean",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "lastCrawlAt",
+          "required": false,
+          "nullable": true,
+          "description": "Most recent crawl time reported by the source.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "seo.indexingStatus",
+          "description": "Includes normalized indexing state."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "inspectionIsTimestamped",
+          "description": "Inspection results are snapshots and must always include checkedAt and sourceProvider."
+        },
+        {
+          "id": "selectedCanonicalObserved",
+          "description": "selectedCanonical is observed provider output and must not automatically overwrite seo.metadata.canonicalUrl."
+        },
+        {
+          "id": "stalenessVisible",
+          "description": "CMS should expose inspection freshness rather than presenting an old result as current."
+        }
+      ],
+      "cms": {
+        "label": "URL Inspection Result",
+        "icon": "fa-magnifying-glass-chart",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "url",
+          "checkedAt"
+        ],
+        "fieldGroups": [
+          "seo"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "permissions": "phase-15"
+      },
+      "examples": {
+        "valid": [
+          {
+            "identity": {
+              "id": "inspect_01",
+              "createdAt": "2026-09-10T00:00:00Z",
+              "updatedAt": "2026-09-10T00:00:00Z"
+            },
+            "scope": {
+              "organizationId": "org_01",
+              "siteId": "site_01"
+            },
+            "url": "https://example.lk/services",
+            "checkedAt": "2026-09-10T00:00:00Z",
+            "sourceProvider": "google-search-console",
+            "indexing": {
+              "state": "indexable",
+              "source": "google-search-console"
+            },
+            "declaredCanonical": "https://example.lk/services",
+            "selectedCanonical": "https://example.lk/services",
+            "crawlAllowed": true
+          }
+        ],
+        "invalid": [
+          {
+            "url": "https://example.lk",
+            "sourceProvider": "",
+            "indexing": null
+          }
+        ]
+      },
+      "notes": []
+    }
+  ]
+};

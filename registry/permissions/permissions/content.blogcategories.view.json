@@ -1,0 +1,29 @@
+{
+  "$id": "content.blogcategories.view",
+  "name": "View Blogcategories",
+  "permissionId": "content.blogcategories.view",
+  "domain": "content",
+  "resource": "blogcategories",
+  "action": "view",
+  "scopeKind": "site",
+  "riskLevel": "standard",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Blogcategories within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

@@ -1,0 +1,35 @@
+{
+  "controlId": "SEC-KEY-001",
+  "name": "API key handling",
+  "category": "secrets",
+  "requirement": "Private API keys must be stored and transmitted only through protected server-side mechanisms; public identifiers must be distinguished from secret keys.",
+  "rationale": "Provider keys frequently have broad external authority.",
+  "applicability": [
+    "integrations",
+    "api"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "integrations.apiKeyConfiguration"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_key_001.json"
+}

@@ -1,0 +1,136 @@
+{
+  "$id": "commerce.productCategory",
+  "name": "Product Category",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "catalog",
+  "description": "Hierarchical Product taxonomy.",
+  "purpose": "Provides stable Product categorization distinct from campaign collections.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Category name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Category URL slug.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional description.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "parentCategoryId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional parent category ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "featuredMedia",
+      "required": false,
+      "nullable": true,
+      "description": "Optional category image.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Publishing state.",
+      "schema": "core.publishing"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "selfReferences",
+      "target": "commerce.productCategory",
+      "description": "References commerce.productCategory."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "References shared.mediaReference."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noCycle",
+      "description": "Category hierarchy cannot contain cycles."
+    },
+    {
+      "id": "slugUnique",
+      "description": "Published category slugs are unique within Site/locale."
+    }
+  ],
+  "cms": {
+    "label": "Product Category",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "name",
+      "slug"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly public storefront fields may be delivered; operational, personal, payment and internal metadata remain private."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

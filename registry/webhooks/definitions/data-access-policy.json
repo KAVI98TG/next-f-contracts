@@ -1,0 +1,102 @@
+{
+  "$id": "webhooks.dataAccessPolicy",
+  "name": "Webhook Data Access Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "foundation",
+  "description": "Explicitly defines which event data classifications a subscription may receive.",
+  "purpose": "Separates event webhook eligibility from authorization to disclose its payload.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "allowedClassifications",
+      "required": true,
+      "nullable": false,
+      "description": "Explicit allowed data classifications.",
+      "primitive": "fields.multiSelect",
+      "config": {
+        "options": [
+          "public",
+          "internal",
+          "personal",
+          "sensitive",
+          "financial"
+        ]
+      }
+    },
+    {
+      "key": "allowPersonalData",
+      "required": true,
+      "nullable": false,
+      "description": "Whether personal data is explicitly authorized.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "allowSensitiveData",
+      "required": true,
+      "nullable": false,
+      "description": "Whether sensitive data is explicitly authorized.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "allowFinancialData",
+      "required": true,
+      "nullable": false,
+      "description": "Whether financial data is explicitly authorized.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "purpose",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable approved delivery purpose.",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "leastPrivilege",
+      "description": "Only classifications necessary for the approved integration purpose may be enabled."
+    },
+    {
+      "id": "eligibilityNotAuthorization",
+      "description": "webhookEligible does not itself authorize disclosure."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Secret-class data is never allowed through generic webhook payloads."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Data Access Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "allowedClassifications",
+      "allowPersonalData",
+      "allowSensitiveData",
+      "allowFinancialData"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

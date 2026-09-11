@@ -1,0 +1,75 @@
+{
+  "$id": "api.events.get-domain-event",
+  "operationId": "api.events.get-domain-event",
+  "name": "Get Canonical Domain Event",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.events",
+  "method": "GET",
+  "path": "/domain-events/{eventId}",
+  "description": "Get Canonical Domain Event",
+  "authentication": {
+    "mode": "organization-user",
+    "permissions": [
+      "events.logs.view"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "eventId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "events.eventEnvelope",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "server-only"
+  },
+  "moduleBindings": [
+    "core",
+    "analytics",
+    "marketing"
+  ],
+  "contractBindings": [
+    "events.eventEnvelope"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": []
+}

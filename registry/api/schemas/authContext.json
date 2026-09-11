@@ -1,0 +1,77 @@
+{
+  "$id": "api.authContext",
+  "name": "Authentication Context",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "security",
+  "description": "Normalized authenticated principal context. Does not itself grant authorization.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "mode",
+      "required": true,
+      "nullable": false,
+      "description": "mode",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "principalId",
+      "required": true,
+      "nullable": false,
+      "description": "principalId",
+      "primitive": false
+    },
+    {
+      "key": "organizationId",
+      "required": true,
+      "nullable": false,
+      "description": "organizationId",
+      "primitive": false
+    },
+    {
+      "key": "siteId",
+      "required": true,
+      "nullable": false,
+      "description": "siteId",
+      "primitive": false
+    },
+    {
+      "key": "sessionId",
+      "required": true,
+      "nullable": false,
+      "description": "sessionId",
+      "primitive": false
+    },
+    {
+      "key": "authenticatedAt",
+      "required": false,
+      "nullable": false,
+      "description": "authenticatedAt",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

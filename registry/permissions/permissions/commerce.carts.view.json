@@ -1,0 +1,29 @@
+{
+  "$id": "commerce.carts.view",
+  "name": "View Carts",
+  "permissionId": "commerce.carts.view",
+  "domain": "commerce",
+  "resource": "carts",
+  "action": "view",
+  "scopeKind": "site",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Carts within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

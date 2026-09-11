@@ -1,0 +1,99 @@
+{
+  "$id": "events.eventRetentionPolicy",
+  "name": "Event Retention Policy",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Defines retention class without committing to a storage vendor.",
+  "purpose": "Defines retention class without committing to a storage vendor.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "class",
+      "required": true,
+      "nullable": false,
+      "description": "Retention class.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "short-operational",
+          "standard-audit",
+          "transaction-history",
+          "policy-defined"
+        ]
+      }
+    },
+    {
+      "key": "minimumDays",
+      "required": false,
+      "nullable": true,
+      "description": "Optional minimum retention in days.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "maximumDays",
+      "required": false,
+      "nullable": true,
+      "description": "Optional maximum retention in days.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "retentionOrder",
+      "description": "maximumDays cannot be less than minimumDays."
+    },
+    {
+      "id": "privacyMayOverride",
+      "description": "Later privacy/legal policy may impose narrower retention."
+    }
+  ],
+  "cms": {
+    "label": "Event Retention Policy",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "class",
+      "minimumDays",
+      "maximumDays"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

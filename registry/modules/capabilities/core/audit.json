@@ -1,0 +1,33 @@
+{
+  "$id": "modules.capability.core.audit",
+  "capabilityId": "core.audit",
+  "name": "Audit",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "core",
+  "mode": "always-on",
+  "selectable": false,
+  "defaultEnabled": true,
+  "description": "Audit capability within the Core module.",
+  "contractBindings": [
+    "core.auditRecord",
+    "core.actorReference",
+    "core.entityReference"
+  ],
+  "permissionBindings": [
+    "core.audit.export",
+    "core.audit.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

@@ -1,0 +1,116 @@
+{
+  "$id": "webhooks.eventExposure",
+  "name": "Webhook Event Exposure",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "foundation",
+  "description": "Resolved exposure decision for one canonical event and webhook subscription.",
+  "purpose": "Produces an auditable allow/deny decision before a delivery is created.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "eventKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Event Registry key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "eventVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Event version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "eligible",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the Event Registry marks the event webhook-eligible.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "selected",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the exact event is selected by the subscription.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "environmentMatches",
+      "required": true,
+      "nullable": false,
+      "description": "Whether event and subscription environments match.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "dataAuthorized",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the subscription data policy authorizes the payload.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "allowed",
+      "required": true,
+      "nullable": false,
+      "description": "Final exposure decision.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "denialReason",
+      "required": false,
+      "nullable": true,
+      "description": "Canonical denial reason when not allowed.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "events.eventDefinition",
+      "description": "Event definition controls eligibility."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "allConditionsRequired",
+      "description": "allowed may be true only when eligible, selected, environmentMatches and dataAuthorized are all true."
+    },
+    {
+      "id": "exactSelection",
+      "description": "Wildcard event selection is not permitted in V1."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Event Exposure",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "eventKey",
+      "eventVersion",
+      "eligible",
+      "selected"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

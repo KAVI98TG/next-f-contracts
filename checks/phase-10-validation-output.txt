@@ -1,0 +1,13 @@
+NEXT F Contracts Phase 10 validation
+Version: 0.11.0
+Integration schemas: 35
+Provider connectors: 13
+Capabilities: 15
+Schema fields inspected: 206
+Connector config fields: 52
+Validation rules inspected: 91
+Registry items: 285
+Passes: 1214
+Failures: 0
+
+PASS - Phase 10 Integration Registry is internally consistent.

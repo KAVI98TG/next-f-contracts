@@ -1,0 +1,20 @@
+{
+  "registryVersion": "0.18.0",
+  "items": [
+    {
+      "id": "always-on",
+      "label": "Always On",
+      "description": "Part of the module baseline and cannot be disabled while the module is enabled."
+    },
+    {
+      "id": "default-on",
+      "label": "Default On",
+      "description": "Enabled by default but may be explicitly disabled when the manifest permits."
+    },
+    {
+      "id": "optional",
+      "label": "Optional",
+      "description": "Disabled unless explicitly enabled."
+    }
+  ]
+}

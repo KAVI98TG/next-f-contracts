@@ -1,0 +1,7 @@
+Phase 17 validation
+Modules: 13
+Capabilities: 102
+Registry entries: 1197
+Passes: 1643
+Failures: 0
+PASS

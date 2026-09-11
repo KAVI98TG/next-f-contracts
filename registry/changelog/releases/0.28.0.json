@@ -1,0 +1,860 @@
+{
+  "$id": "changelog.release.0.28.0",
+  "version": "0.28.0",
+  "phase": 27,
+  "title": "Changelog System",
+  "releaseStatus": "published-development",
+  "releaseDate": null,
+  "summary": "Phase 27 - Changelog System.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_ece49d2ff5c54a",
+          "releaseVersion": "0.28.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "NEXT F Changelog Standard and authoritative machine-readable release-note model.",
+          "affectedRegistryIds": [
+            "changelog.changelogStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "NEXT F Changelog Standard and authoritative machine-readable release-note model.",
+          "description": "NEXT F Changelog Standard and authoritative machine-readable release-note model.",
+          "changeType": "added",
+          "affectedDomains": [
+            "changelog"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_8cebe116e24bb7",
+          "releaseVersion": "0.28.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Canonical change categories, evidence levels, operational policy and release-note JSON Schema.",
+          "affectedRegistryIds": [
+            "changelog.evidenceLevels",
+            "changelog.policy",
+            "changelog.sections"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Canonical change categories, evidence levels, operational policy and release-note JSON Schema.",
+          "description": "Canonical change categories, evidence levels, operational policy and release-note JSON Schema.",
+          "changeType": "added",
+          "affectedDomains": [
+            "changelog"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_85e5e38fdeda39",
+          "releaseVersion": "0.28.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Eleven reusable Changelog lifecycle schemas for entries, sections, provenance, evidence, summaries, affected-contract references, compatibility references, corrections, release notes and release collections.",
+          "affectedRegistryIds": [
+            "changelog.affectedContractReference",
+            "changelog.changeEntry",
+            "changelog.compatibilityReference",
+            "changelog.evidenceDescriptor",
+            "changelog.impactClassification",
+            "changelog.releaseCollection",
+            "changelog.releaseCorrection",
+            "changelog.releaseNote",
+            "changelog.releaseProvenance",
+            "changelog.releaseSection",
+            "changelog.releaseSummary"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Eleven reusable Changelog lifecycle schemas for entries, sections, provenance, evidence, summaries, affected-contract references, compatibility references, corrections, release notes and release collections.",
+          "description": "Eleven reusable Changelog lifecycle schemas for entries, sections, provenance, evidence, summaries, affected-contract references, compatibility references, corrections, release notes and release collections.",
+          "changeType": "added",
+          "affectedDomains": [
+            "changelog"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_df4154d389d6e2",
+          "releaseVersion": "0.28.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Machine-readable release records for the complete V0.1.0 through V0.28.0 development train.",
+          "affectedRegistryIds": [
+            "changelog.releaseIndex"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Machine-readable release records for the complete V0.1.0 through V0.28.0 development train.",
+          "description": "Machine-readable release records for the complete V0.1.0 through V0.28.0 development train.",
+          "changeType": "added",
+          "affectedDomains": [
+            "changelog"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_78483b463dfd4f",
+          "releaseVersion": "0.28.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Deterministic change-entry identifiers and source/evidence provenance.",
+          "affectedRegistryIds": [],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Deterministic change-entry identifiers and source/evidence provenance.",
+          "description": "Deterministic change-entry identifiers and source/evidence provenance.",
+          "changeType": "added",
+          "affectedDomains": [],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_778a7c4378b832",
+          "releaseVersion": "0.28.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Dedicated Changelog Explorer with overview, release timeline, entry search and definition views.",
+          "affectedRegistryIds": [
+            "changelog.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Dedicated Changelog Explorer with overview, release timeline, entry search and definition views.",
+          "description": "Dedicated Changelog Explorer with overview, release timeline, entry search and definition views.",
+          "changeType": "added",
+          "affectedDomains": [
+            "changelog"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_efe090d9eb233f",
+          "releaseVersion": "0.28.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Release detail views with categorized notes, evidence status, support/compatibility context and links to Contract Diff.",
+          "affectedRegistryIds": [
+            "compatibility.compatibilityCenterStandard",
+            "diff.contractDiffStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Release detail views with categorized notes, evidence status, support/compatibility context and links to Contract Diff.",
+          "description": "Release detail views with categorized notes, evidence status, support/compatibility context and links to Contract Diff.",
+          "changeType": "added",
+          "affectedDomains": [
+            "diff",
+            "lifecycle"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_fcf3a54e40a6fb",
+          "releaseVersion": "0.28.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Lazy-loaded Changelog runtime and SHA-256-bound local file fallback.",
+          "affectedRegistryIds": [],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Lazy-loaded Changelog runtime and SHA-256-bound local file fallback.",
+          "description": "Lazy-loaded Changelog runtime and SHA-256-bound local file fallback.",
+          "changeType": "added",
+          "affectedDomains": [],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_e3a04e63891498",
+          "releaseVersion": "0.28.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Phase 27 validation and portal/runtime smoke tests.",
+          "affectedRegistryIds": [],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 27 validation and portal/runtime smoke tests.",
+          "description": "Phase 27 validation and portal/runtime smoke tests.",
+          "changeType": "added",
+          "affectedDomains": [],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_809bc565717c2a",
+          "releaseVersion": "0.28.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Canonical Changelog release, change-entry and impact JSON Schemas plus a derived contract history index for deterministic lifecycle navigation.",
+          "affectedRegistryIds": [
+            "changelog.changeEntryJsonSchema",
+            "changelog.contractHistoryIndex",
+            "changelog.impactJsonSchema",
+            "changelog.releaseSchema"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Canonical Changelog release, change-entry and impact JSON Schemas plus a derived contract history index for deterministic lifecycle navigation.",
+          "description": "Canonical Changelog release, change-entry and impact JSON Schemas plus a derived contract history index for deterministic lifecycle navigation.",
+          "changeType": "added",
+          "affectedDomains": [
+            "changelog"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_028e62d635c945",
+          "releaseVersion": "0.28.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Changelog filters now cover version, phase, change type, domain, module, breaking-only and migration-required views, with dedicated per-change detail and raw JSON.",
+          "affectedRegistryIds": [
+            "changelog.changeEntry",
+            "changelog.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Changelog filters now cover version, phase, change type, domain, module, breaking-only and migration-required views, with dedicated per-change detail and raw JSON.",
+          "description": "Changelog filters now cover version, phase, change type, domain, module, breaking-only and migration-required views, with dedicated per-change detail and raw JSON.",
+          "changeType": "added",
+          "affectedDomains": [
+            "changelog"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "changed",
+      "label": "Changed",
+      "entries": [
+        {
+          "entryId": "chg_adfd756c0d7c39",
+          "releaseVersion": "0.28.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Lifecycle Changelog route promoted from Planned to Available and the coordinated Registry release advanced to V0.28.0.",
+          "affectedRegistryIds": [],
+          "compatibilityImpact": "metadata",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Lifecycle Changelog route promoted from Planned to Available and the coordinated Registry release advanced to V0.28.0.",
+          "description": "Lifecycle Changelog route promoted from Planned to Available and the coordinated Registry release advanced to V0.28.0.",
+          "changeType": "changed",
+          "affectedDomains": [],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "metadata",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_24f691d0a5b887",
+          "releaseVersion": "0.28.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Historical root CHANGELOG content normalized into descending semantic-version order without deleting historical release-note meaning.",
+          "affectedRegistryIds": [],
+          "compatibilityImpact": "metadata",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Historical root CHANGELOG content normalized into descending semantic-version order without deleting historical release-note meaning.",
+          "description": "Historical root CHANGELOG content normalized into descending semantic-version order without deleting historical release-note meaning.",
+          "changeType": "changed",
+          "affectedDomains": [],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "metadata",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_06d58db1c3739a",
+          "releaseVersion": "0.28.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Contract Diff, Compatibility Center, Relationship Explorer and Global Search regenerated against the V0.28.0 Registry.",
+          "affectedRegistryIds": [
+            "compatibility.compatibilityCenterStandard",
+            "diff.contractDiffStandard"
+          ],
+          "compatibilityImpact": "metadata",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Contract Diff, Compatibility Center, Relationship Explorer and Global Search regenerated against the V0.28.0 Registry.",
+          "description": "Contract Diff, Compatibility Center, Relationship Explorer and Global Search regenerated against the V0.28.0 Registry.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "diff",
+            "lifecycle"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "metadata",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_e52b2786492c05",
+          "releaseVersion": "0.28.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Global Search now indexes releases and individual change entries as first-class discoverable records, and Relationship Explorer projects explicit release-to-affected-item links.",
+          "affectedRegistryIds": [
+            "relationships.relationshipIndex",
+            "search.searchIndex"
+          ],
+          "compatibilityImpact": "metadata",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Global Search now indexes releases and individual change entries as first-class discoverable records, and Relationship Explorer projects explicit release-to-affected-item links.",
+          "description": "Global Search now indexes releases and individual change entries as first-class discoverable records, and Relationship Explorer projects explicit release-to-affected-item links.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "relationships",
+            "search"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "metadata",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "fixed",
+      "label": "Fixed",
+      "entries": [
+        {
+          "entryId": "chg_766546f4e79efc",
+          "releaseVersion": "0.28.0",
+          "category": "fixed",
+          "originalSection": "Fixed",
+          "summary": "Removed inherited duplicate root Changelog headings and historical release ordering anomalies from the generated Markdown projection.",
+          "affectedRegistryIds": [],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Removed inherited duplicate root Changelog headings and historical release ordering anomalies from the generated Markdown projection.",
+          "description": "Removed inherited duplicate root Changelog headings and historical release ordering anomalies from the generated Markdown projection.",
+          "changeType": "fixed",
+          "affectedDomains": [],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_84f8d2bf6d60a1",
+          "releaseVersion": "0.28.0",
+          "category": "fixed",
+          "originalSection": "Fixed",
+          "summary": "Phase 26 compatibility regression validation now preserves its substantive checks while accepting coordinated later pre-V1 releases instead of hard-coding V0.27.0.",
+          "affectedRegistryIds": [
+            "compatibility.compatibilityCenterStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 26 compatibility regression validation now preserves its substantive checks while accepting coordinated later pre-V1 releases instead of hard-coding V0.27.0.",
+          "description": "Phase 26 compatibility regression validation now preserves its substantive checks while accepting coordinated later pre-V1 releases instead of hard-coding V0.27.0.",
+          "changeType": "fixed",
+          "affectedDomains": [
+            "lifecycle"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "integrity",
+      "label": "Integrity",
+      "entries": [
+        {
+          "entryId": "chg_843ab58496f01e",
+          "releaseVersion": "0.28.0",
+          "category": "integrity",
+          "originalSection": "Integrity",
+          "summary": "Release notes never replace exact Contract Diff or Compatibility evidence.",
+          "affectedRegistryIds": [
+            "compatibility.compatibilityCenterStandard",
+            "diff.contractDiffStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Release notes never replace exact Contract Diff or Compatibility evidence.",
+          "description": "Release notes never replace exact Contract Diff or Compatibility evidence.",
+          "changeType": "integrity",
+          "affectedDomains": [
+            "diff",
+            "lifecycle"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_78816e59bfe94e",
+          "releaseVersion": "0.28.0",
+          "category": "integrity",
+          "originalSection": "Integrity",
+          "summary": "Historical releases without exact Registry snapshots remain explicitly marked as release-notes-only rather than reconstructed as authoritative snapshots.",
+          "affectedRegistryIds": [],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Historical releases without exact Registry snapshots remain explicitly marked as release-notes-only rather than reconstructed as authoritative snapshots.",
+          "description": "Historical releases without exact Registry snapshots remain explicitly marked as release-notes-only rather than reconstructed as authoritative snapshots.",
+          "changeType": "integrity",
+          "affectedDomains": [],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_89852f68a7e317",
+          "releaseVersion": "0.28.0",
+          "category": "integrity",
+          "originalSection": "Integrity",
+          "summary": "Pre-1.0 Changelog publication remains development evidence and does not declare production support.",
+          "affectedRegistryIds": [],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Pre-1.0 Changelog publication remains development evidence and does not declare production support.",
+          "description": "Pre-1.0 Changelog publication remains development evidence and does not declare production support.",
+          "changeType": "integrity",
+          "affectedDomains": [],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "internal",
+      "label": "Internal / Tooling",
+      "entries": [
+        {
+          "entryId": "chg_ea8b013164ca6a",
+          "releaseVersion": "0.28.0",
+          "category": "internal",
+          "originalSection": "Internal / Tooling",
+          "summary": "A forward current-regression gate now validates Search, Relationships, Diff, Compatibility and Changelog together while historical phase-acceptance scripts remain preserved as release snapshots.",
+          "affectedRegistryIds": [
+            "changelog.changelogStandard",
+            "compatibility.compatibilityCenterStandard",
+            "diff.contractDiffStandard",
+            "relationships.relationshipExplorerStandard",
+            "search.globalSearchStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "A forward current-regression gate now validates Search, Relationships, Diff, Compatibility and Changelog together while historical phase-acceptance scripts remain preserved as release snapshots.",
+          "description": "A forward current-regression gate now validates Search, Relationships, Diff, Compatibility and Changelog together while historical phase-acceptance scripts remain preserved as release snapshots.",
+          "changeType": "internal",
+          "affectedDomains": [
+            "changelog",
+            "diff",
+            "lifecycle",
+            "relationships",
+            "search"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.28.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    }
+  ],
+  "entryCount": 21,
+  "categoryCounts": {
+    "added": 11,
+    "changed": 4,
+    "fixed": 2,
+    "integrity": 3,
+    "internal": 1
+  },
+  "provenance": {
+    "sourceType": "authoritative-release-json",
+    "sourceReference": "registry/changelog/releases/0.28.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "registry/registry.json"
+  },
+  "evidence": {
+    "evidenceLevel": "notes-and-exact-registry",
+    "diffAvailable": true,
+    "diffRoute": "#/lifecycle/diff?from=0.27.0&to=0.28.0",
+    "compatibilityAvailable": true,
+    "compatibilityRoute": "#/lifecycle/compatibility",
+    "migrationRoute": null
+  },
+  "support": {
+    "supportLevel": "current-development",
+    "compatibilityStatus": "compatible",
+    "productionEligible": false,
+    "summary": "This is the current coordinated Contract Registry release."
+  },
+  "corrections": [],
+  "sourceVersion": "0.27.0",
+  "targetVersion": "0.28.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "affected": {
+    "domains": [
+      "changelog",
+      "diff",
+      "lifecycle",
+      "relationships",
+      "search"
+    ],
+    "modules": [],
+    "contracts": [
+      "changelog.affectedContractReference",
+      "changelog.changeEntry",
+      "changelog.changeEntryJsonSchema",
+      "changelog.changelogStandard",
+      "changelog.compatibilityReference",
+      "changelog.contractHistoryIndex",
+      "changelog.evidenceDescriptor",
+      "changelog.evidenceLevels",
+      "changelog.impactClassification",
+      "changelog.impactJsonSchema",
+      "changelog.index",
+      "changelog.policy",
+      "changelog.releaseCollection",
+      "changelog.releaseCorrection",
+      "changelog.releaseIndex",
+      "changelog.releaseNote",
+      "changelog.releaseProvenance",
+      "changelog.releaseSchema",
+      "changelog.releaseSection",
+      "changelog.releaseSummary",
+      "changelog.sections",
+      "compatibility.compatibilityCenterStandard",
+      "diff.contractDiffStandard",
+      "relationships.relationshipExplorerStandard",
+      "relationships.relationshipIndex",
+      "search.globalSearchStandard",
+      "search.searchIndex"
+    ],
+    "events": [],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  },
+  "breakingChange": false,
+  "migrationRequired": false,
+  "migrationNotes": null,
+  "recommendedAction": null
+}

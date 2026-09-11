@@ -1,0 +1,39 @@
+{
+  "controlId": "ACC-NAME-001",
+  "name": "Accessible names for controls",
+  "category": "structure",
+  "requirement": "Every interactive control must expose a stable accessible name that communicates its purpose.",
+  "rationale": "Unnamed controls are difficult or impossible to operate with assistive technology.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "form",
+    "dialog",
+    "drawer",
+    "menu",
+    "filter",
+    "command-palette"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [
+    "cmsUi.action",
+    "cmsUi.fieldBinding"
+  ],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_name_001.json"
+}

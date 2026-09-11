@@ -1,0 +1,116 @@
+{
+  "$id": "integrations.configurationValue",
+  "name": "Configuration Value",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "configuration",
+  "description": "Value assigned to a connector configuration field.",
+  "purpose": "Stores non-secret values or opaque secret references with source and environment context.",
+  "integrationModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "fieldKey",
+      "required": true,
+      "nullable": false,
+      "description": "Connector field key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "value",
+      "required": false,
+      "nullable": true,
+      "description": "Non-secret typed value.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "secretRef",
+      "required": false,
+      "nullable": true,
+      "description": "Protected secret value reference.",
+      "schema": "integrations.secretReference"
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "How value was set.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "customer",
+          "admin",
+          "oauth",
+          "system",
+          "import"
+        ]
+      }
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Last update time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "integrations.secretReference",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "valueOrSecretRef",
+      "description": "Use literal value or secretRef according to field metadata, never both for secret fields."
+    },
+    {
+      "id": "publicEligibilityChecked",
+      "description": "Client delivery requires configuration field publicClientEligible=true."
+    }
+  ],
+  "cms": {
+    "label": "Configuration Value",
+    "icon": "fa-plug",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "fieldKey",
+      "value",
+      "secretRef",
+      "source"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

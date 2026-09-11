@@ -1,0 +1,389 @@
+{
+  "$id": "changelog.release.0.30.0",
+  "version": "0.30.0",
+  "phase": 29,
+  "title": "Security Standards",
+  "releaseStatus": "published-development",
+  "releaseDate": null,
+  "summary": "Phase 29 - Security Standards.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_c0d7d271c14426",
+          "releaseVersion": "0.30.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Machine-readable Security Control Registry with 49 canonical controls across authentication, browser/runtime, APIs, secrets, uploads, isolation, Commerce, integrations, webhooks and supply-chain security.",
+          "affectedRegistryIds": [
+            "security.index",
+            "security.securityControl",
+            "security.standard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Machine-readable Security Control Registry with 49 canonical controls across authentication, browser/runtime, APIs, secrets, uploads, isolation, Commerce, integrations, webhooks and supply-chain security.",
+          "description": "Machine-readable Security Control Registry with 49 canonical controls across authentication, browser/runtime, APIs, secrets, uploads, isolation, Commerce, integrations, webhooks and supply-chain security.",
+          "changeType": "added",
+          "affectedDomains": [
+            "security"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": true
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.30.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_00ee0c8cb5f164",
+          "releaseVersion": "0.30.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Canonical security severity, category, obligation, verification-method and protected-value/secret class vocabularies.",
+          "affectedRegistryIds": [
+            "security.categories",
+            "security.obligations",
+            "security.secretClasses",
+            "security.severityLevels",
+            "security.verificationMethods"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Canonical security severity, category, obligation, verification-method and protected-value/secret class vocabularies.",
+          "description": "Canonical security severity, category, obligation, verification-method and protected-value/secret class vocabularies.",
+          "changeType": "added",
+          "affectedDomains": [
+            "security"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": true
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.30.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_70dc99c9e37210",
+          "releaseVersion": "0.30.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Platform surface security mapping and reusable security-control, secret-class, verification and surface-mapping definitions.",
+          "affectedRegistryIds": [
+            "security.controlJsonSchema",
+            "security.secretClass",
+            "security.surfaceMapping",
+            "security.surfaceMappingDefinition",
+            "security.verificationMethod"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Platform surface security mapping and reusable security-control, secret-class, verification and surface-mapping definitions.",
+          "description": "Platform surface security mapping and reusable security-control, secret-class, verification and surface-mapping definitions.",
+          "changeType": "added",
+          "affectedDomains": [
+            "security"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": true
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.30.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "changed",
+      "label": "Changed",
+      "entries": [
+        {
+          "entryId": "chg_4fd89fa3304832",
+          "releaseVersion": "0.30.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Standards -> Security is now a data-driven Phase 29 explorer with category, obligation, severity, scope, module and applicability filters plus raw control JSON.",
+          "affectedRegistryIds": [
+            "security.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Standards -> Security is now a data-driven Phase 29 explorer with category, obligation, severity, scope, module and applicability filters plus raw control JSON.",
+          "description": "Standards -> Security is now a data-driven Phase 29 explorer with category, obligation, severity, scope, module and applicability filters plus raw control JSON.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "security"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": true
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.30.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_144da0accec470",
+          "releaseVersion": "0.30.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Security controls cross-link existing Permissions, API, Webhook, Integration and Commerce authorities without replacing their domain-specific rules.",
+          "affectedRegistryIds": [
+            "relationships.relationshipIndex",
+            "search.index",
+            "security.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Security controls cross-link existing Permissions, API, Webhook, Integration and Commerce authorities without replacing their domain-specific rules.",
+          "description": "Security controls cross-link existing Permissions, API, Webhook, Integration and Commerce authorities without replacing their domain-specific rules.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "relationships",
+            "security"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": true
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.30.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "label": "Security",
+      "entries": [
+        {
+          "entryId": "chg_a5a39fa72d5a8f",
+          "releaseVersion": "0.30.0",
+          "category": "security",
+          "originalSection": "Security",
+          "summary": "Browser/public-runtime, secret, upload, tenant isolation, transport, payment, service-authentication and webhook replay boundaries are now explicit machine-readable requirements.",
+          "affectedRegistryIds": [
+            "commerce.rule.providerSecretsServerOnly",
+            "commerce.rule.rawCardDataProhibited",
+            "permissions.authorizationDecision",
+            "security.index",
+            "security.standard",
+            "webhooks.replayProtection",
+            "webhooks.signaturePolicy"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Browser/public-runtime, secret, upload, tenant isolation, transport, payment, service-authentication and webhook replay boundaries are now explicit machine-readable requirements.",
+          "description": "Browser/public-runtime, secret, upload, tenant isolation, transport, payment, service-authentication and webhook replay boundaries are now explicit machine-readable requirements.",
+          "changeType": "security",
+          "affectedDomains": [
+            "commerce",
+            "permissions",
+            "security",
+            "webhooks"
+          ],
+          "affectedModules": [
+            "modules.commerce",
+            "modules.integrations"
+          ],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": true
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.30.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "internal",
+      "label": "Internal / Tooling",
+      "entries": [
+        {
+          "entryId": "chg_67dca44cb40883",
+          "releaseVersion": "0.30.0",
+          "category": "internal",
+          "originalSection": "Internal / Tooling",
+          "summary": "Phase 29 generator, validator and smoke coverage enforce unique control IDs, valid vocabularies, resolvable cross-links, secret/public-delivery exclusions and Security portal fallback integrity.",
+          "affectedRegistryIds": [
+            "security.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 29 generator, validator and smoke coverage enforce unique control IDs, valid vocabularies, resolvable cross-links, secret/public-delivery exclusions and Security portal fallback integrity.",
+          "description": "Phase 29 generator, validator and smoke coverage enforce unique control IDs, valid vocabularies, resolvable cross-links, secret/public-delivery exclusions and Security portal fallback integrity.",
+          "changeType": "internal",
+          "affectedDomains": [
+            "security"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": true
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.30.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sourceType": "authoritative-release-json",
+    "sourceReference": "registry/changelog/releases/0.30.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "registry/registry.json"
+  },
+  "evidence": {
+    "evidenceLevel": "notes-and-exact-registry",
+    "diffAvailable": true,
+    "diffRoute": "#/lifecycle/diff?from=0.29.0&to=0.30.0",
+    "compatibilityAvailable": true,
+    "compatibilityRoute": "#/lifecycle/compatibility",
+    "migrationRoute": null
+  },
+  "support": {
+    "supportLevel": "current-development",
+    "compatibilityStatus": "compatible",
+    "productionEligible": false,
+    "summary": "This is the current coordinated Contract Registry release; Phase 29 defines standards, not runtime deployment proof."
+  },
+  "corrections": [],
+  "migrationNotes": null,
+  "recommendedAction": "New and changed implementations must map applicable Phase 29 security controls and preserve existing domain-specific security invariants. Existing Sites remain pinned until explicit validation and upgrade review.",
+  "sourceVersion": "0.29.0",
+  "targetVersion": "0.30.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "entryCount": 7,
+  "categoryCounts": {
+    "added": 3,
+    "changed": 2,
+    "security": 1,
+    "internal": 1
+  },
+  "affected": {
+    "domains": [
+      "commerce",
+      "permissions",
+      "relationships",
+      "security",
+      "webhooks"
+    ],
+    "modules": [
+      "modules.commerce",
+      "modules.integrations"
+    ],
+    "contracts": [
+      "commerce.rule.providerSecretsServerOnly",
+      "commerce.rule.rawCardDataProhibited",
+      "permissions.authorizationDecision",
+      "relationships.relationshipIndex",
+      "search.index",
+      "security.categories",
+      "security.controlJsonSchema",
+      "security.index",
+      "security.obligations",
+      "security.secretClass",
+      "security.secretClasses",
+      "security.securityControl",
+      "security.severityLevels",
+      "security.standard",
+      "security.surfaceMapping",
+      "security.surfaceMappingDefinition",
+      "security.verificationMethod",
+      "security.verificationMethods",
+      "webhooks.replayProtection",
+      "webhooks.signaturePolicy"
+    ],
+    "events": [],
+    "permissions": [
+      "permissions.authorizationDecision"
+    ],
+    "webhooks": [
+      "webhooks.replayProtection",
+      "webhooks.signaturePolicy"
+    ],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  },
+  "breakingChange": false,
+  "migrationRequired": false
+}

@@ -1,0 +1,26 @@
+{
+  "$id": "modules.capability.leads.deduplication",
+  "capabilityId": "leads.deduplication",
+  "name": "Deduplication",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "leads",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Deduplication capability within the Leads module.",
+  "contractBindings": [],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

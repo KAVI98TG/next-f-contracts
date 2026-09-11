@@ -1,0 +1,91 @@
+{
+  "$id": "webhooks.failureClassification",
+  "name": "Webhook Failure Classification",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "delivery",
+  "description": "Controlled classification vocabulary used to decide terminal, deferred, retry or endpoint-disable behavior.",
+  "purpose": "Separates stable operational handling from provider-specific exception strings.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "code",
+      "required": true,
+      "nullable": false,
+      "description": "Failure classification key.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "retryable",
+          "terminal",
+          "disable-endpoint",
+          "deferred",
+          "dead-letter"
+        ]
+      }
+    },
+    {
+      "key": "description",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable meaning.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "createsRetry",
+      "required": true,
+      "nullable": false,
+      "description": "Whether an automatic retry may be scheduled.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "terminalForAttempt",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the current Attempt is terminal.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "canonical",
+      "description": "Classification values are controlled by the registry."
+    },
+    {
+      "id": "attemptVsDelivery",
+      "description": "An Attempt can be terminal while the logical Delivery remains retry-scheduled."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Failure Classification",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "code",
+      "description",
+      "createsRetry",
+      "terminalForAttempt"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.core.tenant-isolation",
+  "capabilityId": "core.tenant-isolation",
+  "name": "Tenant Isolation",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "core",
+  "mode": "always-on",
+  "selectable": false,
+  "defaultEnabled": true,
+  "description": "Tenant Isolation capability within the Core module.",
+  "contractBindings": [
+    "core.tenantScope"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

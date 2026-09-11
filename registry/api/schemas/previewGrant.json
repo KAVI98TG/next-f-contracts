@@ -1,0 +1,70 @@
+{
+  "$id": "api.previewGrant",
+  "name": "Preview Grant",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "security",
+  "description": "Short-lived scoped grant for previewing unpublished content.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "grantId",
+      "required": true,
+      "nullable": false,
+      "description": "grantId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "siteId",
+      "required": true,
+      "nullable": false,
+      "description": "siteId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "resource",
+      "required": false,
+      "nullable": false,
+      "description": "resource",
+      "schema": "core.entityReference"
+    },
+    {
+      "key": "expiresAt",
+      "required": true,
+      "nullable": false,
+      "description": "expiresAt",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "locale",
+      "required": true,
+      "nullable": false,
+      "description": "locale",
+      "primitive": false
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

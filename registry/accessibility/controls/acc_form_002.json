@@ -1,0 +1,36 @@
+{
+  "controlId": "ACC-FORM-002",
+  "name": "Associate descriptions and help",
+  "category": "forms",
+  "requirement": "Help text, constraints and descriptions must be programmatically associated with the field when they affect successful input.",
+  "rationale": "Visible helper text that is not associated may be missed by assistive technology.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "form",
+    "checkout",
+    "authentication"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [
+    "cmsUi.helpContent",
+    "cmsUi.fieldBinding"
+  ],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_form_002.json"
+}

@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.documentation.visibility",
+  "capabilityId": "documentation.visibility",
+  "name": "Visibility",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "documentation",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Visibility capability within the Documentation module.",
+  "contractBindings": [
+    "content.documentationArticle",
+    "core.visibility"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

@@ -1,0 +1,32 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "Security Violation Severity",
+  "description": "Security impact severity only; this vocabulary is distinct from compatibility impact.",
+  "levels": [
+    {
+      "id": "info",
+      "label": "Info",
+      "description": "Informational security finding with no direct exploit impact."
+    },
+    {
+      "id": "low",
+      "label": "Low",
+      "description": "Limited security weakness with constrained impact."
+    },
+    {
+      "id": "medium",
+      "label": "Medium",
+      "description": "Meaningful weakness requiring planned remediation."
+    },
+    {
+      "id": "high",
+      "label": "High",
+      "description": "Serious weakness that can expose protected operations or data."
+    },
+    {
+      "id": "critical",
+      "label": "Critical",
+      "description": "Severe weakness that can compromise privileged access, secrets, tenant isolation or financial integrity."
+    }
+  ]
+}

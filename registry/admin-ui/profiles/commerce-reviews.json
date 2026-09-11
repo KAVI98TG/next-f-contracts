@@ -1,0 +1,106 @@
+{
+  "$id": "adminUi.profile.commerce.reviews",
+  "name": "Reviews Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "commerce.reviews",
+  "permissionDomain": "commerce",
+  "moduleId": "commerce",
+  "description": "Internal NEXT F Admin metadata for Reviews. Applies only within server-authorized administrative scope.",
+  "route": "/sites/:siteId/commerce/reviews",
+  "screenKind": "admin-operations",
+  "layoutTemplate": "inherited-resource",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "site",
+    "requiresOrganization": false,
+    "requiresSite": true,
+    "allowsCrossTenant": false,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": "cmsUi.profile.commerce.reviews",
+  "inheritanceMode": "reference-not-copy",
+  "targetContracts": [
+    "commerce.productReview",
+    "commerce.reviewModeration"
+  ],
+  "primaryTargetContract": "commerce.productReview",
+  "permissions": [
+    "commerce.reviews.delete",
+    "commerce.reviews.edit",
+    "commerce.reviews.manage",
+    "commerce.reviews.view"
+  ],
+  "actions": [
+    {
+      "actionId": "delete",
+      "permissionId": "commerce.reviews.delete",
+      "riskLevel": "destructive",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "commerce.reviews.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "commerce.reviews.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "commerce.reviews.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions",
+    "customer-ui-reference",
+    "commerce-invariants",
+    "data-governance"
+  ],
+  "controls": [
+    "risk-badge",
+    "explicit-confirmation"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": [
+    "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate.",
+    "Administrative permission never bypasses Phase 12 Commerce Rules or transaction invariants."
+  ]
+}

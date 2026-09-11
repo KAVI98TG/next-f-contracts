@@ -1,0 +1,92 @@
+{
+  "$id": "integrations.googleTagManager",
+  "name": "Google Tag Manager",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "google",
+  "family": "tag-manager",
+  "description": "Loads a customer-owned Google Tag Manager container through the NEXT F Site Runtime.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "site-runtime",
+    "tag-manager"
+  ],
+  "capabilities": [
+    "tag.load",
+    "event.dispatch.client"
+  ],
+  "authentication": {
+    "type": "none"
+  },
+  "configurationFields": [
+    {
+      "key": "containerId",
+      "label": "Container ID",
+      "primitive": "fields.text",
+      "required": true,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Container ID",
+      "validation": {
+        "pattern": "^GTM-[A-Z0-9]+$"
+      }
+    },
+    {
+      "key": "dataLayerName",
+      "label": "Data Layer Name",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Defaults to dataLayer when omitted.",
+      "validation": {}
+    },
+    {
+      "key": "enabled",
+      "label": "Enabled",
+      "primitive": "fields.boolean",
+      "required": true,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Enabled",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [
+      "analytics",
+      "marketing"
+    ],
+    "mode": "container-dependent"
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [
+    "The GTM container can load third-party tags; container governance remains important.",
+    "GTM does not grant arbitrary NEXT F CMS script execution."
+  ],
+  "aliases": [
+    "GTM"
+  ]
+}

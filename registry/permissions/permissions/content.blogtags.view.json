@@ -1,0 +1,29 @@
+{
+  "$id": "content.blogtags.view",
+  "name": "View Blogtags",
+  "permissionId": "content.blogtags.view",
+  "domain": "content",
+  "resource": "blogtags",
+  "action": "view",
+  "scopeKind": "site",
+  "riskLevel": "standard",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Blogtags within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

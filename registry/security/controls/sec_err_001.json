@@ -1,0 +1,35 @@
+{
+  "controlId": "SEC-ERR-001",
+  "name": "Customer-safe error handling",
+  "category": "logging",
+  "requirement": "Errors returned to untrusted clients must not expose secrets, stack traces, internal credentials, private paths or cross-tenant data.",
+  "rationale": "Verbose internal failures can disclose exploitable implementation detail.",
+  "applicability": [
+    "api",
+    "public-site",
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "medium",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_err_001.json"
+}

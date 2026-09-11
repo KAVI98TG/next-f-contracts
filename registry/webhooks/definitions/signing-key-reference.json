@@ -1,0 +1,99 @@
+{
+  "$id": "webhooks.signingKeyReference",
+  "name": "Webhook Signing Key Reference",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "security",
+  "description": "Write-only server-side reference to a webhook HMAC signing secret.",
+  "purpose": "Separates secret material from browser-visible endpoint and subscription configuration.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "secret"
+  },
+  "fields": [
+    {
+      "key": "secretReference",
+      "required": true,
+      "nullable": false,
+      "description": "Protected secret-store reference.",
+      "schema": "integrations.secretReference"
+    },
+    {
+      "key": "keyVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque signing-key version identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Key creation time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "activeFrom",
+      "required": true,
+      "nullable": false,
+      "description": "When key becomes valid for signing.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "retireAfter",
+      "required": false,
+      "nullable": true,
+      "description": "Optional end of verification overlap.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "integrations.secretReference",
+      "description": "References integrations.secretReference."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "minimumEntropy",
+      "description": "New signing secrets require at least 32 bytes of cryptographic entropy."
+    },
+    {
+      "id": "writeOnly",
+      "description": "Raw signing secret is shown only through an explicit one-time secure setup flow and is not readable afterward."
+    },
+    {
+      "id": "serverSideOnly",
+      "description": "Secret material never appears in browser bundles, registry data or normal API responses."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Signing Key Reference",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "secretReference",
+      "keyVersion",
+      "createdAt",
+      "activeFrom"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

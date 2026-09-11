@@ -1,0 +1,55 @@
+{
+  "registryVersion": "0.8.0",
+  "categories": [
+    {
+      "id": "metadata",
+      "label": "Metadata & Preview",
+      "description": "Per-target metadata, Site defaults and derived previews."
+    },
+    {
+      "id": "keywords",
+      "label": "Keyword Targeting",
+      "description": "Focus keyword, intent and supporting keyword planning."
+    },
+    {
+      "id": "social",
+      "label": "Social Metadata",
+      "description": "Open Graph and generic social-card metadata."
+    },
+    {
+      "id": "structured-data",
+      "label": "Structured Data",
+      "description": "Typed JSON-LD structured-data objects."
+    },
+    {
+      "id": "directives",
+      "label": "Crawling & Directives",
+      "description": "Meta robots, robots.txt and alternate-language declarations."
+    },
+    {
+      "id": "routing",
+      "label": "Redirects",
+      "description": "Canonical Site redirect configuration."
+    },
+    {
+      "id": "indexing",
+      "label": "Indexing & Sitemaps",
+      "description": "Sitemap eligibility and URL indexing/inspection state."
+    },
+    {
+      "id": "audit",
+      "label": "SEO Audits",
+      "description": "Diagnostic findings and score summaries."
+    },
+    {
+      "id": "links",
+      "label": "Link Health",
+      "description": "Internal link relationships and broken-link findings."
+    },
+    {
+      "id": "search",
+      "label": "Search Performance",
+      "description": "Provider-neutral organic search query and performance data."
+    }
+  ]
+}

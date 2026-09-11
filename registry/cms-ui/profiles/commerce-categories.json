@@ -1,0 +1,339 @@
+{
+  "$id": "cmsUi.profile.commerce.categories",
+  "name": "Categories",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "commerce.categories",
+  "moduleId": "commerce",
+  "description": "Customer CMS presentation metadata for Categories within authorized Site scope.",
+  "targetContracts": [
+    "commerce.productCategory"
+  ],
+  "primaryTargetContract": "commerce.productCategory",
+  "route": "/commerce/categories",
+  "screenKind": "editor",
+  "layoutTemplate": "commerce-editor",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "identity",
+      "label": "Identity",
+      "description": "Stable identity.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.entityIdentity",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "scope",
+      "label": "Scope",
+      "description": "Owning Site.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.tenantScope",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "name",
+      "label": "Name",
+      "description": "Category name.",
+      "editorId": "single-line-text",
+      "group": "content",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "slug",
+      "label": "Slug",
+      "description": "Category URL slug.",
+      "editorId": "slug",
+      "group": "configuration",
+      "zone": "sidebar",
+      "order": 40,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.slug",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "description",
+      "label": "Description",
+      "description": "Optional description.",
+      "editorId": "multi-line-text",
+      "group": "content",
+      "zone": "main",
+      "order": 50,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.textarea",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "parentCategoryId",
+      "label": "Parent Category ID",
+      "description": "Optional parent category ID.",
+      "editorId": "single-line-text",
+      "group": "relationships",
+      "zone": "main",
+      "order": 60,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "featuredMedia",
+      "label": "Featured Media",
+      "description": "Optional category image.",
+      "editorId": "media-reference-picker",
+      "group": "media",
+      "zone": "sidebar",
+      "order": 70,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "shared.mediaReference",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "publishing",
+      "label": "Publishing",
+      "description": "Publishing state.",
+      "editorId": "publishing-panel",
+      "group": "publishing",
+      "zone": "sidebar",
+      "order": 80,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "core.publishing",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [
+    {
+      "id": "seo",
+      "label": "SEO",
+      "contractId": "seo.metadata",
+      "zone": "tabs",
+      "editorId": "seo-workspace",
+      "availability": "when-module-enabled:seo"
+    },
+    {
+      "id": "publishing",
+      "label": "Publishing",
+      "contractId": "core.publishing",
+      "zone": "sidebar",
+      "editorId": "publishing-panel",
+      "availability": "always"
+    }
+  ],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "identity",
+        "label": "Identity",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "scope",
+        "label": "Scope",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "name",
+        "label": "Name",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "slug",
+        "label": "Slug",
+        "rendererId": "text",
+        "order": 40,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [],
+    "searchFields": []
+  },
+  "actions": [
+    {
+      "actionId": "create",
+      "permissionId": "commerce.categories.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "commerce.categories.delete",
+      "riskLevel": "destructive",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "commerce.categories.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "commerce.categories.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "commerce.categories.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "commerce.categories.create",
+    "commerce.categories.delete",
+    "commerce.categories.edit",
+    "commerce.categories.manage",
+    "commerce.categories.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/commerce/categories",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "commerce.categories.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "create",
+      "kind": "editor",
+      "route": "/commerce/categories/new",
+      "layoutTemplate": "commerce-editor",
+      "requiresPermission": "commerce.categories.create",
+      "purpose": "Create a new canonical resource."
+    },
+    {
+      "id": "record",
+      "kind": "editor",
+      "route": "/commerce/categories/:id",
+      "layoutTemplate": "commerce-editor",
+      "requiresPermission": "commerce.categories.edit",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

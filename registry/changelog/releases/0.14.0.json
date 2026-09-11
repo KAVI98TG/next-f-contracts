@@ -1,0 +1,54 @@
+{
+  "$id": "changelog.release.0.14.0",
+  "version": "0.14.0",
+  "phase": 13,
+  "title": "Event Registry",
+  "releaseStatus": "published-development",
+  "releaseDate": null,
+  "summary": "Phase 13 - Event Registry.",
+  "sections": [],
+  "entryCount": 0,
+  "categoryCounts": {},
+  "provenance": {
+    "sourceType": "no-narrative-source",
+    "sourceReference": "registry/changelog/releases/0.14.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "NEXT-F-CONTRACTS-PHASE-13-V0.14.0.zip"
+  },
+  "evidence": {
+    "evidenceLevel": "exact-registry-only",
+    "diffAvailable": false,
+    "diffRoute": null,
+    "compatibilityAvailable": true,
+    "compatibilityRoute": "#/lifecycle/compatibility",
+    "migrationRoute": null
+  },
+  "support": {
+    "supportLevel": "historical-development",
+    "compatibilityStatus": "review-required",
+    "productionEligible": false,
+    "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+  },
+  "corrections": [],
+  "sourceVersion": "0.13.0",
+  "targetVersion": "0.14.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "affected": {
+    "domains": [],
+    "modules": [],
+    "contracts": [],
+    "events": [],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  },
+  "breakingChange": null,
+  "migrationRequired": null,
+  "migrationNotes": null,
+  "recommendedAction": null
+}

@@ -1,0 +1,21 @@
+{
+  "ruleId": "PERF-RULE-034",
+  "name": "Route data isolation",
+  "category": "loading",
+  "requirement": "Heavy route-only data must not be pulled into the main shell merely because a generated fallback exists.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "static-analysis",
+    "browser-profile"
+  ],
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_034.json"
+}

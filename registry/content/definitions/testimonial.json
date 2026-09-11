@@ -1,0 +1,238 @@
+{
+  "$id": "content.testimonial",
+  "name": "Testimonial",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "business",
+  "description": "Reusable customer testimonial or review excerpt approved for website publication.",
+  "purpose": "Provides structured attribution, rating and service relationships while avoiding duplicated testimonial text across pages.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "none",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "quote",
+      "required": true,
+      "nullable": false,
+      "description": "Approved testimonial text.",
+      "primitive": "fields.textarea",
+      "config": {
+        "minLength": 1,
+        "maxLength": 4000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "personName",
+      "required": true,
+      "nullable": false,
+      "description": "Public attribution name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "position",
+      "required": false,
+      "nullable": true,
+      "description": "Optional public role/title.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "company",
+      "required": false,
+      "nullable": true,
+      "description": "Optional company name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "photo",
+      "required": false,
+      "nullable": true,
+      "description": "Optional attribution photo/logo.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "rating",
+      "required": false,
+      "nullable": true,
+      "description": "Optional rating on a five-point scale.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 5,
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "relatedService",
+      "required": false,
+      "nullable": true,
+      "description": "Optional related Service.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.service",
+        "relationshipCardinality": "one",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "sourceUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Optional public source URL for verifiable attribution.",
+      "primitive": "fields.url",
+      "config": {
+        "maxLength": 2048,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "isFeatured",
+      "required": true,
+      "nullable": false,
+      "description": "Whether supported components may prioritize this testimonial.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "content.service",
+      "description": "Testimonials may be associated with a Service."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "Testimonials may use attribution media."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "ratingRange",
+      "description": "rating must be between 1 and 5 when present."
+    },
+    {
+      "id": "publicationApproval",
+      "description": "Only testimonials approved for public use may be published; contractual/legal permission remains the Organization responsibility."
+    }
+  ],
+  "cms": {
+    "label": "Testimonial",
+    "icon": "fa-quote-left",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "personName",
+      "company",
+      "rating",
+      "publishing"
+    ],
+    "editorMode": "compact-editor",
+    "primaryActions": [
+      "saveDraft",
+      "publish",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published approved testimonial content may be displayed publicly."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "quote": "Excellent service.",
+        "personName": "Customer",
+        "rating": 5,
+        "isFeatured": false
+      }
+    ],
+    "invalid": [
+      {
+        "quote": "",
+        "personName": "",
+        "rating": 8
+      }
+    ]
+  },
+  "notes": []
+}

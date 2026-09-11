@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/schema/changelog-release-note.schema.json",
+  "title": "NEXT F Changelog Release Note (legacy schema path)",
+  "description": "Backward-compatible schema entry point. Canonical Phase 27 release schema is registry/changelog/release.schema.json.",
+  "$ref": "../changelog/release.schema.json"
+}

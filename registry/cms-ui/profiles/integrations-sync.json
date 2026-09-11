@@ -1,0 +1,272 @@
+{
+  "$id": "cmsUi.profile.integrations.sync",
+  "name": "Sync Runs",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "integrations.sync",
+  "moduleId": "integrations",
+  "description": "Customer CMS presentation metadata for Sync Runs within authorized Site scope.",
+  "targetContracts": [
+    "integrations.syncRun",
+    "integrations.syncResult"
+  ],
+  "primaryTargetContract": "integrations.syncRun",
+  "route": "/website/integrations/sync",
+  "screenKind": "report",
+  "layoutTemplate": "operational-detail",
+  "responsivePolicy": "operational",
+  "fieldBindings": [
+    {
+      "field": "runId",
+      "label": "Run ID",
+      "description": "Sync run ID.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "connectionRef",
+      "label": "Connection Ref",
+      "description": "Integration connection ID.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "startedAt",
+      "label": "Started At",
+      "description": "Start time.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "completedAt",
+      "label": "Completed At",
+      "description": "Completion time.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "cursorBefore",
+      "label": "Cursor Before",
+      "description": "Starting cursor.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "integrations.syncCursor",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "cursorAfter",
+      "label": "Cursor After",
+      "description": "Ending cursor.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "integrations.syncCursor",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "result",
+      "label": "Result",
+      "description": "Run result.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "integrations.syncResult",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "runId",
+        "label": "Run ID",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "connectionRef",
+        "label": "Connection Ref",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "startedAt",
+        "label": "Started At",
+        "rendererId": "date-time",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "completedAt",
+        "label": "Completed At",
+        "rendererId": "date-time",
+        "order": 40,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [],
+    "searchFields": []
+  },
+  "actions": [
+    {
+      "actionId": "manage",
+      "permissionId": "integrations.sync.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "integrations.sync.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "integrations.sync.manage",
+    "integrations.sync.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": false,
+    "warnOnLeave": false,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "primaryEditorId": "connection-health",
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/website/integrations/sync",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "integrations.sync.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "detail",
+      "route": "/website/integrations/sync/:id",
+      "layoutTemplate": "operational-detail",
+      "requiresPermission": "integrations.sync.manage",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

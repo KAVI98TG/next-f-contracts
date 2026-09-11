@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.media.contextual-metadata",
+  "capabilityId": "media.contextual-metadata",
+  "name": "Contextual Media Metadata",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "media",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Contextual Media Metadata capability within the Media module.",
+  "contractBindings": [
+    "shared.mediaReference"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

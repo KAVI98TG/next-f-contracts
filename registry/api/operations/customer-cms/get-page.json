@@ -1,0 +1,80 @@
+{
+  "$id": "api.customer-cms.get-page",
+  "operationId": "api.customer-cms.get-page",
+  "name": "Get Page",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.customer-cms",
+  "method": "GET",
+  "path": "/pages/{resourceId}",
+  "description": "Get Page",
+  "authentication": {
+    "mode": "organization-user",
+    "permissions": [
+      "content.pages.view"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "resourceId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "content.page",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "workspace-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "private-revalidate",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "pages",
+    "blog",
+    "documentation",
+    "seo",
+    "forms",
+    "leads"
+  ],
+  "contractBindings": [
+    "content.page"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "private",
+  "notes": []
+}

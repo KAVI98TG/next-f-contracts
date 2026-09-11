@@ -1,0 +1,75 @@
+{
+  "registryVersion": "0.21.0",
+  "layoutTemplates": [
+    {
+      "id": "platform-dashboard",
+      "label": "Platform Dashboard",
+      "description": "Platform summary, attention, health and quick internal navigation."
+    },
+    {
+      "id": "organization-360",
+      "label": "Organization 360",
+      "description": "Organization summary with Sites, users, support, audit and scoped technical context."
+    },
+    {
+      "id": "site-360",
+      "label": "Site 360",
+      "description": "Site summary with contract version, modules, runtime/API bindings, integrations, health and audit."
+    },
+    {
+      "id": "directory",
+      "label": "Directory",
+      "description": "Search/filter table or cards with cross-tenant context and guarded actions."
+    },
+    {
+      "id": "inherited-resource",
+      "label": "Inherited Resource",
+      "description": "Reuses Customer CMS resource presentation as a base while adding internal-only panels and actions."
+    },
+    {
+      "id": "operational-detail",
+      "label": "Operational Detail",
+      "description": "Read-first operational state with timeline, diagnostics and server-side actions."
+    },
+    {
+      "id": "registry-detail",
+      "label": "Registry Detail",
+      "description": "Machine definition exploration with compatibility, usage and lifecycle data."
+    },
+    {
+      "id": "diagnostics",
+      "label": "Diagnostics",
+      "description": "Health checks, evidence, request IDs, component status and remediation guidance."
+    },
+    {
+      "id": "migration-center",
+      "label": "Migration Center",
+      "description": "Compatibility impact, dry-run, approvals, execution, rollback and affected Site tracking."
+    },
+    {
+      "id": "access-manager",
+      "label": "Access Manager",
+      "description": "Users, roles, permissions and assignments with explicit scope and risk."
+    },
+    {
+      "id": "integration-operations",
+      "label": "Integration Operations",
+      "description": "Connections, credentials status, mappings, sync and health across Site scope."
+    },
+    {
+      "id": "delivery-operations",
+      "label": "Delivery Operations",
+      "description": "Event/Webhook delivery, replay, retry, dead-letter and signing-health views."
+    },
+    {
+      "id": "support-operations",
+      "label": "Support Operations",
+      "description": "Organization/Site support context without automatic identity impersonation."
+    },
+    {
+      "id": "settings-page",
+      "label": "Settings Page",
+      "description": "Grouped administrative settings with exact scope, recent-auth and confirmation gates."
+    }
+  ]
+}

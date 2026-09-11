@@ -1,0 +1,129 @@
+{
+  "$id": "marketing.pageContext",
+  "name": "Page Context",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "context",
+  "description": "Sanitized page/route context attached to a tracking observation.",
+  "purpose": "Standardizes URL and content context while preventing raw URL data from leaking sensitive query parameters.",
+  "marketingModel": {
+    "kind": "context",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "url",
+      "required": true,
+      "nullable": false,
+      "description": "Sanitized absolute page URL.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "path",
+      "required": true,
+      "nullable": false,
+      "description": "Sanitized path component.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 2048
+      }
+    },
+    {
+      "key": "title",
+      "required": false,
+      "nullable": true,
+      "description": "Observed document or route title.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500
+      }
+    },
+    {
+      "key": "routeName",
+      "required": false,
+      "nullable": true,
+      "description": "Optional stable application route key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "contentTarget",
+      "required": false,
+      "nullable": true,
+      "description": "Optional canonical content/entity target represented by the page.",
+      "schema": "core.entityReference"
+    },
+    {
+      "key": "language",
+      "required": false,
+      "nullable": true,
+      "description": "Observed language/locale tag.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "core.entityReference",
+      "description": "May identify canonical rendered content."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "sensitiveQueryRemoved",
+      "description": "Tracked URL must remove sensitive query parameters according to Tracking Data Policy."
+    },
+    {
+      "id": "fragmentRemovedByDefault",
+      "description": "URL fragments are removed when the Site data policy requires it."
+    },
+    {
+      "id": "routeNameStable",
+      "description": "routeName is a stable machine key rather than a localized page title."
+    }
+  ],
+  "cms": {
+    "label": "Page Context",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "url",
+      "path",
+      "title",
+      "routeName"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

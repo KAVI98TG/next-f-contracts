@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "accessibility.accessibilityControlJsonSchema",
+  "title": "NEXT F Accessibility Control",
+  "type": "object",
+  "required": [
+    "controlId",
+    "name",
+    "category",
+    "requirement",
+    "rationale",
+    "applicability",
+    "affectedUiTypes",
+    "verificationMethods",
+    "severity",
+    "manualReviewRequired"
+  ],
+  "properties": {
+    "controlId": {
+      "type": "string",
+      "pattern": "^ACC-[A-Z0-9]+-[0-9]{3}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string"
+    },
+    "requirement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "applicability": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "affectedUiTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "verificationMethods": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "severity": {
+      "enum": [
+        "info",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "relatedCmsEditorTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedBlocks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedFields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedRegistryIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manualReviewRequired": {
+      "type": "boolean"
+    },
+    "subrequirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

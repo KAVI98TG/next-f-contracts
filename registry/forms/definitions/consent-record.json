@@ -1,0 +1,130 @@
+{
+  "$id": "forms.consentRecord",
+  "name": "Consent Record",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "consent-data",
+  "description": "Snapshot of one consent/acknowledgement field at submission time.",
+  "purpose": "Preserves what the visitor accepted or declined instead of relying on a later-edited form label.",
+  "formsModel": {
+    "kind": "operational-record",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false
+  },
+  "fields": [
+    {
+      "key": "fieldKey",
+      "required": true,
+      "nullable": false,
+      "description": "Consent field key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "purpose",
+      "required": true,
+      "nullable": false,
+      "description": "Purpose key captured from field configuration.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120
+      }
+    },
+    {
+      "key": "accepted",
+      "required": true,
+      "nullable": false,
+      "description": "Recorded affirmative/negative response.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "textSnapshot",
+      "required": true,
+      "nullable": false,
+      "description": "Exact consent text shown at submission time.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 3000
+      }
+    },
+    {
+      "key": "policyUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Policy URL shown at submission time.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "policyVersion",
+      "required": false,
+      "nullable": true,
+      "description": "Policy version shown at submission time.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120
+      }
+    },
+    {
+      "key": "recordedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Consent capture timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "snapshotImmutable",
+      "description": "Consent text/version snapshots must not change when the Form is later edited."
+    },
+    {
+      "id": "recordResponseTruthfully",
+      "description": "accepted must reflect the submitted control state."
+    },
+    {
+      "id": "notLegalConclusion",
+      "description": "The record demonstrates captured system data only and does not itself determine legal validity."
+    }
+  ],
+  "cms": {
+    "label": "Consent Record",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "fieldKey",
+      "purpose",
+      "accepted",
+      "textSnapshot"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

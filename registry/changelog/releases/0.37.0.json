@@ -1,0 +1,433 @@
+{
+  "$id": "changelog.release.0.37.0",
+  "version": "0.37.0",
+  "phase": 36,
+  "title": "Final Registry QA / Release Candidate",
+  "releaseStatus": "published-development",
+  "releaseDate": "2026-09-11",
+  "summary": "Repository-wide deep QA, Registry Health acceptance evidence and V0.37.0 Release Candidate gate before V1.0.0 Production Acceptance.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_c6435e27d8a599",
+          "releaseVersion": "0.37.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Registry Health introduces a machine-readable Release Candidate acceptance report with stable check IDs, severity, evidence, affected definitions and remediation state.",
+          "affectedRegistryIds": [
+            "qa.acceptanceCheck",
+            "qa.acceptanceReport",
+            "qa.findings",
+            "qa.standard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Registry Health introduces a machine-readable Release Candidate acceptance report with stable check IDs, severity, evidence, affected definitions and remediation state.",
+          "description": "Registry Health introduces a machine-readable Release Candidate acceptance report with stable check IDs, severity, evidence, affected definitions and remediation state.",
+          "changeType": "added",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.37.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_bdc416fb6009af",
+          "releaseVersion": "0.37.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "The portal now exposes Registry Health with search, category/result/severity filters, JSON/CSV exports and browser-safe consistency rerun.",
+          "affectedRegistryIds": [
+            "qa.acceptanceReport",
+            "qa.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "The portal now exposes Registry Health with search, category/result/severity filters, JSON/CSV exports and browser-safe consistency rerun.",
+          "description": "The portal now exposes Registry Health with search, category/result/severity filters, JSON/CSV exports and browser-safe consistency rerun.",
+          "changeType": "added",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.37.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_5b31c8994f0b66",
+          "releaseVersion": "0.37.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Phase 36 adds repository-wide duplicate, orphan/reference, business-invariant, security/privacy, documentation, portal and generated-artifact QA coverage.",
+          "affectedRegistryIds": [
+            "qa.acceptanceReport",
+            "qa.standard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 36 adds repository-wide duplicate, orphan/reference, business-invariant, security/privacy, documentation, portal and generated-artifact QA coverage.",
+          "description": "Phase 36 adds repository-wide duplicate, orphan/reference, business-invariant, security/privacy, documentation, portal and generated-artifact QA coverage.",
+          "changeType": "added",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.37.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "changed",
+      "label": "Changed",
+      "entries": [
+        {
+          "entryId": "chg_b83e748a648cb4",
+          "releaseVersion": "0.37.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "V0.37.0 is designated Release Candidate only when blocking QA failures are zero; V1.0.0 remains reserved for Phase 37 Production Acceptance.",
+          "affectedRegistryIds": [
+            "compatibility.compatibilityCenterStandard",
+            "qa.standard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "V0.37.0 is designated Release Candidate only when blocking QA failures are zero; V1.0.0 remains reserved for Phase 37 Production Acceptance.",
+          "description": "V0.37.0 is designated Release Candidate only when blocking QA failures are zero; V1.0.0 remains reserved for Phase 37 Production Acceptance.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "lifecycle",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.37.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_4d3d248c2da73b",
+          "releaseVersion": "0.37.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Current forward regression now uses Phase 36 as the acceptance authority while preserving earlier release snapshots as historical evidence.",
+          "affectedRegistryIds": [
+            "qa.acceptanceReport",
+            "validation.cliStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Current forward regression now uses Phase 36 as the acceptance authority while preserving earlier release snapshots as historical evidence.",
+          "description": "Current forward regression now uses Phase 36 as the acceptance authority while preserving earlier release snapshots as historical evidence.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.37.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_ddae7a033cfdf3",
+          "releaseVersion": "0.37.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Phase 36 re-baselines only the hard-fail ceilings for aggregate local fallbacks and exact Diff snapshot storage while preserving the original performance targets; current over-target storage remains a visible WARNING, not a fabricated PASS.",
+          "affectedRegistryIds": [
+            "performance.budget.PERF-BUDGET-004",
+            "performance.budget.PERF-BUDGET-009",
+            "qa.acceptanceReport"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 36 re-baselines only the hard-fail ceilings for aggregate local fallbacks and exact Diff snapshot storage while preserving the original performance targets; current over-target storage remains a visible WARNING, not a fabricated PASS.",
+          "description": "Phase 36 re-baselines only the hard-fail ceilings for aggregate local fallbacks and exact Diff snapshot storage while preserving the original performance targets; current over-target storage remains a visible WARNING, not a fabricated PASS.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.37.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "fixed",
+      "label": "Fixed",
+      "entries": [
+        {
+          "entryId": "chg_3e3c0e7d9b536c",
+          "releaseVersion": "0.37.0",
+          "category": "fixed",
+          "originalSection": "Fixed",
+          "summary": "The canonical domain vocabulary now explicitly registers the existing platform domain used by Platform permission contracts.",
+          "affectedRegistryIds": [
+            "permissions.permissionDefinition"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "The canonical domain vocabulary now explicitly registers the existing platform domain used by Platform permission contracts.",
+          "description": "The canonical domain vocabulary now explicitly registers the existing platform domain used by Platform permission contracts.",
+          "changeType": "fixed",
+          "affectedDomains": [
+            "permissions"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": true
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.37.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "documentation",
+      "label": "Documentation",
+      "entries": [
+        {
+          "entryId": "chg_65ea985aea448a",
+          "releaseVersion": "0.37.0",
+          "category": "documentation",
+          "originalSection": "Documentation",
+          "summary": "Registry Health / Release Candidate Standard documents evidence honesty, deferred checks, release blocking rules and rerun behavior.",
+          "affectedRegistryIds": [
+            "qa.standard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Registry Health / Release Candidate Standard documents evidence honesty, deferred checks, release blocking rules and rerun behavior.",
+          "description": "Registry Health / Release Candidate Standard documents evidence honesty, deferred checks, release blocking rules and rerun behavior.",
+          "changeType": "documentation",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.37.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "internal",
+      "label": "Internal / Tooling",
+      "entries": [
+        {
+          "entryId": "chg_219d015553362f",
+          "releaseVersion": "0.37.0",
+          "category": "internal",
+          "originalSection": "Internal / Tooling",
+          "summary": "Phase 36 adds deterministic Registry Health generation plus acceptance and smoke validation without introducing unrelated product features.",
+          "affectedRegistryIds": [
+            "qa.acceptanceReport",
+            "qa.index"
+          ],
+          "compatibilityImpact": "metadata",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 36 adds deterministic Registry Health generation plus acceptance and smoke validation without introducing unrelated product features.",
+          "description": "Phase 36 adds deterministic Registry Health generation plus acceptance and smoke validation without introducing unrelated product features.",
+          "changeType": "internal",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "metadata",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.37.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    }
+  ],
+  "migrationNotes": null,
+  "recommendedAction": "Use V0.37.0 as the Registry Release Candidate for final production acceptance review. Do not label the Registry V1.0.0 until Phase 37 blocking acceptance checks pass.",
+  "support": {
+    "registryProductionStable": false,
+    "runtimeCompatibility": "unknown"
+  },
+  "evidence": [
+    "registry/qa/index.json",
+    "registry/qa/report.json",
+    "registry/qa/report.csv",
+    "standards/44-registry-health-release-candidate-standard.md",
+    "scripts/sync-registry-health.mjs",
+    "scripts/validate-phase-36.mjs",
+    "scripts/smoke-phase-36.mjs"
+  ],
+  "provenance": {
+    "sourceType": "authoritative-release-json",
+    "sourceReference": "registry/changelog/releases/0.37.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "registry/registry.json"
+  },
+  "sourceVersion": "0.36.0",
+  "targetVersion": "0.37.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "entryCount": 9,
+  "categoryCounts": {
+    "added": 3,
+    "changed": 3,
+    "fixed": 1,
+    "documentation": 1,
+    "internal": 1
+  },
+  "breakingChange": false,
+  "migrationRequired": false,
+  "corrections": [],
+  "affected": {
+    "domains": [
+      "lifecycle",
+      "permissions",
+      "validation"
+    ],
+    "modules": [],
+    "contracts": [
+      "compatibility.compatibilityCenterStandard",
+      "performance.budget.PERF-BUDGET-004",
+      "performance.budget.PERF-BUDGET-009",
+      "permissions.permissionDefinition",
+      "qa.acceptanceCheck",
+      "qa.acceptanceReport",
+      "qa.findings",
+      "qa.index",
+      "qa.standard",
+      "validation.cliStandard"
+    ],
+    "events": [],
+    "permissions": [
+      "permissions.permissionDefinition"
+    ],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  }
+}

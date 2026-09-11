@@ -1,0 +1,125 @@
+{
+  "$id": "integrations.syncRun",
+  "name": "Sync Run",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "sync",
+  "description": "One execution of a provider synchronization policy.",
+  "purpose": "Provides auditable sync timing, cursor boundaries and normalized result.",
+  "integrationModel": {
+    "kind": "operation",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "runId",
+      "required": true,
+      "nullable": false,
+      "description": "Sync run ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "connectionRef",
+      "required": true,
+      "nullable": false,
+      "description": "Integration connection ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "startedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Start time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "completedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Completion time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "cursorBefore",
+      "required": false,
+      "nullable": true,
+      "description": "Starting cursor.",
+      "schema": "integrations.syncCursor"
+    },
+    {
+      "key": "cursorAfter",
+      "required": false,
+      "nullable": true,
+      "description": "Ending cursor.",
+      "schema": "integrations.syncCursor"
+    },
+    {
+      "key": "result",
+      "required": false,
+      "nullable": true,
+      "description": "Run result.",
+      "schema": "integrations.syncResult"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "integrations.syncCursor",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composes",
+      "target": "integrations.syncResult",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "cursorAdvanceOnSuccess",
+      "description": "Cursor advances only according to safe provider semantics."
+    },
+    {
+      "id": "auditableRun",
+      "description": "Sync run retains normalized outcome without raw secret payloads."
+    }
+  ],
+  "cms": {
+    "label": "Sync Run",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "runId",
+      "connectionRef",
+      "startedAt",
+      "completedAt"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

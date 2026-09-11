@@ -1,0 +1,32 @@
+{
+  "phase": 23,
+  "version": "0.24.0",
+  "status": "passed",
+  "checks": [
+    {"id":"P23-001","name":"Global Search Standard created","passed":true},
+    {"id":"P23-002","name":"Authoritative search index generated from repository sources","passed":true},
+    {"id":"P23-003","name":"Every main Registry item is searchable","passed":true},
+    {"id":"P23-004","name":"Nested contract fields are searchable","passed":true},
+    {"id":"P23-005","name":"Portal routes are searchable","passed":true},
+    {"id":"P23-006","name":"Standards and developer documentation are searchable","passed":true},
+    {"id":"P23-007","name":"Exact machine identifiers rank first","passed":true},
+    {"id":"P23-008","name":"Natural-language token search implemented","passed":true},
+    {"id":"P23-009","name":"Controlled synonym expansion implemented","passed":true},
+    {"id":"P23-010","name":"Bounded fuzzy matching implemented","passed":true},
+    {"id":"P23-011","name":"Search never fabricates unindexed contracts","passed":true},
+    {"id":"P23-012","name":"Ctrl/Cmd+K command palette uses canonical search engine","passed":true},
+    {"id":"P23-013","name":"Keyboard result navigation retained","passed":true},
+    {"id":"P23-014","name":"Full Global Search page available","passed":true},
+    {"id":"P23-015","name":"Result type filter available","passed":true},
+    {"id":"P23-016","name":"Domain filter available","passed":true},
+    {"id":"P23-017","name":"Lifecycle status filter available","passed":true},
+    {"id":"P23-018","name":"Search state persists in URL","passed":true},
+    {"id":"P23-019","name":"Search runs locally without third-party search service","passed":true},
+    {"id":"P23-020","name":"Generated file-protocol fallback is SHA-256 bound","passed":true},
+    {"id":"P23-021","name":"Search result targets resolve to canonical registry, route or source","passed":true},
+    {"id":"P23-022","name":"Common search batch meets interactive performance gate","passed":true},
+    {"id":"P23-023","name":"Global Registry relationships remain valid","passed":true},
+    {"id":"P23-024","name":"Light-only SaaS design preserved","passed":true},
+    {"id":"P23-025","name":"No duplicate HTML IDs introduced","passed":true}
+  ]
+}

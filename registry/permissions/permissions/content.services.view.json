@@ -1,0 +1,29 @@
+{
+  "$id": "content.services.view",
+  "name": "View Services",
+  "permissionId": "content.services.view",
+  "domain": "content",
+  "resource": "services",
+  "action": "view",
+  "scopeKind": "site",
+  "riskLevel": "standard",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Services within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

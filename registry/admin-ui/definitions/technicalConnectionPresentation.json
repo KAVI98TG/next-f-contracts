@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.technicalConnectionPresentation",
+  "name": "Technical Connection Presentation",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines hosting-independent website connection status metadata.",
+  "purpose": "Defines hosting-independent website connection status metadata.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

@@ -1,0 +1,93 @@
+{
+  "$id": "manifest.apiBinding",
+  "name": "API Binding",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "surfaces-bindings",
+  "description": "Pins a Site to an API contract family/version without storing endpoint credentials.",
+  "purpose": "Allows a Site Manifest to pin one or more authoritative Phase 18 API groups to exact semantic versions and enabled Site environments.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "apiId",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical API contract identifier.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^api\\\\.[a-z][a-z0-9.-]*$",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "version",
+      "required": true,
+      "nullable": false,
+      "description": "Exact API semantic version.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^\\\\d+\\\\.\\\\d+\\\\.\\\\d+$",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "environments",
+      "required": true,
+      "nullable": false,
+      "description": "Environment IDs in which this binding applies.",
+      "primitive": "fields.tag",
+      "config": {
+        "minItems": 1,
+        "uniqueItems": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "api.registry",
+      "description": "apiId resolves against the authoritative Phase 18 API Contract Registry."
+    },
+    {
+      "type": "implements",
+      "target": "api.apiContractStandard",
+      "description": "API bindings follow exact-version rules from the Phase 18 API Contract Standard."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "apiBindingMustResolve",
+      "description": "apiId and version must resolve to a compatible authoritative API group/version in the Phase 18 API Contract Registry."
+    },
+    {
+      "id": "noApiSecrets",
+      "description": "API bindings declare compatibility only and must not contain tokens, passwords or private keys."
+    }
+  ],
+  "cms": {
+    "label": "API Binding",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "apiId",
+      "version",
+      "environments"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

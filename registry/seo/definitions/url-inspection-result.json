@@ -1,0 +1,203 @@
+{
+  "$id": "seo.urlInspectionResult",
+  "name": "URL Inspection Result",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "indexing",
+  "description": "Timestamped crawl/indexing inspection details for a Site URL.",
+  "purpose": "Supports provider and NEXT F URL inspection diagnostics without making external provider output part of editable content.",
+  "seoModel": {
+    "kind": "derived",
+    "customerManaged": false,
+    "derived": true,
+    "supportsRevision": false,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Inspection result identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "url",
+      "required": true,
+      "nullable": false,
+      "description": "Inspected absolute URL.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true
+      }
+    },
+    {
+      "key": "checkedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Inspection time.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    },
+    {
+      "key": "sourceProvider",
+      "required": true,
+      "nullable": false,
+      "description": "Inspection source/provider.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120,
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "indexing",
+      "required": true,
+      "nullable": false,
+      "description": "Normalized indexing state.",
+      "schema": "seo.indexingStatus"
+    },
+    {
+      "key": "declaredCanonical",
+      "required": false,
+      "nullable": true,
+      "description": "Canonical declared by the inspected page when available.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "selectedCanonical",
+      "required": false,
+      "nullable": true,
+      "description": "Canonical selected/reported by the inspection source when available.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "crawlAllowed",
+      "required": false,
+      "nullable": true,
+      "description": "Whether crawling was reported as allowed when available.",
+      "primitive": "fields.boolean",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "lastCrawlAt",
+      "required": false,
+      "nullable": true,
+      "description": "Most recent crawl time reported by the source.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "seo.indexingStatus",
+      "description": "Includes normalized indexing state."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "inspectionIsTimestamped",
+      "description": "Inspection results are snapshots and must always include checkedAt and sourceProvider."
+    },
+    {
+      "id": "selectedCanonicalObserved",
+      "description": "selectedCanonical is observed provider output and must not automatically overwrite seo.metadata.canonicalUrl."
+    },
+    {
+      "id": "stalenessVisible",
+      "description": "CMS should expose inspection freshness rather than presenting an old result as current."
+    }
+  ],
+  "cms": {
+    "label": "URL Inspection Result",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "url",
+      "checkedAt"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "identity": {
+          "id": "inspect_01",
+          "createdAt": "2026-09-10T00:00:00Z",
+          "updatedAt": "2026-09-10T00:00:00Z"
+        },
+        "scope": {
+          "organizationId": "org_01",
+          "siteId": "site_01"
+        },
+        "url": "https://example.lk/services",
+        "checkedAt": "2026-09-10T00:00:00Z",
+        "sourceProvider": "google-search-console",
+        "indexing": {
+          "state": "indexable",
+          "source": "google-search-console"
+        },
+        "declaredCanonical": "https://example.lk/services",
+        "selectedCanonical": "https://example.lk/services",
+        "crawlAllowed": true
+      }
+    ],
+    "invalid": [
+      {
+        "url": "https://example.lk",
+        "sourceProvider": "",
+        "indexing": null
+      }
+    ]
+  },
+  "notes": []
+}

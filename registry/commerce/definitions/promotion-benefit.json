@@ -1,0 +1,110 @@
+{
+  "$id": "commerce.promotionBenefit",
+  "name": "Promotion Benefit",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "promotions",
+  "description": "Economic benefit granted by a Promotion.",
+  "purpose": "Keeps discount outcome separate from eligibility conditions.",
+  "commerceModel": {
+    "kind": "embedded",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Benefit type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "percentage-off",
+          "fixed-amount-off",
+          "free-shipping",
+          "buy-x-get-y"
+        ]
+      }
+    },
+    {
+      "key": "value",
+      "required": false,
+      "nullable": true,
+      "description": "Percentage/fixed value.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "currency",
+      "required": false,
+      "nullable": true,
+      "description": "Currency for fixed amount.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^[A-Z]{3}$"
+      }
+    },
+    {
+      "key": "maximumDiscountAmount",
+      "required": false,
+      "nullable": true,
+      "description": "Optional cap.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "typeRequirements",
+      "description": "Required value/currency fields depend on benefit type."
+    }
+  ],
+  "cms": {
+    "label": "Promotion Benefit",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "type",
+      "value",
+      "currency",
+      "maximumDiscountAmount"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

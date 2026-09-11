@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.blog.approvals",
+  "capabilityId": "blog.approvals",
+  "name": "Approval Workflow",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "blog",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Approval Workflow capability within the Blog module.",
+  "contractBindings": [
+    "content.blogPost",
+    "core.publishing"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

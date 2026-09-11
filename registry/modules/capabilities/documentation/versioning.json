@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.documentation.versioning",
+  "capabilityId": "documentation.versioning",
+  "name": "Article Versioning",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "documentation",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Article Versioning capability within the Documentation module.",
+  "contractBindings": [
+    "content.documentationArticle",
+    "core.versionRecord"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

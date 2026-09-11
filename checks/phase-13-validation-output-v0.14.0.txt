@@ -1,0 +1,14 @@
+
+NEXT F Contracts Phase 13 validation
+Version: 0.14.0
+Support schemas: 13
+Canonical events: 116
+Categories: 14
+Payload fields inspected: 459
+Validation rules inspected: 1004
+Relationships inspected: 214
+Registry entries: 635
+Passes: 4634
+Failures: 0
+
+PASS - Phase 13 Event Registry is internally consistent.

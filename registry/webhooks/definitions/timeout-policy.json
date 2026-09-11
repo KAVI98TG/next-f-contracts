@@ -1,0 +1,70 @@
+{
+  "$id": "webhooks.timeoutPolicy",
+  "name": "Webhook Timeout Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "resilience",
+  "description": "Outbound connection and total execution timeout contract.",
+  "purpose": "Caps resource usage and prevents slow receivers from holding delivery workers indefinitely.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "connectTimeoutSeconds",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum connection establishment time.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "totalTimeoutSeconds",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum total request execution time.",
+      "primitive": "fields.integer"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "defaults",
+      "description": "Defaults are 5 seconds connect and 15 seconds total."
+    },
+    {
+      "id": "totalNotLessThanConnect",
+      "description": "Total timeout must be greater than or equal to connect timeout."
+    },
+    {
+      "id": "bounded",
+      "description": "Deployments may tighten values but cannot remove finite timeouts."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Timeout Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "connectTimeoutSeconds",
+      "totalTimeoutSeconds"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

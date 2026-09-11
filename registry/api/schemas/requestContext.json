@@ -1,0 +1,91 @@
+{
+  "$id": "api.requestContext",
+  "name": "Request Context",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "delivery",
+  "description": "Request-scoped identity and trace metadata for server processing.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "requestId",
+      "required": true,
+      "nullable": false,
+      "description": "requestId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "receivedAt",
+      "required": true,
+      "nullable": false,
+      "description": "receivedAt",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "apiId",
+      "required": true,
+      "nullable": false,
+      "description": "apiId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "apiVersion",
+      "required": true,
+      "nullable": false,
+      "description": "apiVersion",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "contractVersion",
+      "required": true,
+      "nullable": false,
+      "description": "contractVersion",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "environmentId",
+      "required": true,
+      "nullable": false,
+      "description": "environmentId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "siteId",
+      "required": false,
+      "nullable": false,
+      "description": "siteId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "organizationId",
+      "required": false,
+      "nullable": false,
+      "description": "organizationId",
+      "primitive": "fields.text"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

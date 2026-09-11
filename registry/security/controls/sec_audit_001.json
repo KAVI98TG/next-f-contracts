@@ -1,0 +1,37 @@
+{
+  "controlId": "SEC-AUDIT-001",
+  "name": "Audit privileged changes",
+  "category": "logging",
+  "requirement": "Security-relevant and privileged state changes must produce sufficient audit evidence to identify actor, action, scope, outcome and time.",
+  "rationale": "Privileged actions need traceability and incident-review evidence.",
+  "applicability": [
+    "admin",
+    "customer-cms",
+    "api"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [
+    "platform.audit.view",
+    "core.audit.view"
+  ],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_audit_001.json"
+}

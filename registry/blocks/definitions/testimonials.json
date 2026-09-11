@@ -1,0 +1,167 @@
+{
+  "$id": "blocks.testimonials",
+  "name": "Testimonials",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "proof",
+  "description": "Testimonial listing sourced from reusable Testimonial entities.",
+  "purpose": "Keeps testimonial claims reusable and avoids copied quote data across pages.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "selectionMode",
+      "required": true,
+      "nullable": false,
+      "description": "How testimonials are selected.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "manual",
+            "label": "Manual selection"
+          },
+          {
+            "value": "featured",
+            "label": "Featured testimonials"
+          },
+          {
+            "value": "all",
+            "label": "All published testimonials"
+          }
+        ],
+        "defaultValue": "manual",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "testimonials",
+      "required": false,
+      "nullable": true,
+      "description": "Manual testimonial selection.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.testimonial",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true,
+        "uniqueItems": true,
+        "minItems": 1,
+        "maxItems": 24
+      }
+    },
+    {
+      "key": "limit",
+      "required": false,
+      "nullable": true,
+      "description": "Maximum automatically selected testimonials.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 50,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "content.testimonial",
+      "description": "Uses canonical Testimonial entities."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "manualRequiresTestimonials",
+      "description": "selectionMode manual requires at least one testimonial reference."
+    },
+    {
+      "id": "publishedOnly",
+      "description": "Public delivery includes only eligible published testimonials."
+    }
+  ],
+  "cms": {
+    "label": "Testimonials",
+    "icon": "fa-quote-left",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "selectionMode",
+      "testimonials"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Auto-rotating presentation, if implemented, must provide pause/control behavior appropriate to accessibility requirements."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

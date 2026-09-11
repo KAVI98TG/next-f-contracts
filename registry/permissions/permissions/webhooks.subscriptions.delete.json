@@ -1,0 +1,31 @@
+{
+  "$id": "webhooks.subscriptions.delete",
+  "name": "Delete Subscriptions",
+  "permissionId": "webhooks.subscriptions.delete",
+  "domain": "webhooks",
+  "resource": "subscriptions",
+  "action": "delete",
+  "scopeKind": "site",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Delete Subscriptions within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [
+    "Delete permission never overrides the underlying entity lifecycle, retention, legal-hold or archive rules."
+  ],
+  "version": "0.16.0",
+  "status": "stable"
+}

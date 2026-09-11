@@ -1,0 +1,123 @@
+{
+  "$id": "seo.keywordSet",
+  "name": "Keyword Set",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "keywords",
+  "description": "Primary focus keyword plus secondary and semantically related terms.",
+  "purpose": "Provides one reusable keyword-planning object for CMS SEO editors.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "primary",
+      "required": true,
+      "nullable": false,
+      "description": "Primary focus keyword target.",
+      "schema": "seo.keywordTarget"
+    },
+    {
+      "key": "secondaryKeywords",
+      "required": false,
+      "nullable": true,
+      "description": "Secondary keyword phrases.",
+      "primitive": "fields.tag",
+      "config": {
+        "maxItems": 20,
+        "uniqueItems": true,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "relatedTerms",
+      "required": false,
+      "nullable": true,
+      "description": "Related entities, terms or semantic phrases.",
+      "primitive": "fields.tag",
+      "config": {
+        "maxItems": 40,
+        "uniqueItems": true,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "seo.keywordTarget",
+      "description": "Uses one canonical primary Keyword Target."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "primaryNotDuplicated",
+      "description": "The primary phrase must not be duplicated in secondaryKeywords after normalization."
+    },
+    {
+      "id": "keywordSetsAreEditorial",
+      "description": "Keyword sets are editorial optimization inputs, not search-volume or ranking claims."
+    }
+  ],
+  "cms": {
+    "label": "Keyword Set",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "primary",
+      "secondaryKeywords",
+      "relatedTerms"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "primary": {
+          "phrase": "web development sri lanka",
+          "intent": "commercial"
+        },
+        "secondaryKeywords": [
+          "business website development"
+        ],
+        "relatedTerms": [
+          "conversion-focused website"
+        ]
+      }
+    ],
+    "invalid": [
+      {
+        "primary": null
+      }
+    ]
+  },
+  "notes": []
+}

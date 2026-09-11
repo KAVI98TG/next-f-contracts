@@ -1,0 +1,34 @@
+{
+  "$id": "modules.capability.seo.sitemap",
+  "capabilityId": "seo.sitemap",
+  "name": "Sitemap",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "seo",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Sitemap capability within the SEO module.",
+  "contractBindings": [
+    "seo.sitemapEntry"
+  ],
+  "permissionBindings": [
+    "seo.sitemap.edit",
+    "seo.sitemap.manage",
+    "seo.sitemap.view"
+  ],
+  "eventBindings": [
+    "sitemap.updated"
+  ],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

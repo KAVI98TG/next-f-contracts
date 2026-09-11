@@ -1,0 +1,127 @@
+{
+  "$id": "integrations.authenticationProfile",
+  "name": "Authentication Profile",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "authentication",
+  "description": "Canonical authentication selection for one connector or connection.",
+  "purpose": "Keeps provider authentication typed and separate from ordinary configuration.",
+  "integrationModel": {
+    "kind": "auth-profile",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "secret"
+  },
+  "fields": [
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Authentication type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "none",
+          "oauth2",
+          "api-key",
+          "bearer",
+          "basic",
+          "signed",
+          "provider-managed"
+        ]
+      }
+    },
+    {
+      "key": "credential",
+      "required": false,
+      "nullable": true,
+      "description": "Credential reference.",
+      "schema": "integrations.credentialReference"
+    },
+    {
+      "key": "oauth",
+      "required": false,
+      "nullable": true,
+      "description": "OAuth configuration.",
+      "schema": "integrations.oauthConfiguration"
+    },
+    {
+      "key": "apiKey",
+      "required": false,
+      "nullable": true,
+      "description": "API-key configuration.",
+      "schema": "integrations.apiKeyConfiguration"
+    },
+    {
+      "key": "notes",
+      "required": false,
+      "nullable": true,
+      "description": "Non-secret implementation notes.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "integrations.credentialReference",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composes",
+      "target": "integrations.oauthConfiguration",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composes",
+      "target": "integrations.apiKeyConfiguration",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "oneMechanism",
+      "description": "Exactly the selected authentication mechanism is resolved."
+    },
+    {
+      "id": "noPlainSecrets",
+      "description": "No plaintext passwords/tokens/keys in profile."
+    }
+  ],
+  "cms": {
+    "label": "Authentication Profile",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "type",
+      "credential",
+      "oauth",
+      "apiKey"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

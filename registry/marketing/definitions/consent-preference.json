@@ -1,0 +1,152 @@
+{
+  "$id": "marketing.consentPreference",
+  "name": "Consent Preference",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "consent",
+  "description": "One visitor/session choice for one tracking consent category.",
+  "purpose": "Provides normalized granted, denied or unset state with time and source.",
+  "marketingModel": {
+    "kind": "value-object",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "categoryKey",
+      "required": true,
+      "nullable": false,
+      "description": "Consent category key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80
+      }
+    },
+    {
+      "key": "state",
+      "required": true,
+      "nullable": false,
+      "description": "Current preference.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "granted",
+            "label": "Granted"
+          },
+          {
+            "value": "denied",
+            "label": "Denied"
+          },
+          {
+            "value": "unset",
+            "label": "Unset"
+          }
+        ]
+      }
+    },
+    {
+      "key": "changedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Timestamp preference took effect.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "How preference was established.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "banner",
+            "label": "Consent Banner"
+          },
+          {
+            "value": "settings",
+            "label": "Privacy Settings"
+          },
+          {
+            "value": "api",
+            "label": "API"
+          },
+          {
+            "value": "system",
+            "label": "System Default"
+          }
+        ]
+      }
+    },
+    {
+      "key": "policyVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Policy version presented.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "marketing.consentCategory",
+      "description": "categoryKey resolves to category."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "stateExplicit",
+      "description": "Unknown choice is unset, not inferred granted."
+    },
+    {
+      "id": "policyVersionRequired",
+      "description": "Choices retain policy version."
+    },
+    {
+      "id": "serverEnforcement",
+      "description": "Server dispatch enforces eligibility."
+    }
+  ],
+  "cms": {
+    "label": "Consent Preference",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "categoryKey",
+      "state",
+      "changedAt",
+      "source"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

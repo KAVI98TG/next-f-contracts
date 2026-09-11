@@ -1,0 +1,36 @@
+{
+  "controlId": "ACC-FORM-003",
+  "name": "Associate validation errors",
+  "category": "forms",
+  "requirement": "Validation errors must identify the affected field programmatically and provide actionable text.",
+  "rationale": "Users need to locate and understand validation failures without relying on color or position alone.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "form",
+    "checkout",
+    "authentication"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "keyboard-manual",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [
+    "cmsUi.validationPresentation"
+  ],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_form_003.json"
+}

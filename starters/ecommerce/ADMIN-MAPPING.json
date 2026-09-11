@@ -1,0 +1,84 @@
+{
+  "contractVersion": "1.0.0",
+  "surface": "nextf-admin",
+  "navigation": [
+    {
+      "moduleId": "core",
+      "label": "Site Overview",
+      "path": "/sites/:siteId",
+      "icon": "fa-globe",
+      "order": 10
+    },
+    {
+      "moduleId": "core",
+      "label": "Activity",
+      "path": "/sites/:siteId/activity",
+      "icon": "fa-clock-rotate-left",
+      "order": 90
+    },
+    {
+      "moduleId": "media",
+      "label": "Media",
+      "path": "/sites/:siteId/media",
+      "icon": "fa-photo-film",
+      "order": 40
+    },
+    {
+      "moduleId": "pages",
+      "label": "Content Model",
+      "path": "/sites/:siteId/content",
+      "icon": "fa-diagram-project",
+      "order": 20
+    },
+    {
+      "moduleId": "blog",
+      "label": "Blog",
+      "path": "/sites/:siteId/blog",
+      "icon": "fa-newspaper",
+      "order": 30
+    },
+    {
+      "moduleId": "seo",
+      "label": "SEO",
+      "path": "/sites/:siteId/seo",
+      "icon": "fa-magnifying-glass-chart",
+      "order": 40
+    },
+    {
+      "moduleId": "consent",
+      "label": "Consent",
+      "path": "/sites/:siteId/consent",
+      "icon": "fa-shield-halved",
+      "order": 60
+    },
+    {
+      "moduleId": "analytics",
+      "label": "Analytics",
+      "path": "/sites/:siteId/analytics",
+      "icon": "fa-chart-line",
+      "order": 65
+    },
+    {
+      "moduleId": "marketing",
+      "label": "Marketing",
+      "path": "/sites/:siteId/marketing",
+      "icon": "fa-bullseye",
+      "order": 70
+    },
+    {
+      "moduleId": "integrations",
+      "label": "Integrations",
+      "path": "/sites/:siteId/integrations",
+      "icon": "fa-plug",
+      "order": 80
+    },
+    {
+      "moduleId": "commerce",
+      "label": "Commerce",
+      "path": "/sites/:siteId/commerce",
+      "icon": "fa-cart-shopping",
+      "order": 100
+    }
+  ],
+  "sourceExampleId": "examples.commerce-site"
+}

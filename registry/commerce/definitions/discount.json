@@ -1,0 +1,188 @@
+{
+  "$id": "commerce.discount",
+  "name": "Discount",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "promotions",
+  "description": "Base Discount definition.",
+  "purpose": "Provides reusable promotion economics used by discount codes or automatic application.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Discount name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "conditions",
+      "required": false,
+      "nullable": true,
+      "description": "Eligibility conditions.",
+      "itemsSchema": "commerce.promotionCondition"
+    },
+    {
+      "key": "conditionMatch",
+      "required": true,
+      "nullable": false,
+      "description": "Condition matching.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "all",
+          "any"
+        ]
+      }
+    },
+    {
+      "key": "benefits",
+      "required": true,
+      "nullable": false,
+      "description": "Discount benefits.",
+      "itemsSchema": "commerce.promotionBenefit",
+      "config": {
+        "minItems": 1
+      }
+    },
+    {
+      "key": "usageLimit",
+      "required": false,
+      "nullable": true,
+      "description": "Optional total limit.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1
+      }
+    },
+    {
+      "key": "perCustomerLimit",
+      "required": false,
+      "nullable": true,
+      "description": "Optional per-customer limit.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1
+      }
+    },
+    {
+      "key": "startsAt",
+      "required": false,
+      "nullable": true,
+      "description": "Optional start.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "endsAt",
+      "required": false,
+      "nullable": true,
+      "description": "Optional end.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "combinable",
+      "required": true,
+      "nullable": false,
+      "description": "Whether compatible combination is allowed.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Discount lifecycle.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "draft",
+          "active",
+          "paused",
+          "expired",
+          "archived"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposesMany",
+      "target": "commerce.promotionCondition",
+      "description": "References commerce.promotionCondition."
+    },
+    {
+      "type": "composesMany",
+      "target": "commerce.promotionBenefit",
+      "description": "References commerce.promotionBenefit."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "validWindow",
+      "description": "endsAt must be after startsAt."
+    },
+    {
+      "id": "structuredOnly",
+      "description": "Conditions/benefits cannot contain executable code."
+    }
+  ],
+  "cms": {
+    "label": "Discount",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "name",
+      "conditions"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

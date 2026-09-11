@@ -1,0 +1,21 @@
+{
+  "ruleId": "PERF-RULE-025",
+  "name": "Lazy raw JSON",
+  "category": "large-data",
+  "requirement": "Very large raw JSON should not be eagerly rendered into the DOM; show it on explicit detail/expand actions where practical.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "static-analysis",
+    "browser-profile"
+  ],
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_025.json"
+}

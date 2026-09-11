@@ -1,0 +1,33 @@
+{
+  "controlId": "SEC-S2S-001",
+  "name": "Service-to-service authentication",
+  "category": "api",
+  "requirement": "Internal service calls that can access protected data or perform privileged operations must authenticate the calling service and authorize the requested scope.",
+  "rationale": "Network location alone is not identity or authorization.",
+  "applicability": [
+    "api",
+    "integrations"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_s2s_001.json"
+}

@@ -1,0 +1,121 @@
+{
+  "$id": "seo.robotsRule",
+  "name": "Robots.txt Rule",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "directives",
+  "description": "One robots.txt user-agent allow/disallow rule.",
+  "purpose": "Keeps crawler-path policy separate from page-level meta robots.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "userAgent",
+      "required": true,
+      "nullable": false,
+      "description": "Crawler user-agent token.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 200,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "directive",
+      "required": true,
+      "nullable": false,
+      "description": "Robots path directive.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "allow",
+            "label": "Allow"
+          },
+          {
+            "value": "disallow",
+            "label": "Disallow"
+          }
+        ],
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "path",
+      "required": true,
+      "nullable": false,
+      "description": "Path pattern used by robots.txt.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 2048,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "robotsTxtOnly",
+      "description": "This contract is only for robots.txt crawl policy, not index/noindex metadata."
+    },
+    {
+      "id": "pathStartsSlashOrEmpty",
+      "description": "path should be empty or begin with / according to the intended robots.txt semantics."
+    }
+  ],
+  "cms": {
+    "label": "Robots.txt Rule",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "userAgent",
+      "directive",
+      "path"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "userAgent": "*",
+        "directive": "disallow",
+        "path": "/private/"
+      }
+    ],
+    "invalid": [
+      {
+        "userAgent": "",
+        "directive": "noindex",
+        "path": "/"
+      }
+    ]
+  },
+  "notes": []
+}

@@ -1,0 +1,8 @@
+
+> next-f-contracts@0.33.0 smoke:phase32
+> node scripts/smoke-phase-32.mjs
+
+NEXT F Contracts Phase 32 smoke
+Passes: 28
+Failures: 0
+PASS

@@ -1,0 +1,32 @@
+{
+  "controlId": "ACC-LIVE-001",
+  "name": "Use live regions deliberately",
+  "category": "status",
+  "requirement": "Live regions must use an appropriate politeness level, avoid noisy repeated announcements and contain concise status text.",
+  "rationale": "Overly broad or frequent live regions can make dynamic interfaces unusable.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "status-message",
+    "command-palette"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_live_001.json"
+}

@@ -1,0 +1,31 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "Changelog Evidence Levels",
+  "levels": [
+    {
+      "id": "notes-and-exact-registry",
+      "label": "Notes + exact Registry",
+      "rank": 4,
+      "description": "Narrative release notes exist and an exact Registry snapshot is archived."
+    },
+    {
+      "id": "exact-registry-only",
+      "label": "Exact Registry only",
+      "rank": 3,
+      "description": "Exact Registry evidence exists but narrative release notes are absent."
+    },
+    {
+      "id": "release-notes-only",
+      "label": "Release notes only",
+      "rank": 2,
+      "description": "Narrative release notes exist but no exact Registry snapshot is available."
+    },
+    {
+      "id": "insufficient-history",
+      "label": "Insufficient history",
+      "rank": 1,
+      "description": "Neither authoritative narrative notes nor exact Registry snapshot evidence is available."
+    }
+  ]
+}

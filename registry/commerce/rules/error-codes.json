@@ -1,0 +1,219 @@
+{
+  "registryVersion": "0.13.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Commerce Domain Error Identifiers",
+  "description": "Stable Phase 12 domain errors. HTTP mappings are reserved for Phase 18.",
+  "count": 30,
+  "errors": [
+    {
+      "code": "COMMERCE_RULE_VIOLATION",
+      "label": "Commerce rule violation",
+      "description": "A canonical Commerce Rule was not satisfied.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_CONFLICT",
+      "label": "Commerce state conflict",
+      "description": "Authoritative state changed or a protected mutation conflicts with current state.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_STALE_CHECKOUT",
+      "label": "Checkout requires revalidation",
+      "description": "Checkout source state is stale and must be recalculated/revalidated.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_INVALID_TRANSITION",
+      "label": "Invalid lifecycle transition",
+      "description": "Requested state transition is not allowed by the canonical state machine.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_ALREADY_CONVERTED",
+      "label": "Already converted",
+      "description": "A Cart/Checkout conversion was already completed and cannot create another canonical result.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_ORDER_NOT_CANCELLABLE",
+      "label": "Order not cancellable",
+      "description": "Current Order state/policy does not allow cancellation.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_ORDER_NOT_COMPLETABLE",
+      "label": "Order not completable",
+      "description": "Required completion conditions are not satisfied.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_TOTAL_MISMATCH",
+      "label": "Commerce total mismatch",
+      "description": "Submitted or calculated monetary components do not reconcile.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_CURRENCY_MISMATCH",
+      "label": "Currency mismatch",
+      "description": "Monetary records do not use the required transaction currency.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_PRICE_CHANGED",
+      "label": "Price changed",
+      "description": "Authoritative price no longer matches the stale transaction selection.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_PRODUCT_UNAVAILABLE",
+      "label": "Product unavailable",
+      "description": "Product or Variant is not currently eligible for purchase.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_INSUFFICIENT_INVENTORY",
+      "label": "Insufficient inventory",
+      "description": "Available stock/backorder policy does not permit the requested quantity.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_RESERVATION_TERMINAL",
+      "label": "Inventory reservation is terminal",
+      "description": "Reservation has already been committed/released/expired/cancelled or cannot be reactivated.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_INVENTORY_CONFLICT",
+      "label": "Inventory conflict",
+      "description": "Concurrent or inconsistent inventory mutation prevents safe commit.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_CAPTURE_EXCEEDS_AUTHORIZATION",
+      "label": "Capture exceeds authorization",
+      "description": "Capture amount exceeds the valid remaining authorization/capturable bound.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_AUTHORIZATION_EXPIRED",
+      "label": "Authorization unavailable",
+      "description": "Authorization is expired, voided, insufficient or otherwise not valid for capture.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_PAYMENT_REFERENCE_CONFLICT",
+      "label": "Payment reference conflict",
+      "description": "External/provider financial reference is already bound to another accepted fact.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_REFUND_EXCEEDS_CAPTURED",
+      "label": "Refund exceeds captured amount",
+      "description": "Requested cumulative refund exceeds successfully captured refundable funds.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_REFUND_QUANTITY_EXCEEDED",
+      "label": "Refund quantity exceeded",
+      "description": "Refunded quantity exceeds eligible purchased quantity.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_FULFILLMENT_QUANTITY_EXCEEDED",
+      "label": "Fulfillment quantity exceeded",
+      "description": "Fulfillment quantity exceeds remaining eligible ordered quantity.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_DISCOUNT_INELIGIBLE",
+      "label": "Discount ineligible",
+      "description": "Promotion/coupon no longer satisfies eligibility or stacking requirements.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_DISCOUNT_USAGE_EXHAUSTED",
+      "label": "Discount usage exhausted",
+      "description": "Coupon/promotion usage limit has been reached.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_TAX_UNRESOLVED",
+      "label": "Tax unresolved",
+      "description": "Required tax jurisdiction/basis/rate could not be safely resolved.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_SHIPPING_UNAVAILABLE",
+      "label": "Shipping unavailable",
+      "description": "No eligible shipping method/rate can satisfy the checkout selection.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_RETURN_INELIGIBLE",
+      "label": "Return ineligible",
+      "description": "Order/line is outside the permitted return policy or eligibility rules.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_RETURN_QUANTITY_EXCEEDED",
+      "label": "Return quantity exceeded",
+      "description": "Requested cumulative return quantity exceeds eligible purchased quantity.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_IDEMPOTENCY_CONFLICT",
+      "label": "Idempotency conflict",
+      "description": "The idempotency key was reused with materially different canonical input.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_PROVIDER_RECONCILIATION_REQUIRED",
+      "label": "Provider reconciliation required",
+      "description": "External provider evidence conflicts with or cannot safely determine canonical state.",
+      "defaultRetryable": true,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_PERMISSION_REQUIRED",
+      "label": "Commerce permission required",
+      "description": "Actor lacks the required canonical commerce permission.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    },
+    {
+      "code": "COMMERCE_TENANT_SCOPE_VIOLATION",
+      "label": "Commerce tenant scope violation",
+      "description": "Operation crosses or cannot prove the required Organization/Site boundary.",
+      "defaultRetryable": false,
+      "httpMapping": "phase-18"
+    }
+  ]
+}

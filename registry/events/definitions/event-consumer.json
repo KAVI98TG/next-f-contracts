@@ -1,0 +1,84 @@
+{
+  "$id": "events.eventConsumer",
+  "name": "Event Consumer",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Logical event consumer class metadata.",
+  "purpose": "Logical event consumer class metadata.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Controlled consumer key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "required",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this consumer class is required for the event workflow.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "notes",
+      "required": false,
+      "nullable": true,
+      "description": "Optional consumption notes.",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "controlledConsumer",
+      "description": "Consumer key must resolve to registry/events/consumers.json."
+    }
+  ],
+  "cms": {
+    "label": "Event Consumer",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "key",
+      "required",
+      "notes"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

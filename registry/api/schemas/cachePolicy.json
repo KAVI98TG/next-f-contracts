@@ -1,0 +1,63 @@
+{
+  "$id": "api.cachePolicy",
+  "name": "Cache Policy",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "delivery",
+  "description": "Resolved cache behavior without leaking infrastructure details.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "policy",
+      "required": true,
+      "nullable": false,
+      "description": "policy",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "maxAgeSeconds",
+      "required": false,
+      "nullable": false,
+      "description": "maxAgeSeconds",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "staleWhileRevalidateSeconds",
+      "required": false,
+      "nullable": false,
+      "description": "staleWhileRevalidateSeconds",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "vary",
+      "required": false,
+      "nullable": false,
+      "description": "vary",
+      "primitive": "fields.tag"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

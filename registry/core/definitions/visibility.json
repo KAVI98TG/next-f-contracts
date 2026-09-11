@@ -1,0 +1,111 @@
+{
+  "$id": "core.visibility",
+  "name": "Visibility",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "lifecycle",
+  "description": "Canonical visibility policy for publishable resources.",
+  "purpose": "Separates public discoverability from publishing state so later content types do not invent incompatible visibility labels.",
+  "fields": [
+    {
+      "key": "mode",
+      "required": true,
+      "nullable": false,
+      "description": "Visibility machine value.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "public",
+            "label": "Public"
+          },
+          {
+            "value": "unlisted",
+            "label": "Unlisted"
+          },
+          {
+            "value": "private",
+            "label": "Private"
+          },
+          {
+            "value": "members",
+            "label": "Members only"
+          }
+        ],
+        "defaultValue": "public",
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "requiresAuthentication",
+      "required": true,
+      "nullable": false,
+      "description": "Whether access requires authenticated identity.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "notes",
+      "required": false,
+      "nullable": true,
+      "description": "Internal explanation for exceptional visibility configuration.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "privateRequiresAuthentication",
+      "description": "private and members modes require authentication."
+    },
+    {
+      "id": "publicDoesNotRequireAuthentication",
+      "description": "public visibility must not require authentication."
+    }
+  ],
+  "cms": {
+    "label": "Visibility",
+    "icon": "fa-eye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "sidebar",
+    "summaryFields": [
+      "mode"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "The visibility object may be exposed selectively, but private/members content itself must not be delivered publicly."
+  },
+  "examples": {
+    "valid": [
+      {
+        "mode": "public",
+        "requiresAuthentication": false
+      },
+      {
+        "mode": "private",
+        "requiresAuthentication": true
+      }
+    ],
+    "invalid": [
+      {
+        "mode": "Public",
+        "requiresAuthentication": false
+      }
+    ]
+  },
+  "notes": []
+}

@@ -1,0 +1,10 @@
+NEXT F Contracts Phase 9 validation
+Version: 0.10.0
+Marketing Contracts: 43
+Tracking Event Keys: 13
+Marketing fields inspected: 315
+Registry items: 236
+Passes: 1077
+Failures: 0
+
+PASS - Phase 9 Marketing and Tracking Contract Registry is internally consistent.

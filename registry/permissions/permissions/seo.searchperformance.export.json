@@ -1,0 +1,31 @@
+{
+  "$id": "seo.searchperformance.export",
+  "name": "Export Searchperformance",
+  "permissionId": "seo.searchperformance.export",
+  "domain": "seo",
+  "resource": "searchperformance",
+  "action": "export",
+  "scopeKind": "site",
+  "riskLevel": "standard",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Export Searchperformance within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [
+    "Export remains subject to field-level data minimization and the resource data policy."
+  ],
+  "version": "0.16.0",
+  "status": "stable"
+}

@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/privacy/data-handling.schema.json",
+  "title": "NEXT F Field Privacy Handling",
+  "type": "object",
+  "required": [
+    "handlingId",
+    "targetId",
+    "fieldPath",
+    "classification",
+    "purpose",
+    "publicDeliveryEligible",
+    "logEligibility",
+    "eventEligibility",
+    "webhookEligibility",
+    "analyticsEligibility",
+    "retentionClass",
+    "exportSensitivity",
+    "consentRelevance",
+    "deletionBehavior",
+    "redactionBehavior"
+  ],
+  "properties": {
+    "handlingId": {
+      "type": "string",
+      "pattern": "^PRIV-FLD-[0-9]{3}$"
+    },
+    "targetId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fieldPath": {
+      "type": "string",
+      "pattern": "^fields\\.[A-Za-z0-9_-]+$"
+    },
+    "classification": {
+      "enum": [
+        "public",
+        "internal",
+        "personal",
+        "sensitive",
+        "secret"
+      ]
+    },
+    "qualifiers": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "financial",
+          "authentication",
+          "tracking",
+          "content",
+          "system-metadata"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "publicDeliveryEligible": {
+      "type": "boolean"
+    },
+    "logEligibility": {
+      "enum": [
+        "allowed",
+        "conditional",
+        "redacted-only",
+        "prohibited"
+      ]
+    },
+    "eventEligibility": {
+      "enum": [
+        "allowed",
+        "conditional",
+        "redacted-only",
+        "prohibited"
+      ]
+    },
+    "webhookEligibility": {
+      "enum": [
+        "allowed",
+        "conditional",
+        "redacted-only",
+        "prohibited"
+      ]
+    },
+    "analyticsEligibility": {
+      "enum": [
+        "allowed",
+        "conditional",
+        "redacted-only",
+        "prohibited"
+      ]
+    },
+    "retentionClass": {
+      "enum": [
+        "ephemeral",
+        "operational",
+        "customer-record",
+        "consent-history",
+        "financial-record",
+        "security-audit",
+        "credential-lifecycle",
+        "content-lifecycle",
+        "legal-hold"
+      ]
+    },
+    "exportSensitivity": {
+      "enum": [
+        "normal",
+        "restricted",
+        "highly-restricted"
+      ]
+    },
+    "consentRelevance": {
+      "enum": [
+        "none",
+        "business-purpose",
+        "analytics",
+        "marketing",
+        "functional",
+        "multiple"
+      ]
+    },
+    "deletionBehavior": {
+      "enum": [
+        "delete",
+        "anonymize",
+        "retain-per-policy",
+        "protected-retention",
+        "review-required"
+      ]
+    },
+    "redactionBehavior": {
+      "enum": [
+        "none",
+        "mask",
+        "partial",
+        "pseudonymize",
+        "remove"
+      ]
+    },
+    "relatedSecurityControls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^SEC-[A-Z0-9]+-[0-9]{3}$"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "stable"
+      ]
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

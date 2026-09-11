@@ -1,0 +1,70 @@
+{
+  "$id": "fields.decimal",
+  "name": "Decimal",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "numeric",
+  "description": "Finite decimal number for measurements and non-monetary numeric values.",
+  "value": {
+    "jsonType": "number",
+    "canonical": "Finite JSON number. Precision limits are explicit configuration.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "decimal",
+    "inputMode": "decimal",
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": true,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "minimum",
+    "maximum",
+    "step",
+    "precision",
+    "inputMode"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "minimum",
+    "maximum",
+    "precision",
+    "step"
+  ],
+  "examples": {
+    "valid": [
+      1.5,
+      0,
+      -0.25
+    ],
+    "invalid": [
+      "1.5"
+    ]
+  },
+  "notes": []
+}

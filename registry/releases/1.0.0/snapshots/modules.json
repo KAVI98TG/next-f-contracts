@@ -1,0 +1,2075 @@
+{
+  "registryVersion": "1.0.0",
+  "moduleCount": 13,
+  "modules": [
+    {
+      "$id": "modules.core",
+      "moduleId": "core",
+      "name": "Core",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "foundation",
+      "icon": "fa-cubes",
+      "order": 10,
+      "description": "Tenant identity, Site scope, publishing, versioning, audit and shared platform primitives required by every NEXT F Site.",
+      "selection": {
+        "mandatory": true,
+        "defaultEnabled": true,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": false
+      },
+      "dependencies": [],
+      "conflicts": [],
+      "capabilityIds": [
+        "core.identity",
+        "core.publishing",
+        "core.versioning",
+        "core.audit",
+        "core.tenant-isolation"
+      ],
+      "defaultCapabilityIds": [
+        "core.identity",
+        "core.publishing",
+        "core.versioning",
+        "core.audit",
+        "core.tenant-isolation"
+      ],
+      "contractBindings": [
+        "core.actorReference",
+        "core.auditRecord",
+        "core.entityIdentity",
+        "core.entityReference",
+        "core.organization",
+        "core.publishing",
+        "core.revisionPointer",
+        "core.scheduleWindow",
+        "core.sharedCoreStandard",
+        "core.site",
+        "core.tenantScope",
+        "core.versionRecord",
+        "core.visibility",
+        "shared.address",
+        "shared.contactPoint",
+        "shared.cta",
+        "shared.externalReference",
+        "shared.link",
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [
+        "core.audit.export",
+        "core.audit.view",
+        "core.members.create",
+        "core.members.delete",
+        "core.members.edit",
+        "core.members.manage",
+        "core.members.view",
+        "core.settings.edit",
+        "core.settings.manage",
+        "core.settings.view",
+        "core.sitehealth.view",
+        "core.workspace.manage",
+        "core.workspace.view",
+        "platform.sites.create",
+        "platform.sites.delete",
+        "platform.sites.edit",
+        "platform.sites.export",
+        "platform.sites.manage",
+        "platform.sites.view"
+      ],
+      "eventBindings": [
+        "site.activated",
+        "site.connection-degraded",
+        "site.connection-restored",
+        "site.created",
+        "site.suspended",
+        "site.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Foundation",
+        "navigation": [
+          {
+            "label": "Overview",
+            "path": "/overview",
+            "icon": "fa-gauge-high",
+            "order": 10
+          },
+          {
+            "label": "Activity",
+            "path": "/activity",
+            "icon": "fa-clock-rotate-left",
+            "order": 90
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Site Overview",
+            "path": "/sites/:siteId",
+            "icon": "fa-globe",
+            "order": 10
+          },
+          {
+            "label": "Activity",
+            "path": "/sites/:siteId/activity",
+            "icon": "fa-clock-rotate-left",
+            "order": 90
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "core",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.media",
+      "moduleId": "media",
+      "name": "Media",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "foundation",
+      "icon": "fa-photo-film",
+      "order": 20,
+      "description": "Reusable Site-scoped media library and asset metadata used by content and commerce without tying contracts to one storage provider.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": true,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Media assets are Site-scoped and audited through Core."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "media.library",
+        "media.images",
+        "media.documents",
+        "media.video",
+        "media.audio",
+        "media.contextual-metadata"
+      ],
+      "defaultCapabilityIds": [
+        "media.library",
+        "media.images",
+        "media.contextual-metadata"
+      ],
+      "contractBindings": [
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [
+        "content.media.create",
+        "content.media.delete",
+        "content.media.edit",
+        "content.media.manage",
+        "content.media.view"
+      ],
+      "eventBindings": [
+        "media.created",
+        "media.deleted",
+        "media.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Foundation",
+        "navigation": [
+          {
+            "label": "Media",
+            "path": "/content/media",
+            "icon": "fa-photo-film",
+            "order": 40
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Media",
+            "path": "/sites/:siteId/media",
+            "icon": "fa-photo-film",
+            "order": 40
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "media",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.pages",
+      "moduleId": "pages",
+      "name": "Pages",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "content",
+      "icon": "fa-file-lines",
+      "order": 100,
+      "description": "Structured pages, sections, reusable content, navigation, legal content and custom collections for coded customer websites.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "All page content is Site-scoped and publishable."
+        },
+        {
+          "moduleId": "media",
+          "kind": "required",
+          "reason": "Page blocks may reference canonical media assets."
+        },
+        {
+          "moduleId": "seo",
+          "kind": "recommended",
+          "reason": "Routable pages should normally use canonical SEO metadata."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "pages.sections",
+        "pages.reusable-content",
+        "pages.navigation",
+        "pages.legal-pages",
+        "pages.custom-collections",
+        "pages.scheduling",
+        "pages.approvals"
+      ],
+      "defaultCapabilityIds": [
+        "pages.sections",
+        "pages.reusable-content",
+        "pages.navigation"
+      ],
+      "contractBindings": [
+        "content.page",
+        "content.pageSection",
+        "content.reusableContent",
+        "content.navigation",
+        "content.navigationItem",
+        "content.legalPage",
+        "content.customCollection",
+        "content.customCollectionEntry",
+        "blocks.actionGroup",
+        "blocks.blockContractStandard",
+        "blocks.cta",
+        "blocks.custom",
+        "blocks.documents",
+        "blocks.faq",
+        "blocks.featureGrid",
+        "blocks.featureItem",
+        "blocks.form",
+        "blocks.gallery",
+        "blocks.galleryItem",
+        "blocks.heading",
+        "blocks.hero",
+        "blocks.locations",
+        "blocks.logoGrid",
+        "blocks.logoItem",
+        "blocks.pricing",
+        "blocks.pricingPlan",
+        "blocks.process",
+        "blocks.processStep",
+        "blocks.relatedContent",
+        "blocks.relatedContentItem",
+        "blocks.richText",
+        "blocks.services",
+        "blocks.statItem",
+        "blocks.stats",
+        "blocks.team",
+        "blocks.testimonials",
+        "blocks.textImage",
+        "blocks.video"
+      ],
+      "permissionBindings": [
+        "content.customcollections.create",
+        "content.customcollections.delete",
+        "content.customcollections.edit",
+        "content.customcollections.manage",
+        "content.customcollections.view",
+        "content.navigation.edit",
+        "content.navigation.manage",
+        "content.navigation.publish",
+        "content.navigation.view",
+        "content.pages.approve",
+        "content.pages.create",
+        "content.pages.delete",
+        "content.pages.edit",
+        "content.pages.publish",
+        "content.pages.view",
+        "content.reusablecontent.approve",
+        "content.reusablecontent.create",
+        "content.reusablecontent.delete",
+        "content.reusablecontent.edit",
+        "content.reusablecontent.publish",
+        "content.reusablecontent.view"
+      ],
+      "eventBindings": [
+        "content.archived",
+        "content.created",
+        "content.deleted",
+        "content.published",
+        "content.restored",
+        "content.scheduled",
+        "content.unpublished",
+        "content.updated",
+        "content.version-created",
+        "navigation.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Content",
+        "navigation": [
+          {
+            "label": "Pages",
+            "path": "/content/pages",
+            "icon": "fa-file-lines",
+            "order": 10
+          },
+          {
+            "label": "Reusable Content",
+            "path": "/content/reusable",
+            "icon": "fa-clone",
+            "order": 20
+          },
+          {
+            "label": "Navigation",
+            "path": "/website/navigation",
+            "icon": "fa-bars",
+            "order": 30
+          },
+          {
+            "label": "Custom Collections",
+            "path": "/content/collections",
+            "icon": "fa-table-list",
+            "order": 50
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Content Model",
+            "path": "/sites/:siteId/content",
+            "icon": "fa-diagram-project",
+            "order": 20
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "pages",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.blog",
+      "moduleId": "blog",
+      "name": "Blog",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "content",
+      "icon": "fa-newspaper",
+      "order": 110,
+      "description": "Editorial publishing for Blog Posts, categories, tags, authors, related posts, scheduling and approval workflows.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Blog content uses Core publishing/versioning."
+        },
+        {
+          "moduleId": "media",
+          "kind": "required",
+          "reason": "Blog posts use canonical media references."
+        },
+        {
+          "moduleId": "seo",
+          "kind": "recommended",
+          "reason": "Published posts should normally use canonical SEO metadata."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "blog.categories",
+        "blog.tags",
+        "blog.authors",
+        "blog.related-posts",
+        "blog.scheduling",
+        "blog.approvals"
+      ],
+      "defaultCapabilityIds": [
+        "blog.categories",
+        "blog.tags",
+        "blog.authors"
+      ],
+      "contractBindings": [
+        "content.blogPost",
+        "content.blogCategory",
+        "content.blogTag",
+        "content.author"
+      ],
+      "permissionBindings": [
+        "content.blogcategories.create",
+        "content.blogcategories.delete",
+        "content.blogcategories.edit",
+        "content.blogcategories.manage",
+        "content.blogcategories.view",
+        "content.blogposts.approve",
+        "content.blogposts.create",
+        "content.blogposts.delete",
+        "content.blogposts.edit",
+        "content.blogposts.publish",
+        "content.blogposts.view",
+        "content.blogtags.create",
+        "content.blogtags.delete",
+        "content.blogtags.edit",
+        "content.blogtags.manage",
+        "content.blogtags.view"
+      ],
+      "eventBindings": [
+        "content.archived",
+        "content.created",
+        "content.deleted",
+        "content.published",
+        "content.restored",
+        "content.scheduled",
+        "content.unpublished",
+        "content.updated",
+        "content.version-created"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Content",
+        "navigation": [
+          {
+            "label": "Blog",
+            "path": "/content/blog",
+            "icon": "fa-newspaper",
+            "order": 20
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Blog",
+            "path": "/sites/:siteId/blog",
+            "icon": "fa-newspaper",
+            "order": 30
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "blog",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.documentation",
+      "moduleId": "documentation",
+      "name": "Documentation",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "content",
+      "icon": "fa-book-open",
+      "order": 120,
+      "description": "Structured documentation collections, categories and articles with attachments, visibility, related content and version-aware publishing.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Documentation is versioned and Site-scoped."
+        },
+        {
+          "moduleId": "media",
+          "kind": "required",
+          "reason": "Documentation may reference attachments/media."
+        },
+        {
+          "moduleId": "seo",
+          "kind": "recommended",
+          "reason": "Public documentation benefits from canonical SEO metadata."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "documentation.collections",
+        "documentation.categories",
+        "documentation.attachments",
+        "documentation.related-articles",
+        "documentation.versioning",
+        "documentation.visibility"
+      ],
+      "defaultCapabilityIds": [
+        "documentation.collections",
+        "documentation.categories",
+        "documentation.versioning",
+        "documentation.visibility"
+      ],
+      "contractBindings": [
+        "content.documentationCollection",
+        "content.documentationCategory",
+        "content.documentationArticle"
+      ],
+      "permissionBindings": [
+        "content.documentation.approve",
+        "content.documentation.create",
+        "content.documentation.delete",
+        "content.documentation.edit",
+        "content.documentation.publish",
+        "content.documentation.view"
+      ],
+      "eventBindings": [
+        "content.archived",
+        "content.created",
+        "content.deleted",
+        "content.published",
+        "content.restored",
+        "content.scheduled",
+        "content.unpublished",
+        "content.updated",
+        "content.version-created"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Content",
+        "navigation": [
+          {
+            "label": "Documentation",
+            "path": "/content/documentation",
+            "icon": "fa-book-open",
+            "order": 30
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Documentation",
+            "path": "/sites/:siteId/documentation",
+            "icon": "fa-book-open",
+            "order": 35
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "documentation",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.seo",
+      "moduleId": "seo",
+      "name": "SEO",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "growth",
+      "icon": "fa-magnifying-glass-chart",
+      "order": 200,
+      "description": "Canonical metadata, keywords, social metadata, structured data, redirects, sitemap, robots, audits and search-performance records.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "SEO records belong to a Site and target canonical entities."
+        },
+        {
+          "moduleId": "integrations",
+          "kind": "optional",
+          "reason": "Search performance and indexing data may be sourced through supported connectors."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "seo.metadata",
+        "seo.keywords",
+        "seo.social-sharing",
+        "seo.structured-data",
+        "seo.redirects",
+        "seo.sitemap",
+        "seo.robots",
+        "seo.audits",
+        "seo.search-performance",
+        "seo.indexing"
+      ],
+      "defaultCapabilityIds": [
+        "seo.metadata",
+        "seo.social-sharing",
+        "seo.sitemap",
+        "seo.robots"
+      ],
+      "contractBindings": [
+        "seo.alternateLanguage",
+        "seo.auditIssue",
+        "seo.auditResult",
+        "seo.brokenLink",
+        "seo.indexingStatus",
+        "seo.internalLink",
+        "seo.keywordSet",
+        "seo.keywordTarget",
+        "seo.metadata",
+        "seo.openGraph",
+        "seo.redirect",
+        "seo.robotsDirective",
+        "seo.robotsPolicy",
+        "seo.robotsRule",
+        "seo.searchPerformance",
+        "seo.searchPreview",
+        "seo.searchQuery",
+        "seo.seoContractStandard",
+        "seo.siteDefaults",
+        "seo.sitemapEntry",
+        "seo.socialCard",
+        "seo.structuredData",
+        "seo.urlInspectionResult"
+      ],
+      "permissionBindings": [
+        "seo.audits.export",
+        "seo.audits.manage",
+        "seo.audits.view",
+        "seo.indexing.manage",
+        "seo.indexing.view",
+        "seo.metadata.edit",
+        "seo.metadata.view",
+        "seo.redirects.create",
+        "seo.redirects.delete",
+        "seo.redirects.edit",
+        "seo.redirects.manage",
+        "seo.redirects.view",
+        "seo.robots.edit",
+        "seo.robots.manage",
+        "seo.robots.view",
+        "seo.searchperformance.export",
+        "seo.searchperformance.view",
+        "seo.sitemap.edit",
+        "seo.sitemap.manage",
+        "seo.sitemap.view",
+        "seo.structureddata.edit",
+        "seo.structureddata.view"
+      ],
+      "eventBindings": [
+        "redirect.created",
+        "redirect.deleted",
+        "redirect.updated",
+        "seo.updated",
+        "sitemap.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Growth",
+        "navigation": [
+          {
+            "label": "SEO",
+            "path": "/growth/seo",
+            "icon": "fa-magnifying-glass-chart",
+            "order": 10
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "SEO",
+            "path": "/sites/:siteId/seo",
+            "icon": "fa-magnifying-glass-chart",
+            "order": 40
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "seo",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.forms",
+      "moduleId": "forms",
+      "name": "Forms",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "growth",
+      "icon": "fa-rectangle-list",
+      "order": 210,
+      "description": "Structured forms, submissions, validation, notifications, spam handling, consent capture and conversion mapping.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Forms and submissions are Site-scoped."
+        },
+        {
+          "moduleId": "consent",
+          "kind": "conditional",
+          "reason": "Consent module is required when optional analytics/marketing consent is collected or enforced."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "forms.multi-step",
+        "forms.conditional-logic",
+        "forms.file-uploads",
+        "forms.notifications",
+        "forms.auto-response",
+        "forms.spam-protection",
+        "forms.consent-fields",
+        "forms.conversion-mapping"
+      ],
+      "defaultCapabilityIds": [
+        "forms.notifications",
+        "forms.spam-protection",
+        "forms.consent-fields"
+      ],
+      "contractBindings": [
+        "forms.autoResponse",
+        "forms.condition",
+        "forms.conditionGroup",
+        "forms.confirmation",
+        "forms.consentFieldConfig",
+        "forms.consentRecord",
+        "forms.conversionMapping",
+        "forms.dataHandling",
+        "forms.fieldMapping",
+        "forms.fieldOption",
+        "forms.fieldValidationRule",
+        "forms.form",
+        "forms.formAvailability",
+        "forms.formField",
+        "forms.formSection",
+        "forms.formStep",
+        "forms.formsLeadsContractStandard",
+        "forms.notificationRecipient",
+        "forms.notificationRule",
+        "forms.rateLimitPolicy",
+        "forms.requestContext",
+        "forms.spamDecision",
+        "forms.spamPolicy",
+        "forms.spamSignal",
+        "forms.submission",
+        "forms.submissionFile",
+        "forms.submissionValue",
+        "forms.uploadPolicy"
+      ],
+      "permissionBindings": [
+        "forms.consent.export",
+        "forms.consent.view",
+        "forms.forms.create",
+        "forms.forms.delete",
+        "forms.forms.edit",
+        "forms.forms.manage",
+        "forms.forms.publish",
+        "forms.forms.view",
+        "forms.notifications.edit",
+        "forms.notifications.manage",
+        "forms.notifications.view",
+        "forms.spam.manage",
+        "forms.spam.view",
+        "forms.submissions.delete",
+        "forms.submissions.export",
+        "forms.submissions.manage",
+        "forms.submissions.view"
+      ],
+      "eventBindings": [
+        "form.archived",
+        "form.created",
+        "form.published",
+        "form.rejected",
+        "form.submitted",
+        "form.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Growth",
+        "navigation": [
+          {
+            "label": "Forms",
+            "path": "/growth/forms",
+            "icon": "fa-rectangle-list",
+            "order": 20
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Forms",
+            "path": "/sites/:siteId/forms",
+            "icon": "fa-rectangle-list",
+            "order": 50
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "forms",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.leads",
+      "moduleId": "leads",
+      "name": "Leads",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "growth",
+      "icon": "fa-user-plus",
+      "order": 220,
+      "description": "Lead records, status, assignment, notes, activity, deduplication and export generated from approved sources such as Forms.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Leads are Site-scoped business records."
+        },
+        {
+          "moduleId": "forms",
+          "kind": "required",
+          "reason": "Phase 17 Lead workflows use the Forms/Lead contract family as their canonical source."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "leads.status",
+        "leads.assignment",
+        "leads.notes",
+        "leads.activity",
+        "leads.deduplication",
+        "leads.export"
+      ],
+      "defaultCapabilityIds": [
+        "leads.status",
+        "leads.activity",
+        "leads.deduplication"
+      ],
+      "contractBindings": [
+        "forms.fieldMapping",
+        "forms.lead",
+        "forms.leadActivity",
+        "forms.leadAssignment",
+        "forms.leadDedupePolicy",
+        "forms.leadMapping",
+        "forms.leadNote",
+        "forms.leadSource",
+        "forms.leadStatusDefinition"
+      ],
+      "permissionBindings": [
+        "forms.leads.create",
+        "forms.leads.delete",
+        "forms.leads.edit",
+        "forms.leads.export",
+        "forms.leads.manage",
+        "forms.leads.view"
+      ],
+      "eventBindings": [
+        "lead.assigned",
+        "lead.created",
+        "lead.merged",
+        "lead.status-changed",
+        "lead.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Growth",
+        "navigation": [
+          {
+            "label": "Leads",
+            "path": "/growth/leads",
+            "icon": "fa-user-plus",
+            "order": 30
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Leads",
+            "path": "/sites/:siteId/leads",
+            "icon": "fa-user-plus",
+            "order": 55
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "leads",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.consent",
+      "moduleId": "consent",
+      "name": "Consent",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "platform",
+      "icon": "fa-shield-halved",
+      "order": 300,
+      "description": "Tracking and marketing consent preferences, states, policies and immutable consent records used to gate optional integrations.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Consent state is Site-scoped and auditable."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "consent.preferences",
+        "consent.records",
+        "consent.categories",
+        "consent.integration-gating"
+      ],
+      "defaultCapabilityIds": [
+        "consent.preferences",
+        "consent.records",
+        "consent.categories",
+        "consent.integration-gating"
+      ],
+      "contractBindings": [
+        "forms.consentFieldConfig",
+        "forms.consentRecord",
+        "marketing.consentCategory",
+        "marketing.consentPolicy",
+        "marketing.consentPreference",
+        "marketing.consentState",
+        "marketing.trackingConsentRecord"
+      ],
+      "permissionBindings": [
+        "forms.consent.export",
+        "forms.consent.view",
+        "marketing.consent.edit",
+        "marketing.consent.manage",
+        "marketing.consent.view"
+      ],
+      "eventBindings": [
+        "consent.recorded",
+        "consent.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Platform",
+        "navigation": [
+          {
+            "label": "Consent & Privacy",
+            "path": "/website/consent",
+            "icon": "fa-shield-halved",
+            "order": 20
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Consent",
+            "path": "/sites/:siteId/consent",
+            "icon": "fa-shield-halved",
+            "order": 60
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "consent",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.analytics",
+      "moduleId": "analytics",
+      "name": "Analytics",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "growth",
+      "icon": "fa-chart-line",
+      "order": 230,
+      "description": "Provider-neutral website measurement, analytics observations, reporting, attribution and campaign performance summaries.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Analytics configuration is Site-scoped."
+        },
+        {
+          "moduleId": "consent",
+          "kind": "required",
+          "reason": "Optional analytics measurement must honor canonical consent state."
+        },
+        {
+          "moduleId": "integrations",
+          "kind": "recommended",
+          "reason": "Provider reporting normally arrives through supported integration connectors."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "analytics.measurement",
+        "analytics.reporting",
+        "analytics.attribution",
+        "analytics.campaign-performance"
+      ],
+      "defaultCapabilityIds": [
+        "analytics.measurement",
+        "analytics.reporting"
+      ],
+      "contractBindings": [
+        "marketing.analyticsConfiguration",
+        "marketing.analyticsObservation",
+        "marketing.analyticsSnapshot",
+        "marketing.attributionCredit",
+        "marketing.attributionModel",
+        "marketing.attributionTouchpoint",
+        "marketing.campaignAttribution",
+        "marketing.campaignPerformanceSnapshot",
+        "marketing.conversionAttribution",
+        "marketing.dimensionDefinition",
+        "marketing.metricDefinition"
+      ],
+      "permissionBindings": [
+        "marketing.analytics.export",
+        "marketing.analytics.view",
+        "marketing.attribution.export",
+        "marketing.attribution.manage",
+        "marketing.attribution.view"
+      ],
+      "eventBindings": [
+        "conversion.recorded",
+        "consent.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Growth",
+        "navigation": [
+          {
+            "label": "Analytics",
+            "path": "/growth/analytics",
+            "icon": "fa-chart-line",
+            "order": 40
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Analytics",
+            "path": "/sites/:siteId/analytics",
+            "icon": "fa-chart-line",
+            "order": 65
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "analytics",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.marketing",
+      "moduleId": "marketing",
+      "name": "Marketing",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "growth",
+      "icon": "fa-bullseye",
+      "order": 240,
+      "description": "Conversions, campaign attribution, UTM/click identifiers, marketing destinations and provider-neutral tracking configuration.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Marketing configuration is Site-scoped."
+        },
+        {
+          "moduleId": "consent",
+          "kind": "required",
+          "reason": "Optional marketing destinations must honor consent."
+        },
+        {
+          "moduleId": "analytics",
+          "kind": "recommended",
+          "reason": "Attribution and reporting can consume Analytics capability."
+        },
+        {
+          "moduleId": "integrations",
+          "kind": "recommended",
+          "reason": "Ad platforms and marketing tools connect through canonical connectors."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "marketing.conversions",
+        "marketing.campaigns",
+        "marketing.utm-attribution",
+        "marketing.ad-click-identifiers",
+        "marketing.destinations"
+      ],
+      "defaultCapabilityIds": [
+        "marketing.conversions",
+        "marketing.utm-attribution",
+        "marketing.destinations"
+      ],
+      "contractBindings": [
+        "marketing.adClickIdentifier",
+        "marketing.analyticsConfiguration",
+        "marketing.attributionCredit",
+        "marketing.attributionModel",
+        "marketing.attributionTouchpoint",
+        "marketing.campaignAttribution",
+        "marketing.campaignContext",
+        "marketing.campaignDefinition",
+        "marketing.campaignPerformanceSnapshot",
+        "marketing.conversionAttribution",
+        "marketing.conversionDeduplicationPolicy",
+        "marketing.conversionDefinition",
+        "marketing.conversionOccurrence",
+        "marketing.conversionSummary",
+        "marketing.conversionValue",
+        "marketing.dataLayerConfiguration",
+        "marketing.destinationMapping",
+        "marketing.deviceContext",
+        "marketing.dimensionDefinition",
+        "marketing.dispatchRequest",
+        "marketing.dispatchResult",
+        "marketing.eventContext",
+        "marketing.eventDestination",
+        "marketing.eventPropertyDefinition",
+        "marketing.marketingDestination",
+        "marketing.marketingTrackingContractStandard",
+        "marketing.metricDefinition",
+        "marketing.pageContext",
+        "marketing.referrerContext",
+        "marketing.sessionContext",
+        "marketing.standardTrackingEvents",
+        "marketing.trackingConfiguration",
+        "marketing.trackingDataPolicy",
+        "marketing.trackingEvent",
+        "marketing.trackingEventDefinition",
+        "marketing.trafficSource",
+        "marketing.utmParameters",
+        "marketing.visitorContext"
+      ],
+      "permissionBindings": [
+        "marketing.attribution.export",
+        "marketing.attribution.manage",
+        "marketing.attribution.view",
+        "marketing.campaigns.create",
+        "marketing.campaigns.delete",
+        "marketing.campaigns.edit",
+        "marketing.campaigns.manage",
+        "marketing.campaigns.view",
+        "marketing.conversions.create",
+        "marketing.conversions.delete",
+        "marketing.conversions.edit",
+        "marketing.conversions.manage",
+        "marketing.conversions.view",
+        "marketing.destinations.create",
+        "marketing.destinations.delete",
+        "marketing.destinations.edit",
+        "marketing.destinations.manage",
+        "marketing.destinations.view",
+        "marketing.tracking.edit",
+        "marketing.tracking.manage",
+        "marketing.tracking.view"
+      ],
+      "eventBindings": [
+        "conversion.recorded"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Growth",
+        "navigation": [
+          {
+            "label": "Conversions",
+            "path": "/growth/conversions",
+            "icon": "fa-bullseye",
+            "order": 50
+          },
+          {
+            "label": "Marketing",
+            "path": "/growth/marketing",
+            "icon": "fa-megaphone",
+            "order": 60
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Marketing",
+            "path": "/sites/:siteId/marketing",
+            "icon": "fa-bullseye",
+            "order": 70
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "marketing",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.integrations",
+      "moduleId": "integrations",
+      "name": "Integrations",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "platform",
+      "icon": "fa-plug",
+      "order": 310,
+      "description": "Approved provider connectors, credentials references, environment bindings, mappings, synchronization and health diagnostics.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Connections are Site-scoped and permission-controlled."
+        },
+        {
+          "moduleId": "consent",
+          "kind": "conditional",
+          "reason": "Tracking/advertising connectors require consent-aware runtime behavior."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "integrations.gtm",
+        "integrations.ga4",
+        "integrations.google-ads",
+        "integrations.search-console",
+        "integrations.meta",
+        "integrations.clarity",
+        "integrations.tiktok",
+        "integrations.linkedin",
+        "integrations.microsoft-ads",
+        "integrations.email",
+        "integrations.crm",
+        "integrations.webhooks",
+        "integrations.custom-api",
+        "integrations.health",
+        "integrations.sync"
+      ],
+      "defaultCapabilityIds": [
+        "integrations.health"
+      ],
+      "contractBindings": [
+        "integrations.accountReference",
+        "integrations.actionBinding",
+        "integrations.apiKeyConfiguration",
+        "integrations.authenticationProfile",
+        "integrations.capabilityBinding",
+        "integrations.capabilityDefinition",
+        "integrations.configurationField",
+        "integrations.configurationValue",
+        "integrations.connectionStatus",
+        "integrations.connectionTest",
+        "integrations.connectorDefinition",
+        "integrations.consentBinding",
+        "integrations.conversionMapping",
+        "integrations.credentialReference",
+        "integrations.crm",
+        "integrations.customApi",
+        "integrations.dataMapping",
+        "integrations.dataMappingField",
+        "integrations.dataPolicyBinding",
+        "integrations.emailProvider",
+        "integrations.environmentBinding",
+        "integrations.eventMapping",
+        "integrations.googleAds",
+        "integrations.googleAnalytics4",
+        "integrations.googleSearchConsole",
+        "integrations.googleTagManager",
+        "integrations.healthCheck",
+        "integrations.healthSnapshot",
+        "integrations.integrationConnection",
+        "integrations.integrationContractStandard",
+        "integrations.integrationError",
+        "integrations.linkedin",
+        "integrations.meta",
+        "integrations.microsoftAds",
+        "integrations.microsoftClarity",
+        "integrations.oauthConfiguration",
+        "integrations.providerActionDefinition",
+        "integrations.providerDefinition",
+        "integrations.rateLimitState",
+        "integrations.resourceReference",
+        "integrations.retryPolicy",
+        "integrations.runtimeBinding",
+        "integrations.secretReference",
+        "integrations.syncCursor",
+        "integrations.syncPolicy",
+        "integrations.syncResult",
+        "integrations.syncRun",
+        "integrations.tiktok",
+        "integrations.webhook",
+        "webhooks.dataAccessPolicy",
+        "webhooks.deadLetter",
+        "webhooks.defaultPolicies",
+        "webhooks.delivery",
+        "webhooks.deliveryAttempt",
+        "webhooks.deliveryFailure",
+        "webhooks.deliveryLogRecord",
+        "webhooks.deliveryMetricSnapshot",
+        "webhooks.deliveryQueuePolicy",
+        "webhooks.deliveryRequest",
+        "webhooks.deliveryResponse",
+        "webhooks.deliverySummary",
+        "webhooks.endpoint",
+        "webhooks.endpointAuthentication",
+        "webhooks.endpointHealth",
+        "webhooks.endpointNetworkPolicy",
+        "webhooks.endpointVerification",
+        "webhooks.endpointVerificationPayload",
+        "webhooks.endpointVerificationResponse",
+        "webhooks.environmentBinding",
+        "webhooks.eventCatalog",
+        "webhooks.eventExposure",
+        "webhooks.eventSelection",
+        "webhooks.failureClassification",
+        "webhooks.failureCodeVocabulary",
+        "webhooks.headerPolicy",
+        "webhooks.headerVocabulary",
+        "webhooks.httpOutcomePolicy",
+        "webhooks.pausePolicy",
+        "webhooks.payloadEnvelope",
+        "webhooks.payloadPolicy",
+        "webhooks.ratePolicy",
+        "webhooks.redactionPolicy",
+        "webhooks.redeliveryRequest",
+        "webhooks.replayProtection",
+        "webhooks.requestHeader",
+        "webhooks.responsePolicy",
+        "webhooks.retentionPolicy",
+        "webhooks.retryPolicy",
+        "webhooks.secretRotation",
+        "webhooks.signaturePolicy",
+        "webhooks.signingKeyReference",
+        "webhooks.statusVocabulary",
+        "webhooks.subscription",
+        "webhooks.subscriptionFilter",
+        "webhooks.subscriptionOwnership",
+        "webhooks.subscriptionState",
+        "webhooks.testDelivery",
+        "webhooks.timeoutPolicy",
+        "webhooks.webhookReference",
+        "webhooks.webhookRegistryStandard"
+      ],
+      "permissionBindings": [
+        "integrations.connections.create",
+        "integrations.connections.delete",
+        "integrations.connections.edit",
+        "integrations.connections.manage",
+        "integrations.connections.view",
+        "integrations.credentials.manage",
+        "integrations.credentials.view",
+        "integrations.health.view",
+        "integrations.mappings.edit",
+        "integrations.mappings.manage",
+        "integrations.mappings.view",
+        "integrations.sync.manage",
+        "integrations.sync.view",
+        "webhooks.deadletters.manage",
+        "webhooks.deadletters.view",
+        "webhooks.deliveries.export",
+        "webhooks.deliveries.manage",
+        "webhooks.deliveries.view",
+        "webhooks.endpoints.create",
+        "webhooks.endpoints.delete",
+        "webhooks.endpoints.edit",
+        "webhooks.endpoints.manage",
+        "webhooks.endpoints.view",
+        "webhooks.secrets.manage",
+        "webhooks.subscriptions.create",
+        "webhooks.subscriptions.delete",
+        "webhooks.subscriptions.edit",
+        "webhooks.subscriptions.manage",
+        "webhooks.subscriptions.view",
+        "webhooks.tests.create",
+        "webhooks.tests.view"
+      ],
+      "eventBindings": [
+        "integration.connected",
+        "integration.disconnected",
+        "integration.health-degraded",
+        "integration.health-restored",
+        "integration.sync-failed",
+        "integration.sync-started",
+        "integration.sync-succeeded",
+        "webhook.delivery-dead-lettered",
+        "webhook.endpoint-degraded",
+        "webhook.endpoint-disabled",
+        "webhook.endpoint-restored",
+        "webhook.endpoint-verification-failed",
+        "webhook.endpoint-verified",
+        "webhook.redelivery-requested",
+        "webhook.signing-secret-rotated",
+        "webhook.subscription-created",
+        "webhook.subscription-disabled",
+        "webhook.subscription-paused",
+        "webhook.subscription-resumed"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Platform",
+        "navigation": [
+          {
+            "label": "Integrations",
+            "path": "/website/integrations",
+            "icon": "fa-plug",
+            "order": 10
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Integrations",
+            "path": "/sites/:siteId/integrations",
+            "icon": "fa-plug",
+            "order": 80
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "integrations",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.commerce",
+      "moduleId": "commerce",
+      "name": "Commerce",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "commerce",
+      "icon": "fa-cart-shopping",
+      "order": 400,
+      "description": "Full transactional commerce foundation covering catalog, inventory, customers, cart, checkout, orders, payments, fulfillment, discounts, returns, reviews and tax/shipping models.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Commerce requires tenant scope, audit and authoritative Site identity."
+        },
+        {
+          "moduleId": "media",
+          "kind": "required",
+          "reason": "Catalog products and commerce content may reference canonical media."
+        },
+        {
+          "moduleId": "seo",
+          "kind": "recommended",
+          "reason": "Product/category storefront content should use canonical SEO."
+        },
+        {
+          "moduleId": "consent",
+          "kind": "recommended",
+          "reason": "Commerce sites frequently enable analytics/marketing consent."
+        },
+        {
+          "moduleId": "integrations",
+          "kind": "recommended",
+          "reason": "Payment, shipping, tax and marketing providers connect through canonical integrations."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "commerce.catalog",
+        "commerce.variants",
+        "commerce.attributes",
+        "commerce.categories",
+        "commerce.collections",
+        "commerce.inventory",
+        "commerce.multi-location-inventory",
+        "commerce.customers",
+        "commerce.carts",
+        "commerce.checkout",
+        "commerce.orders",
+        "commerce.payments",
+        "commerce.refunds",
+        "commerce.shipping",
+        "commerce.fulfillment",
+        "commerce.discounts",
+        "commerce.promotions",
+        "commerce.returns",
+        "commerce.reviews",
+        "commerce.taxes"
+      ],
+      "defaultCapabilityIds": [
+        "commerce.catalog",
+        "commerce.variants",
+        "commerce.categories",
+        "commerce.inventory",
+        "commerce.customers",
+        "commerce.carts",
+        "commerce.checkout",
+        "commerce.orders",
+        "commerce.payments"
+      ],
+      "contractBindings": [
+        "commerce.cart",
+        "commerce.cartLine",
+        "commerce.cartTotals",
+        "commerce.checkout",
+        "commerce.checkoutAddressSnapshot",
+        "commerce.checkoutContact",
+        "commerce.checkoutLine",
+        "commerce.checkoutPaymentSelection",
+        "commerce.checkoutShippingSelection",
+        "commerce.collectionRule",
+        "commerce.commerceCoreStandard",
+        "commerce.commerceCustomer",
+        "commerce.commerceRulesStandard",
+        "commerce.customerAddress",
+        "commerce.customerNote",
+        "commerce.customerSnapshot",
+        "commerce.customerTag",
+        "commerce.deliveryEstimate",
+        "commerce.discount",
+        "commerce.discountAllocation",
+        "commerce.discountCode",
+        "commerce.fulfillment",
+        "commerce.fulfillmentLine",
+        "commerce.inventoryAdjustment",
+        "commerce.inventoryItem",
+        "commerce.inventoryLevel",
+        "commerce.inventoryLocation",
+        "commerce.inventoryReservation",
+        "commerce.inventoryTransfer",
+        "commerce.inventoryTransferLine",
+        "commerce.moneySnapshot",
+        "commerce.order",
+        "commerce.orderAddressSnapshot",
+        "commerce.orderLine",
+        "commerce.orderSource",
+        "commerce.orderTotals",
+        "commerce.package",
+        "commerce.payment",
+        "commerce.paymentAttempt",
+        "commerce.paymentAuthorization",
+        "commerce.paymentCapture",
+        "commerce.paymentMethodReference",
+        "commerce.product",
+        "commerce.productAttributeDefinition",
+        "commerce.productAttributeValue",
+        "commerce.productAvailability",
+        "commerce.productCategory",
+        "commerce.productCollection",
+        "commerce.productOption",
+        "commerce.productOptionValue",
+        "commerce.productPrice",
+        "commerce.productReview",
+        "commerce.productVariant",
+        "commerce.promotionBenefit",
+        "commerce.promotionCondition",
+        "commerce.quantity",
+        "commerce.refund",
+        "commerce.refundLine",
+        "commerce.returnLine",
+        "commerce.returnRequest",
+        "commerce.returnResolution",
+        "commerce.reviewModeration",
+        "commerce.rule.approvedReviewOnlyPublic",
+        "commerce.rule.authoritativeServerCalculation",
+        "commerce.rule.authorizationCaptureBound",
+        "commerce.rule.authorizationExpiryEnforced",
+        "commerce.rule.backorderPolicyExplicit",
+        "commerce.rule.bookingCapabilityGate",
+        "commerce.rule.buyXGetYQuantityGuard",
+        "commerce.rule.cancelledOrderCannotNewFulfill",
+        "commerce.rule.cancelledOrderFulfillmentGuard",
+        "commerce.rule.captureCumulativeBound",
+        "commerce.rule.captureCurrencyMatch",
+        "commerce.rule.captureRequiresValidAuthorization",
+        "commerce.rule.cartConvertedTerminal",
+        "commerce.rule.cartExpiredNotMutable",
+        "commerce.rule.cartIdentityStable",
+        "commerce.rule.cartMutationRecalculatesTotals",
+        "commerce.rule.catalogArchivePreservesTransactions",
+        "commerce.rule.catalogCurrencyPolicy",
+        "commerce.rule.catalogRelationshipsValid",
+        "commerce.rule.checkoutCatalogRevalidation",
+        "commerce.rule.checkoutDiscountRevalidation",
+        "commerce.rule.checkoutInventoryRevalidation",
+        "commerce.rule.checkoutSingleOrderConversion",
+        "commerce.rule.checkoutSnapshotsCart",
+        "commerce.rule.checkoutTaxShippingRevalidation",
+        "commerce.rule.commandCorrelation",
+        "commerce.rule.commerceAuditAppendOnly",
+        "commerce.rule.commercePermissionGate",
+        "commerce.rule.commercePublicDeliveryWhitelist",
+        "commerce.rule.commerceSensitiveDataMinimized",
+        "commerce.rule.commerceTenantIsolation",
+        "commerce.rule.committedTimestampOrdering",
+        "commerce.rule.couponPerCustomerLimit",
+        "commerce.rule.couponUsageAtomic",
+        "commerce.rule.cumulativeFulfillmentBound",
+        "commerce.rule.cumulativeReturnBound",
+        "commerce.rule.customerDeletionPreservesOrderSnapshots",
+        "commerce.rule.customerSafeCommerceErrors",
+        "commerce.rule.deliveredRequiresEvidence",
+        "commerce.rule.digitalDeliveryCapabilityGate",
+        "commerce.rule.digitalProductNoPhysicalShipping",
+        "commerce.rule.discountAllocationBound",
+        "commerce.rule.discountCurrencyConsistency",
+        "commerce.rule.discountEligibilityRevalidated",
+        "commerce.rule.discountStackingExplicit",
+        "commerce.rule.externalReferenceDoesNotOverrideTruth",
+        "commerce.rule.failedPaymentNoPaidState",
+        "commerce.rule.failedRefundNoFinancialEffect",
+        "commerce.rule.fulfillmentDoesNotImplyPayment",
+        "commerce.rule.fulfillmentQuantityBound",
+        "commerce.rule.fulfillmentRequiresEligibleOrder",
+        "commerce.rule.giftCardCapabilityGate",
+        "commerce.rule.historicalDiscountAllocationImmutable",
+        "commerce.rule.historicalTaxImmutable",
+        "commerce.rule.idempotencyPayloadStable",
+        "commerce.rule.idempotencyReplaySameResult",
+        "commerce.rule.idempotencyRetentionWindow",
+        "commerce.rule.idempotencyScope",
+        "commerce.rule.inventoryAdjustmentLedgerRequired",
+        "commerce.rule.inventoryBalanceReconcile",
+        "commerce.rule.inventoryConcurrentMutationGuard",
+        "commerce.rule.inventoryTransferConservesQuantity",
+        "commerce.rule.inventoryTransferStateGuard",
+        "commerce.rule.lockOrderingDeadlockAvoidance",
+        "commerce.rule.marketplaceCapabilityGate",
+        "commerce.rule.materialCommerceActionAudit",
+        "commerce.rule.minimumSpendBasisExplicit",
+        "commerce.rule.monetaryPrecisionRounding",
+        "commerce.rule.multiCurrencyCapabilityGate",
+        "commerce.rule.negativeInventoryGuard",
+        "commerce.rule.nonNegativePayableTotal",
+        "commerce.rule.optimisticConcurrency",
+        "commerce.rule.orderCancellationGuard",
+        "commerce.rule.orderCancellationReleasesReservation",
+        "commerce.rule.orderCompletionGuard",
+        "commerce.rule.orderCurrencyLocked",
+        "commerce.rule.orderFulfillmentStatusDerived",
+        "commerce.rule.orderHistoricalSnapshotsImmutable",
+        "commerce.rule.orderLineTotalsReconcile",
+        "commerce.rule.orderNumberUniquePerSite",
+        "commerce.rule.orderPaymentStatusDerived",
+        "commerce.rule.orderTotalsReconcile",
+        "commerce.rule.partialFulfillmentDerived",
+        "commerce.rule.paymentAmountWithinOrderBalance",
+        "commerce.rule.paymentAttemptNoDuplicateFinancialFact",
+        "commerce.rule.paymentProviderReferenceUnique",
+        "commerce.rule.paymentStatusReconcile",
+        "commerce.rule.preorderCapabilityGate",
+        "commerce.rule.productPriceValid",
+        "commerce.rule.promotionWindow",
+        "commerce.rule.providerCallbackDeduplication",
+        "commerce.rule.providerSecretsServerOnly",
+        "commerce.rule.purchasableVariantActive",
+        "commerce.rule.rawCardDataProhibited",
+        "commerce.rule.refundCumulativeBound",
+        "commerce.rule.refundCurrencyMatch",
+        "commerce.rule.refundDoesNotImplyReturn",
+        "commerce.rule.refundLineQuantityBound",
+        "commerce.rule.refundOrderStateReconcile",
+        "commerce.rule.refundRequiresCapturedFunds",
+        "commerce.rule.refundRestockSeparateDecision",
+        "commerce.rule.refundSuccessChangesFinancialBalance",
+        "commerce.rule.rejectedReturnNoOperationalMutation",
+        "commerce.rule.reservationCommitConsumes",
+        "commerce.rule.reservationExpiryReleasesStock",
+        "commerce.rule.reservationRequiresAvailability",
+        "commerce.rule.reservationTerminalNoReactivation",
+        "commerce.rule.retrySafeSideEffects",
+        "commerce.rule.returnEligibilityWindow",
+        "commerce.rule.returnOwnershipScope",
+        "commerce.rule.returnQuantityBound",
+        "commerce.rule.returnRefundSeparate",
+        "commerce.rule.returnResolutionIdempotent",
+        "commerce.rule.returnResolutionRequired",
+        "commerce.rule.returnRestockExplicit",
+        "commerce.rule.returnStateTransition",
+        "commerce.rule.serverSideCommerceEnforcement",
+        "commerce.rule.serviceFulfillmentPolicyExplicit",
+        "commerce.rule.shipmentRequiresFulfillment",
+        "commerce.rule.shippingRateSnapshotImmutable",
+        "commerce.rule.shippingTaxPolicyExplicit",
+        "commerce.rule.skuUniqueWithinSite",
+        "commerce.rule.staleStateRevalidation",
+        "commerce.rule.subscriptionCapabilityGate",
+        "commerce.rule.taxCalculationBasisExplicit",
+        "commerce.rule.taxCurrencyConsistency",
+        "commerce.rule.taxExemptionEvidence",
+        "commerce.rule.taxJurisdictionResolvedBeforeCommit",
+        "commerce.rule.taxLinesReconcile",
+        "commerce.rule.taxModeConsistent",
+        "commerce.rule.taxRateSnapshot",
+        "commerce.rule.taxRoundingConsistent",
+        "commerce.rule.transactionCurrencyConsistency",
+        "commerce.rule.transactionDeletionProhibited",
+        "commerce.rule.transactionSnapshotImmutability",
+        "commerce.rule.transactionalCommandIdempotency",
+        "commerce.rule.transactionalWriteAtomicity",
+        "commerce.rule.variantCombinationUnique",
+        "commerce.rule.verifiedReviewEvidenceDerived",
+        "commerce.salesChannel",
+        "commerce.shipment",
+        "commerce.shippingMethod",
+        "commerce.shippingRate",
+        "commerce.shippingZone",
+        "commerce.storeSettings",
+        "commerce.taxClass",
+        "commerce.taxConfiguration",
+        "commerce.taxLine",
+        "commerce.taxRate",
+        "commerce.trackingReference"
+      ],
+      "permissionBindings": [
+        "commerce.carts.manage",
+        "commerce.carts.view",
+        "commerce.categories.create",
+        "commerce.categories.delete",
+        "commerce.categories.edit",
+        "commerce.categories.manage",
+        "commerce.categories.view",
+        "commerce.checkouts.manage",
+        "commerce.checkouts.view",
+        "commerce.collections.create",
+        "commerce.collections.delete",
+        "commerce.collections.edit",
+        "commerce.collections.manage",
+        "commerce.collections.view",
+        "commerce.customers.edit",
+        "commerce.customers.export",
+        "commerce.customers.manage",
+        "commerce.customers.view",
+        "commerce.discounts.create",
+        "commerce.discounts.delete",
+        "commerce.discounts.edit",
+        "commerce.discounts.manage",
+        "commerce.discounts.view",
+        "commerce.fulfillments.create",
+        "commerce.fulfillments.edit",
+        "commerce.fulfillments.manage",
+        "commerce.fulfillments.view",
+        "commerce.inventory.edit",
+        "commerce.inventory.export",
+        "commerce.inventory.manage",
+        "commerce.inventory.view",
+        "commerce.orders.edit",
+        "commerce.orders.export",
+        "commerce.orders.manage",
+        "commerce.orders.view",
+        "commerce.payments.export",
+        "commerce.payments.manage",
+        "commerce.payments.view",
+        "commerce.products.approve",
+        "commerce.products.create",
+        "commerce.products.delete",
+        "commerce.products.edit",
+        "commerce.products.publish",
+        "commerce.products.view",
+        "commerce.refunds.create",
+        "commerce.refunds.export",
+        "commerce.refunds.manage",
+        "commerce.refunds.view",
+        "commerce.returns.edit",
+        "commerce.returns.manage",
+        "commerce.returns.view",
+        "commerce.reviews.delete",
+        "commerce.reviews.edit",
+        "commerce.reviews.manage",
+        "commerce.reviews.view",
+        "commerce.settings.edit",
+        "commerce.settings.manage",
+        "commerce.settings.view",
+        "commerce.shipping.create",
+        "commerce.shipping.delete",
+        "commerce.shipping.edit",
+        "commerce.shipping.manage",
+        "commerce.shipping.view",
+        "commerce.taxes.edit",
+        "commerce.taxes.manage",
+        "commerce.taxes.view"
+      ],
+      "eventBindings": [
+        "cart.abandoned",
+        "cart.converted",
+        "cart.created",
+        "cart.expired",
+        "cart.updated",
+        "checkout.abandoned",
+        "checkout.completed",
+        "checkout.expired",
+        "checkout.started",
+        "checkout.updated",
+        "collection.created",
+        "collection.updated",
+        "customer.archived",
+        "customer.created",
+        "customer.updated",
+        "discount.activated",
+        "discount.created",
+        "discount.deactivated",
+        "discount.updated",
+        "fulfillment.cancelled",
+        "fulfillment.completed",
+        "fulfillment.created",
+        "fulfillment.updated",
+        "inventory.adjusted",
+        "inventory.back-in-stock",
+        "inventory.committed",
+        "inventory.low",
+        "inventory.out-of-stock",
+        "inventory.released",
+        "inventory.reserved",
+        "inventory.transferred",
+        "order.archived",
+        "order.cancelled",
+        "order.completed",
+        "order.created",
+        "order.fulfilled",
+        "order.on-hold",
+        "order.paid",
+        "order.partially-fulfilled",
+        "order.partially-paid",
+        "order.partially-refunded",
+        "order.refunded",
+        "order.updated",
+        "payment.authorized",
+        "payment.captured",
+        "payment.created",
+        "payment.failed",
+        "payment.succeeded",
+        "product.archived",
+        "product.created",
+        "product.published",
+        "product.updated",
+        "refund.created",
+        "refund.failed",
+        "refund.succeeded",
+        "return.approved",
+        "return.cancelled",
+        "return.completed",
+        "return.received",
+        "return.rejected",
+        "return.requested",
+        "review.approved",
+        "review.created",
+        "review.published",
+        "review.rejected",
+        "shipment.created",
+        "shipment.delivered",
+        "shipment.delivery-failed",
+        "shipment.dispatched",
+        "variant.created",
+        "variant.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Commerce",
+        "navigation": [
+          {
+            "label": "Products",
+            "path": "/commerce/products",
+            "icon": "fa-box",
+            "order": 10
+          },
+          {
+            "label": "Categories",
+            "path": "/commerce/categories",
+            "icon": "fa-tags",
+            "order": 20
+          },
+          {
+            "label": "Collections",
+            "path": "/commerce/collections",
+            "icon": "fa-layer-group",
+            "order": 30
+          },
+          {
+            "label": "Inventory",
+            "path": "/commerce/inventory",
+            "icon": "fa-warehouse",
+            "order": 40
+          },
+          {
+            "label": "Orders",
+            "path": "/commerce/orders",
+            "icon": "fa-receipt",
+            "order": 50
+          },
+          {
+            "label": "Customers",
+            "path": "/commerce/customers",
+            "icon": "fa-users",
+            "order": 60
+          },
+          {
+            "label": "Discounts",
+            "path": "/commerce/discounts",
+            "icon": "fa-percent",
+            "order": 70
+          },
+          {
+            "label": "Returns",
+            "path": "/commerce/returns",
+            "icon": "fa-rotate-left",
+            "order": 80
+          },
+          {
+            "label": "Reviews",
+            "path": "/commerce/reviews",
+            "icon": "fa-star",
+            "order": 90
+          },
+          {
+            "label": "Store Settings",
+            "path": "/commerce/settings",
+            "icon": "fa-gear",
+            "order": 100
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Commerce",
+            "path": "/sites/:siteId/commerce",
+            "icon": "fa-cart-shopping",
+            "order": 100
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "commerce",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    }
+  ]
+}

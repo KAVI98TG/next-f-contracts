@@ -1,0 +1,179 @@
+{
+  "$id": "commerce.orderLine",
+  "name": "Order Line",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "orders",
+  "description": "Immutable purchased-item snapshot.",
+  "purpose": "Ensures historical orders do not change when Product title, SKU or price changes later.",
+  "commerceModel": {
+    "kind": "snapshot",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "lineId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable line ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "productId",
+      "required": true,
+      "nullable": false,
+      "description": "Original Product ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "variantId",
+      "required": false,
+      "nullable": true,
+      "description": "Original Variant ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sku",
+      "required": false,
+      "nullable": true,
+      "description": "SKU snapshot.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Purchased-title snapshot.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "quantity",
+      "required": true,
+      "nullable": false,
+      "description": "Purchased quantity.",
+      "schema": "commerce.quantity"
+    },
+    {
+      "key": "unitPrice",
+      "required": true,
+      "nullable": false,
+      "description": "Unit price snapshot.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "lineTotal",
+      "required": true,
+      "nullable": false,
+      "description": "Final line total.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "taxLines",
+      "required": false,
+      "nullable": true,
+      "description": "Applied tax lines.",
+      "itemsSchema": "commerce.taxLine"
+    },
+    {
+      "key": "requiresShipping",
+      "required": true,
+      "nullable": false,
+      "description": "Shipping requirement snapshot.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "fulfillableQuantity",
+      "required": true,
+      "nullable": false,
+      "description": "Quantity eligible for fulfillment.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "discountAllocations",
+      "required": false,
+      "nullable": true,
+      "description": "Discount allocations applied to this line.",
+      "itemsSchema": "commerce.discountAllocation",
+      "config": {
+        "minItems": 0
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.product",
+      "description": "References commerce.product."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.productVariant",
+      "description": "References commerce.productVariant."
+    },
+    {
+      "type": "optionallyComposesMany",
+      "target": "commerce.taxLine",
+      "description": "References commerce.taxLine."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.discountAllocation",
+      "description": "References commerce.discountAllocation."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "snapshotImmutable",
+      "description": "Committed Order Line commercial values are immutable."
+    },
+    {
+      "id": "quantityPositive",
+      "description": "Purchased quantity is greater than zero."
+    }
+  ],
+  "cms": {
+    "label": "Order Line",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "lineId",
+      "productId",
+      "variantId",
+      "sku"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

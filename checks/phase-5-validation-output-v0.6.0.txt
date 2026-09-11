@@ -1,0 +1,7 @@
+NEXT F Contracts Phase 5 validation
+Version: 0.6.0
+Content Contracts: 20
+Registry items: 101
+Passes: 2507
+Failures: 0
+PASS - Phase 5 Content Contracts are internally consistent.

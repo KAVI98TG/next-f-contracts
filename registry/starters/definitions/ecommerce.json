@@ -1,0 +1,197 @@
+{
+  "$id": "starters.ecommerce",
+  "slug": "ecommerce",
+  "name": "Ecommerce Site Starter",
+  "version": "1.0.0",
+  "status": "stable",
+  "siteType": "commerce",
+  "sourceExampleId": "examples.commerce-site",
+  "bundlePath": "starters/ecommerce",
+  "manifestPath": "starters/ecommerce/nextf.site.json",
+  "summary": "Full ecommerce storefront reference with catalog, inventory, cart, checkout, orders, payments, shipping, returns, SEO and marketing measurement.",
+  "modules": [
+    "core",
+    "media",
+    "pages",
+    "blog",
+    "seo",
+    "consent",
+    "analytics",
+    "marketing",
+    "integrations",
+    "commerce"
+  ],
+  "capabilities": [
+    "core.identity",
+    "core.publishing",
+    "core.versioning",
+    "core.audit",
+    "core.tenant-isolation",
+    "media.library",
+    "media.images",
+    "media.contextual-metadata",
+    "pages.sections",
+    "pages.reusable-content",
+    "pages.navigation",
+    "blog.categories",
+    "blog.tags",
+    "blog.authors",
+    "blog.scheduling",
+    "seo.metadata",
+    "seo.social-sharing",
+    "seo.sitemap",
+    "seo.robots",
+    "seo.redirects",
+    "seo.structured-data",
+    "consent.preferences",
+    "consent.records",
+    "consent.categories",
+    "consent.integration-gating",
+    "analytics.measurement",
+    "analytics.reporting",
+    "marketing.conversions",
+    "marketing.utm-attribution",
+    "marketing.destinations",
+    "integrations.health",
+    "commerce.catalog",
+    "commerce.variants",
+    "commerce.categories",
+    "commerce.inventory",
+    "commerce.customers",
+    "commerce.carts",
+    "commerce.checkout",
+    "commerce.orders",
+    "commerce.payments",
+    "commerce.shipping",
+    "commerce.discounts",
+    "commerce.refunds",
+    "commerce.returns",
+    "commerce.reviews",
+    "commerce.taxes"
+  ],
+  "contractCount": 445,
+  "apiBindings": [
+    {
+      "apiId": "api.public-content",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.public-interaction",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.commerce",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.events",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    }
+  ],
+  "trackingEvents": [
+    "page.viewed",
+    "cta.clicked",
+    "form.started",
+    "form.submitted"
+  ],
+  "integrations": [
+    {
+      "connectorId": "integrations.googleTagManager",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleAnalytics4",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleAds",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.meta",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleSearchConsole",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.microsoftClarity",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.emailProvider",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.crm",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    }
+  ],
+  "permissionCount": 208,
+  "eventCount": 117,
+  "files": [
+    "nextf.site.json",
+    "AGENTS.md",
+    "README.md",
+    "CONTRACT-RESOLUTION-SUMMARY.md",
+    "INTEGRATION-ARCHITECTURE.md",
+    ".env.example",
+    "CONTENT-CONTRACT-MAP.json",
+    "EVENT-MAP.json",
+    "TRACKING-EVENT-MAP.json",
+    "PERMISSION-EXPECTATIONS.md",
+    "API-BINDINGS.md",
+    "CMS-MAPPING.json",
+    "ADMIN-MAPPING.json",
+    "EXTENSIONS.md",
+    "VALIDATION.md",
+    "ACCEPTANCE-CHECKLIST.md"
+  ],
+  "validationCommand": "node bin/nextf-contract.mjs validate starters/ecommerce/nextf.site.json --verbose",
+  "codexInstruction": "Read `AGENTS.md` and `nextf.site.json`, resolve the pinned NEXT F Contract Version, use only enabled Modules/Capabilities, reuse canonical contracts, run NEXT F validation before completion, and report deviations."
+}

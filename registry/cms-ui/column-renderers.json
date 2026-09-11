@@ -1,0 +1,49 @@
+{
+  "registryVersion": "0.20.0",
+  "renderers": [
+    {
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "id": "primary-text",
+      "label": "Primary Text"
+    },
+    {
+      "id": "status",
+      "label": "Status Badge"
+    },
+    {
+      "id": "date-time",
+      "label": "Date/Time"
+    },
+    {
+      "id": "money",
+      "label": "Money"
+    },
+    {
+      "id": "relation",
+      "label": "Relation Label"
+    },
+    {
+      "id": "media",
+      "label": "Media Thumbnail"
+    },
+    {
+      "id": "boolean",
+      "label": "Boolean"
+    },
+    {
+      "id": "count",
+      "label": "Count"
+    },
+    {
+      "id": "risk",
+      "label": "Risk/Attention"
+    },
+    {
+      "id": "actions",
+      "label": "Row Actions"
+    }
+  ]
+}

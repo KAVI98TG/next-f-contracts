@@ -1,0 +1,159 @@
+{
+  "$id": "commerce.inventoryLevel",
+  "name": "Inventory Level",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "inventory",
+  "description": "Authoritative per-location stock quantities.",
+  "purpose": "Provides quantities from which availability is derived.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "inventoryItemId",
+      "required": true,
+      "nullable": false,
+      "description": "Inventory Item ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "locationId",
+      "required": true,
+      "nullable": false,
+      "description": "Inventory Location ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "onHand",
+      "required": true,
+      "nullable": false,
+      "description": "On-hand quantity.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "reserved",
+      "required": true,
+      "nullable": false,
+      "description": "Reserved quantity.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "incoming",
+      "required": true,
+      "nullable": false,
+      "description": "Incoming quantity.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "available",
+      "required": true,
+      "nullable": false,
+      "description": "Derived sellable quantity.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Last update.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.inventoryItem",
+      "description": "References commerce.inventoryItem."
+    },
+    {
+      "type": "references",
+      "target": "commerce.inventoryLocation",
+      "description": "References commerce.inventoryLocation."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "uniqueItemLocation",
+      "description": "One active level per Inventory Item and Location."
+    },
+    {
+      "id": "availableDerived",
+      "description": "available is derived and not independently edited."
+    },
+    {
+      "id": "nonNegative",
+      "description": "Stored level quantities are non-negative."
+    }
+  ],
+  "cms": {
+    "label": "Inventory Level",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "inventoryItemId",
+      "locationId"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

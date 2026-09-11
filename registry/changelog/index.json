@@ -1,0 +1,34 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Changelog",
+  "description": "Authoritative release-note registry for the coordinated NEXT F Contract Registry development train.",
+  "standard": "standards/35-changelog-standard.md",
+  "route": "#/lifecycle/changelog",
+  "currentVersion": "1.0.0",
+  "releaseCount": 38,
+  "entryCount": 601,
+  "schemaCount": 11,
+  "categoryCount": 12,
+  "evidenceLevelCount": 4,
+  "sources": {
+    "releaseIndex": "registry/changelog/release-index.json",
+    "entryIndex": "registry/changelog/entry-index.json",
+    "sections": "registry/changelog/sections.json",
+    "evidenceLevels": "registry/changelog/evidence-levels.json",
+    "policy": "registry/changelog/policy.json",
+    "releaseSchema": "registry/changelog/release.schema.json",
+    "releaseDirectory": "registry/changelog/releases/",
+    "contractHistory": "registry/changelog/contract-history.json",
+    "changeEntrySchema": "registry/changelog/change-entry.schema.json",
+    "impactSchema": "registry/changelog/impact.schema.json",
+    "legacyReleaseSchema": "registry/changelog/changelog-release-note.schema.json"
+  },
+  "principles": [
+    "Release JSON is authoritative; root CHANGELOG.md is generated.",
+    "Narrative notes complement but do not replace exact Contract Diff.",
+    "Compatibility status remains owned by Compatibility Center.",
+    "Missing exact history stays visibly missing.",
+    "No release note can automatically upgrade a Site."
+  ]
+}

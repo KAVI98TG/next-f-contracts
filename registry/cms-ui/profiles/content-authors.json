@@ -1,0 +1,444 @@
+{
+  "$id": "cmsUi.profile.content.authors",
+  "name": "Authors",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "content.authors",
+  "moduleId": "pages",
+  "description": "Customer CMS presentation metadata for Authors within authorized Site scope.",
+  "targetContracts": [
+    "content.author"
+  ],
+  "primaryTargetContract": "content.author",
+  "route": "/content/blog/authors",
+  "screenKind": "editor",
+  "layoutTemplate": "standard-editor",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "identity",
+      "label": "Identity",
+      "description": "Stable entity identity.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.entityIdentity",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "scope",
+      "label": "Scope",
+      "description": "Owning Organization and Site scope.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.tenantScope",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "displayName",
+      "label": "Display Name",
+      "description": "Public author name.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "minLength": 1,
+        "maxLength": 160
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": true,
+      "localizable": true,
+      "revisionTracked": true
+    },
+    {
+      "field": "slug",
+      "label": "Slug",
+      "description": "Optional public author archive/profile slug.",
+      "editorId": "slug",
+      "group": "configuration",
+      "zone": "sidebar",
+      "order": 40,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.slug",
+      "validationHint": {
+        "maxLength": 160
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "position",
+      "label": "Position",
+      "description": "Optional professional role or title.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 160
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": true,
+      "revisionTracked": true
+    },
+    {
+      "field": "photo",
+      "label": "Photo",
+      "description": "Optional author photo.",
+      "editorId": "media-reference-picker",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "shared.mediaReference",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "bio",
+      "label": "Bio",
+      "description": "Structured author biography.",
+      "editorId": "rich-text-editor",
+      "group": "content",
+      "zone": "main",
+      "order": 70,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.richText",
+      "validationHint": {
+        "maxLength": 12000
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": true,
+      "revisionTracked": true
+    },
+    {
+      "field": "contact",
+      "label": "Contact",
+      "description": "Optional public contact details where explicitly intended.",
+      "editorId": "nested-object",
+      "group": "configuration",
+      "zone": "main",
+      "order": 80,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "shared.contactPoint",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "website",
+      "label": "Website",
+      "description": "Optional author website/profile link.",
+      "editorId": "nested-object",
+      "group": "configuration",
+      "zone": "main",
+      "order": 90,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "shared.link",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "socialLinks",
+      "label": "Social Links",
+      "description": "Optional ordered list of public social links; each item must validate as shared.link.",
+      "editorId": "json-editor",
+      "group": "configuration",
+      "zone": "main",
+      "order": 100,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.json",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "publishing",
+      "label": "Publishing",
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "editorId": "publishing-panel",
+      "group": "publishing",
+      "zone": "sidebar",
+      "order": 110,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "core.publishing",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "revision",
+      "label": "Revision",
+      "description": "Current and published revision pointers.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 120,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.revisionPointer",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [
+    {
+      "id": "publishing",
+      "label": "Publishing",
+      "contractId": "core.publishing",
+      "zone": "sidebar",
+      "editorId": "publishing-panel",
+      "availability": "always"
+    },
+    {
+      "id": "revisions",
+      "label": "Version History",
+      "contractId": "core.revisionPointer",
+      "zone": "tabs",
+      "editorId": "revision-history",
+      "availability": "when-capability-enabled:core.versioning"
+    }
+  ],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "displayName",
+        "label": "Display Name",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "position",
+        "label": "Position",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "publishing",
+        "label": "Publishing",
+        "rendererId": "status",
+        "order": 30,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [
+      {
+        "field": "displayName",
+        "label": "Display Name"
+      }
+    ],
+    "searchFields": [
+      "displayName",
+      "slug",
+      "bio"
+    ]
+  },
+  "actions": [
+    {
+      "actionId": "create",
+      "permissionId": "content.authors.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "content.authors.delete",
+      "riskLevel": "destructive",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "content.authors.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "content.authors.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "content.authors.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "save-draft",
+      "permissionId": "content.authors.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "preview",
+      "permissionId": "content.authors.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "content.authors.create",
+    "content.authors.delete",
+    "content.authors.edit",
+    "content.authors.manage",
+    "content.authors.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/content/blog/authors",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "content.authors.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "create",
+      "kind": "editor",
+      "route": "/content/blog/authors/new",
+      "layoutTemplate": "standard-editor",
+      "requiresPermission": "content.authors.create",
+      "purpose": "Create a new canonical resource."
+    },
+    {
+      "id": "record",
+      "kind": "editor",
+      "route": "/content/blog/authors/:id",
+      "layoutTemplate": "standard-editor",
+      "requiresPermission": "content.authors.edit",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

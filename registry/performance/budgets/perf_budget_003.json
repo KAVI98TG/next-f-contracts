@@ -1,0 +1,22 @@
+{
+  "budgetId": "PERF-BUDGET-003",
+  "name": "Non-generated JavaScript source",
+  "category": "payload",
+  "scope": "contract-portal",
+  "metric": "portal.localJsSourceBytes",
+  "target": 921600,
+  "warningThreshold": 1258291,
+  "comparator": "lte",
+  "unit": "bytes",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-file-size",
+  "environment": "Hosted and file review",
+  "notes": "Excludes generated fallbacks so authored runtime complexity can be monitored independently.",
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_003.json"
+}

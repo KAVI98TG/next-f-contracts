@@ -1,0 +1,8 @@
+{
+  "$id": "performance.performanceAudit",
+  "name": "Performance Audit",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "performance",
+  "description": "Measured Contract Portal performance evidence against Phase 32 budgets."
+}

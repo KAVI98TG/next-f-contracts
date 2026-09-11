@@ -1,0 +1,61 @@
+{
+  "$id": "api.paginationRequest",
+  "name": "Pagination Request",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "query",
+  "description": "Cursor-based pagination input.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "cursor",
+      "required": false,
+      "nullable": false,
+      "description": "cursor",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "limit",
+      "required": false,
+      "nullable": false,
+      "description": "limit",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 100
+      }
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    },
+    {
+      "id": "cursorOpaque",
+      "description": "Pagination cursors are opaque and must not be parsed or synthesized by clients."
+    },
+    {
+      "id": "boundedLimit",
+      "description": "Default page size is 25 and maximum requested page size is 100."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

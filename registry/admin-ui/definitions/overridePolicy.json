@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.overridePolicy",
+  "name": "Override Policy",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines when a canonical administrative override may be exposed.",
+  "purpose": "Defines when a canonical administrative override may be exposed.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

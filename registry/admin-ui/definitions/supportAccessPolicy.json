@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.supportAccessPolicy",
+  "name": "Support Access Policy",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines support navigation without hidden customer impersonation.",
+  "purpose": "Defines support navigation without hidden customer impersonation.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

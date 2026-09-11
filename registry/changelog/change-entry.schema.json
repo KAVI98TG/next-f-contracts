@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/changelog/change-entry.schema.json",
+  "title": "NEXT F Changelog Change Entry",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "entryId",
+    "releaseVersion",
+    "category",
+    "title",
+    "description",
+    "changeType",
+    "affectedRegistryIds",
+    "affectedDomains",
+    "affectedModules",
+    "impact",
+    "provenance"
+  ],
+  "properties": {
+    "entryId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "releaseVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "changeType": {
+      "type": "string",
+      "minLength": 1
+    },
+    "originalSection": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "affectedRegistryIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "affectedDomains": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "affectedModules": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "impact": {
+      "$ref": "./impact.schema.json"
+    },
+    "relatedDiffEvidence": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "relatedMigrationGuide": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "relatedDeprecationRecord": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sourceReference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sourceCommitReference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provenance": {
+      "type": "string"
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

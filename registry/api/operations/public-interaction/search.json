@@ -1,0 +1,81 @@
+{
+  "$id": "api.public-interaction.search",
+  "operationId": "api.public-interaction.search",
+  "name": "Search Public Site Content",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.public-interaction",
+  "method": "GET",
+  "path": "/search",
+  "description": "Search Public Site Content",
+  "authentication": {
+    "mode": "anonymous",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [
+      {
+        "name": "q",
+        "contract": "api.searchQuery"
+      },
+      {
+        "name": "cursor",
+        "contract": "api.paginationRequest"
+      },
+      {
+        "name": "limit",
+        "contract": "api.paginationRequest"
+      }
+    ],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "api.listMeta",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "module_disabled"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "public-short",
+    "rateLimit": "public-read",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "forms"
+  ],
+  "contractBindings": [
+    "api.searchQuery",
+    "api.listMeta"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "public",
+  "notes": []
+}

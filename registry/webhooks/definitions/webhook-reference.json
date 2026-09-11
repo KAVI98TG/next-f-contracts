@@ -1,0 +1,83 @@
+{
+  "$id": "webhooks.webhookReference",
+  "name": "Webhook Reference",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "foundation",
+  "description": "Compact reference to a webhook endpoint, subscription, delivery or attempt.",
+  "purpose": "Allows schemas and logs to reference webhook objects without embedding full sensitive records.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque webhook object ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "kind",
+      "required": true,
+      "nullable": false,
+      "description": "Referenced webhook object kind.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "endpoint",
+          "subscription",
+          "delivery",
+          "attempt",
+          "dead-letter"
+        ]
+      }
+    },
+    {
+      "key": "displayName",
+      "required": false,
+      "nullable": true,
+      "description": "Optional safe display name.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "opaqueId",
+      "description": "Reference IDs are opaque and must not encode secrets or personal data."
+    },
+    {
+      "id": "kindMatchesTarget",
+      "description": "kind must match the referenced object type."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Reference",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "id",
+      "kind",
+      "displayName"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

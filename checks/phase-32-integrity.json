@@ -1,0 +1,17 @@
+{
+  "version": "0.33.0",
+  "registrySha256": "0515e62cc1ac356125ae55c522e244450a76a394676136e43c74208661f567af",
+  "diffSha256": "0515e62cc1ac356125ae55c522e244450a76a394676136e43c74208661f567af",
+  "diffMatch": true,
+  "registryItems": 2148,
+  "performanceItems": 67,
+  "searchDocuments": 7106,
+  "relationshipNodes": 2148,
+  "relationshipEdges": 7375,
+  "changelogReleases": 33,
+  "changelogEntries": 560,
+  "exactDiffReleases": 28,
+  "performanceBudgetPass": 17,
+  "performanceStaticPass": 18,
+  "eagerGeneratedFallbackBytes": 0
+}

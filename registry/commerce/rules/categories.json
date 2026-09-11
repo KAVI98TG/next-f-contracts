@@ -1,0 +1,77 @@
+{
+  "registryVersion": "0.13.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Commerce Rule Categories",
+  "categories": [
+    {
+      "key": "transaction-integrity",
+      "label": "Transaction Integrity",
+      "description": "Cross-entity financial and historical invariants applied to committed commerce transactions."
+    },
+    {
+      "key": "cart-checkout",
+      "label": "Cart & Checkout",
+      "description": "Rules that keep mutable Cart and Checkout state correct before Order creation."
+    },
+    {
+      "key": "orders",
+      "label": "Orders",
+      "description": "Order totals, status dimensions, cancellation/completion and historical Order truth."
+    },
+    {
+      "key": "payments",
+      "label": "Payments",
+      "description": "Provider-neutral authorization, capture, payment and attempt reconciliation."
+    },
+    {
+      "key": "refunds",
+      "label": "Refunds",
+      "description": "Refund eligibility, bounds, reconciliation and separation from physical returns."
+    },
+    {
+      "key": "inventory",
+      "label": "Inventory",
+      "description": "Stock balance, reservations, adjustments, transfers and concurrency protection."
+    },
+    {
+      "key": "fulfillment",
+      "label": "Fulfillment",
+      "description": "Fulfillment/shipment quantity, eligibility, status and delivery evidence."
+    },
+    {
+      "key": "promotions",
+      "label": "Promotions",
+      "description": "Discount eligibility, allocation, stacking and usage limits."
+    },
+    {
+      "key": "tax",
+      "label": "Tax",
+      "description": "Tax basis, jurisdiction, rate snapshots, rounding and reconciliation."
+    },
+    {
+      "key": "returns",
+      "label": "Returns",
+      "description": "Return eligibility, quantity, lifecycle, resolution and separation from refunds/restocking."
+    },
+    {
+      "key": "catalog-customers",
+      "label": "Catalog & Customers",
+      "description": "Catalog/customer integrity rules that protect transactional history and public claims."
+    },
+    {
+      "key": "idempotency-concurrency",
+      "label": "Idempotency & Concurrency",
+      "description": "Duplicate-command protection, replay semantics and lost-update prevention."
+    },
+    {
+      "key": "security-audit",
+      "label": "Security & Audit",
+      "description": "Server authority, tenant isolation, permissions, sensitive data and auditability."
+    },
+    {
+      "key": "specialized-capabilities",
+      "label": "Specialized Capability Gates",
+      "description": "Explicit gates for commerce models that require dedicated contracts beyond Phase 11."
+    }
+  ]
+}

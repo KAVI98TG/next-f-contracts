@@ -1,0 +1,52 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "Retention Classes",
+  "description": "Policy-oriented retention classes. They do not invent legal durations.",
+  "classes": [
+    {
+      "id": "ephemeral",
+      "label": "Ephemeral",
+      "description": "Short-lived request/session processing data; retain only as operationally necessary."
+    },
+    {
+      "id": "operational",
+      "label": "Operational",
+      "description": "Routine operational data retained under the Site/organization retention policy."
+    },
+    {
+      "id": "customer-record",
+      "label": "Customer/Business Record",
+      "description": "Business-purpose records such as submissions/leads retained according to customer policy and obligations."
+    },
+    {
+      "id": "consent-history",
+      "label": "Consent History",
+      "description": "Consent evidence/history retained according to applicable policy and evidence needs."
+    },
+    {
+      "id": "financial-record",
+      "label": "Financial Record",
+      "description": "Transaction/payment records retained according to financial/accounting/provider policy; raw card data remains prohibited."
+    },
+    {
+      "id": "security-audit",
+      "label": "Security/Audit",
+      "description": "Security and audit evidence retained according to operational/security policy."
+    },
+    {
+      "id": "credential-lifecycle",
+      "label": "Credential Lifecycle",
+      "description": "Credential references and lifecycle metadata retained only while required for the authorized integration/security lifecycle."
+    },
+    {
+      "id": "content-lifecycle",
+      "label": "Content Lifecycle",
+      "description": "Content and publishing data retained according to content lifecycle/version policy."
+    },
+    {
+      "id": "legal-hold",
+      "label": "Legal Hold",
+      "description": "Exceptional retention override only when an authorized legal/operational hold exists; not an automatic default."
+    }
+  ]
+}

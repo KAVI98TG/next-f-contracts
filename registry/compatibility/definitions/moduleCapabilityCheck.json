@@ -1,0 +1,101 @@
+{
+  "$id": "compatibility.moduleCapabilityCheck",
+  "name": "Module and Capability Compatibility Check",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Result for Module ownership, dependencies and Capability gates.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "moduleId",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Module.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "capabilityId",
+      "required": false,
+      "nullable": true,
+      "description": "Canonical Capability.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Compatibility result.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "requiredDependencies",
+      "required": false,
+      "nullable": true,
+      "description": "Required dependencies.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "missingDependencies",
+      "required": false,
+      "nullable": true,
+      "description": "Unresolved dependencies.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "reserved",
+      "required": false,
+      "nullable": true,
+      "description": "Whether capability is reserved.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "message",
+      "required": true,
+      "nullable": false,
+      "description": "Result message.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "moduleId uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "status uses fields.select."
+    },
+    {
+      "type": "uses",
+      "target": "fields.multiSelect",
+      "description": "requiredDependencies uses fields.multiSelect."
+    },
+    {
+      "type": "uses",
+      "target": "fields.boolean",
+      "description": "reserved uses fields.boolean."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

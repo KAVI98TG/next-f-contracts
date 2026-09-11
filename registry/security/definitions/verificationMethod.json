@@ -1,0 +1,14 @@
+{
+  "$id": "security.verificationMethod",
+  "name": "Security Verification Method",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 29,
+  "description": "Controlled verification method for security evidence.",
+  "domain": "security",
+  "type": "schema",
+  "tags": [
+    "security",
+    "phase-29"
+  ]
+}

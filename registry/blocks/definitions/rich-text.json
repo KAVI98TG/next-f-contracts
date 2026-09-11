@@ -1,0 +1,123 @@
+{
+  "$id": "blocks.richText",
+  "name": "Rich Text",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "editorial",
+  "description": "Long-form structured editorial section.",
+  "purpose": "Provides safe rich editorial content without arbitrary executable HTML.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "content",
+      "required": true,
+      "nullable": false,
+      "description": "Structured rich-text document.",
+      "primitive": "fields.richText",
+      "config": {
+        "minLength": 1,
+        "maxLength": 80000,
+        "format": "nextf-rich-content",
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "blocks.heading",
+      "description": "May include a separate section heading."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "safeStructuredContent",
+      "description": "content must use the canonical safe rich-content envelope and must not contain executable script semantics."
+    }
+  ],
+  "cms": {
+    "label": "Rich Text",
+    "icon": "fa-align-left",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "content",
+      "variantKey"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Heading nodes inside content must preserve logical hierarchy.",
+      "Links must have meaningful accessible labels."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,81 @@
+{
+  "$id": "fields.gallery",
+  "name": "Gallery",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "media",
+  "description": "Ordered array of image Media Asset references.",
+  "value": {
+    "jsonType": "array",
+    "canonical": "Ordered array of image Media Asset IDs.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "gallery-picker",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": false,
+    "filterable": false,
+    "sortable": false,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "allowedMimeTypes",
+    "allowedExtensions",
+    "maxFileSizeBytes",
+    "accept",
+    "minWidth",
+    "maxWidth",
+    "minHeight",
+    "maxHeight",
+    "aspectRatio",
+    "minItems",
+    "maxItems",
+    "uniqueItems"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "minItems",
+    "maxItems",
+    "uniqueItems",
+    "relationExists",
+    "mimeType",
+    "fileSize",
+    "imageDimensions"
+  ],
+  "examples": {
+    "valid": [
+      [
+        "media_01",
+        "media_02"
+      ]
+    ],
+    "invalid": [
+      "media_01"
+    ]
+  },
+  "notes": []
+}

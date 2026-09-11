@@ -1,0 +1,107 @@
+{
+  "$id": "integrations.rateLimitState",
+  "name": "Rate Limit State",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "resilience",
+  "description": "Normalized provider rate-limit information.",
+  "purpose": "Allows connectors to throttle/retry consistently while respecting provider guidance.",
+  "integrationModel": {
+    "kind": "rate-limit",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "limited",
+      "required": true,
+      "nullable": false,
+      "description": "Whether currently rate limited.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "limit",
+      "required": false,
+      "nullable": true,
+      "description": "Known allowance.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "remaining",
+      "required": false,
+      "nullable": true,
+      "description": "Known remaining allowance.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "resetAt",
+      "required": false,
+      "nullable": true,
+      "description": "Known reset time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "retryAfterSeconds",
+      "required": false,
+      "nullable": true,
+      "description": "Provider-supplied retry delay.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "observedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Observation time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "nonNegative",
+      "description": "Limit/remaining/retry values cannot be negative."
+    },
+    {
+      "id": "providerGuidanceRespected",
+      "description": "Retry-After/reset information is respected when present."
+    }
+  ],
+  "cms": {
+    "label": "Rate Limit State",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "limited",
+      "limit",
+      "remaining",
+      "resetAt"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

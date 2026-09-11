@@ -1,0 +1,85 @@
+{
+  "$id": "api.customer-cms.delete-media",
+  "operationId": "api.customer-cms.delete-media",
+  "name": "Delete Media",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.customer-cms",
+  "method": "DELETE",
+  "path": "/media/{mediaId}",
+  "description": "Delete Media",
+  "authentication": {
+    "mode": "organization-user",
+    "permissions": [
+      "content.media.delete"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "mediaId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "If-Match"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "api.deletedResource",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "resource_locked",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "workspace-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": true,
+      "requestHeader": "If-Match",
+      "responseHeader": "ETag"
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-write",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "pages",
+    "blog",
+    "documentation",
+    "seo",
+    "forms",
+    "leads"
+  ],
+  "contractBindings": [
+    "shared.mediaAsset",
+    "api.deletedResource"
+  ],
+  "eventBindings": [
+    "media.deleted"
+  ],
+  "publicSurface": false,
+  "privacy": "private",
+  "notes": []
+}

@@ -1,0 +1,23 @@
+{
+  "ruleId": "PERF-RULE-024",
+  "name": "Lazy Contract Diff history",
+  "category": "diff",
+  "requirement": "Historical Diff snapshots and large release history must not load on ordinary Registry, Search or Overview routes.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "static-analysis",
+    "browser-profile"
+  ],
+  "relatedRegistryIds": [
+    "diff.releaseIndex"
+  ],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_024.json"
+}

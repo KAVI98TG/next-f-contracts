@@ -1,0 +1,33 @@
+{
+  "$id": "modules.capability.seo.robots",
+  "capabilityId": "seo.robots",
+  "name": "Robots",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "seo",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Robots capability within the SEO module.",
+  "contractBindings": [
+    "seo.robotsPolicy",
+    "seo.robotsRule"
+  ],
+  "permissionBindings": [
+    "seo.robots.edit",
+    "seo.robots.manage",
+    "seo.robots.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

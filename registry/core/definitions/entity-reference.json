@@ -1,0 +1,75 @@
+{
+  "$id": "core.entityReference",
+  "name": "Entity Reference",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "identity",
+  "description": "Compact typed reference to another canonical entity.",
+  "purpose": "Provides a stable provider-neutral way to reference an entity in logs, versions, events and generic relationships.",
+  "fields": [
+    {
+      "key": "entityType",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical target contract/entity machine identifier.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 3,
+        "maxLength": 160,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "entityId",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque target entity ID.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 4,
+        "maxLength": 128,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "canonicalEntityType",
+      "description": "entityType must use a canonical registry machine ID when available."
+    }
+  ],
+  "cms": {
+    "label": "Entity Reference",
+    "icon": "fa-link",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "system",
+    "summaryFields": [
+      "entityType",
+      "entityId"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "May be public only when the referenced entity itself is publicly addressable."
+  },
+  "examples": {
+    "valid": [
+      {
+        "entityType": "commerce.product",
+        "entityId": "prod_01ABC"
+      }
+    ],
+    "invalid": [
+      {
+        "entityType": "Product",
+        "entityId": ""
+      }
+    ]
+  },
+  "notes": []
+}

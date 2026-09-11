@@ -1,0 +1,105 @@
+{
+  "registryVersion": "1.0.0",
+  "codes": [
+    {
+      "id": "contract.current",
+      "dimension": "contract-release",
+      "defaultStatus": "compatible"
+    },
+    {
+      "id": "contract.upgrade-available",
+      "dimension": "contract-release",
+      "defaultStatus": "compatible-with-upgrade"
+    },
+    {
+      "id": "contract.breaking-change",
+      "dimension": "contract-release",
+      "defaultStatus": "migration-required"
+    },
+    {
+      "id": "contract.review-change",
+      "dimension": "contract-release",
+      "defaultStatus": "review-required"
+    },
+    {
+      "id": "contract.history-unavailable",
+      "dimension": "contract-release",
+      "defaultStatus": "unknown"
+    },
+    {
+      "id": "support.pre-1-development",
+      "dimension": "contract-release",
+      "defaultStatus": "unknown"
+    },
+    {
+      "id": "manifest.valid",
+      "dimension": "site-manifest",
+      "defaultStatus": "compatible"
+    },
+    {
+      "id": "manifest.invalid",
+      "dimension": "site-manifest",
+      "defaultStatus": "incompatible"
+    },
+    {
+      "id": "module.unknown",
+      "dimension": "modules",
+      "defaultStatus": "incompatible"
+    },
+    {
+      "id": "module.required-dependency-missing",
+      "dimension": "modules",
+      "defaultStatus": "incompatible"
+    },
+    {
+      "id": "capability.unknown",
+      "dimension": "capabilities",
+      "defaultStatus": "incompatible"
+    },
+    {
+      "id": "capability.reserved",
+      "dimension": "capabilities",
+      "defaultStatus": "incompatible"
+    },
+    {
+      "id": "api.binding-supported",
+      "dimension": "api",
+      "defaultStatus": "compatible"
+    },
+    {
+      "id": "api.binding-unknown",
+      "dimension": "api",
+      "defaultStatus": "unknown"
+    },
+    {
+      "id": "permission.missing",
+      "dimension": "permissions",
+      "defaultStatus": "incompatible"
+    },
+    {
+      "id": "event.missing",
+      "dimension": "events",
+      "defaultStatus": "incompatible"
+    },
+    {
+      "id": "webhook.event-ineligible",
+      "dimension": "webhooks",
+      "defaultStatus": "incompatible"
+    },
+    {
+      "id": "integration.connector-missing",
+      "dimension": "integrations",
+      "defaultStatus": "incompatible"
+    },
+    {
+      "id": "runtime.not-released",
+      "dimension": "site-runtime",
+      "defaultStatus": "unknown"
+    },
+    {
+      "id": "migration.required",
+      "dimension": "data-migration",
+      "defaultStatus": "migration-required"
+    }
+  ]
+}

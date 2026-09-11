@@ -1,0 +1,29 @@
+{
+  "$id": "commerce.products.edit",
+  "name": "Edit Products",
+  "permissionId": "commerce.products.edit",
+  "domain": "commerce",
+  "resource": "products",
+  "action": "edit",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Edit Products within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

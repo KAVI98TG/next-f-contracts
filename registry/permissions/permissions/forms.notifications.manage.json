@@ -1,0 +1,29 @@
+{
+  "$id": "forms.notifications.manage",
+  "name": "Manage Notifications",
+  "permissionId": "forms.notifications.manage",
+  "domain": "forms",
+  "resource": "notifications",
+  "action": "manage",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage Notifications within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

@@ -1,0 +1,25 @@
+{
+  "registryVersion": "0.16.0",
+  "surfaces": [
+    {
+      "key": "nextf-admin",
+      "label": "NEXT F Admin",
+      "description": "Internal NEXT F administration surface."
+    },
+    {
+      "key": "customer-cms",
+      "label": "Customer CMS",
+      "description": "Customer-facing Site Workspace."
+    },
+    {
+      "key": "api",
+      "label": "API",
+      "description": "Server/API authorization enforcement."
+    },
+    {
+      "key": "automation",
+      "label": "Automation",
+      "description": "Trusted background automation or service execution."
+    }
+  ]
+}

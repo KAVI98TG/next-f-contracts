@@ -1,0 +1,199 @@
+{
+  "$id": "content.navigation",
+  "name": "Navigation",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "navigation",
+  "description": "Named navigation structure such as header, footer or utility navigation.",
+  "purpose": "Lets customers control approved navigation labels, destinations and hierarchy without changing navbar/footer source code.",
+  "contentModel": {
+    "kind": "configuration",
+    "routing": "none",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Internal/customer-visible navigation name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 140,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable developer-consumed navigation key.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "searchable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "location",
+      "required": true,
+      "nullable": false,
+      "description": "Intended semantic placement.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "header",
+            "label": "Header"
+          },
+          {
+            "value": "footer",
+            "label": "Footer"
+          },
+          {
+            "value": "utility",
+            "label": "Utility"
+          },
+          {
+            "value": "sidebar",
+            "label": "Sidebar"
+          },
+          {
+            "value": "custom",
+            "label": "Custom"
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "items",
+      "required": false,
+      "nullable": true,
+      "description": "Ordered navigation items.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.navigationItem",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "uniqueItems": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "contains",
+      "target": "content.navigationItem",
+      "description": "Navigation contains ordered Navigation Items."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "keyUniqueWithinSite",
+      "description": "Navigation key must be unique within the Site."
+    },
+    {
+      "id": "itemsSameSite",
+      "description": "All items must belong to the same Site."
+    },
+    {
+      "id": "treeAcyclic",
+      "description": "Navigation hierarchy must be acyclic."
+    },
+    {
+      "id": "siblingOrderDeterministic",
+      "description": "Sibling item ordering must resolve deterministically."
+    }
+  ],
+  "cms": {
+    "label": "Navigation",
+    "icon": "fa-bars",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "name",
+      "location",
+      "publishing"
+    ],
+    "editorMode": "navigation-builder",
+    "primaryActions": [
+      "saveDraft",
+      "preview",
+      "publish",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published navigation structures may be delivered to the coded frontend."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "name": "Main Navigation",
+        "key": "main",
+        "location": "header",
+        "items": []
+      }
+    ],
+    "invalid": [
+      {
+        "name": "",
+        "key": "main nav",
+        "location": "top"
+      }
+    ]
+  },
+  "notes": []
+}

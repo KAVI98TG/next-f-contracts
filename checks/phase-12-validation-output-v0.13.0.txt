@@ -1,0 +1,20 @@
+
+> next-f-contracts@0.13.0 validate:phase12
+> node scripts/validate-phase-12.mjs
+
+
+NEXT F Contracts Phase 12 validation
+Version: 0.13.0
+Commerce Rules: 139
+Rule categories: 14
+State machines: 16
+Command policies: 20
+Domain errors: 30
+Requirements inspected: 278
+Rule relationships inspected: 390
+Rule applicability refs inspected: 390
+Registry items: 502
+Passes: 5531
+Failures: 0
+
+PASS - Phase 12 Commerce Rules are internally consistent.

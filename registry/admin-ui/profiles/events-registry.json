@@ -1,0 +1,72 @@
+{
+  "$id": "adminUi.profile.events.registry",
+  "name": "Registry Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "events.registry",
+  "permissionDomain": "events",
+  "moduleId": "core",
+  "description": "Internal NEXT F Admin metadata for Registry. Applies only within server-authorized administrative scope.",
+  "route": "/platform/events/registry",
+  "screenKind": "admin-operations",
+  "layoutTemplate": "delivery-operations",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "platform",
+    "requiresOrganization": false,
+    "requiresSite": false,
+    "allowsCrossTenant": true,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": null,
+  "inheritanceMode": "none",
+  "targetContracts": [
+    "events.eventDefinition"
+  ],
+  "primaryTargetContract": "events.eventDefinition",
+  "permissions": [
+    "events.registry.view"
+  ],
+  "actions": [
+    {
+      "actionId": "view",
+      "permissionId": "events.registry.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions",
+    "event-health"
+  ],
+  "controls": [
+    "risk-badge"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": []
+}

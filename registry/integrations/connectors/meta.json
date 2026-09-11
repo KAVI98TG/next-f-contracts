@@ -1,0 +1,129 @@
+{
+  "$id": "integrations.meta",
+  "name": "Meta",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "meta",
+  "family": "advertising",
+  "description": "Meta browser Pixel and server-side event connector with explicit deduplication and consent mapping.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "site-runtime",
+    "nextf-server",
+    "provider-api"
+  ],
+  "capabilities": [
+    "event.dispatch.client",
+    "event.dispatch.server",
+    "conversion.dispatch.client",
+    "conversion.dispatch.server",
+    "reporting.read",
+    "resource.discover",
+    "account.verify"
+  ],
+  "authentication": {
+    "type": "mixed",
+    "supported": [
+      "none",
+      "bearer"
+    ]
+  },
+  "configurationFields": [
+    {
+      "key": "pixelId",
+      "label": "Pixel ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Pixel ID",
+      "validation": {}
+    },
+    {
+      "key": "datasetId",
+      "label": "Dataset ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Dataset ID",
+      "validation": {}
+    },
+    {
+      "key": "adAccountId",
+      "label": "Ad Account ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Ad Account ID",
+      "validation": {}
+    },
+    {
+      "key": "accessTokenSecretRef",
+      "label": "Access Token Secret Reference",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": true,
+      "customerEditable": false,
+      "helpText": "Access Token Secret Reference",
+      "validation": {}
+    },
+    {
+      "key": "testEventCode",
+      "label": "Test Event Code",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": false,
+      "helpText": "Test Event Code",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [
+      "marketing"
+    ],
+    "requiredFor": [
+      "event.dispatch.client",
+      "event.dispatch.server",
+      "conversion.dispatch.client",
+      "conversion.dispatch.server"
+    ]
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [
+    "Browser and server copies of the same event must use a stable deduplication identifier where configured."
+  ],
+  "aliases": [
+    "Facebook",
+    "Facebook Pixel",
+    "Meta Pixel",
+    "Conversions API",
+    "CAPI"
+  ]
+}

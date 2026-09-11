@@ -1,0 +1,26 @@
+{
+  "$id": "modules.capability.forms.multi-step",
+  "capabilityId": "forms.multi-step",
+  "name": "Multi-step Forms",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "forms",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Multi-step Forms capability within the Forms module.",
+  "contractBindings": [],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

@@ -1,0 +1,100 @@
+{
+  "$id": "webhooks.endpointAuthentication",
+  "name": "Endpoint Authentication",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "endpoints",
+  "description": "Optional structured authentication sent in addition to mandatory NEXT F webhook signing.",
+  "purpose": "Supports receiver authentication without exposing arbitrary secret-bearing headers.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "mode",
+      "required": true,
+      "nullable": false,
+      "description": "Authentication mode.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "none",
+          "bearer-secret",
+          "basic-secret",
+          "api-key-header"
+        ]
+      }
+    },
+    {
+      "key": "secretReference",
+      "required": false,
+      "nullable": true,
+      "description": "Server-side secret reference.",
+      "schema": "integrations.secretReference"
+    },
+    {
+      "key": "username",
+      "required": false,
+      "nullable": true,
+      "description": "Username for basic-secret mode.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "headerName",
+      "required": false,
+      "nullable": true,
+      "description": "Header name for api-key-header mode.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "integrations.secretReference",
+      "description": "References integrations.secretReference."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "signatureAlwaysRequired",
+      "description": "Destination authentication never replaces NEXT F HMAC webhook signing."
+    },
+    {
+      "id": "secretServerSide",
+      "description": "Secret value is never returned through the contract or public/browser configuration."
+    },
+    {
+      "id": "reservedHeaders",
+      "description": "headerName may not override reserved protocol, proxy, cookie or hop-by-hop headers."
+    }
+  ],
+  "cms": {
+    "label": "Endpoint Authentication",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "mode",
+      "secretReference",
+      "username",
+      "headerName"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

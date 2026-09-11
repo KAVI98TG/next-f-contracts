@@ -1,0 +1,14 @@
+{
+  "$id": "accessibility.accessibilityControl",
+  "name": "Accessibility Control",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "description": "Machine-readable accessibility requirement with applicability, affected UI types, verification and cross-registry bindings.",
+  "domain": "accessibility",
+  "type": "schema",
+  "tags": [
+    "accessibility",
+    "phase-31"
+  ]
+}

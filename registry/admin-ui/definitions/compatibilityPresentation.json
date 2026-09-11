@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.compatibilityPresentation",
+  "name": "Compatibility Presentation",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines current/pinned/supported/deprecated version states.",
+  "purpose": "Defines current/pinned/supported/deprecated version states.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

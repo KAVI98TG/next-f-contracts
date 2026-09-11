@@ -1,0 +1,194 @@
+{
+  "eventKey": "content.updated",
+  "name": "Content Updated",
+  "category": "content",
+  "producerKey": "content-domain",
+  "subjectContracts": [
+    "content.page",
+    "content.blogPost",
+    "content.documentationArticle",
+    "content.service",
+    "content.faq",
+    "content.testimonial",
+    "content.teamMember",
+    "content.location",
+    "content.legalPage",
+    "content.customCollectionEntry",
+    "content.reusableContent"
+  ],
+  "trigger": "A material content revision is committed.",
+  "dataPolicy": {
+    "sensitivity": "internal",
+    "containsPersonalData": false,
+    "containsFinancialData": false,
+    "containsSecrets": false,
+    "redactionRequired": false
+  },
+  "webhookEligible": true,
+  "consumers": [
+    "audit",
+    "customer-cms",
+    "nextf-admin"
+  ],
+  "payloadFields": [
+    {
+      "key": "contentType",
+      "required": true,
+      "description": "Canonical content contract ID.",
+      "type": "contract-id"
+    },
+    {
+      "key": "revisionId",
+      "required": false,
+      "description": "Relevant revision/version ID.",
+      "type": "id"
+    }
+  ],
+  "$id": "content.updated",
+  "version": "0.14.0",
+  "eventVersion": "1.0.0",
+  "status": "stable",
+  "domain": "events",
+  "description": "A material content revision is committed.",
+  "purpose": "Provides a canonical, reusable fact event for content updated across NEXT F systems.",
+  "semantics": {
+    "factOnly": true,
+    "authoritativeAfterCommit": true,
+    "immutableOccurrence": true,
+    "transportIndependent": true,
+    "marketingTrackingEquivalent": null
+  },
+  "productionPolicy": {
+    "durability": "durable",
+    "commitBoundary": "transactional-outbox",
+    "failureBehavior": "fail-domain-commit-or-durable-recovery"
+  },
+  "idempotency": {
+    "dedupeKey": "eventId",
+    "replayedIdempotentCommand": "no-new-semantic-event",
+    "consumerIdempotencyRequired": true
+  },
+  "orderingPolicy": {
+    "scope": "subject",
+    "strict": false
+  },
+  "retention": {
+    "class": "standard-audit"
+  },
+  "relationships": [
+    {
+      "type": "references",
+      "target": "content.page",
+      "description": "Event subject may be content.page."
+    },
+    {
+      "type": "references",
+      "target": "content.blogPost",
+      "description": "Event subject may be content.blogPost."
+    },
+    {
+      "type": "references",
+      "target": "content.documentationArticle",
+      "description": "Event subject may be content.documentationArticle."
+    },
+    {
+      "type": "references",
+      "target": "content.service",
+      "description": "Event subject may be content.service."
+    },
+    {
+      "type": "references",
+      "target": "content.faq",
+      "description": "Event subject may be content.faq."
+    },
+    {
+      "type": "references",
+      "target": "content.testimonial",
+      "description": "Event subject may be content.testimonial."
+    },
+    {
+      "type": "references",
+      "target": "content.teamMember",
+      "description": "Event subject may be content.teamMember."
+    },
+    {
+      "type": "references",
+      "target": "content.location",
+      "description": "Event subject may be content.location."
+    },
+    {
+      "type": "references",
+      "target": "content.legalPage",
+      "description": "Event subject may be content.legalPage."
+    },
+    {
+      "type": "references",
+      "target": "content.customCollectionEntry",
+      "description": "Event subject may be content.customCollectionEntry."
+    },
+    {
+      "type": "references",
+      "target": "content.reusableContent",
+      "description": "Event subject may be content.reusableContent."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "emitAfterAuthoritativeCommit",
+      "description": "Event is produced only after the authoritative domain transition is accepted; atomic outbox/equivalent durability is required for transactional mutations."
+    },
+    {
+      "id": "immutableOccurrence",
+      "description": "Recorded event occurrences are immutable."
+    },
+    {
+      "id": "eventIdUnique",
+      "description": "Every semantic occurrence has one globally unique eventId."
+    },
+    {
+      "id": "idempotentReplay",
+      "description": "Retrying the same idempotent command must return/reuse the original outcome and must not emit a second semantic fact event."
+    },
+    {
+      "id": "payloadMinimumNecessary",
+      "description": "Payload contains only data required by declared consumers; consumers fetch additional authorized data separately when needed."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Payload must never contain API secrets, auth tokens, signing secrets, raw payment-card data or other credentials."
+    },
+    {
+      "id": "tenantScope",
+      "description": "Organization/Site scope must match the authoritative subject and producing operation."
+    },
+    {
+      "id": "transportIndependent",
+      "description": "Event semantics do not depend on webhook, queue, HTTP, database or provider transport implementation."
+    }
+  ],
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [
+      {
+        "eventKey": "content.updated",
+        "eventVersion": "1.0.0",
+        "eventId": "evt_example",
+        "occurredAt": "2026-09-10T00:00:00Z"
+      }
+    ],
+    "invalid": [
+      {
+        "eventKey": "content.updated",
+        "eventId": "evt_duplicate",
+        "problem": "duplicate semantic event emitted for an idempotent command replay"
+      }
+    ]
+  }
+}

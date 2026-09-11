@@ -1,0 +1,130 @@
+{
+  "registryVersion": "0.21.0",
+  "controls": [
+    {
+      "id": "platform-search",
+      "label": "Platform Search",
+      "description": "Search Organizations, Sites and internal registry-backed resources."
+    },
+    {
+      "id": "organization-context-selector",
+      "label": "Organization Context Selector",
+      "description": "Switch internal Organization context without changing authorization."
+    },
+    {
+      "id": "site-context-selector",
+      "label": "Site Context Selector",
+      "description": "Switch Site context after server-side scope validation."
+    },
+    {
+      "id": "environment-reference",
+      "label": "Environment Reference",
+      "description": "Show environment identity and URL references; never hosting billing controls."
+    },
+    {
+      "id": "contract-version-status",
+      "label": "Contract Version Status",
+      "description": "Pinned contract version, compatibility status and supported upgrade path."
+    },
+    {
+      "id": "module-capability-manager",
+      "label": "Module & Capability Manager",
+      "description": "Enable/disable only capabilities allowed by Module Registry and Site Manifest rules."
+    },
+    {
+      "id": "api-binding-status",
+      "label": "API Binding Status",
+      "description": "Configured API groups/versions and runtime health without exposing secrets."
+    },
+    {
+      "id": "connection-health",
+      "label": "Connection Health",
+      "description": "Site/integration/runtime connectivity and last successful check."
+    },
+    {
+      "id": "integration-secret-status",
+      "label": "Secret Status",
+      "description": "Presence/rotation/expiry metadata only; never reveal stored secret values."
+    },
+    {
+      "id": "recent-auth-gate",
+      "label": "Recent Authentication Gate",
+      "description": "Require recent authentication for sensitive/privileged operations."
+    },
+    {
+      "id": "explicit-confirmation",
+      "label": "Explicit Confirmation",
+      "description": "Require deliberate confirmation for destructive or high-impact operations."
+    },
+    {
+      "id": "risk-badge",
+      "label": "Risk Badge",
+      "description": "Non-color-only visual indication of permission/action risk."
+    },
+    {
+      "id": "audit-timeline",
+      "label": "Audit Timeline",
+      "description": "Actor/action/time/request context without secrets."
+    },
+    {
+      "id": "event-log-viewer",
+      "label": "Event Log Viewer",
+      "description": "Canonical Event envelope, producer, correlation and delivery status."
+    },
+    {
+      "id": "webhook-delivery-viewer",
+      "label": "Webhook Delivery Viewer",
+      "description": "Attempts, response metadata, retry/dead-letter state and signature version."
+    },
+    {
+      "id": "diagnostic-check",
+      "label": "Diagnostic Check",
+      "description": "Bounded platform/site health check with evidence and remediation."
+    },
+    {
+      "id": "migration-dry-run",
+      "label": "Migration Dry Run",
+      "description": "Preview compatibility impact before any migration execution."
+    },
+    {
+      "id": "migration-execution",
+      "label": "Migration Execution",
+      "description": "Privileged migration action gated by compatibility and rollback policy."
+    },
+    {
+      "id": "support-context",
+      "label": "Support Context",
+      "description": "Organization/Site support data without silently assuming the customer identity."
+    },
+    {
+      "id": "customer-cms-link",
+      "label": "Customer CMS Link",
+      "description": "Navigate to the customer workspace as the current admin identity; no hidden impersonation."
+    },
+    {
+      "id": "override-control",
+      "label": "Override Control",
+      "description": "Use only when a canonical rule explicitly permits an administrative override."
+    },
+    {
+      "id": "data-classification",
+      "label": "Data Classification",
+      "description": "Show public/internal/personal/sensitive/secret handling class where known."
+    },
+    {
+      "id": "freshness-provenance",
+      "label": "Freshness & Provenance",
+      "description": "Show source and freshness for imported/reporting data."
+    },
+    {
+      "id": "immutable-transaction-snapshot",
+      "label": "Transaction Snapshot",
+      "description": "Read-only historical commerce snapshot protected from catalog edits."
+    },
+    {
+      "id": "command-result",
+      "label": "Command Result",
+      "description": "Display server-authoritative command success/failure/request ID and resulting state."
+    }
+  ]
+}

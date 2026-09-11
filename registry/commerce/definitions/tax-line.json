@@ -1,0 +1,110 @@
+{
+  "$id": "commerce.taxLine",
+  "name": "Tax Line",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "tax",
+  "description": "Transaction-time Tax snapshot.",
+  "purpose": "Preserves tax applied at transaction time despite later Tax Rate changes.",
+  "commerceModel": {
+    "kind": "snapshot",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Tax label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "rate",
+      "required": true,
+      "nullable": false,
+      "description": "Applied rate.",
+      "primitive": "fields.percentage"
+    },
+    {
+      "key": "amount",
+      "required": true,
+      "nullable": false,
+      "description": "Calculated amount.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "taxRateId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional originating Tax Rate ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "inclusive",
+      "required": true,
+      "nullable": false,
+      "description": "Whether amount was price-inclusive.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "commerce.moneySnapshot",
+      "description": "References commerce.moneySnapshot."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.taxRate",
+      "description": "References commerce.taxRate."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "snapshotStable",
+      "description": "Committed Tax Lines do not follow later Tax Rate edits."
+    }
+  ],
+  "cms": {
+    "label": "Tax Line",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "title",
+      "rate",
+      "amount",
+      "taxRateId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

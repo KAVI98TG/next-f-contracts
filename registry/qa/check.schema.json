@@ -1,0 +1,53 @@
+{
+  "$id": "qa.acceptanceCheck",
+  "title": "Registry Health Acceptance Check",
+  "type": "object",
+  "required": [
+    "checkId",
+    "category",
+    "description",
+    "result",
+    "severity",
+    "evidence",
+    "affectedDefinitions",
+    "remediationStatus"
+  ],
+  "properties": {
+    "checkId": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "result": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "WARNING",
+        "DEFERRED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "severity": {
+      "enum": [
+        "info",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "affectedDefinitions": {
+      "type": "array"
+    },
+    "remediationStatus": {
+      "type": "string"
+    }
+  }
+}

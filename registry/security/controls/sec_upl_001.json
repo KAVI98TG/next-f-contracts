@@ -1,0 +1,39 @@
+{
+  "controlId": "SEC-UPL-001",
+  "name": "Upload type and size enforcement",
+  "category": "uploads",
+  "requirement": "File uploads must enforce contract-defined allowed media/types and size limits server-side.",
+  "rationale": "Client-provided filenames and MIME declarations are not trust boundaries.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [
+    "modules.media",
+    "modules.forms"
+  ],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "api.uploadSession"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_upl_001.json"
+}

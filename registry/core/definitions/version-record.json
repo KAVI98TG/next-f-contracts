@@ -1,0 +1,180 @@
+{
+  "$id": "core.versionRecord",
+  "name": "Version Record",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "audit",
+  "description": "Immutable historical version snapshot for a versioned entity.",
+  "purpose": "Provides one reusable revision format for pages, blog posts, documents, products and other versioned entities.",
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque Version Record ID.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 4,
+        "maxLength": 128,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "entity",
+      "required": true,
+      "nullable": false,
+      "description": "Entity this version belongs to.",
+      "schema": "core.entityReference"
+    },
+    {
+      "key": "versionNumber",
+      "required": true,
+      "nullable": false,
+      "description": "Monotonically increasing version number within the entity.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    },
+    {
+      "key": "snapshot",
+      "required": true,
+      "nullable": false,
+      "description": "Immutable canonical entity snapshot for this version.",
+      "primitive": "fields.json",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "revisionTracked": false
+      }
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Version creation timestamp.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "createdBy",
+      "required": true,
+      "nullable": false,
+      "description": "Actor responsible for the version.",
+      "schema": "core.actorReference"
+    },
+    {
+      "key": "reason",
+      "required": false,
+      "nullable": true,
+      "description": "Optional human-readable reason or change note.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "published",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this version was published at least once.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "core.entityReference",
+      "description": "Versions target canonical entities."
+    },
+    {
+      "type": "references",
+      "target": "core.actorReference",
+      "description": "Versions record a canonical actor."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "versionMonotonic",
+      "description": "versionNumber increases monotonically per entity."
+    },
+    {
+      "id": "snapshotImmutable",
+      "description": "snapshot is immutable after Version Record creation."
+    },
+    {
+      "id": "snapshotMatchesContract",
+      "description": "snapshot must validate against the entity contract/version applicable to the version."
+    }
+  ],
+  "cms": {
+    "label": "Version",
+    "icon": "fa-code-branch",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "history",
+    "summaryFields": [
+      "versionNumber",
+      "createdAt"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Version history is operational metadata and must not be publicly exposed by default."
+  },
+  "examples": {
+    "valid": [
+      {
+        "id": "ver_0003",
+        "entity": {
+          "entityType": "content.page",
+          "entityId": "page_01ABC"
+        },
+        "versionNumber": 3,
+        "snapshot": {
+          "title": "About"
+        },
+        "createdAt": "2026-09-09T10:00:00Z",
+        "createdBy": {
+          "actorType": "organizationUser",
+          "actorId": "usr_01ABC"
+        },
+        "published": false
+      }
+    ],
+    "invalid": [
+      {
+        "id": "ver_0003",
+        "entity": {
+          "entityType": "content.page",
+          "entityId": "page_01ABC"
+        },
+        "versionNumber": 0,
+        "snapshot": {},
+        "createdAt": "invalid",
+        "createdBy": {
+          "actorType": "organizationUser"
+        },
+        "published": false
+      }
+    ]
+  },
+  "notes": [
+    "Historical snapshots must not contain secrets excluded by the entity contract."
+  ]
+}

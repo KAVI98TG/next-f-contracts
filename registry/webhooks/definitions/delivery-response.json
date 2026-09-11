@@ -1,0 +1,104 @@
+{
+  "$id": "webhooks.deliveryResponse",
+  "name": "Webhook Delivery Response",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "delivery",
+  "description": "Bounded sanitized response metadata for one webhook Attempt.",
+  "purpose": "Supports outcome classification while preventing receiver responses from becoming business authority.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "httpStatus",
+      "required": false,
+      "nullable": true,
+      "description": "Receiver HTTP status.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "headers",
+      "required": false,
+      "nullable": true,
+      "description": "Allow-listed non-sensitive response headers.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "diagnosticSnippet",
+      "required": false,
+      "nullable": true,
+      "description": "Bounded redacted response body snippet.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "receivedBytes",
+      "required": false,
+      "nullable": true,
+      "description": "Number of response bytes read up to policy limit.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "durationMs",
+      "required": false,
+      "nullable": true,
+      "description": "Total observed request duration.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "receivedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Response timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "diagnosticOnly",
+      "description": "Normal response bodies cannot create authoritative NEXT F business state."
+    },
+    {
+      "id": "maxDiagnosticRead",
+      "description": "Default diagnostic body read/retention is capped at 65536 bytes."
+    },
+    {
+      "id": "redact",
+      "description": "Sensitive values must be redacted before persistence."
+    },
+    {
+      "id": "verificationException",
+      "description": "Only endpoint verification defines a semantic response-body challenge contract."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Delivery Response",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "httpStatus",
+      "headers",
+      "diagnosticSnippet",
+      "receivedBytes"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

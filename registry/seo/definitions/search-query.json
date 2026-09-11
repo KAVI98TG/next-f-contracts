@@ -1,0 +1,165 @@
+{
+  "$id": "seo.searchQuery",
+  "name": "Search Query Dimension",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "search",
+  "description": "Normalized organic-search query dimension used in imported performance data.",
+  "purpose": "Provides provider-neutral query context for search performance reports without treating external integrations as canonical content.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": false,
+    "derived": true,
+    "supportsRevision": false,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "query",
+      "required": true,
+      "nullable": false,
+      "description": "Observed query text.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 2000,
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true
+      }
+    },
+    {
+      "key": "country",
+      "required": false,
+      "nullable": true,
+      "description": "Optional ISO-style country/market code supplied by the data source.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 20,
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "device",
+      "required": false,
+      "nullable": true,
+      "description": "Optional device dimension.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "desktop",
+            "label": "Desktop"
+          },
+          {
+            "value": "mobile",
+            "label": "Mobile"
+          },
+          {
+            "value": "tablet",
+            "label": "Tablet"
+          },
+          {
+            "value": "other",
+            "label": "Other"
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "searchType",
+      "required": false,
+      "nullable": true,
+      "description": "Optional search vertical/type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "web",
+            "label": "Web"
+          },
+          {
+            "value": "image",
+            "label": "Image"
+          },
+          {
+            "value": "video",
+            "label": "Video"
+          },
+          {
+            "value": "news",
+            "label": "News"
+          },
+          {
+            "value": "discover",
+            "label": "Discover"
+          },
+          {
+            "value": "other",
+            "label": "Other"
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "observedData",
+      "description": "query represents observed/imported data and must not be auto-generated as if it were measured performance."
+    }
+  ],
+  "cms": {
+    "label": "Search Query Dimension",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "query",
+      "country",
+      "device",
+      "searchType"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "query": "web development sri lanka",
+        "country": "LK",
+        "device": "mobile",
+        "searchType": "web"
+      }
+    ],
+    "invalid": [
+      {
+        "query": ""
+      }
+    ]
+  },
+  "notes": []
+}

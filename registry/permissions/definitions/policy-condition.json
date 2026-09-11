@@ -1,0 +1,65 @@
+{
+  "$id": "permissions.policyCondition",
+  "name": "Policy Condition",
+  "domain": "permissions",
+  "type": "schema",
+  "version": "0.16.0",
+  "status": "stable",
+  "category": "foundation",
+  "description": "Optional bounded condition metadata for high-risk permission evaluation.",
+  "purpose": "Optional bounded condition metadata for high-risk permission evaluation.",
+  "permissionModel": {
+    "kind": "foundation",
+    "publicEligible": false,
+    "customerManaged": false
+  },
+  "fields": [
+    {
+      "key": "conditionType",
+      "required": true,
+      "nullable": false,
+      "description": "conditionType",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "operator",
+      "required": true,
+      "nullable": false,
+      "description": "operator",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "value",
+      "required": true,
+      "nullable": false,
+      "description": "value",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "description",
+      "required": true,
+      "nullable": false,
+      "description": "description",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "permissions.policyCondition.rule.1",
+      "description": "Conditions cannot create permissions that the principal does not already hold."
+    },
+    {
+      "id": "permissions.policyCondition.rule.2",
+      "description": "Conditions may narrow an existing grant but cannot silently broaden its scope."
+    }
+  ],
+  "cms": {
+    "adminVisible": true,
+    "customerVisible": false
+  },
+  "delivery": {
+    "publicAllowed": false
+  },
+  "notes": []
+}

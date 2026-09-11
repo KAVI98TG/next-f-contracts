@@ -1,0 +1,170 @@
+{
+  "$id": "blocks.textImage",
+  "name": "Text + Image",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "editorial",
+  "description": "Combined structured copy and media section.",
+  "purpose": "Supports common editorial layouts without letting customer content define arbitrary grid or CSS structure.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "content",
+      "required": true,
+      "nullable": false,
+      "description": "Structured body content.",
+      "primitive": "fields.richText",
+      "config": {
+        "minLength": 1,
+        "maxLength": 40000,
+        "format": "nextf-rich-content",
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "media",
+      "required": true,
+      "nullable": false,
+      "description": "Primary section media.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "actions",
+      "required": false,
+      "nullable": true,
+      "description": "Optional primary and secondary conversion actions.",
+      "schema": "blocks.actionGroup"
+    },
+    {
+      "key": "mediaPositionKey",
+      "required": true,
+      "nullable": false,
+      "description": "Approved semantic placement hint.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "start",
+            "label": "Start"
+          },
+          {
+            "value": "end",
+            "label": "End"
+          }
+        ],
+        "defaultValue": "end",
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "blocks.heading",
+      "description": "May use shared section heading."
+    },
+    {
+      "type": "composes",
+      "target": "shared.mediaReference",
+      "description": "Requires media."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "blocks.actionGroup",
+      "description": "May include actions."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "mediaPositionPresentationOnly",
+      "description": "mediaPositionKey is an approved layout hint; responsive behavior remains frontend-controlled."
+    }
+  ],
+  "cms": {
+    "label": "Text + Image",
+    "icon": "fa-columns",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "content",
+      "media"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Informative images require suitable alternative text.",
+      "Responsive visual reordering must not create an illogical reading order."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

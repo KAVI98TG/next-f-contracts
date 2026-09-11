@@ -1,0 +1,82 @@
+{
+  "$id": "fields.currency",
+  "name": "Currency",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "numeric",
+  "description": "Monetary amount coupled with an explicit ISO 4217 currency code.",
+  "value": {
+    "jsonType": "object",
+    "canonical": "Object containing decimal amount and uppercase ISO 4217 currency code.",
+    "absence": "Absent values are represented by omission or null only when nullable is true.",
+    "shape": {
+      "amount": "number",
+      "currency": "3-letter ISO 4217 code"
+    }
+  },
+  "cms": {
+    "editor": "currency",
+    "inputMode": "decimal",
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": false,
+    "filterable": true,
+    "sortable": true,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "minimum",
+    "maximum",
+    "precision"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "minimum",
+    "maximum",
+    "precision"
+  ],
+  "examples": {
+    "valid": [
+      {
+        "amount": 18500,
+        "currency": "LKR"
+      },
+      {
+        "amount": 49.99,
+        "currency": "USD"
+      }
+    ],
+    "invalid": [
+      18500,
+      {
+        "amount": 10
+      }
+    ]
+  },
+  "notes": [
+    "Currency is never implicit.",
+    "Historical transactional values must be snapshotted by commerce contracts."
+  ]
+}

@@ -1,0 +1,27 @@
+# Architectural Rules
+
+- AR-001 Contract reuse - Existing canonical contracts must be reused before new contracts are created.
+- AR-002 Repository authority - The version-controlled NEXT F Contracts repository is authoritative.
+- AR-003 No silent divergence - Admin, Customer CMS, API and customer site implementations must not silently redefine canonical semantics.
+- AR-004 Site version pinning - Every integrated Site declares a supported contract version. Never use an implicit floating `latest`.
+- AR-005 Customer content separation - Customer-editable content remains separate from developer-controlled presentation code.
+- AR-006 CMS is not a page builder - Customer CMS manages structured data and approved operations, not arbitrary HTML, JavaScript, CSS or layout.
+- AR-007 Public content only - Public websites may retrieve only data explicitly approved for public delivery.
+- AR-008 Authenticated writes - Create, update, delete, publish, integration and configuration operations require authenticated and authorized server-side handling.
+- AR-009 Permission contracts - Access decisions use canonical permission identifiers.
+- AR-010 Standard events - Implementations emit canonical event names and payload contracts.
+- AR-011 Standard webhooks - Outbound webhook deliveries use canonical event semantics and standardized security behavior.
+- AR-012 Integration abstraction - Supported third-party marketing and analytics integrations use the NEXT F integration/event layer.
+- AR-013 Consent before optional tracking - Optional analytics and marketing integrations respect Site consent configuration.
+- AR-014 Secrets stay server-side - Secrets and privileged credentials never ship in public browser code.
+- AR-015 External account ownership - Customer organizations normally own advertising, analytics, Search Console, payment-provider and similar external accounts.
+- AR-016 Hosting and domains excluded - NEXT F Contracts do not model domain registration, hosting resale or hosting billing as platform services.
+- AR-017 Payment boundary - NEXT F commerce contracts never require storage of raw card numbers or CVV values.
+- AR-018 Auditability - Important Admin, CMS, integration, security and commerce actions can produce auditable records.
+- AR-019 Deterministic machine names - Contract IDs, fields, events, permissions and enum values are stable machine identifiers.
+- AR-020 Extensions are explicit - Project-specific extensions are namespaced and documented and cannot override canonical meanings.
+- AR-021 Environment isolation - Preview, staging and production must not accidentally share secrets or privileged tokens.
+- AR-022 Backward compatibility - Stable contracts cannot receive breaking changes inside the same major version.
+- AR-023 No secret examples - Contract documentation and examples use fictional non-sensitive values.
+- AR-024 Site-specific UI remains customer-specific - Contracts define structure and behavior. Branding, layout and presentation remain implementation concerns unless governed by standards.
+- AR-025 Adapters are explicit - External or legacy models are translated through adapters rather than changing canonical NEXT F semantics.

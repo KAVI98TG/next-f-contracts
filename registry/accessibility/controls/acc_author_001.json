@@ -1,0 +1,48 @@
+{
+  "controlId": "ACC-AUTHOR-001",
+  "name": "Author accessibility metadata",
+  "category": "authoring",
+  "requirement": "Schema/UI metadata should expose accessibility-relevant authoring requirements such as alt text, accessible labels, help/error association, caption/transcript references and heading constraints where applicable.",
+  "rationale": "Schema-driven editors need machine-readable cues to present accessible authoring requirements consistently.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "rich-text-editor",
+    "image",
+    "audio-video",
+    "form"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "content-review"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [
+    "cmsUi.fieldBinding",
+    "cmsUi.helpContent",
+    "cmsUi.validationPresentation"
+  ],
+  "relatedBlocks": [
+    "blocks.heading",
+    "blocks.gallery",
+    "blocks.video",
+    "blocks.form"
+  ],
+  "relatedFields": [
+    "fields.image",
+    "fields.video",
+    "fields.audio",
+    "fields.richText"
+  ],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_author_001.json"
+}

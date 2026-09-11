@@ -1,0 +1,45 @@
+{
+  "registryVersion": "0.15.0",
+  "categories": [
+    {
+      "key": "foundation",
+      "label": "Foundation",
+      "description": "Core references, environment, ownership, event exposure and data-access boundaries."
+    },
+    {
+      "key": "endpoints",
+      "label": "Endpoints",
+      "description": "Destination URL, verification, health, outbound network and authentication contracts."
+    },
+    {
+      "key": "subscriptions",
+      "label": "Subscriptions",
+      "description": "Event selection, filters, states, pause behavior and endpoint bindings."
+    },
+    {
+      "key": "payload",
+      "label": "Payload & HTTP",
+      "description": "Webhook body, headers, response handling and canonical HTTP representation."
+    },
+    {
+      "key": "security",
+      "label": "Signing & Security",
+      "description": "HMAC signing, key references, secret rotation and replay resistance."
+    },
+    {
+      "key": "delivery",
+      "label": "Delivery",
+      "description": "Logical deliveries, attempts, requests, responses, failures and HTTP outcome classification."
+    },
+    {
+      "key": "resilience",
+      "label": "Retry & Resilience",
+      "description": "Backoff, timeouts, rate limits, queueing, dead-lettering and manual redelivery."
+    },
+    {
+      "key": "operations",
+      "label": "Operations & Observability",
+      "description": "Testing, summaries, logs, retention, redaction and metrics."
+    }
+  ]
+}

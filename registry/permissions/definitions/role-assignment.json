@@ -1,0 +1,97 @@
+{
+  "$id": "permissions.roleAssignment",
+  "name": "Role Assignment",
+  "domain": "permissions",
+  "type": "schema",
+  "version": "0.16.0",
+  "status": "stable",
+  "category": "foundation",
+  "description": "Assigns one role to one principal within an explicit authorization scope.",
+  "purpose": "Assigns one role to one principal within an explicit authorization scope.",
+  "permissionModel": {
+    "kind": "foundation",
+    "publicEligible": false,
+    "customerManaged": false
+  },
+  "fields": [
+    {
+      "key": "assignmentId",
+      "required": true,
+      "nullable": false,
+      "description": "assignmentId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "principal",
+      "required": true,
+      "nullable": false,
+      "description": "principal",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "roleId",
+      "required": true,
+      "nullable": false,
+      "description": "roleId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "scope",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "status",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "startsAt",
+      "required": false,
+      "nullable": true,
+      "description": "startsAt",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "expiresAt",
+      "required": false,
+      "nullable": true,
+      "description": "expiresAt",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "assignedBy",
+      "required": true,
+      "nullable": false,
+      "description": "assignedBy",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "permissions.roleAssignment.rule.1",
+      "description": "Assignments are inactive outside their time window."
+    },
+    {
+      "id": "permissions.roleAssignment.rule.2",
+      "description": "A Site-scoped role cannot authorize another Site."
+    },
+    {
+      "id": "permissions.roleAssignment.rule.3",
+      "description": "Suspended or revoked assignments grant no permissions."
+    }
+  ],
+  "cms": {
+    "adminVisible": true,
+    "customerVisible": false
+  },
+  "delivery": {
+    "publicAllowed": false
+  },
+  "notes": []
+}

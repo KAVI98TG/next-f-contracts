@@ -1,0 +1,147 @@
+{
+  "phase": 2,
+  "version": "0.3.0",
+  "status": "passed",
+  "checks": [
+    {
+      "id": "P2-001",
+      "name": "Authoritative registry index created",
+      "passed": true
+    },
+    {
+      "id": "P2-002",
+      "name": "Registry metadata created",
+      "passed": true
+    },
+    {
+      "id": "P2-003",
+      "name": "Controlled domain vocabulary created",
+      "passed": true
+    },
+    {
+      "id": "P2-004",
+      "name": "Controlled type vocabulary created",
+      "passed": true
+    },
+    {
+      "id": "P2-005",
+      "name": "Controlled status vocabulary created",
+      "passed": true
+    },
+    {
+      "id": "P2-006",
+      "name": "All registry IDs unique",
+      "passed": true
+    },
+    {
+      "id": "P2-007",
+      "name": "Registry IDs follow dot notation",
+      "passed": true
+    },
+    {
+      "id": "P2-008",
+      "name": "All registry sources exist",
+      "passed": true
+    },
+    {
+      "id": "P2-009",
+      "name": "All relationship targets resolve",
+      "passed": true
+    },
+    {
+      "id": "P2-010",
+      "name": "All domains resolve to vocabulary",
+      "passed": true
+    },
+    {
+      "id": "P2-011",
+      "name": "All types resolve to vocabulary",
+      "passed": true
+    },
+    {
+      "id": "P2-012",
+      "name": "All statuses resolve to vocabulary",
+      "passed": true
+    },
+    {
+      "id": "P2-013",
+      "name": "Registry loader implemented",
+      "passed": true
+    },
+    {
+      "id": "P2-014",
+      "name": "Generated local fallback implemented",
+      "passed": true
+    },
+    {
+      "id": "P2-015",
+      "name": "Generated fallback integrity is validated",
+      "passed": true
+    },
+    {
+      "id": "P2-016",
+      "name": "Registry index route implemented",
+      "passed": true
+    },
+    {
+      "id": "P2-017",
+      "name": "Registry detail routes implemented",
+      "passed": true
+    },
+    {
+      "id": "P2-018",
+      "name": "Search implemented",
+      "passed": true
+    },
+    {
+      "id": "P2-019",
+      "name": "Domain/type/status filtering implemented",
+      "passed": true
+    },
+    {
+      "id": "P2-020",
+      "name": "Deterministic sorting implemented",
+      "passed": true
+    },
+    {
+      "id": "P2-021",
+      "name": "URL filter state implemented",
+      "passed": true
+    },
+    {
+      "id": "P2-022",
+      "name": "Relationship cross-links implemented",
+      "passed": true
+    },
+    {
+      "id": "P2-023",
+      "name": "Source-file links implemented",
+      "passed": true
+    },
+    {
+      "id": "P2-024",
+      "name": "Copy ID and copy metadata implemented",
+      "passed": true
+    },
+    {
+      "id": "P2-025",
+      "name": "Global search includes registry records",
+      "passed": true
+    },
+    {
+      "id": "P2-026",
+      "name": "Unknown IDs do not fabricate records",
+      "passed": true
+    },
+    {
+      "id": "P2-027",
+      "name": "No Phase 3+ fake schemas indexed",
+      "passed": true
+    },
+    {
+      "id": "P2-028",
+      "name": "Phase 0 and Phase 1 foundations preserved",
+      "passed": true
+    }
+  ]
+}

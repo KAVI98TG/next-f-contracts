@@ -1,0 +1,56 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "Data Subject / Customer Privacy Operations",
+  "description": "Future-safe operation primitives. Phase 30 does not claim a complete legal-compliance workflow engine.",
+  "operations": [
+    {
+      "id": "export",
+      "label": "Export",
+      "status": "future-capability",
+      "description": "Produce an authorized export of in-scope customer/personal data with classification-aware handling.",
+      "implementedRuntime": false
+    },
+    {
+      "id": "deletion-request",
+      "label": "Deletion Request",
+      "status": "future-capability",
+      "description": "Request deletion of eligible data subject to retention/integrity constraints.",
+      "implementedRuntime": false
+    },
+    {
+      "id": "anonymization-request",
+      "label": "Anonymization Request",
+      "status": "future-capability",
+      "description": "Request anonymization when deletion is not the correct operation.",
+      "implementedRuntime": false
+    },
+    {
+      "id": "retention-expiration",
+      "label": "Retention Expiration",
+      "status": "contract-primitive",
+      "description": "Represent policy-driven expiration without inventing legal durations.",
+      "implementedRuntime": false
+    },
+    {
+      "id": "legal-hold",
+      "label": "Legal Hold",
+      "status": "future-capability",
+      "description": "Represent an authorized hold that blocks normal deletion/expiration.",
+      "implementedRuntime": false
+    },
+    {
+      "id": "consent-history",
+      "label": "Consent History",
+      "status": "contract-primitive",
+      "description": "Existing consent contracts provide evidence primitives; Phase 30 does not claim a complete request portal.",
+      "implementedRuntime": false
+    },
+    {
+      "id": "processing-record-reference",
+      "label": "Processing Record Reference",
+      "status": "future-capability",
+      "description": "Reference future processing-record evidence without embedding a legal-compliance engine in the Registry.",
+      "implementedRuntime": false
+    }
+  ]
+}

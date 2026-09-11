@@ -1,0 +1,36 @@
+{
+  "controlId": "SEC-WH-002",
+  "name": "Webhook signing and secret rotation",
+  "category": "webhooks",
+  "requirement": "Webhook deliveries requiring authenticity must use the canonical signature policy and protected signing-key references with finite secret-rotation overlap.",
+  "rationale": "Receivers need verifiable origin without exposing long-lived signing secrets.",
+  "applicability": [
+    "webhooks"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [
+    "webhooks.signaturePolicy",
+    "webhooks.signingKeyReference",
+    "webhooks.secretRotation"
+  ],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_wh_002.json"
+}

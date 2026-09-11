@@ -1,0 +1,100 @@
+{
+  "$id": "webhooks.deliveryRequest",
+  "name": "Webhook Delivery Request",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "delivery",
+  "description": "Sanitized metadata describing the exact outbound HTTP request used for an attempt.",
+  "purpose": "Supports troubleshooting without persisting secrets or unrestricted raw headers.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "method",
+      "required": true,
+      "nullable": false,
+      "description": "HTTP method.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "url",
+      "required": true,
+      "nullable": false,
+      "description": "Destination URL with sensitive query values redacted.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "headers",
+      "required": true,
+      "nullable": false,
+      "description": "Sanitized protocol header metadata.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "payloadBytes",
+      "required": true,
+      "nullable": false,
+      "description": "Serialized request-body size.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "payloadChecksum",
+      "required": true,
+      "nullable": false,
+      "description": "Non-secret checksum of exact serialized body bytes.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sentAt",
+      "required": true,
+      "nullable": false,
+      "description": "Dispatch timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "postOnly",
+      "description": "Webhook delivery method is POST."
+    },
+    {
+      "id": "redacted",
+      "description": "Authorization, signature, secret-backed custom headers and sensitive URL query values are removed/redacted before persistence."
+    },
+    {
+      "id": "payloadRetentionSeparate",
+      "description": "Exact payload retention is governed separately and is not implied by this diagnostic record."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Delivery Request",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "method",
+      "url",
+      "headers",
+      "payloadBytes"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

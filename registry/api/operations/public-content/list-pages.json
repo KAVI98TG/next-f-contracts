@@ -1,0 +1,84 @@
+{
+  "$id": "api.public-content.list-pages",
+  "operationId": "api.public-content.list-pages",
+  "name": "List Published Pages",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.public-content",
+  "method": "GET",
+  "path": "/pages",
+  "description": "List Published Pages",
+  "authentication": {
+    "mode": "anonymous",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [
+      {
+        "name": "cursor",
+        "contract": "api.paginationRequest"
+      },
+      {
+        "name": "limit",
+        "contract": "api.paginationRequest"
+      },
+      {
+        "name": "locale",
+        "contract": "api.localeContext"
+      }
+    ],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "content.page",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "module_disabled"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "public-edge",
+    "rateLimit": "public-read",
+    "cors": "public-read"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "pages",
+    "blog",
+    "documentation",
+    "seo"
+  ],
+  "contractBindings": [
+    "content.page"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "public",
+  "notes": []
+}

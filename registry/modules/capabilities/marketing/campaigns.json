@@ -1,0 +1,35 @@
+{
+  "$id": "modules.capability.marketing.campaigns",
+  "capabilityId": "marketing.campaigns",
+  "name": "Campaigns",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "marketing",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Campaigns capability within the Marketing module.",
+  "contractBindings": [
+    "marketing.campaignDefinition",
+    "marketing.campaignContext"
+  ],
+  "permissionBindings": [
+    "marketing.campaigns.create",
+    "marketing.campaigns.delete",
+    "marketing.campaigns.edit",
+    "marketing.campaigns.manage",
+    "marketing.campaigns.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

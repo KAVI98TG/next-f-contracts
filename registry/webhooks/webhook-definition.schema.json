@@ -1,0 +1,31 @@
+{
+  "$id": "webhooks.webhookDefinitionFileSchema",
+  "version": "0.15.0",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "category",
+    "description",
+    "purpose",
+    "webhookModel",
+    "fields",
+    "relationships",
+    "validationRules",
+    "cms",
+    "delivery",
+    "futureBindings"
+  ],
+  "idPattern": "^webhooks\\.[a-z][A-Za-z0-9]*$",
+  "statusValues": [
+    "stable",
+    "draft",
+    "experimental",
+    "deprecated"
+  ],
+  "notes": [
+    "Validates webhook registry definition metadata, not live HTTP delivery occurrences."
+  ]
+}

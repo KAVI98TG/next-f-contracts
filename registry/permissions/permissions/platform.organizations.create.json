@@ -1,0 +1,28 @@
+{
+  "$id": "platform.organizations.create",
+  "name": "Create Organizations",
+  "permissionId": "platform.organizations.create",
+  "domain": "platform",
+  "resource": "organizations",
+  "action": "create",
+  "scopeKind": "platform",
+  "riskLevel": "elevated",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Create Organizations within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

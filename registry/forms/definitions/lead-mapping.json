@@ -1,0 +1,159 @@
+{
+  "$id": "forms.leadMapping",
+  "name": "Form to Lead Mapping",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "automation",
+  "description": "Defines whether and how accepted Form Submissions create or update Leads.",
+  "purpose": "Keeps lead-generation behavior declarative and reusable across NEXT F customer sites.",
+  "formsModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "formId",
+      "required": true,
+      "nullable": false,
+      "description": "Source Form.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.form",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether accepted submissions may create/update Leads.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "mappings",
+      "required": true,
+      "nullable": false,
+      "description": "Field-to-Lead mappings.",
+      "itemsSchema": "forms.fieldMapping",
+      "config": {
+        "minItems": 1
+      }
+    },
+    {
+      "key": "defaultStatusKey",
+      "required": true,
+      "nullable": false,
+      "description": "Initial lead status key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120
+      }
+    },
+    {
+      "key": "dedupePolicy",
+      "required": false,
+      "nullable": true,
+      "description": "Duplicate handling policy.",
+      "schema": "forms.leadDedupePolicy"
+    },
+    {
+      "key": "defaultAssignee",
+      "required": false,
+      "nullable": true,
+      "description": "Optional default assignee.",
+      "schema": "core.actorReference"
+    },
+    {
+      "key": "includeSubmissionReference",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the source submission is linked to the Lead.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "forms.form",
+      "description": "Mapping belongs to one Form."
+    },
+    {
+      "type": "contains",
+      "target": "forms.fieldMapping",
+      "description": "Contains declarative field mappings."
+    },
+    {
+      "type": "uses",
+      "target": "forms.leadDedupePolicy",
+      "description": "Uses duplicate handling policy."
+    },
+    {
+      "type": "relatedTo",
+      "target": "forms.lead",
+      "description": "Creates or updates Leads after accepted submissions."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "acceptedOnly",
+      "description": "Lead mapping executes only for server-accepted submissions."
+    },
+    {
+      "id": "requiredLeadFieldsMapped",
+      "description": "Required Lead fields must have valid mappings or controlled defaults."
+    },
+    {
+      "id": "statusExists",
+      "description": "defaultStatusKey must resolve for the same Site."
+    },
+    {
+      "id": "noCrossTenantAssignment",
+      "description": "defaultAssignee must belong to the authorized Site/Organization scope."
+    }
+  ],
+  "cms": {
+    "label": "Form to Lead Mapping",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "formId",
+      "enabled",
+      "mappings",
+      "defaultStatusKey"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

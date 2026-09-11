@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "examples.referenceDefinition",
+  "title": "NEXT F Reference Example Definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$id",
+    "slug",
+    "name",
+    "version",
+    "status",
+    "siteType",
+    "complexity",
+    "summary",
+    "intent",
+    "manifestSource",
+    "bundlePath",
+    "modules",
+    "capabilities",
+    "contractMap",
+    "apiBindings",
+    "events",
+    "trackingEvents",
+    "integrations",
+    "roles",
+    "cmsNavigation",
+    "adminNavigation",
+    "pageBlueprint",
+    "blockPalette",
+    "flows",
+    "securityBoundaries",
+    "antiPatterns",
+    "acceptance",
+    "codexHandoff",
+    "primaryOutcomes",
+    "permissionUniverse",
+    "sourceNotes"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^examples\\.[a-z0-9-]+$"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "enum": [
+        "stable",
+        "draft",
+        "experimental"
+      ]
+    },
+    "siteType": {
+      "enum": [
+        "corporate",
+        "service",
+        "lead-generation",
+        "commerce",
+        "documentation",
+        "custom"
+      ]
+    },
+    "complexity": {
+      "enum": [
+        "standard",
+        "advanced"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "intent": {
+      "type": "string"
+    },
+    "manifestSource": {
+      "type": "string"
+    },
+    "bundlePath": {
+      "type": "string"
+    },
+    "primaryOutcomes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "contractMap": {
+      "type": "object"
+    },
+    "apiBindings": {
+      "type": "array"
+    },
+    "events": {
+      "type": "object"
+    },
+    "trackingEvents": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "integrations": {
+      "type": "array"
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "cmsNavigation": {
+      "type": "array"
+    },
+    "adminNavigation": {
+      "type": "array"
+    },
+    "pageBlueprint": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockPalette": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "flows": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "securityBoundaries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "antiPatterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "acceptance": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "codexHandoff": {
+      "type": "object"
+    },
+    "sourceNotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "permissionUniverse": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}

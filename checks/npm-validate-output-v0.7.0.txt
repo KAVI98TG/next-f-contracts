@@ -1,0 +1,10 @@
+NEXT F Contracts Phase 6 validation
+Version: 0.7.0
+Block Contracts: 29
+Section Blocks: 20
+Embedded Helpers: 9
+Registry items: 132
+Passes: 1711
+Failures: 0
+
+PASS - Phase 6 Block Registry is internally consistent.

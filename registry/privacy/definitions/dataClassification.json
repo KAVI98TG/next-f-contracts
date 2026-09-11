@@ -1,0 +1,14 @@
+{
+  "$id": "privacy.dataClassification",
+  "name": "Data Classification",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 30,
+  "description": "Primary public/internal/personal/sensitive/secret classification.",
+  "domain": "privacy",
+  "type": "schema",
+  "tags": [
+    "privacy",
+    "phase-30"
+  ]
+}

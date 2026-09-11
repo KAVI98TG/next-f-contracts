@@ -1,0 +1,45 @@
+{
+  "registryVersion": "1.0.0",
+  "methods": [
+    {
+      "id": "automated-static",
+      "label": "Automated Static Check",
+      "description": "Source/markup checks that can be evaluated deterministically."
+    },
+    {
+      "id": "keyboard-manual",
+      "label": "Keyboard Review",
+      "description": "Keyboard-only interaction review."
+    },
+    {
+      "id": "screen-reader-manual",
+      "label": "Screen Reader Review",
+      "description": "Assistive-technology/manual semantic review."
+    },
+    {
+      "id": "visual-manual",
+      "label": "Visual Review",
+      "description": "Human visual inspection."
+    },
+    {
+      "id": "contrast-tool",
+      "label": "Contrast Measurement",
+      "description": "Measure text/non-text contrast with an appropriate tool."
+    },
+    {
+      "id": "zoom-reflow",
+      "label": "Zoom/Reflow Review",
+      "description": "Review at browser zoom/reflow widths."
+    },
+    {
+      "id": "content-review",
+      "label": "Content Review",
+      "description": "Review authored content and alternatives."
+    },
+    {
+      "id": "integration-test",
+      "label": "Interaction Test",
+      "description": "Runtime interaction test of the component/flow."
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+NEXT F Contracts Phase 20 smoke
+Passes: 86
+Failures: 0
+PASS - Admin UI portal/runtime smoke test complete.

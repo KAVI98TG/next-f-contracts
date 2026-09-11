@@ -1,0 +1,35 @@
+{
+  "$id": "modules.capability.pages.custom-collections",
+  "capabilityId": "pages.custom-collections",
+  "name": "Custom Collections",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "pages",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Custom Collections capability within the Pages module.",
+  "contractBindings": [
+    "content.customCollection",
+    "content.customCollectionEntry"
+  ],
+  "permissionBindings": [
+    "content.customcollections.create",
+    "content.customcollections.delete",
+    "content.customcollections.edit",
+    "content.customcollections.manage",
+    "content.customcollections.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

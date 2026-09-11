@@ -1,0 +1,137 @@
+{
+  "$id": "commerce.returnResolution",
+  "name": "Return Resolution",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "returns",
+  "description": "Outcome of a return request.",
+  "purpose": "Keeps physical/logistical return handling distinct from financial refund records.",
+  "commerceModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "resolution",
+      "required": true,
+      "nullable": false,
+      "description": "Resolution type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "refund",
+          "replacement",
+          "store-credit",
+          "repair",
+          "reject",
+          "other"
+        ]
+      }
+    },
+    {
+      "key": "notes",
+      "required": false,
+      "nullable": true,
+      "description": "Operational resolution notes.",
+      "itemsPrimitive": "fields.textarea"
+    },
+    {
+      "key": "refundId",
+      "required": false,
+      "nullable": true,
+      "description": "Related Refund ID when money was returned.",
+      "itemsPrimitive": "fields.text"
+    },
+    {
+      "key": "replacementOrderId",
+      "required": false,
+      "nullable": true,
+      "description": "Replacement Order ID when applicable.",
+      "itemsPrimitive": "fields.text"
+    },
+    {
+      "key": "resolvedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Resolution time.",
+      "itemsPrimitive": "fields.dateTime"
+    },
+    {
+      "key": "resolvedBy",
+      "required": false,
+      "nullable": true,
+      "description": "Actor who resolved the return.",
+      "itemsSchema": "core.actorReference"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.refund",
+      "description": "References commerce.refund."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.order",
+      "description": "References commerce.order."
+    },
+    {
+      "type": "composes",
+      "target": "core.actorReference",
+      "description": "References core.actorReference."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "refundSeparate",
+      "description": "A refund resolution references a canonical Refund rather than embedding a second financial ledger."
+    },
+    {
+      "id": "resolutionEvidence",
+      "description": "Resolved outcomes must preserve the actor and time when available."
+    }
+  ],
+  "cms": {
+    "label": "Return Resolution",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "resolution",
+      "notes",
+      "refundId",
+      "replacementOrderId"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

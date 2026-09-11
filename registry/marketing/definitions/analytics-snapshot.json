@@ -1,0 +1,151 @@
+{
+  "$id": "marketing.analyticsSnapshot",
+  "name": "Analytics Snapshot",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "reporting",
+  "description": "Immutable aggregate analytics view for one Site and period.",
+  "purpose": "Supports dashboard/report caching while preserving generation time and data freshness.",
+  "marketingModel": {
+    "kind": "snapshot",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "snapshotId",
+      "required": true,
+      "nullable": false,
+      "description": "Unique snapshot ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "periodStart",
+      "required": true,
+      "nullable": false,
+      "description": "Period start.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "periodEnd",
+      "required": true,
+      "nullable": false,
+      "description": "Period end.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "observations",
+      "required": true,
+      "nullable": false,
+      "description": "Metric observations.",
+      "itemsSchema": "marketing.analyticsObservation",
+      "config": {
+        "minItems": 1,
+        "maxItems": 5000
+      }
+    },
+    {
+      "key": "generatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Generation timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "sourceFreshThrough",
+      "required": false,
+      "nullable": true,
+      "description": "Latest represented source-data time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "attributionModelKey",
+      "required": false,
+      "nullable": true,
+      "description": "Attribution model key applied.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "composesMany",
+      "target": "marketing.analyticsObservation",
+      "description": "Contains observations."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.attributionModel",
+      "description": "May record attribution model."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "immutableSnapshot",
+      "description": "Refresh creates new snapshot."
+    },
+    {
+      "id": "freshnessVisible",
+      "description": "Dashboards expose data freshness."
+    },
+    {
+      "id": "periodOrder",
+      "description": "periodEnd after periodStart."
+    }
+  ],
+  "cms": {
+    "label": "Analytics Snapshot",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "snapshotId",
+      "scope",
+      "periodStart",
+      "periodEnd"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

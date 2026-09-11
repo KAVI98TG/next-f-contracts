@@ -1,0 +1,312 @@
+{
+  "$id": "cmsUi.profile.permissions.assignments",
+  "name": "Role Assignments",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "permissions.assignments",
+  "moduleId": "core",
+  "description": "Customer CMS presentation metadata for Role Assignments within authorized Site scope.",
+  "targetContracts": [
+    "permissions.roleAssignment"
+  ],
+  "primaryTargetContract": "permissions.roleAssignment",
+  "route": "/settings/access/assignments",
+  "screenKind": "settings",
+  "layoutTemplate": "access-manager",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "assignmentId",
+      "label": "Assignment ID",
+      "description": "assignmentId",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "principal",
+      "label": "Principal",
+      "description": "principal",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.json",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "roleId",
+      "label": "Role ID",
+      "description": "roleId",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 30,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "scope",
+      "label": "Scope",
+      "description": "scope",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 40,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.json",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "status",
+      "label": "Status",
+      "description": "status",
+      "editorId": "read-only",
+      "group": "publishing",
+      "zone": "sidebar",
+      "order": 50,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "startsAt",
+      "label": "Starts At",
+      "description": "startsAt",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "expiresAt",
+      "label": "Expires At",
+      "description": "expiresAt",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "assignedBy",
+      "label": "Assigned By",
+      "description": "assignedBy",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 80,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.json",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": false,
+    "columns": [
+      {
+        "field": "principal",
+        "label": "Principal",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "status",
+        "label": "Status",
+        "rendererId": "status",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "startsAt",
+        "label": "Starts At",
+        "rendererId": "date-time",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "expiresAt",
+        "label": "Expires At",
+        "rendererId": "date-time",
+        "order": 40,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "assignedBy",
+        "label": "Assigned By",
+        "rendererId": "text",
+        "order": 50,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": "contract-and-permission-allowlisted",
+    "bulkActions": "permission-and-rule-bound"
+  },
+  "actions": [
+    {
+      "actionId": "create",
+      "permissionId": "permissions.assignments.create",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "permissions.assignments.delete",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "permissions.assignments.edit",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "permissions.assignments.manage",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "permissions.assignments.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "permissions.assignments.create",
+    "permissions.assignments.delete",
+    "permissions.assignments.edit",
+    "permissions.assignments.manage",
+    "permissions.assignments.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "primaryEditorId": "role-assignment-manager",
+  "views": [
+    {
+      "id": "primary",
+      "kind": "settings",
+      "route": "/settings/access/assignments",
+      "layoutTemplate": "access-manager",
+      "requiresPermission": "permissions.assignments.edit",
+      "purpose": "Primary Site-scoped Customer CMS surface."
+    }
+  ]
+}

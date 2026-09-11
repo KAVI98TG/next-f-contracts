@@ -1,0 +1,13 @@
+{
+  "registryVersion": "1.0.0",
+  "values": [
+    {
+      "id": "mandatory",
+      "label": "Mandatory"
+    },
+    {
+      "id": "recommended",
+      "label": "Recommended"
+    }
+  ]
+}

@@ -1,0 +1,386 @@
+{
+  "$id": "changelog.release.0.34.0",
+  "version": "0.34.0",
+  "phase": 33,
+  "title": "Browser Contract Validation",
+  "releaseStatus": "published-development",
+  "releaseDate": null,
+  "summary": "Phase 33 - Browser Contract Validation.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_225748ab7cb84f",
+          "releaseVersion": "0.34.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Local-only browser validator for nextf.site.json with paste, local file and Phase 22 sample loading.",
+          "affectedRegistryIds": [
+            "manifest.siteManifest",
+            "validation.browserValidator",
+            "validation.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Local-only browser validator for nextf.site.json with paste, local file and Phase 22 sample loading.",
+          "description": "Local-only browser validator for nextf.site.json with paste, local file and Phase 22 sample loading.",
+          "changeType": "added",
+          "affectedDomains": [
+            "manifest",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.34.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_510f56f57b0b4a",
+          "releaseVersion": "0.34.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Shared deterministic manifest-validation core covers JSON parse, JSON Schema, Contract Version, Modules, dependency closure, Capabilities, APIs, Events, Tracking, Integrations, environments, configuration exposure, extensions and compatibility.",
+          "affectedRegistryIds": [
+            "validation.browserValidator",
+            "validation.diagnostic",
+            "validation.result"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Shared deterministic manifest-validation core covers JSON parse, JSON Schema, Contract Version, Modules, dependency closure, Capabilities, APIs, Events, Tracking, Integrations, environments, configuration exposure, extensions and compatibility.",
+          "description": "Shared deterministic manifest-validation core covers JSON parse, JSON Schema, Contract Version, Modules, dependency closure, Capabilities, APIs, Events, Tracking, Integrations, environments, configuration exposure, extensions and compatibility.",
+          "changeType": "added",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.34.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_a0918f7b8c4a4b",
+          "releaseVersion": "0.34.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Generated validation rule bundle derives from authoritative Manifest, Module, API, Event, Tracking, Integration and Compatibility registries and is usable offline through the generated fallback.",
+          "affectedRegistryIds": [
+            "manifest.siteManifest",
+            "validation.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Generated validation rule bundle derives from authoritative Manifest, Module, API, Event, Tracking, Integration and Compatibility registries and is usable offline through the generated fallback.",
+          "description": "Generated validation rule bundle derives from authoritative Manifest, Module, API, Event, Tracking, Integration and Compatibility registries and is usable offline through the generated fallback.",
+          "changeType": "added",
+          "affectedDomains": [
+            "manifest",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.34.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "changed",
+      "label": "Changed",
+      "entries": [
+        {
+          "entryId": "chg_ba6093dd970d1d",
+          "releaseVersion": "0.34.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Development -> Validation is activated as a Phase 33 data-driven portal route with local-only privacy guarantees, deterministic diagnostics, JSON paths, Registry guidance and raw machine-readable results.",
+          "affectedRegistryIds": [
+            "validation.browserValidator",
+            "validation.result"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Development -> Validation is activated as a Phase 33 data-driven portal route with local-only privacy guarantees, deterministic diagnostics, JSON paths, Registry guidance and raw machine-readable results.",
+          "description": "Development -> Validation is activated as a Phase 33 data-driven portal route with local-only privacy guarantees, deterministic diagnostics, JSON paths, Registry guidance and raw machine-readable results.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.34.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_d277dfdc636193",
+          "releaseVersion": "0.34.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "All six Phase 22 reference manifests are bundled as validator samples and remain valid while truthfully surfacing historical compatibility review and pre-V1 informational findings.",
+          "affectedRegistryIds": [
+            "validation.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "All six Phase 22 reference manifests are bundled as validator samples and remain valid while truthfully surfacing historical compatibility review and pre-V1 informational findings.",
+          "description": "All six Phase 22 reference manifests are bundled as validator samples and remain valid while truthfully surfacing historical compatibility review and pre-V1 informational findings.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.34.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_6c528d2f5a1cd9",
+          "releaseVersion": "0.34.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Validation does not mutate input, silently upgrade Contract Versions or guess unknown future versions; error, warning and informational outcomes remain distinct.",
+          "affectedRegistryIds": [
+            "validation.result",
+            "validation.standard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Validation does not mutate input, silently upgrade Contract Versions or guess unknown future versions; error, warning and informational outcomes remain distinct.",
+          "description": "Validation does not mutate input, silently upgrade Contract Versions or guess unknown future versions; error, warning and informational outcomes remain distinct.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.34.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "documentation",
+      "label": "Documentation",
+      "entries": [
+        {
+          "entryId": "chg_b54653dbb4276f",
+          "releaseVersion": "0.34.0",
+          "category": "documentation",
+          "originalSection": "Documentation",
+          "summary": "Browser Contract Validation Standard documents the shared browser/CLI validation model, privacy boundary, fixed layer order and no-auto-upgrade rule.",
+          "affectedRegistryIds": [
+            "validation.standard"
+          ],
+          "compatibilityImpact": "documentation",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Browser Contract Validation Standard documents the shared browser/CLI validation model, privacy boundary, fixed layer order and no-auto-upgrade rule.",
+          "description": "Browser Contract Validation Standard documents the shared browser/CLI validation model, privacy boundary, fixed layer order and no-auto-upgrade rule.",
+          "changeType": "documentation",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "documentation",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.34.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "internal",
+      "label": "Internal / Tooling",
+      "entries": [
+        {
+          "entryId": "chg_868e55a5e38ba4",
+          "releaseVersion": "0.34.0",
+          "category": "internal",
+          "originalSection": "Internal / Tooling",
+          "summary": "Phase 33 generator, validator, smoke fixtures and regression integration keep generated fallback hashes, discovery data and future CLI parity deterministic.",
+          "affectedRegistryIds": [
+            "relationships.relationshipIndex",
+            "search.searchIndex",
+            "validation.index"
+          ],
+          "compatibilityImpact": "metadata",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 33 generator, validator, smoke fixtures and regression integration keep generated fallback hashes, discovery data and future CLI parity deterministic.",
+          "description": "Phase 33 generator, validator, smoke fixtures and regression integration keep generated fallback hashes, discovery data and future CLI parity deterministic.",
+          "changeType": "internal",
+          "affectedDomains": [
+            "relationships",
+            "search",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "metadata",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.34.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    }
+  ],
+  "migrationNotes": null,
+  "recommendedAction": "Validate nextf.site.json locally before implementation or upgrade review. Existing Sites remain pinned to their declared Contract Version; the validator never silently upgrades manifests.",
+  "support": {
+    "registryProductionStable": false,
+    "runtimeCompatibility": "unknown"
+  },
+  "evidence": [
+    "registry/validation/index.json",
+    "standards/41-browser-contract-validation-standard.md",
+    "scripts/validate-phase-33.mjs",
+    "scripts/smoke-phase-33.mjs"
+  ],
+  "provenance": {
+    "sourceType": "authoritative-release-json",
+    "sourceReference": "registry/changelog/releases/0.34.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "registry/registry.json"
+  },
+  "sourceVersion": "0.33.0",
+  "targetVersion": "0.34.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "entryCount": 8,
+  "categoryCounts": {
+    "added": 3,
+    "changed": 3,
+    "documentation": 1,
+    "internal": 1
+  },
+  "affected": {
+    "domains": [
+      "manifest",
+      "relationships",
+      "search",
+      "validation"
+    ],
+    "modules": [],
+    "contracts": [
+      "manifest.siteManifest",
+      "relationships.relationshipIndex",
+      "search.searchIndex",
+      "validation.browserValidator",
+      "validation.diagnostic",
+      "validation.index",
+      "validation.result",
+      "validation.standard"
+    ],
+    "events": [],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  },
+  "breakingChange": false,
+  "migrationRequired": false
+}

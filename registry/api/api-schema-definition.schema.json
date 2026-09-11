@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/api/api-schema-definition.schema.json",
+  "title": "Api Schema Definition",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "category",
+    "fields",
+    "validationRules"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^api\\."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    }
+  },
+  "additionalProperties": true
+}

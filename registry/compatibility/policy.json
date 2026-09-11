@@ -1,0 +1,47 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "standard": "standards/34-compatibility-center-standard.md",
+  "baselinePolicy": "standards/07-compatibility-policy.md",
+  "currentContractRelease": "1.0.0",
+  "productionAcceptanceVersion": "1.0.0",
+  "preOneReleasePolicy": {
+    "active": false,
+    "currentSupportLevel": "production-current",
+    "historicalExactSupportLevel": "historical-development",
+    "missingHistorySupportLevel": "history-only",
+    "productionSupportDeclared": true,
+    "note": "Contract Registry production stability is active from V1.0.0; consumer runtimes retain independent evidence states."
+  },
+  "statusPrecedence": [
+    "incompatible",
+    "migration-required",
+    "review-required",
+    "unknown",
+    "compatible-with-upgrade",
+    "compatible",
+    "not-applicable"
+  ],
+  "releaseDiffMapping": {
+    "breaking": "migration-required",
+    "potentially-breaking": "review-required",
+    "review-required": "review-required",
+    "deprecation": "review-required",
+    "non-breaking": "compatible-with-upgrade",
+    "documentation": "compatible-with-upgrade",
+    "metadata": "compatible-with-upgrade",
+    "none": "compatible"
+  },
+  "unknownBlocksProduction": true,
+  "securitySensitiveManualReview": [
+    "authentication",
+    "permissions",
+    "secrets",
+    "payments",
+    "tenant-isolation",
+    "webhook-signing",
+    "privacy",
+    "personal-data"
+  ],
+  "noSideEffects": true
+}

@@ -1,0 +1,364 @@
+{
+  "$id": "cmsUi.profile.seo.audits",
+  "name": "Audits",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "seo.audits",
+  "moduleId": "seo",
+  "description": "Customer CMS presentation metadata for Audits within authorized Site scope.",
+  "targetContracts": [
+    "seo.auditResult",
+    "seo.auditIssue"
+  ],
+  "primaryTargetContract": "seo.auditResult",
+  "route": "/growth/seo/audits",
+  "screenKind": "report",
+  "layoutTemplate": "operational-detail",
+  "responsivePolicy": "operational",
+  "fieldBindings": [
+    {
+      "field": "identity",
+      "label": "Identity",
+      "description": "Audit result identity.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.entityIdentity",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "scope",
+      "label": "Scope",
+      "description": "Site scope.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.tenantScope",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "target",
+      "label": "Target",
+      "description": "Optional canonical entity target.",
+      "editorId": "nested-object",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "core.entityReference",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "url",
+      "label": "URL",
+      "description": "Audited absolute URL.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.url",
+      "validationHint": {},
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "checkedAt",
+      "label": "Checked At",
+      "description": "Audit execution time.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "score",
+      "label": "Score",
+      "description": "NEXT F audit score expressed in percentage points.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.percentage",
+      "validationHint": {
+        "minimum": 0,
+        "maximum": 100
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "status",
+      "label": "Status",
+      "description": "Overall diagnostic state.",
+      "editorId": "read-only",
+      "group": "publishing",
+      "zone": "sidebar",
+      "order": 70,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "checksPassed",
+      "label": "Checks Passed",
+      "description": "Number of checks passed.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 80,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.integer",
+      "validationHint": {
+        "minimum": 0
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "checksFailed",
+      "label": "Checks Failed",
+      "description": "Number of checks failed.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 90,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.integer",
+      "validationHint": {
+        "minimum": 0
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "issues",
+      "label": "Issues",
+      "description": "Audit issues.",
+      "editorId": "structured-list",
+      "group": "configuration",
+      "zone": "main",
+      "order": 100,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "seo.auditIssue",
+      "validationHint": {
+        "maxItems": 1000
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "identity",
+        "label": "Identity",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "scope",
+        "label": "Scope",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "target",
+        "label": "Target",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "url",
+        "label": "URL",
+        "rendererId": "text",
+        "order": 40,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [
+      {
+        "field": "status",
+        "label": "Status"
+      }
+    ],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [
+      {
+        "field": "checkedAt",
+        "label": "Checked At"
+      },
+      {
+        "field": "score",
+        "label": "Score"
+      }
+    ],
+    "searchFields": [
+      "url"
+    ]
+  },
+  "actions": [
+    {
+      "actionId": "export",
+      "permissionId": "seo.audits.export",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "seo.audits.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "seo.audits.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "seo.audits.export",
+    "seo.audits.manage",
+    "seo.audits.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": false,
+    "warnOnLeave": false,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/growth/seo/audits",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "seo.audits.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "detail",
+      "route": "/growth/seo/audits/:id",
+      "layoutTemplate": "operational-detail",
+      "requiresPermission": "seo.audits.manage",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

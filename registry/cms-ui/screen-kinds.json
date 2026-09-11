@@ -1,0 +1,55 @@
+{
+  "registryVersion": "0.20.0",
+  "screenKinds": [
+    {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "description": "Summary metrics, attention items and shortcuts."
+    },
+    {
+      "id": "list",
+      "label": "List",
+      "description": "Searchable/filterable resource collection."
+    },
+    {
+      "id": "editor",
+      "label": "Editor",
+      "description": "Create/edit workspace for a canonical entity."
+    },
+    {
+      "id": "detail",
+      "label": "Detail",
+      "description": "Read-oriented resource detail with bounded actions."
+    },
+    {
+      "id": "builder",
+      "label": "Builder",
+      "description": "Structured composition UI for forms, navigation, pages or schemas."
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "description": "Site-scoped configuration interface."
+    },
+    {
+      "id": "operations",
+      "label": "Operations",
+      "description": "Operational state management driven by server commands."
+    },
+    {
+      "id": "report",
+      "label": "Report",
+      "description": "Read-oriented analytics/audit/health reporting."
+    },
+    {
+      "id": "library",
+      "label": "Library",
+      "description": "Asset browsing, upload and metadata management."
+    },
+    {
+      "id": "board",
+      "label": "Board",
+      "description": "Status-oriented operational grouping with accessible list alternative."
+    }
+  ]
+}

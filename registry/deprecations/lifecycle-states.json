@@ -1,0 +1,34 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "Canonical Lifecycle States Projection",
+  "description": "Generated projection of registry/statuses.json for Deprecation lifecycle tooling; registry/statuses.json remains the canonical vocabulary source.",
+  "source": "registry/statuses.json",
+  "states": [
+    {
+      "id": "experimental",
+      "label": "Experimental",
+      "description": "May change without compatibility guarantees."
+    },
+    {
+      "id": "draft",
+      "label": "Draft",
+      "description": "Under review and not yet production-stable."
+    },
+    {
+      "id": "stable",
+      "label": "Stable",
+      "description": "Approved for the documented production use and compatibility policy."
+    },
+    {
+      "id": "deprecated",
+      "label": "Deprecated",
+      "description": "Supported temporarily but should not be used for new implementations."
+    },
+    {
+      "id": "removed",
+      "label": "Removed",
+      "description": "Not present in the active contract version."
+    }
+  ]
+}

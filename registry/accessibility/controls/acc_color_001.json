@@ -1,0 +1,36 @@
+{
+  "controlId": "ACC-COLOR-001",
+  "name": "Do not rely on color alone",
+  "category": "visual",
+  "requirement": "Status, validation, risk and selection states must communicate meaning with text, iconography, shape or semantics in addition to color.",
+  "rationale": "Color alone excludes users with color-vision differences and can disappear in forced/high-contrast modes.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "status-message",
+    "form",
+    "table",
+    "checkout",
+    "customer-cms",
+    "admin"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "visual-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_color_001.json"
+}

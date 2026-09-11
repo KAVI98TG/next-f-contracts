@@ -1,0 +1,7 @@
+
+> next-f-contracts@0.12.0 generate:commerce
+> node scripts/sync-commerce-registry.mjs
+
+Generated js/generated-registry.js from registry/registry.json
+SHA-256 65892bef875281425e4893c11783730ac091dc8b55b72337c6da78280d931ea7
+Synchronized 71 commerce schemas.

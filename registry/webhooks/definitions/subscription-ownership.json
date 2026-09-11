@@ -1,0 +1,77 @@
+{
+  "$id": "webhooks.subscriptionOwnership",
+  "name": "Subscription Ownership",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "foundation",
+  "description": "Records the Organization/Site ownership boundary for a webhook subscription.",
+  "purpose": "Enforces tenant isolation for webhook configuration and delivery operations.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "organizationId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "siteId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site ID.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "core.organization",
+      "description": "References core.organization."
+    },
+    {
+      "type": "references",
+      "target": "core.site",
+      "description": "References core.site."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "siteBelongsToOrganization",
+      "description": "siteId must belong to organizationId."
+    },
+    {
+      "id": "serverEnforced",
+      "description": "Caller supplied IDs are never sufficient authorization."
+    }
+  ],
+  "cms": {
+    "label": "Subscription Ownership",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "organizationId",
+      "siteId"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

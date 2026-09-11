@@ -1,0 +1,21 @@
+{
+  "ruleId": "PERF-RULE-002",
+  "name": "CSS payload discipline",
+  "category": "payload",
+  "requirement": "Use shared tokens/components and avoid duplicated or oversized inline styles.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "static-analysis",
+    "browser-profile"
+  ],
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_002.json"
+}

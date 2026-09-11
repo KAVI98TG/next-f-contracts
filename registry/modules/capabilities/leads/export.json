@@ -1,0 +1,30 @@
+{
+  "$id": "modules.capability.leads.export",
+  "capabilityId": "leads.export",
+  "name": "Export",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "leads",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Export capability within the Leads module.",
+  "contractBindings": [
+    "forms.lead"
+  ],
+  "permissionBindings": [
+    "forms.leads.export"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

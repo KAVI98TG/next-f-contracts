@@ -1,0 +1,67 @@
+{
+  "$id": "changelog.compatibilityReference",
+  "name": "Changelog Compatibility Reference",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "changelog",
+  "type": "schema",
+  "category": "release-lifecycle",
+  "description": "Read-only reference to Compatibility Center status/support evidence for one release.",
+  "fields": [
+    {
+      "key": "releaseVersion",
+      "required": true,
+      "nullable": false,
+      "description": "releaseVersion",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "status",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "supportLevel",
+      "required": true,
+      "nullable": false,
+      "description": "supportLevel",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "productionEligible",
+      "required": true,
+      "nullable": false,
+      "description": "productionEligible",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "summary",
+      "required": false,
+      "nullable": true,
+      "description": "summary",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "changelog.changelogStandard",
+      "description": "Governed by the NEXT F Changelog Standard."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "publicTechnicalMetadataOnly",
+      "description": "Changelog metadata must not contain secrets or customer runtime records."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": true
+}

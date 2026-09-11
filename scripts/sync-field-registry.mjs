@@ -1,0 +1,48 @@
+import fs from "node:fs";
+import path from "node:path";
+import crypto from "node:crypto";
+import { spawnSync } from "node:child_process";
+
+const root = path.resolve(process.cwd());
+const version = fs.readFileSync(path.join(root, "VERSION"), "utf8").trim();
+const dir = path.join(root, "registry/fields/definitions");
+const files = fs.readdirSync(dir).filter((name) => name.endsWith(".json")).sort();
+const fields = files.map((name) => JSON.parse(fs.readFileSync(path.join(dir, name), "utf8"))).sort((a,b)=>a.$id.localeCompare(b.$id));
+const index = {
+  registryVersion: version,
+  schemaVersion: "1.0.0",
+  title: "NEXT F Primitive Field Registry",
+  description: "Generated index of authoritative primitive field definition files.",
+  definitionCount: fields.length,
+  sourceDirectory: "registry/fields/definitions",
+  fields
+};
+const indexPath = path.join(root, "registry/fields/index.json");
+const raw = JSON.stringify(index, null, 2) + "\n";
+fs.writeFileSync(indexPath, raw, "utf8");
+const digest = crypto.createHash("sha256").update(raw).digest("hex");
+const generated = `// GENERATED FILE - DO NOT EDIT DIRECTLY.\n// Source: registry/fields/index.json\n// SHA-256: ${digest}\nexport const GENERATED_FIELDS_SOURCE_SHA256 = ${JSON.stringify(digest)};\nexport const GENERATED_FIELDS = ${JSON.stringify(index, null, 2)};\n`;
+fs.writeFileSync(path.join(root,"js/generated-fields.js"), generated, "utf8");
+
+const registryPath = path.join(root,"registry/registry.json");
+const registry = JSON.parse(fs.readFileSync(registryPath,"utf8"));
+registry.registryVersion = version;
+registry.items = registry.items.filter((item)=>item.managedBy !== "fields-sync");
+for (const field of fields) {
+  const key = field.$id.slice("fields.".length).replace(/([a-z0-9])([A-Z])/g,"$1-$2").toLowerCase();
+  registry.items.push({
+    id: field.$id, name: field.name, domain: "fields", type: "field", version: field.version, status: field.status,
+    description: field.description, source: `registry/fields/definitions/${key}.json`, phase: 3, introducedIn: "0.4.0",
+    tags: ["primitive-field", field.category, field.cms.editor],
+    relationships: [
+      {type:"implements",target:"fields.primitiveFieldStandard",description:"Implements the canonical primitive field rules."},
+      {type:"relatedTo",target:"fields.configurationVocabulary",description:"Uses controlled field configuration property IDs."},
+      {type:"relatedTo",target:"fields.validationVocabulary",description:"Uses controlled validation rule IDs."}
+    ], permissions: [], events: [], managedBy: "fields-sync"
+  });
+}
+registry.items.sort((a,b)=>a.id.localeCompare(b.id));
+fs.writeFileSync(registryPath, JSON.stringify(registry,null,2)+"\n","utf8");
+const result = spawnSync(process.execPath,[path.join(root,"scripts/generate-registry-bootstrap.mjs")],{stdio:"inherit"});
+if (result.status !== 0) process.exit(result.status ?? 1);
+console.log(`Synchronized ${fields.length} primitive fields.`);

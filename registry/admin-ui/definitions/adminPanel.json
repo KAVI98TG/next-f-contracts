@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.adminPanel",
+  "name": "Admin Panel",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines an internal-only related information panel.",
+  "purpose": "Defines an internal-only related information panel.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

@@ -1,0 +1,139 @@
+{
+  "$id": "commerce.taxRate",
+  "name": "Tax Rate",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "tax",
+  "description": "Configured jurisdictional Tax Rate.",
+  "purpose": "Provides simple provider-neutral tax-rate structure while complex tax engines remain external adapters.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Rate label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "percentage",
+      "required": true,
+      "nullable": false,
+      "description": "Tax percentage.",
+      "primitive": "fields.percentage"
+    },
+    {
+      "key": "country",
+      "required": true,
+      "nullable": false,
+      "description": "Country code.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "region",
+      "required": false,
+      "nullable": true,
+      "description": "Optional region code.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "inclusive",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this rate is price-inclusive.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "active",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this rate may apply.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "validFrom",
+      "required": false,
+      "nullable": true,
+      "description": "Optional validity start.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "validUntil",
+      "required": false,
+      "nullable": true,
+      "description": "Optional validity end.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "validWindow",
+      "description": "validUntil must be after validFrom."
+    },
+    {
+      "id": "notLegalAdvice",
+      "description": "The contract does not determine legal tax obligations."
+    }
+  ],
+  "cms": {
+    "label": "Tax Rate",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "name",
+      "percentage"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

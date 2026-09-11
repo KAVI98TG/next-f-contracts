@@ -1,0 +1,33 @@
+{
+  "controlId": "ACC-AUTH-001",
+  "name": "Accessible authentication flows",
+  "category": "authentication",
+  "requirement": "Sign-in, verification, recovery and recent-authentication flows must expose labels, instructions, errors, status and keyboard operation without inaccessible challenge assumptions.",
+  "rationale": "Authentication accessibility failures can completely block account access.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "authentication",
+    "form"
+  ],
+  "verificationMethods": [
+    "keyboard-manual",
+    "screen-reader-manual",
+    "integration-test"
+  ],
+  "severity": "critical",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_auth_001.json"
+}

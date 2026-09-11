@@ -1,0 +1,184 @@
+{
+  "$id": "webhooks.endpoint",
+  "name": "Webhook Endpoint",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "endpoints",
+  "description": "Verified outbound HTTPS destination used by one or more webhook subscriptions.",
+  "purpose": "Defines the destination without exposing secret material.",
+  "webhookModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Tenant scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable endpoint name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "url",
+      "required": true,
+      "nullable": false,
+      "description": "HTTPS destination URL.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "Single environment binding.",
+      "schema": "webhooks.environmentBinding"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Endpoint status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "pending-verification",
+          "active",
+          "degraded",
+          "paused",
+          "disabled"
+        ]
+      }
+    },
+    {
+      "key": "verification",
+      "required": true,
+      "nullable": false,
+      "description": "Current verification state.",
+      "schema": "webhooks.endpointVerification"
+    },
+    {
+      "key": "health",
+      "required": true,
+      "nullable": false,
+      "description": "Current health summary.",
+      "schema": "webhooks.endpointHealth"
+    },
+    {
+      "key": "networkPolicy",
+      "required": true,
+      "nullable": false,
+      "description": "Outbound network restrictions.",
+      "schema": "webhooks.endpointNetworkPolicy"
+    },
+    {
+      "key": "authentication",
+      "required": false,
+      "nullable": true,
+      "description": "Optional destination authentication.",
+      "schema": "webhooks.endpointAuthentication"
+    },
+    {
+      "key": "customHeaders",
+      "required": false,
+      "nullable": true,
+      "description": "Controlled custom headers.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "References core.entityIdentity."
+    },
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "References core.tenantScope."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.environmentBinding",
+      "description": "References webhooks.environmentBinding."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.endpointVerification",
+      "description": "References webhooks.endpointVerification."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.endpointHealth",
+      "description": "References webhooks.endpointHealth."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.endpointNetworkPolicy",
+      "description": "References webhooks.endpointNetworkPolicy."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "webhooks.endpointAuthentication",
+      "description": "References webhooks.endpointAuthentication."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "httpsOnly",
+      "description": "Endpoint URL must use HTTPS."
+    },
+    {
+      "id": "verifiedBeforeActive",
+      "description": "Endpoint cannot become active until challenge verification succeeds."
+    },
+    {
+      "id": "noRedirectFollowing",
+      "description": "Delivery and verification requests must not automatically follow redirects."
+    },
+    {
+      "id": "networkRevalidation",
+      "description": "Destination resolution must be revalidated at connection time against outbound-network rules."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Endpoint",
+    "icon": "fa-webhook",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "webhook-endpoint",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "name",
+      "url"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": true,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

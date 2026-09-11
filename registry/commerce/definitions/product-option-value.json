@@ -1,0 +1,83 @@
+{
+  "$id": "commerce.productOptionValue",
+  "name": "Product Option Value",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "catalog",
+  "description": "Selectable value within a Product Option.",
+  "purpose": "Standardizes values such as Small, Black or 256 GB.",
+  "commerceModel": {
+    "kind": "embedded",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable value key.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Display label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "position",
+      "required": false,
+      "nullable": true,
+      "description": "Display order.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [],
+  "cms": {
+    "label": "Product Option Value",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "key",
+      "label",
+      "position"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly public storefront fields may be delivered; operational, personal, payment and internal metadata remain private."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,159 @@
+{
+  "$id": "blocks.hero",
+  "name": "Hero",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "hero",
+  "description": "Primary introductory section for a page or landing experience.",
+  "purpose": "Standardizes editable hero content while keeping layout, animation, responsive composition and visual treatment in the coded frontend.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": true,
+      "nullable": false,
+      "description": "Shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "actions",
+      "required": false,
+      "nullable": true,
+      "description": "Optional primary and secondary conversion actions.",
+      "schema": "blocks.actionGroup"
+    },
+    {
+      "key": "media",
+      "required": false,
+      "nullable": true,
+      "description": "Optional primary hero media.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "supportingNote",
+      "required": false,
+      "nullable": true,
+      "description": "Optional concise supporting note such as availability or trust copy.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "blocks.heading",
+      "description": "Uses shared heading semantics."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "blocks.actionGroup",
+      "description": "May include conversion actions."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "May include hero media."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "singlePageH1",
+      "description": "When heading.semanticLevel is h1, the rendered page must not introduce another primary H1 unless the page contract explicitly permits it."
+    },
+    {
+      "id": "variantImplemented",
+      "description": "Non-null variantKey must be implemented and approved by the Site frontend."
+    }
+  ],
+  "cms": {
+    "label": "Hero",
+    "icon": "fa-bullhorn",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "actions",
+      "media"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Hero media must not replace the textual heading.",
+      "CTA labels must remain understandable outside their visual styling."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "heading": {
+          "heading": "Build with confidence",
+          "semanticLevel": "h1"
+        },
+        "variantKey": "split"
+      }
+    ],
+    "invalid": [
+      {
+        "heading": null,
+        "variantKey": "<script>"
+      }
+    ]
+  },
+  "notes": []
+}

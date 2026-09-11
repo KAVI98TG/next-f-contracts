@@ -1,0 +1,86 @@
+{
+  "$id": "webhooks.replayProtection",
+  "name": "Webhook Replay Protection",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "security",
+  "description": "Receiver-side replay-resistance expectations for signed webhook requests.",
+  "purpose": "Combines request timestamp validation with stable Event and Delivery identifiers.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "timestampToleranceSeconds",
+      "required": true,
+      "nullable": false,
+      "description": "Permitted request timestamp tolerance.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "eventIdHeader",
+      "required": true,
+      "nullable": false,
+      "description": "Header containing canonical Event ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "deliveryIdHeader",
+      "required": true,
+      "nullable": false,
+      "description": "Header containing logical Delivery ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "signatureRequired",
+      "required": true,
+      "nullable": false,
+      "description": "Whether HMAC validation is required.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "timestampValidation",
+      "description": "Reject otherwise valid signatures outside the configured freshness window unless implementing a documented redelivery exception based on the new request timestamp."
+    },
+    {
+      "id": "idempotentConsumer",
+      "description": "Receivers should record processed eventId/delivery identity for their own idempotency needs."
+    },
+    {
+      "id": "newAttemptTimestamp",
+      "description": "Each retry has a fresh signature timestamp while retaining the same canonical eventId and logical deliveryId."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Replay Protection",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "timestampToleranceSeconds",
+      "eventIdHeader",
+      "deliveryIdHeader",
+      "signatureRequired"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

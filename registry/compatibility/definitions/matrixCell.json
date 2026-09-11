@@ -1,0 +1,96 @@
+{
+  "$id": "compatibility.matrixCell",
+  "name": "Compatibility Matrix Cell",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "One source-target cell in a compatibility matrix.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "sourceId",
+      "required": true,
+      "nullable": false,
+      "description": "Source component/release.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "targetId",
+      "required": true,
+      "nullable": false,
+      "description": "Target component/release.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Compatibility result.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "evidenceMode",
+      "required": true,
+      "nullable": false,
+      "description": "Evidence mode.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "summary",
+      "required": true,
+      "nullable": false,
+      "description": "Short explanation.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "constraints",
+      "required": false,
+      "nullable": true,
+      "description": "Applicable constraints.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "links",
+      "required": false,
+      "nullable": true,
+      "description": "Diff/registry/source links.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "sourceId uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "status uses fields.select."
+    },
+    {
+      "type": "uses",
+      "target": "fields.json",
+      "description": "constraints uses fields.json."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

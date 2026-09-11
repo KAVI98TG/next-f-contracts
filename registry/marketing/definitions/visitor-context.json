@@ -1,0 +1,131 @@
+{
+  "$id": "marketing.visitorContext",
+  "name": "Visitor Context",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "context",
+  "description": "Minimal first-party visitor reference for eligible analytics observations.",
+  "purpose": "Allows anonymous continuity and controlled known-subject linking while prohibiting fingerprinting and raw personal identifiers.",
+  "marketingModel": {
+    "kind": "context",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "anonymousVisitorId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional random first-party anonymous visitor ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "subjectType",
+      "required": false,
+      "nullable": true,
+      "description": "Optional canonical known-subject family.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "organizationUser",
+            "label": "Organization User"
+          },
+          {
+            "value": "lead",
+            "label": "Lead"
+          },
+          {
+            "value": "commerceCustomer",
+            "label": "Commerce Customer"
+          },
+          {
+            "value": "none",
+            "label": "None"
+          }
+        ],
+        "defaultValue": "none"
+      }
+    },
+    {
+      "key": "subjectId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional canonical internal subject ID, never email/phone.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "isAuthenticated",
+      "required": true,
+      "nullable": false,
+      "description": "Whether current application context is authenticated.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "noDirectPersonalIdentifiers",
+      "description": "Email, phone, name and postal address are not Visitor Context IDs."
+    },
+    {
+      "id": "subjectLinkingPolicy",
+      "description": "subjectId requires explicit policy allowance."
+    },
+    {
+      "id": "commerceForwardReference",
+      "description": "commerceCustomer identity is finalized in Phase 11."
+    },
+    {
+      "id": "noFingerprinting",
+      "description": "anonymousVisitorId is random first-party state, not a fingerprint."
+    }
+  ],
+  "cms": {
+    "label": "Visitor Context",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "anonymousVisitorId",
+      "subjectType",
+      "subjectId",
+      "isAuthenticated"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

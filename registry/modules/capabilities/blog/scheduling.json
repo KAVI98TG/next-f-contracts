@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.blog.scheduling",
+  "capabilityId": "blog.scheduling",
+  "name": "Scheduled Publishing",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "blog",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Scheduled Publishing capability within the Blog module.",
+  "contractBindings": [
+    "content.blogPost",
+    "core.scheduleWindow"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.leads.assignment",
+  "capabilityId": "leads.assignment",
+  "name": "Assignment",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "leads",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Assignment capability within the Leads module.",
+  "contractBindings": [
+    "forms.leadAssignment"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

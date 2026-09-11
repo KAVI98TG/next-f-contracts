@@ -1,0 +1,35 @@
+{
+  "$id": "modules.capability.marketing.destinations",
+  "capabilityId": "marketing.destinations",
+  "name": "Marketing Destinations",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "marketing",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Marketing Destinations capability within the Marketing module.",
+  "contractBindings": [
+    "marketing.marketingDestination",
+    "marketing.destinationMapping"
+  ],
+  "permissionBindings": [
+    "marketing.destinations.create",
+    "marketing.destinations.delete",
+    "marketing.destinations.edit",
+    "marketing.destinations.manage",
+    "marketing.destinations.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

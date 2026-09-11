@@ -1,0 +1,120 @@
+{
+  "$id": "commerce.paymentMethodReference",
+  "name": "Payment Method Reference",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "payments",
+  "description": "Safe Payment Method reference.",
+  "purpose": "Supports operational display/reference without raw card credentials.",
+  "commerceModel": {
+    "kind": "value-object",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "providerKey",
+      "required": true,
+      "nullable": false,
+      "description": "Provider/connector key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "methodType",
+      "required": true,
+      "nullable": false,
+      "description": "Payment method category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "card",
+          "wallet",
+          "bank-transfer",
+          "cash-on-delivery",
+          "cash",
+          "other"
+        ]
+      }
+    },
+    {
+      "key": "providerMethodId",
+      "required": false,
+      "nullable": true,
+      "description": "Opaque token/reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "brand",
+      "required": false,
+      "nullable": true,
+      "description": "Safe brand/network label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "last4",
+      "required": false,
+      "nullable": true,
+      "description": "Optional last four digits.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^[0-9]{4}$"
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "noPan",
+      "description": "Full card PAN is prohibited."
+    },
+    {
+      "id": "noCvv",
+      "description": "CVV/CVC is prohibited."
+    },
+    {
+      "id": "opaqueProviderReference",
+      "description": "Provider reference is opaque and non-public."
+    }
+  ],
+  "cms": {
+    "label": "Payment Method Reference",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "providerKey",
+      "methodType",
+      "providerMethodId",
+      "brand"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

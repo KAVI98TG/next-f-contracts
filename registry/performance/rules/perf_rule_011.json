@@ -1,0 +1,20 @@
+{
+  "ruleId": "PERF-RULE-011",
+  "name": "Modern image formats",
+  "category": "media",
+  "requirement": "Prefer efficient modern formats when browser and content requirements permit while preserving a compatible delivery path.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "manual-review"
+  ],
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_011.json"
+}

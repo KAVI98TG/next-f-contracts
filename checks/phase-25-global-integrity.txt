@@ -1,0 +1,11 @@
+NEXT F Contracts Phase 25 global integrity
+JSON files checked: 1702
+JavaScript/module files checked: 140
+Registry items: 1785
+Registry duplicate IDs: 0
+Missing Registry sources: 0
+Broken relationships: 0
+Duplicate HTML IDs: 0
+Missing local assets: 0
+Failures: 0
+PASS

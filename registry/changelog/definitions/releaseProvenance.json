@@ -1,0 +1,67 @@
+{
+  "$id": "changelog.releaseProvenance",
+  "name": "Changelog Release Provenance",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "changelog",
+  "type": "schema",
+  "category": "release-lifecycle",
+  "description": "Describes where a release note came from and whether it was migrated, generated or authoritatively authored.",
+  "fields": [
+    {
+      "key": "sourceType",
+      "required": true,
+      "nullable": false,
+      "description": "sourceType",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "sourceReference",
+      "required": true,
+      "nullable": false,
+      "description": "sourceReference",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "migratedFrom",
+      "required": false,
+      "nullable": true,
+      "description": "migratedFrom",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "exactRegistrySnapshotAvailable",
+      "required": true,
+      "nullable": false,
+      "description": "exactRegistrySnapshotAvailable",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "exactRegistrySource",
+      "required": false,
+      "nullable": true,
+      "description": "exactRegistrySource",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "changelog.changelogStandard",
+      "description": "Governed by the NEXT F Changelog Standard."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "publicTechnicalMetadataOnly",
+      "description": "Changelog metadata must not contain secrets or customer runtime records."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": true
+}

@@ -1,0 +1,1348 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "Field-level Privacy Handling",
+  "description": "Explicit Phase 30 privacy metadata for high-risk fields. Coverage grows with future contracts; absence does not imply public eligibility.",
+  "entries": [
+    {
+      "handlingId": "PRIV-FLD-001",
+      "targetId": "permissions.principalReference",
+      "fieldPath": "fields.principalId",
+      "classification": "personal",
+      "qualifiers": [
+        "authentication"
+      ],
+      "purpose": "Reference the authenticated/authorized principal.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "security-audit",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "pseudonymize",
+      "relatedSecurityControls": [
+        "SEC-AUTHZ-001",
+        "SEC-AUDIT-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-002",
+      "targetId": "permissions.principalReference",
+      "fieldPath": "fields.organizationId",
+      "classification": "internal",
+      "qualifiers": [
+        "authentication",
+        "system-metadata"
+      ],
+      "purpose": "Scope authorization to the owning Organization.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "allowed",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "security-audit",
+      "exportSensitivity": "normal",
+      "consentRelevance": "none",
+      "deletionBehavior": "retain-per-policy",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [
+        "SEC-TENANT-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-003",
+      "targetId": "permissions.authorizationDecision",
+      "fieldPath": "fields.principalId",
+      "classification": "personal",
+      "qualifiers": [
+        "authentication"
+      ],
+      "purpose": "Record the principal evaluated by authorization.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "security-audit",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "pseudonymize",
+      "relatedSecurityControls": [
+        "SEC-AUTHZ-001",
+        "SEC-AUDIT-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-004",
+      "targetId": "permissions.authorizationDecision",
+      "fieldPath": "fields.matchedRoleIds",
+      "classification": "internal",
+      "qualifiers": [
+        "authentication",
+        "system-metadata"
+      ],
+      "purpose": "Preserve authorization-decision evidence.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "allowed",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "security-audit",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "retain-per-policy",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [
+        "SEC-AUTHZ-001",
+        "SEC-AUDIT-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-010",
+      "targetId": "forms.submission",
+      "fieldPath": "fields.values",
+      "classification": "sensitive",
+      "qualifiers": [],
+      "purpose": "Process user-submitted form values for the requested business interaction.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "redacted-only",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "customer-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "business-purpose",
+      "deletionBehavior": "review-required",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-PDATA-001",
+        "SEC-LOG-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-011",
+      "targetId": "forms.submission",
+      "fieldPath": "fields.files",
+      "classification": "sensitive",
+      "qualifiers": [],
+      "purpose": "Process user-submitted attachments under the form purpose.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "prohibited",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "customer-record",
+      "exportSensitivity": "highly-restricted",
+      "consentRelevance": "business-purpose",
+      "deletionBehavior": "review-required",
+      "redactionBehavior": "remove",
+      "relatedSecurityControls": [
+        "SEC-UPL-001",
+        "SEC-UPL-002",
+        "SEC-UPL-003"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-012",
+      "targetId": "forms.submission",
+      "fieldPath": "fields.consents",
+      "classification": "personal",
+      "qualifiers": [
+        "tracking"
+      ],
+      "purpose": "Preserve consent/acknowledgement evidence associated with a submission.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "consent-history",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "multiple",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-PDATA-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-013",
+      "targetId": "forms.submission",
+      "fieldPath": "fields.requestContext",
+      "classification": "personal",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Support request integrity, abuse prevention and operational diagnosis.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "ephemeral",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "functional",
+      "deletionBehavior": "delete",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-ABUSE-001",
+        "SEC-LOG-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-014",
+      "targetId": "forms.submission",
+      "fieldPath": "fields.spamDecision",
+      "classification": "internal",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Record spam/abuse decision metadata.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "allowed",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "operational",
+      "exportSensitivity": "normal",
+      "consentRelevance": "none",
+      "deletionBehavior": "retain-per-policy",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [
+        "SEC-ABUSE-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-015",
+      "targetId": "forms.lead",
+      "fieldPath": "fields.displayName",
+      "classification": "personal",
+      "qualifiers": [],
+      "purpose": "Identify the lead for customer follow-up.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "customer-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "business-purpose",
+      "deletionBehavior": "review-required",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-PDATA-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-016",
+      "targetId": "forms.lead",
+      "fieldPath": "fields.contactPoints",
+      "classification": "personal",
+      "qualifiers": [],
+      "purpose": "Contact the lead through customer-authorized business workflows.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "prohibited",
+      "eventEligibility": "redacted-only",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "customer-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "business-purpose",
+      "deletionBehavior": "review-required",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-PDATA-001",
+        "SEC-LOG-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-017",
+      "targetId": "forms.lead",
+      "fieldPath": "fields.organizationName",
+      "classification": "personal",
+      "qualifiers": [],
+      "purpose": "Maintain lead business context where supplied.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "customer-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "business-purpose",
+      "deletionBehavior": "review-required",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-PDATA-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-018",
+      "targetId": "forms.lead",
+      "fieldPath": "fields.submissionIds",
+      "classification": "personal",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Link the Lead to source submissions without merging the entities.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "customer-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "business-purpose",
+      "deletionBehavior": "review-required",
+      "redactionBehavior": "pseudonymize",
+      "relatedSecurityControls": [
+        "SEC-PDATA-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-019",
+      "targetId": "forms.consentRecord",
+      "fieldPath": "fields.accepted",
+      "classification": "personal",
+      "qualifiers": [
+        "tracking"
+      ],
+      "purpose": "Preserve the consent/acknowledgement decision.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "consent-history",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "multiple",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [
+        "SEC-PDATA-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-020",
+      "targetId": "forms.consentRecord",
+      "fieldPath": "fields.textSnapshot",
+      "classification": "internal",
+      "qualifiers": [
+        "content"
+      ],
+      "purpose": "Preserve the text shown when consent/acknowledgement was recorded.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "allowed",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "consent-history",
+      "exportSensitivity": "normal",
+      "consentRelevance": "multiple",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-021",
+      "targetId": "forms.consentRecord",
+      "fieldPath": "fields.recordedAt",
+      "classification": "personal",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Timestamp consent evidence.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "allowed",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "consent-history",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "multiple",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-030",
+      "targetId": "marketing.trackingEvent",
+      "fieldPath": "fields.context",
+      "classification": "personal",
+      "qualifiers": [
+        "tracking"
+      ],
+      "purpose": "Provide bounded measurement context for a canonical tracking observation.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "conditional",
+      "retentionClass": "operational",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "analytics",
+      "deletionBehavior": "anonymize",
+      "redactionBehavior": "pseudonymize",
+      "relatedSecurityControls": [
+        "SEC-PDATA-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-031",
+      "targetId": "marketing.trackingEvent",
+      "fieldPath": "fields.properties",
+      "classification": "personal",
+      "qualifiers": [
+        "tracking"
+      ],
+      "purpose": "Carry allowlisted event properties without raw form payload dumping.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "conditional",
+      "retentionClass": "operational",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "multiple",
+      "deletionBehavior": "anonymize",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-PDATA-001",
+        "SEC-LOG-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-032",
+      "targetId": "marketing.trackingConsentRecord",
+      "fieldPath": "fields.sessionId",
+      "classification": "personal",
+      "qualifiers": [
+        "tracking"
+      ],
+      "purpose": "Associate consent state with the bounded first-party session.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "conditional",
+      "retentionClass": "consent-history",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "analytics",
+      "deletionBehavior": "anonymize",
+      "redactionBehavior": "pseudonymize",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-033",
+      "targetId": "marketing.trackingConsentRecord",
+      "fieldPath": "fields.anonymousVisitorId",
+      "classification": "personal",
+      "qualifiers": [
+        "tracking"
+      ],
+      "purpose": "Associate consent state with a pseudonymous first-party visitor ID.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "conditional",
+      "retentionClass": "consent-history",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "analytics",
+      "deletionBehavior": "anonymize",
+      "redactionBehavior": "pseudonymize",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-034",
+      "targetId": "marketing.trackingConsentRecord",
+      "fieldPath": "fields.preferences",
+      "classification": "personal",
+      "qualifiers": [
+        "tracking"
+      ],
+      "purpose": "Record consent preferences by category.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "conditional",
+      "retentionClass": "consent-history",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "multiple",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-035",
+      "targetId": "marketing.sessionContext",
+      "fieldPath": "fields.sessionId",
+      "classification": "personal",
+      "qualifiers": [
+        "tracking"
+      ],
+      "purpose": "Correlate bounded first-party session observations.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "conditional",
+      "retentionClass": "ephemeral",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "analytics",
+      "deletionBehavior": "anonymize",
+      "redactionBehavior": "pseudonymize",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-036",
+      "targetId": "marketing.sessionContext",
+      "fieldPath": "fields.landingPage",
+      "classification": "personal",
+      "qualifiers": [
+        "tracking"
+      ],
+      "purpose": "Measure landing-page context without treating the URL as a place for sensitive data.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "conditional",
+      "retentionClass": "ephemeral",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "analytics",
+      "deletionBehavior": "anonymize",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-QUERY-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-037",
+      "targetId": "marketing.sessionContext",
+      "fieldPath": "fields.initialTrafficSource",
+      "classification": "personal",
+      "qualifiers": [
+        "tracking"
+      ],
+      "purpose": "Record bounded attribution context.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "conditional",
+      "retentionClass": "operational",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "analytics",
+      "deletionBehavior": "anonymize",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-040",
+      "targetId": "integrations.credentialReference",
+      "fieldPath": "fields.credentialId",
+      "classification": "internal",
+      "qualifiers": [
+        "authentication",
+        "system-metadata"
+      ],
+      "purpose": "Reference credential lifecycle metadata without exposing credential material.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "allowed",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "credential-lifecycle",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-SECRET-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-041",
+      "targetId": "integrations.credentialReference",
+      "fieldPath": "fields.secretRefs",
+      "classification": "secret",
+      "qualifiers": [
+        "authentication"
+      ],
+      "purpose": "Reference protected secrets used by an authorized connector.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "prohibited",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "credential-lifecycle",
+      "exportSensitivity": "highly-restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "remove",
+      "relatedSecurityControls": [
+        "SEC-SECRET-001",
+        "SEC-KEY-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-042",
+      "targetId": "integrations.secretReference",
+      "fieldPath": "fields.secretRef",
+      "classification": "secret",
+      "qualifiers": [
+        "authentication"
+      ],
+      "purpose": "Reference server-side secret storage without exposing raw material.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "prohibited",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "credential-lifecycle",
+      "exportSensitivity": "highly-restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "remove",
+      "relatedSecurityControls": [
+        "SEC-SECRET-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-043",
+      "targetId": "integrations.apiKeyConfiguration",
+      "fieldPath": "fields.secretRef",
+      "classification": "secret",
+      "qualifiers": [
+        "authentication"
+      ],
+      "purpose": "Reference an API key in protected storage.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "prohibited",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "credential-lifecycle",
+      "exportSensitivity": "highly-restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "remove",
+      "relatedSecurityControls": [
+        "SEC-KEY-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-044",
+      "targetId": "integrations.oauthConfiguration",
+      "fieldPath": "fields.clientId",
+      "classification": "internal",
+      "qualifiers": [
+        "authentication"
+      ],
+      "purpose": "Identify the OAuth client without treating it as secret material.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "allowed",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "credential-lifecycle",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "retain-per-policy",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-OAUTH-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-045",
+      "targetId": "integrations.oauthConfiguration",
+      "fieldPath": "fields.clientSecretRef",
+      "classification": "secret",
+      "qualifiers": [
+        "authentication"
+      ],
+      "purpose": "Reference the OAuth client secret in protected storage.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "prohibited",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "credential-lifecycle",
+      "exportSensitivity": "highly-restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "remove",
+      "relatedSecurityControls": [
+        "SEC-OAUTH-001",
+        "SEC-SECRET-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-046",
+      "targetId": "integrations.oauthConfiguration",
+      "fieldPath": "fields.accessTokenRef",
+      "classification": "secret",
+      "qualifiers": [
+        "authentication"
+      ],
+      "purpose": "Reference access-token material without browser/public exposure.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "prohibited",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "credential-lifecycle",
+      "exportSensitivity": "highly-restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "remove",
+      "relatedSecurityControls": [
+        "SEC-OAUTH-001",
+        "SEC-TOKEN-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-047",
+      "targetId": "integrations.oauthConfiguration",
+      "fieldPath": "fields.refreshTokenRef",
+      "classification": "secret",
+      "qualifiers": [
+        "authentication"
+      ],
+      "purpose": "Reference refresh-token material without browser/public exposure.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "prohibited",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "credential-lifecycle",
+      "exportSensitivity": "highly-restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "remove",
+      "relatedSecurityControls": [
+        "SEC-OAUTH-001",
+        "SEC-TOKEN-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-050",
+      "targetId": "commerce.payment",
+      "fieldPath": "fields.orderId",
+      "classification": "sensitive",
+      "qualifiers": [
+        "financial",
+        "system-metadata"
+      ],
+      "purpose": "Link payment facts to the owning order.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "financial-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "pseudonymize",
+      "relatedSecurityControls": [
+        "SEC-PAY-002"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-051",
+      "targetId": "commerce.payment",
+      "fieldPath": "fields.amount",
+      "classification": "sensitive",
+      "qualifiers": [
+        "financial"
+      ],
+      "purpose": "Record authoritative payment amount/currency value.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "allowed",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "redacted-only",
+      "retentionClass": "financial-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [
+        "SEC-PAY-002"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-052",
+      "targetId": "commerce.payment",
+      "fieldPath": "fields.method",
+      "classification": "sensitive",
+      "qualifiers": [
+        "financial"
+      ],
+      "purpose": "Reference the safe payment-method representation; raw PAN/CVV remains prohibited.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "redacted-only",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "financial-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-PAY-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-053",
+      "targetId": "commerce.payment",
+      "fieldPath": "fields.providerPaymentId",
+      "classification": "sensitive",
+      "qualifiers": [
+        "financial",
+        "system-metadata"
+      ],
+      "purpose": "Correlate the provider-side payment without exposing provider secrets.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "financial-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-PAY-002"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-054",
+      "targetId": "commerce.payment",
+      "fieldPath": "fields.refundedAmount",
+      "classification": "sensitive",
+      "qualifiers": [
+        "financial"
+      ],
+      "purpose": "Maintain immutable/reconciled refund financial facts.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "allowed",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "redacted-only",
+      "retentionClass": "financial-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [
+        "SEC-PAY-003"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-055",
+      "targetId": "commerce.paymentMethodReference",
+      "fieldPath": "fields.providerMethodId",
+      "classification": "sensitive",
+      "qualifiers": [
+        "financial"
+      ],
+      "purpose": "Hold only the opaque provider payment-method reference.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "redacted-only",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "financial-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-PAY-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-056",
+      "targetId": "commerce.paymentMethodReference",
+      "fieldPath": "fields.last4",
+      "classification": "sensitive",
+      "qualifiers": [
+        "financial"
+      ],
+      "purpose": "Display the contract-approved safe last-four representation only.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "redacted-only",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "financial-record",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-PAY-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-060",
+      "targetId": "webhooks.delivery",
+      "fieldPath": "fields.eventId",
+      "classification": "sensitive",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Correlate the authoritative Event to delivery state without treating transport as business truth.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "allowed",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "operational",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "pseudonymize",
+      "relatedSecurityControls": [
+        "SEC-WH-003"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-061",
+      "targetId": "webhooks.delivery",
+      "fieldPath": "fields.lastFailure",
+      "classification": "internal",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Persist sanitized delivery failure diagnostics.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "allowed",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "operational",
+      "exportSensitivity": "normal",
+      "consentRelevance": "none",
+      "deletionBehavior": "retain-per-policy",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-LOG-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-062",
+      "targetId": "webhooks.deliveryAttempt",
+      "fieldPath": "fields.request",
+      "classification": "sensitive",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Persist only sanitized request metadata for delivery evidence.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "operational",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-WH-002",
+        "SEC-LOG-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-063",
+      "targetId": "webhooks.deliveryAttempt",
+      "fieldPath": "fields.response",
+      "classification": "sensitive",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Persist only sanitized response metadata for delivery evidence.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "operational",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-LOG-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-064",
+      "targetId": "webhooks.signingKeyReference",
+      "fieldPath": "fields.secretReference",
+      "classification": "secret",
+      "qualifiers": [
+        "authentication"
+      ],
+      "purpose": "Reference webhook signing material in protected server-side storage.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "prohibited",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "credential-lifecycle",
+      "exportSensitivity": "highly-restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "remove",
+      "relatedSecurityControls": [
+        "SEC-WH-002",
+        "SEC-SECRET-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-070",
+      "targetId": "core.auditRecord",
+      "fieldPath": "fields.actor",
+      "classification": "personal",
+      "qualifiers": [
+        "authentication",
+        "system-metadata"
+      ],
+      "purpose": "Identify the actor responsible for an auditable change.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "security-audit",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "pseudonymize",
+      "relatedSecurityControls": [
+        "SEC-AUDIT-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-071",
+      "targetId": "core.auditRecord",
+      "fieldPath": "fields.before",
+      "classification": "sensitive",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Retain bounded pre-change evidence with secret/personal-field redaction.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "security-audit",
+      "exportSensitivity": "highly-restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-AUDIT-001",
+        "SEC-LOG-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-072",
+      "targetId": "core.auditRecord",
+      "fieldPath": "fields.after",
+      "classification": "sensitive",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Retain bounded post-change evidence with secret/personal-field redaction.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "security-audit",
+      "exportSensitivity": "highly-restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-AUDIT-001",
+        "SEC-LOG-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-073",
+      "targetId": "core.auditRecord",
+      "fieldPath": "fields.requestId",
+      "classification": "internal",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Correlate audit evidence to an operational request.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "allowed",
+      "eventEligibility": "conditional",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "security-audit",
+      "exportSensitivity": "normal",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [
+        "SEC-AUDIT-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-074",
+      "targetId": "core.auditRecord",
+      "fieldPath": "fields.metadata",
+      "classification": "sensitive",
+      "qualifiers": [
+        "system-metadata"
+      ],
+      "purpose": "Store bounded audit metadata while excluding secrets and unnecessary personal data.",
+      "publicDeliveryEligible": false,
+      "logEligibility": "redacted-only",
+      "eventEligibility": "prohibited",
+      "webhookEligibility": "prohibited",
+      "analyticsEligibility": "prohibited",
+      "retentionClass": "security-audit",
+      "exportSensitivity": "restricted",
+      "consentRelevance": "none",
+      "deletionBehavior": "protected-retention",
+      "redactionBehavior": "partial",
+      "relatedSecurityControls": [
+        "SEC-AUDIT-001",
+        "SEC-LOG-001"
+      ],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-080",
+      "targetId": "content.page",
+      "fieldPath": "fields.title",
+      "classification": "public",
+      "qualifiers": [
+        "content"
+      ],
+      "purpose": "Render the customer-managed public page title when the Page is published.",
+      "publicDeliveryEligible": true,
+      "logEligibility": "allowed",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "allowed",
+      "retentionClass": "content-lifecycle",
+      "exportSensitivity": "normal",
+      "consentRelevance": "none",
+      "deletionBehavior": "retain-per-policy",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-081",
+      "targetId": "content.page",
+      "fieldPath": "fields.slug",
+      "classification": "public",
+      "qualifiers": [
+        "content"
+      ],
+      "purpose": "Resolve the published Page URL path.",
+      "publicDeliveryEligible": true,
+      "logEligibility": "allowed",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "allowed",
+      "retentionClass": "content-lifecycle",
+      "exportSensitivity": "normal",
+      "consentRelevance": "none",
+      "deletionBehavior": "retain-per-policy",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-082",
+      "targetId": "content.page",
+      "fieldPath": "fields.summary",
+      "classification": "public",
+      "qualifiers": [
+        "content"
+      ],
+      "purpose": "Render the published Page summary where the frontend uses it.",
+      "publicDeliveryEligible": true,
+      "logEligibility": "allowed",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "allowed",
+      "retentionClass": "content-lifecycle",
+      "exportSensitivity": "normal",
+      "consentRelevance": "none",
+      "deletionBehavior": "retain-per-policy",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-083",
+      "targetId": "content.blogPost",
+      "fieldPath": "fields.title",
+      "classification": "public",
+      "qualifiers": [
+        "content"
+      ],
+      "purpose": "Render the published Blog Post title.",
+      "publicDeliveryEligible": true,
+      "logEligibility": "allowed",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "allowed",
+      "retentionClass": "content-lifecycle",
+      "exportSensitivity": "normal",
+      "consentRelevance": "none",
+      "deletionBehavior": "retain-per-policy",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    },
+    {
+      "handlingId": "PRIV-FLD-084",
+      "targetId": "content.blogPost",
+      "fieldPath": "fields.excerpt",
+      "classification": "public",
+      "qualifiers": [
+        "content"
+      ],
+      "purpose": "Render the published Blog Post excerpt.",
+      "publicDeliveryEligible": true,
+      "logEligibility": "allowed",
+      "eventEligibility": "allowed",
+      "webhookEligibility": "conditional",
+      "analyticsEligibility": "allowed",
+      "retentionClass": "content-lifecycle",
+      "exportSensitivity": "normal",
+      "consentRelevance": "none",
+      "deletionBehavior": "retain-per-policy",
+      "redactionBehavior": "none",
+      "relatedSecurityControls": [],
+      "status": "stable",
+      "version": "1.0.0"
+    }
+  ]
+}

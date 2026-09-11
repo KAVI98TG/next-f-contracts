@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "developer.projectContext",
+  "title": "Codex Project Context",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "taskId",
+    "taskType",
+    "goal",
+    "repository",
+    "targetEnvironment"
+  ],
+  "properties": {
+    "taskId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "taskType": {
+      "type": "string"
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repository": {
+      "type": "string",
+      "minLength": 1
+    },
+    "siteManifestPath": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "targetEnvironment": {
+      "type": "string",
+      "enum": [
+        "development",
+        "preview",
+        "staging",
+        "production",
+        "unspecified"
+      ]
+    },
+    "allowedScope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbiddenScope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

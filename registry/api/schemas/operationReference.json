@@ -1,0 +1,63 @@
+{
+  "$id": "api.operationReference",
+  "name": "Operation Reference",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "operations",
+  "description": "Stable reference to an API operation.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "operationId",
+      "required": true,
+      "nullable": false,
+      "description": "operationId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "apiId",
+      "required": true,
+      "nullable": false,
+      "description": "apiId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "method",
+      "required": true,
+      "nullable": false,
+      "description": "method",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "path",
+      "required": true,
+      "nullable": false,
+      "description": "path",
+      "primitive": "fields.text"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

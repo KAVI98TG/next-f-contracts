@@ -1,0 +1,120 @@
+{
+  "$id": "adminUi.profile.platform.organizations",
+  "name": "Organizations Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "platform.organizations",
+  "permissionDomain": "platform",
+  "moduleId": "core",
+  "description": "Internal NEXT F Admin metadata for Organizations. Applies only within server-authorized administrative scope.",
+  "route": "/organizations",
+  "screenKind": "organization-360",
+  "layoutTemplate": "organization-360",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "platform",
+    "requiresOrganization": false,
+    "requiresSite": false,
+    "allowsCrossTenant": true,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": null,
+  "inheritanceMode": "none",
+  "targetContracts": [
+    "core.organization"
+  ],
+  "primaryTargetContract": "core.organization",
+  "permissions": [
+    "platform.organizations.create",
+    "platform.organizations.delete",
+    "platform.organizations.edit",
+    "platform.organizations.export",
+    "platform.organizations.manage",
+    "platform.organizations.view"
+  ],
+  "actions": [
+    {
+      "actionId": "create",
+      "permissionId": "platform.organizations.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "platform.organizations.delete",
+      "riskLevel": "privileged",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "platform.organizations.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    },
+    {
+      "actionId": "export",
+      "permissionId": "platform.organizations.export",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "platform.organizations.manage",
+      "riskLevel": "privileged",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "platform.organizations.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions",
+    "support-context",
+    "data-governance"
+  ],
+  "controls": [
+    "risk-badge",
+    "recent-auth-gate",
+    "explicit-confirmation"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": []
+}

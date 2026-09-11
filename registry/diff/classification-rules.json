@@ -1,0 +1,167 @@
+{
+  "registryVersion": "0.26.0",
+  "title": "Contract Diff Classification Rules",
+  "rules": [
+    {
+      "id": "DIF-001",
+      "match": "item removed",
+      "changeType": "item-removed",
+      "impact": "breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-002",
+      "match": "item added",
+      "changeType": "item-added",
+      "impact": "non-breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-003",
+      "match": "field removed",
+      "changeType": "field-removed",
+      "impact": "breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-004",
+      "match": "optional field becomes required",
+      "changeType": "field-required-changed",
+      "impact": "breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-005",
+      "match": "required field becomes optional",
+      "changeType": "field-required-changed",
+      "impact": "non-breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-006",
+      "match": "nullable becomes non-nullable",
+      "changeType": "field-nullability-changed",
+      "impact": "breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-007",
+      "match": "non-nullable becomes nullable",
+      "changeType": "field-nullability-changed",
+      "impact": "non-breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-008",
+      "match": "field primitive/schema/items binding changes",
+      "changeType": "field-type-changed",
+      "impact": "breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-009",
+      "match": "enum value removed",
+      "changeType": "enum-value-removed",
+      "impact": "breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-010",
+      "match": "enum value added without explicit extensibility",
+      "changeType": "enum-value-added",
+      "impact": "potentially-breaking",
+      "confidence": "medium"
+    },
+    {
+      "id": "DIF-011",
+      "match": "minLength/minimum increases or maxLength/maximum decreases",
+      "changeType": "validation-tightened",
+      "impact": "breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-012",
+      "match": "validation range relaxes",
+      "changeType": "validation-relaxed",
+      "impact": "non-breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-013",
+      "match": "relationship removed",
+      "changeType": "relationship-removed",
+      "impact": "review-required",
+      "confidence": "medium"
+    },
+    {
+      "id": "DIF-014",
+      "match": "relationship added",
+      "changeType": "relationship-added",
+      "impact": "non-breaking",
+      "confidence": "medium"
+    },
+    {
+      "id": "DIF-015",
+      "match": "permission removed",
+      "changeType": "permission-removed",
+      "impact": "breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-016",
+      "match": "permission added",
+      "changeType": "permission-added",
+      "impact": "review-required",
+      "confidence": "medium"
+    },
+    {
+      "id": "DIF-017",
+      "match": "event removed",
+      "changeType": "event-removed",
+      "impact": "breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-018",
+      "match": "event added",
+      "changeType": "event-added",
+      "impact": "non-breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-019",
+      "match": "stable becomes deprecated",
+      "changeType": "status-changed",
+      "impact": "deprecation",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-020",
+      "match": "deprecated becomes removed",
+      "changeType": "status-changed",
+      "impact": "breaking",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-021",
+      "match": "validation rule text/semantics changes",
+      "changeType": "validation-rule-changed",
+      "impact": "review-required",
+      "confidence": "medium"
+    },
+    {
+      "id": "DIF-022",
+      "match": "description/help/purpose only changes",
+      "changeType": "documentation-changed",
+      "impact": "documentation",
+      "confidence": "high"
+    },
+    {
+      "id": "DIF-023",
+      "match": "unclassified source change",
+      "changeType": "source-changed",
+      "impact": "review-required",
+      "confidence": "low"
+    }
+  ]
+}

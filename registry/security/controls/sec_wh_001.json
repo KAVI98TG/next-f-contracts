@@ -1,0 +1,35 @@
+{
+  "controlId": "SEC-WH-001",
+  "name": "Webhook endpoint validation",
+  "category": "webhooks",
+  "requirement": "Webhook destinations must satisfy HTTPS/network-policy validation before activation and must not permit unsafe internal targets.",
+  "rationale": "Outbound webhooks can become an SSRF path.",
+  "applicability": [
+    "webhooks"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [
+    "webhooks.endpointNetworkPolicy",
+    "webhooks.endpointVerification"
+  ],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_wh_001.json"
+}

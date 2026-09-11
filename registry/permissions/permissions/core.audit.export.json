@@ -1,0 +1,31 @@
+{
+  "$id": "core.audit.export",
+  "name": "Export Audit",
+  "permissionId": "core.audit.export",
+  "domain": "core",
+  "resource": "audit",
+  "action": "export",
+  "scopeKind": "organization",
+  "riskLevel": "standard",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Export Audit within the authorized organization scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [
+    "Export remains subject to field-level data minimization and the resource data policy."
+  ],
+  "version": "0.16.0",
+  "status": "stable"
+}

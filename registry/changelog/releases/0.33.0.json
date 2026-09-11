@@ -1,0 +1,431 @@
+{
+  "$id": "changelog.release.0.33.0",
+  "version": "0.33.0",
+  "phase": 32,
+  "title": "Performance Standards",
+  "releaseStatus": "published-development",
+  "releaseDate": null,
+  "summary": "Phase 32 - Performance Standards.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_72c3cd7ca56f7a",
+          "releaseVersion": "0.33.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Machine-readable Performance Registry with 36 canonical rules across payload, loading, caching, media, fonts, third-party integrations, API/data access, Search, Relationships, Diff, large-data rendering, memory, mobile, Core Web Vitals guidance, observability and resilience.",
+          "affectedRegistryIds": [
+            "performance.categories",
+            "performance.index",
+            "performance.measurementMethods",
+            "performance.ruleJsonSchema",
+            "performance.standard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Machine-readable Performance Registry with 36 canonical rules across payload, loading, caching, media, fonts, third-party integrations, API/data access, Search, Relationships, Diff, large-data rendering, memory, mobile, Core Web Vitals guidance, observability and resilience.",
+          "description": "Machine-readable Performance Registry with 36 canonical rules across payload, loading, caching, media, fonts, third-party integrations, API/data access, Search, Relationships, Diff, large-data rendering, memory, mobile, Core Web Vitals guidance, observability and resilience.",
+          "changeType": "added",
+          "affectedDomains": [
+            "performance"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.33.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_ecf07317d24289",
+          "releaseVersion": "0.33.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Seventeen measurable performance budgets now track Contract Portal HTML/CSS/JavaScript size, generated fallback growth, Registry/Search/Relationship/Diff artifact size, inline/external resources, route-loading boundaries and bounded Search/Relationship rendering.",
+          "affectedRegistryIds": [
+            "performance.budgetJsonSchema",
+            "performance.metrics",
+            "performance.portalAudit"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Seventeen measurable performance budgets now track Contract Portal HTML/CSS/JavaScript size, generated fallback growth, Registry/Search/Relationship/Diff artifact size, inline/external resources, route-loading boundaries and bounded Search/Relationship rendering.",
+          "description": "Seventeen measurable performance budgets now track Contract Portal HTML/CSS/JavaScript size, generated fallback growth, Registry/Search/Relationship/Diff artifact size, inline/external resources, route-loading boundaries and bounded Search/Relationship rendering.",
+          "changeType": "added",
+          "affectedDomains": [
+            "performance"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.33.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_2f5873ec7c9747",
+          "releaseVersion": "0.33.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Third-party performance policy locks non-blocking optional integrations, consent-aware analytics and advertising, provider-script deduplication, enabled-connectors-only loading, failure isolation and future timing observability.",
+          "affectedRegistryIds": [
+            "integrations.connectorDefinition",
+            "marketing.consentState",
+            "performance.thirdPartyRules",
+            "privacy.consentBoundaries"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Third-party performance policy locks non-blocking optional integrations, consent-aware analytics and advertising, provider-script deduplication, enabled-connectors-only loading, failure isolation and future timing observability.",
+          "description": "Third-party performance policy locks non-blocking optional integrations, consent-aware analytics and advertising, provider-script deduplication, enabled-connectors-only loading, failure isolation and future timing observability.",
+          "changeType": "added",
+          "affectedDomains": [
+            "integrations",
+            "marketing",
+            "performance",
+            "privacy"
+          ],
+          "affectedModules": [
+            "modules.consent",
+            "modules.integrations"
+          ],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.33.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "changed",
+      "label": "Changed",
+      "entries": [
+        {
+          "entryId": "chg_f5916735ad0b8f",
+          "releaseVersion": "0.33.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Normal hosted Contract Portal bootstrap now attempts authoritative JSON before dynamically importing generated local fallbacks, removing generated fallback modules from the normal static bootstrap parse path while preserving file:// review behavior.",
+          "affectedRegistryIds": [
+            "performance.budget.perf_budget_005",
+            "performance.rule.perf_rule_005",
+            "relationships.relationshipIndex",
+            "search.searchIndex"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Normal hosted Contract Portal bootstrap now attempts authoritative JSON before dynamically importing generated local fallbacks, removing generated fallback modules from the normal static bootstrap parse path while preserving file:// review behavior.",
+          "description": "Normal hosted Contract Portal bootstrap now attempts authoritative JSON before dynamically importing generated local fallbacks, removing generated fallback modules from the normal static bootstrap parse path while preserving file:// review behavior.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "performance",
+            "relationships",
+            "search"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.33.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_0ddf516f084f8a",
+          "releaseVersion": "0.33.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Standards -> Performance is now a data-driven Phase 32 explorer with rules, budgets, measured portal audit evidence, third-party rules, detail views, filters and raw machine-readable JSON.",
+          "affectedRegistryIds": [
+            "performance.index",
+            "performance.portalAudit"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Standards -> Performance is now a data-driven Phase 32 explorer with rules, budgets, measured portal audit evidence, third-party rules, detail views, filters and raw machine-readable JSON.",
+          "description": "Standards -> Performance is now a data-driven Phase 32 explorer with rules, budgets, measured portal audit evidence, third-party rules, detail views, filters and raw machine-readable JSON.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "performance"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.33.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_ce58325f8f38d7",
+          "releaseVersion": "0.33.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Contract Portal performance validation now explicitly monitors Search and Relationship index growth, Diff snapshot storage, bounded rendering, inline resources and lazy Diff loading without converting repository-size evidence into unsupported browser Core Web Vitals claims.",
+          "affectedRegistryIds": [
+            "performance.portalAudit",
+            "performance.rule.perf_rule_022",
+            "performance.rule.perf_rule_023",
+            "performance.rule.perf_rule_024",
+            "performance.rule.perf_rule_029"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Contract Portal performance validation now explicitly monitors Search and Relationship index growth, Diff snapshot storage, bounded rendering, inline resources and lazy Diff loading without converting repository-size evidence into unsupported browser Core Web Vitals claims.",
+          "description": "Contract Portal performance validation now explicitly monitors Search and Relationship index growth, Diff snapshot storage, bounded rendering, inline resources and lazy Diff loading without converting repository-size evidence into unsupported browser Core Web Vitals claims.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "performance"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.33.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "documentation",
+      "label": "Documentation",
+      "entries": [
+        {
+          "entryId": "chg_1dc1c2962cb9c9",
+          "releaseVersion": "0.33.0",
+          "category": "documentation",
+          "originalSection": "Documentation",
+          "summary": "The Performance Standard documents caching boundaries, image/media/font delivery, API request discipline, batching, pagination, mobile review, Core Web Vitals guidance and truthful measurement/non-ranking guarantees.",
+          "affectedRegistryIds": [
+            "performance.standard"
+          ],
+          "compatibilityImpact": "documentation",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "The Performance Standard documents caching boundaries, image/media/font delivery, API request discipline, batching, pagination, mobile review, Core Web Vitals guidance and truthful measurement/non-ranking guarantees.",
+          "description": "The Performance Standard documents caching boundaries, image/media/font delivery, API request discipline, batching, pagination, mobile review, Core Web Vitals guidance and truthful measurement/non-ranking guarantees.",
+          "changeType": "documentation",
+          "affectedDomains": [
+            "performance"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "documentation",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.33.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "internal",
+      "label": "Internal / Tooling",
+      "entries": [
+        {
+          "entryId": "chg_961ac2e47fdbce",
+          "releaseVersion": "0.33.0",
+          "category": "internal",
+          "originalSection": "Internal / Tooling",
+          "summary": "Phase 32 adds repeatable performance audit, generator, validation and smoke tooling and integrates Performance definitions into Registry, Global Search, Relationships, Changelog, Diff and Compatibility release evidence.",
+          "affectedRegistryIds": [
+            "compatibility.index",
+            "diff.releaseIndex",
+            "performance.index",
+            "relationships.relationshipIndex",
+            "search.searchIndex"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 32 adds repeatable performance audit, generator, validation and smoke tooling and integrates Performance definitions into Registry, Global Search, Relationships, Changelog, Diff and Compatibility release evidence.",
+          "description": "Phase 32 adds repeatable performance audit, generator, validation and smoke tooling and integrates Performance definitions into Registry, Global Search, Relationships, Changelog, Diff and Compatibility release evidence.",
+          "changeType": "internal",
+          "affectedDomains": [
+            "diff",
+            "lifecycle",
+            "performance",
+            "relationships",
+            "search"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.33.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sourceType": "authoritative-release-json",
+    "sourceReference": "registry/changelog/releases/0.33.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "registry/registry.json"
+  },
+  "evidence": {
+    "evidenceLevel": "notes-and-exact-registry",
+    "diffAvailable": true,
+    "diffRoute": "#/lifecycle/diff?from=0.32.0&to=0.33.0",
+    "compatibilityAvailable": true,
+    "compatibilityRoute": "#/lifecycle/compatibility",
+    "migrationRoute": null
+  },
+  "support": {
+    "supportLevel": "current-development",
+    "compatibilityStatus": "compatible",
+    "productionEligible": false,
+    "summary": "This is the current coordinated Contract Registry release; Phase 32 defines performance standards, budgets and Contract Portal static evidence, not production Site Runtime telemetry or guaranteed search-ranking outcomes."
+  },
+  "migrationNotes": null,
+  "recommendedAction": "New and changed NEXT F implementations should apply relevant performance rules and budgets, preserve explicit Site version pinning, and collect browser/field evidence for runtime claims. Existing Sites remain pinned until explicit validation and upgrade review.",
+  "sourceVersion": "0.32.0",
+  "targetVersion": "0.33.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "entryCount": 8,
+  "categoryCounts": {
+    "added": 3,
+    "changed": 3,
+    "documentation": 1,
+    "internal": 1
+  },
+  "affected": {
+    "domains": [
+      "diff",
+      "integrations",
+      "lifecycle",
+      "marketing",
+      "performance",
+      "privacy",
+      "relationships",
+      "search"
+    ],
+    "modules": [
+      "modules.consent",
+      "modules.integrations"
+    ],
+    "contracts": [
+      "compatibility.index",
+      "diff.releaseIndex",
+      "integrations.connectorDefinition",
+      "marketing.consentState",
+      "performance.budget.perf_budget_005",
+      "performance.budgetJsonSchema",
+      "performance.categories",
+      "performance.index",
+      "performance.measurementMethods",
+      "performance.metrics",
+      "performance.portalAudit",
+      "performance.rule.perf_rule_005",
+      "performance.rule.perf_rule_022",
+      "performance.rule.perf_rule_023",
+      "performance.rule.perf_rule_024",
+      "performance.rule.perf_rule_029",
+      "performance.ruleJsonSchema",
+      "performance.standard",
+      "performance.thirdPartyRules",
+      "privacy.consentBoundaries",
+      "relationships.relationshipIndex",
+      "search.searchIndex"
+    ],
+    "events": [],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  },
+  "breakingChange": false,
+  "migrationRequired": false
+}

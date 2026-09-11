@@ -1,0 +1,5 @@
+NEXT F Contracts Phase 1 baseline validation
+Repository version: 0.4.0
+Passes: 45
+Failures: 0
+PASS - Phase 1 light SaaS portal baseline is preserved.

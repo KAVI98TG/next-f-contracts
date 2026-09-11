@@ -1,0 +1,39 @@
+{
+  "controlId": "SEC-TLS-001",
+  "name": "HTTPS/TLS required",
+  "category": "transport",
+  "requirement": "Production network communication carrying authenticated, personal, secret or webhook data must use HTTPS/TLS with certificate validation.",
+  "rationale": "Transport confidentiality and integrity are foundational security properties.",
+  "applicability": [
+    "api",
+    "integrations",
+    "webhooks",
+    "public-site",
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "operations",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [
+    "webhooks.endpointNetworkPolicy"
+  ],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_tls_001.json"
+}

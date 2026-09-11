@@ -1,0 +1,322 @@
+{
+  "$id": "forms.form",
+  "name": "Form",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "builder",
+  "description": "Complete structured website form definition managed through the Customer CMS.",
+  "purpose": "Provides one reusable, code-independent form contract for contact, quote, enquiry, application and lead-generation forms across NEXT F-built websites.",
+  "formsModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque Form ID.",
+      "primitive": "fields.text",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "siteId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "core.site",
+        "relationshipCardinality": "one",
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Internal/customer CMS form name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240,
+        "searchable": true
+      }
+    },
+    {
+      "key": "publicTitle",
+      "required": false,
+      "nullable": true,
+      "description": "Optional visitor-facing title.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240,
+        "localizable": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Stable form slug/handle where a route/embed requires it.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional visitor-facing description.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 2000,
+        "localizable": true
+      }
+    },
+    {
+      "key": "renderMode",
+      "required": true,
+      "nullable": false,
+      "description": "Form flow mode.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "singleStep",
+            "label": "Single step"
+          },
+          {
+            "value": "multiStep",
+            "label": "Multi-step"
+          }
+        ]
+      }
+    },
+    {
+      "key": "fieldIds",
+      "required": false,
+      "nullable": false,
+      "description": "Ordered directly placed field IDs for simple forms.",
+      "itemsPrimitive": "fields.text"
+    },
+    {
+      "key": "sectionIds",
+      "required": false,
+      "nullable": false,
+      "description": "Ordered Form Sections for structured single-step forms.",
+      "itemsPrimitive": "fields.text"
+    },
+    {
+      "key": "stepIds",
+      "required": false,
+      "nullable": false,
+      "description": "Ordered Form Steps for multi-step forms.",
+      "itemsPrimitive": "fields.text"
+    },
+    {
+      "key": "availability",
+      "required": false,
+      "nullable": true,
+      "description": "Submission availability.",
+      "schema": "forms.formAvailability"
+    },
+    {
+      "key": "confirmation",
+      "required": false,
+      "nullable": true,
+      "description": "Visitor success behavior.",
+      "schema": "forms.confirmation"
+    },
+    {
+      "key": "dataHandling",
+      "required": false,
+      "nullable": true,
+      "description": "Storage/minimization behavior.",
+      "schema": "forms.dataHandling"
+    },
+    {
+      "key": "spamPolicy",
+      "required": false,
+      "nullable": true,
+      "description": "Anti-spam configuration.",
+      "schema": "forms.spamPolicy"
+    },
+    {
+      "key": "rateLimitPolicy",
+      "required": false,
+      "nullable": true,
+      "description": "Submission throttling policy.",
+      "schema": "forms.rateLimitPolicy"
+    },
+    {
+      "key": "submitLabel",
+      "required": true,
+      "nullable": false,
+      "description": "Submit button label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120,
+        "localizable": true
+      }
+    },
+    {
+      "key": "formVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Current immutable revision/version identifier used in new Submission snapshots.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Creation timestamp.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Last modification timestamp.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "contains",
+      "target": "forms.formField",
+      "description": "Form contains reusable Field definitions."
+    },
+    {
+      "type": "contains",
+      "target": "forms.formSection",
+      "description": "May organize fields in Sections."
+    },
+    {
+      "type": "contains",
+      "target": "forms.formStep",
+      "description": "May organize multi-step flows."
+    },
+    {
+      "type": "uses",
+      "target": "forms.formAvailability",
+      "description": "Uses availability policy."
+    },
+    {
+      "type": "uses",
+      "target": "forms.confirmation",
+      "description": "Uses success behavior."
+    },
+    {
+      "type": "uses",
+      "target": "forms.dataHandling",
+      "description": "Uses data-handling policy."
+    },
+    {
+      "type": "uses",
+      "target": "forms.spamPolicy",
+      "description": "Uses anti-spam policy."
+    },
+    {
+      "type": "uses",
+      "target": "forms.rateLimitPolicy",
+      "description": "Uses rate limiting."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "siteScoped",
+      "description": "Form belongs to one Site."
+    },
+    {
+      "id": "layoutMatchesRenderMode",
+      "description": "multiStep requires stepIds; singleStep must use fields/sections and not multi-step-only configuration."
+    },
+    {
+      "id": "stableFieldKeysAfterUse",
+      "description": "Fields participating in stored submissions must preserve their machine keys or use explicit migration/versioning."
+    },
+    {
+      "id": "serverAcceptsOnlyCurrentCompatibleVersion",
+      "description": "Submission processing must validate the submitted formVersion against an allowed/current version policy."
+    },
+    {
+      "id": "noArbitraryHtmlOrScripts",
+      "description": "Form definitions must not contain arbitrary HTML, CSS, JavaScript, executable templates or vendor tracking scripts."
+    },
+    {
+      "id": "publicDefinitionSubsetOnly",
+      "description": "Public form rendering exposes only the fields/configuration needed to render and validate the visitor form."
+    },
+    {
+      "id": "submitRequiresServerValidation",
+      "description": "Client validation alone must never create an accepted Submission."
+    },
+    {
+      "id": "requiredConsentChecked",
+      "description": "Required consent controls must be positively accepted before acceptance."
+    },
+    {
+      "id": "availabilityServerEnforced",
+      "description": "Form availability must be checked at server acceptance time."
+    },
+    {
+      "id": "antiAbuseBeforeBusinessEffects",
+      "description": "Anti-abuse and duplicate protections occur before notifications, lead creation or future conversion dispatch."
+    }
+  ],
+  "cms": {
+    "label": "Form",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "id",
+      "siteId",
+      "name",
+      "publicTitle"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

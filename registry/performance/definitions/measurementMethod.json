@@ -1,0 +1,8 @@
+{
+  "$id": "performance.measurementMethod",
+  "name": "Performance Measurement Method",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "performance",
+  "description": "Controlled method used to gather performance evidence."
+}

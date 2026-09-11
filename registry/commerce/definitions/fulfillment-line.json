@@ -1,0 +1,87 @@
+{
+  "$id": "commerce.fulfillmentLine",
+  "name": "Fulfillment Line",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "fulfillment",
+  "description": "Quantity of one Order Line in a Fulfillment.",
+  "purpose": "Supports partial fulfillment without rewriting Order Line quantity.",
+  "commerceModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "orderLineId",
+      "required": true,
+      "nullable": false,
+      "description": "Order Line ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "quantity",
+      "required": true,
+      "nullable": false,
+      "description": "Fulfilled quantity.",
+      "schema": "commerce.quantity"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.orderLine",
+      "description": "References commerce.orderLine."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.quantity",
+      "description": "References commerce.quantity."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "positive",
+      "description": "Fulfilled quantity is greater than zero."
+    }
+  ],
+  "cms": {
+    "label": "Fulfillment Line",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "orderLineId",
+      "quantity"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

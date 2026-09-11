@@ -1,0 +1,4 @@
+NEXT F Contracts Phase 26 smoke
+Passes: 55
+Failures: 0
+PASS

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "admin-ui-profile.schema.json",
+  "title": "NEXT F Admin UI Profile",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "type",
+    "profileType",
+    "resource",
+    "route",
+    "screenKind",
+    "layoutTemplate",
+    "internalOnly",
+    "customerVisible",
+    "permissions",
+    "security"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^adminUi\\.profile\\."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "const": "stable"
+    },
+    "domain": {
+      "const": "admin-ui"
+    },
+    "type": {
+      "const": "admin-ui-profile"
+    },
+    "profileType": {
+      "enum": [
+        "admin-shell",
+        "resource"
+      ]
+    },
+    "resource": {
+      "type": "string"
+    },
+    "route": {
+      "type": "string"
+    },
+    "screenKind": {
+      "type": "string"
+    },
+    "layoutTemplate": {
+      "type": "string"
+    },
+    "internalOnly": {
+      "const": true
+    },
+    "customerVisible": {
+      "const": false
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "actions": {
+      "type": "array"
+    },
+    "panels": {
+      "type": "array"
+    },
+    "controls": {
+      "type": "array"
+    },
+    "security": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

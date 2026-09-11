@@ -1,0 +1,73 @@
+{
+  "$id": "fields.email",
+  "name": "Email",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "text",
+  "description": "Email address value with syntactic validation and optional browser autocomplete hints.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "Trimmed email address string. Validation does not claim mailbox ownership or existence.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "email",
+    "inputMode": "email",
+    "supportsPlaceholder": true,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": true,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "placeholder",
+    "minLength",
+    "maxLength",
+    "pattern",
+    "trim",
+    "normalizeWhitespace",
+    "allowEmptyString",
+    "autocomplete",
+    "inputMode",
+    "caseSensitive"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "minLength",
+    "maxLength",
+    "emailFormat"
+  ],
+  "examples": {
+    "valid": [
+      "hello@example.com"
+    ],
+    "invalid": [
+      "hello@",
+      "example.com"
+    ]
+  },
+  "notes": []
+}

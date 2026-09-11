@@ -1,0 +1,133 @@
+{
+  "$id": "modules.forms",
+  "moduleId": "forms",
+  "name": "Forms",
+  "version": "0.18.0",
+  "status": "stable",
+  "category": "growth",
+  "icon": "fa-rectangle-list",
+  "order": 210,
+  "description": "Structured forms, submissions, validation, notifications, spam handling, consent capture and conversion mapping.",
+  "selection": {
+    "mandatory": false,
+    "defaultEnabled": false,
+    "explicitManifestSelection": true,
+    "customerCanEnable": false,
+    "nextfAdminCanEnable": true
+  },
+  "dependencies": [
+    {
+      "moduleId": "core",
+      "kind": "required",
+      "reason": "Forms and submissions are Site-scoped."
+    },
+    {
+      "moduleId": "consent",
+      "kind": "conditional",
+      "reason": "Consent module is required when optional analytics/marketing consent is collected or enforced."
+    }
+  ],
+  "conflicts": [],
+  "capabilityIds": [
+    "forms.multi-step",
+    "forms.conditional-logic",
+    "forms.file-uploads",
+    "forms.notifications",
+    "forms.auto-response",
+    "forms.spam-protection",
+    "forms.consent-fields",
+    "forms.conversion-mapping"
+  ],
+  "defaultCapabilityIds": [
+    "forms.notifications",
+    "forms.spam-protection",
+    "forms.consent-fields"
+  ],
+  "contractBindings": [
+    "forms.autoResponse",
+    "forms.condition",
+    "forms.conditionGroup",
+    "forms.confirmation",
+    "forms.consentFieldConfig",
+    "forms.consentRecord",
+    "forms.conversionMapping",
+    "forms.dataHandling",
+    "forms.fieldMapping",
+    "forms.fieldOption",
+    "forms.fieldValidationRule",
+    "forms.form",
+    "forms.formAvailability",
+    "forms.formField",
+    "forms.formSection",
+    "forms.formStep",
+    "forms.formsLeadsContractStandard",
+    "forms.notificationRecipient",
+    "forms.notificationRule",
+    "forms.rateLimitPolicy",
+    "forms.requestContext",
+    "forms.spamDecision",
+    "forms.spamPolicy",
+    "forms.spamSignal",
+    "forms.submission",
+    "forms.submissionFile",
+    "forms.submissionValue",
+    "forms.uploadPolicy"
+  ],
+  "permissionBindings": [
+    "forms.consent.export",
+    "forms.consent.view",
+    "forms.forms.create",
+    "forms.forms.delete",
+    "forms.forms.edit",
+    "forms.forms.manage",
+    "forms.forms.publish",
+    "forms.forms.view",
+    "forms.notifications.edit",
+    "forms.notifications.manage",
+    "forms.notifications.view",
+    "forms.spam.manage",
+    "forms.spam.view",
+    "forms.submissions.delete",
+    "forms.submissions.export",
+    "forms.submissions.manage",
+    "forms.submissions.view"
+  ],
+  "eventBindings": [
+    "form.archived",
+    "form.created",
+    "form.published",
+    "form.rejected",
+    "form.submitted",
+    "form.updated"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "group": "Growth",
+    "navigation": [
+      {
+        "label": "Forms",
+        "path": "/growth/forms",
+        "icon": "fa-rectangle-list",
+        "order": 20
+      }
+    ]
+  },
+  "admin": {
+    "visible": true,
+    "group": "Sites",
+    "navigation": [
+      {
+        "label": "Forms",
+        "path": "/sites/:siteId/forms",
+        "icon": "fa-rectangle-list",
+        "order": 50
+      }
+    ]
+  },
+  "manifest": {
+    "moduleId": "forms",
+    "capabilitySelection": "module-scoped",
+    "dependencyValidation": "strict"
+  },
+  "notes": []
+}

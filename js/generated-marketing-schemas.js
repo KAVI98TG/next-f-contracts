@@ -1,0 +1,7118 @@
+// GENERATED FILE - DO NOT EDIT DIRECTLY.
+// Source: registry/marketing/index.json
+// SHA-256: 27f88077b8255c2b76176f281d4a7056cc4b8167d6fcc038b286827c4d7e6e0a
+export const GENERATED_MARKETING_SCHEMAS_SOURCE_SHA256 = "27f88077b8255c2b76176f281d4a7056cc4b8167d6fcc038b286827c4d7e6e0a";
+export const GENERATED_MARKETING_SCHEMAS = {
+  "registryVersion": "0.10.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Marketing and Tracking Contract Registry",
+  "description": "Generated index of authoritative Phase 9 Marketing and Tracking definitions.",
+  "definitionCount": 43,
+  "sourceDirectory": "registry/marketing/definitions",
+  "trackingVocabulary": "registry/marketing/tracking-events.json",
+  "trackingEventCount": 13,
+  "trackingEvents": [
+    {
+      "key": "page.viewed",
+      "label": "Page Viewed",
+      "defaultConsentCategory": "analytics",
+      "description": "A visitor-visible page or route view was observed.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "cta.clicked",
+      "label": "CTA Clicked",
+      "defaultConsentCategory": "analytics",
+      "description": "A registered call-to-action was activated.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "phone.clicked",
+      "label": "Phone Clicked",
+      "defaultConsentCategory": "analytics",
+      "description": "A telephone action link was activated.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "email.clicked",
+      "label": "Email Clicked",
+      "defaultConsentCategory": "analytics",
+      "description": "An email action link was activated.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "whatsapp.clicked",
+      "label": "WhatsApp Clicked",
+      "defaultConsentCategory": "analytics",
+      "description": "A WhatsApp action link was activated.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "document.downloaded",
+      "label": "Document Downloaded",
+      "defaultConsentCategory": "analytics",
+      "description": "A tracked public document download was initiated.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "form.started",
+      "label": "Form Started",
+      "defaultConsentCategory": "analytics",
+      "description": "Meaningful interaction with a registered form began.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "form.submitted",
+      "label": "Form Submitted",
+      "defaultConsentCategory": "analytics",
+      "description": "A registered form submission was accepted by the website/application flow.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "lead.created",
+      "label": "Lead Created",
+      "defaultConsentCategory": "analytics",
+      "description": "A canonical Lead was created from an accepted source.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "search.performed",
+      "label": "Search Performed",
+      "defaultConsentCategory": "analytics",
+      "description": "A visitor executed an on-site search.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "video.started",
+      "label": "Video Started",
+      "defaultConsentCategory": "analytics",
+      "description": "A tracked video began playback after user or permitted automatic action.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "video.completed",
+      "label": "Video Completed",
+      "defaultConsentCategory": "analytics",
+      "description": "A tracked video reached its configured completion threshold.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "newsletter.subscribed",
+      "label": "Newsletter Subscribed",
+      "defaultConsentCategory": "analytics",
+      "description": "A newsletter subscription workflow completed successfully.",
+      "conversionCandidate": true
+    }
+  ],
+  "schemas": [
+    {
+      "$id": "marketing.adClickIdentifier",
+      "name": "Advertising Click Identifier",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "campaign-attribution",
+      "description": "Provider-neutral captured advertising click identifier.",
+      "purpose": "Allows future advertising connectors to use click IDs without embedding provider-specific fields throughout tracking contracts.",
+      "marketingModel": {
+        "kind": "context",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Known identifier family.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "gclid",
+                "label": "GCLID"
+              },
+              {
+                "value": "gbraid",
+                "label": "GBRAID"
+              },
+              {
+                "value": "wbraid",
+                "label": "WBRAID"
+              },
+              {
+                "value": "fbclid",
+                "label": "FBCLID"
+              },
+              {
+                "value": "msclkid",
+                "label": "MSCLKID"
+              },
+              {
+                "value": "ttclid",
+                "label": "TTCLID"
+              },
+              {
+                "value": "liFatId",
+                "label": "LinkedIn FAT ID"
+              },
+              {
+                "value": "custom",
+                "label": "Custom"
+              }
+            ]
+          }
+        },
+        {
+          "key": "value",
+          "required": true,
+          "nullable": false,
+          "description": "Captured identifier value.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 2048
+          }
+        },
+        {
+          "key": "capturedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Capture timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "expiresAt",
+          "required": false,
+          "nullable": true,
+          "description": "Optional expiry/deletion timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "sourceHost",
+          "required": false,
+          "nullable": true,
+          "description": "Optional source hostname where identifier was observed.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "treatedAsPersonalIdentifier",
+          "description": "Advertising click IDs are handled as potentially personal/pseudonymous identifiers."
+        },
+        {
+          "id": "retentionBounded",
+          "description": "Retention follows Site policy and connector requirements."
+        },
+        {
+          "id": "notPublic",
+          "description": "Raw click identifiers are not public API/CMS preview data."
+        },
+        {
+          "id": "providerLogicLater",
+          "description": "Provider-specific validation and dispatch belongs to Phase 10."
+        }
+      ],
+      "cms": {
+        "label": "Advertising Click Identifier",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "type",
+          "value",
+          "capturedAt",
+          "expiresAt"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.analyticsConfiguration",
+      "name": "Analytics Configuration",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "configuration",
+      "description": "Site-level analytics session, retention and reporting defaults.",
+      "purpose": "Standardizes analytics behavior independently from a provider property such as GA4.",
+      "marketingModel": {
+        "kind": "configuration",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable config identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether analytics observations may be generated subject to consent.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "sessionTimeoutMinutes",
+          "required": true,
+          "nullable": false,
+          "description": "Inactivity window starting a new analytics session.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 1440,
+            "defaultValue": 30
+          }
+        },
+        {
+          "key": "reportingTimeZone",
+          "required": true,
+          "nullable": false,
+          "description": "IANA timezone for reporting boundaries.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80
+          }
+        },
+        {
+          "key": "reportingCurrency",
+          "required": false,
+          "nullable": true,
+          "description": "Currency code for normalized reports.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 3
+          }
+        },
+        {
+          "key": "defaultAttributionModel",
+          "required": false,
+          "nullable": true,
+          "description": "Default reporting attribution model.",
+          "schema": "marketing.attributionModel"
+        },
+        {
+          "key": "excludeInternalTraffic",
+          "required": true,
+          "nullable": false,
+          "description": "Whether configured internal traffic excluded.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "rawObservationRetentionDays",
+          "required": true,
+          "nullable": false,
+          "description": "Retention for raw analytics observations.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 730,
+            "defaultValue": 90
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "Uses identity."
+        },
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.attributionModel",
+          "description": "May define default attribution."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "providerNeutral",
+          "description": "No GA4 Measurement ID, Meta Pixel ID or provider credential here."
+        },
+        {
+          "id": "retentionRespectsDataPolicy",
+          "description": "Retention cannot exceed stricter data/privacy rules."
+        },
+        {
+          "id": "timezoneValid",
+          "description": "reportingTimeZone must be supported IANA timezone."
+        },
+        {
+          "id": "currencyNotImplicit",
+          "description": "Monetary reporting states currency explicitly."
+        }
+      ],
+      "cms": {
+        "label": "Analytics Configuration",
+        "icon": "fa-bullseye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "analytics-settings",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "enabled",
+          "sessionTimeoutMinutes"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.analyticsObservation",
+      "name": "Analytics Observation",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "reporting",
+      "description": "Normalized metric observation for a period and dimension set.",
+      "purpose": "Provides provider-neutral shape for NEXT F analytics and later imported provider measurements.",
+      "marketingModel": {
+        "kind": "derived",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "observationId",
+          "required": true,
+          "nullable": false,
+          "description": "Unique observation ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "metricKey",
+          "required": true,
+          "nullable": false,
+          "description": "Metric definition key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "periodStart",
+          "required": true,
+          "nullable": false,
+          "description": "Period start.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "periodEnd",
+          "required": true,
+          "nullable": false,
+          "description": "Period end.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "value",
+          "required": true,
+          "nullable": false,
+          "description": "Observed/aggregated value.",
+          "primitive": "fields.decimal"
+        },
+        {
+          "key": "currency",
+          "required": false,
+          "nullable": true,
+          "description": "Currency when needed.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 3
+          }
+        },
+        {
+          "key": "dimensions",
+          "required": false,
+          "nullable": true,
+          "description": "Validated dimension map.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "source",
+          "required": true,
+          "nullable": false,
+          "description": "Measurement origin.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "nextf",
+                "label": "NEXT F"
+              },
+              {
+                "value": "external",
+                "label": "External Provider"
+              },
+              {
+                "value": "combined",
+                "label": "Combined"
+              }
+            ]
+          }
+        },
+        {
+          "key": "generatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Generation/import timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "references",
+          "target": "marketing.metricDefinition",
+          "description": "metricKey resolves to metric."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.dimensionDefinition",
+          "description": "Dimension keys resolve to definitions."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "periodOrder",
+          "description": "periodEnd after periodStart."
+        },
+        {
+          "id": "currencyRequiredForMoney",
+          "description": "Currency required for currency metrics."
+        },
+        {
+          "id": "sourcePreserved",
+          "description": "Imported/derived source provenance retained."
+        },
+        {
+          "id": "derivedNotEditable",
+          "description": "Observations are not directly editable."
+        }
+      ],
+      "cms": {
+        "label": "Analytics Observation",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "observationId",
+          "scope",
+          "metricKey",
+          "periodStart"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.analyticsSnapshot",
+      "name": "Analytics Snapshot",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "reporting",
+      "description": "Immutable aggregate analytics view for one Site and period.",
+      "purpose": "Supports dashboard/report caching while preserving generation time and data freshness.",
+      "marketingModel": {
+        "kind": "snapshot",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "snapshotId",
+          "required": true,
+          "nullable": false,
+          "description": "Unique snapshot ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "periodStart",
+          "required": true,
+          "nullable": false,
+          "description": "Period start.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "periodEnd",
+          "required": true,
+          "nullable": false,
+          "description": "Period end.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "observations",
+          "required": true,
+          "nullable": false,
+          "description": "Metric observations.",
+          "itemsSchema": "marketing.analyticsObservation",
+          "config": {
+            "minItems": 1,
+            "maxItems": 5000
+          }
+        },
+        {
+          "key": "generatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Generation timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "sourceFreshThrough",
+          "required": false,
+          "nullable": true,
+          "description": "Latest represented source-data time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "attributionModelKey",
+          "required": false,
+          "nullable": true,
+          "description": "Attribution model key applied.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "composesMany",
+          "target": "marketing.analyticsObservation",
+          "description": "Contains observations."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.attributionModel",
+          "description": "May record attribution model."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "immutableSnapshot",
+          "description": "Refresh creates new snapshot."
+        },
+        {
+          "id": "freshnessVisible",
+          "description": "Dashboards expose data freshness."
+        },
+        {
+          "id": "periodOrder",
+          "description": "periodEnd after periodStart."
+        }
+      ],
+      "cms": {
+        "label": "Analytics Snapshot",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "snapshotId",
+          "scope",
+          "periodStart",
+          "periodEnd"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.attributionCredit",
+      "name": "Attribution Credit",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "campaign-attribution",
+      "description": "Credit assigned to one attribution touchpoint.",
+      "purpose": "Provides a normalized reusable value for multi-touch attribution.",
+      "marketingModel": {
+        "kind": "value-object",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "touchpointId",
+          "required": true,
+          "nullable": false,
+          "description": "Attributed touchpoint ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "credit",
+          "required": true,
+          "nullable": false,
+          "description": "Share of credit.",
+          "primitive": "fields.percentage"
+        },
+        {
+          "key": "reason",
+          "required": false,
+          "nullable": true,
+          "description": "Optional calculation reason.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "marketing.attributionTouchpoint",
+          "description": "References an eligible touchpoint."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "creditRange",
+          "description": "Credit remains from 0% to 100%."
+        },
+        {
+          "id": "touchpointMustExist",
+          "description": "Referenced touchpoint exists and is eligible."
+        }
+      ],
+      "cms": {
+        "label": "Attribution Credit",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "touchpointId",
+          "credit",
+          "reason"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.attributionModel",
+      "name": "Attribution Model",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "campaign-attribution",
+      "description": "Reporting rule describing how eligible touchpoints receive conversion credit.",
+      "purpose": "Separates reporting methodology from raw touchpoint evidence.",
+      "marketingModel": {
+        "kind": "configuration",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "modelKey",
+          "required": true,
+          "nullable": false,
+          "description": "Stable model key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Display name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 200
+          }
+        },
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Attribution strategy.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "firstTouch",
+                "label": "First Touch"
+              },
+              {
+                "value": "lastTouch",
+                "label": "Last Touch"
+              },
+              {
+                "value": "linear",
+                "label": "Linear"
+              },
+              {
+                "value": "positionBased",
+                "label": "Position Based"
+              },
+              {
+                "value": "custom",
+                "label": "Custom"
+              }
+            ]
+          }
+        },
+        {
+          "key": "lookbackWindowDays",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum touchpoint lookback.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 365,
+            "defaultValue": 30
+          }
+        },
+        {
+          "key": "positionFirstCredit",
+          "required": false,
+          "nullable": true,
+          "description": "First-position credit.",
+          "primitive": "fields.percentage"
+        },
+        {
+          "key": "positionLastCredit",
+          "required": false,
+          "nullable": true,
+          "description": "Last-position credit.",
+          "primitive": "fields.percentage"
+        },
+        {
+          "key": "customRules",
+          "required": false,
+          "nullable": true,
+          "description": "Validated custom attribution rules.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "reportingNotTruth",
+          "description": "Attribution is an analytical model, not proof of causality."
+        },
+        {
+          "id": "positionCreditsValid",
+          "description": "Position-based credits must form a valid distribution."
+        },
+        {
+          "id": "customRulesValidated",
+          "description": "Custom rules require deterministic validation."
+        },
+        {
+          "id": "modelKeyStable",
+          "description": "Historical reports retain model/version."
+        }
+      ],
+      "cms": {
+        "label": "Attribution Model",
+        "icon": "fa-bullseye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "attribution-model",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "modelKey",
+          "name",
+          "type",
+          "lookbackWindowDays"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.attributionTouchpoint",
+      "name": "Attribution Touchpoint",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "campaign-attribution",
+      "description": "Eligible acquisition or engagement touchpoint that may receive conversion credit.",
+      "purpose": "Creates auditable attribution evidence instead of recalculating from mutable current page state.",
+      "marketingModel": {
+        "kind": "observation",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "touchpointId",
+          "required": true,
+          "nullable": false,
+          "description": "Unique touchpoint ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "occurredAt",
+          "required": true,
+          "nullable": false,
+          "description": "Touchpoint time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "sessionId",
+          "required": false,
+          "nullable": true,
+          "description": "Associated session ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "trackingEventId",
+          "required": false,
+          "nullable": true,
+          "description": "Associated tracking observation ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "trafficSource",
+          "required": true,
+          "nullable": false,
+          "description": "Acquisition source.",
+          "schema": "marketing.trafficSource"
+        },
+        {
+          "key": "campaign",
+          "required": false,
+          "nullable": true,
+          "description": "Campaign context.",
+          "schema": "marketing.campaignContext"
+        },
+        {
+          "key": "page",
+          "required": false,
+          "nullable": true,
+          "description": "Page context.",
+          "schema": "marketing.pageContext"
+        },
+        {
+          "key": "eligible",
+          "required": true,
+          "nullable": false,
+          "description": "Eligibility under attribution policy.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "composes",
+          "target": "marketing.trafficSource",
+          "description": "Carries acquisition source."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.campaignContext",
+          "description": "May carry campaign."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.pageContext",
+          "description": "May carry page."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "immutableEvidence",
+          "description": "Captured attribution evidence is not rewritten when campaign metadata changes."
+        },
+        {
+          "id": "noCrossSiteAttribution",
+          "description": "No cross-Site attribution without future explicit contract."
+        },
+        {
+          "id": "consentAndPolicy",
+          "description": "Creation/retention follows consent/data policy."
+        }
+      ],
+      "cms": {
+        "label": "Attribution Touchpoint",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "touchpointId",
+          "scope",
+          "occurredAt",
+          "sessionId"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.campaignAttribution",
+      "name": "Campaign Attribution",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "campaign-attribution",
+      "description": "Computed attribution result for one conversion occurrence.",
+      "purpose": "Preserves which model and touchpoints were used so historical credit remains explainable.",
+      "marketingModel": {
+        "kind": "derived",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "attributionId",
+          "required": true,
+          "nullable": false,
+          "description": "Unique result ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "conversionOccurrenceId",
+          "required": true,
+          "nullable": false,
+          "description": "Conversion occurrence being attributed.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "model",
+          "required": true,
+          "nullable": false,
+          "description": "Model used.",
+          "schema": "marketing.attributionModel"
+        },
+        {
+          "key": "credits",
+          "required": true,
+          "nullable": false,
+          "description": "Touchpoint credit distribution.",
+          "itemsSchema": "marketing.attributionCredit",
+          "config": {
+            "minItems": 1,
+            "maxItems": 100
+          }
+        },
+        {
+          "key": "calculatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Calculation timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "modelVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Model/config version.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 40
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "marketing.attributionModel",
+          "description": "Records the model."
+        },
+        {
+          "type": "composesMany",
+          "target": "marketing.attributionCredit",
+          "description": "Records credits."
+        },
+        {
+          "type": "references",
+          "target": "marketing.conversionOccurrence",
+          "description": "Attributes one conversion occurrence."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "creditsNormalize",
+          "description": "Total attribution credit equals 100% within rounding tolerance."
+        },
+        {
+          "id": "historicalReproducibility",
+          "description": "Retain model version and evidence."
+        },
+        {
+          "id": "derivedNotEditable",
+          "description": "Computed result is not directly editable."
+        }
+      ],
+      "cms": {
+        "label": "Campaign Attribution",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "attributionId",
+          "conversionOccurrenceId",
+          "model",
+          "credits"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.campaignContext",
+      "name": "Campaign Context",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "campaign-attribution",
+      "description": "Captured campaign, creative and placement context attached to a touchpoint.",
+      "purpose": "Separates campaign dimensions from the core event so reporting can evolve independently.",
+      "marketingModel": {
+        "kind": "context",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "campaignKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional NEXT F campaign key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "adGroupKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional ad group/ad set key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "adKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional advertisement key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "creativeKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional creative key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "placement",
+          "required": false,
+          "nullable": true,
+          "description": "Optional placement label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "utm",
+          "required": false,
+          "nullable": true,
+          "description": "Captured UTM context.",
+          "schema": "marketing.utmParameters"
+        },
+        {
+          "key": "externalReferences",
+          "required": false,
+          "nullable": true,
+          "description": "Provider object references.",
+          "itemsSchema": "shared.externalReference",
+          "config": {
+            "maxItems": 20
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.utmParameters",
+          "description": "May carry UTM."
+        },
+        {
+          "type": "optionallyComposesMany",
+          "target": "shared.externalReference",
+          "description": "May reference external objects."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "keysNotCredentials",
+          "description": "Campaign/ad/creative keys never contain credentials."
+        },
+        {
+          "id": "untrustedUrlContext",
+          "description": "UTM-derived values remain untrusted."
+        }
+      ],
+      "cms": {
+        "label": "Campaign Context",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "campaignKey",
+          "adGroupKey",
+          "adKey",
+          "creativeKey"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.campaignDefinition",
+      "name": "Campaign Definition",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "campaign-attribution",
+      "description": "Provider-neutral campaign metadata known to NEXT F.",
+      "purpose": "Provides a stable campaign key for attribution/reporting while external advertising accounts remain customer-owned.",
+      "marketingModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable campaign identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Organization/Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "campaignKey",
+          "required": true,
+          "nullable": false,
+          "description": "Stable NEXT F campaign key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "pattern": "^[a-zA-Z0-9._-]+$"
+          }
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Campaign name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300
+          }
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Campaign lifecycle.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "draft",
+                "label": "Draft"
+              },
+              {
+                "value": "active",
+                "label": "Active"
+              },
+              {
+                "value": "paused",
+                "label": "Paused"
+              },
+              {
+                "value": "completed",
+                "label": "Completed"
+              },
+              {
+                "value": "archived",
+                "label": "Archived"
+              }
+            ]
+          }
+        },
+        {
+          "key": "objective",
+          "required": false,
+          "nullable": true,
+          "description": "Business objective.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500
+          }
+        },
+        {
+          "key": "startsAt",
+          "required": false,
+          "nullable": true,
+          "description": "Optional start.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "endsAt",
+          "required": false,
+          "nullable": true,
+          "description": "Optional end.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "externalReferences",
+          "required": false,
+          "nullable": true,
+          "description": "External campaign references.",
+          "itemsSchema": "shared.externalReference",
+          "config": {
+            "maxItems": 20
+          }
+        },
+        {
+          "key": "sourceOfTruth",
+          "required": true,
+          "nullable": false,
+          "description": "Primary operational source.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "nextf",
+                "label": "NEXT F"
+              },
+              {
+                "value": "external",
+                "label": "External provider"
+              },
+              {
+                "value": "hybrid",
+                "label": "Hybrid"
+              }
+            ],
+            "defaultValue": "external"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "Uses identity."
+        },
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Is Site-scoped."
+        },
+        {
+          "type": "optionallyComposesMany",
+          "target": "shared.externalReference",
+          "description": "May reference external campaigns."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "externalOwnership",
+          "description": "External advertising campaign accounts normally remain customer-owned."
+        },
+        {
+          "id": "externalStatusNotInvented",
+          "description": "When external is source, NEXT F does not invent provider status."
+        },
+        {
+          "id": "campaignKeyStable",
+          "description": "campaignKey remains stable across display-name edits."
+        },
+        {
+          "id": "dateOrder",
+          "description": "endsAt must not precede startsAt."
+        }
+      ],
+      "cms": {
+        "label": "Campaign Definition",
+        "icon": "fa-bullseye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "campaign-editor",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "campaignKey",
+          "name"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.campaignPerformanceSnapshot",
+      "name": "Campaign Performance Snapshot",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "reporting",
+      "description": "Derived campaign performance metrics for a fixed period.",
+      "purpose": "Provides stable reporting shape for future external campaign imports without making NEXT F the ad-account source of truth.",
+      "marketingModel": {
+        "kind": "snapshot",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "snapshotId",
+          "required": true,
+          "nullable": false,
+          "description": "Unique snapshot ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "campaignKey",
+          "required": true,
+          "nullable": false,
+          "description": "Campaign key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "periodStart",
+          "required": true,
+          "nullable": false,
+          "description": "Period start.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "periodEnd",
+          "required": true,
+          "nullable": false,
+          "description": "Period end.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "impressions",
+          "required": false,
+          "nullable": true,
+          "description": "Observed impressions.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        },
+        {
+          "key": "clicks",
+          "required": false,
+          "nullable": true,
+          "description": "Observed clicks.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        },
+        {
+          "key": "spend",
+          "required": false,
+          "nullable": true,
+          "description": "Observed ad spend.",
+          "primitive": "fields.currency"
+        },
+        {
+          "key": "conversions",
+          "required": false,
+          "nullable": true,
+          "description": "Attributed conversion count/credit.",
+          "primitive": "fields.decimal",
+          "config": {
+            "minimum": 0
+          }
+        },
+        {
+          "key": "conversionValue",
+          "required": false,
+          "nullable": true,
+          "description": "Attributed conversion value.",
+          "primitive": "fields.currency"
+        },
+        {
+          "key": "generatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Generation/import timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "sourceFreshThrough",
+          "required": false,
+          "nullable": true,
+          "description": "Latest upstream data time.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "marketing.campaignDefinition",
+          "description": "campaignKey resolves to campaign."
+        },
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "externalSourceNotInvented",
+          "description": "Imported metrics retain provider/source provenance."
+        },
+        {
+          "id": "spendCurrencyExplicit",
+          "description": "Spend always carries currency."
+        },
+        {
+          "id": "attributionNotCausality",
+          "description": "Conversion metrics are attribution, not proven causation."
+        },
+        {
+          "id": "immutablePeriodSnapshot",
+          "description": "Regeneration creates new snapshot."
+        }
+      ],
+      "cms": {
+        "label": "Campaign Performance Snapshot",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "snapshotId",
+          "scope",
+          "campaignKey",
+          "periodStart"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.consentCategory",
+      "name": "Consent Category",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "consent",
+      "description": "Site-defined category used to gate tracking and marketing destinations.",
+      "purpose": "Creates a stable consent key that tracking definitions and routing can reference.",
+      "marketingModel": {
+        "kind": "definition",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true,
+        "dataSensitivity": "public"
+      },
+      "fields": [
+        {
+          "key": "categoryKey",
+          "required": true,
+          "nullable": false,
+          "description": "Stable category key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80,
+            "pattern": "^[a-z][a-z0-9-]*$"
+          }
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Visitor-facing category name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "description",
+          "required": true,
+          "nullable": false,
+          "description": "Visitor-facing purpose.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1500
+          }
+        },
+        {
+          "key": "required",
+          "required": true,
+          "nullable": false,
+          "description": "Whether category is technically necessary.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "defaultState",
+          "required": true,
+          "nullable": false,
+          "description": "Initial state when policy permits.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "granted",
+                "label": "Granted"
+              },
+              {
+                "value": "denied",
+                "label": "Denied"
+              },
+              {
+                "value": "unset",
+                "label": "Unset"
+              }
+            ],
+            "defaultValue": "unset"
+          }
+        },
+        {
+          "key": "displayOrder",
+          "required": true,
+          "nullable": false,
+          "description": "Consent UI order.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0,
+            "maximum": 999
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "requiredJustified",
+          "description": "required=true reserved for genuinely necessary functions."
+        },
+        {
+          "id": "defaultNotLegalAdvice",
+          "description": "Default configuration is not legal compliance determination."
+        },
+        {
+          "id": "keyStable",
+          "description": "categoryKey stays stable across label changes."
+        },
+        {
+          "id": "marketingNotNecessaryByDefault",
+          "description": "Advertising/marketing category must not be required for convenience."
+        }
+      ],
+      "cms": {
+        "label": "Consent Category",
+        "icon": "fa-bullseye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "consent-category",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "categoryKey",
+          "name",
+          "description",
+          "required"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.consentPolicy",
+      "name": "Consent Policy",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "consent",
+      "description": "Site-level configuration defining tracking categories and unknown-state behavior.",
+      "purpose": "Centralizes consent behavior so individual tags/components do not invent defaults.",
+      "marketingModel": {
+        "kind": "policy",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true,
+        "dataSensitivity": "public"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable policy identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "policyVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Published policy version.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 40
+          }
+        },
+        {
+          "key": "categories",
+          "required": true,
+          "nullable": false,
+          "description": "Configured categories.",
+          "itemsSchema": "marketing.consentCategory",
+          "config": {
+            "minItems": 1,
+            "maxItems": 50
+          }
+        },
+        {
+          "key": "unknownOptionalBehavior",
+          "required": true,
+          "nullable": false,
+          "description": "Behavior when optional choice unset.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "deny",
+                "label": "Deny"
+              },
+              {
+                "value": "defer",
+                "label": "Defer Until Choice"
+              }
+            ],
+            "defaultValue": "deny"
+          }
+        },
+        {
+          "key": "regionStrategy",
+          "required": true,
+          "nullable": false,
+          "description": "How region-specific policy selection is resolved.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "single",
+                "label": "Single Policy"
+              },
+              {
+                "value": "configuredRules",
+                "label": "Configured Rules"
+              }
+            ],
+            "defaultValue": "single"
+          }
+        },
+        {
+          "key": "effectiveAt",
+          "required": true,
+          "nullable": false,
+          "description": "Policy effective time.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "Uses identity."
+        },
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "composesMany",
+          "target": "marketing.consentCategory",
+          "description": "Defines categories."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "unknownOptionalNotGrant",
+          "description": "Unknown optional state not treated as granted."
+        },
+        {
+          "id": "policyVersionImmutable",
+          "description": "Published policy version is not silently rewritten."
+        },
+        {
+          "id": "legalReviewExternal",
+          "description": "Contract configuration does not replace legal review."
+        },
+        {
+          "id": "necessaryCategoryRestricted",
+          "description": "Only genuinely necessary purposes bypass optional controls."
+        }
+      ],
+      "cms": {
+        "label": "Consent Policy",
+        "icon": "fa-bullseye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "consent-policy",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "policyVersion",
+          "categories"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.consentPreference",
+      "name": "Consent Preference",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "consent",
+      "description": "One visitor/session choice for one tracking consent category.",
+      "purpose": "Provides normalized granted, denied or unset state with time and source.",
+      "marketingModel": {
+        "kind": "value-object",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "categoryKey",
+          "required": true,
+          "nullable": false,
+          "description": "Consent category key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80
+          }
+        },
+        {
+          "key": "state",
+          "required": true,
+          "nullable": false,
+          "description": "Current preference.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "granted",
+                "label": "Granted"
+              },
+              {
+                "value": "denied",
+                "label": "Denied"
+              },
+              {
+                "value": "unset",
+                "label": "Unset"
+              }
+            ]
+          }
+        },
+        {
+          "key": "changedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Timestamp preference took effect.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "source",
+          "required": true,
+          "nullable": false,
+          "description": "How preference was established.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "banner",
+                "label": "Consent Banner"
+              },
+              {
+                "value": "settings",
+                "label": "Privacy Settings"
+              },
+              {
+                "value": "api",
+                "label": "API"
+              },
+              {
+                "value": "system",
+                "label": "System Default"
+              }
+            ]
+          }
+        },
+        {
+          "key": "policyVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Policy version presented.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 40
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "marketing.consentCategory",
+          "description": "categoryKey resolves to category."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "stateExplicit",
+          "description": "Unknown choice is unset, not inferred granted."
+        },
+        {
+          "id": "policyVersionRequired",
+          "description": "Choices retain policy version."
+        },
+        {
+          "id": "serverEnforcement",
+          "description": "Server dispatch enforces eligibility."
+        }
+      ],
+      "cms": {
+        "label": "Consent Preference",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "categoryKey",
+          "state",
+          "changedAt",
+          "source"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.consentState",
+      "name": "Consent State",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "consent",
+      "description": "Current normalized tracking consent state for visitor/session context.",
+      "purpose": "Provides one source for deciding optional tracking destination eligibility.",
+      "marketingModel": {
+        "kind": "state",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "stateId",
+          "required": true,
+          "nullable": false,
+          "description": "Unique state/snapshot ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "sessionId",
+          "required": false,
+          "nullable": true,
+          "description": "Associated session ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "anonymousVisitorId",
+          "required": false,
+          "nullable": true,
+          "description": "Associated anonymous visitor ID if allowed.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "preferences",
+          "required": true,
+          "nullable": false,
+          "description": "Current category preferences.",
+          "itemsSchema": "marketing.consentPreference",
+          "config": {
+            "minItems": 1,
+            "maxItems": 50
+          }
+        },
+        {
+          "key": "updatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Most recent state change.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composesMany",
+          "target": "marketing.consentPreference",
+          "description": "Contains category preferences."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "onePreferencePerCategory",
+          "description": "At most one active preference per category."
+        },
+        {
+          "id": "noImplicitMarketingGrant",
+          "description": "Missing preference is not marketing consent."
+        },
+        {
+          "id": "identityOptional",
+          "description": "Consent works without authenticated identity."
+        },
+        {
+          "id": "notLegalConclusion",
+          "description": "Technical state is not itself legal compliance proof."
+        }
+      ],
+      "cms": {
+        "label": "Consent State",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "stateId",
+          "sessionId",
+          "anonymousVisitorId",
+          "preferences"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.conversionAttribution",
+      "name": "Conversion Attribution Context",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "conversion",
+      "description": "Lightweight attribution summary attached to a conversion occurrence.",
+      "purpose": "Separates quick conversion context from full computed Campaign Attribution evidence.",
+      "marketingModel": {
+        "kind": "value-object",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "attributionId",
+          "required": false,
+          "nullable": true,
+          "description": "Optional full attribution result ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "modelKey",
+          "required": false,
+          "nullable": true,
+          "description": "Attribution model key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        },
+        {
+          "key": "campaignKey",
+          "required": false,
+          "nullable": true,
+          "description": "Primary credited campaign.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "channel",
+          "required": false,
+          "nullable": true,
+          "description": "Primary credited channel.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        },
+        {
+          "key": "source",
+          "required": false,
+          "nullable": true,
+          "description": "Primary credited source.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.campaignAttribution",
+          "description": "May reference full result."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.attributionModel",
+          "description": "modelKey may resolve to model."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "summaryNotOverride",
+          "description": "Summary does not replace full attribution evidence."
+        },
+        {
+          "id": "causalityNotClaimed",
+          "description": "Attribution labels do not prove causality."
+        }
+      ],
+      "cms": {
+        "label": "Conversion Attribution Context",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "attributionId",
+          "modelKey",
+          "campaignKey",
+          "channel"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.conversionDeduplicationPolicy",
+      "name": "Conversion Deduplication Policy",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "conversion",
+      "description": "Rules preventing duplicate counting of one business conversion.",
+      "purpose": "Standardizes deduplication before browser/server/provider delivery paths are attached.",
+      "marketingModel": {
+        "kind": "policy",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "strategy",
+          "required": true,
+          "nullable": false,
+          "description": "Deduplication strategy.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "eventId",
+                "label": "Event ID"
+              },
+              {
+                "value": "dedupeKey",
+                "label": "Dedupe Key"
+              },
+              {
+                "value": "sourceEntity",
+                "label": "Source Entity"
+              },
+              {
+                "value": "none",
+                "label": "None"
+              }
+            ]
+          }
+        },
+        {
+          "key": "windowSeconds",
+          "required": true,
+          "nullable": false,
+          "description": "Duplicate matching window.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0,
+            "maximum": 2592000,
+            "defaultValue": 86400
+          }
+        },
+        {
+          "key": "caseSensitive",
+          "required": true,
+          "nullable": false,
+          "description": "Whether textual keys are case-sensitive.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "allowRetrySameId",
+          "required": true,
+          "nullable": false,
+          "description": "Technical retries with same ID do not create a second conversion.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "technicalRetryNotNewConversion",
+          "description": "Retries preserve original dedupe identity."
+        },
+        {
+          "id": "noneExplicit",
+          "description": "No deduplication is allowed only when explicitly appropriate."
+        },
+        {
+          "id": "providerDedupLater",
+          "description": "Provider-specific dedup tokens map in Phase 10."
+        }
+      ],
+      "cms": {
+        "label": "Conversion Deduplication Policy",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "strategy",
+          "windowSeconds",
+          "caseSensitive",
+          "allowRetrySameId"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.conversionDefinition",
+      "name": "Conversion Definition",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "conversion",
+      "description": "Canonical business conversion mapped to one or more tracking events.",
+      "purpose": "Creates one NEXT F conversion key that future GA4, Google Ads, Meta and other connectors can consume consistently.",
+      "marketingModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable conversion identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "conversionKey",
+          "required": true,
+          "nullable": false,
+          "description": "Stable conversion key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "pattern": "^[a-z][A-Za-z0-9._-]*$"
+          }
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Conversion name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 200
+          }
+        },
+        {
+          "key": "category",
+          "required": true,
+          "nullable": false,
+          "description": "Business category.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "lead",
+                "label": "Lead"
+              },
+              {
+                "value": "contact",
+                "label": "Contact"
+              },
+              {
+                "value": "signup",
+                "label": "Signup"
+              },
+              {
+                "value": "download",
+                "label": "Download"
+              },
+              {
+                "value": "engagement",
+                "label": "Engagement"
+              },
+              {
+                "value": "purchase",
+                "label": "Purchase"
+              },
+              {
+                "value": "custom",
+                "label": "Custom"
+              }
+            ]
+          }
+        },
+        {
+          "key": "triggerEventKey",
+          "required": true,
+          "nullable": false,
+          "description": "Tracking event key that may produce conversion.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "primary",
+          "required": true,
+          "nullable": false,
+          "description": "Primary business conversion.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "value",
+          "required": true,
+          "nullable": false,
+          "description": "Value behavior.",
+          "schema": "marketing.conversionValue"
+        },
+        {
+          "key": "requiredConsentCategoryKey",
+          "required": true,
+          "nullable": false,
+          "description": "Consent category required for optional marketing dispatch.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80
+          }
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether conversion is active.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "Uses identity."
+        },
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "composes",
+          "target": "marketing.conversionValue",
+          "description": "Defines value."
+        },
+        {
+          "type": "references",
+          "target": "marketing.trackingEventDefinition",
+          "description": "triggerEventKey resolves to tracking definition."
+        },
+        {
+          "type": "relatedTo",
+          "target": "forms.conversionMapping",
+          "description": "Form mappings can resolve conversionKey here."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "conversionKeyUniquePerSite",
+          "description": "conversionKey unique within Site."
+        },
+        {
+          "id": "triggerEventResolvable",
+          "description": "triggerEventKey resolves to enabled tracking definition."
+        },
+        {
+          "id": "formsMappingResolution",
+          "description": "forms.conversionMapping.conversionKey should resolve here when Forms enabled."
+        },
+        {
+          "id": "noProviderIds",
+          "description": "Provider conversion IDs belong to Phase 10 connectors."
+        },
+        {
+          "id": "purchaseForwardReference",
+          "description": "Purchase transaction semantics finalized in Phase 11."
+        }
+      ],
+      "cms": {
+        "label": "Conversion Definition",
+        "icon": "fa-bullseye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "conversion-editor",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "conversionKey",
+          "name"
+        ],
+        "primaryActions": [
+          "view",
+          "edit",
+          "test"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.conversionOccurrence",
+      "name": "Conversion Occurrence",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "conversion",
+      "description": "Immutable observed instance of a canonical conversion.",
+      "purpose": "Separates business conversion occurrence from destination delivery so one conversion can route to multiple systems.",
+      "marketingModel": {
+        "kind": "observation",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "occurrenceId",
+          "required": true,
+          "nullable": false,
+          "description": "Unique occurrence ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "conversionKey",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical conversion key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "trackingEventId",
+          "required": true,
+          "nullable": false,
+          "description": "Source tracking observation ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "occurredAt",
+          "required": true,
+          "nullable": false,
+          "description": "Conversion timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "value",
+          "required": false,
+          "nullable": true,
+          "description": "Resolved value.",
+          "schema": "marketing.conversionValue"
+        },
+        {
+          "key": "dedupeKey",
+          "required": false,
+          "nullable": true,
+          "description": "Stable dedupe key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "attribution",
+          "required": false,
+          "nullable": true,
+          "description": "Attribution context.",
+          "schema": "marketing.conversionAttribution"
+        },
+        {
+          "key": "consentState",
+          "required": false,
+          "nullable": true,
+          "description": "Consent state relevant to dispatch.",
+          "schema": "marketing.consentState"
+        },
+        {
+          "key": "sourceEntity",
+          "required": false,
+          "nullable": true,
+          "description": "Optional canonical source entity ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "references",
+          "target": "marketing.conversionDefinition",
+          "description": "conversionKey resolves to definition."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.conversionValue",
+          "description": "May carry value."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.conversionAttribution",
+          "description": "May carry attribution."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.consentState",
+          "description": "May preserve consent state."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "immutableOccurrence",
+          "description": "Meaning, occurredAt, source and value snapshot are not silently rewritten."
+        },
+        {
+          "id": "dedupeAppliedBeforeCount",
+          "description": "Deduplication applies before aggregate counting."
+        },
+        {
+          "id": "noDestinationStatus",
+          "description": "Provider delivery state belongs to dispatch results."
+        },
+        {
+          "id": "sourceEntityNotPii",
+          "description": "sourceEntity is canonical ID, never raw email/phone."
+        }
+      ],
+      "cms": {
+        "label": "Conversion Occurrence",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "occurrenceId",
+          "scope",
+          "conversionKey",
+          "trackingEventId"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.conversionSummary",
+      "name": "Conversion Summary",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "reporting",
+      "description": "Aggregate conversion metrics for a fixed period.",
+      "purpose": "Standardizes CMS dashboard conversion counts/values independently from provider reporting screens.",
+      "marketingModel": {
+        "kind": "snapshot",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "summaryId",
+          "required": true,
+          "nullable": false,
+          "description": "Unique summary ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "conversionKey",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical conversion key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "periodStart",
+          "required": true,
+          "nullable": false,
+          "description": "Period start.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "periodEnd",
+          "required": true,
+          "nullable": false,
+          "description": "Period end.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "occurrenceCount",
+          "required": true,
+          "nullable": false,
+          "description": "Deduplicated conversion count.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        },
+        {
+          "key": "totalValue",
+          "required": false,
+          "nullable": true,
+          "description": "Optional total value.",
+          "primitive": "fields.currency"
+        },
+        {
+          "key": "conversionRate",
+          "required": false,
+          "nullable": true,
+          "description": "Optional rate with valid denominator.",
+          "primitive": "fields.percentage"
+        },
+        {
+          "key": "generatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Generation timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "attributionModelKey",
+          "required": false,
+          "nullable": true,
+          "description": "Attribution model key if relevant.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "references",
+          "target": "marketing.conversionDefinition",
+          "description": "conversionKey resolves to definition."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.attributionModel",
+          "description": "May record attribution model."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "deduplicatedCount",
+          "description": "Count calculated after deduplication."
+        },
+        {
+          "id": "rateDenominatorDefined",
+          "description": "Rate never displayed without valid denominator."
+        },
+        {
+          "id": "periodOrder",
+          "description": "periodEnd after periodStart."
+        },
+        {
+          "id": "summaryDerived",
+          "description": "Summary is derived, not directly edited."
+        }
+      ],
+      "cms": {
+        "label": "Conversion Summary",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "summaryId",
+          "scope",
+          "conversionKey",
+          "periodStart"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.conversionValue",
+      "name": "Conversion Value",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "conversion",
+      "description": "Normalized monetary/non-monetary value for a conversion.",
+      "purpose": "Prevents value logic from being encoded independently inside ad/analytics scripts.",
+      "marketingModel": {
+        "kind": "value-object",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "mode",
+          "required": true,
+          "nullable": false,
+          "description": "How value is determined.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "none",
+                "label": "No value"
+              },
+              {
+                "value": "fixed",
+                "label": "Fixed"
+              },
+              {
+                "value": "eventProperty",
+                "label": "Event property"
+              },
+              {
+                "value": "transaction",
+                "label": "Transaction"
+              }
+            ]
+          }
+        },
+        {
+          "key": "value",
+          "required": false,
+          "nullable": true,
+          "description": "Resolved/fixed monetary value.",
+          "primitive": "fields.currency"
+        },
+        {
+          "key": "sourcePropertyKey",
+          "required": false,
+          "nullable": true,
+          "description": "Event property used for eventProperty mode.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "transactionReference",
+          "required": false,
+          "nullable": true,
+          "description": "Future transaction reference.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "modeExclusive",
+          "description": "Fields used correspond to selected mode."
+        },
+        {
+          "id": "transactionForwardReference",
+          "description": "Transaction-backed values are finalized in Phase 11."
+        },
+        {
+          "id": "noNegativeValueUnlessDefined",
+          "description": "Negative values require explicit adjustment/refund semantics."
+        }
+      ],
+      "cms": {
+        "label": "Conversion Value",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "mode",
+          "value",
+          "sourcePropertyKey",
+          "transactionReference"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.dataLayerConfiguration",
+      "name": "Data Layer Configuration",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "configuration",
+      "description": "Provider-neutral rules for the NEXT F browser/runtime event queue.",
+      "purpose": "Prevents customer sites from hardcoding a vendor-specific data layer contract and gives Codex one stable client event interface.",
+      "marketingModel": {
+        "kind": "configuration",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true,
+        "dataSensitivity": "public"
+      },
+      "fields": [
+        {
+          "key": "namespace",
+          "required": true,
+          "nullable": false,
+          "description": "Stable runtime namespace used by the NEXT F tracking adapter.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80,
+            "defaultValue": "nextf"
+          }
+        },
+        {
+          "key": "queueLimit",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum in-memory queued events before oldest non-critical observations are dropped.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 10,
+            "maximum": 5000,
+            "defaultValue": 500
+          }
+        },
+        {
+          "key": "flushMode",
+          "required": true,
+          "nullable": false,
+          "description": "When eligible queued events are flushed.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "immediate",
+                "label": "Immediate"
+              },
+              {
+                "value": "batch",
+                "label": "Batch"
+              }
+            ],
+            "defaultValue": "immediate"
+          }
+        },
+        {
+          "key": "batchSize",
+          "required": false,
+          "nullable": true,
+          "description": "Maximum observations sent in one batch when batch mode is used.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 100
+          }
+        },
+        {
+          "key": "debugModeAllowed",
+          "required": true,
+          "nullable": false,
+          "description": "Whether development environments may expose sanitized debug events.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "reservedKeys",
+          "required": false,
+          "nullable": true,
+          "description": "Keys reserved by NEXT F runtime and unavailable to arbitrary project properties.",
+          "itemsPrimitive": "fields.text",
+          "config": {
+            "maxItems": 100
+          }
+        },
+        {
+          "key": "schemaVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Data layer envelope version.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 40,
+            "defaultValue": "1.0.0"
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "vendorNeutral",
+          "description": "The canonical browser interface must not be named after GTM, GA4, Meta or another provider."
+        },
+        {
+          "id": "reservedKeysProtected",
+          "description": "Customer/project properties cannot overwrite reserved envelope keys."
+        },
+        {
+          "id": "queueNeverStoresSecrets",
+          "description": "Queued observations must not contain secrets or raw authentication credentials."
+        },
+        {
+          "id": "debugPayloadSanitized",
+          "description": "Debug output must apply the same data allowlist/minimization rules as production."
+        }
+      ],
+      "cms": {
+        "label": "Data Layer Configuration",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "developer-config",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "namespace",
+          "queueLimit",
+          "flushMode",
+          "batchSize"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.destinationMapping",
+      "name": "Destination Mapping",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "destination",
+      "description": "Maps canonical tracking/conversion keys to a logical destination action key.",
+      "purpose": "Provides provider-neutral handoff; provider event names/IDs remain connector-owned in Phase 10.",
+      "marketingModel": {
+        "kind": "mapping",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "mappingKey",
+          "required": true,
+          "nullable": false,
+          "description": "Stable mapping ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "destinationKey",
+          "required": true,
+          "nullable": false,
+          "description": "Logical destination key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "sourceType",
+          "required": true,
+          "nullable": false,
+          "description": "Source object type.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "trackingEvent",
+                "label": "Tracking Event"
+              },
+              {
+                "value": "conversion",
+                "label": "Conversion"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sourceKey",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical eventKey/conversionKey.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "destinationActionKey",
+          "required": true,
+          "nullable": false,
+          "description": "Provider-neutral action alias resolved by connector.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether mapping active.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "marketing.marketingDestination",
+          "description": "Targets destination."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.trackingEventDefinition",
+          "description": "Tracking sources resolve here."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.conversionDefinition",
+          "description": "Conversion sources resolve here."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "providerSpecificIdsExcluded",
+          "description": "Provider conversion/pixel IDs do not belong here."
+        },
+        {
+          "id": "sourceKeyResolvable",
+          "description": "sourceKey resolves according to sourceType."
+        },
+        {
+          "id": "destinationActionConnectorOwned",
+          "description": "Phase 10 connector resolves provider semantics."
+        }
+      ],
+      "cms": {
+        "label": "Destination Mapping",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "mappingKey",
+          "destinationKey",
+          "sourceType",
+          "sourceKey"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.deviceContext",
+      "name": "Device Context",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "context",
+      "description": "Coarse device and client environment metadata for analytics breakdowns.",
+      "purpose": "Provides useful dimensions without creating a fingerprinting surface.",
+      "marketingModel": {
+        "kind": "context",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "deviceCategory",
+          "required": false,
+          "nullable": true,
+          "description": "Coarse device category.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "desktop",
+                "label": "Desktop"
+              },
+              {
+                "value": "tablet",
+                "label": "Tablet"
+              },
+              {
+                "value": "mobile",
+                "label": "Mobile"
+              },
+              {
+                "value": "other",
+                "label": "Other"
+              }
+            ]
+          }
+        },
+        {
+          "key": "browserFamily",
+          "required": false,
+          "nullable": true,
+          "description": "Coarse browser family.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80
+          }
+        },
+        {
+          "key": "osFamily",
+          "required": false,
+          "nullable": true,
+          "description": "Coarse OS family.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80
+          }
+        },
+        {
+          "key": "language",
+          "required": false,
+          "nullable": true,
+          "description": "Client language.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 40
+          }
+        },
+        {
+          "key": "viewportWidth",
+          "required": false,
+          "nullable": true,
+          "description": "Viewport width CSS px.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0,
+            "maximum": 20000
+          }
+        },
+        {
+          "key": "viewportHeight",
+          "required": false,
+          "nullable": true,
+          "description": "Viewport height CSS px.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0,
+            "maximum": 20000
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "coarseOnly",
+          "description": "Do not collect high-entropy characteristics merely to distinguish visitors."
+        },
+        {
+          "id": "noFingerprintHash",
+          "description": "No fingerprint hash may be derived."
+        },
+        {
+          "id": "optionalDimensions",
+          "description": "Device fields are optional and policy/consent-aware."
+        }
+      ],
+      "cms": {
+        "label": "Device Context",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "deviceCategory",
+          "browserFamily",
+          "osFamily",
+          "language"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.dimensionDefinition",
+      "name": "Analytics Dimension Definition",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "reporting",
+      "description": "Canonical grouping/filtering dimension for analytics reports.",
+      "purpose": "Standardizes dimensions such as channel, page, campaign and device category.",
+      "marketingModel": {
+        "kind": "definition",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": false,
+        "dataSensitivity": "public"
+      },
+      "fields": [
+        {
+          "key": "dimensionKey",
+          "required": true,
+          "nullable": false,
+          "description": "Stable dimension key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Dimension name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 200
+          }
+        },
+        {
+          "key": "description",
+          "required": true,
+          "nullable": false,
+          "description": "Grouping semantics.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1500
+          }
+        },
+        {
+          "key": "source",
+          "required": true,
+          "nullable": false,
+          "description": "Dimension source.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "event",
+                "label": "Event"
+              },
+              {
+                "value": "context",
+                "label": "Context"
+              },
+              {
+                "value": "attribution",
+                "label": "Attribution"
+              },
+              {
+                "value": "derived",
+                "label": "Derived"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sourceKey",
+          "required": true,
+          "nullable": false,
+          "description": "Source property/path or rule key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "valueType",
+          "required": true,
+          "nullable": false,
+          "description": "Value type.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "text",
+                "label": "Text"
+              },
+              {
+                "value": "boolean",
+                "label": "Boolean"
+              },
+              {
+                "value": "date",
+                "label": "Date"
+              },
+              {
+                "value": "number",
+                "label": "Number"
+              }
+            ]
+          }
+        },
+        {
+          "key": "containsPersonalData",
+          "required": true,
+          "nullable": false,
+          "description": "Whether values can relate to a person.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "highCardinality",
+          "required": true,
+          "nullable": false,
+          "description": "Whether dimension can create high-cardinality reports.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "personalDimensionsRestricted",
+          "description": "Personal dimensions require privacy/permission treatment."
+        },
+        {
+          "id": "highCardinalityReview",
+          "description": "High-cardinality dimensions not enabled by default."
+        },
+        {
+          "id": "sourceStable",
+          "description": "sourceKey semantics remain stable."
+        }
+      ],
+      "cms": {
+        "label": "Analytics Dimension Definition",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "dimensionKey",
+          "name",
+          "description",
+          "source"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.dispatchRequest",
+      "name": "Marketing Dispatch Request",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "destination",
+      "description": "Sanitized internal request to deliver one observation to a logical destination.",
+      "purpose": "Separates collection from delivery and records consent/data-policy decision point.",
+      "marketingModel": {
+        "kind": "operational",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "dispatchId",
+          "required": true,
+          "nullable": false,
+          "description": "Unique dispatch ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "destinationKey",
+          "required": true,
+          "nullable": false,
+          "description": "Target logical destination.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "sourceType",
+          "required": true,
+          "nullable": false,
+          "description": "Source family.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "trackingEvent",
+                "label": "Tracking Event"
+              },
+              {
+                "value": "conversion",
+                "label": "Conversion"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sourceId",
+          "required": true,
+          "nullable": false,
+          "description": "Tracking/conversion occurrence ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "requestedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Request time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "consentStateId",
+          "required": false,
+          "nullable": true,
+          "description": "Consent state ID used for eligibility.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "sanitizedPayload",
+          "required": true,
+          "nullable": false,
+          "description": "Allowlisted provider-neutral payload.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "idempotencyKey",
+          "required": true,
+          "nullable": false,
+          "description": "Retry-safe idempotency key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "marketing.marketingDestination",
+          "description": "Targets destination."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.consentState",
+          "description": "May reference consent state."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.trackingEvent",
+          "description": "May dispatch tracking event."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.conversionOccurrence",
+          "description": "May dispatch conversion."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "payloadSanitizedBeforeQueue",
+          "description": "Sanitize before queueing."
+        },
+        {
+          "id": "consentRequiredWhenApplicable",
+          "description": "Optional dispatch prohibited without required consent."
+        },
+        {
+          "id": "idempotencyRequired",
+          "description": "Retries reuse idempotency key."
+        },
+        {
+          "id": "noCredentialsInPayload",
+          "description": "Connector credentials never in payload."
+        }
+      ],
+      "cms": {
+        "label": "Marketing Dispatch Request",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "dispatchId",
+          "destinationKey",
+          "sourceType",
+          "sourceId"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.dispatchResult",
+      "name": "Marketing Dispatch Result",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "destination",
+      "description": "Outcome of a logical destination dispatch attempt.",
+      "purpose": "Provides diagnostics/retry decisions without writing provider secrets or raw personal payloads into logs.",
+      "marketingModel": {
+        "kind": "operational",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "dispatchId",
+          "required": true,
+          "nullable": false,
+          "description": "Associated dispatch request ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "destinationKey",
+          "required": true,
+          "nullable": false,
+          "description": "Destination key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Outcome.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "queued",
+                "label": "Queued"
+              },
+              {
+                "value": "sent",
+                "label": "Sent"
+              },
+              {
+                "value": "skipped",
+                "label": "Skipped"
+              },
+              {
+                "value": "failed",
+                "label": "Failed"
+              }
+            ]
+          }
+        },
+        {
+          "key": "occurredAt",
+          "required": true,
+          "nullable": false,
+          "description": "Outcome timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "reasonCode",
+          "required": false,
+          "nullable": true,
+          "description": "Stable non-secret reason code.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "httpStatus",
+          "required": false,
+          "nullable": true,
+          "description": "Optional upstream HTTP status.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 100,
+            "maximum": 599
+          }
+        },
+        {
+          "key": "retryable",
+          "required": true,
+          "nullable": false,
+          "description": "Whether retry allowed.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "providerReference",
+          "required": false,
+          "nullable": true,
+          "description": "Optional non-secret provider receipt/reference.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "marketing.dispatchRequest",
+          "description": "Belongs to dispatch request."
+        },
+        {
+          "type": "references",
+          "target": "marketing.marketingDestination",
+          "description": "Identifies destination."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "noRawErrorSecrets",
+          "description": "Error logging cannot include credentials/full sensitive payloads."
+        },
+        {
+          "id": "skippedNotFailure",
+          "description": "Consent/data-policy skip differs from technical failure."
+        },
+        {
+          "id": "retryPolicyLater",
+          "description": "Detailed retry orchestration finalized later."
+        }
+      ],
+      "cms": {
+        "label": "Marketing Dispatch Result",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "dispatchId",
+          "destinationKey",
+          "status",
+          "occurredAt"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.eventContext",
+      "name": "Tracking Event Context",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "context",
+      "description": "Sanitized context bundle attached to one tracking event observation.",
+      "purpose": "Provides one reusable context contract while page, session, visitor, device, traffic and consent remain separately modeled.",
+      "marketingModel": {
+        "kind": "context",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "page",
+          "required": false,
+          "nullable": true,
+          "description": "Page/route context.",
+          "schema": "marketing.pageContext"
+        },
+        {
+          "key": "session",
+          "required": false,
+          "nullable": true,
+          "description": "Analytics session context.",
+          "schema": "marketing.sessionContext"
+        },
+        {
+          "key": "visitor",
+          "required": false,
+          "nullable": true,
+          "description": "Minimal visitor context.",
+          "schema": "marketing.visitorContext"
+        },
+        {
+          "key": "device",
+          "required": false,
+          "nullable": true,
+          "description": "Coarse device context.",
+          "schema": "marketing.deviceContext"
+        },
+        {
+          "key": "trafficSource",
+          "required": false,
+          "nullable": true,
+          "description": "Acquisition context.",
+          "schema": "marketing.trafficSource"
+        },
+        {
+          "key": "campaign",
+          "required": false,
+          "nullable": true,
+          "description": "Campaign context.",
+          "schema": "marketing.campaignContext"
+        },
+        {
+          "key": "consent",
+          "required": false,
+          "nullable": true,
+          "description": "Consent state.",
+          "schema": "marketing.consentState"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.pageContext",
+          "description": "May contain page."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.sessionContext",
+          "description": "May contain session."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.visitorContext",
+          "description": "May contain visitor."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.deviceContext",
+          "description": "May contain device."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.trafficSource",
+          "description": "May contain source."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.campaignContext",
+          "description": "May contain campaign."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.consentState",
+          "description": "May contain consent."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "minimizedPerEvent",
+          "description": "Only context required by event/destinations is attached."
+        },
+        {
+          "id": "consentSnapshotNotAuthority",
+          "description": "Embedded consent context does not bypass current rules."
+        },
+        {
+          "id": "noCredentials",
+          "description": "Context never contains auth/session secrets."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Event Context",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "page",
+          "session",
+          "visitor",
+          "device"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.eventDestination",
+      "name": "Event Destination Rule",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "destination",
+      "description": "Eligibility rule connecting a tracking event to a logical destination.",
+      "purpose": "Centralizes consent-aware routing instead of embedding destination checks in site code.",
+      "marketingModel": {
+        "kind": "mapping",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "eventKey",
+          "required": true,
+          "nullable": false,
+          "description": "Source tracking event key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "destinationKey",
+          "required": true,
+          "nullable": false,
+          "description": "Target destination key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether route active.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "requiredConsentCategoryKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional route-specific consent override.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80
+          }
+        },
+        {
+          "key": "propertyAllowlist",
+          "required": false,
+          "nullable": true,
+          "description": "Properties allowed to leave NEXT F.",
+          "itemsPrimitive": "fields.text",
+          "config": {
+            "maxItems": 200
+          }
+        },
+        {
+          "key": "propertyDenylist",
+          "required": false,
+          "nullable": true,
+          "description": "Properties always removed.",
+          "itemsPrimitive": "fields.text",
+          "config": {
+            "maxItems": 200
+          }
+        },
+        {
+          "key": "serverOnly",
+          "required": true,
+          "nullable": false,
+          "description": "Whether route is trusted-server only.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "marketing.trackingEventDefinition",
+          "description": "eventKey resolves to definition."
+        },
+        {
+          "type": "references",
+          "target": "marketing.marketingDestination",
+          "description": "destinationKey resolves to destination."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.consentCategory",
+          "description": "May override consent requirement."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "denyWins",
+          "description": "Denylist wins over allowlist."
+        },
+        {
+          "id": "consentEvaluatedAtDispatch",
+          "description": "Consent eligibility reevaluated at dispatch."
+        },
+        {
+          "id": "serverOnlyEnforced",
+          "description": "serverOnly cannot run from untrusted client code."
+        },
+        {
+          "id": "noSecretProperties",
+          "description": "Secrets prohibited regardless of allowlist."
+        }
+      ],
+      "cms": {
+        "label": "Event Destination Rule",
+        "icon": "fa-bullseye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "routing-rule",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "eventKey",
+          "destinationKey",
+          "enabled",
+          "requiredConsentCategoryKey"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.eventPropertyDefinition",
+      "name": "Tracking Event Property Definition",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "tracking",
+      "description": "Allowlisted property definition for one tracking event key.",
+      "purpose": "Standardizes property names, primitive value expectations and data sensitivity without permitting arbitrary analytics payloads.",
+      "marketingModel": {
+        "kind": "definition",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": false,
+        "dataSensitivity": "public"
+      },
+      "fields": [
+        {
+          "key": "key",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical event property key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120,
+            "pattern": "^[a-z][A-Za-z0-9]*$"
+          }
+        },
+        {
+          "key": "label",
+          "required": true,
+          "nullable": false,
+          "description": "Human-readable property label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "description",
+          "required": true,
+          "nullable": false,
+          "description": "Property semantics.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000
+          }
+        },
+        {
+          "key": "valueType",
+          "required": true,
+          "nullable": false,
+          "description": "Expected property value family.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "text",
+                "label": "Text"
+              },
+              {
+                "value": "number",
+                "label": "Number"
+              },
+              {
+                "value": "boolean",
+                "label": "Boolean"
+              },
+              {
+                "value": "url",
+                "label": "URL"
+              },
+              {
+                "value": "id",
+                "label": "Identifier"
+              }
+            ]
+          }
+        },
+        {
+          "key": "required",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the property is required for this event definition.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "dataSensitivity",
+          "required": true,
+          "nullable": false,
+          "description": "Coarse Phase 9 sensitivity classification.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "public",
+                "label": "Public"
+              },
+              {
+                "value": "internal",
+                "label": "Internal"
+              },
+              {
+                "value": "personal",
+                "label": "Personal"
+              },
+              {
+                "value": "sensitive",
+                "label": "Sensitive"
+              }
+            ]
+          }
+        },
+        {
+          "key": "maxLength",
+          "required": false,
+          "nullable": true,
+          "description": "Optional text/identifier maximum length.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 4096
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "keyStable",
+          "description": "A published property key must retain its meaning within the compatible contract version."
+        },
+        {
+          "id": "noSecretSensitivity",
+          "description": "Secret values are never valid tracking event properties."
+        },
+        {
+          "id": "requiredPropertiesMinimal",
+          "description": "Do not mark a property required unless event semantics genuinely depend on it."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Event Property Definition",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "key",
+          "label",
+          "description",
+          "valueType"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.marketingDestination",
+      "name": "Marketing Destination",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "destination",
+      "description": "Logical analytics, advertising or internal measurement destination for a Site.",
+      "purpose": "Separates routing intent from Phase 10 provider connector credentials and details.",
+      "marketingModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable destination identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "destinationKey",
+          "required": true,
+          "nullable": false,
+          "description": "Stable logical key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Display name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 200
+          }
+        },
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Logical destination family.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "analytics",
+                "label": "Analytics"
+              },
+              {
+                "value": "advertising",
+                "label": "Advertising"
+              },
+              {
+                "value": "internalAnalytics",
+                "label": "Internal Analytics"
+              },
+              {
+                "value": "crm",
+                "label": "CRM"
+              },
+              {
+                "value": "webhook",
+                "label": "Webhook"
+              },
+              {
+                "value": "other",
+                "label": "Other"
+              }
+            ]
+          }
+        },
+        {
+          "key": "connectorKey",
+          "required": false,
+          "nullable": true,
+          "description": "Phase 10 connector key when attached.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether routing is enabled.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "requiredConsentCategoryKey",
+          "required": false,
+          "nullable": true,
+          "description": "Consent category needed for optional dispatch.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80
+          }
+        },
+        {
+          "key": "environment",
+          "required": true,
+          "nullable": false,
+          "description": "Applicable environment.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "preview",
+                "label": "Preview"
+              },
+              {
+                "value": "staging",
+                "label": "Staging"
+              },
+              {
+                "value": "production",
+                "label": "Production"
+              }
+            ]
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "Uses identity."
+        },
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "references",
+          "target": "marketing.consentCategory",
+          "description": "May require consent category."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "noCredentials",
+          "description": "Credentials/tokens/secrets are not fields here."
+        },
+        {
+          "id": "connectorForwardReference",
+          "description": "connectorKey resolves in Phase 10."
+        },
+        {
+          "id": "environmentIsolation",
+          "description": "Non-production destinations cannot accidentally dispatch to production accounts."
+        },
+        {
+          "id": "disabledNoDispatch",
+          "description": "Disabled destinations receive no events."
+        }
+      ],
+      "cms": {
+        "label": "Marketing Destination",
+        "icon": "fa-bullseye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "destination-settings",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "destinationKey",
+          "name"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.metricDefinition",
+      "name": "Analytics Metric Definition",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "reporting",
+      "description": "Canonical definition of one analytics metric.",
+      "purpose": "Prevents dashboard metrics from changing meaning between customer websites.",
+      "marketingModel": {
+        "kind": "definition",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": false,
+        "dataSensitivity": "public"
+      },
+      "fields": [
+        {
+          "key": "metricKey",
+          "required": true,
+          "nullable": false,
+          "description": "Stable metric key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Metric name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 200
+          }
+        },
+        {
+          "key": "description",
+          "required": true,
+          "nullable": false,
+          "description": "Exact metric semantics.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1500
+          }
+        },
+        {
+          "key": "aggregation",
+          "required": true,
+          "nullable": false,
+          "description": "Aggregation operation.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "count",
+                "label": "Count"
+              },
+              {
+                "value": "sum",
+                "label": "Sum"
+              },
+              {
+                "value": "average",
+                "label": "Average"
+              },
+              {
+                "value": "minimum",
+                "label": "Minimum"
+              },
+              {
+                "value": "maximum",
+                "label": "Maximum"
+              },
+              {
+                "value": "ratio",
+                "label": "Ratio"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sourceEventKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional source tracking event.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "sourcePropertyKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional source property.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "unit",
+          "required": true,
+          "nullable": false,
+          "description": "Metric unit.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "count",
+                "label": "Count"
+              },
+              {
+                "value": "currency",
+                "label": "Currency"
+              },
+              {
+                "value": "percentage",
+                "label": "Percentage"
+              },
+              {
+                "value": "seconds",
+                "label": "Seconds"
+              },
+              {
+                "value": "milliseconds",
+                "label": "Milliseconds"
+              },
+              {
+                "value": "number",
+                "label": "Number"
+              }
+            ]
+          }
+        },
+        {
+          "key": "higherIsBetter",
+          "required": false,
+          "nullable": true,
+          "description": "Optional display hint only.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.trackingEventDefinition",
+          "description": "sourceEventKey may resolve to tracking event."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "semanticStability",
+          "description": "metricKey meaning cannot silently change."
+        },
+        {
+          "id": "ratioDenominatorDefined",
+          "description": "Ratio metrics need documented numerator/denominator."
+        },
+        {
+          "id": "displayHintNotBusinessTruth",
+          "description": "higherIsBetter is only UI hint."
+        }
+      ],
+      "cms": {
+        "label": "Analytics Metric Definition",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "metricKey",
+          "name",
+          "description",
+          "aggregation"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.pageContext",
+      "name": "Page Context",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "context",
+      "description": "Sanitized page/route context attached to a tracking observation.",
+      "purpose": "Standardizes URL and content context while preventing raw URL data from leaking sensitive query parameters.",
+      "marketingModel": {
+        "kind": "context",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "url",
+          "required": true,
+          "nullable": false,
+          "description": "Sanitized absolute page URL.",
+          "primitive": "fields.url"
+        },
+        {
+          "key": "path",
+          "required": true,
+          "nullable": false,
+          "description": "Sanitized path component.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 2048
+          }
+        },
+        {
+          "key": "title",
+          "required": false,
+          "nullable": true,
+          "description": "Observed document or route title.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500
+          }
+        },
+        {
+          "key": "routeName",
+          "required": false,
+          "nullable": true,
+          "description": "Optional stable application route key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "contentTarget",
+          "required": false,
+          "nullable": true,
+          "description": "Optional canonical content/entity target represented by the page.",
+          "schema": "core.entityReference"
+        },
+        {
+          "key": "language",
+          "required": false,
+          "nullable": true,
+          "description": "Observed language/locale tag.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 40
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyReferences",
+          "target": "core.entityReference",
+          "description": "May identify canonical rendered content."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "sensitiveQueryRemoved",
+          "description": "Tracked URL must remove sensitive query parameters according to Tracking Data Policy."
+        },
+        {
+          "id": "fragmentRemovedByDefault",
+          "description": "URL fragments are removed when the Site data policy requires it."
+        },
+        {
+          "id": "routeNameStable",
+          "description": "routeName is a stable machine key rather than a localized page title."
+        }
+      ],
+      "cms": {
+        "label": "Page Context",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "url",
+          "path",
+          "title",
+          "routeName"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.referrerContext",
+      "name": "Referrer Context",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "context",
+      "description": "Sanitized referral information associated with a visit or event.",
+      "purpose": "Supports attribution while minimizing leakage from third-party URLs.",
+      "marketingModel": {
+        "kind": "context",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "referrerUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Sanitized referrer URL when policy permits full URL retention.",
+          "primitive": "fields.url"
+        },
+        {
+          "key": "referrerHost",
+          "required": false,
+          "nullable": true,
+          "description": "Referrer hostname.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "isExternal",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the referrer belongs to another origin.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "isSearchEngine",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the referrer is classified as a known search engine.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "fullPathPolicy",
+          "description": "External path/query retention follows Tracking Data Policy and defaults to minimized hostname-level storage."
+        },
+        {
+          "id": "selfReferralsExcluded",
+          "description": "Internal navigational referrers must not be misclassified as external acquisition."
+        },
+        {
+          "id": "referrerNotTrustedIdentity",
+          "description": "Referrer data is attribution context, not a trusted identity signal."
+        }
+      ],
+      "cms": {
+        "label": "Referrer Context",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "referrerUrl",
+          "referrerHost",
+          "isExternal",
+          "isSearchEngine"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.sessionContext",
+      "name": "Session Context",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "context",
+      "description": "First-party analytics session context used to group eligible observations.",
+      "purpose": "Defines session boundaries without treating sessions as user identity or authorization.",
+      "marketingModel": {
+        "kind": "context",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "sessionId",
+          "required": true,
+          "nullable": false,
+          "description": "Random first-party session identifier.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "startedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Session start timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "lastActivityAt",
+          "required": true,
+          "nullable": false,
+          "description": "Most recent tracked activity timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "landingPage",
+          "required": false,
+          "nullable": true,
+          "description": "First eligible page context.",
+          "schema": "marketing.pageContext"
+        },
+        {
+          "key": "initialTrafficSource",
+          "required": false,
+          "nullable": true,
+          "description": "First eligible traffic source.",
+          "schema": "marketing.trafficSource"
+        },
+        {
+          "key": "isNewSession",
+          "required": true,
+          "nullable": false,
+          "description": "Whether this observation began a new analytics session.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.pageContext",
+          "description": "May preserve landing page."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.trafficSource",
+          "description": "May preserve initial traffic source."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "notAuthenticationSession",
+          "description": "Analytics session IDs are not authentication/session authorization credentials."
+        },
+        {
+          "id": "randomNotFingerprint",
+          "description": "sessionId is random and not derived from fingerprinting."
+        },
+        {
+          "id": "sessionTimeoutConfigured",
+          "description": "Expiry comes from Analytics Configuration."
+        }
+      ],
+      "cms": {
+        "label": "Session Context",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "sessionId",
+          "startedAt",
+          "lastActivityAt",
+          "landingPage"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trackingConfiguration",
+      "name": "Tracking Configuration",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "configuration",
+      "description": "Site-level switchboard for NEXT F tracking behavior before provider connectors are applied.",
+      "purpose": "Defines whether tracking is enabled, which definitions are available, how consent is enforced and which data policies apply.",
+      "marketingModel": {
+        "kind": "configuration",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable configuration identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether runtime may collect eligible events.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "dataLayer",
+          "required": true,
+          "nullable": false,
+          "description": "Data layer config.",
+          "schema": "marketing.dataLayerConfiguration"
+        },
+        {
+          "key": "dataPolicy",
+          "required": true,
+          "nullable": false,
+          "description": "Data policy.",
+          "schema": "marketing.trackingDataPolicy"
+        },
+        {
+          "key": "consentPolicy",
+          "required": true,
+          "nullable": false,
+          "description": "Consent policy.",
+          "schema": "marketing.consentPolicy"
+        },
+        {
+          "key": "analytics",
+          "required": true,
+          "nullable": false,
+          "description": "Analytics settings.",
+          "schema": "marketing.analyticsConfiguration"
+        },
+        {
+          "key": "eventDefinitions",
+          "required": false,
+          "nullable": true,
+          "description": "Enabled tracking event definitions.",
+          "itemsSchema": "marketing.trackingEventDefinition",
+          "config": {
+            "maxItems": 200
+          }
+        },
+        {
+          "key": "destinations",
+          "required": false,
+          "nullable": true,
+          "description": "Logical destinations.",
+          "itemsSchema": "marketing.marketingDestination",
+          "config": {
+            "maxItems": 100
+          }
+        },
+        {
+          "key": "debugMode",
+          "required": true,
+          "nullable": false,
+          "description": "Non-production tracking diagnostics enabled.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "updatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Most recent config update.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "Uses identity."
+        },
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "composes",
+          "target": "marketing.dataLayerConfiguration",
+          "description": "Controls queue."
+        },
+        {
+          "type": "composes",
+          "target": "marketing.trackingDataPolicy",
+          "description": "Applies data rules."
+        },
+        {
+          "type": "composes",
+          "target": "marketing.consentPolicy",
+          "description": "Applies consent."
+        },
+        {
+          "type": "composes",
+          "target": "marketing.analyticsConfiguration",
+          "description": "Applies analytics."
+        },
+        {
+          "type": "composesMany",
+          "target": "marketing.trackingEventDefinition",
+          "description": "Declares tracking."
+        },
+        {
+          "type": "composesMany",
+          "target": "marketing.marketingDestination",
+          "description": "Declares destinations."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "disabledMeansNoOptionalTracking",
+          "description": "When disabled, optional analytics/marketing tracking is not dispatched."
+        },
+        {
+          "id": "debugNeverBypassesConsent",
+          "description": "Debug never bypasses consent/data/security."
+        },
+        {
+          "id": "noVendorCredentials",
+          "description": "No provider credentials in tracking config."
+        },
+        {
+          "id": "configurationPinnedToSite",
+          "description": "Configuration resolved to current Site/environment."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Configuration",
+        "icon": "fa-bullseye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "marketing-settings",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "enabled",
+          "dataLayer"
+        ],
+        "primaryActions": [
+          "view",
+          "edit",
+          "test"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trackingConsentRecord",
+      "name": "Tracking Consent Record",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "consent",
+      "description": "Immutable technical record of a tracking-consent state change.",
+      "purpose": "Provides audit evidence for tracking decisions without reusing form-specific consent records.",
+      "marketingModel": {
+        "kind": "record",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "recordId",
+          "required": true,
+          "nullable": false,
+          "description": "Unique record ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "capturedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Capture timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "sessionId",
+          "required": false,
+          "nullable": true,
+          "description": "Associated session ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "anonymousVisitorId",
+          "required": false,
+          "nullable": true,
+          "description": "Associated anonymous visitor ID if allowed.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "policyVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Consent policy version.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 40
+          }
+        },
+        {
+          "key": "preferences",
+          "required": true,
+          "nullable": false,
+          "description": "Preference snapshot.",
+          "itemsSchema": "marketing.consentPreference",
+          "config": {
+            "minItems": 1,
+            "maxItems": 50
+          }
+        },
+        {
+          "key": "interactionSource",
+          "required": true,
+          "nullable": false,
+          "description": "Interface/source creating record.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "banner",
+                "label": "Consent Banner"
+              },
+              {
+                "value": "settings",
+                "label": "Privacy Settings"
+              },
+              {
+                "value": "api",
+                "label": "API"
+              },
+              {
+                "value": "system",
+                "label": "System"
+              }
+            ]
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "composesMany",
+          "target": "marketing.consentPreference",
+          "description": "Stores preference snapshot."
+        },
+        {
+          "type": "relatedTo",
+          "target": "forms.consentRecord",
+          "description": "Form-specific consent remains separate."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "appendOnly",
+          "description": "Consent records are append-only; corrections create new records."
+        },
+        {
+          "id": "notFormConsent",
+          "description": "Tracking consent does not replace form/business-purpose consent."
+        },
+        {
+          "id": "notLegalConclusion",
+          "description": "Record existence alone is not legal compliance proof."
+        },
+        {
+          "id": "retentionPolicy",
+          "description": "Retention follows privacy/data policy."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Consent Record",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "recordId",
+          "scope",
+          "capturedAt",
+          "sessionId"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trackingDataPolicy",
+      "name": "Tracking Data Policy",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "configuration",
+      "description": "Data minimization, retention and identity-use rules for marketing tracking.",
+      "purpose": "Defines what the tracking layer may collect before Phase 30 introduces the wider privacy classification framework.",
+      "marketingModel": {
+        "kind": "policy",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "policyVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Stable tracking data policy version.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 40
+          }
+        },
+        {
+          "key": "retentionDays",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum retention period for raw tracking observations in NEXT F-managed storage.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 730,
+            "defaultValue": 90
+          }
+        },
+        {
+          "key": "allowAnonymousVisitorId",
+          "required": true,
+          "nullable": false,
+          "description": "Whether a random first-party anonymous visitor identifier may be used.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "allowAuthenticatedSubjectLinking",
+          "required": true,
+          "nullable": false,
+          "description": "Whether tracking may link to an authenticated canonical subject ID when explicitly permitted.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "allowRawQueryString",
+          "required": true,
+          "nullable": false,
+          "description": "Whether arbitrary raw query strings may be retained.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "allowFullReferrerPath",
+          "required": true,
+          "nullable": false,
+          "description": "Whether full external referrer paths may be retained rather than hostname only.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "allowedPropertyKeys",
+          "required": false,
+          "nullable": true,
+          "description": "Explicit additional event-property allowlist.",
+          "itemsPrimitive": "fields.text",
+          "config": {
+            "maxItems": 500
+          }
+        },
+        {
+          "key": "prohibitedPropertyKeys",
+          "required": false,
+          "nullable": true,
+          "description": "Property keys prohibited from tracking payloads.",
+          "itemsPrimitive": "fields.text",
+          "config": {
+            "maxItems": 500
+          }
+        },
+        {
+          "key": "stripUrlFragments",
+          "required": true,
+          "nullable": false,
+          "description": "Whether URL fragments are removed before tracking.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "stripSensitiveQueryParameters",
+          "required": true,
+          "nullable": false,
+          "description": "Whether sensitive query parameters are removed before storage/dispatch.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "dataMinimizationDefault",
+          "description": "Collect only data required for declared analytics, conversion or attribution purposes."
+        },
+        {
+          "id": "noFingerprinting",
+          "description": "Browser/device attributes must not be combined to create covert fingerprint identifiers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Tracking properties must never contain passwords, tokens, private keys or payment credentials."
+        },
+        {
+          "id": "noRawFormPayloads",
+          "description": "Entire form submissions must never be copied into generic tracking properties."
+        },
+        {
+          "id": "queryStringsMinimized",
+          "description": "Raw query strings default to prohibited because they may contain personal or secret values."
+        },
+        {
+          "id": "identityLinkingOptIn",
+          "description": "Authenticated subject linking is disabled by default and requires explicit policy and permission support."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Data Policy",
+        "icon": "fa-bullseye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "policy-editor",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "policyVersion",
+          "retentionDays",
+          "allowAnonymousVisitorId",
+          "allowAuthenticatedSubjectLinking"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trackingEvent",
+      "name": "Tracking Event Observation",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "tracking",
+      "description": "Provider-neutral runtime observation emitted by the NEXT F tracking layer.",
+      "purpose": "Creates one normalized event envelope that can route to analytics/advertising connectors without customer-site vendor code.",
+      "marketingModel": {
+        "kind": "observation",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "eventId",
+          "required": true,
+          "nullable": false,
+          "description": "Unique observation ID for diagnostics/deduplication.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Organization/Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "eventKey",
+          "required": true,
+          "nullable": false,
+          "description": "Enabled tracking event key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "occurredAt",
+          "required": true,
+          "nullable": false,
+          "description": "Observed interaction timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "context",
+          "required": true,
+          "nullable": false,
+          "description": "Sanitized event context.",
+          "schema": "marketing.eventContext"
+        },
+        {
+          "key": "properties",
+          "required": true,
+          "nullable": false,
+          "description": "Sanitized allowlisted properties.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "source",
+          "required": true,
+          "nullable": false,
+          "description": "Observation origin.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "browser",
+                "label": "Browser"
+              },
+              {
+                "value": "server",
+                "label": "Server"
+              },
+              {
+                "value": "cms",
+                "label": "CMS"
+              },
+              {
+                "value": "import",
+                "label": "Imported"
+              }
+            ]
+          }
+        },
+        {
+          "key": "schemaVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Tracking envelope version.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 40
+          }
+        },
+        {
+          "key": "debug",
+          "required": true,
+          "nullable": false,
+          "description": "Non-production/debug observation.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Site-scoped."
+        },
+        {
+          "type": "composes",
+          "target": "marketing.eventContext",
+          "description": "Carries context."
+        },
+        {
+          "type": "references",
+          "target": "marketing.trackingEventDefinition",
+          "description": "eventKey resolves to definition."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "eventDefinitionRequired",
+          "description": "eventKey resolves to enabled definition."
+        },
+        {
+          "id": "propertiesAllowlisted",
+          "description": "properties conform to property definitions/data policy."
+        },
+        {
+          "id": "noBusinessAuthority",
+          "description": "Tracking observation is analytics evidence, not Order/Payment/Lead/content authority."
+        },
+        {
+          "id": "occurredAtNotReceivedAt",
+          "description": "Observed and receipt/dispatch timestamps are distinct."
+        },
+        {
+          "id": "debugNotProductionData",
+          "description": "Debug observations isolated from production reporting."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Event Observation",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "event-debugger",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "eventId",
+          "scope",
+          "eventKey",
+          "occurredAt"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trackingEventDefinition",
+      "name": "Tracking Event Definition",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "tracking",
+      "description": "Site-level definition of a measurable visitor/business interaction key.",
+      "purpose": "Allows customer websites and Codex to register tracking consistently while keeping platform-domain event semantics reserved for Phase 13.",
+      "marketingModel": {
+        "kind": "definition",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true,
+        "dataSensitivity": "public"
+      },
+      "fields": [
+        {
+          "key": "eventKey",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical or Site-approved tracking event key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "pattern": "^[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*$"
+          }
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Human-readable event name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "description",
+          "required": true,
+          "nullable": false,
+          "description": "Exact observable meaning.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1200
+          }
+        },
+        {
+          "key": "category",
+          "required": true,
+          "nullable": false,
+          "description": "Tracking purpose family.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "analytics",
+                "label": "Analytics"
+              },
+              {
+                "value": "conversion",
+                "label": "Conversion candidate"
+              },
+              {
+                "value": "engagement",
+                "label": "Engagement"
+              },
+              {
+                "value": "system",
+                "label": "System diagnostic"
+              }
+            ]
+          }
+        },
+        {
+          "key": "defaultConsentCategoryKey",
+          "required": true,
+          "nullable": false,
+          "description": "Consent category key required by default for collection/dispatch.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 80
+          }
+        },
+        {
+          "key": "properties",
+          "required": false,
+          "nullable": true,
+          "description": "Allowlisted event property definitions.",
+          "itemsSchema": "marketing.eventPropertyDefinition",
+          "config": {
+            "maxItems": 100
+          }
+        },
+        {
+          "key": "conversionCandidate",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the event may be mapped to a conversion definition.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether this Site tracks this event.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composesMany",
+          "target": "marketing.eventPropertyDefinition",
+          "description": "Defines allowlisted properties."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "factNaming",
+          "description": "Event keys describe observed completed facts rather than commands."
+        },
+        {
+          "id": "standardKeysReuse",
+          "description": "If registry/marketing/tracking-events.json contains an equivalent standard event key, that key must be reused."
+        },
+        {
+          "id": "phase13Boundary",
+          "description": "This is a marketing tracking observation definition, not a substitute for the canonical platform Event Registry introduced in Phase 13."
+        },
+        {
+          "id": "consentCategoryResolvable",
+          "description": "defaultConsentCategoryKey must resolve to the active Site consent policy."
+        },
+        {
+          "id": "noHiddenPiiProperties",
+          "description": "Properties not declared by this definition must not silently carry personal data."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Event Definition",
+        "icon": "fa-bullseye",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "event-definition",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "eventKey",
+          "name",
+          "description",
+          "category"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trafficSource",
+      "name": "Traffic Source",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "campaign-attribution",
+      "description": "Normalized acquisition source for a session or attribution touchpoint.",
+      "purpose": "Combines UTM, referrer and advertising click context into one provider-neutral acquisition model.",
+      "marketingModel": {
+        "kind": "context",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "channel",
+          "required": true,
+          "nullable": false,
+          "description": "Normalized high-level channel.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "direct",
+                "label": "Direct"
+              },
+              {
+                "value": "organicSearch",
+                "label": "Organic Search"
+              },
+              {
+                "value": "paidSearch",
+                "label": "Paid Search"
+              },
+              {
+                "value": "paidSocial",
+                "label": "Paid Social"
+              },
+              {
+                "value": "organicSocial",
+                "label": "Organic Social"
+              },
+              {
+                "value": "referral",
+                "label": "Referral"
+              },
+              {
+                "value": "email",
+                "label": "Email"
+              },
+              {
+                "value": "display",
+                "label": "Display"
+              },
+              {
+                "value": "affiliate",
+                "label": "Affiliate"
+              },
+              {
+                "value": "other",
+                "label": "Other"
+              }
+            ]
+          }
+        },
+        {
+          "key": "source",
+          "required": false,
+          "nullable": true,
+          "description": "Normalized source label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "medium",
+          "required": false,
+          "nullable": true,
+          "description": "Normalized medium label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "utm",
+          "required": false,
+          "nullable": true,
+          "description": "Captured UTM parameters.",
+          "schema": "marketing.utmParameters"
+        },
+        {
+          "key": "referrer",
+          "required": false,
+          "nullable": true,
+          "description": "Sanitized referrer context.",
+          "schema": "marketing.referrerContext"
+        },
+        {
+          "key": "adClickIdentifiers",
+          "required": false,
+          "nullable": true,
+          "description": "Captured eligible advertising click identifiers.",
+          "itemsSchema": "marketing.adClickIdentifier",
+          "config": {
+            "maxItems": 10
+          }
+        },
+        {
+          "key": "classifiedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Classification timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.utmParameters",
+          "description": "May include UTM context."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "marketing.referrerContext",
+          "description": "May include referral context."
+        },
+        {
+          "type": "optionallyComposesMany",
+          "target": "marketing.adClickIdentifier",
+          "description": "May include click IDs."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "deterministicClassification",
+          "description": "Given same policy/version and input, channel classification should be deterministic."
+        },
+        {
+          "id": "directOnlyWhenNoSource",
+          "description": "Direct applies only when no attributable source is available."
+        },
+        {
+          "id": "sourceDataPreservedSeparately",
+          "description": "Normalized labels do not overwrite captured evidence."
+        }
+      ],
+      "cms": {
+        "label": "Traffic Source",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "channel",
+          "source",
+          "medium",
+          "utm"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.utmParameters",
+      "name": "UTM Parameters",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "campaign-attribution",
+      "description": "Normalized UTM campaign parameters captured from eligible landing URLs.",
+      "purpose": "Prevents every customer site from inventing different campaign parameter names and supports consistent attribution.",
+      "marketingModel": {
+        "kind": "context",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "source",
+          "required": false,
+          "nullable": true,
+          "description": "utm_source value.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "medium",
+          "required": false,
+          "nullable": true,
+          "description": "utm_medium value.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "campaign",
+          "required": false,
+          "nullable": true,
+          "description": "utm_campaign value.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500
+          }
+        },
+        {
+          "key": "term",
+          "required": false,
+          "nullable": true,
+          "description": "utm_term value.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500
+          }
+        },
+        {
+          "key": "content",
+          "required": false,
+          "nullable": true,
+          "description": "utm_content value.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500
+          }
+        },
+        {
+          "key": "campaignId",
+          "required": false,
+          "nullable": true,
+          "description": "utm_id value.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "sourcePlatform",
+          "required": false,
+          "nullable": true,
+          "description": "utm_source_platform value.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "creativeFormat",
+          "required": false,
+          "nullable": true,
+          "description": "utm_creative_format value.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "marketingTactic",
+          "required": false,
+          "nullable": true,
+          "description": "utm_marketing_tactic value.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "decodedOnce",
+          "description": "Values must be safely URL-decoded exactly once at the defined input boundary."
+        },
+        {
+          "id": "lengthBounded",
+          "description": "Campaign parameters are bounded and must not become arbitrary data storage."
+        },
+        {
+          "id": "notTrustedInput",
+          "description": "UTM values are untrusted visitor-controlled input."
+        },
+        {
+          "id": "noAutomaticPii",
+          "description": "NEXT F implementations must not intentionally put personal data in UTM values."
+        }
+      ],
+      "cms": {
+        "label": "UTM Parameters",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "source",
+          "medium",
+          "campaign",
+          "term"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.visitorContext",
+      "name": "Visitor Context",
+      "version": "0.10.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "context",
+      "description": "Minimal first-party visitor reference for eligible analytics observations.",
+      "purpose": "Allows anonymous continuity and controlled known-subject linking while prohibiting fingerprinting and raw personal identifiers.",
+      "marketingModel": {
+        "kind": "context",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "anonymousVisitorId",
+          "required": false,
+          "nullable": true,
+          "description": "Optional random first-party anonymous visitor ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "subjectType",
+          "required": false,
+          "nullable": true,
+          "description": "Optional canonical known-subject family.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "organizationUser",
+                "label": "Organization User"
+              },
+              {
+                "value": "lead",
+                "label": "Lead"
+              },
+              {
+                "value": "commerceCustomer",
+                "label": "Commerce Customer"
+              },
+              {
+                "value": "none",
+                "label": "None"
+              }
+            ],
+            "defaultValue": "none"
+          }
+        },
+        {
+          "key": "subjectId",
+          "required": false,
+          "nullable": true,
+          "description": "Optional canonical internal subject ID, never email/phone.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "isAuthenticated",
+          "required": true,
+          "nullable": false,
+          "description": "Whether current application context is authenticated.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "noDirectPersonalIdentifiers",
+          "description": "Email, phone, name and postal address are not Visitor Context IDs."
+        },
+        {
+          "id": "subjectLinkingPolicy",
+          "description": "subjectId requires explicit policy allowance."
+        },
+        {
+          "id": "commerceForwardReference",
+          "description": "commerceCustomer identity is finalized in Phase 11."
+        },
+        {
+          "id": "noFingerprinting",
+          "description": "anonymousVisitorId is random first-party state, not a fingerprint."
+        }
+      ],
+      "cms": {
+        "label": "Visitor Context",
+        "icon": "fa-bullseye",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "anonymousVisitorId",
+          "subjectType",
+          "subjectId",
+          "isAuthenticated"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+      },
+      "futureBindings": {
+        "integrations": "phase-10",
+        "commerce": "phase-11",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    }
+  ]
+};

@@ -1,0 +1,91 @@
+{
+  "$id": "events.eventSubject",
+  "name": "Event Subject",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Compact reference to the primary canonical entity affected by an event.",
+  "purpose": "Compact reference to the primary canonical entity affected by an event.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "entity",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical entity reference.",
+      "schema": "core.entityReference"
+    },
+    {
+      "key": "siteId",
+      "required": false,
+      "nullable": true,
+      "description": "Owning Site when applicable.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "organizationId",
+      "required": false,
+      "nullable": true,
+      "description": "Owning Organization when applicable.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityReference",
+      "description": "Uses canonical entity references."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "subjectExists",
+      "description": "Subject must identify the authoritative entity occurrence relevant to the event."
+    },
+    {
+      "id": "tenantConsistent",
+      "description": "Site/Organization scope must match the referenced subject."
+    }
+  ],
+  "cms": {
+    "label": "Event Subject",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "entity",
+      "siteId",
+      "organizationId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

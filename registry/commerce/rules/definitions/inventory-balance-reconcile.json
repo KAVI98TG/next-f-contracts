@@ -1,0 +1,78 @@
+{
+  "$id": "commerce.rule.inventoryBalanceReconcile",
+  "name": "Inventory Balance Reconcile",
+  "version": "0.13.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "inventory",
+  "ruleKind": "inventory-invariant",
+  "description": "Inventory availability must reconcile on-hand, reserved and other canonical quantity dimensions according to the Inventory contract.",
+  "purpose": "Inventory availability must reconcile on-hand, reserved and other canonical quantity dimensions according to the Inventory contract.",
+  "severity": "critical",
+  "configurable": false,
+  "appliesTo": [
+    "commerce.inventoryItem",
+    "commerce.inventoryLevel",
+    "commerce.quantity"
+  ],
+  "enforcement": {
+    "authority": "server",
+    "timing": "before-and-during-stock-mutation",
+    "atomicWhenRequired": true,
+    "auditRequired": true,
+    "clientValidationOnly": false
+  },
+  "requirements": [
+    {
+      "id": "commerce.rule.inventoryBalanceReconcile.R1",
+      "description": "Inventory availability must reconcile on-hand, reserved and other canonical quantity dimensions according to the Inventory contract."
+    },
+    {
+      "id": "commerce.rule.inventoryBalanceReconcile.R2",
+      "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+    }
+  ],
+  "failure": {
+    "code": "COMMERCE_INVENTORY_CONFLICT",
+    "retryable": true,
+    "customerSafe": true,
+    "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+  },
+  "relationships": [
+    {
+      "type": "governs",
+      "target": "commerce.inventoryItem",
+      "description": "This rule constrains commerce.inventoryItem operations or state."
+    },
+    {
+      "type": "governs",
+      "target": "commerce.inventoryLevel",
+      "description": "This rule constrains commerce.inventoryLevel operations or state."
+    },
+    {
+      "type": "governs",
+      "target": "commerce.quantity",
+      "description": "This rule constrains commerce.quantity operations or state."
+    }
+  ],
+  "examples": {
+    "valid": [
+      "An operation involving commerce.inventoryItem, commerce.inventoryLevel satisfies the rule before authoritative state is committed."
+    ],
+    "invalid": [
+      "An implementation bypasses commerce.rule.inventoryBalanceReconcile and commits a conflicting or unverifiable state."
+    ]
+  },
+  "implementationNotes": [
+    "Enforce at the server-side commerce domain boundary.",
+    "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+    "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+  ],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  }
+}

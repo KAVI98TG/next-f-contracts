@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.riskPresentation",
+  "name": "Risk Presentation",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines non-color-only risk presentation and gating metadata.",
+  "purpose": "Defines non-color-only risk presentation and gating metadata.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

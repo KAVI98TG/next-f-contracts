@@ -1,0 +1,126 @@
+{
+  "$id": "marketing.conversionAttribution",
+  "name": "Conversion Attribution Context",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "conversion",
+  "description": "Lightweight attribution summary attached to a conversion occurrence.",
+  "purpose": "Separates quick conversion context from full computed Campaign Attribution evidence.",
+  "marketingModel": {
+    "kind": "value-object",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "attributionId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional full attribution result ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "modelKey",
+      "required": false,
+      "nullable": true,
+      "description": "Attribution model key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120
+      }
+    },
+    {
+      "key": "campaignKey",
+      "required": false,
+      "nullable": true,
+      "description": "Primary credited campaign.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "channel",
+      "required": false,
+      "nullable": true,
+      "description": "Primary credited channel.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120
+      }
+    },
+    {
+      "key": "source",
+      "required": false,
+      "nullable": true,
+      "description": "Primary credited source.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.campaignAttribution",
+      "description": "May reference full result."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.attributionModel",
+      "description": "modelKey may resolve to model."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "summaryNotOverride",
+      "description": "Summary does not replace full attribution evidence."
+    },
+    {
+      "id": "causalityNotClaimed",
+      "description": "Attribution labels do not prove causality."
+    }
+  ],
+  "cms": {
+    "label": "Conversion Attribution Context",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "attributionId",
+      "modelKey",
+      "campaignKey",
+      "channel"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

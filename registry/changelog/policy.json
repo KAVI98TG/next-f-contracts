@@ -1,0 +1,23 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "Changelog Operational Policy",
+  "authoritativeReleaseDirectory": "registry/changelog/releases/",
+  "generatedMarkdown": "CHANGELOG.md",
+  "standard": "standards/35-changelog-standard.md",
+  "currentRelease": "1.0.0",
+  "preOneReleaseTrain": true,
+  "productionSupportDeclared": false,
+  "releaseOrdering": "descending-semver",
+  "changeEntryIdentity": "sha256(version|category|text) truncated deterministic ID",
+  "exactHistorySource": "registry/diff/release-index.json",
+  "compatibilitySource": "registry/compatibility/release-compatibility.json",
+  "noSideEffects": true,
+  "noSecretContent": true,
+  "historicalMeaningRewriteWithoutCorrection": false,
+  "notesDoNotCertifyCompatibility": true,
+  "diffDoesNotReplaceNarrativeNotes": true,
+  "unknownBooleanRepresentation": "null",
+  "emptyArrayMeaning": "known-empty",
+  "omittedHistoricalEvidence": "not-authoritative"
+}

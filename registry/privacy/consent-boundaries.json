@@ -1,0 +1,30 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "Consent Boundaries",
+  "rules": [
+    {
+      "id": "analytics-vs-business-purpose",
+      "statement": "Analytics/marketing consent and consent or acknowledgement for a requested form/business purpose are distinct concepts and must not be collapsed into one boolean."
+    },
+    {
+      "id": "unknown-optional-not-granted",
+      "statement": "Unknown optional analytics/marketing consent is not silently treated as granted."
+    },
+    {
+      "id": "security-not-weakened",
+      "statement": "Customer-controlled consent configuration does not disable mandatory security, fraud, integrity or transaction controls."
+    },
+    {
+      "id": "destination-gating",
+      "statement": "Tracking destinations evaluate the relevant consent category/state before optional dispatch."
+    },
+    {
+      "id": "no-raw-form-tracking",
+      "statement": "Raw form payloads are not copied wholesale into analytics/advertising events."
+    },
+    {
+      "id": "hashed-not-anonymous",
+      "statement": "Hashed or pseudonymized personal data is not automatically anonymous and remains classified according to linkability and purpose."
+    }
+  ]
+}

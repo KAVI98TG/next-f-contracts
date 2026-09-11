@@ -1,0 +1,36 @@
+{
+  "controlId": "ACC-REFLOW-001",
+  "name": "Support zoom and reflow",
+  "category": "visual",
+  "requirement": "Content and primary workflows must remain usable under browser zoom and narrow reflow without requiring two-dimensional scrolling except where intrinsically necessary.",
+  "rationale": "Zoom and reflow are essential for low-vision access and smaller displays.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "page",
+    "table",
+    "form",
+    "checkout",
+    "customer-cms",
+    "admin"
+  ],
+  "verificationMethods": [
+    "zoom-reflow",
+    "visual-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_reflow_001.json"
+}

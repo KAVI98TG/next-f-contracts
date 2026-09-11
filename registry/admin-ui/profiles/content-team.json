@@ -1,0 +1,121 @@
+{
+  "$id": "adminUi.profile.content.team",
+  "name": "Team Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "content.team",
+  "permissionDomain": "content",
+  "moduleId": "pages",
+  "description": "Internal NEXT F Admin metadata for Team. Applies only within server-authorized administrative scope.",
+  "route": "/sites/:siteId/content/team",
+  "screenKind": "admin-editor",
+  "layoutTemplate": "inherited-resource",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "site",
+    "requiresOrganization": false,
+    "requiresSite": true,
+    "allowsCrossTenant": false,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": "cmsUi.profile.content.team",
+  "inheritanceMode": "reference-not-copy",
+  "targetContracts": [
+    "content.teamMember"
+  ],
+  "primaryTargetContract": "content.teamMember",
+  "permissions": [
+    "content.team.approve",
+    "content.team.create",
+    "content.team.delete",
+    "content.team.edit",
+    "content.team.publish",
+    "content.team.view"
+  ],
+  "actions": [
+    {
+      "actionId": "approve",
+      "permissionId": "content.team.approve",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "create",
+      "permissionId": "content.team.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "content.team.delete",
+      "riskLevel": "destructive",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "content.team.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "publish",
+      "permissionId": "content.team.publish",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "content.team.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions",
+    "customer-ui-reference",
+    "publishing"
+  ],
+  "controls": [
+    "risk-badge",
+    "explicit-confirmation"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": [
+    "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
+  ]
+}

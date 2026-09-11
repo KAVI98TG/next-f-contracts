@@ -1,0 +1,183 @@
+{
+  "$id": "content.reusableContent",
+  "name": "Reusable Content",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "reusable",
+  "description": "Named structured content value intended for safe reuse across multiple website locations.",
+  "purpose": "Allows frequently repeated business content such as a phone number, company description or primary CTA to be updated once and referenced consistently.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "none",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable machine key unique within the Site.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 120,
+        "customerEditable": false,
+        "adminEditable": true,
+        "searchable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable CMS label.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "CMS guidance describing intended reuse.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "valueContract",
+      "required": false,
+      "nullable": true,
+      "description": "Canonical primitive/schema/Block contract ID defining the value when one is assigned.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 180,
+        "customerEditable": false,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "value",
+      "required": true,
+      "nullable": false,
+      "description": "Structured reusable value validated by valueContract where defined.",
+      "primitive": "fields.json",
+      "config": {
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "keyUniqueWithinSite",
+      "description": "key must be unique within a Site."
+    },
+    {
+      "id": "valueMatchesContract",
+      "description": "When valueContract is present, value must validate against that registered contract."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Reusable Content must not be used to expose platform secrets or credentials."
+    },
+    {
+      "id": "noExecutablePayloads",
+      "description": "Reusable Content must not be used as an arbitrary JavaScript or executable HTML channel."
+    }
+  ],
+  "cms": {
+    "label": "Reusable Content",
+    "icon": "fa-repeat",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "name",
+      "key",
+      "publishing"
+    ],
+    "editorMode": "structured-value-editor",
+    "primaryActions": [
+      "saveDraft",
+      "preview",
+      "publish",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published reusable values may be delivered wherever an authorized page/component references them."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "key": "main-phone",
+        "name": "Main phone",
+        "valueContract": "fields.phone",
+        "value": "+94 77 123 4567"
+      }
+    ],
+    "invalid": [
+      {
+        "key": "api-secret",
+        "name": "Secret",
+        "value": "sk_live_secret"
+      }
+    ]
+  },
+  "notes": [
+    "valueContract is intentionally generic so future registered schemas can be reused without creating one-off storage models."
+  ]
+}

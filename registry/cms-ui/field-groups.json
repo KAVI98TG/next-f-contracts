@@ -1,0 +1,69 @@
+{
+  "registryVersion": "0.20.0",
+  "fieldGroups": [
+    {
+      "id": "identity",
+      "label": "Identity"
+    },
+    {
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "id": "media",
+      "label": "Media"
+    },
+    {
+      "id": "taxonomy",
+      "label": "Taxonomy"
+    },
+    {
+      "id": "relationships",
+      "label": "Relationships"
+    },
+    {
+      "id": "publishing",
+      "label": "Publishing"
+    },
+    {
+      "id": "seo",
+      "label": "SEO"
+    },
+    {
+      "id": "configuration",
+      "label": "Configuration"
+    },
+    {
+      "id": "customer-data",
+      "label": "Customer Data"
+    },
+    {
+      "id": "commerce",
+      "label": "Commerce"
+    },
+    {
+      "id": "inventory",
+      "label": "Inventory"
+    },
+    {
+      "id": "fulfillment",
+      "label": "Fulfillment"
+    },
+    {
+      "id": "marketing",
+      "label": "Marketing"
+    },
+    {
+      "id": "privacy",
+      "label": "Privacy & Consent"
+    },
+    {
+      "id": "advanced",
+      "label": "Advanced"
+    },
+    {
+      "id": "system",
+      "label": "System"
+    }
+  ]
+}

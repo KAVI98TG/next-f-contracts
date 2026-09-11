@@ -1,0 +1,31 @@
+{
+  "$id": "modules.capability.seo.structured-data",
+  "capabilityId": "seo.structured-data",
+  "name": "Structured Data",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "seo",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Structured Data capability within the SEO module.",
+  "contractBindings": [
+    "seo.structuredData"
+  ],
+  "permissionBindings": [
+    "seo.structureddata.edit",
+    "seo.structureddata.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

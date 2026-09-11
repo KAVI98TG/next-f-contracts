@@ -1,0 +1,122 @@
+{
+  "phase": 22,
+  "version": "0.23.0",
+  "status": "passed",
+  "checks": [
+    {
+      "id": "P22-001",
+      "name": "Examples Library standard created",
+      "passed": true
+    },
+    {
+      "id": "P22-002",
+      "name": "Six canonical Site types represented",
+      "passed": true
+    },
+    {
+      "id": "P22-003",
+      "name": "All examples have exact current Site Manifest",
+      "passed": true
+    },
+    {
+      "id": "P22-004",
+      "name": "All example bundles complete",
+      "passed": true
+    },
+    {
+      "id": "P22-005",
+      "name": "Module dependencies resolve",
+      "passed": true
+    },
+    {
+      "id": "P22-006",
+      "name": "Capabilities are canonical and non-reserved",
+      "passed": true
+    },
+    {
+      "id": "P22-007",
+      "name": "Contract references resolve",
+      "passed": true
+    },
+    {
+      "id": "P22-008",
+      "name": "API bindings resolve",
+      "passed": true
+    },
+    {
+      "id": "P22-009",
+      "name": "Permission references resolve",
+      "passed": true
+    },
+    {
+      "id": "P22-010",
+      "name": "Role references resolve",
+      "passed": true
+    },
+    {
+      "id": "P22-011",
+      "name": "Connector references resolve",
+      "passed": true
+    },
+    {
+      "id": "P22-012",
+      "name": "Customer CMS navigation included",
+      "passed": true
+    },
+    {
+      "id": "P22-013",
+      "name": "NEXT F Admin navigation included",
+      "passed": true
+    },
+    {
+      "id": "P22-014",
+      "name": "Page/content blueprints included",
+      "passed": true
+    },
+    {
+      "id": "P22-015",
+      "name": "Block palettes included",
+      "passed": true
+    },
+    {
+      "id": "P22-016",
+      "name": "Security/ownership boundaries included",
+      "passed": true
+    },
+    {
+      "id": "P22-017",
+      "name": "Anti-patterns included",
+      "passed": true
+    },
+    {
+      "id": "P22-018",
+      "name": "Codex handoff included",
+      "passed": true
+    },
+    {
+      "id": "P22-019",
+      "name": "Acceptance checklists included",
+      "passed": true
+    },
+    {
+      "id": "P22-020",
+      "name": "Examples portal route available",
+      "passed": true
+    },
+    {
+      "id": "P22-021",
+      "name": "Generated fallback checksum-bound",
+      "passed": true
+    },
+    {
+      "id": "P22-022",
+      "name": "Global registry remains relationship-valid",
+      "passed": true
+    },
+    {
+      "id": "P22-023",
+      "name": "Light-only SaaS design preserved",
+      "passed": true
+    }
+  ]
+}

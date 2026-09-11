@@ -1,0 +1,132 @@
+{
+  "$id": "seo.socialCard",
+  "name": "Social Card Metadata",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "social",
+  "description": "Generic social-card metadata for networks that use title, description and image card values.",
+  "purpose": "Allows CMS social-preview controls without coupling canonical content to one advertising/social vendor.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "title",
+      "required": false,
+      "nullable": true,
+      "description": "Social-card title override.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Social-card description override.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "image",
+      "required": false,
+      "nullable": true,
+      "description": "Social-card image.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "cardType",
+      "required": false,
+      "nullable": true,
+      "description": "Preferred generic card size/style.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "summary",
+            "label": "Summary"
+          },
+          {
+            "value": "summary-large-image",
+            "label": "Summary Large Image"
+          }
+        ],
+        "defaultValue": "summary-large-image",
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "Uses canonical media reference for card images."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "vendorNeutral",
+      "description": "Vendor-specific account handles and API credentials do not belong in this canonical social-card contract."
+    }
+  ],
+  "cms": {
+    "label": "Social Card Metadata",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "title",
+      "description",
+      "image",
+      "cardType"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "title": "Case study",
+        "cardType": "summary-large-image"
+      }
+    ],
+    "invalid": [
+      {
+        "cardType": "facebook-only"
+      }
+    ]
+  },
+  "notes": []
+}

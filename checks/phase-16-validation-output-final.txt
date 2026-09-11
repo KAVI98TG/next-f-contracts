@@ -1,0 +1,14 @@
+
+> next-f-contracts@0.17.0 validate
+> node scripts/validate-phase-16.mjs
+
+NEXT F Contracts Phase 16 validation
+Version: 0.17.0
+Manifest schemas: 16
+Reference manifests: 6
+Site types: 6
+Runtime capabilities: 5
+Registry entries: 1080
+Passes: 434
+Failures: 0
+PASS - Phase 16 Site Manifest Specification is internally consistent.

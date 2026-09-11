@@ -1,0 +1,97 @@
+{
+  "$id": "changelog.impactClassification",
+  "name": "Changelog Impact Classification",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "changelog",
+  "type": "schema",
+  "category": "release-lifecycle",
+  "description": "Structured impact, compatibility, migration, action and security flags attached to a Changelog change entry.",
+  "fields": [
+    {
+      "key": "compatibilityClassification",
+      "required": true,
+      "nullable": true,
+      "description": "Diff-compatible structural/semantic impact classification when evidence exists; null means unknown.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "breakingChange",
+      "required": true,
+      "nullable": true,
+      "description": "Whether the entry is known to be breaking; null means not established by evidence.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "migrationRequired",
+      "required": true,
+      "nullable": true,
+      "description": "Whether a migration is known to be required; null means not established.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "customerSiteActionRequired",
+      "required": true,
+      "nullable": true,
+      "description": "Whether customer-site implementation action is known to be required.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "adminActionRequired",
+      "required": true,
+      "nullable": true,
+      "description": "Whether NEXT F Admin action is known to be required.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "apiActionRequired",
+      "required": true,
+      "nullable": true,
+      "description": "Whether NEXT F API action is known to be required.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "cmsActionRequired",
+      "required": true,
+      "nullable": true,
+      "description": "Whether NEXT F Customer CMS action is known to be required.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "securityRelevance",
+      "required": true,
+      "nullable": false,
+      "description": "True only when the change is explicitly security-relevant.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "changelog.changelogStandard",
+      "description": "Governed by the NEXT F Changelog Standard."
+    },
+    {
+      "type": "alignsWith",
+      "target": "diff.impactLevels",
+      "description": "Compatibility classifications reuse Contract Diff impact vocabulary where evidence exists."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "unknownIsNull",
+      "description": "Unknown action, breaking and migration state remains null rather than being guessed."
+    },
+    {
+      "id": "compatibilityVocabulary",
+      "description": "Non-null compatibilityClassification resolves to the Contract Diff impact vocabulary."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": true
+}

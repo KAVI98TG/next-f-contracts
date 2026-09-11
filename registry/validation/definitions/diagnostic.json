@@ -1,0 +1,8 @@
+{
+  "$id": "validation.diagnostic",
+  "name": "Validation Diagnostic",
+  "description": "Deterministic browser/CLI validation finding with severity, category, code, JSON path and registry guidance.",
+  "status": "stable",
+  "phase": 33,
+  "severities": ["error", "warning", "info"]
+}

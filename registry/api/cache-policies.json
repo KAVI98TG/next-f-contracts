@@ -1,0 +1,25 @@
+{
+  "registryVersion": "0.19.0",
+  "cachePolicies": [
+    {
+      "id": "public-edge",
+      "label": "Public Edge Cache",
+      "description": "Public published GET responses may be cached by shared edge caches with explicit validators."
+    },
+    {
+      "id": "public-short",
+      "label": "Public Short Cache",
+      "description": "Short-lived public cache for rapidly changing but non-personal data."
+    },
+    {
+      "id": "private-revalidate",
+      "label": "Private Revalidation",
+      "description": "Private browser/client cache only; shared caches prohibited."
+    },
+    {
+      "id": "no-store",
+      "label": "No Store",
+      "description": "Response must not be cached because it is a mutation, sensitive, personal or operational response."
+    }
+  ]
+}

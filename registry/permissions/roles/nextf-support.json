@@ -1,0 +1,33 @@
+{
+  "$id": "permissions.role.nextfSupport",
+  "roleKey": "nextfSupport",
+  "name": "NEXT F Support",
+  "displayName": "NEXT F Support",
+  "description": "Internal support role with diagnostic and customer-context read access plus bounded lead/order support operations.",
+  "domain": "permissions",
+  "type": "role",
+  "version": "0.16.0",
+  "status": "stable",
+  "roleType": "system",
+  "scopeKind": "platform",
+  "permissionIds": [
+    "commerce.customers.view",
+    "commerce.orders.view",
+    "commerce.returns.view",
+    "core.audit.view",
+    "core.sitehealth.view",
+    "forms.leads.edit",
+    "forms.leads.view",
+    "forms.submissions.view",
+    "integrations.health.view",
+    "platform.diagnostics.view",
+    "platform.organizations.view",
+    "platform.sites.view",
+    "platform.support.manage",
+    "platform.support.view",
+    "platform.users.view"
+  ],
+  "assignableByCustomer": false,
+  "systemProtected": true,
+  "notes": []
+}

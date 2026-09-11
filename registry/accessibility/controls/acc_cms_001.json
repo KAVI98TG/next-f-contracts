@@ -1,0 +1,41 @@
+{
+  "controlId": "ACC-CMS-001",
+  "name": "Customer CMS accessibility",
+  "category": "management",
+  "requirement": "Customer CMS resource lists, editors, actions, dialogs and validation must satisfy the applicable accessibility controls and preserve keyboard alternatives for authoring workflows.",
+  "rationale": "Customers must be able to manage content without accessibility regressions in the management interface.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "customer-cms",
+    "form",
+    "table",
+    "dialog",
+    "rich-text-editor"
+  ],
+  "verificationMethods": [
+    "keyboard-manual",
+    "screen-reader-manual",
+    "zoom-reflow"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [
+    "cmsUi.resourceProfile",
+    "cmsUi.editorDefinition",
+    "cmsUi.action",
+    "cmsUi.validationPresentation"
+  ],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_cms_001.json"
+}

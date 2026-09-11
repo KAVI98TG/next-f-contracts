@@ -1,0 +1,35 @@
+{
+  "controlId": "ACC-CONTRAST-001",
+  "name": "Meet contrast requirements",
+  "category": "visual",
+  "requirement": "Text, interactive states and essential non-text UI indicators must provide sufficient contrast against adjacent backgrounds.",
+  "rationale": "Low contrast can make content and controls unreadable.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "page",
+    "form",
+    "navigation",
+    "status-message",
+    "chart"
+  ],
+  "verificationMethods": [
+    "contrast-tool",
+    "visual-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_contrast_001.json"
+}

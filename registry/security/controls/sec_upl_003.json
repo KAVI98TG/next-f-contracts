@@ -1,0 +1,37 @@
+{
+  "controlId": "SEC-UPL-003",
+  "name": "Authorized download and safe headers",
+  "category": "uploads",
+  "requirement": "Protected uploaded files must require authorization and use safe download/content headers appropriate to the file contract.",
+  "rationale": "Upload authorization must continue at retrieval time.",
+  "applicability": [
+    "customer-cms",
+    "admin",
+    "api"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [
+    "modules.media",
+    "modules.forms"
+  ],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_upl_003.json"
+}

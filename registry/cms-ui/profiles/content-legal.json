@@ -1,0 +1,451 @@
+{
+  "$id": "cmsUi.profile.content.legal",
+  "name": "Legal Pages",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "content.legal",
+  "moduleId": "pages",
+  "description": "Customer CMS presentation metadata for Legal Pages within authorized Site scope.",
+  "targetContracts": [
+    "content.legalPage"
+  ],
+  "primaryTargetContract": "content.legalPage",
+  "route": "/content/legal",
+  "screenKind": "editor",
+  "layoutTemplate": "editorial-editor",
+  "responsivePolicy": "editorial",
+  "fieldBindings": [
+    {
+      "field": "identity",
+      "label": "Identity",
+      "description": "Stable entity identity.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.entityIdentity",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "scope",
+      "label": "Scope",
+      "description": "Owning Organization and Site scope.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.tenantScope",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "title",
+      "label": "Title",
+      "description": "Public legal page title.",
+      "editorId": "single-line-text",
+      "group": "content",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "minLength": 1,
+        "maxLength": 220
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": true,
+      "revisionTracked": true
+    },
+    {
+      "field": "slug",
+      "label": "Slug",
+      "description": "Legal page slug.",
+      "editorId": "slug",
+      "group": "configuration",
+      "zone": "sidebar",
+      "order": 40,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.slug",
+      "validationHint": {
+        "minLength": 1,
+        "maxLength": 160
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "legalType",
+      "label": "Legal Type",
+      "description": "Canonical policy category.",
+      "editorId": "select",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "content",
+      "label": "Content",
+      "description": "Structured legal/policy content.",
+      "editorId": "rich-text-editor",
+      "group": "content",
+      "zone": "main",
+      "order": 60,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.richText",
+      "validationHint": {
+        "minLength": 1
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": true,
+      "revisionTracked": true
+    },
+    {
+      "field": "effectiveDate",
+      "label": "Effective Date",
+      "description": "Date this policy becomes effective.",
+      "editorId": "date",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.date",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "lastReviewedDate",
+      "label": "Last Reviewed Date",
+      "description": "Date the Organization last reviewed the policy.",
+      "editorId": "date",
+      "group": "configuration",
+      "zone": "main",
+      "order": 80,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.date",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "jurisdiction",
+      "label": "Jurisdiction",
+      "description": "Optional human-readable jurisdiction context.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 90,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 180
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "contact",
+      "label": "Contact",
+      "description": "Optional policy contact information.",
+      "editorId": "nested-object",
+      "group": "configuration",
+      "zone": "main",
+      "order": 100,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "shared.contactPoint",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "publishing",
+      "label": "Publishing",
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "editorId": "publishing-panel",
+      "group": "publishing",
+      "zone": "sidebar",
+      "order": 110,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "core.publishing",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "revision",
+      "label": "Revision",
+      "description": "Current and published revision pointers.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 120,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.revisionPointer",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [
+    {
+      "id": "seo",
+      "label": "SEO",
+      "contractId": "seo.metadata",
+      "zone": "tabs",
+      "editorId": "seo-workspace",
+      "availability": "when-module-enabled:seo"
+    },
+    {
+      "id": "publishing",
+      "label": "Publishing",
+      "contractId": "core.publishing",
+      "zone": "sidebar",
+      "editorId": "publishing-panel",
+      "availability": "always"
+    },
+    {
+      "id": "revisions",
+      "label": "Version History",
+      "contractId": "core.revisionPointer",
+      "zone": "tabs",
+      "editorId": "revision-history",
+      "availability": "when-capability-enabled:core.versioning"
+    }
+  ],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "title",
+        "label": "Title",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "legalType",
+        "label": "Legal Type",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "effectiveDate",
+        "label": "Effective Date",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "publishing",
+        "label": "Publishing",
+        "rendererId": "status",
+        "order": 40,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [
+      {
+        "field": "legalType",
+        "label": "Legal Type"
+      }
+    ],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [],
+    "searchFields": [
+      "title",
+      "slug",
+      "content"
+    ]
+  },
+  "actions": [
+    {
+      "actionId": "approve",
+      "permissionId": "content.legal.approve",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "content.legal.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "publish",
+      "permissionId": "content.legal.publish",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "content.legal.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "save-draft",
+      "permissionId": "content.legal.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "preview",
+      "permissionId": "content.legal.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "schedule",
+      "permissionId": "content.legal.publish",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "content.legal.approve",
+    "content.legal.edit",
+    "content.legal.publish",
+    "content.legal.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/content/legal",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "content.legal.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "editor",
+      "route": "/content/legal/:id",
+      "layoutTemplate": "editorial-editor",
+      "requiresPermission": "content.legal.edit",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

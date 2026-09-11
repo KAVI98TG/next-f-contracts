@@ -1,0 +1,78 @@
+{
+  "$id": "manifest.eventSupport",
+  "name": "Canonical Event Support",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "surfaces-bindings",
+  "description": "Declares canonical Phase 13 domain Events that this Site implementation can produce or consume.",
+  "purpose": "Lets Codex and runtime validation verify event integration without redefining event semantics.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "produces",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Event IDs the trusted Site implementation can produce.",
+      "primitive": "fields.tag",
+      "config": {
+        "uniqueItems": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "consumes",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Event IDs the trusted Site implementation can consume.",
+      "primitive": "fields.tag",
+      "config": {
+        "uniqueItems": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "events.eventDefinition",
+      "description": "Every declared canonical Event ID must resolve to the Phase 13 Event Registry."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "eventIdsMustResolve",
+      "description": "Every value in produces/consumes must resolve to an authoritative Event Registry event."
+    },
+    {
+      "id": "eventSemanticsNotRedefined",
+      "description": "The Site Manifest may declare support but cannot change event payload or semantic meaning."
+    },
+    {
+      "id": "publicBrowserNotDomainAuthority",
+      "description": "Browser-only code must not claim to authoritatively produce server/business domain facts."
+    }
+  ],
+  "cms": {
+    "label": "Canonical Event Support",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "produces",
+      "consumes"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

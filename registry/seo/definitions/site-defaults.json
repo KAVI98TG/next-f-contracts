@@ -1,0 +1,188 @@
+{
+  "$id": "seo.siteDefaults",
+  "name": "Site SEO Defaults",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "metadata",
+  "description": "Site-level default SEO values applied when target-specific metadata does not override them.",
+  "purpose": "Gives Customer CMS one safe place for default title templates, descriptions, robots and social metadata.",
+  "seoModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable configuration identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "titleTemplate",
+      "required": false,
+      "nullable": true,
+      "description": "Optional page-title template containing a single %s placeholder.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "defaultMetaDescription",
+      "required": false,
+      "nullable": true,
+      "description": "Optional fallback meta description.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "defaultRobots",
+      "required": false,
+      "nullable": true,
+      "description": "Default page-level robots behavior.",
+      "schema": "seo.robotsDirective"
+    },
+    {
+      "key": "defaultOpenGraph",
+      "required": false,
+      "nullable": true,
+      "description": "Default Open Graph values.",
+      "schema": "seo.openGraph"
+    },
+    {
+      "key": "defaultSocialCard",
+      "required": false,
+      "nullable": true,
+      "description": "Default social-card values.",
+      "schema": "seo.socialCard"
+    },
+    {
+      "key": "defaultSocialImage",
+      "required": false,
+      "nullable": true,
+      "description": "Default social image fallback.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "defaultLocale",
+      "required": false,
+      "nullable": true,
+      "description": "Site default BCP 47 locale.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 35,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Defaults are scoped to one Site."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "seo.robotsDirective",
+      "description": "May define default robots behavior."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "seo.openGraph",
+      "description": "May define default Open Graph values."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "seo.socialCard",
+      "description": "May define default social-card values."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "oneSiteDefaultsRecord",
+      "description": "At most one active Site SEO Defaults record exists per Site and locale strategy."
+    },
+    {
+      "id": "titleTemplatePlaceholder",
+      "description": "When titleTemplate is non-null it must contain exactly one %s content-title placeholder unless a future template contract defines additional tokens."
+    },
+    {
+      "id": "defaultsDoNotOverrideExplicit",
+      "description": "Target-specific seo.metadata values override defaults."
+    }
+  ],
+  "cms": {
+    "label": "Site SEO Defaults",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "titleTemplate",
+      "defaultMetaDescription"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "identity": {
+          "id": "seo_default_01",
+          "createdAt": "2026-09-10T00:00:00Z",
+          "updatedAt": "2026-09-10T00:00:00Z"
+        },
+        "scope": {
+          "organizationId": "org_01",
+          "siteId": "site_01"
+        },
+        "titleTemplate": "%s | Example Engineering",
+        "defaultLocale": "en-LK"
+      }
+    ],
+    "invalid": [
+      {
+        "titleTemplate": "Example without placeholder"
+      }
+    ]
+  },
+  "notes": []
+}

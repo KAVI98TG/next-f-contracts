@@ -1,0 +1,67 @@
+{
+  "$id": "api.idempotencyContext",
+  "name": "Idempotency Context",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "integrity",
+  "description": "Mutation idempotency identity and replay result metadata.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "key",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "requestFingerprint",
+      "required": true,
+      "nullable": false,
+      "description": "requestFingerprint",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "firstSeenAt",
+      "required": false,
+      "nullable": false,
+      "description": "firstSeenAt",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "replayed",
+      "required": false,
+      "nullable": false,
+      "description": "replayed",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    },
+    {
+      "id": "fingerprintConflict",
+      "description": "Reusing an idempotency key with a different canonical request fingerprint returns idempotency_conflict."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

@@ -1,0 +1,96 @@
+{
+  "$id": "manifest.moduleSelection",
+  "name": "Module Selection",
+  "version": "0.18.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "capability-runtime",
+  "description": "Declares one Site module and the optional capabilities requested within it.",
+  "purpose": "Makes Site functionality explicit and machine-readable while leaving Module dependencies and canonical capabilities to Phase 17.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "moduleId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable module identifier.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 80,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the module is requested for this Site.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "capabilities",
+      "required": false,
+      "nullable": true,
+      "description": "Optional module-scoped capability selections.",
+      "primitive": "fields.json",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "manifest.capabilitySelection",
+      "description": "Module selection may contain capability selections."
+    },
+    {
+      "type": "validatedBy",
+      "target": "modules.index",
+      "description": "Phase 17 Module Registry is authoritative for module/capability existence and dependencies."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "moduleIdsUnique",
+      "description": "moduleId values must be unique within one Site Manifest."
+    },
+    {
+      "id": "disabledModuleHasNoEnabledCapabilities",
+      "description": "A disabled Module cannot contain enabled capabilities."
+    },
+    {
+      "id": "moduleRegistryAuthoritative",
+      "description": "Module and capability IDs must exist in the Phase 17 Module Registry and satisfy dependency/ownership rules."
+    }
+  ],
+  "cms": {
+    "label": "Module Selection",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "moduleId",
+      "enabled",
+      "capabilities"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

@@ -1,0 +1,60 @@
+{
+  "registryVersion": "0.12.0",
+  "categories": [
+    {
+      "key": "foundation",
+      "label": "Foundation",
+      "description": "Store settings and small reusable monetary/quantity/channel contracts used across commerce."
+    },
+    {
+      "key": "catalog",
+      "label": "Catalog",
+      "description": "Products, variants, options, attributes, categories, collections, pricing and availability."
+    },
+    {
+      "key": "inventory",
+      "label": "Inventory",
+      "description": "Inventory identities, balances, reservations, adjustments, locations and transfers."
+    },
+    {
+      "key": "customer",
+      "label": "Customers",
+      "description": "Commerce buyers, addresses, snapshots, tags and operational notes."
+    },
+    {
+      "key": "cart-checkout",
+      "label": "Cart & Checkout",
+      "description": "Mutable carts, checkout snapshots, contacts, addresses, shipping/payment selections and totals."
+    },
+    {
+      "key": "orders",
+      "label": "Orders",
+      "description": "Immutable order snapshots, line items, totals, source and lifecycle dimensions."
+    },
+    {
+      "key": "payments",
+      "label": "Payments & Refunds",
+      "description": "Provider-neutral payment references, attempts, authorizations, captures and refunds."
+    },
+    {
+      "key": "fulfillment",
+      "label": "Shipping & Fulfillment",
+      "description": "Shipping zones/rates/methods, estimates, fulfillments, shipments, packages and tracking."
+    },
+    {
+      "key": "promotions",
+      "label": "Discounts & Promotions",
+      "description": "Discount rules, codes, conditions, benefits and transaction allocations."
+    },
+    {
+      "key": "tax",
+      "label": "Tax",
+      "description": "Provider-neutral tax configuration, tax classes, rates and transaction tax lines."
+    },
+    {
+      "key": "returns",
+      "label": "Returns & Reviews",
+      "description": "Return requests/resolutions and moderated truthful product reviews."
+    }
+  ]
+}

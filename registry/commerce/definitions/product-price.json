@@ -1,0 +1,137 @@
+{
+  "$id": "commerce.productPrice",
+  "name": "Product Price",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "catalog",
+  "description": "Mutable catalog price for a Product or Variant.",
+  "purpose": "Separates current catalog price from committed transaction snapshots.",
+  "commerceModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "transactional": false,
+    "dataSensitivity": "mixed"
+  },
+  "fields": [
+    {
+      "key": "amount",
+      "required": true,
+      "nullable": false,
+      "description": "Current price amount.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0,
+        "precision": 2
+      }
+    },
+    {
+      "key": "currency",
+      "required": true,
+      "nullable": false,
+      "description": "Currency code.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^[A-Z]{3}$"
+      }
+    },
+    {
+      "key": "compareAtAmount",
+      "required": false,
+      "nullable": true,
+      "description": "Optional truthful reference price.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0,
+        "precision": 2
+      }
+    },
+    {
+      "key": "costAmount",
+      "required": false,
+      "nullable": true,
+      "description": "Optional internal cost.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0,
+        "precision": 2
+      }
+    },
+    {
+      "key": "taxInclusive",
+      "required": true,
+      "nullable": false,
+      "description": "Whether displayed amount includes tax.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "validFrom",
+      "required": false,
+      "nullable": true,
+      "description": "Optional validity start.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "validUntil",
+      "required": false,
+      "nullable": true,
+      "description": "Optional validity end.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "nonNegative",
+      "description": "Catalog prices cannot be negative."
+    },
+    {
+      "id": "compareAtTruthful",
+      "description": "Compare-at prices cannot be fabricated to create misleading savings."
+    },
+    {
+      "id": "costNeverPublic",
+      "description": "Internal cost must never be delivered publicly."
+    }
+  ],
+  "cms": {
+    "label": "Product Price",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "amount",
+      "currency",
+      "compareAtAmount",
+      "costAmount"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly public storefront fields may be delivered; operational, personal, payment and internal metadata remain private."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

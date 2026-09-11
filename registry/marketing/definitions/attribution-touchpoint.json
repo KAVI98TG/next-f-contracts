@@ -1,0 +1,165 @@
+{
+  "$id": "marketing.attributionTouchpoint",
+  "name": "Attribution Touchpoint",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "campaign-attribution",
+  "description": "Eligible acquisition or engagement touchpoint that may receive conversion credit.",
+  "purpose": "Creates auditable attribution evidence instead of recalculating from mutable current page state.",
+  "marketingModel": {
+    "kind": "observation",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "touchpointId",
+      "required": true,
+      "nullable": false,
+      "description": "Unique touchpoint ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "occurredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Touchpoint time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "sessionId",
+      "required": false,
+      "nullable": true,
+      "description": "Associated session ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "trackingEventId",
+      "required": false,
+      "nullable": true,
+      "description": "Associated tracking observation ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "trafficSource",
+      "required": true,
+      "nullable": false,
+      "description": "Acquisition source.",
+      "schema": "marketing.trafficSource"
+    },
+    {
+      "key": "campaign",
+      "required": false,
+      "nullable": true,
+      "description": "Campaign context.",
+      "schema": "marketing.campaignContext"
+    },
+    {
+      "key": "page",
+      "required": false,
+      "nullable": true,
+      "description": "Page context.",
+      "schema": "marketing.pageContext"
+    },
+    {
+      "key": "eligible",
+      "required": true,
+      "nullable": false,
+      "description": "Eligibility under attribution policy.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "composes",
+      "target": "marketing.trafficSource",
+      "description": "Carries acquisition source."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.campaignContext",
+      "description": "May carry campaign."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.pageContext",
+      "description": "May carry page."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "immutableEvidence",
+      "description": "Captured attribution evidence is not rewritten when campaign metadata changes."
+    },
+    {
+      "id": "noCrossSiteAttribution",
+      "description": "No cross-Site attribution without future explicit contract."
+    },
+    {
+      "id": "consentAndPolicy",
+      "description": "Creation/retention follows consent/data policy."
+    }
+  ],
+  "cms": {
+    "label": "Attribution Touchpoint",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "touchpointId",
+      "scope",
+      "occurredAt",
+      "sessionId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

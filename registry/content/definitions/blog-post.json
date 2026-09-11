@@ -1,0 +1,305 @@
+{
+  "$id": "content.blogPost",
+  "name": "Blog Post",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "blog",
+  "description": "Full editorial blog entry with rich content, taxonomy, author attribution and publishing state.",
+  "purpose": "Provides the production-grade blog authoring contract required by the Customer CMS rather than a simple title-and-text placeholder.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "required",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Public post title.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 220,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Post URL slug.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "filterable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "excerpt",
+      "required": false,
+      "nullable": true,
+      "description": "Short editorial summary used in listings and previews.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1200,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "content",
+      "required": true,
+      "nullable": false,
+      "description": "Structured main article content supporting safe editorial nodes such as headings, paragraphs, media references, lists, tables, quotes and links.",
+      "primitive": "fields.richText",
+      "config": {
+        "minLength": 1,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "featuredMedia",
+      "required": false,
+      "nullable": true,
+      "description": "Optional featured image/media.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "author",
+      "required": false,
+      "nullable": true,
+      "description": "Primary post author.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.author",
+        "relationshipCardinality": "one",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "categories",
+      "required": false,
+      "nullable": true,
+      "description": "Blog categories assigned to the post.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.blogCategory",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "minItems": 0,
+        "uniqueItems": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "tags",
+      "required": false,
+      "nullable": true,
+      "description": "Blog tags assigned to the post.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.blogTag",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "minItems": 0,
+        "uniqueItems": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "relatedPosts",
+      "required": false,
+      "nullable": true,
+      "description": "Optional manually selected related posts.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.blogPost",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "minItems": 0,
+        "uniqueItems": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "isFeatured",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the post may be prioritized in supported editorial listings.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "readingTimeMinutes",
+      "required": false,
+      "nullable": true,
+      "description": "Computed approximate reading time for the current revision.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true,
+        "revisionTracked": false
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "content.author",
+      "description": "Posts may reference one Author."
+    },
+    {
+      "type": "references",
+      "target": "content.blogCategory",
+      "description": "Posts may reference categories."
+    },
+    {
+      "type": "references",
+      "target": "content.blogTag",
+      "description": "Posts may reference tags."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "Posts may use featured media."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "postSlugUnique",
+      "description": "Published Blog Post slugs must be unique within the Site and locale."
+    },
+    {
+      "id": "publishedContentRequired",
+      "description": "A published Blog Post requires non-empty main content."
+    },
+    {
+      "id": "relatedPostsNotSelf",
+      "description": "relatedPosts must not contain the current Blog Post."
+    },
+    {
+      "id": "taxonomySameSite",
+      "description": "Authors, categories, tags and related posts must belong to the same Site unless a future explicit cross-site contract permits otherwise."
+    },
+    {
+      "id": "readingTimeComputed",
+      "description": "readingTimeMinutes is system-computed from the canonical rich-content revision."
+    }
+  ],
+  "cms": {
+    "label": "Blog Post",
+    "icon": "fa-newspaper",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "title",
+      "author",
+      "publishing"
+    ],
+    "editorMode": "editorial-workspace",
+    "primaryActions": [
+      "saveDraft",
+      "preview",
+      "publish",
+      "schedule",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only published versions and public-safe author/taxonomy/media references may be delivered."
+  },
+  "futureBindings": {
+    "blocks": "phase-6-rich-content-nodes",
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "title": "How Preventive Maintenance Reduces Downtime",
+        "slug": "preventive-maintenance",
+        "content": {
+          "type": "doc",
+          "content": []
+        },
+        "isFeatured": false
+      }
+    ],
+    "invalid": [
+      {
+        "title": "",
+        "slug": "bad slug",
+        "content": "<script>alert(1)</script>"
+      }
+    ]
+  },
+  "notes": [
+    "SEO controls, focus keywords and social metadata are added through the Phase 7 SEO contract rather than duplicated here.",
+    "The Customer CMS editor is expected to be a full-page editorial workspace with structured rich-text/media tools."
+  ]
+}

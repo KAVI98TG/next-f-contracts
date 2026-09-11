@@ -1,0 +1,28 @@
+{
+  "$id": "platform.sites.create",
+  "name": "Create Sites",
+  "permissionId": "platform.sites.create",
+  "domain": "platform",
+  "resource": "sites",
+  "action": "create",
+  "scopeKind": "platform",
+  "riskLevel": "elevated",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Create Sites within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

@@ -1,0 +1,119 @@
+{
+  "$id": "seo.alternateLanguage",
+  "name": "Alternate Language URL",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "directives",
+  "description": "One hreflang-style alternate URL declaration.",
+  "purpose": "Standardizes multilingual alternate URL data used by metadata and sitemaps.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "languageTag",
+      "required": false,
+      "nullable": true,
+      "description": "BCP 47 language/region tag. Null only for x-default.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 35,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "url",
+      "required": true,
+      "nullable": false,
+      "description": "Absolute canonical alternate URL.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "isDefault",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this is the x-default alternate.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "languageOrDefault",
+      "description": "Exactly one of a languageTag or isDefault=true must identify the alternate."
+    },
+    {
+      "id": "absoluteAlternate",
+      "description": "url must be an absolute HTTP(S) URL."
+    },
+    {
+      "id": "reciprocalRecommended",
+      "description": "Implementations should validate reciprocal alternate relationships where applicable."
+    }
+  ],
+  "cms": {
+    "label": "Alternate Language URL",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "languageTag",
+      "url",
+      "isDefault"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "languageTag": "en-LK",
+        "url": "https://example.lk/en/service",
+        "isDefault": false
+      },
+      {
+        "languageTag": null,
+        "url": "https://example.lk/service",
+        "isDefault": true
+      }
+    ],
+    "invalid": [
+      {
+        "languageTag": null,
+        "url": "https://example.lk/xx",
+        "isDefault": false
+      }
+    ]
+  },
+  "notes": []
+}

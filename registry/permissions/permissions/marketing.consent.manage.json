@@ -1,0 +1,29 @@
+{
+  "$id": "marketing.consent.manage",
+  "name": "Manage Consent",
+  "permissionId": "marketing.consent.manage",
+  "domain": "marketing",
+  "resource": "consent",
+  "action": "manage",
+  "scopeKind": "site",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage Consent within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

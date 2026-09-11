@@ -1,0 +1,101 @@
+{
+  "registryVersion": "1.0.0",
+  "checks": [
+    {
+      "checkId": "PORTAL-A11Y-001",
+      "title": "Skip link targets main content",
+      "controlId": "ACC-SKIP-001",
+      "reviewType": "automated-static"
+    },
+    {
+      "checkId": "PORTAL-A11Y-002",
+      "title": "Primary navigation has a label",
+      "controlId": "ACC-LAND-001",
+      "reviewType": "automated-static"
+    },
+    {
+      "checkId": "PORTAL-A11Y-003",
+      "title": "Route announcer uses a polite live region",
+      "controlId": "ACC-STATUS-001",
+      "reviewType": "automated-static"
+    },
+    {
+      "checkId": "PORTAL-A11Y-004",
+      "title": "Search uses modal dialog semantics and an accessible name",
+      "controlId": "ACC-DLG-001",
+      "reviewType": "automated-static"
+    },
+    {
+      "checkId": "PORTAL-A11Y-005",
+      "title": "Search input has an associated label",
+      "controlId": "ACC-FORM-001",
+      "reviewType": "automated-static"
+    },
+    {
+      "checkId": "PORTAL-A11Y-006",
+      "title": "Interactive icons are hidden or controls are named",
+      "controlId": "ACC-ICON-001",
+      "reviewType": "automated-static"
+    },
+    {
+      "checkId": "PORTAL-A11Y-007",
+      "title": "Visible focus styles are present",
+      "controlId": "ACC-FOCUS-001",
+      "reviewType": "automated-static"
+    },
+    {
+      "checkId": "PORTAL-A11Y-008",
+      "title": "Reduced-motion preference is respected",
+      "controlId": "ACC-MOTION-001",
+      "reviewType": "automated-static"
+    },
+    {
+      "checkId": "PORTAL-A11Y-009",
+      "title": "Search dialog contains and restores focus",
+      "controlId": "ACC-FOCUS-002",
+      "reviewType": "source-review"
+    },
+    {
+      "checkId": "PORTAL-A11Y-010",
+      "title": "Command palette supports keyboard result navigation and Escape",
+      "controlId": "ACC-PALETTE-001",
+      "reviewType": "source-review"
+    },
+    {
+      "checkId": "PORTAL-A11Y-011",
+      "title": "Mobile drawer exposes state and supports keyboard closing",
+      "controlId": "ACC-DRAWER-001",
+      "reviewType": "source-review"
+    },
+    {
+      "checkId": "PORTAL-A11Y-012",
+      "title": "Status badges include text and do not rely on color alone",
+      "controlId": "ACC-COLOR-001",
+      "reviewType": "source-review"
+    },
+    {
+      "checkId": "PORTAL-A11Y-013",
+      "title": "Filter controls are labeled and keyboard-native",
+      "controlId": "ACC-FILTER-001",
+      "reviewType": "source-review"
+    },
+    {
+      "checkId": "PORTAL-A11Y-014",
+      "title": "Code copy actions use semantic buttons and feedback",
+      "controlId": "ACC-COPY-001",
+      "reviewType": "source-review"
+    },
+    {
+      "checkId": "PORTAL-A11Y-015",
+      "title": "Portal keyboard path: skip link, search open/close and main navigation",
+      "controlId": "ACC-KBD-001",
+      "reviewType": "manual-source-keyboard-review"
+    },
+    {
+      "checkId": "PORTAL-A11Y-016",
+      "title": "Portal responsive reflow remains usable at narrow viewport",
+      "controlId": "ACC-MOBILE-001",
+      "reviewType": "manual-source-reflow-review"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "$id": "integrations.consentBinding",
+  "name": "Consent Binding",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "configuration",
+  "description": "Binds an integration capability to Phase 9 consent requirements.",
+  "purpose": "Ensures browser and server integration behavior uses the same canonical consent state.",
+  "integrationModel": {
+    "kind": "policy-binding",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "requiredCategories",
+      "required": true,
+      "nullable": false,
+      "description": "Required consent category keys.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "appliesToClient",
+      "required": true,
+      "nullable": false,
+      "description": "Apply to client-side dispatch.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "appliesToServer",
+      "required": true,
+      "nullable": false,
+      "description": "Apply to server-side dispatch.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "deniedBehavior",
+      "required": true,
+      "nullable": false,
+      "description": "Behavior when consent is denied/unknown.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "block",
+          "redact",
+          "limited-mode",
+          "provider-consent-mode"
+        ]
+      }
+    },
+    {
+      "key": "policyRef",
+      "required": false,
+      "nullable": true,
+      "description": "Optional Phase 9 consent policy reference.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "marketing.consentPolicy",
+      "description": "Uses Phase 9 consent semantics."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "serverNotExempt",
+      "description": "Server-side dispatch does not bypass consent."
+    },
+    {
+      "id": "unknownNotGranted",
+      "description": "Unknown optional consent is not treated as granted."
+    },
+    {
+      "id": "providerModeCannotOverridePolicy",
+      "description": "Provider consent modes cannot weaken Site policy."
+    }
+  ],
+  "cms": {
+    "label": "Consent Binding",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "requiredCategories",
+      "appliesToClient",
+      "appliesToServer",
+      "deniedBehavior"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

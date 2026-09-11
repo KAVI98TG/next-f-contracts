@@ -1,0 +1,21 @@
+{
+  "ruleId": "PERF-RULE-004",
+  "name": "Route-lazy heavy features",
+  "category": "loading",
+  "requirement": "Heavy features and historical datasets must load only when the user opens the relevant route.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "static-analysis",
+    "browser-profile"
+  ],
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_004.json"
+}

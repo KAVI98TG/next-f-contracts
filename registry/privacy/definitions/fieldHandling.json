@@ -1,0 +1,14 @@
+{
+  "$id": "privacy.fieldHandling",
+  "name": "Field Privacy Handling",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 30,
+  "description": "Field-level classification, purpose, flow eligibility, retention, consent, deletion and redaction metadata.",
+  "domain": "privacy",
+  "type": "schema",
+  "tags": [
+    "privacy",
+    "phase-30"
+  ]
+}

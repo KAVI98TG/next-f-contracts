@@ -1,0 +1,187 @@
+{
+  "$id": "marketing.trafficSource",
+  "name": "Traffic Source",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "campaign-attribution",
+  "description": "Normalized acquisition source for a session or attribution touchpoint.",
+  "purpose": "Combines UTM, referrer and advertising click context into one provider-neutral acquisition model.",
+  "marketingModel": {
+    "kind": "context",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "channel",
+      "required": true,
+      "nullable": false,
+      "description": "Normalized high-level channel.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "direct",
+            "label": "Direct"
+          },
+          {
+            "value": "organicSearch",
+            "label": "Organic Search"
+          },
+          {
+            "value": "paidSearch",
+            "label": "Paid Search"
+          },
+          {
+            "value": "paidSocial",
+            "label": "Paid Social"
+          },
+          {
+            "value": "organicSocial",
+            "label": "Organic Social"
+          },
+          {
+            "value": "referral",
+            "label": "Referral"
+          },
+          {
+            "value": "email",
+            "label": "Email"
+          },
+          {
+            "value": "display",
+            "label": "Display"
+          },
+          {
+            "value": "affiliate",
+            "label": "Affiliate"
+          },
+          {
+            "value": "other",
+            "label": "Other"
+          }
+        ]
+      }
+    },
+    {
+      "key": "source",
+      "required": false,
+      "nullable": true,
+      "description": "Normalized source label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "medium",
+      "required": false,
+      "nullable": true,
+      "description": "Normalized medium label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "utm",
+      "required": false,
+      "nullable": true,
+      "description": "Captured UTM parameters.",
+      "schema": "marketing.utmParameters"
+    },
+    {
+      "key": "referrer",
+      "required": false,
+      "nullable": true,
+      "description": "Sanitized referrer context.",
+      "schema": "marketing.referrerContext"
+    },
+    {
+      "key": "adClickIdentifiers",
+      "required": false,
+      "nullable": true,
+      "description": "Captured eligible advertising click identifiers.",
+      "itemsSchema": "marketing.adClickIdentifier",
+      "config": {
+        "maxItems": 10
+      }
+    },
+    {
+      "key": "classifiedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Classification timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.utmParameters",
+      "description": "May include UTM context."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.referrerContext",
+      "description": "May include referral context."
+    },
+    {
+      "type": "optionallyComposesMany",
+      "target": "marketing.adClickIdentifier",
+      "description": "May include click IDs."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "deterministicClassification",
+      "description": "Given same policy/version and input, channel classification should be deterministic."
+    },
+    {
+      "id": "directOnlyWhenNoSource",
+      "description": "Direct applies only when no attributable source is available."
+    },
+    {
+      "id": "sourceDataPreservedSeparately",
+      "description": "Normalized labels do not overwrite captured evidence."
+    }
+  ],
+  "cms": {
+    "label": "Traffic Source",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "channel",
+      "source",
+      "medium",
+      "utm"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

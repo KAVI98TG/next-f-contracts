@@ -1,0 +1,167 @@
+{
+  "$id": "core.publishing",
+  "name": "Publishing",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "lifecycle",
+  "description": "Reusable publishing lifecycle state for customer-managed content and records.",
+  "purpose": "Standardizes draft, review, scheduling, publication and archive state while composing visibility and scheduling.",
+  "fields": [
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "draft",
+            "label": "Draft"
+          },
+          {
+            "value": "inReview",
+            "label": "In review"
+          },
+          {
+            "value": "approved",
+            "label": "Approved"
+          },
+          {
+            "value": "scheduled",
+            "label": "Scheduled"
+          },
+          {
+            "value": "published",
+            "label": "Published"
+          },
+          {
+            "value": "archived",
+            "label": "Archived"
+          }
+        ],
+        "defaultValue": "draft",
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "visibility",
+      "required": true,
+      "nullable": false,
+      "description": "Visibility policy for the resource.",
+      "schema": "core.visibility"
+    },
+    {
+      "key": "schedule",
+      "required": false,
+      "nullable": true,
+      "description": "Optional publication window.",
+      "schema": "core.scheduleWindow"
+    },
+    {
+      "key": "publishedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Timestamp when the current published state became effective.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "publishedBy",
+      "required": false,
+      "nullable": true,
+      "description": "Actor that published the current version.",
+      "schema": "core.actorReference"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.visibility",
+      "description": "Publishing uses canonical visibility semantics."
+    },
+    {
+      "type": "composes",
+      "target": "core.scheduleWindow",
+      "description": "Publishing uses reusable scheduling semantics."
+    },
+    {
+      "type": "composes",
+      "target": "core.actorReference",
+      "description": "Publishing attribution uses compact actor references."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "publishedRequiresTimestamp",
+      "description": "published status requires publishedAt."
+    },
+    {
+      "id": "scheduledRequiresStart",
+      "description": "scheduled status requires schedule.startsAt."
+    },
+    {
+      "id": "archiveNotPubliclyActive",
+      "description": "archived records are not treated as current public content."
+    }
+  ],
+  "cms": {
+    "label": "Publishing",
+    "icon": "fa-paper-plane",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "sidebar",
+    "summaryFields": [
+      "status",
+      "publishedAt"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public payloads may expose selected publication metadata; draft/review operational details should normally remain private."
+  },
+  "examples": {
+    "valid": [
+      {
+        "status": "draft",
+        "visibility": {
+          "mode": "public",
+          "requiresAuthentication": false
+        },
+        "schedule": null,
+        "publishedAt": null,
+        "publishedBy": null
+      },
+      {
+        "status": "published",
+        "visibility": {
+          "mode": "public",
+          "requiresAuthentication": false
+        },
+        "publishedAt": "2026-09-09T12:00:00Z",
+        "publishedBy": {
+          "actorType": "organizationUser",
+          "actorId": "usr_01ABC",
+          "displayName": "Editor"
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "status": "published",
+        "visibility": {
+          "mode": "public",
+          "requiresAuthentication": false
+        },
+        "publishedAt": null
+      }
+    ]
+  },
+  "notes": []
+}

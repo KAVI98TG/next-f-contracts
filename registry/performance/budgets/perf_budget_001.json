@@ -1,0 +1,22 @@
+{
+  "budgetId": "PERF-BUDGET-001",
+  "name": "Portal HTML payload",
+  "category": "payload",
+  "scope": "contract-portal",
+  "metric": "portal.indexHtmlBytes",
+  "target": 65536,
+  "warningThreshold": 98304,
+  "comparator": "lte",
+  "unit": "bytes",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-file-size",
+  "environment": "Hosted and file review",
+  "notes": "Keeps the shell small enough to parse quickly; generated data must not be embedded into HTML.",
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_001.json"
+}

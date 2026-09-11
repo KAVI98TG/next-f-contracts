@@ -1,0 +1,214 @@
+{
+  "$id": "marketing.campaignDefinition",
+  "name": "Campaign Definition",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "campaign-attribution",
+  "description": "Provider-neutral campaign metadata known to NEXT F.",
+  "purpose": "Provides a stable campaign key for attribution/reporting while external advertising accounts remain customer-owned.",
+  "marketingModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable campaign identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization/Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "campaignKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable NEXT F campaign key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "pattern": "^[a-zA-Z0-9._-]+$"
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Campaign name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Campaign lifecycle.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "draft",
+            "label": "Draft"
+          },
+          {
+            "value": "active",
+            "label": "Active"
+          },
+          {
+            "value": "paused",
+            "label": "Paused"
+          },
+          {
+            "value": "completed",
+            "label": "Completed"
+          },
+          {
+            "value": "archived",
+            "label": "Archived"
+          }
+        ]
+      }
+    },
+    {
+      "key": "objective",
+      "required": false,
+      "nullable": true,
+      "description": "Business objective.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500
+      }
+    },
+    {
+      "key": "startsAt",
+      "required": false,
+      "nullable": true,
+      "description": "Optional start.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "endsAt",
+      "required": false,
+      "nullable": true,
+      "description": "Optional end.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "externalReferences",
+      "required": false,
+      "nullable": true,
+      "description": "External campaign references.",
+      "itemsSchema": "shared.externalReference",
+      "config": {
+        "maxItems": 20
+      }
+    },
+    {
+      "key": "sourceOfTruth",
+      "required": true,
+      "nullable": false,
+      "description": "Primary operational source.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "nextf",
+            "label": "NEXT F"
+          },
+          {
+            "value": "external",
+            "label": "External provider"
+          },
+          {
+            "value": "hybrid",
+            "label": "Hybrid"
+          }
+        ],
+        "defaultValue": "external"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "Uses identity."
+    },
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Is Site-scoped."
+    },
+    {
+      "type": "optionallyComposesMany",
+      "target": "shared.externalReference",
+      "description": "May reference external campaigns."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "externalOwnership",
+      "description": "External advertising campaign accounts normally remain customer-owned."
+    },
+    {
+      "id": "externalStatusNotInvented",
+      "description": "When external is source, NEXT F does not invent provider status."
+    },
+    {
+      "id": "campaignKeyStable",
+      "description": "campaignKey remains stable across display-name edits."
+    },
+    {
+      "id": "dateOrder",
+      "description": "endsAt must not precede startsAt."
+    }
+  ],
+  "cms": {
+    "label": "Campaign Definition",
+    "icon": "fa-bullseye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "campaign-editor",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "campaignKey",
+      "name"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

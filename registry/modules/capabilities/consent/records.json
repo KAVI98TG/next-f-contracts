@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.consent.records",
+  "capabilityId": "consent.records",
+  "name": "Consent Records",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "consent",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Consent Records capability within the Consent module.",
+  "contractBindings": [
+    "marketing.trackingConsentRecord"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

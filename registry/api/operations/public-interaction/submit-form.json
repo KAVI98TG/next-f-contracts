@@ -1,0 +1,78 @@
+{
+  "$id": "api.public-interaction.submit-form",
+  "operationId": "api.public-interaction.submit-form",
+  "name": "Submit Public Form",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.public-interaction",
+  "method": "POST",
+  "path": "/forms/{formId}/submissions",
+  "description": "Accept a public Form submission after server validation, spam/abuse checks, consent capture and idempotency handling.",
+  "authentication": {
+    "mode": "anonymous",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "formId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 201,
+    "envelope": "api.successEnvelope",
+    "dataContract": "api.commandResult",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "validation_failed",
+      "spam_rejected",
+      "payload_too_large",
+      "rate_limited",
+      "module_disabled"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "public-write",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "forms"
+  ],
+  "contractBindings": [
+    "forms.form",
+    "forms.submission",
+    "api.commandResult"
+  ],
+  "eventBindings": [
+    "form.submitted",
+    "lead.created"
+  ],
+  "publicSurface": true,
+  "privacy": "personal",
+  "notes": []
+}

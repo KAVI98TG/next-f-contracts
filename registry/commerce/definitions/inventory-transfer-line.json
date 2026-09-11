@@ -1,0 +1,96 @@
+{
+  "$id": "commerce.inventoryTransferLine",
+  "name": "Inventory Transfer Line",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "inventory",
+  "description": "Line in an inventory transfer.",
+  "purpose": "Preserves quantity movement between inventory locations.",
+  "commerceModel": {
+    "kind": "transaction-line",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "inventoryItemId",
+      "required": true,
+      "nullable": false,
+      "description": "Inventory Item being transferred.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "quantity",
+      "required": true,
+      "nullable": false,
+      "description": "Transferred quantity.",
+      "schema": "commerce.quantity"
+    },
+    {
+      "key": "notes",
+      "required": false,
+      "nullable": true,
+      "description": "Optional line notes.",
+      "itemsPrimitive": "fields.textarea"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.inventoryItem",
+      "description": "References commerce.inventoryItem."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.quantity",
+      "description": "References commerce.quantity."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "positiveQuantity",
+      "description": "Transfer quantity must be greater than zero."
+    }
+  ],
+  "cms": {
+    "label": "Inventory Transfer Line",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "inventoryItemId",
+      "quantity",
+      "notes"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

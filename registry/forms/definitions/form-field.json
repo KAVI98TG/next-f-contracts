@@ -1,0 +1,388 @@
+{
+  "$id": "forms.formField",
+  "name": "Form Field",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "builder",
+  "description": "One structured input definition inside a form.",
+  "purpose": "Provides the reusable field configuration consumed by the form renderer and submission validator.",
+  "formsModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque form-field ID.",
+      "primitive": "fields.text",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "formId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Form ID.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.form",
+        "relationshipCardinality": "one",
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable machine key used in submission snapshots and mappings.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Customer-facing field label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240,
+        "localizable": true
+      }
+    },
+    {
+      "key": "primitiveId",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical NEXT F primitive field ID that defines the value shape.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "inputVariant",
+      "required": true,
+      "nullable": false,
+      "description": "Form-specific visual/input variant without changing stored value semantics.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "text",
+            "label": "text"
+          },
+          {
+            "value": "textarea",
+            "label": "textarea"
+          },
+          {
+            "value": "email",
+            "label": "email"
+          },
+          {
+            "value": "phone",
+            "label": "phone"
+          },
+          {
+            "value": "url",
+            "label": "url"
+          },
+          {
+            "value": "number",
+            "label": "number"
+          },
+          {
+            "value": "date",
+            "label": "date"
+          },
+          {
+            "value": "time",
+            "label": "time"
+          },
+          {
+            "value": "select",
+            "label": "select"
+          },
+          {
+            "value": "radio",
+            "label": "radio"
+          },
+          {
+            "value": "checkboxGroup",
+            "label": "checkboxGroup"
+          },
+          {
+            "value": "singleCheckbox",
+            "label": "singleCheckbox"
+          },
+          {
+            "value": "file",
+            "label": "file"
+          },
+          {
+            "value": "hidden",
+            "label": "hidden"
+          },
+          {
+            "value": "customRegistered",
+            "label": "customRegistered"
+          }
+        ]
+      }
+    },
+    {
+      "key": "placeholder",
+      "required": false,
+      "nullable": true,
+      "description": "Optional localized placeholder.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300,
+        "localizable": true
+      }
+    },
+    {
+      "key": "helpText",
+      "required": false,
+      "nullable": true,
+      "description": "Optional localized help text.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1200,
+        "localizable": true
+      }
+    },
+    {
+      "key": "required",
+      "required": true,
+      "nullable": false,
+      "description": "Whether a valid value is required.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "defaultValue",
+      "required": false,
+      "nullable": true,
+      "description": "Optional default value matching primitive semantics.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "autocomplete",
+      "required": false,
+      "nullable": true,
+      "description": "HTML/autofill hint when safe and appropriate.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120
+      }
+    },
+    {
+      "key": "width",
+      "required": true,
+      "nullable": false,
+      "description": "Presentation hint for the form grid.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "full",
+            "label": "Full"
+          },
+          {
+            "value": "half",
+            "label": "Half"
+          },
+          {
+            "value": "third",
+            "label": "Third"
+          },
+          {
+            "value": "twoThirds",
+            "label": "Two thirds"
+          }
+        ],
+        "defaultValue": "full"
+      }
+    },
+    {
+      "key": "options",
+      "required": false,
+      "nullable": false,
+      "description": "Selectable options when applicable.",
+      "itemsSchema": "forms.fieldOption"
+    },
+    {
+      "key": "validationRules",
+      "required": false,
+      "nullable": false,
+      "description": "Additional declarative validation rules.",
+      "itemsSchema": "forms.fieldValidationRule"
+    },
+    {
+      "key": "visibleWhen",
+      "required": false,
+      "nullable": true,
+      "description": "Optional conditional visibility rule.",
+      "schema": "forms.conditionGroup"
+    },
+    {
+      "key": "consent",
+      "required": false,
+      "nullable": true,
+      "description": "Consent semantics when this field represents consent.",
+      "schema": "forms.consentFieldConfig"
+    },
+    {
+      "key": "uploadPolicy",
+      "required": false,
+      "nullable": true,
+      "description": "Upload restrictions when this is a file field.",
+      "schema": "forms.uploadPolicy"
+    },
+    {
+      "key": "sensitive",
+      "required": true,
+      "nullable": false,
+      "description": "Marks the value as requiring stricter operational handling.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "sortOrder",
+      "required": true,
+      "nullable": false,
+      "description": "Deterministic order inside a section/step.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "active",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the field participates in new submissions.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "forms.form",
+      "description": "Field belongs to one Form."
+    },
+    {
+      "type": "contains",
+      "target": "forms.fieldOption",
+      "description": "May contain options."
+    },
+    {
+      "type": "contains",
+      "target": "forms.fieldValidationRule",
+      "description": "May contain validation."
+    },
+    {
+      "type": "uses",
+      "target": "forms.conditionGroup",
+      "description": "May use conditional visibility."
+    },
+    {
+      "type": "uses",
+      "target": "forms.consentFieldConfig",
+      "description": "May define consent behavior."
+    },
+    {
+      "type": "uses",
+      "target": "forms.uploadPolicy",
+      "description": "May define upload restrictions."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "uniqueFieldKey",
+      "description": "key must be unique within one Form and remain stable after submissions exist."
+    },
+    {
+      "id": "primitiveMustExist",
+      "description": "primitiveId must resolve to a registered NEXT F primitive field contract."
+    },
+    {
+      "id": "optionsOnlyWhenApplicable",
+      "description": "options are allowed only for compatible choice input variants."
+    },
+    {
+      "id": "consentOnlyForConsentControl",
+      "description": "consent configuration requires an affirmative checkbox/acknowledgement input."
+    },
+    {
+      "id": "uploadPolicyOnlyForFile",
+      "description": "uploadPolicy applies only to file inputs."
+    },
+    {
+      "id": "hiddenNotSecurity",
+      "description": "Hidden fields are not trusted merely because users cannot see them."
+    },
+    {
+      "id": "defaultMatchesPrimitive",
+      "description": "defaultValue must validate against primitiveId and must never pre-accept consent."
+    },
+    {
+      "id": "sensitiveValueProtection",
+      "description": "Sensitive values must not be copied into logs/events/notification subjects by default."
+    }
+  ],
+  "cms": {
+    "label": "Form Field",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "id",
+      "formId",
+      "key",
+      "label"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

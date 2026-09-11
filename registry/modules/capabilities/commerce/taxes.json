@@ -1,0 +1,33 @@
+{
+  "$id": "modules.capability.commerce.taxes",
+  "capabilityId": "commerce.taxes",
+  "name": "Tax",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Tax capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.taxConfiguration",
+    "commerce.taxLine"
+  ],
+  "permissionBindings": [
+    "commerce.taxes.edit",
+    "commerce.taxes.manage",
+    "commerce.taxes.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

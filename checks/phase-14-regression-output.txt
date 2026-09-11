@@ -1,0 +1,59 @@
+NEXT F Contracts Phase 14 validation
+Version: 0.18.0
+Webhook schemas: 45
+Eligible Events: 110
+Canonical Events: 128
+Registry entries: 1197
+Passes: 1598
+Failures: 49
+
+Failures:
+- Version is 0.15.0: 0.18.0
+- Webhook index version
+- Total registry contains 699 entries: 1197
+- Webhook registry contains 52 discovery entries
+- webhooks.dataAccessPolicy version
+- webhooks.deadLetter version
+- webhooks.delivery version
+- webhooks.deliveryAttempt version
+- webhooks.deliveryFailure version
+- webhooks.deliveryLogRecord version
+- webhooks.deliveryMetricSnapshot version
+- webhooks.deliveryQueuePolicy version
+- webhooks.deliveryRequest version
+- webhooks.deliveryResponse version
+- webhooks.deliverySummary version
+- webhooks.endpoint version
+- webhooks.endpointAuthentication version
+- webhooks.endpointHealth version
+- webhooks.endpointNetworkPolicy version
+- webhooks.endpointVerification version
+- webhooks.endpointVerificationPayload version
+- webhooks.endpointVerificationResponse version
+- webhooks.environmentBinding version
+- webhooks.eventExposure version
+- webhooks.eventSelection version
+- webhooks.failureClassification version
+- webhooks.headerPolicy version
+- webhooks.httpOutcomePolicy version
+- webhooks.pausePolicy version
+- webhooks.payloadEnvelope version
+- webhooks.payloadPolicy version
+- webhooks.ratePolicy version
+- webhooks.redactionPolicy version
+- webhooks.redeliveryRequest version
+- webhooks.replayProtection version
+- webhooks.requestHeader version
+- webhooks.responsePolicy version
+- webhooks.retentionPolicy version
+- webhooks.retryPolicy version
+- webhooks.secretRotation version
+- webhooks.signaturePolicy version
+- webhooks.signingKeyReference version
+- webhooks.subscription version
+- webhooks.subscriptionFilter version
+- webhooks.subscriptionOwnership version
+- webhooks.subscriptionState version
+- webhooks.testDelivery version
+- webhooks.timeoutPolicy version
+- webhooks.webhookReference version

@@ -1,0 +1,70 @@
+{
+  "releaseVersion": "1.0.0",
+  "phase": 37,
+  "status": "STABLE",
+  "releaseTimestamp": "2026-09-11T06:34:11.454Z",
+  "registrySha256": "aa3fc131fb18eee497f04f790c20b3871ee73cc24f003e1b3f1bf02a2f4da022",
+  "counts": {
+    "registryItems": 2182,
+    "schemas": 412,
+    "modules": 13,
+    "capabilities": 102,
+    "events": 128,
+    "permissions": 329,
+    "apiOperations": 118,
+    "webhookEligibleEvents": 110,
+    "searchDocuments": 7284,
+    "relationshipNodes": 2182,
+    "relationshipEdges": 7536,
+    "changelogReleases": 38,
+    "changelogEntries": 601,
+    "exactDiffReleases": 33
+  },
+  "versions": {
+    "browserValidator": "1.0.0",
+    "cli": "1.0.0",
+    "portal": "1.0.0",
+    "siteManifestSchema": "1.0.0"
+  },
+  "snapshots": {
+    "index": "registry/releases/1.0.0/snapshot-index.json",
+    "registry": "registry/releases/1.0.0/snapshots/registry.json",
+    "modules": "registry/releases/1.0.0/snapshots/modules.json",
+    "capabilities": "registry/releases/1.0.0/snapshots/capabilities.json",
+    "events": "registry/releases/1.0.0/snapshots/events.json",
+    "permissions": "registry/releases/1.0.0/snapshots/permissions.json",
+    "webhookEligibility": "registry/releases/1.0.0/snapshots/webhook-eligibility.json",
+    "apiContracts": "registry/releases/1.0.0/snapshots/api-contracts.json",
+    "siteManifest": "registry/releases/1.0.0/snapshots/site-manifest.schema.json",
+    "customerCmsMetadata": "registry/releases/1.0.0/snapshots/customer-cms-metadata.json",
+    "adminMetadata": "registry/releases/1.0.0/snapshots/admin-metadata.json",
+    "security": "registry/releases/1.0.0/snapshots/security.json",
+    "privacy": "registry/releases/1.0.0/snapshots/privacy.json",
+    "accessibility": "registry/releases/1.0.0/snapshots/accessibility.json",
+    "performance": "registry/releases/1.0.0/snapshots/performance.json"
+  },
+  "acceptance": {
+    "report": "registry/releases/1.0.0/acceptance-report.json",
+    "summary": {
+      "categories": 31,
+      "pass": 30,
+      "fail": 0,
+      "deferred": 1,
+      "blockingFailures": 0,
+      "supplementaryDeferred": 5
+    }
+  },
+  "policies": {
+    "semver": "standards/45-production-acceptance-standard.md",
+    "compatibility": "standards/07-compatibility-policy.md",
+    "deprecation": "standards/36-deprecation-standard.md",
+    "upgradeProcedure": "pinned version -> Compatibility Center -> Diff -> migration/review -> validation -> explicit pin change"
+  },
+  "runtimeTruth": {
+    "registryProductionStable": true,
+    "siteRuntime": "unknown",
+    "customerCmsRuntime": "unknown",
+    "nextfAdminRuntime": "unknown",
+    "apiRuntimes": "unknown"
+  }
+}

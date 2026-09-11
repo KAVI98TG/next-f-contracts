@@ -1,0 +1,72 @@
+{
+  "$id": "fields.address",
+  "name": "Address",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "location",
+  "description": "Structured postal/business address value with explicit country code and reusable address parts.",
+  "value": {
+    "jsonType": "object",
+    "canonical": "Structured address object. Country uses ISO 3166-1 alpha-2 code when known.",
+    "absence": "Absent values are represented by omission or null only when nullable is true.",
+    "shape": {
+      "line1": "string",
+      "line2": "string optional",
+      "city": "string",
+      "region": "string optional",
+      "postalCode": "string optional",
+      "country": "ISO 3166-1 alpha-2 string"
+    }
+  },
+  "cms": {
+    "editor": "address",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": false,
+    "localizable": true,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "addressShape"
+  ],
+  "examples": {
+    "valid": [
+      {
+        "line1": "1 Example Road",
+        "city": "Kandy",
+        "country": "LK"
+      }
+    ],
+    "invalid": [
+      "1 Example Road, Kandy"
+    ]
+  },
+  "notes": []
+}

@@ -1,0 +1,83 @@
+{
+  "$id": "webhooks.ratePolicy",
+  "name": "Webhook Rate Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "resilience",
+  "description": "Per-endpoint delivery rate and concurrency controls.",
+  "purpose": "Protects both NEXT F delivery infrastructure and receiver endpoints from unbounded bursts.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "requestsPerSecond",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum request start rate per endpoint.",
+      "primitive": "fields.decimal"
+    },
+    {
+      "key": "maxConcurrentRequests",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum simultaneous requests per endpoint.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Rate-control scope.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "endpoint"
+        ]
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "defaults",
+      "description": "Default is 10 requests per second and 4 concurrent requests per endpoint."
+    },
+    {
+      "id": "retryIncluded",
+      "description": "Retries, redeliveries, tests and verification requests are subject to applicable network/rate controls."
+    },
+    {
+      "id": "orderingNotGuaranteed",
+      "description": "Rate limiting must not be interpreted as strict cross-delivery ordering."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Rate Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "requestsPerSecond",
+      "maxConcurrentRequests",
+      "scope"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

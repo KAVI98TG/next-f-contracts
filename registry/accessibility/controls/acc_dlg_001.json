@@ -1,0 +1,34 @@
+{
+  "controlId": "ACC-DLG-001",
+  "name": "Accessible dialogs",
+  "category": "components",
+  "requirement": "Dialogs must expose dialog semantics, an accessible name, keyboard containment while modal, predictable close behavior and focus restoration.",
+  "rationale": "Modal content requires explicit semantics and focus management.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "dialog",
+    "command-palette"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "keyboard-manual",
+    "screen-reader-manual",
+    "integration-test"
+  ],
+  "severity": "critical",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_dlg_001.json"
+}

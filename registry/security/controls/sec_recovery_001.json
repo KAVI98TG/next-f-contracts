@@ -1,0 +1,33 @@
+{
+  "controlId": "SEC-RECOVERY-001",
+  "name": "Recovery verification",
+  "category": "recovery",
+  "requirement": "Recovery procedures for authoritative contract data must preserve integrity, version identity and auditability rather than restoring an unverifiable latest state.",
+  "rationale": "A backup is not sufficient if restoration cannot be trusted.",
+  "applicability": [
+    "registry",
+    "portal"
+  ],
+  "obligation": "mandatory",
+  "scope": "operations",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_recovery_001.json"
+}

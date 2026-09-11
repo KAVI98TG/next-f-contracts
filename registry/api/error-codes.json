@@ -1,0 +1,211 @@
+{
+  "registryVersion": "0.19.0",
+  "apiVersion": "1.0.0",
+  "errors": [
+    {
+      "code": "bad_request",
+      "httpStatus": 400,
+      "description": "Malformed request or invalid request shape."
+    },
+    {
+      "code": "validation_failed",
+      "httpStatus": 422,
+      "description": "One or more supplied values failed canonical validation."
+    },
+    {
+      "code": "unauthenticated",
+      "httpStatus": 401,
+      "description": "Authentication is required or invalid."
+    },
+    {
+      "code": "forbidden",
+      "httpStatus": 403,
+      "description": "Authenticated principal lacks required authorization."
+    },
+    {
+      "code": "not_found",
+      "httpStatus": 404,
+      "description": "Requested resource is not available in the caller scope."
+    },
+    {
+      "code": "method_not_allowed",
+      "httpStatus": 405,
+      "description": "HTTP method is not supported for the resource."
+    },
+    {
+      "code": "conflict",
+      "httpStatus": 409,
+      "description": "Request conflicts with current authoritative state."
+    },
+    {
+      "code": "precondition_required",
+      "httpStatus": 428,
+      "description": "Required concurrency precondition was not supplied."
+    },
+    {
+      "code": "precondition_failed",
+      "httpStatus": 412,
+      "description": "Supplied concurrency precondition does not match current state."
+    },
+    {
+      "code": "rate_limited",
+      "httpStatus": 429,
+      "description": "Caller exceeded an applicable rate or abuse-control budget."
+    },
+    {
+      "code": "payload_too_large",
+      "httpStatus": 413,
+      "description": "Request payload exceeds the permitted size."
+    },
+    {
+      "code": "unsupported_media_type",
+      "httpStatus": 415,
+      "description": "Request media type is unsupported."
+    },
+    {
+      "code": "idempotency_required",
+      "httpStatus": 400,
+      "description": "Operation requires an idempotency key."
+    },
+    {
+      "code": "idempotency_conflict",
+      "httpStatus": 409,
+      "description": "Idempotency key was previously used for a different request fingerprint."
+    },
+    {
+      "code": "contract_version_unsupported",
+      "httpStatus": 409,
+      "description": "Requested NEXT F Contract Version is unsupported."
+    },
+    {
+      "code": "api_version_unsupported",
+      "httpStatus": 400,
+      "description": "Requested API version is unsupported."
+    },
+    {
+      "code": "module_disabled",
+      "httpStatus": 409,
+      "description": "Required Site module is disabled."
+    },
+    {
+      "code": "capability_disabled",
+      "httpStatus": 409,
+      "description": "Required module capability is disabled."
+    },
+    {
+      "code": "tenant_scope_mismatch",
+      "httpStatus": 403,
+      "description": "Resource does not belong to the authorized tenant/Site scope."
+    },
+    {
+      "code": "resource_locked",
+      "httpStatus": 423,
+      "description": "Resource is temporarily locked from mutation."
+    },
+    {
+      "code": "state_transition_invalid",
+      "httpStatus": 409,
+      "description": "Requested state transition is not allowed."
+    },
+    {
+      "code": "invariant_violation",
+      "httpStatus": 409,
+      "description": "Operation would violate an authoritative domain invariant."
+    },
+    {
+      "code": "duplicate_resource",
+      "httpStatus": 409,
+      "description": "A resource with the relevant unique identity already exists."
+    },
+    {
+      "code": "cursor_invalid",
+      "httpStatus": 400,
+      "description": "Pagination cursor is invalid, expired or incompatible."
+    },
+    {
+      "code": "filter_invalid",
+      "httpStatus": 400,
+      "description": "Filter contains an unsupported field/operator/value."
+    },
+    {
+      "code": "sort_invalid",
+      "httpStatus": 400,
+      "description": "Sort field or direction is unsupported."
+    },
+    {
+      "code": "include_invalid",
+      "httpStatus": 400,
+      "description": "Requested include/expansion is not allow-listed."
+    },
+    {
+      "code": "field_selection_invalid",
+      "httpStatus": 400,
+      "description": "Requested sparse field selection is invalid."
+    },
+    {
+      "code": "preview_grant_invalid",
+      "httpStatus": 401,
+      "description": "Preview grant is invalid, expired or outside its scope."
+    },
+    {
+      "code": "upload_session_invalid",
+      "httpStatus": 400,
+      "description": "Upload session is invalid, expired or already finalized."
+    },
+    {
+      "code": "file_rejected",
+      "httpStatus": 422,
+      "description": "Uploaded file failed type, size, integrity or security checks."
+    },
+    {
+      "code": "spam_rejected",
+      "httpStatus": 422,
+      "description": "Public interaction was rejected by anti-abuse policy."
+    },
+    {
+      "code": "inventory_conflict",
+      "httpStatus": 409,
+      "description": "Requested inventory operation conflicts with authoritative stock/reservations."
+    },
+    {
+      "code": "payment_action_failed",
+      "httpStatus": 422,
+      "description": "Payment-provider or payment-state operation failed."
+    },
+    {
+      "code": "refund_limit_exceeded",
+      "httpStatus": 409,
+      "description": "Requested refund exceeds refundable captured amount."
+    },
+    {
+      "code": "webhook_endpoint_unverified",
+      "httpStatus": 409,
+      "description": "Webhook endpoint must be verified before use."
+    },
+    {
+      "code": "webhook_delivery_not_redeliverable",
+      "httpStatus": 409,
+      "description": "Webhook delivery is outside redelivery policy."
+    },
+    {
+      "code": "event_not_exposable",
+      "httpStatus": 403,
+      "description": "Canonical Event is not eligible for the requested external exposure."
+    },
+    {
+      "code": "internal_error",
+      "httpStatus": 500,
+      "description": "Unexpected internal failure. Public message must remain non-sensitive."
+    },
+    {
+      "code": "service_unavailable",
+      "httpStatus": 503,
+      "description": "Required service is temporarily unavailable."
+    },
+    {
+      "code": "gateway_timeout",
+      "httpStatus": 504,
+      "description": "Upstream dependency did not respond within the allowed timeout."
+    }
+  ]
+}

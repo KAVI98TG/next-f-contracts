@@ -1,0 +1,139 @@
+{
+  "$id": "webhooks.deliveryMetricSnapshot",
+  "name": "Webhook Delivery Metric Snapshot",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "operations",
+  "description": "Time-bounded aggregate metrics for webhook delivery health.",
+  "purpose": "Supports dashboards without using raw delivery logs as analytics records.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "endpointId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional endpoint scope.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "subscriptionId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional subscription scope.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "windowStart",
+      "required": true,
+      "nullable": false,
+      "description": "Aggregation window start.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "windowEnd",
+      "required": true,
+      "nullable": false,
+      "description": "Aggregation window end.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "deliveries",
+      "required": true,
+      "nullable": false,
+      "description": "Logical deliveries counted.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "successes",
+      "required": true,
+      "nullable": false,
+      "description": "Succeeded logical deliveries.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "failures",
+      "required": true,
+      "nullable": false,
+      "description": "Failed/dead-lettered logical deliveries.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "attempts",
+      "required": true,
+      "nullable": false,
+      "description": "HTTP attempts counted.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "averageDurationMs",
+      "required": false,
+      "nullable": true,
+      "description": "Average observed attempt duration.",
+      "primitive": "fields.decimal"
+    },
+    {
+      "key": "p95DurationMs",
+      "required": false,
+      "nullable": true,
+      "description": "95th percentile attempt duration.",
+      "primitive": "fields.decimal"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "webhooks.endpoint",
+      "description": "References webhooks.endpoint."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "webhooks.subscription",
+      "description": "References webhooks.subscription."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "windowValid",
+      "description": "windowEnd must be later than windowStart."
+    },
+    {
+      "id": "countsNonNegative",
+      "description": "All metric counts are non-negative."
+    },
+    {
+      "id": "aggregateOnly",
+      "description": "Snapshot does not embed event payloads, personal data or secrets."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Delivery Metric Snapshot",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "endpointId",
+      "subscriptionId",
+      "windowStart",
+      "windowEnd"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

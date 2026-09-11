@@ -1,0 +1,30 @@
+{
+  "$id": "modules.capability.core.publishing",
+  "capabilityId": "core.publishing",
+  "name": "Publishing",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "core",
+  "mode": "always-on",
+  "selectable": false,
+  "defaultEnabled": true,
+  "description": "Publishing capability within the Core module.",
+  "contractBindings": [
+    "core.publishing",
+    "core.visibility",
+    "core.scheduleWindow"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

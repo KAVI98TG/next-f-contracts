@@ -1,0 +1,63 @@
+{
+  "$id": "api.rateLimitState",
+  "name": "Rate Limit State",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "delivery",
+  "description": "Safe rate-limit response metadata.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "class",
+      "required": true,
+      "nullable": false,
+      "description": "class",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "limit",
+      "required": true,
+      "nullable": false,
+      "description": "limit",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "remaining",
+      "required": true,
+      "nullable": false,
+      "description": "remaining",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "resetsAt",
+      "required": true,
+      "nullable": false,
+      "description": "resetsAt",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

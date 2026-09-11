@@ -1,0 +1,15 @@
+{
+  "$id": "deprecations.replacementReference",
+  "name": "Replacement Reference",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 28,
+  "description": "Explicit replacement, no-replacement, or unknown replacement disposition for a deprecation.",
+  "domain": "deprecations",
+  "type": "schema",
+  "tags": [
+    "deprecations",
+    "lifecycle",
+    "phase-28"
+  ]
+}

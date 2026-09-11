@@ -1,0 +1,98 @@
+{
+  "registryVersion": "0.22.0",
+  "gates": [
+    {
+      "id": "scope",
+      "label": "Scope Integrity",
+      "checks": [
+        "requested behavior covered",
+        "unrelated refactor avoided",
+        "target environment explicit"
+      ]
+    },
+    {
+      "id": "contracts",
+      "label": "Contract Integrity",
+      "checks": [
+        "pinned version used",
+        "canonical definitions reused",
+        "no parallel schema/event/permission/API"
+      ]
+    },
+    {
+      "id": "manifest",
+      "label": "Manifest Integrity",
+      "checks": [
+        "manifest remains accurate",
+        "modules/capabilities match implementation",
+        "api bindings exact"
+      ]
+    },
+    {
+      "id": "security",
+      "label": "Security Boundary",
+      "checks": [
+        "authorization server-side",
+        "secrets server-side",
+        "tenant isolation preserved"
+      ]
+    },
+    {
+      "id": "data",
+      "label": "Data Integrity",
+      "checks": [
+        "validation preserved",
+        "historical semantics preserved",
+        "migration accounted for"
+      ]
+    },
+    {
+      "id": "commerce",
+      "label": "Commerce Integrity",
+      "checks": [
+        "rules enforced",
+        "financial idempotency preserved",
+        "browser values not authoritative"
+      ],
+      "conditional": "commerce-enabled"
+    },
+    {
+      "id": "integration",
+      "label": "Integration Integrity",
+      "checks": [
+        "canonical connector used",
+        "consent applied",
+        "environment isolation preserved"
+      ],
+      "conditional": "integration-or-tracking-change"
+    },
+    {
+      "id": "ui",
+      "label": "UI Quality",
+      "checks": [
+        "customer editability preserved",
+        "responsive behavior checked",
+        "accessibility considered"
+      ],
+      "conditional": "ui-change"
+    },
+    {
+      "id": "verification",
+      "label": "Verification Evidence",
+      "checks": [
+        "relevant commands run",
+        "results recorded",
+        "unrun checks disclosed"
+      ]
+    },
+    {
+      "id": "handoff",
+      "label": "Handoff Completeness",
+      "checks": [
+        "extensions listed",
+        "deviations listed",
+        "remaining risks listed"
+      ]
+    }
+  ]
+}

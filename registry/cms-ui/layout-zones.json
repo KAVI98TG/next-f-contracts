@@ -1,0 +1,50 @@
+{
+  "registryVersion": "0.20.0",
+  "layoutZones": [
+    {
+      "id": "page-header",
+      "label": "Page Header",
+      "description": "Title, breadcrumb/context and primary actions."
+    },
+    {
+      "id": "main",
+      "label": "Main",
+      "description": "Primary business content and editing surface."
+    },
+    {
+      "id": "sidebar",
+      "label": "Sidebar",
+      "description": "Secondary metadata, publishing, taxonomy, status and compact related controls."
+    },
+    {
+      "id": "tabs",
+      "label": "Tabs",
+      "description": "Secondary grouped detail that does not belong in the primary flow."
+    },
+    {
+      "id": "secondary",
+      "label": "Secondary",
+      "description": "Related information below or beside the main task."
+    },
+    {
+      "id": "sticky-actions",
+      "label": "Sticky Actions",
+      "description": "Persistent save/publish/command actions where appropriate."
+    },
+    {
+      "id": "drawer",
+      "label": "Drawer",
+      "description": "Contextual detail on supported wide layouts; accessible stacked/dialog alternative on mobile."
+    },
+    {
+      "id": "modal",
+      "label": "Modal",
+      "description": "Bounded confirmation/quick action only, never the main complex editor."
+    },
+    {
+      "id": "hidden-system",
+      "label": "Hidden System",
+      "description": "Non-customer-editable identifiers/system metadata omitted or read-only in advanced diagnostics."
+    }
+  ]
+}

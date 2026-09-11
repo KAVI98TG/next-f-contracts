@@ -1,0 +1,40 @@
+{
+  "controlId": "SEC-PAY-002",
+  "name": "Server-authoritative payment reconciliation",
+  "category": "commerce",
+  "requirement": "Payment, authorization, capture and refund state must be reconciled from trusted server/provider evidence and canonical business invariants; browser-calculated totals or states are never authoritative.",
+  "rationale": "Financial integrity cannot depend on client-controlled values.",
+  "applicability": [
+    "commerce",
+    "api"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [
+    "modules.commerce"
+  ],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [
+    "commerce.rule.paymentStatusReconcile",
+    "commerce.rule.captureRequiresValidAuthorization",
+    "commerce.rule.refundRequiresCapturedFunds",
+    "commerce.rule.providerCallbackDeduplication"
+  ],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_pay_002.json"
+}

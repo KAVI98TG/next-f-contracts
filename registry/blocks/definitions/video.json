@@ -1,0 +1,190 @@
+{
+  "$id": "blocks.video",
+  "name": "Video",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "media",
+  "description": "Single video presentation with poster, caption and transcript support.",
+  "purpose": "Provides a safe media-oriented video block without arbitrary embed HTML.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "sourceType",
+      "required": true,
+      "nullable": false,
+      "description": "Video source mode.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "media",
+            "label": "Managed media"
+          },
+          {
+            "value": "external",
+            "label": "Approved external URL"
+          }
+        ],
+        "defaultValue": "media",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "media",
+      "required": false,
+      "nullable": true,
+      "description": "Managed video asset when sourceType is media.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "externalUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Approved external video URL when sourceType is external.",
+      "primitive": "fields.url",
+      "config": {
+        "maxLength": 2000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "poster",
+      "required": false,
+      "nullable": true,
+      "description": "Optional poster image.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "caption",
+      "required": false,
+      "nullable": true,
+      "description": "Optional visible caption.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "transcript",
+      "required": false,
+      "nullable": true,
+      "description": "Optional accessible transcript.",
+      "primitive": "fields.richText",
+      "config": {
+        "maxLength": 60000,
+        "format": "nextf-rich-content",
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "May use managed video and poster assets."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "sourceExclusive",
+      "description": "sourceType media requires media and must not require externalUrl; sourceType external requires externalUrl."
+    },
+    {
+      "id": "noRawEmbed",
+      "description": "External video must use an approved URL/provider adapter; arbitrary iframe/embed HTML is prohibited."
+    }
+  ],
+  "cms": {
+    "label": "Video",
+    "icon": "fa-circle-play",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "sourceType",
+      "media"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Video controls must be keyboard accessible.",
+      "Captions should be provided for spoken content where required.",
+      "Transcript should be available for important spoken/informational content."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

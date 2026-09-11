@@ -1,0 +1,336 @@
+{
+  "portalVersion": "1.0.0",
+  "theme": "light",
+  "groups": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "items": [
+        {
+          "id": "overview",
+          "path": "/overview",
+          "label": "Overview",
+          "status": "current",
+          "phase": 37
+        },
+        {
+          "id": "global-search",
+          "path": "/search",
+          "label": "Global Search",
+          "phase": 23,
+          "status": "available"
+        },
+        {
+          "id": "registry-health",
+          "path": "/registry/health",
+          "label": "Registry Health",
+          "phase": 36,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "id": "standards",
+      "label": "Standards",
+      "items": [
+        {
+          "id": "standards-architecture",
+          "path": "/standards/architecture",
+          "label": "Architecture",
+          "phase": 0,
+          "status": "available"
+        },
+        {
+          "id": "standards-naming",
+          "path": "/standards/naming",
+          "label": "Naming",
+          "phase": 0,
+          "status": "available"
+        },
+        {
+          "id": "standards-development",
+          "path": "/standards/development",
+          "label": "Development",
+          "phase": 0,
+          "status": "available"
+        },
+        {
+          "id": "standards-security",
+          "path": "/standards/security",
+          "label": "Security",
+          "phase": 29,
+          "status": "available"
+        },
+        {
+          "id": "standards-privacy",
+          "path": "/standards/privacy",
+          "label": "Privacy & Data",
+          "phase": 30,
+          "status": "available"
+        },
+        {
+          "id": "standards-accessibility",
+          "path": "/standards/accessibility",
+          "label": "Accessibility",
+          "phase": 31,
+          "status": "available"
+        },
+        {
+          "id": "standards-performance",
+          "path": "/standards/performance",
+          "label": "Performance",
+          "phase": 32,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "id": "registry",
+      "label": "Registry",
+      "items": [
+        {
+          "id": "registry-index",
+          "path": "/registry",
+          "label": "Registry Index",
+          "phase": 2,
+          "status": "available"
+        },
+        {
+          "id": "registry-relationships",
+          "path": "/registry/relationships",
+          "label": "Relationships",
+          "phase": 24,
+          "status": "available"
+        },
+        {
+          "id": "registry-core",
+          "path": "/registry/core",
+          "label": "Core",
+          "phase": 4,
+          "status": "available"
+        },
+        {
+          "id": "registry-fields",
+          "path": "/registry/fields",
+          "label": "Fields",
+          "phase": 3,
+          "status": "available"
+        },
+        {
+          "id": "registry-shared",
+          "path": "/registry/shared",
+          "label": "Shared",
+          "phase": 4,
+          "status": "available"
+        },
+        {
+          "id": "registry-content",
+          "path": "/registry/content",
+          "label": "Content",
+          "phase": 5,
+          "status": "available"
+        },
+        {
+          "id": "registry-blocks",
+          "path": "/registry/blocks",
+          "label": "Blocks",
+          "phase": 6,
+          "status": "available"
+        },
+        {
+          "id": "registry-seo",
+          "path": "/registry/seo",
+          "label": "SEO",
+          "phase": 7,
+          "status": "available"
+        },
+        {
+          "id": "registry-forms",
+          "path": "/registry/forms",
+          "label": "Forms",
+          "phase": 8,
+          "status": "available"
+        },
+        {
+          "id": "registry-commerce",
+          "path": "/registry/commerce",
+          "label": "Commerce",
+          "phase": 11,
+          "status": "available"
+        },
+        {
+          "id": "registry-commerce-rules",
+          "path": "/registry/commerce-rules",
+          "label": "Commerce Rules",
+          "phase": 12,
+          "status": "available"
+        },
+        {
+          "id": "registry-marketing",
+          "path": "/registry/marketing",
+          "label": "Marketing",
+          "phase": 9,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "id": "platform",
+      "label": "Platform",
+      "items": [
+        {
+          "id": "platform-modules",
+          "path": "/platform/modules",
+          "label": "Modules",
+          "phase": 17,
+          "status": "available"
+        },
+        {
+          "id": "platform-permissions",
+          "path": "/platform/permissions",
+          "label": "Permissions",
+          "phase": 15,
+          "status": "available"
+        },
+        {
+          "id": "platform-integrations",
+          "path": "/platform/integrations",
+          "label": "Integrations",
+          "phase": 10,
+          "status": "available"
+        },
+        {
+          "id": "platform-api",
+          "path": "/platform/api",
+          "label": "API",
+          "phase": 18,
+          "status": "available"
+        },
+        {
+          "id": "platform-customer-cms-ui",
+          "path": "/platform/customer-cms-ui",
+          "label": "Customer CMS UI",
+          "phase": 19,
+          "status": "available"
+        },
+        {
+          "id": "platform-admin-ui",
+          "path": "/platform/admin-ui",
+          "label": "NEXT F Admin UI",
+          "phase": 20,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "label": "Events",
+      "items": [
+        {
+          "id": "events-registry",
+          "path": "/events/registry",
+          "label": "Event Registry",
+          "phase": 13,
+          "status": "available"
+        },
+        {
+          "id": "events-webhooks",
+          "path": "/events/webhooks",
+          "label": "Webhooks",
+          "phase": 14,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "id": "development",
+      "label": "Development",
+      "items": [
+        {
+          "id": "development-site-manifest",
+          "path": "/development/site-manifest",
+          "label": "Site Manifest",
+          "phase": 16,
+          "status": "available"
+        },
+        {
+          "id": "development-codex",
+          "path": "/development/codex",
+          "label": "Codex",
+          "phase": 21,
+          "status": "available"
+        },
+        {
+          "id": "development-validation",
+          "path": "/development/validation",
+          "label": "Validation",
+          "phase": 33,
+          "status": "available"
+        },
+        {
+          "id": "development-examples",
+          "path": "/development/examples",
+          "label": "Examples",
+          "phase": 22,
+          "status": "available"
+        },
+        {
+          "id": "development-starters",
+          "path": "/development/starters",
+          "label": "Starter Packs",
+          "phase": 35,
+          "status": "available"
+        }
+      ]
+    },
+    {
+      "id": "lifecycle",
+      "label": "Lifecycle",
+      "items": [
+        {
+          "id": "lifecycle-versions",
+          "path": "/lifecycle/versions",
+          "label": "Versions",
+          "phase": 0,
+          "status": "available"
+        },
+        {
+          "id": "lifecycle-compatibility",
+          "path": "/lifecycle/compatibility",
+          "label": "Compatibility Center",
+          "phase": 26,
+          "status": "available"
+        },
+        {
+          "id": "lifecycle-diff",
+          "path": "/lifecycle/diff",
+          "label": "Contract Diff",
+          "phase": 25,
+          "status": "available"
+        },
+        {
+          "id": "lifecycle-migrations",
+          "path": "/lifecycle/migrations",
+          "label": "Migrations",
+          "phase": 28,
+          "status": "planned"
+        },
+        {
+          "id": "lifecycle-deprecations",
+          "path": "/lifecycle/deprecations",
+          "label": "Deprecations",
+          "phase": 28,
+          "status": "available"
+        },
+        {
+          "id": "lifecycle-changelog",
+          "path": "/lifecycle/changelog",
+          "label": "Changelog",
+          "phase": 27,
+          "status": "available"
+        }
+      ]
+    }
+  ],
+  "registryVersion": "1.0.0"
+}

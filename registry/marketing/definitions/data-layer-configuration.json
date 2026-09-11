@@ -1,0 +1,158 @@
+{
+  "$id": "marketing.dataLayerConfiguration",
+  "name": "Data Layer Configuration",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "configuration",
+  "description": "Provider-neutral rules for the NEXT F browser/runtime event queue.",
+  "purpose": "Prevents customer sites from hardcoding a vendor-specific data layer contract and gives Codex one stable client event interface.",
+  "marketingModel": {
+    "kind": "configuration",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "dataSensitivity": "public"
+  },
+  "fields": [
+    {
+      "key": "namespace",
+      "required": true,
+      "nullable": false,
+      "description": "Stable runtime namespace used by the NEXT F tracking adapter.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80,
+        "defaultValue": "nextf"
+      }
+    },
+    {
+      "key": "queueLimit",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum in-memory queued events before oldest non-critical observations are dropped.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 10,
+        "maximum": 5000,
+        "defaultValue": 500
+      }
+    },
+    {
+      "key": "flushMode",
+      "required": true,
+      "nullable": false,
+      "description": "When eligible queued events are flushed.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "immediate",
+            "label": "Immediate"
+          },
+          {
+            "value": "batch",
+            "label": "Batch"
+          }
+        ],
+        "defaultValue": "immediate"
+      }
+    },
+    {
+      "key": "batchSize",
+      "required": false,
+      "nullable": true,
+      "description": "Maximum observations sent in one batch when batch mode is used.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 100
+      }
+    },
+    {
+      "key": "debugModeAllowed",
+      "required": true,
+      "nullable": false,
+      "description": "Whether development environments may expose sanitized debug events.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "reservedKeys",
+      "required": false,
+      "nullable": true,
+      "description": "Keys reserved by NEXT F runtime and unavailable to arbitrary project properties.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "maxItems": 100
+      }
+    },
+    {
+      "key": "schemaVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Data layer envelope version.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40,
+        "defaultValue": "1.0.0"
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "vendorNeutral",
+      "description": "The canonical browser interface must not be named after GTM, GA4, Meta or another provider."
+    },
+    {
+      "id": "reservedKeysProtected",
+      "description": "Customer/project properties cannot overwrite reserved envelope keys."
+    },
+    {
+      "id": "queueNeverStoresSecrets",
+      "description": "Queued observations must not contain secrets or raw authentication credentials."
+    },
+    {
+      "id": "debugPayloadSanitized",
+      "description": "Debug output must apply the same data allowlist/minimization rules as production."
+    }
+  ],
+  "cms": {
+    "label": "Data Layer Configuration",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "developer-config",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "namespace",
+      "queueLimit",
+      "flushMode",
+      "batchSize"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

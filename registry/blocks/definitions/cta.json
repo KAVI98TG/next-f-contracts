@@ -1,0 +1,143 @@
+{
+  "$id": "blocks.cta",
+  "name": "CTA",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "conversion",
+  "description": "Focused conversion call-to-action section.",
+  "purpose": "Standardizes conversion copy and actions without encoding button styling in content.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": true,
+      "nullable": false,
+      "description": "Shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "actions",
+      "required": false,
+      "nullable": true,
+      "description": "Optional primary and secondary conversion actions.",
+      "schema": "blocks.actionGroup"
+    },
+    {
+      "key": "media",
+      "required": false,
+      "nullable": true,
+      "description": "Optional supporting media.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "trustNote",
+      "required": false,
+      "nullable": true,
+      "description": "Optional concise reassurance or qualification.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 220,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "blocks.heading",
+      "description": "Uses shared heading semantics."
+    },
+    {
+      "type": "composes",
+      "target": "blocks.actionGroup",
+      "description": "Uses canonical CTA actions."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "May use supporting media."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "actionRecommended",
+      "description": "A CTA section should normally include at least one actionable destination even though preview/draft states may be incomplete."
+    }
+  ],
+  "cms": {
+    "label": "CTA",
+    "icon": "fa-arrow-up-right-dots",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "actions",
+      "media"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Actions must have clear accessible labels and visible focus states in the frontend."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

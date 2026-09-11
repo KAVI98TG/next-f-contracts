@@ -1,0 +1,118 @@
+{
+  "$id": "compatibility.releaseSupport",
+  "name": "Release Support Descriptor",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Describes support posture for one coordinated Contract Registry release.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "releaseVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Exact coordinated Registry release.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "phase",
+      "required": false,
+      "nullable": true,
+      "description": "Phase number when known.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "supportLevel",
+      "required": true,
+      "nullable": false,
+      "description": "Support level from compatibility support vocabulary.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "exactSnapshotAvailable",
+      "required": true,
+      "nullable": false,
+      "description": "Whether exact Registry evidence is available.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "productionEligible",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this release belongs to a declared production support train.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "supportStartsAt",
+      "required": false,
+      "nullable": true,
+      "description": "Explicit support start when declared.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "supportEndsAt",
+      "required": false,
+      "nullable": true,
+      "description": "Explicit support end when declared.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "notes",
+      "required": false,
+      "nullable": true,
+      "description": "Non-secret support notes.",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "releaseVersion uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.integer",
+      "description": "phase uses fields.integer."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "supportLevel uses fields.select."
+    },
+    {
+      "type": "uses",
+      "target": "fields.boolean",
+      "description": "exactSnapshotAvailable uses fields.boolean."
+    },
+    {
+      "type": "uses",
+      "target": "fields.dateTime",
+      "description": "supportStartsAt uses fields.dateTime."
+    },
+    {
+      "type": "uses",
+      "target": "fields.textarea",
+      "description": "notes uses fields.textarea."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

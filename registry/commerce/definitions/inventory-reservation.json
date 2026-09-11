@@ -1,0 +1,164 @@
+{
+  "$id": "commerce.inventoryReservation",
+  "name": "Inventory Reservation",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "inventory",
+  "description": "Temporary or committed stock reservation.",
+  "purpose": "Distinguishes allocated stock from on-hand stock to support oversell prevention.",
+  "commerceModel": {
+    "kind": "transaction",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "inventoryItemId",
+      "required": true,
+      "nullable": false,
+      "description": "Inventory Item ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "locationId",
+      "required": true,
+      "nullable": false,
+      "description": "Inventory Location ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "quantity",
+      "required": true,
+      "nullable": false,
+      "description": "Reserved quantity.",
+      "schema": "commerce.quantity"
+    },
+    {
+      "key": "sourceType",
+      "required": true,
+      "nullable": false,
+      "description": "Reservation source.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "cart",
+          "checkout",
+          "order",
+          "manual"
+        ]
+      }
+    },
+    {
+      "key": "sourceId",
+      "required": true,
+      "nullable": false,
+      "description": "Source entity ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Reservation state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "active",
+          "committed",
+          "released",
+          "expired",
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "key": "expiresAt",
+      "required": false,
+      "nullable": true,
+      "description": "Optional expiry.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.inventoryItem",
+      "description": "References commerce.inventoryItem."
+    },
+    {
+      "type": "references",
+      "target": "commerce.inventoryLocation",
+      "description": "References commerce.inventoryLocation."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.quantity",
+      "description": "References commerce.quantity."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "positive",
+      "description": "Reserved quantity must be greater than zero."
+    },
+    {
+      "id": "sourceRequired",
+      "description": "Reservation always identifies its source."
+    }
+  ],
+  "cms": {
+    "label": "Inventory Reservation",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "inventoryItemId",
+      "locationId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,175 @@
+{
+  "$id": "commerce.productReview",
+  "name": "Product Review",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "returns",
+  "description": "Commerce Product Review.",
+  "purpose": "Supports moderated reviews with explicit verified-purchase truthfulness rules.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "productId",
+      "required": true,
+      "nullable": false,
+      "description": "Product ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "customerId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional Commerce Customer ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "orderId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional qualifying Order ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "rating",
+      "required": true,
+      "nullable": false,
+      "description": "Rating.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 5
+      }
+    },
+    {
+      "key": "title",
+      "required": false,
+      "nullable": true,
+      "description": "Optional title.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "body",
+      "required": true,
+      "nullable": false,
+      "description": "Review body.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "verifiedPurchase",
+      "required": true,
+      "nullable": false,
+      "description": "System-derived purchase qualification.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "moderation",
+      "required": true,
+      "nullable": false,
+      "description": "Moderation state.",
+      "schema": "commerce.reviewModeration"
+    },
+    {
+      "key": "submittedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Submission time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.product",
+      "description": "References commerce.product."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.commerceCustomer",
+      "description": "References commerce.commerceCustomer."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.order",
+      "description": "References commerce.order."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.reviewModeration",
+      "description": "References commerce.reviewModeration."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "verifiedDerived",
+      "description": "verifiedPurchase is system-derived from qualifying Order data and cannot be manually fabricated."
+    },
+    {
+      "id": "approvedOnlyPublic",
+      "description": "Only approved reviews may be eligible for public display."
+    },
+    {
+      "id": "seoTruthful",
+      "description": "Structured review data may use only truthful qualifying approved review records."
+    }
+  ],
+  "cms": {
+    "label": "Product Review",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "productId",
+      "customerId"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly public storefront fields may be delivered; operational, personal, payment and internal metadata remain private."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

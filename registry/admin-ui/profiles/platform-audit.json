@@ -1,0 +1,81 @@
+{
+  "$id": "adminUi.profile.platform.audit",
+  "name": "Audit Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "platform.audit",
+  "permissionDomain": "platform",
+  "moduleId": "core",
+  "description": "Internal NEXT F Admin metadata for Audit. Applies only within server-authorized administrative scope.",
+  "route": "/platform/audit",
+  "screenKind": "admin-report",
+  "layoutTemplate": "diagnostics",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "platform",
+    "requiresOrganization": false,
+    "requiresSite": false,
+    "allowsCrossTenant": true,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": null,
+  "inheritanceMode": "none",
+  "targetContracts": [
+    "core.auditRecord"
+  ],
+  "primaryTargetContract": "core.auditRecord",
+  "permissions": [
+    "platform.audit.export",
+    "platform.audit.view"
+  ],
+  "actions": [
+    {
+      "actionId": "export",
+      "permissionId": "platform.audit.export",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "platform.audit.view",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions"
+  ],
+  "controls": [
+    "risk-badge",
+    "recent-auth-gate"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": []
+}

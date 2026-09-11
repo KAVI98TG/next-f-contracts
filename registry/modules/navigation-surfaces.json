@@ -1,0 +1,15 @@
+{
+  "registryVersion": "0.18.0",
+  "items": [
+    {
+      "id": "customer-cms",
+      "label": "Customer CMS",
+      "description": "Navigation exposed to authorized Organization Users in the Site Workspace."
+    },
+    {
+      "id": "nextf-admin",
+      "label": "NEXT F Admin",
+      "description": "Internal NEXT F Site administration navigation."
+    }
+  ]
+}

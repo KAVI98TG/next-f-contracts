@@ -1,0 +1,98 @@
+{
+  "contractVersion": "1.0.0",
+  "surface": "customer-cms",
+  "navigation": [
+    {
+      "moduleId": "core",
+      "label": "Overview",
+      "path": "/overview",
+      "icon": "fa-gauge-high",
+      "order": 10
+    },
+    {
+      "moduleId": "core",
+      "label": "Activity",
+      "path": "/activity",
+      "icon": "fa-clock-rotate-left",
+      "order": 90
+    },
+    {
+      "moduleId": "media",
+      "label": "Media",
+      "path": "/content/media",
+      "icon": "fa-photo-film",
+      "order": 40
+    },
+    {
+      "moduleId": "pages",
+      "label": "Pages",
+      "path": "/content/pages",
+      "icon": "fa-file-lines",
+      "order": 10
+    },
+    {
+      "moduleId": "pages",
+      "label": "Reusable Content",
+      "path": "/content/reusable",
+      "icon": "fa-clone",
+      "order": 20
+    },
+    {
+      "moduleId": "pages",
+      "label": "Navigation",
+      "path": "/website/navigation",
+      "icon": "fa-bars",
+      "order": 30
+    },
+    {
+      "moduleId": "pages",
+      "label": "Custom Collections",
+      "path": "/content/collections",
+      "icon": "fa-table-list",
+      "order": 50
+    },
+    {
+      "moduleId": "blog",
+      "label": "Blog",
+      "path": "/content/blog",
+      "icon": "fa-newspaper",
+      "order": 20
+    },
+    {
+      "moduleId": "seo",
+      "label": "SEO",
+      "path": "/growth/seo",
+      "icon": "fa-magnifying-glass-chart",
+      "order": 10
+    },
+    {
+      "moduleId": "forms",
+      "label": "Forms",
+      "path": "/growth/forms",
+      "icon": "fa-rectangle-list",
+      "order": 20
+    },
+    {
+      "moduleId": "consent",
+      "label": "Consent & Privacy",
+      "path": "/website/consent",
+      "icon": "fa-shield-halved",
+      "order": 20
+    },
+    {
+      "moduleId": "analytics",
+      "label": "Analytics",
+      "path": "/growth/analytics",
+      "icon": "fa-chart-line",
+      "order": 40
+    },
+    {
+      "moduleId": "integrations",
+      "label": "Integrations",
+      "path": "/website/integrations",
+      "icon": "fa-plug",
+      "order": 10
+    }
+  ],
+  "sourceExampleId": "examples.corporate-site"
+}

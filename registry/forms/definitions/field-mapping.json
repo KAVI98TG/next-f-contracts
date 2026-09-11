@@ -1,0 +1,138 @@
+{
+  "$id": "forms.fieldMapping",
+  "name": "Form Field Mapping",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "automation",
+  "description": "Maps one submitted form field to a registered target field path.",
+  "purpose": "Supports predictable lead creation and future integration mapping without executable transformations.",
+  "formsModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "sourceFieldKey",
+      "required": true,
+      "nullable": false,
+      "description": "Source Form field key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "targetPath",
+      "required": true,
+      "nullable": false,
+      "description": "Registered target field path, such as lead.displayName.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240
+      }
+    },
+    {
+      "key": "transform",
+      "required": true,
+      "nullable": false,
+      "description": "Safe built-in transformation.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "trim",
+            "label": "Trim"
+          },
+          {
+            "value": "lowercase",
+            "label": "Lowercase"
+          },
+          {
+            "value": "uppercase",
+            "label": "Uppercase"
+          }
+        ],
+        "defaultValue": "none"
+      }
+    },
+    {
+      "key": "required",
+      "required": true,
+      "nullable": false,
+      "description": "Whether mapping failure blocks the mapped business action.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "fallbackValue",
+      "required": false,
+      "nullable": true,
+      "description": "Optional non-secret fallback value.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "sourceExists",
+      "description": "sourceFieldKey must exist in the mapped Form."
+    },
+    {
+      "id": "targetRegistered",
+      "description": "targetPath must be explicitly supported by the target mapping contract."
+    },
+    {
+      "id": "noArbitraryTransforms",
+      "description": "Transformations are limited to registered deterministic operations; arbitrary code is prohibited."
+    },
+    {
+      "id": "sensitiveMappingExplicit",
+      "description": "Sensitive source fields require explicit target support and permission-aware handling."
+    }
+  ],
+  "cms": {
+    "label": "Form Field Mapping",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "sourceFieldKey",
+      "targetPath",
+      "transform",
+      "required"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,29 @@
+{
+  "$id": "forms.leads.view",
+  "name": "View Leads",
+  "permissionId": "forms.leads.view",
+  "domain": "forms",
+  "resource": "leads",
+  "action": "view",
+  "scopeKind": "site",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Leads within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

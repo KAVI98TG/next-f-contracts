@@ -1,0 +1,45 @@
+{
+  "registryVersion": "0.7.0",
+  "categories": [
+    {
+      "id": "pages",
+      "label": "Pages and Sections",
+      "description": "Routable pages and structured section envelopes."
+    },
+    {
+      "id": "reusable",
+      "label": "Reusable Content",
+      "description": "Site-wide structured content values intended for safe reuse."
+    },
+    {
+      "id": "blog",
+      "label": "Blog",
+      "description": "Posts, authors, categories and tags for editorial publishing."
+    },
+    {
+      "id": "documentation",
+      "label": "Documentation",
+      "description": "Documentation collections, categories and articles."
+    },
+    {
+      "id": "business",
+      "label": "Business Content",
+      "description": "Services, FAQs, testimonials, team members and business locations."
+    },
+    {
+      "id": "navigation",
+      "label": "Navigation",
+      "description": "Navigation containers and ordered navigation items."
+    },
+    {
+      "id": "legal",
+      "label": "Legal Content",
+      "description": "Versioned customer-managed legal pages and policy content."
+    },
+    {
+      "id": "custom",
+      "label": "Custom Collections",
+      "description": "NEXT F-defined custom structured collections and customer-managed entries."
+    }
+  ]
+}

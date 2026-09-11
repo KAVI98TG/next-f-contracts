@@ -1,0 +1,24 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Deprecation Registry",
+  "description": "Authoritative lifecycle-management records for deprecated and removed NEXT F Registry definitions.",
+  "currentVersion": "1.0.0",
+  "recordCount": 0,
+  "activeDeprecationCount": 0,
+  "removedCount": 0,
+  "upcomingRemovalCount": 0,
+  "domains": [],
+  "modules": [],
+  "types": [],
+  "severities": [],
+  "records": [],
+  "sources": {
+    "policy": "registry/deprecations/policy.json",
+    "lifecycleStates": "registry/deprecations/lifecycle-states.json",
+    "severityLevels": "registry/deprecations/severity-levels.json",
+    "deprecationSchema": "registry/deprecations/deprecation.schema.json",
+    "replacementSchema": "registry/deprecations/replacement.schema.json",
+    "recordDirectory": "registry/deprecations/records/"
+  }
+}

@@ -1,0 +1,11 @@
+NEXT F Contracts Phase 15 validation
+Version: 0.18.0
+Permissions: 329
+Roles: 14
+Support schemas: 9
+Registry entries: 1197
+Passes: 4971
+Failures: 2
+Failures:
+- Version is 0.16.0: 0.18.0
+- Permission index version

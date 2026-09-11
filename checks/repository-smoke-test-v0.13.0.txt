@@ -1,0 +1,10 @@
+
+> next-f-contracts@0.13.0 smoke:phase12
+> node scripts/smoke-phase-12.mjs
+
+
+NEXT F Phase 12 repository smoke test
+Passes: 42
+Failures: 0
+
+PASS - repository and portal wiring smoke test.

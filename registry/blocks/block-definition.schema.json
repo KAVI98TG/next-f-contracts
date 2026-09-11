@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/schema/block-definition.json",
+  "title": "NEXT F Block Contract Definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "category",
+    "description",
+    "purpose",
+    "blockModel",
+    "fields",
+    "relationships",
+    "validationRules",
+    "cms",
+    "presentation",
+    "accessibility",
+    "delivery",
+    "futureBindings",
+    "examples",
+    "notes"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^blocks\\.[a-z][A-Za-z0-9]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "enum": [
+        "experimental",
+        "draft",
+        "stable",
+        "deprecated",
+        "removed"
+      ]
+    },
+    "domain": {
+      "const": "blocks"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "blockModel": {
+      "type": "object"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "validationRules": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "cms": {
+      "type": "object"
+    },
+    "presentation": {
+      "type": "object"
+    },
+    "accessibility": {
+      "type": "object"
+    },
+    "delivery": {
+      "type": "object"
+    },
+    "futureBindings": {
+      "type": "object"
+    },
+    "examples": {
+      "type": "object",
+      "required": [
+        "valid",
+        "invalid"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.internalDataPolicy",
+  "name": "Internal Data Policy",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines internal-only, customer-hidden and sensitive presentation rules.",
+  "purpose": "Defines internal-only, customer-hidden and sensitive presentation rules.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

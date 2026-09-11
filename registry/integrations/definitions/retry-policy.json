@@ -1,0 +1,130 @@
+{
+  "$id": "integrations.retryPolicy",
+  "name": "Retry Policy",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "resilience",
+  "description": "Bounded retry behavior for integration operations.",
+  "purpose": "Prevents uncontrolled retry storms and unsafe repetition of non-idempotent provider writes.",
+  "integrationModel": {
+    "kind": "retry-policy",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether retries are enabled.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "maxAttempts",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum total attempts.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 10
+      }
+    },
+    {
+      "key": "strategy",
+      "required": true,
+      "nullable": false,
+      "description": "Backoff strategy.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "fixed",
+          "linear",
+          "exponential"
+        ]
+      }
+    },
+    {
+      "key": "baseDelaySeconds",
+      "required": true,
+      "nullable": false,
+      "description": "Base delay.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 3600
+      }
+    },
+    {
+      "key": "maxDelaySeconds",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum delay.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 86400
+      }
+    },
+    {
+      "key": "retryableCategories",
+      "required": true,
+      "nullable": false,
+      "description": "Error categories eligible for retry.",
+      "primitive": "fields.multiSelect"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "boundedAttempts",
+      "description": "Retries have a strict maximum."
+    },
+    {
+      "id": "nonIdempotentProtected",
+      "description": "Non-idempotent operations are not blindly retried."
+    },
+    {
+      "id": "rateLimitOverrides",
+      "description": "Provider Retry-After guidance overrides shorter local delay."
+    }
+  ],
+  "cms": {
+    "label": "Retry Policy",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "enabled",
+      "maxAttempts",
+      "strategy",
+      "baseDelaySeconds"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

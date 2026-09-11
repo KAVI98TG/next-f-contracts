@@ -1,0 +1,172 @@
+{
+  "$id": "marketing.consentPolicy",
+  "name": "Consent Policy",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "consent",
+  "description": "Site-level configuration defining tracking categories and unknown-state behavior.",
+  "purpose": "Centralizes consent behavior so individual tags/components do not invent defaults.",
+  "marketingModel": {
+    "kind": "policy",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "dataSensitivity": "public"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable policy identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "policyVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Published policy version.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40
+      }
+    },
+    {
+      "key": "categories",
+      "required": true,
+      "nullable": false,
+      "description": "Configured categories.",
+      "itemsSchema": "marketing.consentCategory",
+      "config": {
+        "minItems": 1,
+        "maxItems": 50
+      }
+    },
+    {
+      "key": "unknownOptionalBehavior",
+      "required": true,
+      "nullable": false,
+      "description": "Behavior when optional choice unset.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "deny",
+            "label": "Deny"
+          },
+          {
+            "value": "defer",
+            "label": "Defer Until Choice"
+          }
+        ],
+        "defaultValue": "deny"
+      }
+    },
+    {
+      "key": "regionStrategy",
+      "required": true,
+      "nullable": false,
+      "description": "How region-specific policy selection is resolved.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "single",
+            "label": "Single Policy"
+          },
+          {
+            "value": "configuredRules",
+            "label": "Configured Rules"
+          }
+        ],
+        "defaultValue": "single"
+      }
+    },
+    {
+      "key": "effectiveAt",
+      "required": true,
+      "nullable": false,
+      "description": "Policy effective time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "Uses identity."
+    },
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "composesMany",
+      "target": "marketing.consentCategory",
+      "description": "Defines categories."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "unknownOptionalNotGrant",
+      "description": "Unknown optional state not treated as granted."
+    },
+    {
+      "id": "policyVersionImmutable",
+      "description": "Published policy version is not silently rewritten."
+    },
+    {
+      "id": "legalReviewExternal",
+      "description": "Contract configuration does not replace legal review."
+    },
+    {
+      "id": "necessaryCategoryRestricted",
+      "description": "Only genuinely necessary purposes bypass optional controls."
+    }
+  ],
+  "cms": {
+    "label": "Consent Policy",
+    "icon": "fa-bullseye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "consent-policy",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "policyVersion",
+      "categories"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

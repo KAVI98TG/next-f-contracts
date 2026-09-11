@@ -1,0 +1,56 @@
+{
+  "$id": "api.commerce",
+  "apiId": "api.commerce",
+  "name": "Commerce API",
+  "version": "1.0.0",
+  "status": "stable",
+  "basePath": "/api/v1/commerce/sites/{siteId}",
+  "description": "Storefront and authorized commerce-management operations governed by Commerce Core and Commerce Rules.",
+  "defaultAuthMode": "anonymous-or-commerce-customer",
+  "defaultRateLimitClass": "commerce-checkout",
+  "defaultCachePolicy": "no-store",
+  "defaultCorsPolicy": "site-origin",
+  "moduleBindings": [
+    "core",
+    "media",
+    "commerce"
+  ],
+  "operationIds": [
+    "api.commerce.list-products",
+    "api.commerce.get-product",
+    "api.commerce.list-categories",
+    "api.commerce.list-collections",
+    "api.commerce.create-cart",
+    "api.commerce.get-cart",
+    "api.commerce.add-cart-item",
+    "api.commerce.update-cart-item",
+    "api.commerce.remove-cart-item",
+    "api.commerce.start-checkout",
+    "api.commerce.get-checkout",
+    "api.commerce.update-checkout-contact",
+    "api.commerce.update-shipping-address",
+    "api.commerce.update-billing-address",
+    "api.commerce.select-shipping",
+    "api.commerce.apply-discount",
+    "api.commerce.complete-checkout",
+    "api.commerce.list-my-orders",
+    "api.commerce.get-my-order",
+    "api.commerce.list-orders",
+    "api.commerce.get-order",
+    "api.commerce.cancel-order",
+    "api.commerce.create-refund",
+    "api.commerce.create-fulfillment",
+    "api.commerce.adjust-inventory"
+  ],
+  "publicDocumentation": true,
+  "order": 50,
+  "compatibility": {
+    "contractVersionRange": ">=0.19.0 <1.0.0",
+    "manifestBindingRequired": true
+  },
+  "boundaries": [
+    "Uses canonical NEXT F Contract Registry schemas rather than redefining domain entities.",
+    "Secrets and privileged credentials are never returned through generic API responses.",
+    "API Version and NEXT F Contract Version are independently explicit."
+  ]
+}

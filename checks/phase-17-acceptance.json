@@ -1,0 +1,62 @@
+{
+  "phase": 17,
+  "version": "0.18.0",
+  "status": "passed",
+  "moduleCount": 13,
+  "capabilityCount": 102,
+  "reservedCapabilityCount": 5,
+  "requiredDependencyEdges": 19,
+  "registryEntryCount": 1197,
+  "checks": [
+    {
+      "id": "P17-001",
+      "name": "Module IDs are canonical and unique",
+      "passed": true
+    },
+    {
+      "id": "P17-002",
+      "name": "Capabilities are namespaced and owned by exactly one module",
+      "passed": true
+    },
+    {
+      "id": "P17-003",
+      "name": "Required dependencies resolve without cycles",
+      "passed": true
+    },
+    {
+      "id": "P17-004",
+      "name": "All module contract/permission/event bindings resolve",
+      "passed": true
+    },
+    {
+      "id": "P17-005",
+      "name": "Reference Site Manifests resolve registered modules and required dependencies",
+      "passed": true
+    },
+    {
+      "id": "P17-006",
+      "name": "Reserved future Commerce capabilities are unselectable",
+      "passed": true
+    },
+    {
+      "id": "P17-007",
+      "name": "Customer CMS and NEXT F Admin navigation metadata are separated",
+      "passed": true
+    },
+    {
+      "id": "P17-008",
+      "name": "Module Explorer is available in portal",
+      "passed": true
+    },
+    {
+      "id": "P17-009",
+      "name": "Generated local fallback checksum is current",
+      "passed": true
+    },
+    {
+      "id": "P17-010",
+      "name": "Light-only portal design preserved",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "$id": "api.pageInfo",
+  "name": "Page Info",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "query",
+  "description": "Cursor pagination output.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "nextCursor",
+      "required": false,
+      "nullable": false,
+      "description": "nextCursor",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "previousCursor",
+      "required": false,
+      "nullable": false,
+      "description": "previousCursor",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "hasNextPage",
+      "required": true,
+      "nullable": false,
+      "description": "hasNextPage",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "hasPreviousPage",
+      "required": true,
+      "nullable": false,
+      "description": "hasPreviousPage",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "returned",
+      "required": true,
+      "nullable": false,
+      "description": "returned",
+      "primitive": "fields.integer"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

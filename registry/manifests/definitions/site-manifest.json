@@ -1,0 +1,251 @@
+{
+  "$id": "manifest.siteManifest",
+  "name": "NEXT F Site Manifest",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "identity-versioning",
+  "description": "Authoritative repository-side declaration connecting one customer Site codebase to the NEXT F Website Contract ecosystem.",
+  "purpose": "Gives Codex, validation tooling, Customer CMS, Admin and API adapters one deterministic place to learn the Site identity, pinned contracts, environments, modules, runtime capabilities and supported integrations.",
+  "manifestModel": {
+    "kind": "root",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "manifestVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Site Manifest specification version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "contracts",
+      "required": true,
+      "nullable": false,
+      "description": "Pinned NEXT F Contract and manifest versions.",
+      "schema": "manifest.contractBinding"
+    },
+    {
+      "key": "site",
+      "required": true,
+      "nullable": false,
+      "description": "Site identity and descriptive type.",
+      "schema": "manifest.siteDescriptor"
+    },
+    {
+      "key": "localization",
+      "required": true,
+      "nullable": false,
+      "description": "Locale and timezone baseline.",
+      "schema": "manifest.localization"
+    },
+    {
+      "key": "environments",
+      "required": true,
+      "nullable": false,
+      "description": "Declared Site environments.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "contentDelivery",
+      "required": true,
+      "nullable": false,
+      "description": "Published-content delivery strategy.",
+      "schema": "manifest.contentDelivery"
+    },
+    {
+      "key": "modules",
+      "required": true,
+      "nullable": false,
+      "description": "Requested Site modules and capabilities.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "runtime",
+      "required": true,
+      "nullable": false,
+      "description": "Mandatory NEXT F runtime capabilities.",
+      "schema": "manifest.runtime"
+    },
+    {
+      "key": "cms",
+      "required": true,
+      "nullable": false,
+      "description": "Customer CMS implementation declaration.",
+      "schema": "manifest.cms"
+    },
+    {
+      "key": "apiBindings",
+      "required": false,
+      "nullable": true,
+      "description": "Optional API contract/version bindings.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "events",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical domain Event support.",
+      "schema": "manifest.eventSupport"
+    },
+    {
+      "key": "tracking",
+      "required": true,
+      "nullable": false,
+      "description": "Visitor/marketing tracking event support.",
+      "schema": "manifest.trackingSupport"
+    },
+    {
+      "key": "integrations",
+      "required": true,
+      "nullable": false,
+      "description": "Supported external Integration connectors.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "configuration",
+      "required": true,
+      "nullable": false,
+      "description": "Required configuration-key metadata without values.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "extensions",
+      "required": false,
+      "nullable": true,
+      "description": "Optional namespaced Site-specific extensions.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "manifest.contractBinding",
+      "description": "Pins the repository to exact NEXT F contract and manifest specification versions."
+    },
+    {
+      "type": "composes",
+      "target": "manifest.siteDescriptor",
+      "description": "Identifies the Site."
+    },
+    {
+      "type": "composes",
+      "target": "manifest.localization",
+      "description": "Declares locale/timezone baseline."
+    },
+    {
+      "type": "composesMany",
+      "target": "manifest.environment",
+      "description": "Declares environments."
+    },
+    {
+      "type": "composes",
+      "target": "manifest.contentDelivery",
+      "description": "Declares content delivery strategy."
+    },
+    {
+      "type": "composesMany",
+      "target": "manifest.moduleSelection",
+      "description": "Declares enabled modules."
+    },
+    {
+      "type": "composes",
+      "target": "manifest.runtime",
+      "description": "Declares baseline NEXT F runtime."
+    },
+    {
+      "type": "composes",
+      "target": "manifest.cms",
+      "description": "Declares Customer CMS participation."
+    },
+    {
+      "type": "optionallyComposesMany",
+      "target": "manifest.apiBinding",
+      "description": "Pins API contracts once available."
+    },
+    {
+      "type": "composes",
+      "target": "manifest.eventSupport",
+      "description": "Declares canonical domain Event support."
+    },
+    {
+      "type": "composes",
+      "target": "manifest.trackingSupport",
+      "description": "Declares marketing tracking support."
+    },
+    {
+      "type": "composesMany",
+      "target": "manifest.integrationSupport",
+      "description": "Declares supported connectors."
+    },
+    {
+      "type": "composesMany",
+      "target": "manifest.configurationBinding",
+      "description": "Declares required configuration keys without values."
+    },
+    {
+      "type": "optionallyComposesMany",
+      "target": "manifest.extensionDeclaration",
+      "description": "Declares explicit Site-specific extensions."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "singleManifestPerSiteRepository",
+      "description": "One repository/application root has one authoritative NEXT F Site Manifest unless a documented monorepo strategy explicitly scopes multiple Sites."
+    },
+    {
+      "id": "manifestFilename",
+      "description": "The canonical JSON filename is nextf.site.json."
+    },
+    {
+      "id": "noSecretValues",
+      "description": "The Site Manifest must contain no credentials, API secrets, passwords, signing secrets or private tokens."
+    },
+    {
+      "id": "contractPinned",
+      "description": "The Site must use an exact pinned NEXT F Contract Version."
+    },
+    {
+      "id": "allReferencesResolvable",
+      "description": "All references to existing canonical Events, tracking events and Integration connectors must resolve."
+    },
+    {
+      "id": "futureRegistriesNotFabricated",
+      "description": "Module and API references are validated against their authoritative registries only after Phases 17 and 18 publish them."
+    },
+    {
+      "id": "customerContentExcluded",
+      "description": "Business content, blog copy, product records, lead data and other mutable CMS data do not belong in the Site Manifest."
+    },
+    {
+      "id": "hostingDataExcluded",
+      "description": "Hosting subscriptions, domain billing, DNS credentials and provider-control secrets do not belong in the Site Manifest."
+    }
+  ],
+  "cms": {
+    "label": "NEXT F Site Manifest",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "manifestVersion",
+      "contracts",
+      "site",
+      "localization"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": [
+    "The manifest may be committed to a customer website repository because secret values are prohibited.",
+    "Site type describes the project but does not activate functionality.",
+    "Modules and capabilities are the functional declaration; Phase 17 becomes authoritative for their dependency graph.",
+    "API bindings are structurally supported in Phase 16 but examples leave them empty until Phase 18 publishes canonical API IDs."
+  ]
+}

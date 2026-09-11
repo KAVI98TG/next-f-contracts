@@ -1,0 +1,102 @@
+{
+  "$id": "commerce.collectionRule",
+  "name": "Collection Rule",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "catalog",
+  "description": "Structured automatic-collection rule.",
+  "purpose": "Allows deterministic collection membership without arbitrary executable expressions.",
+  "commerceModel": {
+    "kind": "embedded",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "field",
+      "required": true,
+      "nullable": false,
+      "description": "Approved Product/Variant field.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "operator",
+      "required": true,
+      "nullable": false,
+      "description": "Comparison operator.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "equals",
+          "not-equals",
+          "contains",
+          "greater-than",
+          "less-than",
+          "in",
+          "not-in",
+          "is-true",
+          "is-false"
+        ]
+      }
+    },
+    {
+      "key": "value",
+      "required": false,
+      "nullable": true,
+      "description": "Comparison value.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "approvedFieldOnly",
+      "description": "Only approved rule fields may be evaluated."
+    },
+    {
+      "id": "operatorCompatible",
+      "description": "Operator must match field/value type."
+    }
+  ],
+  "cms": {
+    "label": "Collection Rule",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "field",
+      "operator",
+      "value"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

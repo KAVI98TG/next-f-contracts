@@ -1,0 +1,32 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "Deprecation Severity Levels",
+  "levels": [
+    {
+      "id": "info",
+      "label": "Info",
+      "rank": 10
+    },
+    {
+      "id": "low",
+      "label": "Low",
+      "rank": 20
+    },
+    {
+      "id": "medium",
+      "label": "Medium",
+      "rank": 30
+    },
+    {
+      "id": "high",
+      "label": "High",
+      "rank": 40
+    },
+    {
+      "id": "critical",
+      "label": "Critical",
+      "rank": 50
+    }
+  ]
+}

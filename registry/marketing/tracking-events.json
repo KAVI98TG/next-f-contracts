@@ -1,0 +1,99 @@
+{
+  "registryVersion": "0.10.0",
+  "vocabularyVersion": "1.0.0",
+  "title": "NEXT F Standard Marketing Tracking Event Keys",
+  "description": "Phase 9 provider-neutral website interaction keys. These are tracking observations, not the full platform-domain Event Registry introduced in Phase 13.",
+  "events": [
+    {
+      "key": "page.viewed",
+      "label": "Page Viewed",
+      "defaultConsentCategory": "analytics",
+      "description": "A visitor-visible page or route view was observed.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "cta.clicked",
+      "label": "CTA Clicked",
+      "defaultConsentCategory": "analytics",
+      "description": "A registered call-to-action was activated.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "phone.clicked",
+      "label": "Phone Clicked",
+      "defaultConsentCategory": "analytics",
+      "description": "A telephone action link was activated.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "email.clicked",
+      "label": "Email Clicked",
+      "defaultConsentCategory": "analytics",
+      "description": "An email action link was activated.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "whatsapp.clicked",
+      "label": "WhatsApp Clicked",
+      "defaultConsentCategory": "analytics",
+      "description": "A WhatsApp action link was activated.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "document.downloaded",
+      "label": "Document Downloaded",
+      "defaultConsentCategory": "analytics",
+      "description": "A tracked public document download was initiated.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "form.started",
+      "label": "Form Started",
+      "defaultConsentCategory": "analytics",
+      "description": "Meaningful interaction with a registered form began.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "form.submitted",
+      "label": "Form Submitted",
+      "defaultConsentCategory": "analytics",
+      "description": "A registered form submission was accepted by the website/application flow.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "lead.created",
+      "label": "Lead Created",
+      "defaultConsentCategory": "analytics",
+      "description": "A canonical Lead was created from an accepted source.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "search.performed",
+      "label": "Search Performed",
+      "defaultConsentCategory": "analytics",
+      "description": "A visitor executed an on-site search.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "video.started",
+      "label": "Video Started",
+      "defaultConsentCategory": "analytics",
+      "description": "A tracked video began playback after user or permitted automatic action.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "video.completed",
+      "label": "Video Completed",
+      "defaultConsentCategory": "analytics",
+      "description": "A tracked video reached its configured completion threshold.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "newsletter.subscribed",
+      "label": "Newsletter Subscribed",
+      "defaultConsentCategory": "analytics",
+      "description": "A newsletter subscription workflow completed successfully.",
+      "conversionCandidate": true
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "$id": "modules.capability.commerce.returns",
+  "capabilityId": "commerce.returns",
+  "name": "Returns",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Returns capability within the Commerce module.",
+  "contractBindings": [],
+  "permissionBindings": [
+    "commerce.returns.edit",
+    "commerce.returns.manage",
+    "commerce.returns.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

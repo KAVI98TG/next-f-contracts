@@ -1,0 +1,190 @@
+{
+  "$id": "commerce.refund",
+  "name": "Refund",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "payments",
+  "description": "Financial Refund transaction.",
+  "purpose": "Records financial reversal without rewriting historical Order prices.",
+  "commerceModel": {
+    "kind": "transaction",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "orderId",
+      "required": true,
+      "nullable": false,
+      "description": "Order ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "paymentId",
+      "required": true,
+      "nullable": false,
+      "description": "Payment ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "amount",
+      "required": true,
+      "nullable": false,
+      "description": "Refund amount.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "reason",
+      "required": true,
+      "nullable": false,
+      "description": "Refund reason.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "customer-request",
+          "return",
+          "duplicate",
+          "fraud",
+          "order-change",
+          "shipping-issue",
+          "other"
+        ]
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Refund state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "pending",
+          "processing",
+          "succeeded",
+          "failed",
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "key": "providerRefundId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional provider refund reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Creation time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "completedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Completion time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "lines",
+      "required": false,
+      "nullable": true,
+      "description": "Line-level refund allocations.",
+      "itemsSchema": "commerce.refundLine",
+      "config": {
+        "minItems": 0
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.order",
+      "description": "References commerce.order."
+    },
+    {
+      "type": "references",
+      "target": "commerce.payment",
+      "description": "References commerce.payment."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.moneySnapshot",
+      "description": "References commerce.moneySnapshot."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.refundLine",
+      "description": "References commerce.refundLine."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "positive",
+      "description": "Refund amount is greater than zero."
+    },
+    {
+      "id": "noOrderMutation",
+      "description": "Refunds never rewrite Order Line price snapshots."
+    }
+  ],
+  "cms": {
+    "label": "Refund",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "orderId",
+      "paymentId"
+    ],
+    "primaryActions": [
+      "view",
+      "manage"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

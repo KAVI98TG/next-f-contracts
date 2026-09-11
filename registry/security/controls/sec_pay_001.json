@@ -1,0 +1,36 @@
+{
+  "controlId": "SEC-PAY-001",
+  "name": "No PAN/CVV storage",
+  "category": "commerce",
+  "requirement": "NEXT F contracts and implementations must not store raw payment card PAN or CVV; provider tokenization or equivalent provider-hosted handling is required.",
+  "rationale": "Raw card storage materially expands payment-security scope and is outside the NEXT F model.",
+  "applicability": [
+    "commerce"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [
+    "modules.commerce"
+  ],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [
+    "commerce.rule.rawCardDataProhibited"
+  ],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_pay_001.json"
+}

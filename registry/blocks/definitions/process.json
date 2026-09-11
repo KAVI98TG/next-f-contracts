@@ -1,0 +1,127 @@
+{
+  "$id": "blocks.process",
+  "name": "Process / Steps",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "business",
+  "description": "Ordered process, journey or timeline section.",
+  "purpose": "Creates predictable step structures while frontend controls visual timeline treatment.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "steps",
+      "required": true,
+      "nullable": false,
+      "description": "Ordered process steps.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "array",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      },
+      "itemsSchema": "blocks.processStep",
+      "collectionRules": {
+        "minItems": 1,
+        "maxItems": 20
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "blocks.processStep",
+      "description": "Every step validates against Process Step."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "stepsConform",
+      "description": "Every steps entry must validate against blocks.processStep."
+    },
+    {
+      "id": "sequenceOrder",
+      "description": "Array order is the canonical logical sequence."
+    }
+  ],
+  "cms": {
+    "label": "Process / Steps",
+    "icon": "fa-list-ol",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "steps",
+      "variantKey"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Rendered visual order must match the canonical logical step sequence."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

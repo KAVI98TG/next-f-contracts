@@ -1,0 +1,127 @@
+{
+  "$id": "commerce.shippingZone",
+  "name": "Shipping Zone",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "fulfillment",
+  "description": "Geographic Shipping Zone.",
+  "purpose": "Allows shipping methods/rates without hardcoded site logic.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Zone name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "countries",
+      "required": false,
+      "nullable": true,
+      "description": "Country codes.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "uniqueItems": true
+      }
+    },
+    {
+      "key": "regions",
+      "required": false,
+      "nullable": true,
+      "description": "Region codes.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "uniqueItems": true
+      }
+    },
+    {
+      "key": "postalCodes",
+      "required": false,
+      "nullable": true,
+      "description": "Postal codes/patterns.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "uniqueItems": true
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether zone is active.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "hasScope",
+      "description": "Active zone defines at least one geography rule."
+    },
+    {
+      "id": "safePostalPatterns",
+      "description": "Postal matching cannot execute arbitrary regex/code."
+    }
+  ],
+  "cms": {
+    "label": "Shipping Zone",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "name",
+      "countries"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

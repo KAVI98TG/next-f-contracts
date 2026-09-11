@@ -1,0 +1,10 @@
+NEXT F Contracts Phase 36 validation
+Version: 0.37.0
+Passes: 192
+Failures: 0
+Registry Health checks: 36
+PASS checks: 33
+Deferred: 1
+Registry items: 2176
+JSON files checked: 2046
+PASS - Final Registry QA satisfies the Phase 36 Release Candidate gate.

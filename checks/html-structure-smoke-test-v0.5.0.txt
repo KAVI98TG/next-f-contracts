@@ -1,0 +1,4 @@
+NEXT F Phase 4 HTML smoke test
+Duplicate IDs: 0
+Missing local assets: 0
+PASS

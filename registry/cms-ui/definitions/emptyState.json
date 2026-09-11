@@ -1,0 +1,46 @@
+{
+  "$id": "cmsUi.emptyState",
+  "name": "Empty State",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "category": "state",
+  "description": "Defines meaningful no-data presentation and authorized next action.",
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Stable UI metadata identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "metadata",
+      "required": true,
+      "nullable": false,
+      "description": "Structured metadata payload governed by the Customer CMS UI Metadata Standard.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "cms-ui.customerCmsUiMetadataStandard",
+      "description": "Governed by the Customer CMS UI Metadata Standard."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "cmsUi.emptyState.stableId",
+      "description": "Machine identifiers remain stable within a major contract version."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Developer metadata; contains no customer secrets."
+  }
+}

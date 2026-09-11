@@ -1,0 +1,35 @@
+{
+  "registryVersion": "1.0.0",
+  "statuses": [
+    {
+      "id": "experimental",
+      "label": "Experimental",
+      "tone": "purple",
+      "description": "May change without compatibility guarantees."
+    },
+    {
+      "id": "draft",
+      "label": "Draft",
+      "tone": "warning",
+      "description": "Under review and not yet production-stable."
+    },
+    {
+      "id": "stable",
+      "label": "Stable",
+      "tone": "success",
+      "description": "Approved for the documented production use and compatibility policy."
+    },
+    {
+      "id": "deprecated",
+      "label": "Deprecated",
+      "tone": "warning",
+      "description": "Supported temporarily but should not be used for new implementations."
+    },
+    {
+      "id": "removed",
+      "label": "Removed",
+      "tone": "danger",
+      "description": "Not present in the active contract version."
+    }
+  ]
+}

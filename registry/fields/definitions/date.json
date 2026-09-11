@@ -1,0 +1,63 @@
+{
+  "$id": "fields.date",
+  "name": "Date",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "temporal",
+  "description": "Calendar date without time-of-day or timezone.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "ISO 8601 calendar date YYYY-MM-DD.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "date",
+    "inputMode": "numeric",
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": true,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "minimum",
+    "maximum"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "dateFormat"
+  ],
+  "examples": {
+    "valid": [
+      "2026-09-09"
+    ],
+    "invalid": [
+      "09/09/2026",
+      "2026-13-01"
+    ]
+  },
+  "notes": []
+}

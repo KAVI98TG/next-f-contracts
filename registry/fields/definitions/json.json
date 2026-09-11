@@ -1,0 +1,69 @@
+{
+  "$id": "fields.json",
+  "name": "JSON",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "text",
+  "description": "Structured JSON value for narrowly controlled advanced schemas where a dedicated typed contract is not yet appropriate.",
+  "value": {
+    "jsonType": "any-json",
+    "canonical": "JSON-compatible value with no functions, undefined, circular references or executable semantics.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "json-editor",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": false,
+    "filterable": false,
+    "sortable": false,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "format"
+  ],
+  "validationRules": [
+    "required",
+    "notNull",
+    "jsonValid"
+  ],
+  "examples": {
+    "valid": [
+      {
+        "key": "value"
+      },
+      [
+        "a",
+        "b"
+      ],
+      42
+    ],
+    "invalid": [
+      "{\"broken\":"
+    ]
+  },
+  "notes": [
+    "Prefer a dedicated typed schema over generic JSON whenever a reusable structure exists."
+  ]
+}

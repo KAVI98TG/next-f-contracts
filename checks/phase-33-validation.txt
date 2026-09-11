@@ -1,0 +1,13 @@
+
+> next-f-contracts@0.34.0 validate:phase33
+> node scripts/validate-phase-33.mjs
+
+NEXT F Contracts Phase 33 validation
+Version: 0.34.0
+Passes: 56
+Failures: 0
+Validation layers: 14
+Reference manifests: 6
+Validation Registry items: 5
+JSON files checked: 1991
+PASS - Browser Contract Validation satisfies the Phase 33 acceptance model.

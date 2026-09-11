@@ -1,0 +1,573 @@
+{
+  "$id": "cmsUi.profile.content.media",
+  "name": "Media Library",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "content.media",
+  "moduleId": "media",
+  "description": "Customer CMS presentation metadata for Media Library within authorized Site scope.",
+  "targetContracts": [
+    "shared.mediaAsset"
+  ],
+  "primaryTargetContract": "shared.mediaAsset",
+  "route": "/content/media",
+  "screenKind": "library",
+  "layoutTemplate": "media-library",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "id",
+      "label": "ID",
+      "description": "Opaque Media Asset ID.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "minLength": 4,
+        "maxLength": 128
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "siteId",
+      "label": "Site ID",
+      "description": "Site owning the asset.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.relation",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "kind",
+      "label": "Kind",
+      "description": "High-level media kind.",
+      "editorId": "select",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "fileName",
+      "label": "File Name",
+      "description": "Sanitized display filename.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 255
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "mimeType",
+      "label": "Mime Type",
+      "description": "Canonical MIME type.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 160
+      },
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "sizeBytes",
+      "label": "Size Bytes",
+      "description": "Asset size in bytes.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.integer",
+      "validationHint": {
+        "minimum": 0
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "width",
+      "label": "Width",
+      "description": "Pixel width when applicable.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.integer",
+      "validationHint": {
+        "minimum": 1
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "height",
+      "label": "Height",
+      "description": "Pixel height when applicable.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 80,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.integer",
+      "validationHint": {
+        "minimum": 1
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "durationSeconds",
+      "label": "Duration Seconds",
+      "description": "Media duration in seconds when applicable.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 90,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.decimal",
+      "validationHint": {
+        "minimum": 0
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "checksum",
+      "label": "Checksum",
+      "description": "Non-secret content checksum for integrity/deduplication.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 100,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 160
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "title",
+      "label": "Title",
+      "description": "Human-readable media title.",
+      "editorId": "single-line-text",
+      "group": "content",
+      "zone": "main",
+      "order": 110,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 200
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "altText",
+      "label": "Alt Text",
+      "description": "Default accessible alternative text for meaningful images.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 120,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 300
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": true,
+      "revisionTracked": false
+    },
+    {
+      "field": "caption",
+      "label": "Caption",
+      "description": "Default media caption.",
+      "editorId": "multi-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 130,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.textarea",
+      "validationHint": {
+        "maxLength": 1000
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": true,
+      "revisionTracked": false
+    },
+    {
+      "field": "credit",
+      "label": "Credit",
+      "description": "Attribution/credit text.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 140,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 300
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "copyright",
+      "label": "Copyright",
+      "description": "Copyright statement if applicable.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 150,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 300
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "focalPoint",
+      "label": "Focal Point",
+      "description": "Normalized/presentation focal point when supported.",
+      "editorId": "coordinates",
+      "group": "configuration",
+      "zone": "main",
+      "order": 160,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.coordinates",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "publicUrl",
+      "label": "Public URL",
+      "description": "Public delivery URL only when the asset is intentionally public.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 170,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.url",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "createdAt",
+      "label": "Created At",
+      "description": "Asset creation/import timestamp.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 180,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "fileName",
+        "label": "File Name",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "kind",
+        "label": "Kind",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "sizeBytes",
+        "label": "Size Bytes",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [
+      {
+        "field": "kind",
+        "label": "Kind"
+      },
+      {
+        "field": "mimeType",
+        "label": "Mime Type"
+      }
+    ],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [
+      {
+        "field": "sizeBytes",
+        "label": "Size Bytes"
+      }
+    ],
+    "searchFields": [
+      "fileName"
+    ]
+  },
+  "actions": [
+    {
+      "actionId": "create",
+      "permissionId": "content.media.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "content.media.delete",
+      "riskLevel": "destructive",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "content.media.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "content.media.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "content.media.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "save-draft",
+      "permissionId": "content.media.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "preview",
+      "permissionId": "content.media.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "content.media.create",
+    "content.media.delete",
+    "content.media.edit",
+    "content.media.manage",
+    "content.media.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": false,
+    "warnOnLeave": false,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "primaryEditorId": "media-library-browser",
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/content/media",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "content.media.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "create",
+      "kind": "editor",
+      "route": "/content/media/new",
+      "layoutTemplate": "standard-editor",
+      "requiresPermission": "content.media.create",
+      "purpose": "Create a new canonical resource."
+    },
+    {
+      "id": "record",
+      "kind": "detail",
+      "route": "/content/media/:id",
+      "layoutTemplate": "operational-detail",
+      "requiresPermission": "content.media.edit",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

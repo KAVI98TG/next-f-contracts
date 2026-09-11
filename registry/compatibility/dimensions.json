@@ -1,0 +1,70 @@
+{
+  "registryVersion": "1.0.0",
+  "dimensions": [
+    {
+      "id": "contract-release",
+      "label": "Contract Registry",
+      "required": true
+    },
+    {
+      "id": "site-manifest",
+      "label": "Site Manifest",
+      "required": true
+    },
+    {
+      "id": "modules",
+      "label": "Modules",
+      "required": true
+    },
+    {
+      "id": "capabilities",
+      "label": "Capabilities",
+      "required": true
+    },
+    {
+      "id": "api",
+      "label": "API Bindings",
+      "required": true
+    },
+    {
+      "id": "permissions",
+      "label": "Permissions",
+      "required": true
+    },
+    {
+      "id": "events",
+      "label": "Events",
+      "required": true
+    },
+    {
+      "id": "webhooks",
+      "label": "Webhooks",
+      "required": false
+    },
+    {
+      "id": "integrations",
+      "label": "Integrations",
+      "required": false
+    },
+    {
+      "id": "customer-cms-ui",
+      "label": "Customer CMS UI",
+      "required": false
+    },
+    {
+      "id": "nextf-admin-ui",
+      "label": "NEXT F Admin UI",
+      "required": false
+    },
+    {
+      "id": "site-runtime",
+      "label": "Site Runtime",
+      "required": true
+    },
+    {
+      "id": "data-migration",
+      "label": "Data Migration",
+      "required": false
+    }
+  ]
+}

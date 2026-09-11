@@ -1,0 +1,428 @@
+{
+  "$id": "changelog.release.0.31.0",
+  "version": "0.31.0",
+  "phase": 30,
+  "title": "Privacy and Data Classification",
+  "releaseStatus": "published-development",
+  "releaseDate": null,
+  "summary": "Phase 30 - Privacy and Data Classification.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_0e21852c71c24c",
+          "releaseVersion": "0.31.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Machine-readable Privacy & Data Registry with canonical public/internal/personal/sensitive/secret classifications, operational qualifiers and data-flow eligibility vocabularies.",
+          "affectedRegistryIds": [
+            "privacy.classifications",
+            "privacy.eligibilityValues",
+            "privacy.index",
+            "privacy.qualifiers",
+            "privacy.standard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Machine-readable Privacy & Data Registry with canonical public/internal/personal/sensitive/secret classifications, operational qualifiers and data-flow eligibility vocabularies.",
+          "description": "Machine-readable Privacy & Data Registry with canonical public/internal/personal/sensitive/secret classifications, operational qualifiers and data-flow eligibility vocabularies.",
+          "changeType": "added",
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.31.0.json",
+          "sourceCommitReference": null,
+          "affectedDomains": [
+            "privacy"
+          ],
+          "affectedModules": []
+        },
+        {
+          "entryId": "chg_86d2e18d4bd17e",
+          "releaseVersion": "0.31.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Field-level privacy handling metadata for high-risk authentication, forms/leads, marketing, integrations, Commerce/payments, Webhooks and audit fields.",
+          "affectedRegistryIds": [
+            "privacy.coverage",
+            "privacy.dataHandlingJsonSchema",
+            "privacy.fieldHandling",
+            "privacy.fieldHandlingIndex"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Field-level privacy handling metadata for high-risk authentication, forms/leads, marketing, integrations, Commerce/payments, Webhooks and audit fields.",
+          "description": "Field-level privacy handling metadata for high-risk authentication, forms/leads, marketing, integrations, Commerce/payments, Webhooks and audit fields.",
+          "changeType": "added",
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.31.0.json",
+          "sourceCommitReference": null,
+          "affectedDomains": [
+            "privacy"
+          ],
+          "affectedModules": []
+        },
+        {
+          "entryId": "chg_97a98adaec0858",
+          "releaseVersion": "0.31.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Retention, export sensitivity, consent relevance, deletion and redaction vocabularies plus future-safe privacy operation primitives.",
+          "affectedRegistryIds": [
+            "privacy.consentRelevance",
+            "privacy.deletionBehaviors",
+            "privacy.exportSensitivity",
+            "privacy.operations",
+            "privacy.privacyOperation",
+            "privacy.redactionBehaviors",
+            "privacy.retentionClasses"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Retention, export sensitivity, consent relevance, deletion and redaction vocabularies plus future-safe privacy operation primitives.",
+          "description": "Retention, export sensitivity, consent relevance, deletion and redaction vocabularies plus future-safe privacy operation primitives.",
+          "changeType": "added",
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.31.0.json",
+          "sourceCommitReference": null,
+          "affectedDomains": [
+            "privacy"
+          ],
+          "affectedModules": []
+        },
+        {
+          "entryId": "chg_71c970cac6b2ba",
+          "releaseVersion": "0.31.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Consent-boundary rules explicitly separate requested business-purpose processing from optional analytics and marketing consent.",
+          "affectedRegistryIds": [
+            "forms.consentRecord",
+            "marketing.trackingConsentRecord",
+            "privacy.consentBoundaries",
+            "privacy.consentBoundary"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Consent-boundary rules explicitly separate requested business-purpose processing from optional analytics and marketing consent.",
+          "description": "Consent-boundary rules explicitly separate requested business-purpose processing from optional analytics and marketing consent.",
+          "changeType": "added",
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.31.0.json",
+          "sourceCommitReference": null,
+          "affectedDomains": [
+            "forms",
+            "marketing",
+            "privacy"
+          ],
+          "affectedModules": [
+            "modules.consent",
+            "modules.forms"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "changed",
+      "label": "Changed",
+      "entries": [
+        {
+          "entryId": "chg_6aaf88bf53d64c",
+          "releaseVersion": "0.31.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Standards -> Privacy & Data is now a data-driven Phase 30 explorer with classification, qualifier, retention, consent and flow-eligibility filters plus raw JSON detail views.",
+          "affectedRegistryIds": [
+            "privacy.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Standards -> Privacy & Data is now a data-driven Phase 30 explorer with classification, qualifier, retention, consent and flow-eligibility filters plus raw JSON detail views.",
+          "description": "Standards -> Privacy & Data is now a data-driven Phase 30 explorer with classification, qualifier, retention, consent and flow-eligibility filters plus raw JSON detail views.",
+          "changeType": "changed",
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.31.0.json",
+          "sourceCommitReference": null,
+          "affectedDomains": [
+            "privacy"
+          ],
+          "affectedModules": []
+        },
+        {
+          "entryId": "chg_ac0e3c20993698",
+          "releaseVersion": "0.31.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Privacy handling records cross-link existing Phase 29 Security controls and canonical domain contracts without replacing their security, Event, Webhook, Commerce, Forms or Marketing authorities.",
+          "affectedRegistryIds": [
+            "privacy.index",
+            "relationships.relationshipIndex",
+            "search.index",
+            "security.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Privacy handling records cross-link existing Phase 29 Security controls and canonical domain contracts without replacing their security, Event, Webhook, Commerce, Forms or Marketing authorities.",
+          "description": "Privacy handling records cross-link existing Phase 29 Security controls and canonical domain contracts without replacing their security, Event, Webhook, Commerce, Forms or Marketing authorities.",
+          "changeType": "changed",
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.31.0.json",
+          "sourceCommitReference": null,
+          "affectedDomains": [
+            "privacy",
+            "relationships",
+            "security"
+          ],
+          "affectedModules": []
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "label": "Security",
+      "entries": [
+        {
+          "entryId": "chg_dde7f55a8887e0",
+          "releaseVersion": "0.31.0",
+          "category": "security",
+          "originalSection": "Security",
+          "summary": "Secret-class privacy rules prohibit public delivery, analytics, logging, Event and Webhook exposure while preserving Phase 29 Security as the authority for credentials, tokens and signing material.",
+          "affectedRegistryIds": [
+            "privacy.classifications",
+            "privacy.fieldHandlingIndex",
+            "security.secretClasses",
+            "security.standard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Secret-class privacy rules prohibit public delivery, analytics, logging, Event and Webhook exposure while preserving Phase 29 Security as the authority for credentials, tokens and signing material.",
+          "description": "Secret-class privacy rules prohibit public delivery, analytics, logging, Event and Webhook exposure while preserving Phase 29 Security as the authority for credentials, tokens and signing material.",
+          "changeType": "security",
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": true
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.31.0.json",
+          "sourceCommitReference": null,
+          "affectedDomains": [
+            "privacy",
+            "security"
+          ],
+          "affectedModules": []
+        }
+      ]
+    },
+    {
+      "category": "documentation",
+      "label": "Documentation",
+      "entries": [
+        {
+          "entryId": "chg_984abf8ef312c5",
+          "releaseVersion": "0.31.0",
+          "category": "documentation",
+          "originalSection": "Documentation",
+          "summary": "Privacy and Data Classification Standard documents minimization, purpose limitation, retention, redaction, consent separation and truthful future-operation support boundaries.",
+          "affectedRegistryIds": [
+            "privacy.standard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Privacy and Data Classification Standard documents minimization, purpose limitation, retention, redaction, consent separation and truthful future-operation support boundaries.",
+          "description": "Privacy and Data Classification Standard documents minimization, purpose limitation, retention, redaction, consent separation and truthful future-operation support boundaries.",
+          "changeType": "documentation",
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.31.0.json",
+          "sourceCommitReference": null,
+          "affectedDomains": [
+            "privacy"
+          ],
+          "affectedModules": []
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sourceType": "authoritative-release-json",
+    "sourceReference": "registry/changelog/releases/0.31.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "registry/registry.json"
+  },
+  "evidence": {
+    "evidenceLevel": "notes-and-exact-registry",
+    "diffAvailable": true,
+    "diffRoute": "#/lifecycle/diff?from=0.30.0&to=0.31.0",
+    "compatibilityAvailable": true,
+    "compatibilityRoute": "#/lifecycle/compatibility",
+    "migrationRoute": null
+  },
+  "support": {
+    "supportLevel": "current-development",
+    "compatibilityStatus": "compatible",
+    "productionEligible": false,
+    "summary": "This is the current coordinated Contract Registry release; Phase 30 defines privacy/data standards and metadata, not a deployed legal-compliance workflow engine."
+  },
+  "migrationNotes": null,
+  "recommendedAction": "New and changed implementations must apply the canonical data classifications and field-handling rules for in-scope high-risk data. Existing Sites remain pinned until explicit validation and upgrade review.",
+  "sourceVersion": "0.30.0",
+  "targetVersion": "0.31.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "entryCount": 8,
+  "categoryCounts": {
+    "added": 4,
+    "changed": 2,
+    "security": 1,
+    "documentation": 1
+  },
+  "affected": {
+    "domains": [
+      "forms",
+      "marketing",
+      "privacy",
+      "relationships",
+      "security"
+    ],
+    "modules": [
+      "modules.consent",
+      "modules.forms"
+    ],
+    "contracts": [
+      "forms.consentRecord",
+      "marketing.trackingConsentRecord",
+      "privacy.classifications",
+      "privacy.consentBoundaries",
+      "privacy.consentBoundary",
+      "privacy.consentRelevance",
+      "privacy.coverage",
+      "privacy.dataHandlingJsonSchema",
+      "privacy.deletionBehaviors",
+      "privacy.eligibilityValues",
+      "privacy.exportSensitivity",
+      "privacy.fieldHandling",
+      "privacy.fieldHandlingIndex",
+      "privacy.index",
+      "privacy.operations",
+      "privacy.privacyOperation",
+      "privacy.qualifiers",
+      "privacy.redactionBehaviors",
+      "privacy.retentionClasses",
+      "privacy.standard",
+      "relationships.relationshipIndex",
+      "search.index",
+      "security.index",
+      "security.secretClasses",
+      "security.standard"
+    ],
+    "events": [],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  },
+  "breakingChange": false,
+  "migrationRequired": false
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/modules/module-definition.schema.json",
+  "title": "NEXT F Module Definition",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "$id",
+    "moduleId",
+    "name",
+    "version",
+    "status",
+    "category",
+    "selection",
+    "dependencies",
+    "capabilityIds",
+    "contractBindings",
+    "permissionBindings",
+    "eventBindings",
+    "cms",
+    "admin",
+    "manifest"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^modules\\.[a-z][a-z0-9-]*$"
+    },
+    "moduleId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "const": "stable"
+    },
+    "category": {
+      "enum": [
+        "foundation",
+        "content",
+        "growth",
+        "platform",
+        "commerce"
+      ]
+    },
+    "capabilityIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*$"
+      }
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "contractBindings": {
+      "type": "array",
+      "uniqueItems": true
+    },
+    "permissionBindings": {
+      "type": "array",
+      "uniqueItems": true
+    },
+    "eventBindings": {
+      "type": "array",
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "$id": "blocks.faq",
+  "name": "FAQ",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "business",
+  "description": "FAQ section sourced from reusable FAQ entities.",
+  "purpose": "Allows FAQs to be maintained once and reused while preserving structured question-and-answer semantics.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "selectionMode",
+      "required": true,
+      "nullable": false,
+      "description": "How FAQs are selected.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "manual",
+            "label": "Manual selection"
+          },
+          {
+            "value": "group",
+            "label": "By group"
+          }
+        ],
+        "defaultValue": "manual",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "faqs",
+      "required": false,
+      "nullable": true,
+      "description": "Manual FAQ selection.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.faq",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true,
+        "uniqueItems": true,
+        "minItems": 1,
+        "maxItems": 40
+      }
+    },
+    {
+      "key": "group",
+      "required": false,
+      "nullable": true,
+      "description": "FAQ group when selectionMode is group.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "content.faq",
+      "description": "Uses canonical reusable FAQs."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "selectionRequirements",
+      "description": "Manual mode requires faqs; group mode requires a non-empty group."
+    },
+    {
+      "id": "publishedOnly",
+      "description": "Only eligible published FAQs may be delivered publicly."
+    }
+  ],
+  "cms": {
+    "label": "FAQ",
+    "icon": "fa-circle-question",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "selectionMode",
+      "faqs"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Expandable FAQ controls must expose expanded/collapsed state to assistive technology."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

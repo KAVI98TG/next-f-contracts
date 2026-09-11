@@ -1,0 +1,138 @@
+{
+  "$id": "blocks.actionGroup",
+  "name": "Action Group",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "foundation",
+  "description": "Reusable primary and secondary CTA group.",
+  "purpose": "Prevents blocks from redefining CTA semantics and tracking destinations.",
+  "blockModel": {
+    "kind": "embedded",
+    "placement": "nested-only",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "primary",
+      "required": false,
+      "nullable": true,
+      "description": "Primary CTA.",
+      "schema": "shared.cta"
+    },
+    {
+      "key": "secondary",
+      "required": false,
+      "nullable": true,
+      "description": "Optional secondary CTA.",
+      "schema": "shared.cta"
+    },
+    {
+      "key": "supportingLinkLabel",
+      "required": false,
+      "nullable": true,
+      "description": "Optional accessible label for a small supporting link.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "supportingLink",
+      "required": false,
+      "nullable": true,
+      "description": "Optional tertiary/supporting link.",
+      "schema": "shared.link"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "shared.cta",
+      "description": "Uses canonical CTA semantics."
+    },
+    {
+      "type": "composes",
+      "target": "shared.link",
+      "description": "Uses canonical link semantics."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "atLeastOneOptional",
+      "description": "Action Group may be empty; the parent Block decides whether an action is required."
+    },
+    {
+      "id": "noDuplicateDestination",
+      "description": "Primary and secondary actions should not duplicate the same label and destination without an explicit business reason."
+    }
+  ],
+  "cms": {
+    "label": "Action Group",
+    "icon": "fa-arrow-pointer",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "embedded-item-editor",
+    "summaryFields": [
+      "primary",
+      "secondary",
+      "supportingLinkLabel"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": false,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "CTA labels must describe the action or destination."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "primary": {
+          "label": "Get a quote"
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "supportingLinkLabel": "More",
+        "supportingLink": null
+      }
+    ]
+  },
+  "notes": []
+}

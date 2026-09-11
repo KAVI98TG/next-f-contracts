@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "developer.handoffReport",
+  "title": "Codex Handoff Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "taskId",
+    "state",
+    "completed",
+    "remaining",
+    "risks"
+  ],
+  "properties": {
+    "taskId": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "partial",
+        "blocked"
+      ]
+    },
+    "completed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "remaining": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockedBy": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendedNextAction": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

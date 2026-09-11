@@ -1,0 +1,216 @@
+{
+  "$id": "content.documentationCollection",
+  "name": "Documentation Collection",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "documentation",
+  "description": "Top-level documentation set containing categorized or ordered documentation articles.",
+  "purpose": "Allows manuals, guides, policies and knowledge-base documentation to be organized independently from the blog.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "optional",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Collection name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "sortable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Collection slug.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Collection summary.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 2500,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "versionLabel",
+      "required": false,
+      "nullable": true,
+      "description": "Optional product/manual version label displayed to readers.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "featuredMedia",
+      "required": false,
+      "nullable": true,
+      "description": "Optional collection artwork.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "categories",
+      "required": false,
+      "nullable": true,
+      "description": "Categories belonging to this collection.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.documentationCategory",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "uniqueItems": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "articles",
+      "required": false,
+      "nullable": true,
+      "description": "Ordered/managed articles belonging to this collection.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.documentationArticle",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "uniqueItems": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "contains",
+      "target": "content.documentationCategory",
+      "description": "Collections contain documentation categories."
+    },
+    {
+      "type": "contains",
+      "target": "content.documentationArticle",
+      "description": "Collections contain documentation articles."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "collectionSlugUnique",
+      "description": "slug must be unique within documentation collections for the Site."
+    },
+    {
+      "id": "membersSameSite",
+      "description": "Referenced categories and articles must belong to the same Site."
+    },
+    {
+      "id": "membershipConsistent",
+      "description": "An article included in the collection must reference the same collection."
+    }
+  ],
+  "cms": {
+    "label": "Documentation Collection",
+    "icon": "fa-book",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "name",
+      "versionLabel",
+      "publishing"
+    ],
+    "editorMode": "full-page-editor",
+    "primaryActions": [
+      "saveDraft",
+      "preview",
+      "publish",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published collections may drive documentation index/navigation views."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "name": "Product Manual",
+        "slug": "product-manual",
+        "versionLabel": "v2"
+      }
+    ],
+    "invalid": [
+      {
+        "name": "",
+        "slug": ""
+      }
+    ]
+  },
+  "notes": []
+}

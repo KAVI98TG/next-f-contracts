@@ -1,0 +1,21 @@
+{
+  "ruleId": "PERF-RULE-019",
+  "name": "API request discipline",
+  "category": "api",
+  "requirement": "Avoid avoidable request waterfalls and repeated reads of identical resources within one interaction.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "static-analysis",
+    "browser-profile"
+  ],
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_019.json"
+}

@@ -1,0 +1,24 @@
+{
+  "budgetId": "PERF-BUDGET-016",
+  "name": "Search page result bound",
+  "category": "search",
+  "scope": "contract-portal",
+  "metric": "search.defaultPageLimit",
+  "target": 50,
+  "warningThreshold": 100,
+  "comparator": "lte",
+  "unit": "count",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "config-inspection",
+  "environment": "Hosted and file review",
+  "notes": "Keeps result rendering bounded even when the index grows.",
+  "relatedRegistryIds": [
+    "search.searchConfiguration"
+  ],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_016.json"
+}

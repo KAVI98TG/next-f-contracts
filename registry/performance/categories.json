@@ -1,0 +1,86 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "categories": [
+    {
+      "id": "payload",
+      "label": "Payload Discipline",
+      "description": "HTML, CSS, JavaScript and generated-data payload size discipline."
+    },
+    {
+      "id": "loading",
+      "label": "Loading & Routing",
+      "description": "Route loading, lazy loading, code splitting and registry-data loading."
+    },
+    {
+      "id": "caching",
+      "label": "Caching",
+      "description": "Public-content caching and authenticated/private caching boundaries."
+    },
+    {
+      "id": "media",
+      "label": "Images & Media",
+      "description": "Responsive images, modern formats, lazy media and delivery sizing."
+    },
+    {
+      "id": "fonts",
+      "label": "Fonts",
+      "description": "Font loading, system stacks, preload restraint and rendering behavior."
+    },
+    {
+      "id": "third-party",
+      "label": "Third-party Integrations",
+      "description": "Non-blocking provider loading, consent and failure isolation."
+    },
+    {
+      "id": "api",
+      "label": "API & Data Access",
+      "description": "Request counts, batching, pagination and response shaping."
+    },
+    {
+      "id": "search",
+      "label": "Search",
+      "description": "Search-index size, bounded results and query behavior."
+    },
+    {
+      "id": "relationships",
+      "label": "Relationship Explorer",
+      "description": "Bounded graph traversal and rendering."
+    },
+    {
+      "id": "diff",
+      "label": "Contract Diff",
+      "description": "Historical snapshot isolation and lazy loading."
+    },
+    {
+      "id": "large-data",
+      "label": "Large Data Rendering",
+      "description": "Raw JSON, large tables and list rendering boundaries."
+    },
+    {
+      "id": "memory",
+      "label": "Memory",
+      "description": "Bounded in-memory state and cleanup of expensive route data."
+    },
+    {
+      "id": "mobile",
+      "label": "Mobile",
+      "description": "Mobile CPU, network and interaction responsiveness."
+    },
+    {
+      "id": "web-vitals",
+      "label": "Core Web Vitals",
+      "description": "Measurement guidance for LCP, INP and CLS without ranking guarantees."
+    },
+    {
+      "id": "observability",
+      "label": "Observability",
+      "description": "Performance evidence and future connector/runtime timing visibility."
+    },
+    {
+      "id": "resilience",
+      "label": "Resilience",
+      "description": "Optional integration failure isolation from primary content and navigation."
+    }
+  ]
+}

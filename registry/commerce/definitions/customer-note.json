@@ -1,0 +1,115 @@
+{
+  "$id": "commerce.customerNote",
+  "name": "Commerce Customer Note",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "customer",
+  "description": "Internal note attached to a Commerce Customer.",
+  "purpose": "Provides auditable operational notes without modifying customer identity fields.",
+  "commerceModel": {
+    "kind": "record",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "noteId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable note ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "customerId",
+      "required": true,
+      "nullable": false,
+      "description": "Commerce Customer ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "body",
+      "required": true,
+      "nullable": false,
+      "description": "Internal note body.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Creation time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "createdBy",
+      "required": true,
+      "nullable": false,
+      "description": "Authoring actor.",
+      "itemsSchema": "core.actorReference"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.commerceCustomer",
+      "description": "References commerce.commerceCustomer."
+    },
+    {
+      "type": "composes",
+      "target": "core.actorReference",
+      "description": "References core.actorReference."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "internalOnly",
+      "description": "Customer notes are never public storefront data."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Notes must not be used to store credentials or payment card data."
+    }
+  ],
+  "cms": {
+    "label": "Commerce Customer Note",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "noteId",
+      "customerId",
+      "body",
+      "createdAt"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

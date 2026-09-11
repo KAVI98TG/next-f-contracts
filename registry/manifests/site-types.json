@@ -1,0 +1,35 @@
+{
+  "registryVersion": "0.17.0",
+  "siteTypes": [
+    {
+      "key": "corporate",
+      "label": "Corporate",
+      "description": "General organization/company website."
+    },
+    {
+      "key": "service",
+      "label": "Service Business",
+      "description": "Service-led website focused on offerings, proof and enquiries."
+    },
+    {
+      "key": "lead-generation",
+      "label": "Lead Generation",
+      "description": "Conversion-led website where qualified enquiries are a primary business outcome."
+    },
+    {
+      "key": "commerce",
+      "label": "Commerce",
+      "description": "Website with the NEXT F Commerce module and transactional storefront capabilities."
+    },
+    {
+      "key": "documentation",
+      "label": "Documentation",
+      "description": "Documentation, knowledge-base or help-centric website."
+    },
+    {
+      "key": "custom",
+      "label": "Custom",
+      "description": "Site whose primary purpose does not fit another descriptive type. Modules still define capabilities."
+    }
+  ]
+}

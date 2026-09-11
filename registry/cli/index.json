@@ -1,0 +1,93 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Developer Validation CLI",
+  "description": "Offline Node CLI adapter over the shared NEXT F manifest validation core.",
+  "binary": "nextf-contract",
+  "packagePublishingStatus": "local-private",
+  "commands": [
+    {
+      "id": "validate",
+      "usage": "nextf-contract validate [path]",
+      "description": "Validate nextf.site.json using the shared deterministic validation model."
+    },
+    {
+      "id": "validate-manifest",
+      "usage": "nextf-contract validate manifest [path]",
+      "description": "Explicit manifest-validation alias."
+    },
+    {
+      "id": "inspect",
+      "usage": "nextf-contract inspect [path]",
+      "description": "Inspect manifest identity, enabled declarations and validation summary."
+    },
+    {
+      "id": "compatibility",
+      "usage": "nextf-contract compatibility [path]",
+      "description": "Report the pinned Contract Version compatibility evidence."
+    },
+    {
+      "id": "diff",
+      "usage": "nextf-contract diff <fromVersion> [toVersion]",
+      "description": "Read-only thin interface to existing Contract Diff release evidence."
+    },
+    {
+      "id": "help",
+      "usage": "nextf-contract help",
+      "description": "Show CLI help."
+    },
+    {
+      "id": "version",
+      "usage": "nextf-contract version",
+      "description": "Show CLI/Registry version."
+    }
+  ],
+  "exitCodes": [
+    {
+      "code": 0,
+      "id": "success",
+      "meaning": "Command completed successfully; validation has no errors."
+    },
+    {
+      "code": 1,
+      "id": "validation-error",
+      "meaning": "Manifest is malformed or has validation errors."
+    },
+    {
+      "code": 2,
+      "id": "cli-error",
+      "meaning": "CLI usage, path or configuration error."
+    },
+    {
+      "code": 3,
+      "id": "unsupported-contract-version",
+      "meaning": "Manifest pins an unknown/unsupported Contract Version."
+    },
+    {
+      "code": 4,
+      "id": "internal-error",
+      "meaning": "Unexpected internal CLI/tool failure."
+    }
+  ],
+  "outputModes": [
+    "human",
+    "json",
+    "concise",
+    "verbose"
+  ],
+  "manifestDiscovery": {
+    "defaultFile": "nextf.site.json",
+    "createsMissingManifest": false,
+    "mutatesInput": false
+  },
+  "network": {
+    "required": false,
+    "validationNetworkAccess": false
+  },
+  "sharedAuthority": {
+    "ruleBundle": "registry/validation/index.json",
+    "generatedRuleBundle": "js/generated-validation.js",
+    "core": "js/manifest-validation-core.js",
+    "standard": "standards/42-developer-validation-cli-standard.md"
+  }
+}

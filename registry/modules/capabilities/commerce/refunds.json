@@ -1,0 +1,33 @@
+{
+  "$id": "modules.capability.commerce.refunds",
+  "capabilityId": "commerce.refunds",
+  "name": "Refunds",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Refunds capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.refund"
+  ],
+  "permissionBindings": [
+    "commerce.refunds.create",
+    "commerce.refunds.export",
+    "commerce.refunds.manage",
+    "commerce.refunds.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

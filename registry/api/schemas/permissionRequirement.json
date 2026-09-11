@@ -1,0 +1,62 @@
+{
+  "$id": "api.permissionRequirement",
+  "name": "Permission Requirement",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "security",
+  "description": "Canonical Phase 15 permission requirement for an operation.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "permissions",
+      "required": true,
+      "nullable": false,
+      "description": "permissions",
+      "primitive": "fields.tag"
+    },
+    {
+      "key": "mode",
+      "required": true,
+      "nullable": false,
+      "description": "mode",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "all",
+          "any"
+        ]
+      }
+    },
+    {
+      "key": "scopeKind",
+      "required": true,
+      "nullable": false,
+      "description": "scopeKind",
+      "primitive": "fields.text"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

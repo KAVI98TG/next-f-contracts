@@ -1,0 +1,82 @@
+{
+  "$id": "compatibility.eventPermissionCheck",
+  "name": "Event and Permission Compatibility Check",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Normalized check for canonical Event or Permission references.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "kind",
+      "required": true,
+      "nullable": false,
+      "description": "event or permission.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "identifier",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Compatibility result.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "existsInTarget",
+      "required": true,
+      "nullable": false,
+      "description": "Whether target contains the identifier.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "message",
+      "required": true,
+      "nullable": false,
+      "description": "Result message.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "kind uses fields.select."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "identifier uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.boolean",
+      "description": "existsInTarget uses fields.boolean."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

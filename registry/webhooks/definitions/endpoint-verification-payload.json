@@ -1,0 +1,96 @@
+{
+  "$id": "webhooks.endpointVerificationPayload",
+  "name": "Endpoint Verification Payload",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "endpoints",
+  "description": "Signed payload sent to verify a webhook destination.",
+  "purpose": "Provides a non-business synthetic challenge that proves receiver control.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Protocol message type.",
+      "primitive": "fields.text",
+      "config": {
+        "defaultValue": "webhook.endpoint-verification"
+      }
+    },
+    {
+      "key": "challengeId",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque challenge ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "challenge",
+      "required": true,
+      "nullable": false,
+      "description": "Cryptographically unpredictable challenge value.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "issuedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Issue timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "expiresAt",
+      "required": true,
+      "nullable": false,
+      "description": "Expiry timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "synthetic",
+      "description": "Verification payload is a protocol message, not a canonical domain Event."
+    },
+    {
+      "id": "unpredictableChallenge",
+      "description": "challenge must be cryptographically unpredictable."
+    },
+    {
+      "id": "signed",
+      "description": "Verification request must be signed using the active webhook signing policy."
+    }
+  ],
+  "cms": {
+    "label": "Endpoint Verification Payload",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "type",
+      "challengeId",
+      "challenge",
+      "issuedAt"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

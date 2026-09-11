@@ -1,0 +1,50 @@
+{
+  "registryVersion": "0.11.0",
+  "providers": [
+    {
+      "key": "google",
+      "label": "Google",
+      "ownershipDefault": "customer"
+    },
+    {
+      "key": "meta",
+      "label": "Meta",
+      "ownershipDefault": "customer"
+    },
+    {
+      "key": "microsoft",
+      "label": "Microsoft",
+      "ownershipDefault": "customer"
+    },
+    {
+      "key": "tiktok",
+      "label": "TikTok",
+      "ownershipDefault": "customer"
+    },
+    {
+      "key": "linkedin",
+      "label": "LinkedIn",
+      "ownershipDefault": "customer"
+    },
+    {
+      "key": "generic-email",
+      "label": "Generic Email Provider",
+      "ownershipDefault": "customer"
+    },
+    {
+      "key": "generic-crm",
+      "label": "Generic CRM",
+      "ownershipDefault": "customer"
+    },
+    {
+      "key": "generic-webhook",
+      "label": "Generic Webhook",
+      "ownershipDefault": "customer"
+    },
+    {
+      "key": "generic-api",
+      "label": "Generic API",
+      "ownershipDefault": "customer"
+    }
+  ]
+}

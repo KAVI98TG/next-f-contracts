@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.forms.file-uploads",
+  "capabilityId": "forms.file-uploads",
+  "name": "File Uploads",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "forms",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "File Uploads capability within the Forms module.",
+  "contractBindings": [
+    "forms.uploadPolicy",
+    "forms.submissionFile"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

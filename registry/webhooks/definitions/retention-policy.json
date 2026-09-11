@@ -1,0 +1,93 @@
+{
+  "$id": "webhooks.retentionPolicy",
+  "name": "Webhook Retention Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "operations",
+  "description": "Retention windows for payloads, diagnostics and delivery metadata.",
+  "purpose": "Balances redelivery/debugging needs with data minimization.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "payloadAfterTerminalDays",
+      "required": true,
+      "nullable": false,
+      "description": "Exact retry/redelivery payload retention after terminal state.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "responseSnippetHours",
+      "required": true,
+      "nullable": false,
+      "description": "Attempt diagnostic response retention.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "deliveryMetadataDays",
+      "required": true,
+      "nullable": false,
+      "description": "Delivery/attempt metadata retention.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "deadLetterMetadataDays",
+      "required": true,
+      "nullable": false,
+      "description": "Dead-letter metadata retention.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "manualRedeliveryWindowDays",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum manual redelivery window.",
+      "primitive": "fields.integer"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "defaults",
+      "description": "Defaults are 7d exact payload, 24h response snippet, 30d delivery metadata, 30d dead-letter metadata and 7d manual redelivery."
+    },
+    {
+      "id": "privacyCanTighten",
+      "description": "Future privacy/data-retention policy may reduce these windows."
+    },
+    {
+      "id": "noIndefiniteSensitivePayload",
+      "description": "Sensitive exact payload retention is never indefinite."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Retention Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "payloadAfterTerminalDays",
+      "responseSnippetHours",
+      "deliveryMetadataDays",
+      "deadLetterMetadataDays"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

@@ -1,0 +1,30 @@
+{
+  "registryVersion": "0.16.0",
+  "riskLevels": [
+    {
+      "key": "standard",
+      "label": "Standard",
+      "description": "Routine read or low-impact operational permission."
+    },
+    {
+      "key": "elevated",
+      "label": "Elevated",
+      "description": "Can materially change customer content or operational state."
+    },
+    {
+      "key": "sensitive",
+      "label": "Sensitive",
+      "description": "Can expose or change personal, financial, integration or security-sensitive information."
+    },
+    {
+      "key": "destructive",
+      "label": "Destructive",
+      "description": "Can delete, revoke, cancel or irreversibly remove important state."
+    },
+    {
+      "key": "privileged",
+      "label": "Privileged",
+      "description": "Can change platform authority, security boundaries, contracts, roles or other high-impact administration."
+    }
+  ]
+}

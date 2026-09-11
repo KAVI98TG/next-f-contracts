@@ -1,0 +1,132 @@
+{
+  "$id": "events.eventDefinition",
+  "name": "Event Definition",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Machine-readable contract describing the exact semantic meaning, trigger, payload, producer and consumer expectations of one event key.",
+  "purpose": "Machine-readable contract describing the exact semantic meaning, trigger, payload, producer and consumer expectations of one event key.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "eventKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical event key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "eventVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Event semantic version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "description",
+      "required": true,
+      "nullable": false,
+      "description": "Exact completed-fact meaning.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "category",
+      "required": true,
+      "nullable": false,
+      "description": "Event category.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "producerKey",
+      "required": true,
+      "nullable": false,
+      "description": "Logical producer authority.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "subjectContracts",
+      "required": true,
+      "nullable": false,
+      "description": "Allowed canonical subject contracts.",
+      "itemsPrimitive": "fields.text"
+    },
+    {
+      "key": "webhookEligible",
+      "required": true,
+      "nullable": false,
+      "description": "Whether Phase 14 may expose the event to outbound webhook subscriptions.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "payloadFields",
+      "required": true,
+      "nullable": false,
+      "description": "Event-specific payload-field definition array.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "pastFact",
+      "description": "Event keys and definitions describe completed facts, never commands."
+    },
+    {
+      "id": "semanticStability",
+      "description": "A stable event key cannot change meaning incompatibly without a major event-version change."
+    },
+    {
+      "id": "noTransportSemantics",
+      "description": "Event definition does not define HTTP/webhook delivery behavior; Phase 14 owns transport."
+    }
+  ],
+  "cms": {
+    "label": "Event Definition",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "eventKey",
+      "eventVersion",
+      "name",
+      "description"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

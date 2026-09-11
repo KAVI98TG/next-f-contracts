@@ -1,0 +1,42 @@
+{
+  "controlId": "SEC-UPL-002",
+  "name": "Upload normalization and quarantine",
+  "category": "uploads",
+  "requirement": "Upload handling must normalize filenames, restrict executable content, and support scan/quarantine state before risky content becomes available.",
+  "rationale": "Uploaded files can carry executable or malicious payloads.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [
+    "modules.media",
+    "modules.forms"
+  ],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [
+    "Normalize filenames and never trust path components.",
+    "Keep private-by-default where the owning contract is private.",
+    "Do not serve quarantined content as trusted media.",
+    "Distinguish managed media assets from form-submission attachments."
+  ],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_upl_002.json"
+}

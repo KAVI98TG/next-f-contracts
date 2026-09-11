@@ -1,0 +1,214 @@
+{
+  "$id": "commerce.checkout",
+  "name": "Checkout",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "cart-checkout",
+  "description": "Checkout workflow that prepares an Order.",
+  "purpose": "Creates a stable transition between mutable Cart and committed Order state.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "cartId",
+      "required": true,
+      "nullable": false,
+      "description": "Source Cart ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "customerId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional Commerce Customer ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "contact",
+      "required": true,
+      "nullable": false,
+      "description": "Checkout contact.",
+      "schema": "commerce.checkoutContact"
+    },
+    {
+      "key": "lines",
+      "required": true,
+      "nullable": false,
+      "description": "Checkout lines.",
+      "itemsSchema": "commerce.checkoutLine",
+      "config": {
+        "minItems": 1
+      }
+    },
+    {
+      "key": "shippingAddress",
+      "required": false,
+      "nullable": true,
+      "description": "Shipping address.",
+      "schema": "commerce.checkoutAddressSnapshot"
+    },
+    {
+      "key": "billingAddress",
+      "required": false,
+      "nullable": true,
+      "description": "Billing address.",
+      "schema": "commerce.checkoutAddressSnapshot"
+    },
+    {
+      "key": "shippingSelection",
+      "required": false,
+      "nullable": true,
+      "description": "Shipping selection.",
+      "schema": "commerce.checkoutShippingSelection"
+    },
+    {
+      "key": "paymentSelection",
+      "required": false,
+      "nullable": true,
+      "description": "Payment selection.",
+      "schema": "commerce.checkoutPaymentSelection"
+    },
+    {
+      "key": "totals",
+      "required": true,
+      "nullable": false,
+      "description": "Calculated Checkout totals.",
+      "schema": "commerce.orderTotals"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Checkout lifecycle.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "started",
+          "information-complete",
+          "payment-pending",
+          "completed",
+          "abandoned",
+          "expired"
+        ]
+      }
+    },
+    {
+      "key": "expiresAt",
+      "required": false,
+      "nullable": true,
+      "description": "Optional expiry.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "completedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Completion time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.cart",
+      "description": "References commerce.cart."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.checkoutContact",
+      "description": "References commerce.checkoutContact."
+    },
+    {
+      "type": "composesMany",
+      "target": "commerce.checkoutLine",
+      "description": "References commerce.checkoutLine."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "commerce.checkoutAddressSnapshot",
+      "description": "References commerce.checkoutAddressSnapshot."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "commerce.checkoutPaymentSelection",
+      "description": "References commerce.checkoutPaymentSelection."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.orderTotals",
+      "description": "References commerce.orderTotals."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noCardSecrets",
+      "description": "Checkout never stores raw card PAN/CVV."
+    },
+    {
+      "id": "shippingConditional",
+      "description": "Shipping data is required only for shippable lines."
+    },
+    {
+      "id": "completedMapsToOrder",
+      "description": "A completed Checkout must resolve to one Order in the implementation/API flow."
+    }
+  ],
+  "cms": {
+    "label": "Checkout",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "cartId",
+      "customerId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

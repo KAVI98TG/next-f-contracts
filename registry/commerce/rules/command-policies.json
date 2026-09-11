@@ -1,0 +1,476 @@
+{
+  "registryVersion": "0.13.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Commerce Command Policies",
+  "description": "Canonical Phase 12 domain command atomicity, idempotency, concurrency and audit requirements. These are not HTTP endpoints.",
+  "count": 20,
+  "commands": [
+    {
+      "id": "commerce.command.createOrderFromCheckout",
+      "name": "Create Order From Checkout",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.checkout",
+        "commerce.order",
+        "commerce.inventoryReservation",
+        "commerce.discountCode"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "checkout",
+        "inventory",
+        "discount-usage"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.checkoutSingleOrderConversion",
+        "commerce.rule.staleStateRevalidation",
+        "commerce.rule.transactionalWriteAtomicity"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.cancelOrder",
+      "name": "Cancel Order",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.order",
+        "commerce.inventoryReservation",
+        "commerce.payment"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "order",
+        "inventory"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.orderCancellationGuard",
+        "commerce.rule.orderCancellationReleasesReservation"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.authorizePayment",
+      "name": "Authorize Payment",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.payment",
+        "commerce.paymentAttempt",
+        "commerce.paymentAuthorization"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "payment",
+        "provider-reference"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.paymentAttemptNoDuplicateFinancialFact",
+        "commerce.rule.paymentProviderReferenceUnique"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.capturePayment",
+      "name": "Capture Payment",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.payment",
+        "commerce.paymentAuthorization",
+        "commerce.paymentCapture"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "payment",
+        "authorization"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.authorizationCaptureBound",
+        "commerce.rule.captureRequiresValidAuthorization",
+        "commerce.rule.captureCumulativeBound"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.refundPayment",
+      "name": "Refund Payment",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.payment",
+        "commerce.paymentCapture",
+        "commerce.refund"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "payment",
+        "refund"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.refundRequiresCapturedFunds",
+        "commerce.rule.refundCumulativeBound",
+        "commerce.rule.refundOrderStateReconcile"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.reserveInventory",
+      "name": "Reserve Inventory",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.inventoryLevel",
+        "commerce.inventoryReservation"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "inventory-level"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.reservationRequiresAvailability",
+        "commerce.rule.inventoryConcurrentMutationGuard"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.commitInventoryReservation",
+      "name": "Commit Inventory Reservation",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.inventoryLevel",
+        "commerce.inventoryReservation"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "inventory-level",
+        "reservation"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.reservationCommitConsumes",
+        "commerce.rule.reservationTerminalNoReactivation"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.releaseInventoryReservation",
+      "name": "Release Inventory Reservation",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.inventoryLevel",
+        "commerce.inventoryReservation"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "inventory-level",
+        "reservation"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.reservationTerminalNoReactivation"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.adjustInventory",
+      "name": "Adjust Inventory",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.inventoryLevel",
+        "commerce.inventoryAdjustment"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "inventory-level"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.inventoryAdjustmentLedgerRequired",
+        "commerce.rule.negativeInventoryGuard"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.createInventoryTransfer",
+      "name": "Create Inventory Transfer",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.inventoryTransfer",
+        "commerce.inventoryTransferLine"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "inventory-source",
+        "inventory-destination"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.inventoryTransferConservesQuantity"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.dispatchInventoryTransfer",
+      "name": "Dispatch Inventory Transfer",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.inventoryTransfer",
+        "commerce.inventoryLevel"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "inventory-source",
+        "transfer"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.inventoryTransferStateGuard",
+        "commerce.rule.inventoryTransferConservesQuantity"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.receiveInventoryTransfer",
+      "name": "Receive Inventory Transfer",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.inventoryTransfer",
+        "commerce.inventoryLevel"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "inventory-destination",
+        "transfer"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.inventoryTransferStateGuard",
+        "commerce.rule.inventoryTransferConservesQuantity"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.applyDiscountCode",
+      "name": "Apply Discount Code",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.discount",
+        "commerce.discountCode",
+        "commerce.checkout"
+      ],
+      "idempotencyRequired": false,
+      "atomic": false,
+      "concurrencyScopes": [
+        "checkout"
+      ],
+      "auditRequired": false,
+      "guardRules": [
+        "commerce.rule.discountEligibilityRevalidated",
+        "commerce.rule.discountStackingExplicit"
+      ],
+      "replayBehavior": "Re-evaluate as a read/evaluation-style command; any later material commit uses its own idempotent transactional command.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.consumeDiscountUsage",
+      "name": "Consume Discount Usage",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.discountCode",
+        "commerce.order"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "discount-code"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.couponUsageAtomic",
+        "commerce.rule.couponPerCustomerLimit"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.createFulfillment",
+      "name": "Create Fulfillment",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.fulfillment",
+        "commerce.fulfillmentLine",
+        "commerce.order"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "order",
+        "fulfillment"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.fulfillmentQuantityBound",
+        "commerce.rule.cumulativeFulfillmentBound",
+        "commerce.rule.fulfillmentRequiresEligibleOrder"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.createShipment",
+      "name": "Create Shipment",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.shipment",
+        "commerce.fulfillment"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "fulfillment",
+        "shipment"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.shipmentRequiresFulfillment"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.markShipmentDelivered",
+      "name": "Mark Shipment Delivered",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.shipment",
+        "commerce.trackingReference"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "shipment"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.deliveredRequiresEvidence"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.requestReturn",
+      "name": "Request Return",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.returnRequest",
+        "commerce.returnLine",
+        "commerce.order"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "order",
+        "return"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.returnQuantityBound",
+        "commerce.rule.returnEligibilityWindow"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.resolveReturn",
+      "name": "Resolve Return",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.returnRequest",
+        "commerce.returnResolution"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "return",
+        "inventory",
+        "payment"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.returnResolutionRequired",
+        "commerce.rule.returnResolutionIdempotent",
+        "commerce.rule.returnRefundSeparate",
+        "commerce.rule.returnRestockExplicit"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    },
+    {
+      "id": "commerce.command.moderateReview",
+      "name": "Moderate Review",
+      "version": "0.13.0",
+      "status": "stable",
+      "entities": [
+        "commerce.productReview",
+        "commerce.reviewModeration"
+      ],
+      "idempotencyRequired": true,
+      "atomic": true,
+      "concurrencyScopes": [
+        "review"
+      ],
+      "auditRequired": true,
+      "guardRules": [
+        "commerce.rule.verifiedReviewEvidenceDerived",
+        "commerce.rule.approvedReviewOnlyPublic"
+      ],
+      "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+      "apiBinding": "phase-18"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "registryVersion": "0.22.0",
+  "stopConditions": [
+    {
+      "id": "missing-required-manifest",
+      "label": "Missing required Site Manifest",
+      "level": "hard-stop",
+      "reason": "Contract-dependent implementation cannot safely resolve project intent.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "invalid-manifest",
+      "label": "Invalid Site Manifest",
+      "level": "hard-stop",
+      "reason": "Fix or explicitly migrate the Manifest before contract-dependent work.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "unsupported-contract-version",
+      "label": "Unsupported pinned Contract Version",
+      "level": "needs-migration",
+      "reason": "Do not silently move to a supported version.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "unknown-module-or-capability",
+      "label": "Unknown Module or Capability",
+      "level": "needs-extension",
+      "reason": "Do not invent a project-local canonical identifier.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "canonical-conflict",
+      "label": "Conflicting canonical definitions",
+      "level": "hard-stop",
+      "reason": "Resolve the authoritative contract before implementation.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "missing-required-contract",
+      "label": "No canonical contract covers required shared behavior",
+      "level": "needs-extension",
+      "reason": "Create a Contract Extension Proposal.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "missing-api-operation",
+      "label": "Required canonical API operation is missing",
+      "level": "needs-extension",
+      "reason": "Report API contract extension requirement.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "missing-permission",
+      "label": "Protected operation lacks a canonical Permission",
+      "level": "needs-extension",
+      "reason": "Report Permission extension requirement.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "missing-event",
+      "label": "Required authoritative Event is missing",
+      "level": "needs-extension",
+      "reason": "Report Event extension requirement.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "missing-connector",
+      "label": "Required external provider behavior lacks a canonical Connector",
+      "level": "needs-extension",
+      "reason": "Use an approved extension/adapter path.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "client-secret-exposure",
+      "label": "Implementation would expose a secret to public client code",
+      "level": "hard-stop",
+      "reason": "Move the operation to a trusted server boundary.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "cross-tenant-ambiguity",
+      "label": "Tenant/scope authorization cannot be proven",
+      "level": "hard-stop",
+      "reason": "Resolve server-side Organization/Site scope.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "commerce-invariant-ambiguity",
+      "label": "Commerce transaction invariant or state transition is ambiguous",
+      "level": "hard-stop",
+      "reason": "Do not guess financial/inventory behavior.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "destructive-migration-unplanned",
+      "label": "Destructive persisted-data change lacks migration/recovery plan",
+      "level": "hard-stop",
+      "reason": "Create and review migration/recovery plan.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "production-destructive-ambiguity",
+      "label": "Production-destructive action lacks explicit scope/intent",
+      "level": "needs-clarification",
+      "reason": "Do not infer permission to destroy production data or state.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "sensitive-data-classification-unknown",
+      "label": "Sensitive/personal data transmission or retention classification is unknown",
+      "level": "needs-clarification",
+      "reason": "Resolve handling before transmitting/persisting.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "contract-version-upgrade-implicit",
+      "label": "Task would require changing pinned Contract Version implicitly",
+      "level": "needs-migration",
+      "reason": "Upgrade must be explicit and compatibility-reviewed.",
+      "blocksAffectedPath": true
+    },
+    {
+      "id": "generated-file-source-unknown",
+      "label": "Required change targets generated output but authoritative source/generator is unclear",
+      "level": "needs-clarification",
+      "reason": "Find and change the source rather than hand-editing generated output.",
+      "blocksAffectedPath": true
+    }
+  ]
+}

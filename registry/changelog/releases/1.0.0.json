@@ -1,0 +1,405 @@
+{
+  "$id": "changelog.release.1.0.0",
+  "version": "1.0.0",
+  "phase": 37,
+  "title": "Production Acceptance",
+  "releaseStatus": "published-stable",
+  "releaseDate": "2026-09-11",
+  "summary": "First stable NEXT F Contract Registry release after formal Phase 37 Production Acceptance, frozen V1 baselines and integrity verification.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_v1_release_manifest",
+          "releaseVersion": "1.0.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "V1.0.0 adds a machine-readable release manifest, acceptance report, frozen baseline snapshot index and integrity hashes.",
+          "affectedRegistryIds": [
+            "release.acceptanceReport",
+            "release.integrityHashes",
+            "release.manifest",
+            "release.productionAcceptanceStandard",
+            "release.snapshotIndex"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "V1.0.0 adds a machine-readable release manifest, acceptance report, frozen baseline snapshot index and integrity hashes.",
+          "description": "V1.0.0 adds a machine-readable release manifest, acceptance report, frozen baseline snapshot index and integrity hashes.",
+          "changeType": "added",
+          "affectedDomains": [
+            "lifecycle",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.0.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_v1_frozen_baselines",
+          "releaseVersion": "1.0.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Canonical V1 baselines are frozen for Registry, Modules, Capabilities, Events, Permissions, Webhook eligibility, APIs, Site Manifest, CMS/Admin metadata and Security/Privacy/Accessibility/Performance standards.",
+          "affectedRegistryIds": [
+            "release.snapshotIndex"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Canonical V1 baselines are frozen for Registry, Modules, Capabilities, Events, Permissions, Webhook eligibility, APIs, Site Manifest, CMS/Admin metadata and Security/Privacy/Accessibility/Performance standards.",
+          "description": "Canonical V1 baselines are frozen for Registry, Modules, Capabilities, Events, Permissions, Webhook eligibility, APIs, Site Manifest, CMS/Admin metadata and Security/Privacy/Accessibility/Performance standards.",
+          "changeType": "added",
+          "affectedDomains": [
+            "lifecycle"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.0.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "changed",
+      "label": "Changed",
+      "entries": [
+        {
+          "entryId": "chg_v1_stable_policy",
+          "releaseVersion": "1.0.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "The coordinated Contract Registry enters the production-current support train with active SemVer, compatibility, deprecation and migration policies.",
+          "affectedRegistryIds": [
+            "changelog.changelogStandard",
+            "compatibility.compatibilityCenterStandard",
+            "deprecations.deprecationStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "The coordinated Contract Registry enters the production-current support train with active SemVer, compatibility, deprecation and migration policies.",
+          "description": "The coordinated Contract Registry enters the production-current support train with active SemVer, compatibility, deprecation and migration policies.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "changelog",
+            "deprecations",
+            "lifecycle"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.0.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_v1_manifest_pin",
+          "releaseVersion": "1.0.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "New customer-site starter manifests may explicitly pin Contract Version 1.0.0; floating latest remains forbidden.",
+          "affectedRegistryIds": [
+            "manifest.siteManifest",
+            "starters.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "New customer-site starter manifests may explicitly pin Contract Version 1.0.0; floating latest remains forbidden.",
+          "description": "New customer-site starter manifests may explicitly pin Contract Version 1.0.0; floating latest remains forbidden.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "developer",
+            "manifest"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.0.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_v1_runtime_truth",
+          "releaseVersion": "1.0.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Registry production stability is explicitly separated from deployment status of Site Runtime/SDK, Customer CMS, NEXT F Admin and API runtimes, which retain truthful unknown/not-declared states where evidence is absent.",
+          "affectedRegistryIds": [
+            "compatibility.compatibilityCenterStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Registry production stability is explicitly separated from deployment status of Site Runtime/SDK, Customer CMS, NEXT F Admin and API runtimes, which retain truthful unknown/not-declared states where evidence is absent.",
+          "description": "Registry production stability is explicitly separated from deployment status of Site Runtime/SDK, Customer CMS, NEXT F Admin and API runtimes, which retain truthful unknown/not-declared states where evidence is absent.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "lifecycle"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.0.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "documentation",
+      "label": "Documentation",
+      "entries": [
+        {
+          "entryId": "chg_v1_acceptance_standard",
+          "releaseVersion": "1.0.0",
+          "category": "documentation",
+          "originalSection": "Documentation",
+          "summary": "Production Acceptance Standard freezes V1 SemVer, pinning, upgrade, migration-evidence and packaging rules.",
+          "affectedRegistryIds": [
+            "release.productionAcceptanceStandard"
+          ],
+          "compatibilityImpact": "documentation",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Production Acceptance Standard freezes V1 SemVer, pinning, upgrade, migration-evidence and packaging rules.",
+          "description": "Production Acceptance Standard freezes V1 SemVer, pinning, upgrade, migration-evidence and packaging rules.",
+          "changeType": "documentation",
+          "affectedDomains": [
+            "lifecycle"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "documentation",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.0.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "fixed",
+      "label": "Fixed",
+      "entries": [
+        {
+          "entryId": "chg_v1_portal_release_alignment",
+          "releaseVersion": "1.0.0",
+          "category": "fixed",
+          "originalSection": "Fixed",
+          "summary": "The portal shell, overview, roadmap and route metadata now consistently present V1.0.0 and Phase 37, and the large Contract Diff snapshot store can be maintained through bounded streaming.",
+          "affectedRegistryIds": [
+            "portal.navigation",
+            "release.acceptanceReport"
+          ],
+          "compatibilityImpact": "none",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "V1 portal presentation and Diff maintenance corrected",
+          "description": "The portal now exposes the complete V1 release state and navigation, while Contract Diff appends new content-addressed snapshots without materializing its 545 MB store as one JavaScript string.",
+          "changeType": "fixed",
+          "affectedDomains": [
+            "portal",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "none",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.0.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "internal",
+      "label": "Internal / Tooling",
+      "entries": [
+        {
+          "entryId": "chg_v1_acceptance_gate",
+          "releaseVersion": "1.0.0",
+          "category": "internal",
+          "originalSection": "Internal / Tooling",
+          "summary": "Phase 37 adds final production acceptance validation, smoke coverage and immutable release-integrity evidence.",
+          "affectedRegistryIds": [
+            "release.acceptanceReport",
+            "release.integrityHashes"
+          ],
+          "compatibilityImpact": "metadata",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 37 adds final production acceptance validation, smoke coverage and immutable release-integrity evidence.",
+          "description": "Phase 37 adds final production acceptance validation, smoke coverage and immutable release-integrity evidence.",
+          "changeType": "internal",
+          "affectedDomains": [
+            "lifecycle",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "metadata",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.0.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    }
+  ],
+  "migrationNotes": "Pre-V1 Sites must use Compatibility Center and Contract Diff, validate with the browser/CLI tools and explicitly change their Site Manifest pin; no Site is automatically upgraded to 1.0.0.",
+  "recommendedAction": "Use 1.0.0 as the stable Registry pin for new NEXT F Sites. Existing Sites must perform explicit compatibility review and validation before changing their pin.",
+  "support": {
+    "registryProductionStable": true,
+    "runtimeCompatibility": "unknown"
+  },
+  "evidence": [
+    "registry/releases/1.0.0/release-manifest.json",
+    "registry/releases/1.0.0/acceptance-report.json",
+    "registry/releases/1.0.0/integrity-hashes.json",
+    "standards/45-production-acceptance-standard.md",
+    "scripts/sync-production-acceptance.mjs",
+    "scripts/validate-phase-37.mjs",
+    "scripts/smoke-phase-37.mjs"
+  ],
+  "provenance": {
+    "sourceType": "authoritative-release-json",
+    "sourceReference": "registry/changelog/releases/1.0.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "registry/registry.json"
+  },
+  "corrections": [],
+  "sourceVersion": "0.37.0",
+  "targetVersion": "1.0.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "entryCount": 8,
+  "categoryCounts": {
+    "added": 2,
+    "changed": 3,
+    "documentation": 1,
+    "fixed": 1,
+    "internal": 1
+  },
+  "affected": {
+    "domains": [
+      "changelog",
+      "deprecations",
+      "developer",
+      "lifecycle",
+      "manifest",
+      "portal",
+      "validation"
+    ],
+    "modules": [],
+    "contracts": [
+      "changelog.changelogStandard",
+      "compatibility.compatibilityCenterStandard",
+      "deprecations.deprecationStandard",
+      "manifest.siteManifest",
+      "portal.navigation",
+      "release.acceptanceReport",
+      "release.integrityHashes",
+      "release.manifest",
+      "release.productionAcceptanceStandard",
+      "release.snapshotIndex",
+      "starters.index"
+    ],
+    "events": [],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  },
+  "breakingChange": false,
+  "migrationRequired": false
+}

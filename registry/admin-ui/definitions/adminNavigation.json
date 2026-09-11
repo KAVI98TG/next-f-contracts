@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.adminNavigation",
+  "name": "Admin Navigation",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines internal navigation grouping and context requirements.",
+  "purpose": "Defines internal navigation grouping and context requirements.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

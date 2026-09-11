@@ -1,0 +1,31 @@
+{
+  "$id": "modules.capability.seo.metadata",
+  "capabilityId": "seo.metadata",
+  "name": "Metadata",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "seo",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Metadata capability within the SEO module.",
+  "contractBindings": [
+    "seo.metadata"
+  ],
+  "permissionBindings": [
+    "seo.metadata.edit",
+    "seo.metadata.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

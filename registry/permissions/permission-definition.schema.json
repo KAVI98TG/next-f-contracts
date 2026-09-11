@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/permissions/permission-definition.schema.json",
+  "title": "NEXT F Permission Definition Meta-Schema",
+  "type": "object",
+  "required": [
+    "$id",
+    "permissionId",
+    "domain",
+    "resource",
+    "action",
+    "scopeKind",
+    "riskLevel",
+    "customerEligible",
+    "adminEligible",
+    "grantable",
+    "version",
+    "status"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*\\.[a-z][a-z0-9]*\\.(view|create|edit|delete|publish|approve|manage|export)$"
+    },
+    "permissionId": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "resource": {
+      "type": "string"
+    },
+    "action": {
+      "enum": [
+        "view",
+        "create",
+        "edit",
+        "delete",
+        "publish",
+        "approve",
+        "manage",
+        "export"
+      ]
+    },
+    "scopeKind": {
+      "enum": [
+        "platform",
+        "organization",
+        "site",
+        "resource",
+        "self"
+      ]
+    },
+    "riskLevel": {
+      "enum": [
+        "standard",
+        "elevated",
+        "sensitive",
+        "destructive",
+        "privileged"
+      ]
+    },
+    "customerEligible": {
+      "type": "boolean"
+    },
+    "adminEligible": {
+      "type": "boolean"
+    },
+    "grantable": {
+      "type": "boolean"
+    }
+  }
+}

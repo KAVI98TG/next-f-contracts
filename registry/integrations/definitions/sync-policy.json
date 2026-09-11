@@ -1,0 +1,147 @@
+{
+  "$id": "integrations.syncPolicy",
+  "name": "Sync Policy",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "sync",
+  "description": "Defines controlled synchronization behavior with an external provider.",
+  "purpose": "Makes direction, cadence, pagination and conflict handling explicit.",
+  "integrationModel": {
+    "kind": "sync-policy",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "direction",
+      "required": true,
+      "nullable": false,
+      "description": "Sync direction.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "pull",
+          "push",
+          "bidirectional"
+        ]
+      }
+    },
+    {
+      "key": "mode",
+      "required": true,
+      "nullable": false,
+      "description": "Execution mode.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "manual",
+          "scheduled",
+          "event-driven"
+        ]
+      }
+    },
+    {
+      "key": "conflictPolicy",
+      "required": true,
+      "nullable": false,
+      "description": "Conflict handling.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "nextf-wins",
+          "provider-wins",
+          "newest-wins",
+          "manual-review",
+          "field-specific"
+        ]
+      }
+    },
+    {
+      "key": "batchSize",
+      "required": false,
+      "nullable": true,
+      "description": "Maximum batch size.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 1000
+      }
+    },
+    {
+      "key": "cursorStrategy",
+      "required": false,
+      "nullable": true,
+      "description": "Pagination/cursor strategy.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "none",
+          "cursor",
+          "page",
+          "updated-since",
+          "provider-token"
+        ]
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether sync may run.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "boundedBatch",
+      "description": "Sync batch size is bounded."
+    },
+    {
+      "id": "conflictExplicit",
+      "description": "Bidirectional sync requires explicit conflict policy."
+    },
+    {
+      "id": "disabledNoSync",
+      "description": "Disabled policy prevents runs."
+    }
+  ],
+  "cms": {
+    "label": "Sync Policy",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "direction",
+      "mode",
+      "conflictPolicy",
+      "batchSize"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

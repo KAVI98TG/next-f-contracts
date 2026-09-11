@@ -1,0 +1,132 @@
+{
+  "$id": "cmsUi.profile.commerce.fulfillments",
+  "name": "Fulfillment",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "commerce.fulfillments",
+  "moduleId": "commerce",
+  "description": "Customer CMS presentation metadata for Fulfillment within authorized Site scope.",
+  "targetContracts": [
+    "commerce.fulfillment",
+    "commerce.shipment"
+  ],
+  "primaryTargetContract": "commerce.fulfillment",
+  "route": "/commerce/fulfillments",
+  "screenKind": "operations",
+  "layoutTemplate": "commerce-operations",
+  "responsivePolicy": "operational",
+  "fieldBindings": [],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [],
+    "search": true,
+    "filters": [],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [],
+    "searchFields": []
+  },
+  "actions": [
+    {
+      "actionId": "create",
+      "permissionId": "commerce.fulfillments.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "commerce.fulfillments.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "commerce.fulfillments.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "commerce.fulfillments.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "fulfill",
+      "permissionId": "commerce.fulfillments.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true
+    }
+  ],
+  "permissions": [
+    "commerce.fulfillments.create",
+    "commerce.fulfillments.edit",
+    "commerce.fulfillments.manage",
+    "commerce.fulfillments.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": false,
+    "warnOnLeave": false,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/commerce/fulfillments",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "commerce.fulfillments.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "create",
+      "kind": "editor",
+      "route": "/commerce/fulfillments/new",
+      "layoutTemplate": "standard-editor",
+      "requiresPermission": "commerce.fulfillments.create",
+      "purpose": "Create a new canonical resource."
+    },
+    {
+      "id": "record",
+      "kind": "operations",
+      "route": "/commerce/fulfillments/:id",
+      "layoutTemplate": "commerce-operations",
+      "requiresPermission": "commerce.fulfillments.edit",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

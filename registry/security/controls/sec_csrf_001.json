@@ -1,0 +1,33 @@
+{
+  "controlId": "SEC-CSRF-001",
+  "name": "CSRF protection for browser-authenticated writes",
+  "category": "browser",
+  "requirement": "Browser-authenticated state-changing requests must use CSRF-resistant request patterns and must not rely on ambient credentials alone.",
+  "rationale": "Cross-site requests must not be able to trigger privileged mutations.",
+  "applicability": [
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "both",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_csrf_001.json"
+}

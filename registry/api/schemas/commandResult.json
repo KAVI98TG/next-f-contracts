@@ -1,0 +1,63 @@
+{
+  "$id": "api.commandResult",
+  "name": "Command Result",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "operations",
+  "description": "Normalized mutation result pointing to changed authoritative resources.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "resource",
+      "required": false,
+      "nullable": false,
+      "description": "resource",
+      "schema": "core.entityReference"
+    },
+    {
+      "key": "created",
+      "required": false,
+      "nullable": false,
+      "description": "created",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "changed",
+      "required": true,
+      "nullable": false,
+      "description": "changed",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "eventIds",
+      "required": false,
+      "nullable": false,
+      "description": "eventIds",
+      "primitive": "fields.tag"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

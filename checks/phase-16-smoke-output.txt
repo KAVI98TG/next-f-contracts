@@ -1,0 +1,7 @@
+
+> next-f-contracts@0.17.0 smoke:phase16
+> node scripts/smoke-phase-16.mjs
+
+Phase 16 smoke passes: 33
+Phase 16 smoke failures: 0
+PASS - Phase 16 portal smoke test passed.

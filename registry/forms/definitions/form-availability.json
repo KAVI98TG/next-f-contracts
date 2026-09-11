@@ -1,0 +1,124 @@
+{
+  "$id": "forms.formAvailability",
+  "name": "Form Availability",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "builder",
+  "description": "Controls whether a form is currently open for submissions.",
+  "purpose": "Separates form availability from content publishing and lets a site close or schedule a form without deleting its definition.",
+  "formsModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "state",
+      "required": true,
+      "nullable": false,
+      "description": "Current submission availability state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "open",
+            "label": "Open"
+          },
+          {
+            "value": "closed",
+            "label": "Closed"
+          },
+          {
+            "value": "scheduled",
+            "label": "Scheduled"
+          },
+          {
+            "value": "disabled",
+            "label": "Disabled"
+          }
+        ]
+      }
+    },
+    {
+      "key": "window",
+      "required": false,
+      "nullable": true,
+      "description": "Optional start/end availability window.",
+      "schema": "core.scheduleWindow"
+    },
+    {
+      "key": "closedMessage",
+      "required": false,
+      "nullable": true,
+      "description": "Message shown when submissions are unavailable.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "localizable": true
+      }
+    },
+    {
+      "key": "acceptExistingDraftSessions",
+      "required": true,
+      "nullable": false,
+      "description": "Whether already-started multi-step sessions may finish after the form closes.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "windowRequiredWhenScheduled",
+      "description": "Scheduled state requires a valid schedule window."
+    },
+    {
+      "id": "closedMeansNoNewSubmission",
+      "description": "Closed or disabled forms must reject new server-side submission attempts even if a stale frontend remains open."
+    },
+    {
+      "id": "availabilityNotAuthorization",
+      "description": "Form availability is not an authentication or authorization control."
+    }
+  ],
+  "cms": {
+    "label": "Form Availability",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "state",
+      "window",
+      "closedMessage",
+      "acceptExistingDraftSessions"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

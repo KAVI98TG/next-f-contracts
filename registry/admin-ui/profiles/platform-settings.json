@@ -1,0 +1,89 @@
+{
+  "$id": "adminUi.profile.platform.settings",
+  "name": "Settings Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "platform.settings",
+  "permissionDomain": "platform",
+  "moduleId": "core",
+  "description": "Internal NEXT F Admin metadata for Settings. Applies only within server-authorized administrative scope.",
+  "route": "/platform/settings",
+  "screenKind": "admin-settings",
+  "layoutTemplate": "settings-page",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "platform",
+    "requiresOrganization": false,
+    "requiresSite": false,
+    "allowsCrossTenant": true,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": null,
+  "inheritanceMode": "none",
+  "targetContracts": [],
+  "primaryTargetContract": null,
+  "permissions": [
+    "platform.settings.edit",
+    "platform.settings.manage",
+    "platform.settings.view"
+  ],
+  "actions": [
+    {
+      "actionId": "edit",
+      "permissionId": "platform.settings.edit",
+      "riskLevel": "privileged",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "platform.settings.manage",
+      "riskLevel": "privileged",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "platform.settings.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions"
+  ],
+  "controls": [
+    "risk-badge",
+    "recent-auth-gate",
+    "explicit-confirmation"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": []
+}

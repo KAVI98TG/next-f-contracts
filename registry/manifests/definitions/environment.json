@@ -1,0 +1,123 @@
+{
+  "$id": "manifest.environment",
+  "name": "Environment Declaration",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "environment-localization",
+  "description": "Declares one implementation environment without embedding hosting-provider ownership or credentials.",
+  "purpose": "Allows code, APIs, integrations and content delivery to be environment-aware while keeping the contract hosting-neutral.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Stable environment key unique inside the Site Manifest.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 40,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "kind",
+      "required": true,
+      "nullable": false,
+      "description": "Controlled environment kind.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "key": "development",
+            "label": "Development",
+            "description": "Local or developer-controlled non-public execution environment."
+          },
+          {
+            "key": "preview",
+            "label": "Preview",
+            "description": "Ephemeral or controlled review environment for unpublished work."
+          },
+          {
+            "key": "staging",
+            "label": "Staging",
+            "description": "Persistent non-production environment used for acceptance/integration testing."
+          },
+          {
+            "key": "production",
+            "label": "Production",
+            "description": "Authoritative public/live environment."
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "baseUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Optional externally reachable URL for this environment.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this environment declaration is active.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "environmentIdsUnique",
+      "description": "Environment IDs must be unique within a Site Manifest."
+    },
+    {
+      "id": "singleProductionEnvironment",
+      "description": "A Site Manifest may declare at most one enabled production environment."
+    },
+    {
+      "id": "nonDevelopmentHttps",
+      "description": "Externally reachable preview, staging and production baseUrl values must use HTTPS."
+    },
+    {
+      "id": "hostingNeutral",
+      "description": "Environment declarations must not contain hosting subscription, billing, provider credentials or server-control data."
+    }
+  ],
+  "cms": {
+    "label": "Environment Declaration",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "id",
+      "kind",
+      "baseUrl",
+      "enabled"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

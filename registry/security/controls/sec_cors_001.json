@@ -1,0 +1,34 @@
+{
+  "controlId": "SEC-CORS-001",
+  "name": "Explicit CORS policy",
+  "category": "api",
+  "requirement": "APIs must apply the canonical CORS policy appropriate to their surface and must not use permissive credentialed cross-origin access.",
+  "rationale": "Cross-origin access must be deliberate and least-privileged.",
+  "applicability": [
+    "api"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "api.cors-policies"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_cors_001.json"
+}

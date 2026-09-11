@@ -1,0 +1,201 @@
+
+NEXT F Contracts Phase 13 validation
+Version: 0.18.0
+Support schemas: 13
+Canonical events: 128
+Categories: 15
+Payload fields inspected: 495
+Validation rules inspected: 1100
+Relationships inspected: 226
+Registry entries: 1197
+Passes: 4879
+Failures: 187
+
+Failures:
+- Repository version is 0.14.0: 0.18.0
+- Event index version: 0.15.0
+- Exactly 116 canonical events: 128
+- Exactly 14 categories: 15
+- Exactly 10 producers: 11
+- cart.abandoned registry version: 0.14.0
+- cart.converted registry version: 0.14.0
+- cart.created registry version: 0.14.0
+- cart.expired registry version: 0.14.0
+- cart.updated registry version: 0.14.0
+- checkout.abandoned registry version: 0.14.0
+- checkout.completed registry version: 0.14.0
+- checkout.expired registry version: 0.14.0
+- checkout.started registry version: 0.14.0
+- checkout.updated registry version: 0.14.0
+- collection.created registry version: 0.14.0
+- collection.updated registry version: 0.14.0
+- consent.recorded registry version: 0.14.0
+- consent.updated registry version: 0.14.0
+- content.archived registry version: 0.14.0
+- content.created registry version: 0.14.0
+- content.deleted registry version: 0.14.0
+- content.published registry version: 0.14.0
+- content.restored registry version: 0.14.0
+- content.scheduled registry version: 0.14.0
+- content.unpublished registry version: 0.14.0
+- content.updated registry version: 0.14.0
+- content.version-created registry version: 0.14.0
+- conversion.recorded registry version: 0.14.0
+- customer.archived registry version: 0.14.0
+- customer.created registry version: 0.14.0
+- customer.updated registry version: 0.14.0
+- discount.activated registry version: 0.14.0
+- discount.created registry version: 0.14.0
+- discount.deactivated registry version: 0.14.0
+- discount.updated registry version: 0.14.0
+- form.archived registry version: 0.14.0
+- form.created registry version: 0.14.0
+- form.published registry version: 0.14.0
+- form.rejected registry version: 0.14.0
+- form.submitted registry version: 0.14.0
+- form.updated registry version: 0.14.0
+- fulfillment.cancelled registry version: 0.14.0
+- fulfillment.completed registry version: 0.14.0
+- fulfillment.created registry version: 0.14.0
+- fulfillment.updated registry version: 0.14.0
+- integration.connected registry version: 0.14.0
+- integration.disconnected registry version: 0.14.0
+- integration.health-degraded registry version: 0.14.0
+- integration.health-restored registry version: 0.14.0
+- integration.sync-failed registry version: 0.14.0
+- integration.sync-started registry version: 0.14.0
+- integration.sync-succeeded registry version: 0.14.0
+- inventory.adjusted registry version: 0.14.0
+- inventory.back-in-stock registry version: 0.14.0
+- inventory.committed registry version: 0.14.0
+- inventory.low registry version: 0.14.0
+- inventory.out-of-stock registry version: 0.14.0
+- inventory.released registry version: 0.14.0
+- inventory.reserved registry version: 0.14.0
+- inventory.transferred registry version: 0.14.0
+- lead.assigned registry version: 0.14.0
+- lead.created registry version: 0.14.0
+- lead.merged registry version: 0.14.0
+- lead.status-changed registry version: 0.14.0
+- lead.updated registry version: 0.14.0
+- media.created registry version: 0.14.0
+- media.deleted registry version: 0.14.0
+- media.updated registry version: 0.14.0
+- navigation.updated registry version: 0.14.0
+- order.archived registry version: 0.14.0
+- order.cancelled registry version: 0.14.0
+- order.completed registry version: 0.14.0
+- order.created registry version: 0.14.0
+- order.fulfilled registry version: 0.14.0
+- order.on-hold registry version: 0.14.0
+- order.paid registry version: 0.14.0
+- order.partially-fulfilled registry version: 0.14.0
+- order.partially-paid registry version: 0.14.0
+- order.partially-refunded registry version: 0.14.0
+- order.refunded registry version: 0.14.0
+- order.updated registry version: 0.14.0
+- payment.authorized registry version: 0.14.0
+- payment.captured registry version: 0.14.0
+- payment.created registry version: 0.14.0
+- payment.failed registry version: 0.14.0
+- payment.succeeded registry version: 0.14.0
+- product.archived registry version: 0.14.0
+- product.created registry version: 0.14.0
+- product.published registry version: 0.14.0
+- product.updated registry version: 0.14.0
+- redirect.created registry version: 0.14.0
+- redirect.deleted registry version: 0.14.0
+- redirect.updated registry version: 0.14.0
+- refund.created registry version: 0.14.0
+- refund.failed registry version: 0.14.0
+- refund.succeeded registry version: 0.14.0
+- return.approved registry version: 0.14.0
+- return.cancelled registry version: 0.14.0
+- return.completed registry version: 0.14.0
+- return.received registry version: 0.14.0
+- return.rejected registry version: 0.14.0
+- return.requested registry version: 0.14.0
+- review.approved registry version: 0.14.0
+- review.created registry version: 0.14.0
+- review.published registry version: 0.14.0
+- review.rejected registry version: 0.14.0
+- seo.updated registry version: 0.14.0
+- shipment.created registry version: 0.14.0
+- shipment.delivered registry version: 0.14.0
+- shipment.delivery-failed registry version: 0.14.0
+- shipment.dispatched registry version: 0.14.0
+- site.activated registry version: 0.14.0
+- site.connection-degraded registry version: 0.14.0
+- site.connection-restored registry version: 0.14.0
+- site.created registry version: 0.14.0
+- site.suspended registry version: 0.14.0
+- site.updated registry version: 0.14.0
+- sitemap.updated registry version: 0.14.0
+- variant.created registry version: 0.14.0
+- variant.updated registry version: 0.14.0
+- webhook.delivery-dead-lettered registry version: 0.15.0
+- webhook.delivery-dead-lettered future webhook binding
+- webhook.delivery-dead-lettered future API binding
+- webhook.delivery-dead-lettered required rules
+- webhook.endpoint-degraded registry version: 0.15.0
+- webhook.endpoint-degraded future webhook binding
+- webhook.endpoint-degraded future API binding
+- webhook.endpoint-degraded required rules
+- webhook.endpoint-disabled registry version: 0.15.0
+- webhook.endpoint-disabled future webhook binding
+- webhook.endpoint-disabled future API binding
+- webhook.endpoint-disabled required rules
+- webhook.endpoint-restored registry version: 0.15.0
+- webhook.endpoint-restored future webhook binding
+- webhook.endpoint-restored future API binding
+- webhook.endpoint-restored required rules
+- webhook.endpoint-verification-failed registry version: 0.15.0
+- webhook.endpoint-verification-failed future webhook binding
+- webhook.endpoint-verification-failed future API binding
+- webhook.endpoint-verification-failed required rules
+- webhook.endpoint-verified registry version: 0.15.0
+- webhook.endpoint-verified future webhook binding
+- webhook.endpoint-verified future API binding
+- webhook.endpoint-verified required rules
+- webhook.redelivery-requested registry version: 0.15.0
+- webhook.redelivery-requested future webhook binding
+- webhook.redelivery-requested future API binding
+- webhook.redelivery-requested required rules
+- webhook.signing-secret-rotated registry version: 0.15.0
+- webhook.signing-secret-rotated future webhook binding
+- webhook.signing-secret-rotated future API binding
+- webhook.signing-secret-rotated required rules
+- webhook.subscription-created registry version: 0.15.0
+- webhook.subscription-created future webhook binding
+- webhook.subscription-created future API binding
+- webhook.subscription-created required rules
+- webhook.subscription-disabled registry version: 0.15.0
+- webhook.subscription-disabled future webhook binding
+- webhook.subscription-disabled future API binding
+- webhook.subscription-disabled required rules
+- webhook.subscription-paused registry version: 0.15.0
+- webhook.subscription-paused future webhook binding
+- webhook.subscription-paused future API binding
+- webhook.subscription-paused required rules
+- webhook.subscription-resumed registry version: 0.15.0
+- webhook.subscription-resumed future webhook binding
+- webhook.subscription-resumed future API binding
+- webhook.subscription-resumed required rules
+- events.eventActor version: 0.14.0
+- events.eventConsumer version: 0.14.0
+- events.eventCorrelation version: 0.14.0
+- events.eventDataPolicy version: 0.14.0
+- events.eventDefinition version: 0.14.0
+- events.eventEnvelope version: 0.14.0
+- events.eventIdempotencyPolicy version: 0.14.0
+- events.eventOrderingPolicy version: 0.14.0
+- events.eventProducer version: 0.14.0
+- events.eventRetentionPolicy version: 0.14.0
+- events.eventSource version: 0.14.0
+- events.eventSubject version: 0.14.0
+- events.productionPolicy version: 0.14.0
+- Main registry has 635 entries: 1197
+- No Phase 14 contracts fabricated: 64
+- No Phase 15 contracts fabricated: 357
+- Portal version v0.14.0
+- Portal footer Phase 13

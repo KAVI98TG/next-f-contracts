@@ -1,0 +1,177 @@
+{
+  "phase": 25,
+  "version": "0.26.0",
+  "status": "passed",
+  "checks": [
+    {
+      "id": "P25-001",
+      "name": "Contract Diff Standard created",
+      "passed": true
+    },
+    {
+      "id": "P25-002",
+      "name": "Diff domain registered",
+      "passed": true
+    },
+    {
+      "id": "P25-003",
+      "name": "Exact release index created",
+      "passed": true
+    },
+    {
+      "id": "P25-004",
+      "name": "Unavailable historical releases remain explicit",
+      "passed": true
+    },
+    {
+      "id": "P25-005",
+      "name": "Release manifests created",
+      "passed": true
+    },
+    {
+      "id": "P25-006",
+      "name": "Content-addressed semantic snapshots created",
+      "passed": true
+    },
+    {
+      "id": "P25-007",
+      "name": "Change-type vocabulary created",
+      "passed": true
+    },
+    {
+      "id": "P25-008",
+      "name": "Impact vocabulary created",
+      "passed": true
+    },
+    {
+      "id": "P25-009",
+      "name": "Classification rules created",
+      "passed": true
+    },
+    {
+      "id": "P25-010",
+      "name": "Field additions/removals classified",
+      "passed": true
+    },
+    {
+      "id": "P25-011",
+      "name": "Required/nullability changes classified",
+      "passed": true
+    },
+    {
+      "id": "P25-012",
+      "name": "Field binding changes classified",
+      "passed": true
+    },
+    {
+      "id": "P25-013",
+      "name": "Enum changes classified",
+      "passed": true
+    },
+    {
+      "id": "P25-014",
+      "name": "Validation tightening/relaxation classified",
+      "passed": true
+    },
+    {
+      "id": "P25-015",
+      "name": "Relationship changes classified",
+      "passed": true
+    },
+    {
+      "id": "P25-016",
+      "name": "Permission changes classified",
+      "passed": true
+    },
+    {
+      "id": "P25-017",
+      "name": "Event changes classified",
+      "passed": true
+    },
+    {
+      "id": "P25-018",
+      "name": "Lifecycle/deprecation changes classified",
+      "passed": true
+    },
+    {
+      "id": "P25-019",
+      "name": "Documentation-only changes distinguishable",
+      "passed": true
+    },
+    {
+      "id": "P25-020",
+      "name": "Semantic version recommendation implemented",
+      "passed": true
+    },
+    {
+      "id": "P25-021",
+      "name": "Item history implemented",
+      "passed": true
+    },
+    {
+      "id": "P25-022",
+      "name": "Raw structural path inspection implemented",
+      "passed": true
+    },
+    {
+      "id": "P25-023",
+      "name": "From/To explicit selection implemented",
+      "passed": true
+    },
+    {
+      "id": "P25-024",
+      "name": "Swap/filter/search implemented",
+      "passed": true
+    },
+    {
+      "id": "P25-025",
+      "name": "Release provenance shown",
+      "passed": true
+    },
+    {
+      "id": "P25-026",
+      "name": "Registry item version-history shortcut implemented",
+      "passed": true
+    },
+    {
+      "id": "P25-027",
+      "name": "Compressed local fallback generated",
+      "passed": true
+    },
+    {
+      "id": "P25-028",
+      "name": "Global Search includes Contract Diff",
+      "passed": true
+    },
+    {
+      "id": "P25-029",
+      "name": "Relationship graph regenerated",
+      "passed": true
+    },
+    {
+      "id": "P25-030",
+      "name": "Light-only SaaS UI preserved",
+      "passed": true
+    },
+    {
+      "id": "P25-031",
+      "name": "No automatic migration behavior introduced",
+      "passed": true
+    },
+    {
+      "id": "P25-032",
+      "name": "Codex upgrade Diff gate documented",
+      "passed": true
+    },
+    {
+      "id": "P25-033",
+      "name": "Phase 25 validator passes",
+      "passed": true
+    },
+    {
+      "id": "P25-034",
+      "name": "Phase 25 smoke tests pass",
+      "passed": true
+    }
+  ]
+}

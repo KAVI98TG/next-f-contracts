@@ -1,0 +1,80 @@
+{
+  "registryVersion": "0.22.0",
+  "artifacts": [
+    {
+      "id": "contract-resolution-summary",
+      "label": "Contract Resolution Summary",
+      "requiredWhen": [
+        "all-substantial-tasks"
+      ],
+      "purpose": "Records pinned versions, Modules, Capabilities and canonical definitions resolved for the task."
+    },
+    {
+      "id": "implementation-plan",
+      "label": "Implementation Plan",
+      "requiredWhen": [
+        "all-substantial-tasks"
+      ],
+      "purpose": "Defines change scope, boundaries, adapters, tests, migrations and risks before implementation."
+    },
+    {
+      "id": "implementation-report",
+      "label": "Implementation Report",
+      "requiredWhen": [
+        "all-substantial-tasks"
+      ],
+      "purpose": "Reports what changed, which contracts were consumed and what was actually verified."
+    },
+    {
+      "id": "deviation-record",
+      "label": "Deviation Record",
+      "requiredWhen": [
+        "implementation-deviates-from-manifest-or-contract-intent"
+      ],
+      "purpose": "Makes a known implementation deviation visible and bounded."
+    },
+    {
+      "id": "contract-extension-proposal",
+      "label": "Contract Extension Proposal",
+      "requiredWhen": [
+        "canonical-coverage-missing"
+      ],
+      "purpose": "Proposes new shared canonical coverage instead of silently inventing it in a project."
+    },
+    {
+      "id": "migration-plan",
+      "label": "Migration Plan",
+      "requiredWhen": [
+        "persisted-data-change",
+        "contract-upgrade"
+      ],
+      "purpose": "Defines dry-run, compatibility, execution, recovery and integrity checks."
+    },
+    {
+      "id": "security-impact-note",
+      "label": "Security / Data Impact Note",
+      "requiredWhen": [
+        "sensitive-data",
+        "privileged-operation",
+        "authn-authz-change"
+      ],
+      "purpose": "Documents boundary, classification and security implications."
+    },
+    {
+      "id": "verification-evidence",
+      "label": "Verification Evidence",
+      "requiredWhen": [
+        "all-substantial-tasks"
+      ],
+      "purpose": "Lists checks that actually ran, results and checks not run."
+    },
+    {
+      "id": "handoff-summary",
+      "label": "Handoff Summary",
+      "requiredWhen": [
+        "all-substantial-tasks"
+      ],
+      "purpose": "Leaves the next developer/agent a concise current state and remaining actions."
+    }
+  ]
+}

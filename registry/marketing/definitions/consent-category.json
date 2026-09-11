@@ -1,0 +1,150 @@
+{
+  "$id": "marketing.consentCategory",
+  "name": "Consent Category",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "consent",
+  "description": "Site-defined category used to gate tracking and marketing destinations.",
+  "purpose": "Creates a stable consent key that tracking definitions and routing can reference.",
+  "marketingModel": {
+    "kind": "definition",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "dataSensitivity": "public"
+  },
+  "fields": [
+    {
+      "key": "categoryKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable category key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80,
+        "pattern": "^[a-z][a-z0-9-]*$"
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Visitor-facing category name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "description",
+      "required": true,
+      "nullable": false,
+      "description": "Visitor-facing purpose.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1500
+      }
+    },
+    {
+      "key": "required",
+      "required": true,
+      "nullable": false,
+      "description": "Whether category is technically necessary.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "defaultState",
+      "required": true,
+      "nullable": false,
+      "description": "Initial state when policy permits.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "granted",
+            "label": "Granted"
+          },
+          {
+            "value": "denied",
+            "label": "Denied"
+          },
+          {
+            "value": "unset",
+            "label": "Unset"
+          }
+        ],
+        "defaultValue": "unset"
+      }
+    },
+    {
+      "key": "displayOrder",
+      "required": true,
+      "nullable": false,
+      "description": "Consent UI order.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "maximum": 999
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "requiredJustified",
+      "description": "required=true reserved for genuinely necessary functions."
+    },
+    {
+      "id": "defaultNotLegalAdvice",
+      "description": "Default configuration is not legal compliance determination."
+    },
+    {
+      "id": "keyStable",
+      "description": "categoryKey stays stable across label changes."
+    },
+    {
+      "id": "marketingNotNecessaryByDefault",
+      "description": "Advertising/marketing category must not be required for convenience."
+    }
+  ],
+  "cms": {
+    "label": "Consent Category",
+    "icon": "fa-bullseye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "consent-category",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "categoryKey",
+      "name",
+      "description",
+      "required"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

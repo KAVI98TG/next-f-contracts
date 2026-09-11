@@ -1,0 +1,75 @@
+{
+  "$id": "api.commerce.select-shipping",
+  "operationId": "api.commerce.select-shipping",
+  "name": "Select Shipping Method",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.commerce",
+  "method": "PATCH",
+  "path": "/checkouts/{checkoutId}/shipping",
+  "description": "Select Shipping Method",
+  "authentication": {
+    "mode": "anonymous-or-commerce-customer",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "checkoutId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "If-Match"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "commerce.checkout",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": true,
+      "requestHeader": "If-Match",
+      "responseHeader": "ETag"
+    },
+    "cache": "no-store",
+    "rateLimit": "commerce-checkout",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "commerce"
+  ],
+  "contractBindings": [
+    "commerce.checkout",
+    "commerce.checkoutShippingSelection",
+    "commerce.shippingMethod"
+  ],
+  "eventBindings": [
+    "checkout.updated"
+  ],
+  "publicSurface": true,
+  "privacy": "personal",
+  "notes": []
+}

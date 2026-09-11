@@ -1,0 +1,74 @@
+{
+  "$id": "fields.location",
+  "name": "Location",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "location",
+  "description": "Structured named location combining label, optional address and optional coordinates without implying geocoding ownership.",
+  "value": {
+    "jsonType": "object",
+    "canonical": "Structured location object.",
+    "absence": "Absent values are represented by omission or null only when nullable is true.",
+    "shape": {
+      "name": "string optional",
+      "address": "Address primitive optional",
+      "coordinates": "Coordinates primitive optional"
+    }
+  },
+  "cms": {
+    "editor": "location",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": false,
+    "localizable": true,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "locationShape",
+    "coordinateRange"
+  ],
+  "examples": {
+    "valid": [
+      {
+        "name": "Kandy",
+        "coordinates": {
+          "lat": 7.2906,
+          "lng": 80.6337
+        }
+      }
+    ],
+    "invalid": [
+      "Kandy"
+    ]
+  },
+  "notes": [
+    "At least one meaningful locator must be supplied when required by the parent schema."
+  ]
+}

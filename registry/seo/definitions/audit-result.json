@@ -1,0 +1,222 @@
+{
+  "$id": "seo.auditResult",
+  "name": "SEO Audit Result",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "audit",
+  "description": "Timestamped SEO analysis summary for a Site URL or target entity.",
+  "purpose": "Creates a reusable operational result for CMS SEO health dashboards and automated checks.",
+  "seoModel": {
+    "kind": "derived",
+    "customerManaged": true,
+    "derived": true,
+    "supportsRevision": false,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Audit result identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "target",
+      "required": false,
+      "nullable": true,
+      "description": "Optional canonical entity target.",
+      "schema": "core.entityReference"
+    },
+    {
+      "key": "url",
+      "required": true,
+      "nullable": false,
+      "description": "Audited absolute URL.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true
+      }
+    },
+    {
+      "key": "checkedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Audit execution time.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    },
+    {
+      "key": "score",
+      "required": true,
+      "nullable": false,
+      "description": "NEXT F audit score expressed in percentage points.",
+      "primitive": "fields.percentage",
+      "config": {
+        "minimum": 0,
+        "maximum": 100,
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Overall diagnostic state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "pass",
+            "label": "Pass"
+          },
+          {
+            "value": "warning",
+            "label": "Warning"
+          },
+          {
+            "value": "fail",
+            "label": "Fail"
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "checksPassed",
+      "required": true,
+      "nullable": false,
+      "description": "Number of checks passed.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "checksFailed",
+      "required": true,
+      "nullable": false,
+      "description": "Number of checks failed.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "issues",
+      "required": false,
+      "nullable": true,
+      "description": "Audit issues.",
+      "itemsSchema": "seo.auditIssue",
+      "config": {
+        "maxItems": 1000
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "core.entityReference",
+      "description": "May audit a canonical content/entity target."
+    },
+    {
+      "type": "composesMany",
+      "target": "seo.auditIssue",
+      "description": "Contains zero or more standardized findings."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "scoreIsNextFDiagnostic",
+      "description": "score is a NEXT F diagnostic metric only and is not a Google, Bing or other search-engine score."
+    },
+    {
+      "id": "countsConsistent",
+      "description": "checksPassed and checksFailed must be non-negative and reflect the executed audit rule set."
+    },
+    {
+      "id": "checkedAtImmutable",
+      "description": "checkedAt and derived findings represent a historical run and should not be edited as current content."
+    }
+  ],
+  "cms": {
+    "label": "SEO Audit Result",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "target",
+      "url"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "identity": {
+          "id": "audit_01",
+          "createdAt": "2026-09-10T00:00:00Z",
+          "updatedAt": "2026-09-10T00:00:00Z"
+        },
+        "scope": {
+          "organizationId": "org_01",
+          "siteId": "site_01"
+        },
+        "url": "https://example.lk/services",
+        "checkedAt": "2026-09-10T00:00:00Z",
+        "score": 92,
+        "status": "warning",
+        "checksPassed": 23,
+        "checksFailed": 2,
+        "issues": []
+      }
+    ],
+    "invalid": [
+      {
+        "url": "https://example.lk",
+        "score": 120,
+        "status": "perfect"
+      }
+    ]
+  },
+  "notes": []
+}

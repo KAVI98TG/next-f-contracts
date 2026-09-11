@@ -1,0 +1,29 @@
+{
+  "$id": "content.customcollections.create",
+  "name": "Create Customcollections",
+  "permissionId": "content.customcollections.create",
+  "domain": "content",
+  "resource": "customcollections",
+  "action": "create",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Create Customcollections within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

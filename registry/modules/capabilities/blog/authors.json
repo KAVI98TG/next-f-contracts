@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.blog.authors",
+  "capabilityId": "blog.authors",
+  "name": "Authors",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "blog",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Authors capability within the Blog module.",
+  "contractBindings": [
+    "content.author"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

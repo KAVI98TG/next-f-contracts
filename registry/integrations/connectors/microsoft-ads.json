@@ -1,0 +1,116 @@
+{
+  "$id": "integrations.microsoftAds",
+  "name": "Microsoft Ads",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "microsoft",
+  "family": "advertising",
+  "description": "Microsoft Advertising UET/conversion/reporting connector mapped to canonical NEXT F conversions.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "site-runtime",
+    "nextf-server",
+    "provider-api"
+  ],
+  "capabilities": [
+    "tag.load",
+    "conversion.dispatch.client",
+    "conversion.dispatch.server",
+    "reporting.read",
+    "resource.discover"
+  ],
+  "authentication": {
+    "type": "mixed",
+    "supported": [
+      "none",
+      "oauth2"
+    ]
+  },
+  "configurationFields": [
+    {
+      "key": "uetTagId",
+      "label": "UET Tag ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "UET Tag ID",
+      "validation": {}
+    },
+    {
+      "key": "customerId",
+      "label": "Customer ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Customer ID",
+      "validation": {}
+    },
+    {
+      "key": "accountId",
+      "label": "Account ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Account ID",
+      "validation": {}
+    },
+    {
+      "key": "conversionGoalId",
+      "label": "Conversion Goal ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Conversion Goal ID",
+      "validation": {}
+    },
+    {
+      "key": "oauthProfileRef",
+      "label": "OAuth Profile",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": false,
+      "helpText": "OAuth Profile",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [
+      "marketing"
+    ]
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [],
+  "aliases": [
+    "Microsoft Advertising",
+    "UET"
+  ]
+}

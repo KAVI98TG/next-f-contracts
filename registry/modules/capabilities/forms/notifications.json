@@ -1,0 +1,33 @@
+{
+  "$id": "modules.capability.forms.notifications",
+  "capabilityId": "forms.notifications",
+  "name": "Notifications",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "forms",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Notifications capability within the Forms module.",
+  "contractBindings": [
+    "forms.notificationRule",
+    "forms.notificationRecipient"
+  ],
+  "permissionBindings": [
+    "forms.notifications.edit",
+    "forms.notifications.manage",
+    "forms.notifications.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

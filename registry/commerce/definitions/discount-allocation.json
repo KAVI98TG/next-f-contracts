@@ -1,0 +1,116 @@
+{
+  "$id": "commerce.discountAllocation",
+  "name": "Discount Allocation",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "promotions",
+  "description": "Immutable discount allocation snapshot.",
+  "purpose": "Preserves exactly how a discount affected a cart, checkout or order line without depending on later promotion edits.",
+  "commerceModel": {
+    "kind": "snapshot",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "discountId",
+      "required": true,
+      "nullable": false,
+      "description": "Discount or promotion identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "discountCode",
+      "required": false,
+      "nullable": true,
+      "description": "Code used when applicable.",
+      "itemsPrimitive": "fields.text"
+    },
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Allocation source type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "code",
+          "automatic",
+          "manual"
+        ]
+      }
+    },
+    {
+      "key": "amount",
+      "required": true,
+      "nullable": false,
+      "description": "Money deducted by this allocation.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "label",
+      "required": false,
+      "nullable": true,
+      "description": "Display label preserved at transaction time.",
+      "itemsPrimitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "commerce.moneySnapshot",
+      "description": "References commerce.moneySnapshot."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "nonNegative",
+      "description": "Allocated discount amount cannot be negative."
+    },
+    {
+      "id": "snapshotStable",
+      "description": "Order-linked allocations are immutable transaction snapshots."
+    }
+  ],
+  "cms": {
+    "label": "Discount Allocation",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "discountId",
+      "discountCode",
+      "type",
+      "amount"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

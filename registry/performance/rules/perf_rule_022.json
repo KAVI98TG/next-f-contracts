@@ -1,0 +1,24 @@
+{
+  "ruleId": "PERF-RULE-022",
+  "name": "Bounded Global Search rendering",
+  "category": "search",
+  "requirement": "Global Search must keep palette/page result rendering bounded independently from total index size.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "static-analysis",
+    "browser-profile"
+  ],
+  "relatedRegistryIds": [
+    "search.searchIndex",
+    "search.searchConfiguration"
+  ],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_022.json"
+}

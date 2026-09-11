@@ -1,0 +1,220 @@
+{
+  "$id": "cmsUi.profile.seo.structureddata",
+  "name": "Structured Data",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "seo.structureddata",
+  "moduleId": "seo",
+  "description": "Customer CMS presentation metadata for Structured Data within authorized Site scope.",
+  "targetContracts": [
+    "seo.structuredData"
+  ],
+  "primaryTargetContract": "seo.structuredData",
+  "route": "/growth/seo/structured-data",
+  "screenKind": "editor",
+  "layoutTemplate": "standard-editor",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "schemaType",
+      "label": "Schema Type",
+      "description": "Primary structured-data type name, such as Organization, Article, Product or FAQPage.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 10,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "minLength": 1,
+        "maxLength": 120
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "payload",
+      "label": "Payload",
+      "description": "JSON-compatible structured-data object without script tags or executable values.",
+      "editorId": "json-editor",
+      "group": "configuration",
+      "zone": "main",
+      "order": 20,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "full",
+      "sourceFieldType": "fields.json",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": true
+    },
+    {
+      "field": "source",
+      "label": "Source",
+      "description": "How the structured-data object was produced.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "validationStatus",
+      "label": "Validation Status",
+      "description": "Most recent validation state.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "schemaType",
+        "label": "Schema Type",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "payload",
+        "label": "Payload",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "source",
+        "label": "Source",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "validationStatus",
+        "label": "Validation Status",
+        "rendererId": "status",
+        "order": 40,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [
+      {
+        "field": "validationStatus",
+        "label": "Validation Status"
+      }
+    ],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [],
+    "searchFields": [
+      "schemaType"
+    ]
+  },
+  "actions": [
+    {
+      "actionId": "edit",
+      "permissionId": "seo.structureddata.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "seo.structureddata.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "seo.structureddata.edit",
+    "seo.structureddata.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/growth/seo/structured-data",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "seo.structureddata.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "editor",
+      "route": "/growth/seo/structured-data/:id",
+      "layoutTemplate": "standard-editor",
+      "requiresPermission": "seo.structureddata.edit",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

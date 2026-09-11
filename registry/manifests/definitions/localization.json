@@ -1,0 +1,87 @@
+{
+  "$id": "manifest.localization",
+  "name": "Localization Declaration",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "environment-localization",
+  "description": "Declares the Site locale and timezone baseline used by content and time-sensitive behavior.",
+  "purpose": "Prevents Codex and customer projects from inferring locale/timezone from browser or hosting location.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "defaultLocale",
+      "required": true,
+      "nullable": false,
+      "description": "Default BCP 47 language/locale tag.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "supportedLocales",
+      "required": true,
+      "nullable": false,
+      "description": "All locale tags supported by the Site, including defaultLocale.",
+      "primitive": "fields.tag",
+      "config": {
+        "minItems": 1,
+        "uniqueItems": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "timeZone",
+      "required": true,
+      "nullable": false,
+      "description": "IANA timezone identifier used for Site-level scheduling defaults.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "defaultLocaleSupported",
+      "description": "defaultLocale must be present in supportedLocales."
+    },
+    {
+      "id": "localeTagsNormalized",
+      "description": "Locale tags must be valid BCP 47-style identifiers and should use canonical casing."
+    },
+    {
+      "id": "ianaTimezoneRequired",
+      "description": "timeZone must be an IANA timezone identifier, not a raw UTC offset."
+    }
+  ],
+  "cms": {
+    "label": "Localization Declaration",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "defaultLocale",
+      "supportedLocales",
+      "timeZone"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

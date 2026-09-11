@@ -1,0 +1,123 @@
+{
+  "$id": "integrations.googleAnalytics4",
+  "name": "Google Analytics 4",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "google",
+  "family": "analytics",
+  "description": "GA4 measurement and reporting connector with explicit client/server boundaries.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "site-runtime",
+    "nextf-server",
+    "provider-api"
+  ],
+  "capabilities": [
+    "event.dispatch.client",
+    "event.dispatch.server",
+    "reporting.read",
+    "resource.discover",
+    "account.verify"
+  ],
+  "authentication": {
+    "type": "mixed",
+    "supported": [
+      "none",
+      "oauth2",
+      "api-key"
+    ]
+  },
+  "configurationFields": [
+    {
+      "key": "measurementId",
+      "label": "Measurement ID",
+      "primitive": "fields.text",
+      "required": true,
+      "publicClientEligible": true,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Measurement ID",
+      "validation": {
+        "pattern": "^G-[A-Z0-9]+$"
+      }
+    },
+    {
+      "key": "propertyId",
+      "label": "Property ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Property ID",
+      "validation": {}
+    },
+    {
+      "key": "streamId",
+      "label": "Stream ID",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Stream ID",
+      "validation": {}
+    },
+    {
+      "key": "apiSecretRef",
+      "label": "Measurement Protocol API Secret",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": true,
+      "customerEditable": false,
+      "helpText": "Opaque integrations.secretReference ID.",
+      "validation": {}
+    },
+    {
+      "key": "oauthProfileRef",
+      "label": "OAuth Profile",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": false,
+      "helpText": "OAuth Profile",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [
+      "analytics"
+    ],
+    "requiredFor": [
+      "event.dispatch.client",
+      "event.dispatch.server"
+    ]
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [],
+  "aliases": [
+    "GA4",
+    "Google Analytics"
+  ]
+}

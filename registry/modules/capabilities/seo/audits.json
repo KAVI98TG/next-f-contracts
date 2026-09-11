@@ -1,0 +1,33 @@
+{
+  "$id": "modules.capability.seo.audits",
+  "capabilityId": "seo.audits",
+  "name": "SEO Audits",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "seo",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "SEO Audits capability within the SEO module.",
+  "contractBindings": [
+    "seo.auditResult",
+    "seo.auditIssue"
+  ],
+  "permissionBindings": [
+    "seo.audits.export",
+    "seo.audits.manage",
+    "seo.audits.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

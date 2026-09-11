@@ -1,0 +1,35 @@
+{
+  "$id": "modules.capability.integrations.sync",
+  "capabilityId": "integrations.sync",
+  "name": "Synchronization",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "integrations",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Synchronization capability within the Integrations module.",
+  "contractBindings": [
+    "integrations.syncRun"
+  ],
+  "permissionBindings": [
+    "integrations.sync.manage",
+    "integrations.sync.view"
+  ],
+  "eventBindings": [
+    "integration.sync-failed",
+    "integration.sync-started",
+    "integration.sync-succeeded"
+  ],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

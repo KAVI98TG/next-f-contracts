@@ -1,0 +1,60 @@
+{
+  "$id": "diff.breakingRule",
+  "name": "Diff Classification Rule",
+  "version": "0.26.0",
+  "status": "stable",
+  "domain": "diff",
+  "category": "contract-diff",
+  "description": "Machine-readable rule used to conservatively classify a structural change",
+  "purpose": "Machine-readable rule used to conservatively classify a structural change",
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "id",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "match",
+      "required": true,
+      "nullable": false,
+      "description": "match",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "changeType",
+      "required": true,
+      "nullable": false,
+      "description": "changeType",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "impact",
+      "required": true,
+      "nullable": false,
+      "description": "impact",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "confidence",
+      "required": true,
+      "nullable": false,
+      "description": "confidence",
+      "primitive": "fields.select"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "contractDiffOnly",
+      "description": "Contains contract/release analysis metadata only and never customer runtime data."
+    }
+  ],
+  "cms": {
+    "label": "Diff Classification Rule",
+    "customerEditable": false,
+    "adminEditable": false,
+    "publicEligible": true
+  }
+}

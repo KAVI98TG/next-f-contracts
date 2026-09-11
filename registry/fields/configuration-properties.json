@@ -1,0 +1,265 @@
+{
+  "registryVersion": "0.7.0",
+  "properties": [
+    {
+      "id": "key",
+      "valueType": "string",
+      "description": "Stable camelCase field key within the parent schema."
+    },
+    {
+      "id": "label",
+      "valueType": "string",
+      "description": "Human-readable CMS label."
+    },
+    {
+      "id": "description",
+      "valueType": "string",
+      "description": "Developer-facing explanation of field meaning."
+    },
+    {
+      "id": "placeholder",
+      "valueType": "string",
+      "description": "Non-value UI hint. Placeholder text is never persisted as the value."
+    },
+    {
+      "id": "helpText",
+      "valueType": "string",
+      "description": "Supporting CMS guidance shown near the editor."
+    },
+    {
+      "id": "required",
+      "valueType": "boolean",
+      "description": "Whether a value must be supplied when validating the parent object."
+    },
+    {
+      "id": "nullable",
+      "valueType": "boolean",
+      "description": "Whether explicit null is a valid value."
+    },
+    {
+      "id": "defaultValue",
+      "valueType": "any",
+      "description": "Value applied only according to the parent schema defaulting policy."
+    },
+    {
+      "id": "minLength",
+      "valueType": "integer",
+      "description": "Minimum string length after the configured normalization policy."
+    },
+    {
+      "id": "maxLength",
+      "valueType": "integer",
+      "description": "Maximum string length after the configured normalization policy."
+    },
+    {
+      "id": "pattern",
+      "valueType": "string",
+      "description": "Regular-expression source used only when the field contract permits pattern validation."
+    },
+    {
+      "id": "minimum",
+      "valueType": "number",
+      "description": "Inclusive minimum numeric or temporal boundary unless otherwise declared."
+    },
+    {
+      "id": "maximum",
+      "valueType": "number",
+      "description": "Inclusive maximum numeric or temporal boundary unless otherwise declared."
+    },
+    {
+      "id": "step",
+      "valueType": "number",
+      "description": "Allowed numeric increment used by validation and editor hints."
+    },
+    {
+      "id": "precision",
+      "valueType": "integer",
+      "description": "Maximum decimal precision where supported."
+    },
+    {
+      "id": "options",
+      "valueType": "array",
+      "description": "Canonical option definitions for controlled choice fields."
+    },
+    {
+      "id": "minItems",
+      "valueType": "integer",
+      "description": "Minimum array item count."
+    },
+    {
+      "id": "maxItems",
+      "valueType": "integer",
+      "description": "Maximum array item count."
+    },
+    {
+      "id": "uniqueItems",
+      "valueType": "boolean",
+      "description": "Whether repeated canonical array values are prohibited."
+    },
+    {
+      "id": "allowedMimeTypes",
+      "valueType": "array",
+      "description": "Allowed media MIME types."
+    },
+    {
+      "id": "allowedExtensions",
+      "valueType": "array",
+      "description": "Optional file extension allowlist used together with MIME validation."
+    },
+    {
+      "id": "maxFileSizeBytes",
+      "valueType": "integer",
+      "description": "Maximum individual uploaded asset size in bytes."
+    },
+    {
+      "id": "minWidth",
+      "valueType": "integer",
+      "description": "Minimum pixel width for applicable images/video poster assets."
+    },
+    {
+      "id": "maxWidth",
+      "valueType": "integer",
+      "description": "Maximum pixel width for applicable images/video poster assets."
+    },
+    {
+      "id": "minHeight",
+      "valueType": "integer",
+      "description": "Minimum pixel height for applicable images/video poster assets."
+    },
+    {
+      "id": "maxHeight",
+      "valueType": "integer",
+      "description": "Maximum pixel height for applicable images/video poster assets."
+    },
+    {
+      "id": "aspectRatio",
+      "valueType": "string",
+      "description": "Optional required display/media aspect-ratio contract."
+    },
+    {
+      "id": "relationshipTarget",
+      "valueType": "string",
+      "description": "Target canonical entity/contract ID for relation fields."
+    },
+    {
+      "id": "relationshipCardinality",
+      "valueType": "string",
+      "description": "Allowed relation cardinality, normally one or many."
+    },
+    {
+      "id": "customerEditable",
+      "valueType": "boolean",
+      "description": "Whether authorized customer users may edit the field when parent permissions allow it."
+    },
+    {
+      "id": "adminEditable",
+      "valueType": "boolean",
+      "description": "Whether NEXT F Admin may edit the field when parent permissions allow it."
+    },
+    {
+      "id": "searchable",
+      "valueType": "boolean",
+      "description": "Whether the value may participate in supported search indexing."
+    },
+    {
+      "id": "filterable",
+      "valueType": "boolean",
+      "description": "Whether the value may participate in structured filters."
+    },
+    {
+      "id": "sortable",
+      "valueType": "boolean",
+      "description": "Whether the value may be used in deterministic sorting."
+    },
+    {
+      "id": "localizable",
+      "valueType": "boolean",
+      "description": "Whether per-locale values may be defined by a localization-capable parent schema."
+    },
+    {
+      "id": "revisionTracked",
+      "valueType": "boolean",
+      "description": "Whether changes should be retained in parent revision snapshots."
+    },
+    {
+      "id": "conditionalVisibility",
+      "valueType": "object",
+      "description": "Declarative CMS visibility condition. It never changes server-side authorization."
+    },
+    {
+      "id": "width",
+      "valueType": "string",
+      "description": "CMS layout hint such as full, half, third or auto."
+    },
+    {
+      "id": "autocomplete",
+      "valueType": "string",
+      "description": "Browser/editor autocomplete hint where safe and relevant."
+    },
+    {
+      "id": "inputMode",
+      "valueType": "string",
+      "description": "Soft keyboard/input hint. It is not validation."
+    },
+    {
+      "id": "trim",
+      "valueType": "boolean",
+      "description": "Whether leading and trailing Unicode whitespace is removed before validation/storage."
+    },
+    {
+      "id": "normalizeWhitespace",
+      "valueType": "boolean",
+      "description": "Whether supported repeated whitespace normalization is applied."
+    },
+    {
+      "id": "allowEmptyString",
+      "valueType": "boolean",
+      "description": "Whether an empty string is a valid present value after normalization."
+    },
+    {
+      "id": "timezoneMode",
+      "valueType": "string",
+      "description": "Temporal timezone policy, for example utc, site, explicit or none."
+    },
+    {
+      "id": "format",
+      "valueType": "string",
+      "description": "Declared content/editor format where the primitive supports multiple safe formats."
+    },
+    {
+      "id": "language",
+      "valueType": "string",
+      "description": "Language/editor hint where code or rich content requires it."
+    },
+    {
+      "id": "readOnlyReason",
+      "valueType": "string",
+      "description": "Human-readable explanation when a field is not editable."
+    },
+    {
+      "id": "computedFrom",
+      "valueType": "array",
+      "description": "Machine field keys used to derive a read-only value when applicable."
+    },
+    {
+      "id": "accept",
+      "valueType": "array",
+      "description": "UI upload hint. Server-side allowedMimeTypes remains authoritative."
+    },
+    {
+      "id": "allowMultiple",
+      "valueType": "boolean",
+      "description": "Whether a compatible editor may accept multiple references/assets."
+    },
+    {
+      "id": "allowCustomOptions",
+      "valueType": "boolean",
+      "description": "Whether choice/tag values outside the configured canonical options are allowed."
+    },
+    {
+      "id": "caseSensitive",
+      "valueType": "boolean",
+      "description": "Whether textual comparison or uniqueness is case-sensitive when the parent schema uses that behavior."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/performance/performance-rule.schema.json",
+  "title": "NEXT F Performance Rule",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ruleId",
+    "name",
+    "category",
+    "requirement",
+    "applicability",
+    "verificationMethods",
+    "relatedRegistryIds",
+    "version",
+    "status",
+    "phase",
+    "sourceReference"
+  ],
+  "properties": {
+    "ruleId": {
+      "type": "string",
+      "pattern": "^PERF-RULE-[0-9]{3}$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "requirement": {
+      "type": "string"
+    },
+    "applicability": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verificationMethods": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relatedRegistryIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "phase": {
+      "const": 32
+    },
+    "sourceReference": {
+      "type": "string"
+    }
+  }
+}

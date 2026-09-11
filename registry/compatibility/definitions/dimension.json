@@ -1,0 +1,104 @@
+{
+  "$id": "compatibility.dimension",
+  "name": "Compatibility Dimension",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Describes one independently assessed compatibility dimension.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "dimensionId",
+      "required": true,
+      "nullable": false,
+      "description": "Controlled dimension ID.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Compatibility status.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "required",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this dimension blocks overall compatibility.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "summary",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable result.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "evidence",
+      "required": false,
+      "nullable": true,
+      "description": "Non-secret bounded evidence references.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "findingIds",
+      "required": false,
+      "nullable": true,
+      "description": "Related finding IDs.",
+      "primitive": "fields.multiSelect"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.slug",
+      "description": "dimensionId uses fields.slug."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "status uses fields.select."
+    },
+    {
+      "type": "uses",
+      "target": "fields.boolean",
+      "description": "required uses fields.boolean."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "summary uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.json",
+      "description": "evidence uses fields.json."
+    },
+    {
+      "type": "uses",
+      "target": "fields.multiSelect",
+      "description": "findingIds uses fields.multiSelect."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

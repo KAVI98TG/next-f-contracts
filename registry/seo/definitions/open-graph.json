@@ -1,0 +1,170 @@
+{
+  "$id": "seo.openGraph",
+  "name": "Open Graph Metadata",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "social",
+  "description": "Open Graph sharing metadata for a routable target.",
+  "purpose": "Provides provider-neutral social sharing values without hardcoding tags into customer site templates.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "title",
+      "required": false,
+      "nullable": true,
+      "description": "Open Graph title override.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Open Graph description override.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "image",
+      "required": false,
+      "nullable": true,
+      "description": "Open Graph image.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "type",
+      "required": false,
+      "nullable": true,
+      "description": "Open Graph object type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "website",
+            "label": "Website"
+          },
+          {
+            "value": "article",
+            "label": "Article"
+          },
+          {
+            "value": "product",
+            "label": "Product"
+          },
+          {
+            "value": "profile",
+            "label": "Profile"
+          }
+        ],
+        "defaultValue": "website",
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "siteName",
+      "required": false,
+      "nullable": true,
+      "description": "Optional site name override.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 200,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true
+      }
+    },
+    {
+      "key": "locale",
+      "required": false,
+      "nullable": true,
+      "description": "Optional Open Graph locale.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 35,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "Uses canonical media references for social images."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "imagePubliclyResolvable",
+      "description": "Rendered social image must resolve publicly when the target is public."
+    },
+    {
+      "id": "fallbackAllowed",
+      "description": "Null values may fall back to seo.metadata or seo.siteDefaults according to implementation rules."
+    }
+  ],
+  "cms": {
+    "label": "Open Graph Metadata",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "title",
+      "description",
+      "image",
+      "type"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "title": "Example service",
+        "type": "website",
+        "locale": "en_LK"
+      }
+    ],
+    "invalid": [
+      {
+        "title": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      }
+    ]
+  },
+  "notes": []
+}

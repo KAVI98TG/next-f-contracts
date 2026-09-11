@@ -1,0 +1,106 @@
+{
+  "$id": "marketing.referrerContext",
+  "name": "Referrer Context",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "context",
+  "description": "Sanitized referral information associated with a visit or event.",
+  "purpose": "Supports attribution while minimizing leakage from third-party URLs.",
+  "marketingModel": {
+    "kind": "context",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "referrerUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Sanitized referrer URL when policy permits full URL retention.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "referrerHost",
+      "required": false,
+      "nullable": true,
+      "description": "Referrer hostname.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "isExternal",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the referrer belongs to another origin.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "isSearchEngine",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the referrer is classified as a known search engine.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "fullPathPolicy",
+      "description": "External path/query retention follows Tracking Data Policy and defaults to minimized hostname-level storage."
+    },
+    {
+      "id": "selfReferralsExcluded",
+      "description": "Internal navigational referrers must not be misclassified as external acquisition."
+    },
+    {
+      "id": "referrerNotTrustedIdentity",
+      "description": "Referrer data is attribution context, not a trusted identity signal."
+    }
+  ],
+  "cms": {
+    "label": "Referrer Context",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "referrerUrl",
+      "referrerHost",
+      "isExternal",
+      "isSearchEngine"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

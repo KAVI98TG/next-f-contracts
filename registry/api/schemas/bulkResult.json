@@ -1,0 +1,70 @@
+{
+  "$id": "api.bulkResult",
+  "name": "Bulk Result",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "operations",
+  "description": "Per-item results for explicitly supported bounded bulk commands.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "operationId",
+      "required": true,
+      "nullable": false,
+      "description": "operationId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "accepted",
+      "required": true,
+      "nullable": false,
+      "description": "accepted",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "succeeded",
+      "required": true,
+      "nullable": false,
+      "description": "succeeded",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "failed",
+      "required": true,
+      "nullable": false,
+      "description": "failed",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "items",
+      "required": true,
+      "nullable": false,
+      "description": "items",
+      "primitive": "fields.json"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

@@ -1,0 +1,60 @@
+{
+  "$id": "diff.versionRecommendation",
+  "name": "Version Recommendation",
+  "version": "0.26.0",
+  "status": "stable",
+  "domain": "diff",
+  "category": "contract-diff",
+  "description": "Conservative semantic-version recommendation derived from detected change impacts",
+  "purpose": "Conservative semantic-version recommendation derived from detected change impacts",
+  "fields": [
+    {
+      "key": "recommendation",
+      "required": true,
+      "nullable": false,
+      "description": "recommendation",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "reason",
+      "required": true,
+      "nullable": false,
+      "description": "reason",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "breakingCount",
+      "required": true,
+      "nullable": false,
+      "description": "breakingCount",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "potentiallyBreakingCount",
+      "required": true,
+      "nullable": false,
+      "description": "potentiallyBreakingCount",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "reviewRequiredCount",
+      "required": true,
+      "nullable": false,
+      "description": "reviewRequiredCount",
+      "primitive": "fields.integer"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "contractDiffOnly",
+      "description": "Contains contract/release analysis metadata only and never customer runtime data."
+    }
+  ],
+  "cms": {
+    "label": "Version Recommendation",
+    "customerEditable": false,
+    "adminEditable": false,
+    "publicEligible": true
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "$id": "adminUi.profile.commerce.taxes",
+  "name": "Taxes Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "commerce.taxes",
+  "permissionDomain": "commerce",
+  "moduleId": "commerce",
+  "description": "Internal NEXT F Admin metadata for Taxes. Applies only within server-authorized administrative scope.",
+  "route": "/sites/:siteId/commerce/taxes",
+  "screenKind": "admin-settings",
+  "layoutTemplate": "inherited-resource",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "site",
+    "requiresOrganization": false,
+    "requiresSite": true,
+    "allowsCrossTenant": false,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": "cmsUi.profile.commerce.taxes",
+  "inheritanceMode": "reference-not-copy",
+  "targetContracts": [
+    "commerce.taxConfiguration",
+    "commerce.taxRate",
+    "commerce.taxClass"
+  ],
+  "primaryTargetContract": "commerce.taxConfiguration",
+  "permissions": [
+    "commerce.taxes.edit",
+    "commerce.taxes.manage",
+    "commerce.taxes.view"
+  ],
+  "actions": [
+    {
+      "actionId": "edit",
+      "permissionId": "commerce.taxes.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "commerce.taxes.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "commerce.taxes.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions",
+    "customer-ui-reference",
+    "commerce-invariants",
+    "data-governance"
+  ],
+  "controls": [
+    "risk-badge"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": [
+    "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate.",
+    "Administrative permission never bypasses Phase 12 Commerce Rules or transaction invariants."
+  ]
+}

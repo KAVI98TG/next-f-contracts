@@ -1,0 +1,34 @@
+{
+  "controlId": "ACC-TOUCH-001",
+  "name": "Provide usable touch targets",
+  "category": "visual",
+  "requirement": "Frequently used interactive targets must be large and separated enough for reliable touch operation.",
+  "rationale": "Small adjacent targets increase accidental activation.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "navigation",
+    "form",
+    "checkout",
+    "customer-cms",
+    "admin"
+  ],
+  "verificationMethods": [
+    "visual-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_touch_001.json"
+}

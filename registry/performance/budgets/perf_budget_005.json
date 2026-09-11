@@ -1,0 +1,22 @@
+{
+  "budgetId": "PERF-BUDGET-005",
+  "name": "Eager generated fallback bytes",
+  "category": "loading",
+  "scope": "contract-portal",
+  "metric": "portal.eagerGeneratedFallbackBytes",
+  "target": 0,
+  "warningThreshold": 524288,
+  "comparator": "lte",
+  "unit": "bytes",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-import-graph",
+  "environment": "Hosted runtime",
+  "notes": "Normal hosted loading must not parse generated local fallbacks before authoritative JSON fails.",
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_005.json"
+}

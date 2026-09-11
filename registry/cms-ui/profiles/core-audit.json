@@ -1,0 +1,340 @@
+{
+  "$id": "cmsUi.profile.core.audit",
+  "name": "Activity",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "core.audit",
+  "moduleId": "core",
+  "description": "Customer CMS presentation metadata for Activity within authorized Site scope.",
+  "targetContracts": [
+    "core.auditRecord"
+  ],
+  "primaryTargetContract": "core.auditRecord",
+  "route": "/activity",
+  "screenKind": "report",
+  "layoutTemplate": "operational-detail",
+  "responsivePolicy": "operational",
+  "fieldBindings": [
+    {
+      "field": "id",
+      "label": "ID",
+      "description": "Opaque audit record ID.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "minLength": 4,
+        "maxLength": 128
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "occurredAt",
+      "label": "Occurred At",
+      "description": "Authoritative event timestamp.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 20,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "actor",
+      "label": "Actor",
+      "description": "Actor responsible for the action.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 30,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.actorReference",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "action",
+      "label": "Action",
+      "description": "Stable auditable action identifier.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "minLength": 3,
+        "maxLength": 160
+      },
+      "searchable": true,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "entity",
+      "label": "Entity",
+      "description": "Affected entity when applicable.",
+      "editorId": "nested-object",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": false,
+      "customerEditable": true,
+      "adminEditable": null,
+      "width": "full",
+      "sourceFieldType": "core.entityReference",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "summary",
+      "label": "Summary",
+      "description": "Human-readable non-secret action summary.",
+      "editorId": "read-only",
+      "group": "content",
+      "zone": "main",
+      "order": 60,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "full",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 300
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "before",
+      "label": "Before",
+      "description": "Minimized before-state data permitted by the affected contract.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.json",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "after",
+      "label": "After",
+      "description": "Minimized after-state data permitted by the affected contract.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 80,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.json",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "requestId",
+      "label": "Request ID",
+      "description": "Request correlation ID when available.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 90,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 128
+      },
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "metadata",
+      "label": "Metadata",
+      "description": "Non-secret structured diagnostic metadata.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 100,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.json",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "summary",
+        "label": "Summary",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "occurredAt",
+        "label": "Occurred At",
+        "rendererId": "date-time",
+        "order": 20,
+        "mobilePriority": "high"
+      }
+    ],
+    "search": true,
+    "filters": [
+      {
+        "field": "action",
+        "label": "Action"
+      }
+    ],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [
+      {
+        "field": "occurredAt",
+        "label": "Occurred At"
+      }
+    ],
+    "searchFields": [
+      "action",
+      "summary"
+    ]
+  },
+  "actions": [
+    {
+      "actionId": "export",
+      "permissionId": "core.audit.export",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "core.audit.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "core.audit.export",
+    "core.audit.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": false,
+    "warnOnLeave": false,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "primaryEditorId": "audit-timeline",
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/activity",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "core.audit.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "detail",
+      "route": "/activity/:id",
+      "layoutTemplate": "operational-detail",
+      "requiresPermission": "core.audit.view",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

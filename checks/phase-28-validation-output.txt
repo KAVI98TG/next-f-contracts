@@ -1,0 +1,19 @@
+
+> next-f-contracts@0.29.0 validate:phase28
+> node scripts/validate-phase-28.mjs
+
+NEXT F Contracts Phase 28 validation
+Version: 0.29.0
+Passes: 7759
+Failures: 0
+Deprecation records: 0
+Active deprecations: 0
+Removed records: 0
+Lifecycle states: 5
+Registry items: 1875
+Search documents: 6713
+Relationship nodes: 1875
+Relationship edges: 6752
+JSON files checked: 1766
+
+PASS - Deprecation System satisfies the Phase 28 acceptance model.

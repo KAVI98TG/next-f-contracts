@@ -1,0 +1,133 @@
+{
+  "$id": "integrations.integrationError",
+  "name": "Integration Error",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "health",
+  "description": "Normalized safe error produced by a connector.",
+  "purpose": "Prevents provider-specific raw errors from leaking while preserving actionable diagnostics.",
+  "integrationModel": {
+    "kind": "error",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "code",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical safe error code.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "category",
+      "required": true,
+      "nullable": false,
+      "description": "Error category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "authentication",
+          "authorization",
+          "configuration",
+          "validation",
+          "rate-limit",
+          "provider",
+          "network",
+          "timeout",
+          "mapping",
+          "consent",
+          "unknown"
+        ]
+      }
+    },
+    {
+      "key": "message",
+      "required": true,
+      "nullable": false,
+      "description": "Safe message.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "retryable",
+      "required": true,
+      "nullable": false,
+      "description": "Whether retry may succeed.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "providerCode",
+      "required": false,
+      "nullable": true,
+      "description": "Non-sensitive provider error code.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "occurredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Occurrence time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "requestId",
+      "required": false,
+      "nullable": true,
+      "description": "NEXT F request/trace ID.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Error cannot contain credentials/auth headers."
+    },
+    {
+      "id": "noRawPersonalPayload",
+      "description": "Error cannot embed raw personal provider request/response."
+    },
+    {
+      "id": "stackTracePrivate",
+      "description": "Internal stack traces are not customer/public error fields."
+    }
+  ],
+  "cms": {
+    "label": "Integration Error",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "code",
+      "category",
+      "message",
+      "retryable"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

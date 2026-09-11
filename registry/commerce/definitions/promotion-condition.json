@@ -1,0 +1,108 @@
+{
+  "$id": "commerce.promotionCondition",
+  "name": "Promotion Condition",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "promotions",
+  "description": "Structured Promotion eligibility condition.",
+  "purpose": "Supports merchant promotions without arbitrary executable expressions.",
+  "commerceModel": {
+    "kind": "embedded",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Condition type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "minimum-subtotal",
+          "minimum-quantity",
+          "product-in",
+          "category-in",
+          "collection-in",
+          "customer-segment",
+          "first-order",
+          "sales-channel",
+          "date-window"
+        ]
+      }
+    },
+    {
+      "key": "operator",
+      "required": true,
+      "nullable": false,
+      "description": "Comparison operator.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "equals",
+          "greater-than-or-equal",
+          "less-than-or-equal",
+          "contains-any",
+          "contains-all",
+          "in"
+        ]
+      }
+    },
+    {
+      "key": "value",
+      "required": true,
+      "nullable": false,
+      "description": "Condition value.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "allowlisted",
+      "description": "Only registered condition/operator combinations may execute."
+    }
+  ],
+  "cms": {
+    "label": "Promotion Condition",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "type",
+      "operator",
+      "value"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

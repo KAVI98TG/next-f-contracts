@@ -1,0 +1,28 @@
+{
+  "$id": "platform.roles.edit",
+  "name": "Edit Roles",
+  "permissionId": "platform.roles.edit",
+  "domain": "platform",
+  "resource": "roles",
+  "action": "edit",
+  "scopeKind": "platform",
+  "riskLevel": "privileged",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Edit Roles within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

@@ -1,0 +1,74 @@
+{
+  "$id": "api.commerce.start-checkout",
+  "operationId": "api.commerce.start-checkout",
+  "name": "Start Checkout",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.commerce",
+  "method": "POST",
+  "path": "/checkouts",
+  "description": "Start Checkout",
+  "authentication": {
+    "mode": "anonymous-or-commerce-customer",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "commerce.checkout",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "inventory_conflict",
+      "invariant_violation",
+      "module_disabled"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "commerce-checkout",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "commerce"
+  ],
+  "contractBindings": [
+    "commerce.checkout",
+    "commerce.cart"
+  ],
+  "eventBindings": [
+    "checkout.started"
+  ],
+  "publicSurface": true,
+  "privacy": "personal",
+  "notes": []
+}

@@ -1,0 +1,109 @@
+{
+  "$id": "integrations.webhook",
+  "name": "Webhook",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "generic-webhook",
+  "family": "webhook",
+  "description": "Generic outbound webhook adapter. Full webhook platform contracts remain Phase 14 authority.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "nextf-server",
+    "webhook-adapter"
+  ],
+  "capabilities": [
+    "webhook.dispatch"
+  ],
+  "authentication": {
+    "type": "configurable",
+    "supported": [
+      "none",
+      "bearer",
+      "api-key",
+      "signed"
+    ]
+  },
+  "configurationFields": [
+    {
+      "key": "endpointUrl",
+      "label": "Endpoint URL",
+      "primitive": "fields.url",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "HTTPS endpoint.",
+      "validation": {
+        "scheme": "https"
+      }
+    },
+    {
+      "key": "authProfileRef",
+      "label": "Authentication Profile",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": false,
+      "helpText": "Authentication Profile",
+      "validation": {}
+    },
+    {
+      "key": "signingSecretRef",
+      "label": "Signing Secret Reference",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": true,
+      "customerEditable": false,
+      "helpText": "Signing Secret Reference",
+      "validation": {}
+    },
+    {
+      "key": "timeoutSeconds",
+      "label": "Timeout Seconds",
+      "primitive": "fields.integer",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Bounded request timeout.",
+      "validation": {
+        "minimum": 1,
+        "maximum": 30
+      }
+    }
+  ],
+  "consent": {
+    "categories": [],
+    "mode": "event-specific"
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [
+    "Phase 10 does not define final webhook signing/retry/subscription semantics.",
+    "Outbound requests must enforce SSRF protections and must not resolve to loopback, link-local, metadata-service or private network targets unless an explicitly trusted NEXT F policy allows that destination.",
+    "HTTP redirects must not escape the validated destination policy."
+  ],
+  "aliases": [
+    "Webhook"
+  ]
+}

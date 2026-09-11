@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.migrationPresentation",
+  "name": "Migration Presentation",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines dry-run, compatibility, execution and rollback UI metadata.",
+  "purpose": "Defines dry-run, compatibility, execution and rollback UI metadata.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

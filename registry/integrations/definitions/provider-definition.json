@@ -1,0 +1,134 @@
+{
+  "$id": "integrations.providerDefinition",
+  "name": "Provider Definition",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "foundation",
+  "description": "Provider-neutral identity and ownership metadata for an external service provider.",
+  "purpose": "Gives connectors a stable provider identity without embedding provider assumptions throughout Sites.",
+  "integrationModel": {
+    "kind": "provider",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "providerKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable provider key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "displayName",
+      "required": true,
+      "nullable": false,
+      "description": "Human provider name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "family",
+      "required": true,
+      "nullable": false,
+      "description": "Provider family.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "analytics",
+          "advertising",
+          "search",
+          "tag-manager",
+          "crm",
+          "email",
+          "webhook",
+          "api",
+          "other"
+        ]
+      }
+    },
+    {
+      "key": "accountOwnership",
+      "required": true,
+      "nullable": false,
+      "description": "Normal account ownership model.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "customer",
+          "nextf",
+          "external-party"
+        ]
+      }
+    },
+    {
+      "key": "documentationUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Provider documentation URL.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether new connections may use this provider.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "customerOwnershipDefault",
+      "description": "Customer Organization is the default external account owner."
+    },
+    {
+      "id": "noCredentials",
+      "description": "Provider definitions never contain credentials."
+    },
+    {
+      "id": "stableProviderKey",
+      "description": "Provider keys are stable machine identifiers."
+    }
+  ],
+  "cms": {
+    "label": "Provider Definition",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "providerKey",
+      "displayName",
+      "family",
+      "accountOwnership"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

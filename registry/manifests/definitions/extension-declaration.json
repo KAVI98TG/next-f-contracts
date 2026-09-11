@@ -1,0 +1,111 @@
+{
+  "$id": "manifest.extensionDeclaration",
+  "name": "Site Extension Declaration",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "extensions",
+  "description": "Declares one explicit Site-specific contract extension not yet covered by canonical NEXT F Contracts.",
+  "purpose": "Prevents customer-specific needs from silently mutating canonical schemas and gives Codex a documented extension path.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "extensionId",
+      "required": true,
+      "nullable": false,
+      "description": "Namespaced extension contract identifier.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^extension\\\\.[a-z][a-z0-9-]*\\\\.[a-z][a-z0-9.-]*$",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "version",
+      "required": true,
+      "nullable": false,
+      "description": "Exact extension semantic version.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^\\\\d+\\\\.\\\\d+\\\\.\\\\d+$",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "Repository-relative source file for the extension definition.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^(?!/)(?!.*\\\\.\\\\.)[A-Za-z0-9._/-]+\\\\.(json|md)$",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "reason",
+      "required": true,
+      "nullable": false,
+      "description": "Why a canonical contract cannot satisfy the requirement.",
+      "primitive": "fields.textarea",
+      "config": {
+        "minLength": 10,
+        "maxLength": 2000,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "promotionCandidate",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the extension should be considered for future canonical registry inclusion.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "extensionsNamespaced",
+      "description": "Every Site-specific extension ID must use extension.<siteNamespace>.<name>."
+    },
+    {
+      "id": "extensionsDoNotOverrideCanonical",
+      "description": "An extension cannot replace, rename or change the meaning of a canonical NEXT F contract."
+    },
+    {
+      "id": "extensionSourceMustExist",
+      "description": "The declared repository-relative extension source must exist in the customer project when validation tooling is available."
+    }
+  ],
+  "cms": {
+    "label": "Site Extension Declaration",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "extensionId",
+      "version",
+      "source",
+      "reason"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

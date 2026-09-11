@@ -1,0 +1,45 @@
+{
+  "registryVersion": "0.7.0",
+  "categories": [
+    {
+      "id": "text",
+      "label": "Text and Content",
+      "description": "String-oriented fields for human-readable content and structured text."
+    },
+    {
+      "id": "numeric",
+      "label": "Numeric",
+      "description": "Integer, decimal, monetary and percentage values."
+    },
+    {
+      "id": "temporal",
+      "label": "Date and Time",
+      "description": "Date, time and timezone-aware timestamp values."
+    },
+    {
+      "id": "choice",
+      "label": "Choice and Taxonomy",
+      "description": "Single or multiple choices and tag-style values."
+    },
+    {
+      "id": "relationship",
+      "label": "Relationships",
+      "description": "References from one contract entity to another."
+    },
+    {
+      "id": "media",
+      "label": "Media and Files",
+      "description": "Media asset and document reference fields."
+    },
+    {
+      "id": "location",
+      "label": "Location",
+      "description": "Coordinates, addresses and structured location values."
+    },
+    {
+      "id": "system",
+      "label": "System",
+      "description": "Non-standard editing fields used for hidden, derived or read-only values."
+    }
+  ]
+}

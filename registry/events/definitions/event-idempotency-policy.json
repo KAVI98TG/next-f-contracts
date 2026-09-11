@@ -1,0 +1,101 @@
+{
+  "$id": "events.eventIdempotencyPolicy",
+  "name": "Event Idempotency Policy",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Defines duplicate-event and repeated-command behavior.",
+  "purpose": "Defines duplicate-event and repeated-command behavior.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "dedupeKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical duplicate key.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "eventId",
+          "eventId+eventVersion"
+        ]
+      }
+    },
+    {
+      "key": "repeatCommandBehavior",
+      "required": true,
+      "nullable": false,
+      "description": "Expected behavior when an idempotent command is replayed.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "reuse-original-outcome",
+          "no-new-semantic-event",
+          "implementation-specific-documented"
+        ]
+      }
+    },
+    {
+      "key": "consumerIdempotencyRequired",
+      "required": true,
+      "nullable": false,
+      "description": "Whether consumers must safely ignore duplicate delivery.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "eventIdUnique",
+      "description": "eventId identifies one semantic occurrence and must be globally unique."
+    },
+    {
+      "id": "replayNoDuplicateFact",
+      "description": "A replayed idempotent command must not create a second semantic fact event."
+    }
+  ],
+  "cms": {
+    "label": "Event Idempotency Policy",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "dedupeKey",
+      "repeatCommandBehavior",
+      "consumerIdempotencyRequired"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

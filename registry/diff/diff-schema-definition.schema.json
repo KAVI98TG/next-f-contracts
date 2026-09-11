@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/schemas/diff-schema-definition.schema.json",
+  "title": "NEXT F Diff Support Schema Definition",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "description",
+    "fields"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^diff\\."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "domain": {
+      "const": "diff"
+    },
+    "description": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,132 @@
+{
+  "$id": "commerce.package",
+  "name": "Fulfillment Package",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "fulfillment",
+  "description": "Physical package information for a shipment.",
+  "purpose": "Supports multi-package fulfillment without mixing package measurements into product catalog definitions.",
+  "commerceModel": {
+    "kind": "snapshot",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "packageId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable package ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "label",
+      "required": false,
+      "nullable": true,
+      "description": "Optional package label.",
+      "itemsPrimitive": "fields.text"
+    },
+    {
+      "key": "weight",
+      "required": false,
+      "nullable": true,
+      "description": "Package weight in configured store unit.",
+      "itemsPrimitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "length",
+      "required": false,
+      "nullable": true,
+      "description": "Package length.",
+      "itemsPrimitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "width",
+      "required": false,
+      "nullable": true,
+      "description": "Package width.",
+      "itemsPrimitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "height",
+      "required": false,
+      "nullable": true,
+      "description": "Package height.",
+      "itemsPrimitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "trackingReferenceId",
+      "required": false,
+      "nullable": true,
+      "description": "Related tracking reference when applicable.",
+      "itemsPrimitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.trackingReference",
+      "description": "References commerce.trackingReference."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "nonNegativeDimensions",
+      "description": "Package measurements cannot be negative."
+    }
+  ],
+  "cms": {
+    "label": "Fulfillment Package",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "packageId",
+      "label",
+      "weight",
+      "length"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

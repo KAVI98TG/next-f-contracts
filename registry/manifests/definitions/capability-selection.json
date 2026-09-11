@@ -1,0 +1,74 @@
+{
+  "$id": "manifest.capabilitySelection",
+  "name": "Capability Selection",
+  "version": "0.18.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "capability-runtime",
+  "description": "Declares one module-scoped capability requested by the Site.",
+  "purpose": "Provides a stable manifest shape before Phase 17 publishes the canonical Module/Capability Registry.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "capabilityId",
+      "required": true,
+      "nullable": false,
+      "description": "Module-prefixed capability ID.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^[a-z][a-z0-9-]*\\\\.[a-z][a-z0-9-]*$",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the Site requests the capability.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "validatedBy",
+      "target": "modules.index",
+      "description": "Phase 17 Module Registry is authoritative for module/capability existence and dependencies."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "capabilityRegistryAuthoritative",
+      "description": "Module and capability IDs must exist in the Phase 17 Module Registry and satisfy dependency/ownership rules."
+    },
+    {
+      "id": "unknownCapabilityRejectedWhenRegistryAvailable",
+      "description": "Once the Module Registry is authoritative, undeclared capabilities must fail manifest validation."
+    }
+  ],
+  "cms": {
+    "label": "Capability Selection",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "capabilityId",
+      "enabled"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

@@ -1,0 +1,163 @@
+{
+  "$id": "commerce.shippingMethod",
+  "name": "Shipping Method",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "fulfillment",
+  "description": "Customer-facing Shipping Method.",
+  "purpose": "Separates shipping configuration from Fulfillment and Shipment execution.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Customer-facing method name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional description.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "zoneIds",
+      "required": false,
+      "nullable": true,
+      "description": "Eligible Shipping Zone IDs.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "uniqueItems": true
+      }
+    },
+    {
+      "key": "rateIds",
+      "required": false,
+      "nullable": true,
+      "description": "Shipping Rate IDs.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "uniqueItems": true
+      }
+    },
+    {
+      "key": "estimatedMinDays",
+      "required": false,
+      "nullable": true,
+      "description": "Optional minimum delivery days.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "estimatedMaxDays",
+      "required": false,
+      "nullable": true,
+      "description": "Optional maximum delivery days.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether method is active.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "deliveryEstimate",
+      "required": false,
+      "nullable": true,
+      "description": "Default delivery estimate.",
+      "schema": "commerce.deliveryEstimate"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.shippingZone",
+      "description": "References commerce.shippingZone."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.shippingRate",
+      "description": "References commerce.shippingRate."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.deliveryEstimate",
+      "description": "References commerce.deliveryEstimate."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "estimateNotGuarantee",
+      "description": "Delivery estimates are not guarantees unless separately committed."
+    }
+  ],
+  "cms": {
+    "label": "Shipping Method",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "name",
+      "description"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly public storefront fields may be delivered; operational, personal, payment and internal metadata remain private."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

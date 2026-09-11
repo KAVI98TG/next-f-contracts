@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.pages.legal-pages",
+  "capabilityId": "pages.legal-pages",
+  "name": "Legal Pages",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "pages",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Legal Pages capability within the Pages module.",
+  "contractBindings": [
+    "content.legalPage"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

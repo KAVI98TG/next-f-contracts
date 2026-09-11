@@ -1,0 +1,42 @@
+{
+  "phase": 28,
+  "version": "0.29.0",
+  "status": "PASS",
+  "release": "Deprecation System",
+  "registryItems": 1875,
+  "registrySha256": "78bb0e8762b2fcd03ce1732c24747ada61d2ca9ce5faf8a5546da3b4fb55c985",
+  "deprecationRecords": 0,
+  "activeDeprecations": 0,
+  "removedRecords": 0,
+  "upcomingRemovals": 0,
+  "lifecycleStates": 5,
+  "changelogReleases": 29,
+  "changelogEntries": 529,
+  "currentReleaseEntries": 7,
+  "diffExactReleases": 24,
+  "compatibilityReleases": 29,
+  "searchDocuments": 6713,
+  "relationshipNodes": 1875,
+  "relationshipEdges": 6752,
+  "validation": {
+    "phase28": {
+      "passes": 7759,
+      "failures": 0
+    },
+    "smoke": {
+      "passes": 23,
+      "failures": 0
+    },
+    "regression": {
+      "passes": 2081,
+      "failures": 0
+    }
+  },
+  "productionEligible": false,
+  "notes": [
+    "No canonical Registry item is currently deprecated or removed; the authoritative deprecation record set is intentionally empty.",
+    "No historical deprecation or removal was fabricated.",
+    "Existing Sites remain pinned and are never auto-upgraded by the Deprecation System.",
+    "Phase 29 Security Standards has not been started."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "controlId": "ACC-FILTER-001",
+  "name": "Accessible filters",
+  "category": "navigation",
+  "requirement": "Search and filter controls must have labels, keyboard operation, deterministic state, clear/reset behavior and a discoverable result count.",
+  "rationale": "Filters are core navigation tools in management and technical interfaces.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "filter"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "keyboard-manual",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [
+    "cmsUi.filter"
+  ],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_filter_001.json"
+}

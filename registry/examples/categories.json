@@ -1,0 +1,30 @@
+{
+  "registryVersion": "0.23.0",
+  "categories": [
+    {
+      "id": "business",
+      "label": "Business Websites",
+      "description": "Corporate and service-led customer websites."
+    },
+    {
+      "id": "growth",
+      "label": "Growth & Lead Generation",
+      "description": "Conversion and lead-generation architecture."
+    },
+    {
+      "id": "commerce",
+      "label": "Commerce",
+      "description": "Transactional ecommerce architecture."
+    },
+    {
+      "id": "knowledge",
+      "label": "Knowledge & Documentation",
+      "description": "Documentation and self-service knowledge architecture."
+    },
+    {
+      "id": "extension",
+      "label": "Custom Extensions",
+      "description": "Controlled Site-specific extension architecture."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.commerce.variants",
+  "capabilityId": "commerce.variants",
+  "name": "Variants",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Variants capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.productVariant",
+    "commerce.productOption"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

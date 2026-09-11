@@ -1,0 +1,29 @@
+{
+  "$id": "commerce.orders.manage",
+  "name": "Manage Orders",
+  "permissionId": "commerce.orders.manage",
+  "domain": "commerce",
+  "resource": "orders",
+  "action": "manage",
+  "scopeKind": "site",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage Orders within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

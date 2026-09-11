@@ -1,0 +1,177 @@
+{
+  "$id": "marketing.dispatchRequest",
+  "name": "Marketing Dispatch Request",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "destination",
+  "description": "Sanitized internal request to deliver one observation to a logical destination.",
+  "purpose": "Separates collection from delivery and records consent/data-policy decision point.",
+  "marketingModel": {
+    "kind": "operational",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "dispatchId",
+      "required": true,
+      "nullable": false,
+      "description": "Unique dispatch ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "destinationKey",
+      "required": true,
+      "nullable": false,
+      "description": "Target logical destination.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "sourceType",
+      "required": true,
+      "nullable": false,
+      "description": "Source family.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "trackingEvent",
+            "label": "Tracking Event"
+          },
+          {
+            "value": "conversion",
+            "label": "Conversion"
+          }
+        ]
+      }
+    },
+    {
+      "key": "sourceId",
+      "required": true,
+      "nullable": false,
+      "description": "Tracking/conversion occurrence ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "requestedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Request time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "consentStateId",
+      "required": false,
+      "nullable": true,
+      "description": "Consent state ID used for eligibility.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "sanitizedPayload",
+      "required": true,
+      "nullable": false,
+      "description": "Allowlisted provider-neutral payload.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "idempotencyKey",
+      "required": true,
+      "nullable": false,
+      "description": "Retry-safe idempotency key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "marketing.marketingDestination",
+      "description": "Targets destination."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.consentState",
+      "description": "May reference consent state."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.trackingEvent",
+      "description": "May dispatch tracking event."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.conversionOccurrence",
+      "description": "May dispatch conversion."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "payloadSanitizedBeforeQueue",
+      "description": "Sanitize before queueing."
+    },
+    {
+      "id": "consentRequiredWhenApplicable",
+      "description": "Optional dispatch prohibited without required consent."
+    },
+    {
+      "id": "idempotencyRequired",
+      "description": "Retries reuse idempotency key."
+    },
+    {
+      "id": "noCredentialsInPayload",
+      "description": "Connector credentials never in payload."
+    }
+  ],
+  "cms": {
+    "label": "Marketing Dispatch Request",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "dispatchId",
+      "destinationKey",
+      "sourceType",
+      "sourceId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

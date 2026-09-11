@@ -1,0 +1,83 @@
+{
+  "$id": "commerce.quantity",
+  "name": "Quantity",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "foundation",
+  "description": "Reusable quantity value.",
+  "purpose": "Supports whole-unit and measured products.",
+  "commerceModel": {
+    "kind": "value-object",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "value",
+      "required": true,
+      "nullable": false,
+      "description": "Quantity value.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0,
+        "precision": 4
+      }
+    },
+    {
+      "key": "unit",
+      "required": false,
+      "nullable": true,
+      "description": "Optional measured-unit key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "nonNegative",
+      "description": "Generic quantities are non-negative."
+    }
+  ],
+  "cms": {
+    "label": "Quantity",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "value",
+      "unit"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,144 @@
+{
+  "$id": "commerce.productAttributeDefinition",
+  "name": "Product Attribute Definition",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "catalog",
+  "description": "Typed descriptive/filterable Product attribute definition.",
+  "purpose": "Separates Product characteristics from variant-generating options.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable attribute key.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Display label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "valueType",
+      "required": true,
+      "nullable": false,
+      "description": "Value type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "text",
+          "number",
+          "boolean",
+          "select",
+          "multi-select"
+        ]
+      }
+    },
+    {
+      "key": "options",
+      "required": false,
+      "nullable": true,
+      "description": "Allowed select values.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "uniqueItems": true
+      }
+    },
+    {
+      "key": "filterable",
+      "required": true,
+      "nullable": false,
+      "description": "Whether storefront filters may use it.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "searchable",
+      "required": true,
+      "nullable": false,
+      "description": "Whether storefront search may index it.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "visible",
+      "required": true,
+      "nullable": false,
+      "description": "Whether it may be displayed.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "keyUnique",
+      "description": "Attribute key is unique within the Site."
+    },
+    {
+      "id": "selectOptions",
+      "description": "Select types require allowed options."
+    }
+  ],
+  "cms": {
+    "label": "Product Attribute Definition",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "key",
+      "name"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly public storefront fields may be delivered; operational, personal, payment and internal metadata remain private."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

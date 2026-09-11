@@ -1,0 +1,95 @@
+{
+  "$id": "events.eventSource",
+  "name": "Event Source",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Origin classification distinguishing NEXT F authoritative facts from validated provider-originated input.",
+  "purpose": "Origin classification distinguishing NEXT F authoritative facts from validated provider-originated input.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "kind",
+      "required": true,
+      "nullable": false,
+      "description": "Origin kind.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "nextf-domain",
+          "validated-provider-callback",
+          "migration",
+          "administrative-repair"
+        ]
+      }
+    },
+    {
+      "key": "provider",
+      "required": false,
+      "nullable": true,
+      "description": "Optional external provider key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "externalReference",
+      "required": false,
+      "nullable": true,
+      "description": "Optional safe provider reference.",
+      "schema": "shared.externalReference"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "shared.externalReference",
+      "description": "Provider-originated facts may preserve a safe external reference."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "providerNotAuthority",
+      "description": "Provider callbacks become canonical events only after validation and domain reconciliation."
+    }
+  ],
+  "cms": {
+    "label": "Event Source",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "kind",
+      "provider",
+      "externalReference"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

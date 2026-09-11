@@ -1,0 +1,93 @@
+{
+  "$id": "webhooks.payloadPolicy",
+  "name": "Webhook Payload Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "payload",
+  "description": "Canonical serialization, size and enrichment rules for outbound webhook bodies.",
+  "purpose": "Prevents uncontrolled data enrichment, compression ambiguity and oversized deliveries.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "contentType",
+      "required": true,
+      "nullable": false,
+      "description": "HTTP media type.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "encoding",
+      "required": true,
+      "nullable": false,
+      "description": "Character encoding.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "contentEncoding",
+      "required": true,
+      "nullable": false,
+      "description": "HTTP content encoding.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "maximumBytes",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum serialized request body bytes.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "allowEntitySnapshotEnrichment",
+      "required": true,
+      "nullable": false,
+      "description": "Whether arbitrary current entity snapshots can be appended.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "canonicalDefaults",
+      "description": "Default is application/json; charset=utf-8, UTF-8, identity encoding and 262144 bytes."
+    },
+    {
+      "id": "noArbitrarySnapshot",
+      "description": "Unrestricted entity snapshot enrichment is prohibited."
+    },
+    {
+      "id": "signExactBytes",
+      "description": "Signature is calculated over the exact serialized raw body bytes sent on the wire."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Payload Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "contentType",
+      "encoding",
+      "contentEncoding",
+      "maximumBytes"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

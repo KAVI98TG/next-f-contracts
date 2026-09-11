@@ -1,0 +1,215 @@
+{
+  "$id": "content.author",
+  "name": "Author",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "blog",
+  "description": "Public editorial author profile referenced by blog and documentation content.",
+  "purpose": "Prevents author identity and biography data from being duplicated across individual posts and documentation articles.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "optional",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "displayName",
+      "required": true,
+      "nullable": false,
+      "description": "Public author name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "sortable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": false,
+      "nullable": true,
+      "description": "Optional public author archive/profile slug.",
+      "primitive": "fields.slug",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "position",
+      "required": false,
+      "nullable": true,
+      "description": "Optional professional role or title.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "photo",
+      "required": false,
+      "nullable": true,
+      "description": "Optional author photo.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "bio",
+      "required": false,
+      "nullable": true,
+      "description": "Structured author biography.",
+      "primitive": "fields.richText",
+      "config": {
+        "maxLength": 12000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "contact",
+      "required": false,
+      "nullable": true,
+      "description": "Optional public contact details where explicitly intended.",
+      "schema": "shared.contactPoint"
+    },
+    {
+      "key": "website",
+      "required": false,
+      "nullable": true,
+      "description": "Optional author website/profile link.",
+      "schema": "shared.link"
+    },
+    {
+      "key": "socialLinks",
+      "required": false,
+      "nullable": true,
+      "description": "Optional ordered list of public social links; each item must validate as shared.link.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "array",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "Authors may use a photo."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.contactPoint",
+      "description": "Authors may expose approved public contact data."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.link",
+      "description": "Author website/social destinations use shared link semantics."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "socialLinksValidate",
+      "description": "Every socialLinks item must validate against shared.link."
+    },
+    {
+      "id": "contactPublicIntentRequired",
+      "description": "Contact fields included in public author data must be explicitly intended for public display."
+    },
+    {
+      "id": "slugUniqueWhenRoutable",
+      "description": "When author profile routes are enabled, slug must be unique within the Site."
+    }
+  ],
+  "cms": {
+    "label": "Author",
+    "icon": "fa-user-pen",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "displayName",
+      "position",
+      "publishing"
+    ],
+    "editorMode": "full-page-editor",
+    "primaryActions": [
+      "saveDraft",
+      "preview",
+      "publish"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published author profiles may be included with public editorial content."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "displayName": "Editorial Team",
+        "position": "Content Team"
+      }
+    ],
+    "invalid": [
+      {
+        "displayName": ""
+      }
+    ]
+  },
+  "notes": []
+}

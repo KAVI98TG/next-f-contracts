@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.integrations.linkedin",
+  "capabilityId": "integrations.linkedin",
+  "name": "LinkedIn",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "integrations",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "LinkedIn capability within the Integrations module.",
+  "contractBindings": [
+    "integrations.linkedin"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

@@ -1,0 +1,28 @@
+{
+  "$id": "platform.diagnostics.manage",
+  "name": "Manage Diagnostics",
+  "permissionId": "platform.diagnostics.manage",
+  "domain": "platform",
+  "resource": "diagnostics",
+  "action": "manage",
+  "scopeKind": "platform",
+  "riskLevel": "privileged",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage Diagnostics within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

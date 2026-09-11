@@ -1,0 +1,35 @@
+{
+  "$id": "modules.capability.commerce.shipping",
+  "capabilityId": "commerce.shipping",
+  "name": "Shipping",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Shipping capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.shippingZone",
+    "commerce.shippingMethod"
+  ],
+  "permissionBindings": [
+    "commerce.shipping.create",
+    "commerce.shipping.delete",
+    "commerce.shipping.edit",
+    "commerce.shipping.manage",
+    "commerce.shipping.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

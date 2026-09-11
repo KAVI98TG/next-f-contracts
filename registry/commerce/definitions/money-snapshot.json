@@ -1,0 +1,82 @@
+{
+  "$id": "commerce.moneySnapshot",
+  "name": "Money Snapshot",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "foundation",
+  "description": "Amount plus currency snapshot.",
+  "purpose": "Prevents transaction values from depending on mutable Site defaults.",
+  "commerceModel": {
+    "kind": "value-object",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "amount",
+      "required": true,
+      "nullable": false,
+      "description": "Monetary amount.",
+      "primitive": "fields.decimal",
+      "config": {
+        "precision": 2
+      }
+    },
+    {
+      "key": "currency",
+      "required": true,
+      "nullable": false,
+      "description": "Currency code.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^[A-Z]{3}$"
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "currencyExplicit",
+      "description": "Every monetary snapshot includes currency."
+    }
+  ],
+  "cms": {
+    "label": "Money Snapshot",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "amount",
+      "currency"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,122 @@
+{
+  "$id": "webhooks.deadLetter",
+  "name": "Webhook Dead Letter",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "resilience",
+  "description": "Terminal record for a delivery that cannot be completed within permitted retry/defer policy.",
+  "purpose": "Preserves bounded operational evidence and enables controlled manual diagnosis/redelivery.",
+  "webhookModel": {
+    "kind": "entity",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "deadLetterId",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque dead-letter record ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "deliveryId",
+      "required": true,
+      "nullable": false,
+      "description": "Logical Delivery ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "reasonCode",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical reason.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "lastFailure",
+      "required": true,
+      "nullable": false,
+      "description": "Final failure summary.",
+      "schema": "webhooks.deliveryFailure"
+    },
+    {
+      "key": "deadLetteredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Transition timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "expiresAt",
+      "required": true,
+      "nullable": false,
+      "description": "Metadata retention expiry.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "redeliveryEligibleUntil",
+      "required": false,
+      "nullable": true,
+      "description": "Manual redelivery eligibility cutoff.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "webhooks.delivery",
+      "description": "References webhooks.delivery."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.deliveryFailure",
+      "description": "References webhooks.deliveryFailure."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "terminalMetadata",
+      "description": "Dead-lettering ends automatic retry processing for the Delivery."
+    },
+    {
+      "id": "defaultRetention",
+      "description": "Dead-letter metadata is retained for 30 days by default."
+    },
+    {
+      "id": "redeliveryWindow",
+      "description": "Manual redelivery is permitted only inside the configured window, default 7 days after terminal outcome."
+    },
+    {
+      "id": "noPayloadForever",
+      "description": "Dead-letter status does not extend exact payload retention indefinitely."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Dead Letter",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "deadLetterId",
+      "deliveryId",
+      "reasonCode",
+      "lastFailure"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

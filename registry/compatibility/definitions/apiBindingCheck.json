@@ -1,0 +1,84 @@
+{
+  "$id": "compatibility.apiBindingCheck",
+  "name": "API Binding Compatibility Check",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Result for one exact Site API binding.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "groupId",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical API group.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "requestedVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Exact requested API version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "availableVersion",
+      "required": false,
+      "nullable": true,
+      "description": "Registry API version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Compatibility result.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "contractVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Contract target.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "message",
+      "required": true,
+      "nullable": false,
+      "description": "Result message.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "groupId uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "status uses fields.select."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

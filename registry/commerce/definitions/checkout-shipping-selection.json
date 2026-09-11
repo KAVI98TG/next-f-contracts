@@ -1,0 +1,103 @@
+{
+  "$id": "commerce.checkoutShippingSelection",
+  "name": "Checkout Shipping Selection",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "cart-checkout",
+  "description": "Checkout shipping-selection snapshot.",
+  "purpose": "Keeps selected shipping service/price stable even if merchant rates later change.",
+  "commerceModel": {
+    "kind": "snapshot",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "shippingMethodId",
+      "required": true,
+      "nullable": false,
+      "description": "Shipping Method ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "shippingRateId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional Shipping Rate ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Customer-facing label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "price",
+      "required": true,
+      "nullable": false,
+      "description": "Selected shipping price.",
+      "schema": "commerce.moneySnapshot"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.shippingMethod",
+      "description": "References commerce.shippingMethod."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.shippingRate",
+      "description": "References commerce.shippingRate."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.moneySnapshot",
+      "description": "References commerce.moneySnapshot."
+    }
+  ],
+  "validationRules": [],
+  "cms": {
+    "label": "Checkout Shipping Selection",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "shippingMethodId",
+      "shippingRateId",
+      "label",
+      "price"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

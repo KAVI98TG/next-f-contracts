@@ -1,0 +1,295 @@
+{
+  "$id": "cmsUi.profile.commerce.settings",
+  "name": "Website Settings",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "commerce.settings",
+  "moduleId": "commerce",
+  "description": "Customer CMS presentation metadata for Website Settings within authorized Site scope.",
+  "targetContracts": [
+    "commerce.storeSettings"
+  ],
+  "primaryTargetContract": "commerce.storeSettings",
+  "route": "/commerce/settings",
+  "screenKind": "settings",
+  "layoutTemplate": "settings-page",
+  "responsivePolicy": "standard",
+  "fieldBindings": [
+    {
+      "field": "scope",
+      "label": "Scope",
+      "description": "Owning Organization and Site.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.tenantScope",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "storeName",
+      "label": "Store Name",
+      "description": "Customer-facing store name.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 20,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 160
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "defaultCurrency",
+      "label": "Default Currency",
+      "description": "Default ISO-style currency code.",
+      "editorId": "single-line-text",
+      "group": "commerce",
+      "zone": "main",
+      "order": 30,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "pattern": "^[A-Z]{3}$"
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "country",
+      "label": "Country",
+      "description": "Primary operating country code.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "minLength": 2,
+        "maxLength": 2
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "timeZone",
+      "label": "Time Zone",
+      "description": "IANA display timezone.",
+      "editorId": "single-line-text",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "weightUnit",
+      "label": "Weight Unit",
+      "description": "Default weight unit.",
+      "editorId": "select",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "customerAccounts",
+      "label": "Customer Accounts",
+      "description": "Customer account policy.",
+      "editorId": "select",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.select",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "inventoryTrackingEnabled",
+      "label": "Inventory Tracking Enabled",
+      "description": "Default inventory tracking setting.",
+      "editorId": "toggle",
+      "group": "commerce",
+      "zone": "main",
+      "order": 80,
+      "required": true,
+      "customerEditable": true,
+      "adminEditable": true,
+      "width": "half",
+      "sourceFieldType": "fields.boolean",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": false,
+    "columns": [
+      {
+        "field": "scope",
+        "label": "Scope",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "storeName",
+        "label": "Store Name",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "defaultCurrency",
+        "label": "Default Currency",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "country",
+        "label": "Country",
+        "rendererId": "text",
+        "order": 40,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": "contract-and-permission-allowlisted",
+    "bulkActions": "permission-and-rule-bound"
+  },
+  "actions": [
+    {
+      "actionId": "edit",
+      "permissionId": "commerce.settings.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "commerce.settings.manage",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "commerce.settings.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "commerce.settings.edit",
+    "commerce.settings.manage",
+    "commerce.settings.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": true,
+    "warnOnLeave": true,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "primary",
+      "kind": "settings",
+      "route": "/commerce/settings",
+      "layoutTemplate": "settings-page",
+      "requiresPermission": "commerce.settings.edit",
+      "purpose": "Primary Site-scoped Customer CMS surface."
+    }
+  ]
+}

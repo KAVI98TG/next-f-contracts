@@ -1,0 +1,38 @@
+{
+  "controlId": "SEC-PAY-003",
+  "name": "Payment/refund authorization",
+  "category": "commerce",
+  "requirement": "Payment export/manage and refund creation/management operations must enforce their canonical permissions and business invariants server-side.",
+  "rationale": "Financial operations require explicit least-privilege authorization.",
+  "applicability": [
+    "commerce",
+    "admin",
+    "api"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [
+    "commerce.payments.manage",
+    "commerce.refunds.create",
+    "commerce.refunds.manage"
+  ],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_pay_003.json"
+}

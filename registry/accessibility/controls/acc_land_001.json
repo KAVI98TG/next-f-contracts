@@ -1,0 +1,32 @@
+{
+  "controlId": "ACC-LAND-001",
+  "name": "Expose page landmarks",
+  "category": "structure",
+  "requirement": "Primary page regions such as navigation and main content must use semantic landmarks or equivalent labeled regions.",
+  "rationale": "Landmarks help assistive-technology users navigate major regions.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "page",
+    "navigation"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_land_001.json"
+}

@@ -1,0 +1,208 @@
+{
+  "$id": "content.documentationCategory",
+  "name": "Documentation Category",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "documentation",
+  "description": "Hierarchical category within a Documentation Collection.",
+  "purpose": "Provides reusable documentation navigation grouping without encoding category strings inside each article.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "optional",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Category name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "sortable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Category slug.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 150,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional category description.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1600,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "collection",
+      "required": true,
+      "nullable": false,
+      "description": "Owning documentation collection.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.documentationCollection",
+        "relationshipCardinality": "one",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "parentCategory",
+      "required": false,
+      "nullable": true,
+      "description": "Optional parent category inside the same collection.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.documentationCategory",
+        "relationshipCardinality": "one",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "order",
+      "required": true,
+      "nullable": false,
+      "description": "Display order within the collection/parent.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": true,
+        "adminEditable": true,
+        "sortable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "content.documentationCollection",
+      "description": "Category belongs to one collection."
+    },
+    {
+      "type": "selfReferences",
+      "target": "content.documentationCategory",
+      "description": "Categories may be nested."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "sameCollectionHierarchy",
+      "description": "parentCategory must belong to the same collection."
+    },
+    {
+      "id": "noCategoryCycles",
+      "description": "Parent relationships must not form cycles."
+    },
+    {
+      "id": "slugUniqueWithinCollection",
+      "description": "slug must be unique within its collection."
+    }
+  ],
+  "cms": {
+    "label": "Documentation Category",
+    "icon": "fa-folder-open",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "name",
+      "collection",
+      "order"
+    ],
+    "editorMode": "compact-editor",
+    "primaryActions": [
+      "save",
+      "publish"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published categories may be used for public documentation navigation."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "name": "Getting Started",
+        "slug": "getting-started",
+        "collection": "collection-id",
+        "order": 0
+      }
+    ],
+    "invalid": [
+      {
+        "name": "Loop",
+        "slug": "loop",
+        "parentCategory": "self"
+      }
+    ]
+  },
+  "notes": []
+}

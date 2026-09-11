@@ -1,0 +1,29 @@
+{
+  "$id": "permissions.role.supportAgent",
+  "roleKey": "supportAgent",
+  "name": "Support Agent",
+  "displayName": "Support Agent",
+  "description": "Customer support role for leads, order context and returns without payment, publishing or integration-management authority.",
+  "domain": "permissions",
+  "type": "role",
+  "version": "0.16.0",
+  "status": "stable",
+  "roleType": "reference",
+  "scopeKind": "site",
+  "permissionIds": [
+    "commerce.customers.view",
+    "commerce.orders.view",
+    "commerce.returns.edit",
+    "commerce.returns.manage",
+    "commerce.returns.view",
+    "core.sitehealth.view",
+    "forms.leads.edit",
+    "forms.leads.manage",
+    "forms.leads.view",
+    "forms.submissions.view",
+    "integrations.health.view"
+  ],
+  "assignableByCustomer": true,
+  "systemProtected": false,
+  "notes": []
+}

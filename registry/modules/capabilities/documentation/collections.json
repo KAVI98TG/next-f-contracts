@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.documentation.collections",
+  "capabilityId": "documentation.collections",
+  "name": "Collections",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "documentation",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Collections capability within the Documentation module.",
+  "contractBindings": [
+    "content.documentationCollection"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

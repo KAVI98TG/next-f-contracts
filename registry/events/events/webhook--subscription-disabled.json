@@ -1,0 +1,123 @@
+{
+  "eventKey": "webhook.subscription-disabled",
+  "name": "Webhook Subscription Disabled",
+  "category": "webhooks",
+  "producerKey": "webhook-service",
+  "subjectContracts": [
+    "webhooks.subscription"
+  ],
+  "trigger": "A webhook subscription is explicitly disabled.",
+  "dataPolicy": {
+    "sensitivity": "internal",
+    "containsPersonalData": false,
+    "containsFinancialData": false,
+    "containsSecrets": false,
+    "redactionRequired": true
+  },
+  "webhookEligible": false,
+  "consumers": [
+    "audit",
+    "customer-cms",
+    "nextf-admin",
+    "notification",
+    "automation"
+  ],
+  "payloadFields": [
+    {
+      "key": "subscriptionId",
+      "required": true,
+      "description": "Subscription ID.",
+      "type": "id"
+    },
+    {
+      "key": "reasonCode",
+      "required": false,
+      "description": "Optional safe disable reason.",
+      "type": "string"
+    },
+    {
+      "key": "disabledAt",
+      "required": true,
+      "description": "Disable timestamp.",
+      "type": "dateTime"
+    }
+  ],
+  "$id": "webhook.subscription-disabled",
+  "version": "0.15.0",
+  "eventVersion": "1.0.0",
+  "status": "stable",
+  "domain": "events",
+  "description": "A webhook subscription is explicitly disabled.",
+  "purpose": "Provides a canonical internal lifecycle fact for webhook subscription disabled without allowing recursive webhook delivery.",
+  "semantics": {
+    "factOnly": true,
+    "authoritativeAfterCommit": true,
+    "immutableOccurrence": true,
+    "transportIndependent": true,
+    "marketingTrackingEquivalent": null
+  },
+  "productionPolicy": {
+    "durability": "durable",
+    "commitBoundary": "transactional-outbox",
+    "failureBehavior": "fail-domain-commit-or-durable-recovery"
+  },
+  "idempotency": {
+    "dedupeKey": "eventId",
+    "replayedIdempotentCommand": "no-new-semantic-event",
+    "consumerIdempotencyRequired": true
+  },
+  "orderingPolicy": {
+    "scope": "webhook-object",
+    "strict": false
+  },
+  "retention": {
+    "class": "standard-audit"
+  },
+  "relationships": [
+    {
+      "type": "references",
+      "target": "webhooks.subscription",
+      "description": "Event subject is webhooks.subscription."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "emitAfterAuthoritativeCommit",
+      "description": "Event is produced only after the authoritative webhook lifecycle transition is durably accepted."
+    },
+    {
+      "id": "immutableOccurrence",
+      "description": "Recorded event occurrences are immutable."
+    },
+    {
+      "id": "eventIdUnique",
+      "description": "Every semantic occurrence has one globally unique eventId."
+    },
+    {
+      "id": "noRecursiveWebhook",
+      "description": "This webhook lifecycle event is never itself webhook eligible and cannot create recursive webhook delivery."
+    },
+    {
+      "id": "payloadMinimumNecessary",
+      "description": "Payload contains only data required by declared consumers."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Payload never includes signing secrets, destination credentials, Authorization values or raw webhook signatures."
+    },
+    {
+      "id": "tenantScope",
+      "description": "Organization/Site scope must match the authoritative webhook object."
+    },
+    {
+      "id": "transportIndependent",
+      "description": "Event meaning remains independent of queue, HTTP and storage implementation."
+    }
+  ],
+  "futureBindings": {
+    "webhooks": "phase-14-implemented",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$id": "accessibility.surfaceMappingDefinition",
+  "name": "Accessibility Surface Mapping",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "description": "Accessibility-control applicability across NEXT F platform surfaces.",
+  "domain": "accessibility",
+  "type": "schema",
+  "tags": [
+    "accessibility",
+    "phase-31"
+  ]
+}

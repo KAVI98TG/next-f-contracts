@@ -1,0 +1,182 @@
+{
+  "$id": "marketing.trackingEventDefinition",
+  "name": "Tracking Event Definition",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "tracking",
+  "description": "Site-level definition of a measurable visitor/business interaction key.",
+  "purpose": "Allows customer websites and Codex to register tracking consistently while keeping platform-domain event semantics reserved for Phase 13.",
+  "marketingModel": {
+    "kind": "definition",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "dataSensitivity": "public"
+  },
+  "fields": [
+    {
+      "key": "eventKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical or Site-approved tracking event key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "pattern": "^[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*$"
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable event name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "description",
+      "required": true,
+      "nullable": false,
+      "description": "Exact observable meaning.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1200
+      }
+    },
+    {
+      "key": "category",
+      "required": true,
+      "nullable": false,
+      "description": "Tracking purpose family.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "analytics",
+            "label": "Analytics"
+          },
+          {
+            "value": "conversion",
+            "label": "Conversion candidate"
+          },
+          {
+            "value": "engagement",
+            "label": "Engagement"
+          },
+          {
+            "value": "system",
+            "label": "System diagnostic"
+          }
+        ]
+      }
+    },
+    {
+      "key": "defaultConsentCategoryKey",
+      "required": true,
+      "nullable": false,
+      "description": "Consent category key required by default for collection/dispatch.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80
+      }
+    },
+    {
+      "key": "properties",
+      "required": false,
+      "nullable": true,
+      "description": "Allowlisted event property definitions.",
+      "itemsSchema": "marketing.eventPropertyDefinition",
+      "config": {
+        "maxItems": 100
+      }
+    },
+    {
+      "key": "conversionCandidate",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the event may be mapped to a conversion definition.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this Site tracks this event.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "marketing.eventPropertyDefinition",
+      "description": "Defines allowlisted properties."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "factNaming",
+      "description": "Event keys describe observed completed facts rather than commands."
+    },
+    {
+      "id": "standardKeysReuse",
+      "description": "If registry/marketing/tracking-events.json contains an equivalent standard event key, that key must be reused."
+    },
+    {
+      "id": "phase13Boundary",
+      "description": "This is a marketing tracking observation definition, not a substitute for the canonical platform Event Registry introduced in Phase 13."
+    },
+    {
+      "id": "consentCategoryResolvable",
+      "description": "defaultConsentCategoryKey must resolve to the active Site consent policy."
+    },
+    {
+      "id": "noHiddenPiiProperties",
+      "description": "Properties not declared by this definition must not silently carry personal data."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Event Definition",
+    "icon": "fa-bullseye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "event-definition",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "eventKey",
+      "name",
+      "description",
+      "category"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

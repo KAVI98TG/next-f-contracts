@@ -1,0 +1,28 @@
+{
+  "$id": "events.logs.view",
+  "name": "View Logs",
+  "permissionId": "events.logs.view",
+  "domain": "events",
+  "resource": "logs",
+  "action": "view",
+  "scopeKind": "platform",
+  "riskLevel": "sensitive",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Logs within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

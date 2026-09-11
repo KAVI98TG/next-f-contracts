@@ -1,0 +1,184 @@
+{
+  "$id": "forms.submissionFile",
+  "name": "Submission File Reference",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "submission",
+  "description": "Private reference and security state for a file uploaded through a form.",
+  "purpose": "Separates submitted file access from public media publishing.",
+  "formsModel": {
+    "kind": "operational-record",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false
+  },
+  "fields": [
+    {
+      "key": "fieldKey",
+      "required": true,
+      "nullable": false,
+      "description": "Upload field key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "mediaId",
+      "required": true,
+      "nullable": false,
+      "description": "Stored media/file asset reference.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "shared.mediaAsset",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "originalFileName",
+      "required": true,
+      "nullable": false,
+      "description": "Original display filename.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "mimeType",
+      "required": true,
+      "nullable": false,
+      "description": "Detected/canonical MIME type.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "sizeBytes",
+      "required": true,
+      "nullable": false,
+      "description": "File size.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "scanStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Security scanning state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "pending",
+            "label": "Pending"
+          },
+          {
+            "value": "clean",
+            "label": "Clean"
+          },
+          {
+            "value": "blocked",
+            "label": "Blocked"
+          },
+          {
+            "value": "failed",
+            "label": "Failed"
+          },
+          {
+            "value": "notRequired",
+            "label": "Not required"
+          }
+        ]
+      }
+    },
+    {
+      "key": "access",
+      "required": true,
+      "nullable": false,
+      "description": "Operational file access class.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "private",
+            "label": "Private"
+          },
+          {
+            "value": "authorizedCustomer",
+            "label": "Authorized customer users"
+          }
+        ],
+        "defaultValue": "private"
+      }
+    },
+    {
+      "key": "uploadedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Upload timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "shared.mediaAsset",
+      "description": "Uses shared media metadata/storage abstraction without public delivery implication."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "neverPublicByDefault",
+      "description": "A submission upload must never become public merely because it uses shared.mediaAsset."
+    },
+    {
+      "id": "blockedFileInaccessible",
+      "description": "Blocked or failed-scan files must not be made available to customer download workflows."
+    },
+    {
+      "id": "filenameUntrusted",
+      "description": "Original filename is display metadata only."
+    }
+  ],
+  "cms": {
+    "label": "Submission File Reference",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "fieldKey",
+      "mediaId",
+      "originalFileName",
+      "mimeType"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

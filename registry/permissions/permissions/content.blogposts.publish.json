@@ -1,0 +1,29 @@
+{
+  "$id": "content.blogposts.publish",
+  "name": "Publish Blogposts",
+  "permissionId": "content.blogposts.publish",
+  "domain": "content",
+  "resource": "blogposts",
+  "action": "publish",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Publish Blogposts within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

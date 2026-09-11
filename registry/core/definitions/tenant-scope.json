@@ -1,0 +1,96 @@
+{
+  "$id": "core.tenantScope",
+  "name": "Tenant Scope",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "identity",
+  "description": "Organization and Site ownership context for tenant-scoped entities.",
+  "purpose": "Provides a consistent ownership boundary for multi-tenant storage and authorization.",
+  "fields": [
+    {
+      "key": "organizationId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization ID.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "core.organization",
+        "relationshipCardinality": "one",
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true,
+        "filterable": true,
+        "revisionTracked": false
+      }
+    },
+    {
+      "key": "siteId",
+      "required": false,
+      "nullable": true,
+      "description": "Owning Site ID when the entity is Site-scoped.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "core.site",
+        "relationshipCardinality": "one",
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true,
+        "filterable": true,
+        "revisionTracked": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "foundation.contractConstitution",
+      "description": "Tenant isolation follows the constitutional boundary."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "organizationRequired",
+      "description": "Every tenant-scoped entity requires an Organization."
+    },
+    {
+      "id": "siteBelongsToOrganization",
+      "description": "When siteId is present it must belong to organizationId."
+    }
+  ],
+  "cms": {
+    "label": "Tenant Scope",
+    "icon": "fa-building",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "system",
+    "summaryFields": [
+      "organizationId",
+      "siteId"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Tenant scope is internal routing/authorization metadata and is not part of ordinary public content payloads."
+  },
+  "examples": {
+    "valid": [
+      {
+        "organizationId": "org_01ABC",
+        "siteId": "site_01ABC"
+      },
+      {
+        "organizationId": "org_01ABC",
+        "siteId": null
+      }
+    ],
+    "invalid": [
+      {
+        "siteId": "site_01ABC"
+      }
+    ]
+  },
+  "notes": [
+    "Client-supplied organizationId/siteId values must be re-authorized server-side."
+  ]
+}

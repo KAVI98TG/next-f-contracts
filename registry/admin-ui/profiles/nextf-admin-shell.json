@@ -1,0 +1,75 @@
+{
+  "$id": "adminUi.profile.nextfAdminShell",
+  "name": "NEXT F Admin Shell",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "admin-shell",
+  "resource": "platform.admin",
+  "moduleId": "core",
+  "description": "Internal NEXT F administration shell for cross-Organization and cross-Site operational management. Never rendered to customer users.",
+  "route": "/admin",
+  "screenKind": "platform-dashboard",
+  "layoutTemplate": "platform-dashboard",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "platform",
+    "allowsCrossTenant": true,
+    "organizationSelector": true,
+    "siteSelector": true,
+    "environmentReference": true,
+    "directUrlScopeGuard": "server-required"
+  },
+  "globalControls": [
+    "platform-search",
+    "organization-context-selector",
+    "site-context-selector",
+    "environment-reference",
+    "risk-badge"
+  ],
+  "navigationGroups": [
+    "Overview",
+    "Organizations",
+    "Sites",
+    "Operations",
+    "Growth",
+    "Commerce",
+    "Integrations",
+    "Events & Webhooks",
+    "Access & Security",
+    "Contracts & Migrations",
+    "Support",
+    "System"
+  ],
+  "globalActions": [
+    "global-search",
+    "command-palette",
+    "notifications",
+    "open-contract-portal"
+  ],
+  "supportAccess": {
+    "impersonation": "prohibited-until-explicitly-contracted",
+    "customerCmsNavigation": "current-admin-identity-only"
+  },
+  "security": {
+    "denyByDefault": true,
+    "serverAuthorizationRequired": true,
+    "hideDoesNotAuthorize": true,
+    "secretValuesNeverRendered": true,
+    "recentAuthForSensitiveActions": true
+  },
+  "panels": [
+    "diagnostics",
+    "audit"
+  ],
+  "permissions": [
+    "platform.organizations.view",
+    "platform.sites.view"
+  ],
+  "notes": [
+    "The Admin shell is internal-only. Organization/Site selection changes context, not authorization.",
+    "Domain registration and hosting billing are not Admin capabilities."
+  ]
+}

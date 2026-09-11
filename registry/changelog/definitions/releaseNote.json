@@ -1,0 +1,196 @@
+{
+  "$id": "changelog.releaseNote",
+  "name": "Changelog Release Note",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "changelog",
+  "type": "schema",
+  "category": "release-lifecycle",
+  "description": "Authoritative machine-readable narrative release record for one coordinated NEXT F Contract Registry version.",
+  "fields": [
+    {
+      "key": "version",
+      "required": true,
+      "nullable": false,
+      "description": "Exact semantic release version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "phase",
+      "required": true,
+      "nullable": false,
+      "description": "NEXT F implementation phase.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Release title.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "releaseStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Controlled release status.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "releaseDate",
+      "required": false,
+      "nullable": true,
+      "description": "Authoritative release date; null when unknown.",
+      "primitive": "fields.date"
+    },
+    {
+      "key": "summary",
+      "required": true,
+      "nullable": false,
+      "description": "Concise release summary.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "sourceVersion",
+      "required": true,
+      "nullable": true,
+      "description": "Immediately preceding coordinated release when known; null for the first release or unavailable history.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "targetVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Exact release represented by this record.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "recordCompleteness",
+      "required": true,
+      "nullable": false,
+      "description": "Whether repository evidence supports a complete or explicitly incomplete historical record.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "incompletenessReason",
+      "required": false,
+      "nullable": true,
+      "description": "Why the record is incomplete when evidence is missing.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "sections",
+      "required": true,
+      "nullable": false,
+      "description": "Categorized change-entry collection.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "affected",
+      "required": true,
+      "nullable": false,
+      "description": "Generated affected domain/module/contract/Event/Permission/Webhook/API/Manifest/CMS/Admin summary.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "breakingChange",
+      "required": true,
+      "nullable": true,
+      "description": "True/false only when established by evidence; null when not established.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "migrationRequired",
+      "required": true,
+      "nullable": true,
+      "description": "True/false only when established; null when unknown.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "migrationNotes",
+      "required": false,
+      "nullable": true,
+      "description": "Known migration notes; null when unavailable.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "recommendedAction",
+      "required": false,
+      "nullable": true,
+      "description": "Recommended operator action when authoritatively documented.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "provenance",
+      "required": true,
+      "nullable": false,
+      "description": "Release-note provenance and exact-history evidence metadata.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "evidence",
+      "required": true,
+      "nullable": false,
+      "description": "Diff/Compatibility/Migration evidence links.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "support",
+      "required": false,
+      "nullable": true,
+      "description": "Compatibility Center support projection; not owned by Changelog.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "corrections",
+      "required": false,
+      "nullable": true,
+      "description": "Explicit corrections to published historical meaning.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "changelog.changelogStandard",
+      "description": "Governed by the NEXT F Changelog Standard."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "uniqueVersion",
+      "description": "Every published Changelog release version is unique."
+    },
+    {
+      "id": "semanticVersion",
+      "description": "version must be an exact semantic version and never a floating latest alias."
+    },
+    {
+      "id": "noFabricatedDates",
+      "description": "Unknown historical release dates remain null rather than being guessed."
+    },
+    {
+      "id": "sourceTargetOrder",
+      "description": "sourceVersion must be the immediately preceding coordinated release when that predecessor is known; targetVersion equals version."
+    },
+    {
+      "id": "completenessExplicit",
+      "description": "Known incomplete historical records are explicitly marked incomplete with a reason."
+    },
+    {
+      "id": "affectedProjectionDerived",
+      "description": "Affected release summaries are derived only from explicit affected Registry IDs."
+    },
+    {
+      "id": "compatibilityAuthority",
+      "description": "Changelog compatibility summaries may reference but never override Compatibility Center."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": true
+}

@@ -1,0 +1,7 @@
+PASS commerce.json
+PASS corporate.json
+PASS custom.json
+PASS documentation.json
+PASS lead-generation.json
+PASS service.json
+PASS - 6 reference manifests validate against Draft 2020-12 schema.

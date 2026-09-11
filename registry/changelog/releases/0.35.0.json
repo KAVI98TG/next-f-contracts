@@ -1,0 +1,390 @@
+{
+  "$id": "changelog.release.0.35.0",
+  "version": "0.35.0",
+  "phase": 34,
+  "title": "Developer Validation CLI",
+  "releaseStatus": "published-development",
+  "releaseDate": null,
+  "summary": "Phase 34 - Developer Validation CLI.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_b30c9cf7a1ce04",
+          "releaseVersion": "0.35.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Developer Validation CLI adds validate, validate manifest, inspect, compatibility, diff, help and version commands.",
+          "affectedRegistryIds": [
+            "validation.cli",
+            "validation.cliCommand",
+            "validation.cliExitCode",
+            "validation.cliReport"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Developer Validation CLI adds validate, validate manifest, inspect, compatibility, diff, help and version commands.",
+          "description": "Developer Validation CLI adds validate, validate manifest, inspect, compatibility, diff, help and version commands.",
+          "changeType": "added",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.35.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_0c13dfb5de495e",
+          "releaseVersion": "0.35.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Stable CLI exit codes 0 through 4 distinguish success, validation errors, CLI errors, unsupported Contract Versions and internal tool failures.",
+          "affectedRegistryIds": [
+            "validation.cliExitCode",
+            "validation.cliStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Stable CLI exit codes 0 through 4 distinguish success, validation errors, CLI errors, unsupported Contract Versions and internal tool failures.",
+          "description": "Stable CLI exit codes 0 through 4 distinguish success, validation errors, CLI errors, unsupported Contract Versions and internal tool failures.",
+          "changeType": "added",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.35.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_23321270e960a5",
+          "releaseVersion": "0.35.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Human-readable, JSON, concise and verbose output modes support developers, automation and Codex implementation reports.",
+          "affectedRegistryIds": [
+            "validation.cli",
+            "validation.cliReport"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Human-readable, JSON, concise and verbose output modes support developers, automation and Codex implementation reports.",
+          "description": "Human-readable, JSON, concise and verbose output modes support developers, automation and Codex implementation reports.",
+          "changeType": "added",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.35.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "changed",
+      "label": "Changed",
+      "entries": [
+        {
+          "entryId": "chg_af29b355434cc0",
+          "releaseVersion": "0.35.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "The Phase 33 generated validation rule bundle is now explicitly shared with the CLI and includes authoritative deprecation records for future deprecated-definition warnings.",
+          "affectedRegistryIds": [
+            "deprecations.index",
+            "validation.cli",
+            "validation.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "The Phase 33 generated validation rule bundle is now explicitly shared with the CLI and includes authoritative deprecation records for future deprecated-definition warnings.",
+          "description": "The Phase 33 generated validation rule bundle is now explicitly shared with the CLI and includes authoritative deprecation records for future deprecated-definition warnings.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "deprecations",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.35.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_00d54bd049d798",
+          "releaseVersion": "0.35.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Manifest validation remains offline, non-mutating and explicit about unsupported Contract Versions; no network lookup or silent upgrade is introduced.",
+          "affectedRegistryIds": [
+            "compatibility.policy",
+            "validation.cli",
+            "validation.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Manifest validation remains offline, non-mutating and explicit about unsupported Contract Versions; no network lookup or silent upgrade is introduced.",
+          "description": "Manifest validation remains offline, non-mutating and explicit about unsupported Contract Versions; no network lookup or silent upgrade is introduced.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "lifecycle",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.35.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_6706bed5e551b6",
+          "releaseVersion": "0.35.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Codex guidance now requires CLI validation evidence before claiming NEXT F contract compliance.",
+          "affectedRegistryIds": [
+            "developer.codexAuthority",
+            "validation.cliStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Codex guidance now requires CLI validation evidence before claiming NEXT F contract compliance.",
+          "description": "Codex guidance now requires CLI validation evidence before claiming NEXT F contract compliance.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "developer",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.35.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "documentation",
+      "label": "Documentation",
+      "entries": [
+        {
+          "entryId": "chg_aba1f2399f6e3f",
+          "releaseVersion": "0.35.0",
+          "category": "documentation",
+          "originalSection": "Documentation",
+          "summary": "Developer Validation CLI Standard documents discovery, commands, output modes, exit codes, offline operation, Diff/Compatibility behavior and non-goals.",
+          "affectedRegistryIds": [
+            "validation.cliStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Developer Validation CLI Standard documents discovery, commands, output modes, exit codes, offline operation, Diff/Compatibility behavior and non-goals.",
+          "description": "Developer Validation CLI Standard documents discovery, commands, output modes, exit codes, offline operation, Diff/Compatibility behavior and non-goals.",
+          "changeType": "documentation",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.35.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "internal",
+      "label": "Internal / Tooling",
+      "entries": [
+        {
+          "entryId": "chg_d8d8375871c0d4",
+          "releaseVersion": "0.35.0",
+          "category": "internal",
+          "originalSection": "Internal / Tooling",
+          "summary": "Phase 34 adds browser/CLI fixture parity, CLI smoke tests and coordinated forward-regression coverage.",
+          "affectedRegistryIds": [
+            "validation.cli",
+            "validation.index"
+          ],
+          "compatibilityImpact": "metadata",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 34 adds browser/CLI fixture parity, CLI smoke tests and coordinated forward-regression coverage.",
+          "description": "Phase 34 adds browser/CLI fixture parity, CLI smoke tests and coordinated forward-regression coverage.",
+          "changeType": "internal",
+          "affectedDomains": [
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "metadata",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.35.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    }
+  ],
+  "migrationNotes": null,
+  "recommendedAction": "Run nextf-contract validate (or the repository-local equivalent) before claiming NEXT F contract compliance. Existing Sites remain pinned to their declared Contract Version and the CLI never mutates or silently upgrades manifests.",
+  "support": {
+    "registryProductionStable": false,
+    "runtimeCompatibility": "unknown"
+  },
+  "evidence": [
+    "registry/cli/index.json",
+    "standards/42-developer-validation-cli-standard.md",
+    "bin/nextf-contract.mjs",
+    "scripts/validate-phase-34.mjs",
+    "scripts/smoke-phase-34.mjs"
+  ],
+  "provenance": {
+    "sourceType": "authoritative-release-json",
+    "sourceReference": "registry/changelog/releases/0.35.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "registry/registry.json"
+  },
+  "sourceVersion": "0.34.0",
+  "targetVersion": "0.35.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "entryCount": 8,
+  "categoryCounts": {
+    "added": 3,
+    "changed": 3,
+    "documentation": 1,
+    "internal": 1
+  },
+  "affected": {
+    "domains": [
+      "deprecations",
+      "developer",
+      "lifecycle",
+      "validation"
+    ],
+    "modules": [],
+    "contracts": [
+      "compatibility.policy",
+      "deprecations.index",
+      "developer.codexAuthority",
+      "validation.cli",
+      "validation.cliCommand",
+      "validation.cliExitCode",
+      "validation.cliReport",
+      "validation.cliStandard",
+      "validation.index"
+    ],
+    "events": [],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  },
+  "breakingChange": false,
+  "migrationRequired": false,
+  "corrections": []
+}

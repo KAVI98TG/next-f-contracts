@@ -1,0 +1,80 @@
+{
+  "registryVersion": "0.11.0",
+  "capabilities": [
+    {
+      "key": "tag.load",
+      "label": "Load Tag",
+      "runtime": "client"
+    },
+    {
+      "key": "event.dispatch.client",
+      "label": "Dispatch Client Event",
+      "runtime": "client"
+    },
+    {
+      "key": "event.dispatch.server",
+      "label": "Dispatch Server Event",
+      "runtime": "server"
+    },
+    {
+      "key": "conversion.dispatch.client",
+      "label": "Dispatch Client Conversion",
+      "runtime": "client"
+    },
+    {
+      "key": "conversion.dispatch.server",
+      "label": "Dispatch Server Conversion",
+      "runtime": "server"
+    },
+    {
+      "key": "reporting.read",
+      "label": "Read Reporting Data",
+      "runtime": "server"
+    },
+    {
+      "key": "resource.discover",
+      "label": "Discover Provider Resources",
+      "runtime": "server"
+    },
+    {
+      "key": "account.verify",
+      "label": "Verify Account Access",
+      "runtime": "server"
+    },
+    {
+      "key": "data.sync.pull",
+      "label": "Pull Data",
+      "runtime": "server"
+    },
+    {
+      "key": "data.sync.push",
+      "label": "Push Data",
+      "runtime": "server"
+    },
+    {
+      "key": "message.send",
+      "label": "Send Message",
+      "runtime": "server"
+    },
+    {
+      "key": "crm.record.push",
+      "label": "Push CRM Record",
+      "runtime": "server"
+    },
+    {
+      "key": "crm.record.pull",
+      "label": "Pull CRM Record",
+      "runtime": "server"
+    },
+    {
+      "key": "webhook.dispatch",
+      "label": "Dispatch Webhook",
+      "runtime": "server"
+    },
+    {
+      "key": "api.request",
+      "label": "API Request",
+      "runtime": "server"
+    }
+  ]
+}

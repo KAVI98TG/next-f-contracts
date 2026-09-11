@@ -1,0 +1,3 @@
+Generated js/generated-registry.js from registry/registry.json
+SHA-256 f2f7d1fdc98e4669e9659693b5dfa0b0649bc6617157f3422e408cb8a7446407
+Synchronized 116 canonical events and 13 support schemas.

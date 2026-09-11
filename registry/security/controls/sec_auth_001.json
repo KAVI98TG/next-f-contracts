@@ -1,0 +1,38 @@
+{
+  "controlId": "SEC-AUTH-001",
+  "name": "Authentication required for protected operations",
+  "category": "authentication",
+  "requirement": "Protected and privileged operations must require an authenticated principal using an approved authentication mechanism.",
+  "rationale": "Unauthenticated access must never be treated as sufficient proof of identity.",
+  "applicability": [
+    "customer-cms",
+    "admin",
+    "api",
+    "commerce",
+    "integrations"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "permissions.authorizationContext"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_auth_001.json"
+}

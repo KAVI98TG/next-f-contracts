@@ -1,0 +1,85 @@
+{
+  "$id": "modules.media",
+  "moduleId": "media",
+  "name": "Media",
+  "version": "0.18.0",
+  "status": "stable",
+  "category": "foundation",
+  "icon": "fa-photo-film",
+  "order": 20,
+  "description": "Reusable Site-scoped media library and asset metadata used by content and commerce without tying contracts to one storage provider.",
+  "selection": {
+    "mandatory": false,
+    "defaultEnabled": true,
+    "explicitManifestSelection": true,
+    "customerCanEnable": false,
+    "nextfAdminCanEnable": true
+  },
+  "dependencies": [
+    {
+      "moduleId": "core",
+      "kind": "required",
+      "reason": "Media assets are Site-scoped and audited through Core."
+    }
+  ],
+  "conflicts": [],
+  "capabilityIds": [
+    "media.library",
+    "media.images",
+    "media.documents",
+    "media.video",
+    "media.audio",
+    "media.contextual-metadata"
+  ],
+  "defaultCapabilityIds": [
+    "media.library",
+    "media.images",
+    "media.contextual-metadata"
+  ],
+  "contractBindings": [
+    "shared.mediaAsset",
+    "shared.mediaReference"
+  ],
+  "permissionBindings": [
+    "content.media.create",
+    "content.media.delete",
+    "content.media.edit",
+    "content.media.manage",
+    "content.media.view"
+  ],
+  "eventBindings": [
+    "media.created",
+    "media.deleted",
+    "media.updated"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "group": "Foundation",
+    "navigation": [
+      {
+        "label": "Media",
+        "path": "/content/media",
+        "icon": "fa-photo-film",
+        "order": 40
+      }
+    ]
+  },
+  "admin": {
+    "visible": true,
+    "group": "Sites",
+    "navigation": [
+      {
+        "label": "Media",
+        "path": "/sites/:siteId/media",
+        "icon": "fa-photo-film",
+        "order": 40
+      }
+    ]
+  },
+  "manifest": {
+    "moduleId": "media",
+    "capabilitySelection": "module-scoped",
+    "dependencyValidation": "strict"
+  },
+  "notes": []
+}

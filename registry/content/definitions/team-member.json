@@ -1,0 +1,218 @@
+{
+  "$id": "content.teamMember",
+  "name": "Team Member",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "business",
+  "description": "Structured public team-member profile.",
+  "purpose": "Allows people information to be managed as reusable content while keeping sensitive staff identity/account data separate from public profiles.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "optional",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Public display name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "sortable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": false,
+      "nullable": true,
+      "description": "Optional public profile slug.",
+      "primitive": "fields.slug",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "role",
+      "required": false,
+      "nullable": true,
+      "description": "Public role/title.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "photo",
+      "required": false,
+      "nullable": true,
+      "description": "Optional public profile image.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "biography",
+      "required": false,
+      "nullable": true,
+      "description": "Structured public biography.",
+      "primitive": "fields.richText",
+      "config": {
+        "maxLength": 20000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "contact",
+      "required": false,
+      "nullable": true,
+      "description": "Optional intentionally public contact information.",
+      "schema": "shared.contactPoint"
+    },
+    {
+      "key": "socialLinks",
+      "required": false,
+      "nullable": true,
+      "description": "Optional ordered public social-link list validated against shared.link.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "array",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "displayOrder",
+      "required": false,
+      "nullable": true,
+      "description": "Default listing order.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": true,
+        "adminEditable": true,
+        "sortable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "Team profiles may use media."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.contactPoint",
+      "description": "Team profiles may include public contact information."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "socialLinksValidate",
+      "description": "Every social link must validate against shared.link."
+    },
+    {
+      "id": "publicContactIntent",
+      "description": "Only intentionally public contact details may be delivered."
+    },
+    {
+      "id": "profileSlugUniqueWhenUsed",
+      "description": "If public team routes are enabled, slug must be unique within the Site."
+    }
+  ],
+  "cms": {
+    "label": "Team Member",
+    "icon": "fa-user-group",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "name",
+      "role",
+      "publishing"
+    ],
+    "editorMode": "full-page-editor",
+    "primaryActions": [
+      "saveDraft",
+      "preview",
+      "publish",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly published profile fields are public; Organization User account details are never inferred from this content type."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "name": "Alex Silva",
+        "role": "Engineer",
+        "displayOrder": 0
+      }
+    ],
+    "invalid": [
+      {
+        "name": ""
+      }
+    ]
+  },
+  "notes": []
+}

@@ -1,0 +1,132 @@
+{
+  "$id": "webhooks.deliveryLogRecord",
+  "name": "Webhook Delivery Log Record",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "operations",
+  "description": "Redacted operational log record for webhook processing.",
+  "purpose": "Supports troubleshooting while keeping secret and sensitive diagnostics bounded.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "logId",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque log record ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "deliveryId",
+      "required": false,
+      "nullable": true,
+      "description": "Related Delivery ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "attemptId",
+      "required": false,
+      "nullable": true,
+      "description": "Related Attempt ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "level",
+      "required": true,
+      "nullable": false,
+      "description": "Log severity.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "info",
+          "warning",
+          "error"
+        ]
+      }
+    },
+    {
+      "key": "message",
+      "required": true,
+      "nullable": false,
+      "description": "Safe operator-facing message.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "failureCode",
+      "required": false,
+      "nullable": true,
+      "description": "Optional registered failure code.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "metadata",
+      "required": false,
+      "nullable": true,
+      "description": "Sanitized bounded metadata.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "recordedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Log timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "webhooks.delivery",
+      "description": "References webhooks.delivery."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "webhooks.deliveryAttempt",
+      "description": "References webhooks.deliveryAttempt."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "redactedBeforePersistence",
+      "description": "Secrets, signatures, authorization and sensitive URL values are redacted before storage."
+    },
+    {
+      "id": "noRawBodies",
+      "description": "Normal logs never persist arbitrary raw request/response bodies."
+    },
+    {
+      "id": "boundedMetadata",
+      "description": "Diagnostic metadata must be size-bounded."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Delivery Log Record",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "logId",
+      "deliveryId",
+      "attemptId",
+      "level"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

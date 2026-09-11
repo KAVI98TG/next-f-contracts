@@ -1,0 +1,312 @@
+{
+  "$id": "content.customCollection",
+  "name": "Custom Collection",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "custom",
+  "description": "NEXT F-defined schema configuration for a customer-specific structured content collection.",
+  "purpose": "Allows future customer websites to add domain-specific content such as Projects, Properties, Courses, Vehicles or Jobs without creating a new CMS codebase.",
+  "contentModel": {
+    "kind": "configuration",
+    "routing": "none",
+    "cardinality": "many",
+    "customerManaged": false,
+    "supportsPublishing": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Collection display name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 160,
+        "customerEditable": false,
+        "adminEditable": true,
+        "searchable": true
+      }
+    },
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable machine key unique within the Site.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "searchable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "singularLabel",
+      "required": true,
+      "nullable": false,
+      "description": "Singular CMS label for one entry.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 120,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "pluralLabel",
+      "required": true,
+      "nullable": false,
+      "description": "Plural CMS label for navigation/list views.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 120,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Admin/developer guidance for the collection.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 2000,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "fieldDefinitions",
+      "required": true,
+      "nullable": false,
+      "description": "Ordered field definition array using registered primitive fields and approved schema references.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "array",
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "displayField",
+      "required": true,
+      "nullable": false,
+      "description": "Field key used as the primary entry label in CMS lists.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "slugField",
+      "required": false,
+      "nullable": true,
+      "description": "Optional field key used to derive public entry routes.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "routing",
+      "required": true,
+      "nullable": false,
+      "description": "Whether entries require, may have or never have public routes.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "required",
+            "label": "Required"
+          },
+          {
+            "value": "optional",
+            "label": "Optional"
+          },
+          {
+            "value": "none",
+            "label": "None"
+          }
+        ],
+        "defaultValue": "none",
+        "customerEditable": false,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "customerCanCreateEntries",
+      "required": true,
+      "nullable": false,
+      "description": "Whether authorized customer users may create entries.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "customerCanDeleteEntries",
+      "required": true,
+      "nullable": false,
+      "description": "Whether authorized customer users may delete entries.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the collection is enabled for the Site.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "collectionKeyUnique",
+      "description": "key must be unique within the Site."
+    },
+    {
+      "id": "fieldKeysUnique",
+      "description": "fieldDefinitions must contain unique field keys."
+    },
+    {
+      "id": "registeredFieldsOnly",
+      "description": "Every field definition must reference an existing allowed primitive/schema contract."
+    },
+    {
+      "id": "displayFieldExists",
+      "description": "displayField must name a field defined in fieldDefinitions."
+    },
+    {
+      "id": "slugFieldExistsWhenSet",
+      "description": "slugField must name a compatible field defined in fieldDefinitions."
+    },
+    {
+      "id": "noExecutableDefinitions",
+      "description": "Field definitions cannot introduce arbitrary executable code or unsafe HTML."
+    },
+    {
+      "id": "stableKeyAfterData",
+      "description": "Changing key or existing field semantics after entries exist requires explicit migration."
+    },
+    {
+      "id": "reservedFieldNamesProtected",
+      "description": "Definitions must not shadow reserved identity/scope/publishing system fields."
+    }
+  ],
+  "cms": {
+    "label": "Custom Collection",
+    "icon": "fa-table-list",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "system",
+    "summaryFields": [
+      "name",
+      "key",
+      "enabled"
+    ],
+    "editorMode": "schema-builder",
+    "primaryActions": [
+      "save",
+      "validate",
+      "enable",
+      "disable"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Custom Collection definitions are platform/CMS configuration and are not public content."
+  },
+  "futureBindings": {
+    "blocks": "phase-6-optional",
+    "seo": "phase-7-entry-augmentation",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "name": "Projects",
+        "key": "projects",
+        "singularLabel": "Project",
+        "pluralLabel": "Projects",
+        "fieldDefinitions": [
+          {
+            "key": "title",
+            "primitive": "fields.text",
+            "required": true
+          }
+        ],
+        "displayField": "title",
+        "routing": "optional",
+        "customerCanCreateEntries": true,
+        "customerCanDeleteEntries": false,
+        "enabled": true
+      }
+    ],
+    "invalid": [
+      {
+        "name": "Projects",
+        "key": "projects",
+        "fieldDefinitions": [
+          {
+            "key": "title",
+            "primitive": "unknown.field"
+          }
+        ],
+        "displayField": "missing"
+      }
+    ]
+  },
+  "notes": [
+    "Ordinary customer users manage entries, not the collection schema itself, unless a future permission explicitly permits schema design.",
+    "This is the foundation for reusable customer-specific content without building one-off CMS modules."
+  ]
+}

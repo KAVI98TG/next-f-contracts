@@ -1,0 +1,18 @@
+
+> next-f-contracts@0.30.0 validate:phase29
+> node scripts/validate-phase-29.mjs
+
+NEXT F Contracts Phase 29 validation
+Version: 0.30.0
+Passes: 4682
+Failures: 0
+Security controls: 49
+Security categories: 18
+Security Registry items: 62
+Registry items: 1938
+Search documents: 6803
+Relationship nodes: 1938
+Relationship edges: 6904
+JSON files checked: 1855
+
+PASS - Security Standards satisfy the Phase 29 acceptance model.

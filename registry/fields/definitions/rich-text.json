@@ -1,0 +1,82 @@
+{
+  "$id": "fields.richText",
+  "name": "Rich Text",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "text",
+  "description": "Structured rich editorial content stored as safe document JSON, not arbitrary executable HTML.",
+  "value": {
+    "jsonType": "object",
+    "canonical": "Structured rich-text document object using the NEXT F rich-content envelope.",
+    "absence": "Absent values are represented by omission or null only when nullable is true.",
+    "shape": {
+      "type": "doc",
+      "content": "array of safe rich-content nodes"
+    }
+  },
+  "cms": {
+    "editor": "rich-text-editor",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": false,
+    "sortable": false,
+    "localizable": true,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "minLength",
+    "maxLength",
+    "format"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull"
+  ],
+  "examples": {
+    "valid": [
+      {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "Hello"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "invalid": [
+      "<script>alert(1)</script>"
+    ]
+  },
+  "notes": [
+    "Raw script execution is never implied.",
+    "HTML import/export may be an adapter concern, not the canonical stored value."
+  ]
+}

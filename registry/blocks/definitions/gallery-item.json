@@ -1,0 +1,127 @@
+{
+  "$id": "blocks.galleryItem",
+  "name": "Gallery Item",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "foundation",
+  "description": "Reusable gallery media item with optional contextual copy and destination.",
+  "purpose": "Adds per-placement context around a canonical media asset without duplicating the asset.",
+  "blockModel": {
+    "kind": "embedded",
+    "placement": "nested-only",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "media",
+      "required": true,
+      "nullable": false,
+      "description": "Gallery media.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "title",
+      "required": false,
+      "nullable": true,
+      "description": "Optional item title.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "caption",
+      "required": false,
+      "nullable": true,
+      "description": "Optional item caption.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 800,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "link",
+      "required": false,
+      "nullable": true,
+      "description": "Optional destination.",
+      "schema": "shared.link"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "shared.mediaReference",
+      "description": "Uses canonical media references."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.link",
+      "description": "May link to an approved destination."
+    }
+  ],
+  "validationRules": [],
+  "cms": {
+    "label": "Gallery Item",
+    "icon": "fa-image",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "embedded-item-editor",
+    "summaryFields": [
+      "media",
+      "title",
+      "caption"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": false,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Informative media must have meaningful alternative text through the media reference."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,25 @@
+{
+  "registryVersion": "0.18.0",
+  "items": [
+    {
+      "id": "required",
+      "label": "Required",
+      "description": "The dependency must be enabled whenever the module is enabled."
+    },
+    {
+      "id": "recommended",
+      "label": "Recommended",
+      "description": "Strongly recommended for the common implementation but not structurally required."
+    },
+    {
+      "id": "optional",
+      "label": "Optional",
+      "description": "May be enabled to extend the module."
+    },
+    {
+      "id": "conditional",
+      "label": "Conditional",
+      "description": "Required only when the documented condition applies."
+    }
+  ]
+}

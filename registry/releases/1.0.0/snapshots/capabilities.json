@@ -1,0 +1,3146 @@
+{
+  "registryVersion": "1.0.0",
+  "capabilityCount": 102,
+  "reservedCapabilityCount": 5,
+  "capabilities": [
+    {
+      "$id": "modules.capability.core.identity",
+      "capabilityId": "core.identity",
+      "name": "Identity and Tenant Scope",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "core",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Identity and Tenant Scope capability within the Core module.",
+      "contractBindings": [
+        "core.organization",
+        "core.site",
+        "core.entityIdentity",
+        "core.tenantScope"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.core.publishing",
+      "capabilityId": "core.publishing",
+      "name": "Publishing",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "core",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Publishing capability within the Core module.",
+      "contractBindings": [
+        "core.publishing",
+        "core.visibility",
+        "core.scheduleWindow"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.core.versioning",
+      "capabilityId": "core.versioning",
+      "name": "Versioning",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "core",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Versioning capability within the Core module.",
+      "contractBindings": [
+        "core.versionRecord",
+        "core.revisionPointer"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.core.audit",
+      "capabilityId": "core.audit",
+      "name": "Audit",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "core",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Audit capability within the Core module.",
+      "contractBindings": [
+        "core.auditRecord",
+        "core.actorReference",
+        "core.entityReference"
+      ],
+      "permissionBindings": [
+        "core.audit.export",
+        "core.audit.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.core.tenant-isolation",
+      "capabilityId": "core.tenant-isolation",
+      "name": "Tenant Isolation",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "core",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Tenant Isolation capability within the Core module.",
+      "contractBindings": [
+        "core.tenantScope"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.library",
+      "capabilityId": "media.library",
+      "name": "Media Library",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Media Library capability within the Media module.",
+      "contractBindings": [
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.images",
+      "capabilityId": "media.images",
+      "name": "Image Assets",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Image Assets capability within the Media module.",
+      "contractBindings": [
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.documents",
+      "capabilityId": "media.documents",
+      "name": "Document Assets",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Document Assets capability within the Media module.",
+      "contractBindings": [
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.video",
+      "capabilityId": "media.video",
+      "name": "Video Assets",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Video Assets capability within the Media module.",
+      "contractBindings": [
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.audio",
+      "capabilityId": "media.audio",
+      "name": "Audio Assets",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Audio Assets capability within the Media module.",
+      "contractBindings": [
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.contextual-metadata",
+      "capabilityId": "media.contextual-metadata",
+      "name": "Contextual Media Metadata",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Contextual Media Metadata capability within the Media module.",
+      "contractBindings": [
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.sections",
+      "capabilityId": "pages.sections",
+      "name": "Structured Sections",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Structured Sections capability within the Pages module.",
+      "contractBindings": [
+        "content.page",
+        "content.pageSection"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.reusable-content",
+      "capabilityId": "pages.reusable-content",
+      "name": "Reusable Content",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Reusable Content capability within the Pages module.",
+      "contractBindings": [
+        "content.reusableContent"
+      ],
+      "permissionBindings": [
+        "content.reusablecontent.approve",
+        "content.reusablecontent.create",
+        "content.reusablecontent.delete",
+        "content.reusablecontent.edit",
+        "content.reusablecontent.publish",
+        "content.reusablecontent.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.navigation",
+      "capabilityId": "pages.navigation",
+      "name": "Navigation",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Navigation capability within the Pages module.",
+      "contractBindings": [
+        "content.navigation",
+        "content.navigationItem"
+      ],
+      "permissionBindings": [
+        "content.navigation.edit",
+        "content.navigation.manage",
+        "content.navigation.publish",
+        "content.navigation.view"
+      ],
+      "eventBindings": [
+        "navigation.updated"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.legal-pages",
+      "capabilityId": "pages.legal-pages",
+      "name": "Legal Pages",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Legal Pages capability within the Pages module.",
+      "contractBindings": [
+        "content.legalPage"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.custom-collections",
+      "capabilityId": "pages.custom-collections",
+      "name": "Custom Collections",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Custom Collections capability within the Pages module.",
+      "contractBindings": [
+        "content.customCollection",
+        "content.customCollectionEntry"
+      ],
+      "permissionBindings": [
+        "content.customcollections.create",
+        "content.customcollections.delete",
+        "content.customcollections.edit",
+        "content.customcollections.manage",
+        "content.customcollections.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.scheduling",
+      "capabilityId": "pages.scheduling",
+      "name": "Scheduled Publishing",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Scheduled Publishing capability within the Pages module.",
+      "contractBindings": [
+        "core.scheduleWindow",
+        "core.publishing"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.approvals",
+      "capabilityId": "pages.approvals",
+      "name": "Approval Workflow",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Approval Workflow capability within the Pages module.",
+      "contractBindings": [
+        "core.publishing"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.blog.categories",
+      "capabilityId": "blog.categories",
+      "name": "Categories",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "blog",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Categories capability within the Blog module.",
+      "contractBindings": [
+        "content.blogCategory"
+      ],
+      "permissionBindings": [
+        "content.blogcategories.create",
+        "content.blogcategories.delete",
+        "content.blogcategories.edit",
+        "content.blogcategories.manage",
+        "content.blogcategories.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.blog.tags",
+      "capabilityId": "blog.tags",
+      "name": "Tags",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "blog",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Tags capability within the Blog module.",
+      "contractBindings": [
+        "content.blogTag"
+      ],
+      "permissionBindings": [
+        "content.blogtags.create",
+        "content.blogtags.delete",
+        "content.blogtags.edit",
+        "content.blogtags.manage",
+        "content.blogtags.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.blog.authors",
+      "capabilityId": "blog.authors",
+      "name": "Authors",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "blog",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Authors capability within the Blog module.",
+      "contractBindings": [
+        "content.author"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.blog.related-posts",
+      "capabilityId": "blog.related-posts",
+      "name": "Related Posts",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "blog",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Related Posts capability within the Blog module.",
+      "contractBindings": [
+        "content.blogPost"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.blog.scheduling",
+      "capabilityId": "blog.scheduling",
+      "name": "Scheduled Publishing",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "blog",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Scheduled Publishing capability within the Blog module.",
+      "contractBindings": [
+        "content.blogPost",
+        "core.scheduleWindow"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.blog.approvals",
+      "capabilityId": "blog.approvals",
+      "name": "Approval Workflow",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "blog",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Approval Workflow capability within the Blog module.",
+      "contractBindings": [
+        "content.blogPost",
+        "core.publishing"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.documentation.collections",
+      "capabilityId": "documentation.collections",
+      "name": "Collections",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "documentation",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Collections capability within the Documentation module.",
+      "contractBindings": [
+        "content.documentationCollection"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.documentation.categories",
+      "capabilityId": "documentation.categories",
+      "name": "Categories",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "documentation",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Categories capability within the Documentation module.",
+      "contractBindings": [
+        "content.documentationCategory"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.documentation.attachments",
+      "capabilityId": "documentation.attachments",
+      "name": "Attachments",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "documentation",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Attachments capability within the Documentation module.",
+      "contractBindings": [
+        "content.documentationArticle",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.documentation.related-articles",
+      "capabilityId": "documentation.related-articles",
+      "name": "Related Articles",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "documentation",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Related Articles capability within the Documentation module.",
+      "contractBindings": [
+        "content.documentationArticle"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.documentation.versioning",
+      "capabilityId": "documentation.versioning",
+      "name": "Article Versioning",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "documentation",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Article Versioning capability within the Documentation module.",
+      "contractBindings": [
+        "content.documentationArticle",
+        "core.versionRecord"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.documentation.visibility",
+      "capabilityId": "documentation.visibility",
+      "name": "Visibility",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "documentation",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Visibility capability within the Documentation module.",
+      "contractBindings": [
+        "content.documentationArticle",
+        "core.visibility"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.metadata",
+      "capabilityId": "seo.metadata",
+      "name": "Metadata",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Metadata capability within the SEO module.",
+      "contractBindings": [
+        "seo.metadata"
+      ],
+      "permissionBindings": [
+        "seo.metadata.edit",
+        "seo.metadata.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.keywords",
+      "capabilityId": "seo.keywords",
+      "name": "Keywords",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Keywords capability within the SEO module.",
+      "contractBindings": [
+        "seo.keywordSet",
+        "seo.keywordTarget"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.social-sharing",
+      "capabilityId": "seo.social-sharing",
+      "name": "Social Sharing",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Social Sharing capability within the SEO module.",
+      "contractBindings": [
+        "seo.openGraph",
+        "seo.socialCard"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.structured-data",
+      "capabilityId": "seo.structured-data",
+      "name": "Structured Data",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Structured Data capability within the SEO module.",
+      "contractBindings": [
+        "seo.structuredData"
+      ],
+      "permissionBindings": [
+        "seo.structureddata.edit",
+        "seo.structureddata.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.redirects",
+      "capabilityId": "seo.redirects",
+      "name": "Redirects",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Redirects capability within the SEO module.",
+      "contractBindings": [
+        "seo.redirect"
+      ],
+      "permissionBindings": [
+        "seo.redirects.create",
+        "seo.redirects.delete",
+        "seo.redirects.edit",
+        "seo.redirects.manage",
+        "seo.redirects.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.sitemap",
+      "capabilityId": "seo.sitemap",
+      "name": "Sitemap",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Sitemap capability within the SEO module.",
+      "contractBindings": [
+        "seo.sitemapEntry"
+      ],
+      "permissionBindings": [
+        "seo.sitemap.edit",
+        "seo.sitemap.manage",
+        "seo.sitemap.view"
+      ],
+      "eventBindings": [
+        "sitemap.updated"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.robots",
+      "capabilityId": "seo.robots",
+      "name": "Robots",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Robots capability within the SEO module.",
+      "contractBindings": [
+        "seo.robotsPolicy",
+        "seo.robotsRule"
+      ],
+      "permissionBindings": [
+        "seo.robots.edit",
+        "seo.robots.manage",
+        "seo.robots.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.audits",
+      "capabilityId": "seo.audits",
+      "name": "SEO Audits",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "SEO Audits capability within the SEO module.",
+      "contractBindings": [
+        "seo.auditResult",
+        "seo.auditIssue"
+      ],
+      "permissionBindings": [
+        "seo.audits.export",
+        "seo.audits.manage",
+        "seo.audits.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.search-performance",
+      "capabilityId": "seo.search-performance",
+      "name": "Search Performance",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Search Performance capability within the SEO module.",
+      "contractBindings": [
+        "seo.searchPerformance",
+        "seo.searchQuery"
+      ],
+      "permissionBindings": [
+        "seo.searchperformance.export",
+        "seo.searchperformance.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.indexing",
+      "capabilityId": "seo.indexing",
+      "name": "Indexing",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Indexing capability within the SEO module.",
+      "contractBindings": [
+        "seo.indexingStatus"
+      ],
+      "permissionBindings": [
+        "seo.indexing.manage",
+        "seo.indexing.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.forms.multi-step",
+      "capabilityId": "forms.multi-step",
+      "name": "Multi-step Forms",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "forms",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Multi-step Forms capability within the Forms module.",
+      "contractBindings": [],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.forms.conditional-logic",
+      "capabilityId": "forms.conditional-logic",
+      "name": "Conditional Logic",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "forms",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Conditional Logic capability within the Forms module.",
+      "contractBindings": [
+        "forms.condition",
+        "forms.conditionGroup"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.forms.file-uploads",
+      "capabilityId": "forms.file-uploads",
+      "name": "File Uploads",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "forms",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "File Uploads capability within the Forms module.",
+      "contractBindings": [
+        "forms.uploadPolicy",
+        "forms.submissionFile"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.forms.notifications",
+      "capabilityId": "forms.notifications",
+      "name": "Notifications",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "forms",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Notifications capability within the Forms module.",
+      "contractBindings": [
+        "forms.notificationRule",
+        "forms.notificationRecipient"
+      ],
+      "permissionBindings": [
+        "forms.notifications.edit",
+        "forms.notifications.manage",
+        "forms.notifications.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.forms.auto-response",
+      "capabilityId": "forms.auto-response",
+      "name": "Auto Response",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "forms",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Auto Response capability within the Forms module.",
+      "contractBindings": [
+        "forms.autoResponse"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.forms.spam-protection",
+      "capabilityId": "forms.spam-protection",
+      "name": "Spam Protection",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "forms",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Spam Protection capability within the Forms module.",
+      "contractBindings": [
+        "forms.spamPolicy",
+        "forms.spamSignal",
+        "forms.spamDecision"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.forms.consent-fields",
+      "capabilityId": "forms.consent-fields",
+      "name": "Consent Fields",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "forms",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Consent Fields capability within the Forms module.",
+      "contractBindings": [
+        "forms.consentFieldConfig",
+        "forms.consentRecord"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.forms.conversion-mapping",
+      "capabilityId": "forms.conversion-mapping",
+      "name": "Conversion Mapping",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "forms",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Conversion Mapping capability within the Forms module.",
+      "contractBindings": [
+        "forms.conversionMapping"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.leads.status",
+      "capabilityId": "leads.status",
+      "name": "Lead Status",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "leads",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Lead Status capability within the Leads module.",
+      "contractBindings": [
+        "forms.lead"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [
+        "lead.status-changed"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.leads.assignment",
+      "capabilityId": "leads.assignment",
+      "name": "Assignment",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "leads",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Assignment capability within the Leads module.",
+      "contractBindings": [
+        "forms.leadAssignment"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.leads.notes",
+      "capabilityId": "leads.notes",
+      "name": "Notes",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "leads",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Notes capability within the Leads module.",
+      "contractBindings": [
+        "forms.leadNote"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.leads.activity",
+      "capabilityId": "leads.activity",
+      "name": "Activity Timeline",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "leads",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Activity Timeline capability within the Leads module.",
+      "contractBindings": [
+        "forms.leadActivity"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.leads.deduplication",
+      "capabilityId": "leads.deduplication",
+      "name": "Deduplication",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "leads",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Deduplication capability within the Leads module.",
+      "contractBindings": [],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.leads.export",
+      "capabilityId": "leads.export",
+      "name": "Export",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "leads",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Export capability within the Leads module.",
+      "contractBindings": [
+        "forms.lead"
+      ],
+      "permissionBindings": [
+        "forms.leads.export"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.consent.preferences",
+      "capabilityId": "consent.preferences",
+      "name": "Consent Preferences",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "consent",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Consent Preferences capability within the Consent module.",
+      "contractBindings": [
+        "marketing.consentPreference",
+        "marketing.consentState"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.consent.records",
+      "capabilityId": "consent.records",
+      "name": "Consent Records",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "consent",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Consent Records capability within the Consent module.",
+      "contractBindings": [
+        "marketing.trackingConsentRecord"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.consent.categories",
+      "capabilityId": "consent.categories",
+      "name": "Consent Categories",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "consent",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Consent Categories capability within the Consent module.",
+      "contractBindings": [
+        "marketing.consentCategory"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.consent.integration-gating",
+      "capabilityId": "consent.integration-gating",
+      "name": "Integration Gating",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "consent",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Integration Gating capability within the Consent module.",
+      "contractBindings": [
+        "marketing.consentPolicy"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.analytics.measurement",
+      "capabilityId": "analytics.measurement",
+      "name": "Measurement",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "analytics",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Measurement capability within the Analytics module.",
+      "contractBindings": [
+        "marketing.analyticsConfiguration"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.analytics.reporting",
+      "capabilityId": "analytics.reporting",
+      "name": "Reporting",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "analytics",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Reporting capability within the Analytics module.",
+      "contractBindings": [
+        "marketing.analyticsObservation",
+        "marketing.analyticsSnapshot"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.analytics.attribution",
+      "capabilityId": "analytics.attribution",
+      "name": "Attribution",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "analytics",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Attribution capability within the Analytics module.",
+      "contractBindings": [
+        "marketing.attributionModel",
+        "marketing.attributionTouchpoint",
+        "marketing.attributionCredit"
+      ],
+      "permissionBindings": [
+        "marketing.attribution.export",
+        "marketing.attribution.manage",
+        "marketing.attribution.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.analytics.campaign-performance",
+      "capabilityId": "analytics.campaign-performance",
+      "name": "Campaign Performance",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "analytics",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Campaign Performance capability within the Analytics module.",
+      "contractBindings": [],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.marketing.conversions",
+      "capabilityId": "marketing.conversions",
+      "name": "Conversions",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "marketing",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Conversions capability within the Marketing module.",
+      "contractBindings": [
+        "marketing.conversionDefinition",
+        "marketing.conversionOccurrence",
+        "marketing.conversionValue"
+      ],
+      "permissionBindings": [
+        "marketing.conversions.create",
+        "marketing.conversions.delete",
+        "marketing.conversions.edit",
+        "marketing.conversions.manage",
+        "marketing.conversions.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.marketing.campaigns",
+      "capabilityId": "marketing.campaigns",
+      "name": "Campaigns",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "marketing",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Campaigns capability within the Marketing module.",
+      "contractBindings": [
+        "marketing.campaignDefinition",
+        "marketing.campaignContext"
+      ],
+      "permissionBindings": [
+        "marketing.campaigns.create",
+        "marketing.campaigns.delete",
+        "marketing.campaigns.edit",
+        "marketing.campaigns.manage",
+        "marketing.campaigns.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.marketing.utm-attribution",
+      "capabilityId": "marketing.utm-attribution",
+      "name": "UTM Attribution",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "marketing",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "UTM Attribution capability within the Marketing module.",
+      "contractBindings": [
+        "marketing.utmParameters",
+        "marketing.trafficSource"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.marketing.ad-click-identifiers",
+      "capabilityId": "marketing.ad-click-identifiers",
+      "name": "Ad Click Identifiers",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "marketing",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Ad Click Identifiers capability within the Marketing module.",
+      "contractBindings": [
+        "marketing.adClickIdentifier"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.marketing.destinations",
+      "capabilityId": "marketing.destinations",
+      "name": "Marketing Destinations",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "marketing",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Marketing Destinations capability within the Marketing module.",
+      "contractBindings": [
+        "marketing.marketingDestination",
+        "marketing.destinationMapping"
+      ],
+      "permissionBindings": [
+        "marketing.destinations.create",
+        "marketing.destinations.delete",
+        "marketing.destinations.edit",
+        "marketing.destinations.manage",
+        "marketing.destinations.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.gtm",
+      "capabilityId": "integrations.gtm",
+      "name": "Google Tag Manager",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Google Tag Manager capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.googleTagManager"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.ga4",
+      "capabilityId": "integrations.ga4",
+      "name": "Google Analytics 4",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Google Analytics 4 capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.googleAnalytics4"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.google-ads",
+      "capabilityId": "integrations.google-ads",
+      "name": "Google Ads",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Google Ads capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.googleAds"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.search-console",
+      "capabilityId": "integrations.search-console",
+      "name": "Google Search Console",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Google Search Console capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.googleSearchConsole"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.meta",
+      "capabilityId": "integrations.meta",
+      "name": "Meta",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Meta capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.meta"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.clarity",
+      "capabilityId": "integrations.clarity",
+      "name": "Microsoft Clarity",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Microsoft Clarity capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.microsoftClarity"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.tiktok",
+      "capabilityId": "integrations.tiktok",
+      "name": "TikTok",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "TikTok capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.tiktok"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.linkedin",
+      "capabilityId": "integrations.linkedin",
+      "name": "LinkedIn",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "LinkedIn capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.linkedin"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.microsoft-ads",
+      "capabilityId": "integrations.microsoft-ads",
+      "name": "Microsoft Ads",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Microsoft Ads capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.microsoftAds"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.email",
+      "capabilityId": "integrations.email",
+      "name": "Email Provider",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Email Provider capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.emailProvider"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.crm",
+      "capabilityId": "integrations.crm",
+      "name": "CRM",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "CRM capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.crm"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.webhooks",
+      "capabilityId": "integrations.webhooks",
+      "name": "Webhook Connector",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Webhook Connector capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.webhook"
+      ],
+      "permissionBindings": [
+        "webhooks.deadletters.manage",
+        "webhooks.deadletters.view",
+        "webhooks.deliveries.export",
+        "webhooks.deliveries.manage",
+        "webhooks.deliveries.view",
+        "webhooks.endpoints.create",
+        "webhooks.endpoints.delete",
+        "webhooks.endpoints.edit",
+        "webhooks.endpoints.manage",
+        "webhooks.endpoints.view",
+        "webhooks.secrets.manage",
+        "webhooks.subscriptions.create",
+        "webhooks.subscriptions.delete",
+        "webhooks.subscriptions.edit",
+        "webhooks.subscriptions.manage",
+        "webhooks.subscriptions.view",
+        "webhooks.tests.create",
+        "webhooks.tests.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.custom-api",
+      "capabilityId": "integrations.custom-api",
+      "name": "Custom API",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Custom API capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.customApi"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.health",
+      "capabilityId": "integrations.health",
+      "name": "Integration Health",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Integration Health capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.healthCheck"
+      ],
+      "permissionBindings": [
+        "integrations.health.view"
+      ],
+      "eventBindings": [
+        "integration.health-degraded",
+        "integration.health-restored"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.sync",
+      "capabilityId": "integrations.sync",
+      "name": "Synchronization",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Synchronization capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.syncRun"
+      ],
+      "permissionBindings": [
+        "integrations.sync.manage",
+        "integrations.sync.view"
+      ],
+      "eventBindings": [
+        "integration.sync-failed",
+        "integration.sync-started",
+        "integration.sync-succeeded"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.catalog",
+      "capabilityId": "commerce.catalog",
+      "name": "Catalog",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Catalog capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.product"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.variants",
+      "capabilityId": "commerce.variants",
+      "name": "Variants",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Variants capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.productVariant",
+        "commerce.productOption"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.attributes",
+      "capabilityId": "commerce.attributes",
+      "name": "Attributes",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Attributes capability within the Commerce module.",
+      "contractBindings": [],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.categories",
+      "capabilityId": "commerce.categories",
+      "name": "Categories",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Categories capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.productCategory"
+      ],
+      "permissionBindings": [
+        "commerce.categories.create",
+        "commerce.categories.delete",
+        "commerce.categories.edit",
+        "commerce.categories.manage",
+        "commerce.categories.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.collections",
+      "capabilityId": "commerce.collections",
+      "name": "Collections",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Collections capability within the Commerce module.",
+      "contractBindings": [],
+      "permissionBindings": [
+        "commerce.collections.create",
+        "commerce.collections.delete",
+        "commerce.collections.edit",
+        "commerce.collections.manage",
+        "commerce.collections.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.inventory",
+      "capabilityId": "commerce.inventory",
+      "name": "Inventory",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Inventory capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.inventoryItem",
+        "commerce.inventoryLevel",
+        "commerce.inventoryAdjustment",
+        "commerce.inventoryReservation"
+      ],
+      "permissionBindings": [
+        "commerce.inventory.edit",
+        "commerce.inventory.export",
+        "commerce.inventory.manage",
+        "commerce.inventory.view"
+      ],
+      "eventBindings": [
+        "inventory.adjusted",
+        "inventory.back-in-stock",
+        "inventory.committed",
+        "inventory.low",
+        "inventory.out-of-stock",
+        "inventory.released",
+        "inventory.reserved",
+        "inventory.transferred"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.multi-location-inventory",
+      "capabilityId": "commerce.multi-location-inventory",
+      "name": "Multi-location Inventory",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Multi-location Inventory capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.inventoryLocation",
+        "commerce.inventoryTransfer"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.customers",
+      "capabilityId": "commerce.customers",
+      "name": "Commerce Customers",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Commerce Customers capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.customerAddress"
+      ],
+      "permissionBindings": [
+        "commerce.customers.edit",
+        "commerce.customers.export",
+        "commerce.customers.manage",
+        "commerce.customers.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.carts",
+      "capabilityId": "commerce.carts",
+      "name": "Carts",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Carts capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.cart",
+        "commerce.cartLine"
+      ],
+      "permissionBindings": [
+        "commerce.carts.manage",
+        "commerce.carts.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.checkout",
+      "capabilityId": "commerce.checkout",
+      "name": "Checkout",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Checkout capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.checkout",
+        "commerce.checkoutLine"
+      ],
+      "permissionBindings": [
+        "commerce.checkouts.manage",
+        "commerce.checkouts.view"
+      ],
+      "eventBindings": [
+        "checkout.abandoned",
+        "checkout.completed",
+        "checkout.expired",
+        "checkout.started",
+        "checkout.updated"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.orders",
+      "capabilityId": "commerce.orders",
+      "name": "Orders",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Orders capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.order"
+      ],
+      "permissionBindings": [
+        "commerce.orders.edit",
+        "commerce.orders.export",
+        "commerce.orders.manage",
+        "commerce.orders.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.payments",
+      "capabilityId": "commerce.payments",
+      "name": "Payments",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Payments capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.payment",
+        "commerce.paymentAttempt",
+        "commerce.paymentAuthorization",
+        "commerce.paymentCapture"
+      ],
+      "permissionBindings": [
+        "commerce.payments.export",
+        "commerce.payments.manage",
+        "commerce.payments.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.refunds",
+      "capabilityId": "commerce.refunds",
+      "name": "Refunds",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Refunds capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.refund"
+      ],
+      "permissionBindings": [
+        "commerce.refunds.create",
+        "commerce.refunds.export",
+        "commerce.refunds.manage",
+        "commerce.refunds.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.shipping",
+      "capabilityId": "commerce.shipping",
+      "name": "Shipping",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Shipping capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.shippingZone",
+        "commerce.shippingMethod"
+      ],
+      "permissionBindings": [
+        "commerce.shipping.create",
+        "commerce.shipping.delete",
+        "commerce.shipping.edit",
+        "commerce.shipping.manage",
+        "commerce.shipping.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.fulfillment",
+      "capabilityId": "commerce.fulfillment",
+      "name": "Fulfillment",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Fulfillment capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.fulfillment",
+        "commerce.shipment"
+      ],
+      "permissionBindings": [
+        "commerce.fulfillments.create",
+        "commerce.fulfillments.edit",
+        "commerce.fulfillments.manage",
+        "commerce.fulfillments.view"
+      ],
+      "eventBindings": [
+        "fulfillment.cancelled",
+        "fulfillment.completed",
+        "fulfillment.created",
+        "fulfillment.updated"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.discounts",
+      "capabilityId": "commerce.discounts",
+      "name": "Discounts",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Discounts capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.discount"
+      ],
+      "permissionBindings": [
+        "commerce.discounts.create",
+        "commerce.discounts.delete",
+        "commerce.discounts.edit",
+        "commerce.discounts.manage",
+        "commerce.discounts.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.promotions",
+      "capabilityId": "commerce.promotions",
+      "name": "Automatic Promotions",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Automatic Promotions capability within the Commerce module.",
+      "contractBindings": [],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.returns",
+      "capabilityId": "commerce.returns",
+      "name": "Returns",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Returns capability within the Commerce module.",
+      "contractBindings": [],
+      "permissionBindings": [
+        "commerce.returns.edit",
+        "commerce.returns.manage",
+        "commerce.returns.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.reviews",
+      "capabilityId": "commerce.reviews",
+      "name": "Reviews",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Reviews capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.productReview"
+      ],
+      "permissionBindings": [
+        "commerce.reviews.delete",
+        "commerce.reviews.edit",
+        "commerce.reviews.manage",
+        "commerce.reviews.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.taxes",
+      "capabilityId": "commerce.taxes",
+      "name": "Tax",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Tax capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.taxConfiguration",
+        "commerce.taxLine"
+      ],
+      "permissionBindings": [
+        "commerce.taxes.edit",
+        "commerce.taxes.manage",
+        "commerce.taxes.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    }
+  ],
+  "reservedCapabilities": [
+    {
+      "capabilityId": "commerce.subscriptions",
+      "reason": "Requires dedicated recurring billing, entitlement and lifecycle contracts before use."
+    },
+    {
+      "capabilityId": "commerce.bookings",
+      "reason": "Requires scheduling, resource availability and reservation contracts before use."
+    },
+    {
+      "capabilityId": "commerce.gift-cards",
+      "reason": "Requires stored-value issuance, redemption and liability contracts before use."
+    },
+    {
+      "capabilityId": "commerce.marketplace",
+      "reason": "Requires seller, commission, settlement and marketplace governance contracts before use."
+    },
+    {
+      "capabilityId": "commerce.preorders",
+      "reason": "Requires preorder authorization, inventory and fulfillment rules before use."
+    }
+  ]
+}

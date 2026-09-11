@@ -1,0 +1,77 @@
+{
+  "$id": "commerce.productAttributeValue",
+  "name": "Product Attribute Value",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "catalog",
+  "description": "Concrete Product attribute value.",
+  "purpose": "Carries one Product's value while retaining canonical attribute semantics.",
+  "commerceModel": {
+    "kind": "embedded",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "attributeKey",
+      "required": true,
+      "nullable": false,
+      "description": "Attribute key.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "value",
+      "required": true,
+      "nullable": false,
+      "description": "Typed attribute value.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "matchesDefinition",
+      "description": "Value must match the referenced attribute definition."
+    }
+  ],
+  "cms": {
+    "label": "Product Attribute Value",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "attributeKey",
+      "value"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly public storefront fields may be delivered; operational, personal, payment and internal metadata remain private."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

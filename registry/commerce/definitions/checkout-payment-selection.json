@@ -1,0 +1,105 @@
+{
+  "$id": "commerce.checkoutPaymentSelection",
+  "name": "Checkout Payment Selection",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "cart-checkout",
+  "description": "Safe Checkout payment selection.",
+  "purpose": "Identifies the chosen payment route without storing raw card credentials.",
+  "commerceModel": {
+    "kind": "snapshot",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "providerKey",
+      "required": true,
+      "nullable": false,
+      "description": "Payment provider/connector key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "methodType",
+      "required": true,
+      "nullable": false,
+      "description": "Payment method category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "card",
+          "wallet",
+          "bank-transfer",
+          "cash-on-delivery",
+          "other"
+        ]
+      }
+    },
+    {
+      "key": "paymentMethodReferenceId",
+      "required": false,
+      "nullable": true,
+      "description": "Opaque provider/payment-method reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "displayLabel",
+      "required": false,
+      "nullable": true,
+      "description": "Safe display label.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "noRawCardData",
+      "description": "PAN, CVV and equivalent raw card secrets are prohibited."
+    },
+    {
+      "id": "opaqueReference",
+      "description": "Provider method references must be opaque/tokenized values."
+    }
+  ],
+  "cms": {
+    "label": "Checkout Payment Selection",
+    "icon": "fa-cart-shopping",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "providerKey",
+      "methodType",
+      "paymentMethodReferenceId",
+      "displayLabel"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,101 @@
+{
+  "$id": "compatibility.matrix",
+  "name": "Compatibility Matrix",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "A bounded matrix of compatibility results across releases or platform surfaces.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "matrixId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable matrix ID.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Matrix title.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "generatedForRelease",
+      "required": true,
+      "nullable": false,
+      "description": "Target Registry release.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "rows",
+      "required": true,
+      "nullable": false,
+      "description": "Matrix rows.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "columns",
+      "required": false,
+      "nullable": true,
+      "description": "Optional matrix columns.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "cells",
+      "required": true,
+      "nullable": false,
+      "description": "Compatibility cells.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "generatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Generation time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.slug",
+      "description": "matrixId uses fields.slug."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "title uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.json",
+      "description": "rows uses fields.json."
+    },
+    {
+      "type": "uses",
+      "target": "fields.dateTime",
+      "description": "generatedAt uses fields.dateTime."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

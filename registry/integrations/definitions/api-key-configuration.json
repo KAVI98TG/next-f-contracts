@@ -1,0 +1,117 @@
+{
+  "$id": "integrations.apiKeyConfiguration",
+  "name": "API Key Configuration",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "authentication",
+  "description": "API-key authentication configuration using a protected secret reference.",
+  "purpose": "Standardizes API key placement while keeping the key server-side by default.",
+  "integrationModel": {
+    "kind": "auth-configuration",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "secret"
+  },
+  "fields": [
+    {
+      "key": "secretRef",
+      "required": true,
+      "nullable": false,
+      "description": "Protected API key.",
+      "schema": "integrations.secretReference"
+    },
+    {
+      "key": "placement",
+      "required": true,
+      "nullable": false,
+      "description": "Provider-required placement.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "header",
+          "query",
+          "body",
+          "provider-sdk"
+        ]
+      }
+    },
+    {
+      "key": "name",
+      "required": false,
+      "nullable": true,
+      "description": "Header/query/body field name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "prefix",
+      "required": false,
+      "nullable": true,
+      "description": "Optional non-secret prefix such as Bearer.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "publicClientEligible",
+      "required": true,
+      "nullable": false,
+      "description": "Whether connector explicitly permits client exposure.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "integrations.secretReference",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "serverSideDefault",
+      "description": "API keys are server-side unless connector explicitly allows client exposure."
+    },
+    {
+      "id": "noSecretInQueryLogs",
+      "description": "Secret-bearing query authentication requires protections against URL/log leakage."
+    }
+  ],
+  "cms": {
+    "label": "API Key Configuration",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "secretRef",
+      "placement",
+      "name",
+      "prefix"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

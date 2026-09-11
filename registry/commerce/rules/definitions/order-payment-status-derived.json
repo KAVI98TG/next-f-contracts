@@ -1,0 +1,84 @@
+{
+  "$id": "commerce.rule.orderPaymentStatusDerived",
+  "name": "Order Payment Status Derived",
+  "version": "0.13.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "orders",
+  "ruleKind": "order-invariant",
+  "description": "Order paymentStatus must be derived/reconciled from authoritative payment, capture and refund facts rather than freely edited by a user interface.",
+  "purpose": "Order paymentStatus must be derived/reconciled from authoritative payment, capture and refund facts rather than freely edited by a user interface.",
+  "severity": "critical",
+  "configurable": false,
+  "appliesTo": [
+    "commerce.order",
+    "commerce.payment",
+    "commerce.paymentCapture",
+    "commerce.refund"
+  ],
+  "enforcement": {
+    "authority": "server",
+    "timing": "before-and-after-transition",
+    "atomicWhenRequired": true,
+    "auditRequired": true,
+    "clientValidationOnly": false
+  },
+  "requirements": [
+    {
+      "id": "commerce.rule.orderPaymentStatusDerived.R1",
+      "description": "Order paymentStatus must be derived/reconciled from authoritative payment, capture and refund facts rather than freely edited by a user interface."
+    },
+    {
+      "id": "commerce.rule.orderPaymentStatusDerived.R2",
+      "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+    }
+  ],
+  "failure": {
+    "code": "COMMERCE_INVALID_TRANSITION",
+    "retryable": false,
+    "customerSafe": true,
+    "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+  },
+  "relationships": [
+    {
+      "type": "governs",
+      "target": "commerce.order",
+      "description": "This rule constrains commerce.order operations or state."
+    },
+    {
+      "type": "governs",
+      "target": "commerce.payment",
+      "description": "This rule constrains commerce.payment operations or state."
+    },
+    {
+      "type": "governs",
+      "target": "commerce.paymentCapture",
+      "description": "This rule constrains commerce.paymentCapture operations or state."
+    },
+    {
+      "type": "governs",
+      "target": "commerce.refund",
+      "description": "This rule constrains commerce.refund operations or state."
+    }
+  ],
+  "examples": {
+    "valid": [
+      "An operation involving commerce.order, commerce.payment satisfies the rule before authoritative state is committed."
+    ],
+    "invalid": [
+      "An implementation bypasses commerce.rule.orderPaymentStatusDerived and commits a conflicting or unverifiable state."
+    ]
+  },
+  "implementationNotes": [
+    "Enforce at the server-side commerce domain boundary.",
+    "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+    "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+  ],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  }
+}

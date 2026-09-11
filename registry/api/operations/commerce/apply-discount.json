@@ -1,0 +1,73 @@
+{
+  "$id": "api.commerce.apply-discount",
+  "operationId": "api.commerce.apply-discount",
+  "name": "Apply Checkout Discount",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.commerce",
+  "method": "POST",
+  "path": "/checkouts/{checkoutId}/discounts",
+  "description": "Apply Checkout Discount",
+  "authentication": {
+    "mode": "anonymous-or-commerce-customer",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "checkoutId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key",
+      "If-Match"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "commerce.checkout",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "invariant_violation",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": true,
+      "requestHeader": "If-Match",
+      "responseHeader": "ETag"
+    },
+    "cache": "no-store",
+    "rateLimit": "commerce-checkout",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "commerce"
+  ],
+  "contractBindings": [
+    "commerce.checkout"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "personal",
+  "notes": []
+}

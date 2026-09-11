@@ -1,0 +1,70 @@
+{
+  "$id": "api.nextf-admin.create-organization",
+  "operationId": "api.nextf-admin.create-organization",
+  "name": "Create Organization",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.nextf-admin",
+  "method": "POST",
+  "path": "/organizations",
+  "description": "Create Organization",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "platform.organizations.create"
+    ],
+    "permissionMode": "all",
+    "scope": "platform"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "core.organization",
+    "bodyProjection": "operation-writable-fields-only"
+  },
+  "response": {
+    "successStatus": 201,
+    "envelope": "api.successEnvelope",
+    "dataContract": "core.organization",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "module_disabled"
+    ],
+    "projection": "admin-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "sensitive-write",
+    "cors": "admin-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "integrations"
+  ],
+  "contractBindings": [
+    "core.organization"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "internal",
+  "notes": []
+}

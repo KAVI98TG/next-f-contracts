@@ -1,0 +1,40 @@
+{
+  "registryVersion": "0.19.0",
+  "classes": [
+    {
+      "id": "public-read",
+      "label": "Public Read",
+      "description": "High-volume read traffic with Site-level abuse controls."
+    },
+    {
+      "id": "public-write",
+      "label": "Public Write",
+      "description": "Strict anonymous write protection for forms/search-like interactions."
+    },
+    {
+      "id": "authenticated-read",
+      "label": "Authenticated Read",
+      "description": "Customer/Admin authenticated read budget."
+    },
+    {
+      "id": "authenticated-write",
+      "label": "Authenticated Write",
+      "description": "Authenticated mutation budget."
+    },
+    {
+      "id": "sensitive-write",
+      "label": "Sensitive Write",
+      "description": "Low-volume sensitive or destructive operation budget with stronger controls."
+    },
+    {
+      "id": "commerce-checkout",
+      "label": "Commerce Checkout",
+      "description": "Checkout/cart transactional traffic with anti-abuse and idempotency controls."
+    },
+    {
+      "id": "server-to-server",
+      "label": "Server to Server",
+      "description": "Trusted integration/event traffic with identity-specific quotas."
+    }
+  ]
+}

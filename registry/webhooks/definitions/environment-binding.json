@@ -1,0 +1,79 @@
+{
+  "$id": "webhooks.environmentBinding",
+  "name": "Webhook Environment Binding",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "foundation",
+  "description": "Binds a webhook object to exactly one Site environment.",
+  "purpose": "Prevents preview, staging and production event delivery from crossing environment boundaries.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "siteId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "Single bound environment.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "preview",
+          "staging",
+          "production"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "core.site",
+      "description": "Binding belongs to one Site."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "singleEnvironment",
+      "description": "One endpoint/subscription is bound to exactly one environment."
+    },
+    {
+      "id": "noCrossEnvironment",
+      "description": "Events from another environment must never be delivered through the binding."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Environment Binding",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "siteId",
+      "environment"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/changelog/release.schema.json",
+  "title": "NEXT F Changelog Release",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "version",
+    "phase",
+    "title",
+    "releaseStatus",
+    "summary",
+    "sourceVersion",
+    "targetVersion",
+    "recordCompleteness",
+    "sections",
+    "provenance",
+    "evidence",
+    "affected",
+    "breakingChange",
+    "migrationRequired"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "releaseDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "phase": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "releaseStatus": {
+      "type": "string",
+      "enum": [
+        "published-development",
+        "draft",
+        "deprecated-release",
+        "history-only"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceVersion": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "targetVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "recordCompleteness": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "incomplete"
+      ]
+    },
+    "incompletenessReason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "category",
+          "label",
+          "entries"
+        ],
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "./change-entry.schema.json"
+            }
+          }
+        }
+      }
+    },
+    "affected": {
+      "type": "object",
+      "required": [
+        "domains",
+        "modules",
+        "contracts",
+        "events",
+        "permissions",
+        "webhooks",
+        "apis",
+        "manifests",
+        "cmsMetadata",
+        "adminMetadata"
+      ],
+      "properties": {
+        "domains": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "modules": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "contracts": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "events": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "permissions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "webhooks": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "apis": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "manifests": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "cmsMetadata": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "adminMetadata": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "breakingChange": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "migrationRequired": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "migrationNotes": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendedAction": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "support": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "corrections": {
+      "type": "array"
+    }
+  }
+}

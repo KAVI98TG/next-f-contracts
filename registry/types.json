@@ -1,0 +1,240 @@
+{
+  "registryVersion": "1.0.0",
+  "types": [
+    {
+      "id": "acceptance-check",
+      "label": "Acceptance Check",
+      "description": "Stable repository QA check with result, severity, evidence and remediation status."
+    },
+    {
+      "id": "acceptance-report",
+      "label": "Acceptance Report",
+      "description": "Machine-readable repository QA and release acceptance evidence."
+    },
+    {
+      "id": "accessibility-audit",
+      "label": "Accessibility Audit",
+      "description": "Machine-readable accessibility review evidence for a NEXT F interface."
+    },
+    {
+      "id": "accessibility-control",
+      "label": "Accessibility Control",
+      "description": "Canonical accessibility requirement with UI applicability, verification and cross-registry bindings."
+    },
+    {
+      "id": "admin-ui-control",
+      "label": "NEXT F Admin Control",
+      "description": "Reusable internal privileged UI control metadata."
+    },
+    {
+      "id": "admin-ui-panel",
+      "label": "NEXT F Admin Panel",
+      "description": "Reusable internal-only related context panel metadata."
+    },
+    {
+      "id": "admin-ui-profile",
+      "label": "NEXT F Admin UI Profile",
+      "description": "Internal-only NEXT F Admin resource or shell profile."
+    },
+    {
+      "id": "admin-ui-schema",
+      "label": "NEXT F Admin UI Support Schema",
+      "description": "Reusable structure defining NEXT F Admin metadata behavior."
+    },
+    {
+      "id": "api-group",
+      "label": "API Group",
+      "description": "Versioned API surface/family with common base path, authentication and runtime policies."
+    },
+    {
+      "id": "api-operation",
+      "label": "API Operation",
+      "description": "Canonical versioned HTTP operation with request, response, authorization and runtime policy metadata."
+    },
+    {
+      "id": "api-schema",
+      "label": "API Support Schema",
+      "description": "Reusable API interface support contract such as envelopes, pagination, idempotency or upload sessions."
+    },
+    {
+      "id": "block",
+      "label": "Block",
+      "description": "Reusable section Block contract eligible for page composition."
+    },
+    {
+      "id": "business-rule",
+      "label": "Business Rule",
+      "description": "Server-authoritative cross-entity operational invariant applied to canonical contracts."
+    },
+    {
+      "id": "capability",
+      "label": "Capability",
+      "description": "Module-scoped selectable or baseline capability."
+    },
+    {
+      "id": "cms-ui-editor",
+      "label": "Customer CMS Editor",
+      "description": "Canonical editor control or composite editor available to Customer CMS metadata."
+    },
+    {
+      "id": "cms-ui-profile",
+      "label": "Customer CMS UI Profile",
+      "description": "Declarative Customer CMS resource/screen profile that binds canonical contracts to list, editor, detail, builder, settings or report experiences."
+    },
+    {
+      "id": "cms-ui-schema",
+      "label": "Customer CMS UI Support Schema",
+      "description": "Reusable structural schema used to define Customer CMS UI metadata."
+    },
+    {
+      "id": "connector",
+      "label": "Connector",
+      "description": "Provider or generic external-system adapter definition implementing canonical NEXT F Integration Contracts."
+    },
+    {
+      "id": "data-handling-record",
+      "label": "Data Handling Record",
+      "description": "Field-level privacy classification and handling metadata."
+    },
+    {
+      "id": "deprecation-record",
+      "label": "Deprecation Record",
+      "description": "Lifecycle record governing a deprecated or removed canonical Registry definition."
+    },
+    {
+      "id": "developer-artifact",
+      "label": "Developer Artifact",
+      "description": "Required implementation planning, reporting, migration, extension or handoff artifact."
+    },
+    {
+      "id": "developer-change-class",
+      "label": "Developer Change Class",
+      "description": "Compatibility/risk classification for implementation or contract changes."
+    },
+    {
+      "id": "developer-quality-gate",
+      "label": "Developer Quality Gate",
+      "description": "Completion gate that must be evaluated before a task is considered done."
+    },
+    {
+      "id": "developer-schema",
+      "label": "Developer Support Schema",
+      "description": "Machine-readable structure for Codex context, plans, proposals, deviations and reports."
+    },
+    {
+      "id": "developer-stop-condition",
+      "label": "Developer Stop Condition",
+      "description": "Condition that blocks or escalates an affected implementation path."
+    },
+    {
+      "id": "developer-task-type",
+      "label": "Developer Task Type",
+      "description": "Canonical class of Codex implementation task with required workflow stages."
+    },
+    {
+      "id": "developer-workflow",
+      "label": "Developer Workflow Stage",
+      "description": "Canonical stage in the NEXT F Codex implementation workflow."
+    },
+    {
+      "id": "event",
+      "label": "Event",
+      "description": "Canonical immutable completed-fact domain event definition."
+    },
+    {
+      "id": "field",
+      "label": "Primitive Field",
+      "description": "Canonical reusable primitive field definition consumed by schemas and CMS editor metadata."
+    },
+    {
+      "id": "machine-registry",
+      "label": "Machine Registry",
+      "description": "Machine-readable canonical registry or ruleset."
+    },
+    {
+      "id": "module",
+      "label": "Module",
+      "description": "Canonical Site functional module."
+    },
+    {
+      "id": "performance-audit",
+      "label": "Performance Audit",
+      "description": "Measured performance evidence against canonical budgets."
+    },
+    {
+      "id": "performance-budget",
+      "label": "Performance Budget",
+      "description": "Measurable target/warning threshold for a performance metric."
+    },
+    {
+      "id": "performance-rule",
+      "label": "Performance Rule",
+      "description": "Canonical implementation rule for performance behavior."
+    },
+    {
+      "id": "permission",
+      "label": "Permission",
+      "description": "Canonical domain.resource.action authorization identifier."
+    },
+    {
+      "id": "portal-definition",
+      "label": "Portal Definition",
+      "description": "Machine-readable portal information architecture definition."
+    },
+    {
+      "id": "privacy-operation",
+      "label": "Privacy Operation",
+      "description": "Future-safe privacy/customer-data operation primitive."
+    },
+    {
+      "id": "reference-example",
+      "label": "Reference Example",
+      "description": "Complete reusable Site architecture/composition reference for a common NEXT F customer website class."
+    },
+    {
+      "id": "registry-index",
+      "label": "Registry Index",
+      "description": "Authoritative index of discoverable registry entries."
+    },
+    {
+      "id": "release-note",
+      "label": "Release Note",
+      "description": "Authoritative machine-readable Changelog record for one coordinated Contract Registry release."
+    },
+    {
+      "id": "role",
+      "label": "Role",
+      "description": "Named explicit bundle of canonical permissions with assignment and scope rules."
+    },
+    {
+      "id": "schema",
+      "label": "Schema",
+      "description": "Reusable structured object contract composed from primitive fields and other canonical schemas."
+    },
+    {
+      "id": "security-control",
+      "label": "Security Control",
+      "description": "Canonical security requirement with applicability, verification and cross-registry bindings."
+    },
+    {
+      "id": "standard",
+      "label": "Standard",
+      "description": "Authoritative human-readable technical standard."
+    },
+    {
+      "id": "starter-pack",
+      "label": "Site Starter Contract Pack",
+      "description": "Framework-neutral customer Site bootstrap package with a pinned manifest, contract maps, Codex handoff and validation guidance."
+    },
+    {
+      "id": "validation-tool",
+      "label": "Validation Tool",
+      "description": "Deterministic contract validation tool."
+    },
+    {
+      "id": "vocabulary",
+      "label": "Vocabulary",
+      "description": "Controlled machine-readable vocabulary used by registry validation and UI."
+    }
+  ]
+}

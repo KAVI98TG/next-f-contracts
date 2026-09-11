@@ -1,0 +1,34 @@
+{
+  "controlId": "ACC-MOTION-001",
+  "name": "Respect reduced motion",
+  "category": "motion",
+  "requirement": "Non-essential animation and transitions must respect the user reduced-motion preference and must not be required to understand content.",
+  "rationale": "Motion can cause discomfort or prevent successful interaction for some users.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "page",
+    "navigation",
+    "dialog",
+    "drawer"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "visual-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_motion_001.json"
+}

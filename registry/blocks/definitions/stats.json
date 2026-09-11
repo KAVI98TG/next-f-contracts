@@ -1,0 +1,137 @@
+{
+  "$id": "blocks.stats",
+  "name": "Stats",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "proof",
+  "description": "Section presenting a set of business statistics or metrics.",
+  "purpose": "Standardizes metric content while allowing frontend-specific visual presentation.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "items",
+      "required": true,
+      "nullable": false,
+      "description": "Ordered statistics.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "array",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      },
+      "itemsSchema": "blocks.statItem",
+      "collectionRules": {
+        "minItems": 1,
+        "maxItems": 16
+      }
+    },
+    {
+      "key": "footnote",
+      "required": false,
+      "nullable": true,
+      "description": "Optional methodology or qualification note.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "blocks.statItem",
+      "description": "Every metric validates against Stat Item."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "itemsConform",
+      "description": "Every items entry must validate against blocks.statItem."
+    }
+  ],
+  "cms": {
+    "label": "Stats",
+    "icon": "fa-chart-column",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "items",
+      "footnote"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Do not communicate metric meaning only with color, iconography or animation."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

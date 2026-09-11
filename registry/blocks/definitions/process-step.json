@@ -1,0 +1,142 @@
+{
+  "$id": "blocks.processStep",
+  "name": "Process Step",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "foundation",
+  "description": "Reusable ordered process or timeline step.",
+  "purpose": "Provides consistent step data for process, journey and timeline sections.",
+  "blockModel": {
+    "kind": "embedded",
+    "placement": "nested-only",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "stepLabel",
+      "required": false,
+      "nullable": true,
+      "description": "Optional short step marker such as 01 or Discovery.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 60,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Step title.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Step description.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1500,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "media",
+      "required": false,
+      "nullable": true,
+      "description": "Optional step media.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "link",
+      "required": false,
+      "nullable": true,
+      "description": "Optional step destination.",
+      "schema": "shared.link"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "Step may include media."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.link",
+      "description": "Step may link to supporting content."
+    }
+  ],
+  "validationRules": [],
+  "cms": {
+    "label": "Process Step",
+    "icon": "fa-list-ol",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "embedded-item-editor",
+    "summaryFields": [
+      "stepLabel",
+      "title",
+      "description"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": false,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Visual numbering must not be the only way step sequence is conveyed."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

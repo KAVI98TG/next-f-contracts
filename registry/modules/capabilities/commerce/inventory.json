@@ -1,0 +1,45 @@
+{
+  "$id": "modules.capability.commerce.inventory",
+  "capabilityId": "commerce.inventory",
+  "name": "Inventory",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Inventory capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.inventoryItem",
+    "commerce.inventoryLevel",
+    "commerce.inventoryAdjustment",
+    "commerce.inventoryReservation"
+  ],
+  "permissionBindings": [
+    "commerce.inventory.edit",
+    "commerce.inventory.export",
+    "commerce.inventory.manage",
+    "commerce.inventory.view"
+  ],
+  "eventBindings": [
+    "inventory.adjusted",
+    "inventory.back-in-stock",
+    "inventory.committed",
+    "inventory.low",
+    "inventory.out-of-stock",
+    "inventory.released",
+    "inventory.reserved",
+    "inventory.transferred"
+  ],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

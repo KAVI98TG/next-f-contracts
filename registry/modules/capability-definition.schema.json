@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/modules/capability-definition.schema.json",
+  "title": "NEXT F Capability Definition",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "$id",
+    "capabilityId",
+    "name",
+    "version",
+    "status",
+    "moduleId",
+    "mode",
+    "selectable",
+    "defaultEnabled",
+    "contractBindings",
+    "permissionBindings",
+    "eventBindings"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*$"
+    },
+    "capabilityId": {
+      "type": "string"
+    },
+    "moduleId": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "always-on",
+        "default-on",
+        "optional"
+      ]
+    },
+    "selectable": {
+      "type": "boolean"
+    },
+    "defaultEnabled": {
+      "type": "boolean"
+    }
+  }
+}

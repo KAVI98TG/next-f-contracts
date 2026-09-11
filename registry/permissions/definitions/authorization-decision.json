@@ -1,0 +1,86 @@
+{
+  "$id": "permissions.authorizationDecision",
+  "name": "Authorization Decision",
+  "domain": "permissions",
+  "type": "schema",
+  "version": "0.16.0",
+  "status": "stable",
+  "category": "foundation",
+  "description": "Records the result and rationale of a permission evaluation without exposing secrets.",
+  "purpose": "Records the result and rationale of a permission evaluation without exposing secrets.",
+  "permissionModel": {
+    "kind": "foundation",
+    "publicEligible": false,
+    "customerManaged": false
+  },
+  "fields": [
+    {
+      "key": "allowed",
+      "required": true,
+      "nullable": false,
+      "description": "allowed",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "permissionId",
+      "required": true,
+      "nullable": false,
+      "description": "permissionId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "principalId",
+      "required": true,
+      "nullable": false,
+      "description": "principalId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "scope",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "reasonCode",
+      "required": true,
+      "nullable": false,
+      "description": "reasonCode",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "evaluatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "evaluatedAt",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "matchedRoleIds",
+      "required": false,
+      "nullable": true,
+      "description": "matchedRoleIds",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "permissions.authorizationDecision.rule.1",
+      "description": "Default decision is deny when no valid grant matches."
+    },
+    {
+      "id": "permissions.authorizationDecision.rule.2",
+      "description": "Decision records must not include secrets or raw authentication tokens."
+    }
+  ],
+  "cms": {
+    "adminVisible": true,
+    "customerVisible": false
+  },
+  "delivery": {
+    "publicAllowed": false
+  },
+  "notes": []
+}

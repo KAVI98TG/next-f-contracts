@@ -1,0 +1,38 @@
+{
+  "$id": "modules.capability.commerce.checkout",
+  "capabilityId": "commerce.checkout",
+  "name": "Checkout",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Checkout capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.checkout",
+    "commerce.checkoutLine"
+  ],
+  "permissionBindings": [
+    "commerce.checkouts.manage",
+    "commerce.checkouts.view"
+  ],
+  "eventBindings": [
+    "checkout.abandoned",
+    "checkout.completed",
+    "checkout.expired",
+    "checkout.started",
+    "checkout.updated"
+  ],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

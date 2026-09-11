@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/schema/commerce-rule-definition.schema.json",
+  "title": "NEXT F Commerce Rule Definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "category",
+    "ruleKind",
+    "description",
+    "purpose",
+    "severity",
+    "configurable",
+    "appliesTo",
+    "enforcement",
+    "requirements",
+    "failure",
+    "relationships",
+    "examples",
+    "implementationNotes",
+    "futureBindings"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^commerce\\.rule\\.[A-Za-z0-9]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "const": "stable"
+    },
+    "domain": {
+      "const": "commerce"
+    },
+    "category": {
+      "type": "string"
+    },
+    "ruleKind": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "severity": {
+      "enum": [
+        "standard",
+        "high",
+        "critical"
+      ]
+    },
+    "configurable": {
+      "type": "boolean"
+    },
+    "appliesTo": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "enforcement": {
+      "type": "object",
+      "required": [
+        "authority",
+        "timing",
+        "atomicWhenRequired",
+        "auditRequired",
+        "clientValidationOnly"
+      ],
+      "properties": {
+        "authority": {
+          "const": "server"
+        },
+        "timing": {
+          "type": "string"
+        },
+        "atomicWhenRequired": {
+          "type": "boolean"
+        },
+        "auditRequired": {
+          "type": "boolean"
+        },
+        "clientValidationOnly": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "requirements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "failure": {
+      "type": "object",
+      "required": [
+        "code",
+        "retryable",
+        "customerSafe",
+        "notes"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^COMMERCE_[A-Z0-9_]+$"
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "customerSafe": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "target",
+          "description"
+        ],
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "examples": {
+      "type": "object",
+      "required": [
+        "valid",
+        "invalid"
+      ],
+      "properties": {
+        "valid": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "invalid": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "implementationNotes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "futureBindings": {
+      "type": "object",
+      "required": [
+        "events",
+        "webhooks",
+        "permissions",
+        "siteManifest",
+        "api"
+      ],
+      "properties": {
+        "events": {
+          "const": "phase-13"
+        },
+        "webhooks": {
+          "const": "phase-14"
+        },
+        "permissions": {
+          "const": "phase-15"
+        },
+        "siteManifest": {
+          "const": "phase-16"
+        },
+        "api": {
+          "const": "phase-18"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

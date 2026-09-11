@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.aggregateViewPolicy",
+  "name": "Aggregate View Policy",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines cross-tenant aggregate views and mandatory scope visibility.",
+  "purpose": "Defines cross-tenant aggregate views and mandatory scope visibility.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

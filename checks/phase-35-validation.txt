@@ -1,0 +1,13 @@
+
+> next-f-contracts@0.36.0 validate:phase35
+> node scripts/validate-phase-35.mjs
+
+NEXT F Contracts Phase 35 validation
+Version: 0.36.0
+Passes: 286
+Failures: 0
+Starter packs: 6
+CLI-valid starter manifests: 6
+Registry items: 2170
+JSON files checked: 2041
+PASS - Site Starter Contract Packs satisfy the Phase 35 acceptance model.

@@ -1,0 +1,100 @@
+{
+  "$id": "modules.analytics",
+  "moduleId": "analytics",
+  "name": "Analytics",
+  "version": "0.18.0",
+  "status": "stable",
+  "category": "growth",
+  "icon": "fa-chart-line",
+  "order": 230,
+  "description": "Provider-neutral website measurement, analytics observations, reporting, attribution and campaign performance summaries.",
+  "selection": {
+    "mandatory": false,
+    "defaultEnabled": false,
+    "explicitManifestSelection": true,
+    "customerCanEnable": false,
+    "nextfAdminCanEnable": true
+  },
+  "dependencies": [
+    {
+      "moduleId": "core",
+      "kind": "required",
+      "reason": "Analytics configuration is Site-scoped."
+    },
+    {
+      "moduleId": "consent",
+      "kind": "required",
+      "reason": "Optional analytics measurement must honor canonical consent state."
+    },
+    {
+      "moduleId": "integrations",
+      "kind": "recommended",
+      "reason": "Provider reporting normally arrives through supported integration connectors."
+    }
+  ],
+  "conflicts": [],
+  "capabilityIds": [
+    "analytics.measurement",
+    "analytics.reporting",
+    "analytics.attribution",
+    "analytics.campaign-performance"
+  ],
+  "defaultCapabilityIds": [
+    "analytics.measurement",
+    "analytics.reporting"
+  ],
+  "contractBindings": [
+    "marketing.analyticsConfiguration",
+    "marketing.analyticsObservation",
+    "marketing.analyticsSnapshot",
+    "marketing.attributionCredit",
+    "marketing.attributionModel",
+    "marketing.attributionTouchpoint",
+    "marketing.campaignAttribution",
+    "marketing.campaignPerformanceSnapshot",
+    "marketing.conversionAttribution",
+    "marketing.dimensionDefinition",
+    "marketing.metricDefinition"
+  ],
+  "permissionBindings": [
+    "marketing.analytics.export",
+    "marketing.analytics.view",
+    "marketing.attribution.export",
+    "marketing.attribution.manage",
+    "marketing.attribution.view"
+  ],
+  "eventBindings": [
+    "conversion.recorded",
+    "consent.updated"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "group": "Growth",
+    "navigation": [
+      {
+        "label": "Analytics",
+        "path": "/growth/analytics",
+        "icon": "fa-chart-line",
+        "order": 40
+      }
+    ]
+  },
+  "admin": {
+    "visible": true,
+    "group": "Sites",
+    "navigation": [
+      {
+        "label": "Analytics",
+        "path": "/sites/:siteId/analytics",
+        "icon": "fa-chart-line",
+        "order": 65
+      }
+    ]
+  },
+  "manifest": {
+    "moduleId": "analytics",
+    "capabilitySelection": "module-scoped",
+    "dependencyValidation": "strict"
+  },
+  "notes": []
+}

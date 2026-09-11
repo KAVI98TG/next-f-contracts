@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.consent.categories",
+  "capabilityId": "consent.categories",
+  "name": "Consent Categories",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "consent",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Consent Categories capability within the Consent module.",
+  "contractBindings": [
+    "marketing.consentCategory"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

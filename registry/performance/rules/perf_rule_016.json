@@ -1,0 +1,21 @@
+{
+  "ruleId": "PERF-RULE-016",
+  "name": "No duplicate provider scripts",
+  "category": "third-party",
+  "requirement": "Load a provider runtime at most once per page/runtime unless the provider contract explicitly requires otherwise.",
+  "applicability": [
+    "customer-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "verificationMethods": [
+    "static-analysis",
+    "browser-profile"
+  ],
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/rules/perf_rule_016.json"
+}

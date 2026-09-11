@@ -1,0 +1,105 @@
+{
+  "$id": "webhooks.responsePolicy",
+  "name": "Webhook Response Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "payload",
+  "description": "Defines how receiver HTTP responses are interpreted.",
+  "purpose": "Treats status as delivery outcome and response body as bounded diagnostics except during endpoint verification.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "successMinimum",
+      "required": true,
+      "nullable": false,
+      "description": "Minimum successful HTTP status.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "successMaximum",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum successful HTTP status.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "maximumDiagnosticBytes",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum response bytes retained/read for diagnostics.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "followRedirects",
+      "required": true,
+      "nullable": false,
+      "description": "Whether 3xx responses are followed.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "responseBodyAuthoritative",
+      "required": true,
+      "nullable": false,
+      "description": "Whether normal response bodies can create NEXT F business state.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "2xxSuccess",
+      "description": "HTTP 200 through 299 are successful deliveries."
+    },
+    {
+      "id": "redirectTerminal",
+      "description": "3xx responses are terminal and never followed automatically."
+    },
+    {
+      "id": "retryableStatuses",
+      "description": "408, 425, 429 and 5xx responses are retryable subject to policy."
+    },
+    {
+      "id": "other4xxTerminal",
+      "description": "Other 4xx responses are terminal except 410 additionally disables the endpoint."
+    },
+    {
+      "id": "diagnosticOnly",
+      "description": "Normal delivery response bodies are diagnostic only."
+    },
+    {
+      "id": "diagnosticLimit",
+      "description": "At most 65536 response bytes are read/retained for diagnostics by default."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Response Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "successMinimum",
+      "successMaximum",
+      "maximumDiagnosticBytes",
+      "followRedirects"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

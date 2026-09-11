@@ -1,0 +1,65 @@
+{
+  "$id": "fields.color",
+  "name": "Color",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "text",
+  "description": "Canonical presentation color token for controlled brand/content metadata, not arbitrary CSS.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "Lowercase 6-digit hex color such as #0067ff for V1 primitive storage.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "color",
+    "inputMode": "text",
+    "supportsPlaceholder": true,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": false,
+    "filterable": true,
+    "sortable": false,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "placeholder"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "colorFormat"
+  ],
+  "examples": {
+    "valid": [
+      "#0067ff",
+      "#ffffff"
+    ],
+    "invalid": [
+      "blue",
+      "rgb(0,0,0)"
+    ]
+  },
+  "notes": [
+    "Future tokenized brand systems may wrap this primitive with richer contracts."
+  ]
+}

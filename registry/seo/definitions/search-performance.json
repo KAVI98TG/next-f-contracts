@@ -1,0 +1,227 @@
+{
+  "$id": "seo.searchPerformance",
+  "name": "Search Performance",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "search",
+  "description": "Provider-neutral organic search performance metrics for a defined date range and dimensions.",
+  "purpose": "Supports CMS SEO reporting while keeping external provider identity and freshness explicit.",
+  "seoModel": {
+    "kind": "derived",
+    "customerManaged": false,
+    "derived": true,
+    "supportsRevision": false,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "query",
+      "required": false,
+      "nullable": true,
+      "description": "Optional query dimension.",
+      "schema": "seo.searchQuery"
+    },
+    {
+      "key": "pageUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Optional page dimension.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true
+      }
+    },
+    {
+      "key": "startDate",
+      "required": true,
+      "nullable": false,
+      "description": "Inclusive reporting start date.",
+      "primitive": "fields.date",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "endDate",
+      "required": true,
+      "nullable": false,
+      "description": "Inclusive reporting end date.",
+      "primitive": "fields.date",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "clicks",
+      "required": true,
+      "nullable": false,
+      "description": "Observed organic clicks.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    },
+    {
+      "key": "impressions",
+      "required": true,
+      "nullable": false,
+      "description": "Observed organic impressions.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    },
+    {
+      "key": "ctr",
+      "required": true,
+      "nullable": false,
+      "description": "Observed click-through rate in percentage points.",
+      "primitive": "fields.percentage",
+      "config": {
+        "minimum": 0,
+        "maximum": 100,
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    },
+    {
+      "key": "averagePosition",
+      "required": false,
+      "nullable": true,
+      "description": "Observed average position when supplied by the provider.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0,
+        "precision": 4,
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    },
+    {
+      "key": "sourceProvider",
+      "required": true,
+      "nullable": false,
+      "description": "Provider/source identifier such as google-search-console.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120,
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "importedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Time NEXT F received/imported this metric set.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "seo.searchQuery",
+      "description": "May be dimensioned by one search query."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "dateRangeValid",
+      "description": "endDate must not precede startDate."
+    },
+    {
+      "id": "clicksNotAboveImpressions",
+      "description": "clicks must not exceed impressions for comparable provider semantics."
+    },
+    {
+      "id": "ctrConsistent",
+      "description": "ctr should equal clicks / impressions * 100 within accepted rounding tolerance when impressions > 0."
+    },
+    {
+      "id": "sourceRequired",
+      "description": "Metrics must identify their source provider and import time; the CMS must not present stale or synthetic data as live provider data."
+    }
+  ],
+  "cms": {
+    "label": "Search Performance",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "scope",
+      "query",
+      "pageUrl",
+      "startDate"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "scope": {
+          "organizationId": "org_01",
+          "siteId": "site_01"
+        },
+        "startDate": "2026-09-01",
+        "endDate": "2026-09-07",
+        "clicks": 120,
+        "impressions": 2400,
+        "ctr": 5,
+        "averagePosition": 8.42,
+        "sourceProvider": "google-search-console",
+        "importedAt": "2026-09-10T00:00:00Z"
+      }
+    ],
+    "invalid": [
+      {
+        "startDate": "2026-09-10",
+        "endDate": "2026-09-01",
+        "clicks": 200,
+        "impressions": 100,
+        "ctr": 200
+      }
+    ]
+  },
+  "notes": []
+}

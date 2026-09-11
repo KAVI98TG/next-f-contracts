@@ -1,0 +1,33 @@
+{
+  "controlId": "ACC-NAV-001",
+  "name": "Accessible navigation state",
+  "category": "navigation",
+  "requirement": "Navigation must expose meaningful link text, current-route state and an operable small-screen alternative without hiding functionality from keyboard users.",
+  "rationale": "Navigation is a repeated critical path across the portal and management interfaces.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "navigation",
+    "drawer"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "keyboard-manual",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_nav_001.json"
+}

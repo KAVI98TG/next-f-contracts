@@ -1,0 +1,108 @@
+{
+  "$id": "shared.cta",
+  "name": "Call to Action",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "shared",
+  "category": "action",
+  "description": "Reusable call-to-action content and destination.",
+  "purpose": "Lets pages, services, blog content and commerce surfaces express action intent consistently without defining button presentation.",
+  "fields": [
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Visible CTA label.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 120,
+        "localizable": true
+      }
+    },
+    {
+      "key": "link",
+      "required": true,
+      "nullable": false,
+      "description": "CTA destination and behavior.",
+      "schema": "shared.link"
+    },
+    {
+      "key": "analyticsLabel",
+      "required": false,
+      "nullable": true,
+      "description": "Stable human-readable analytics label when separate from visible text.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the CTA should currently be rendered.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "shared.link",
+      "description": "CTA behavior is represented by the canonical Link schema."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "labelRequiredWhenEnabled",
+      "description": "Enabled CTAs require a non-empty label and valid link."
+    }
+  ],
+  "cms": {
+    "label": "Call to Action",
+    "icon": "fa-arrow-pointer",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "label",
+      "enabled"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "CTA content is generally eligible for public delivery."
+  },
+  "examples": {
+    "valid": [
+      {
+        "label": "Request a Quote",
+        "link": {
+          "type": "internal",
+          "destination": "/contact",
+          "newTab": false
+        },
+        "enabled": true
+      }
+    ],
+    "invalid": [
+      {
+        "label": "",
+        "link": {
+          "type": "internal",
+          "destination": "",
+          "newTab": false
+        },
+        "enabled": true
+      }
+    ]
+  },
+  "notes": [
+    "Visual style, radius, color and layout remain frontend concerns unless a later component contract defines controlled variants."
+  ]
+}

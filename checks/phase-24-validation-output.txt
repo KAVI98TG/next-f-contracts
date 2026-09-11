@@ -1,0 +1,21 @@
+
+> next-f-contracts@0.25.0 validate:phase24
+> node scripts/validate-phase-24.mjs
+
+NEXT F Contracts Phase 24 validation
+Version: 0.25.0
+Graph nodes: 1771
+Graph edges: 6553
+Explicit edges: 3736
+Permission associations: 2598
+Event associations: 219
+Relationship types: 26
+Isolated nodes: 91
+Symbolic associations: 22
+Registry entries: 1771
+Search documents: 5709
+JSON files checked: 1641
+Passes: 37954
+Failures: 0
+
+PASS - Relationship Explorer is internally consistent.

@@ -1,0 +1,29 @@
+{
+  "$id": "core.members.create",
+  "name": "Create Members",
+  "permissionId": "core.members.create",
+  "domain": "core",
+  "resource": "members",
+  "action": "create",
+  "scopeKind": "organization",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Create Members within the authorized organization scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

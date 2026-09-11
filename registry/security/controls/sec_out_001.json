@@ -1,0 +1,34 @@
+{
+  "controlId": "SEC-OUT-001",
+  "name": "Context-aware output encoding",
+  "category": "browser",
+  "requirement": "Untrusted values must be encoded for the output context in which they are rendered.",
+  "rationale": "Escaping requirements differ across HTML, attributes, URLs and script-adjacent contexts.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "client",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_out_001.json"
+}

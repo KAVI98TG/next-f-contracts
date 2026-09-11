@@ -1,0 +1,36 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "Consent Relevance",
+  "values": [
+    {
+      "id": "none",
+      "label": "None",
+      "description": "No consent gate is implied by this metadata; other lawful/business/security requirements may still apply."
+    },
+    {
+      "id": "business-purpose",
+      "label": "Business Purpose",
+      "description": "Collected/used for the requested business interaction such as a form submission or lead workflow; distinct from optional analytics consent."
+    },
+    {
+      "id": "analytics",
+      "label": "Analytics",
+      "description": "Subject to analytics/measurement consent rules where configured/applicable."
+    },
+    {
+      "id": "marketing",
+      "label": "Marketing",
+      "description": "Subject to marketing/advertising consent rules where configured/applicable."
+    },
+    {
+      "id": "functional",
+      "label": "Functional",
+      "description": "Required for a requested functional service rather than optional analytics/marketing."
+    },
+    {
+      "id": "multiple",
+      "label": "Multiple",
+      "description": "Different fields/flows within the value may require different consent/purpose treatment."
+    }
+  ]
+}

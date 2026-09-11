@@ -1,0 +1,185 @@
+{
+  "$id": "seo.internalLink",
+  "name": "Internal Link Record",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "links",
+  "description": "Derived record of one internal link between two Site URLs.",
+  "purpose": "Supports link audits and internal-link analysis without turning operational crawl data into editable content.",
+  "seoModel": {
+    "kind": "derived",
+    "customerManaged": false,
+    "derived": true,
+    "supportsRevision": false,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "sourceUrl",
+      "required": true,
+      "nullable": false,
+      "description": "Page containing the link.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true
+      }
+    },
+    {
+      "key": "targetUrl",
+      "required": true,
+      "nullable": false,
+      "description": "Internal link destination.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true
+      }
+    },
+    {
+      "key": "anchorText",
+      "required": false,
+      "nullable": true,
+      "description": "Rendered anchor text when applicable.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true
+      }
+    },
+    {
+      "key": "context",
+      "required": true,
+      "nullable": false,
+      "description": "Where the link was discovered.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "content",
+            "label": "Content"
+          },
+          {
+            "value": "navigation",
+            "label": "Navigation"
+          },
+          {
+            "value": "footer",
+            "label": "Footer"
+          },
+          {
+            "value": "structured",
+            "label": "Structured Component"
+          },
+          {
+            "value": "unknown",
+            "label": "Unknown"
+          }
+        ],
+        "defaultValue": "unknown",
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "rel",
+      "required": false,
+      "nullable": true,
+      "description": "Normalized rel token values.",
+      "primitive": "fields.tag",
+      "config": {
+        "maxItems": 20,
+        "uniqueItems": true,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "discoveredAt",
+      "required": true,
+      "nullable": false,
+      "description": "When this link relationship was last discovered.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "sameSite",
+      "description": "sourceUrl and targetUrl must belong to the same logical Site after canonical host/URL normalization."
+    },
+    {
+      "id": "derivedNotEditable",
+      "description": "Internal link records are derived; customers edit the source content rather than this record."
+    }
+  ],
+  "cms": {
+    "label": "Internal Link Record",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "scope",
+      "sourceUrl",
+      "targetUrl",
+      "anchorText"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "scope": {
+          "organizationId": "org_01",
+          "siteId": "site_01"
+        },
+        "sourceUrl": "https://example.lk/services",
+        "targetUrl": "https://example.lk/contact",
+        "anchorText": "Start a project",
+        "context": "content",
+        "discoveredAt": "2026-09-10T00:00:00Z"
+      }
+    ],
+    "invalid": [
+      {
+        "sourceUrl": "https://example.lk",
+        "targetUrl": "https://other.example",
+        "context": "content"
+      }
+    ]
+  },
+  "notes": []
+}

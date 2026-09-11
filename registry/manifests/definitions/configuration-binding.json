@@ -1,0 +1,128 @@
+{
+  "$id": "manifest.configurationBinding",
+  "name": "Configuration Binding",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "surfaces-bindings",
+  "description": "Declares a configuration input required by Site code without storing its runtime value.",
+  "purpose": "Gives Codex and deployment tooling one place to understand required public/server/secret configuration while keeping actual values outside the manifest.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable configuration variable/key name.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^[A-Z][A-Z0-9_]*$",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "exposure",
+      "required": true,
+      "nullable": false,
+      "description": "Required exposure/security class.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "key": "public",
+            "label": "Public",
+            "description": "Non-secret configuration explicitly allowed in public browser bundles."
+          },
+          {
+            "key": "server",
+            "label": "Server Only",
+            "description": "Non-secret configuration available only to trusted server/build execution."
+          },
+          {
+            "key": "secret",
+            "label": "Secret",
+            "description": "Sensitive value resolved from a secure secret store. The value is never written into the manifest."
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "required",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the implementation cannot operate as intended without the binding.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "environments",
+      "required": true,
+      "nullable": false,
+      "description": "Environment IDs where the binding is required.",
+      "primitive": "fields.tag",
+      "config": {
+        "minItems": 1,
+        "uniqueItems": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "purpose",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable reason the binding exists.",
+      "primitive": "fields.textarea",
+      "config": {
+        "minLength": 1,
+        "maxLength": 1000,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "configurationKeysUnique",
+      "description": "Configuration keys must be unique within one Site Manifest."
+    },
+    {
+      "id": "configurationContainsNoValue",
+      "description": "The Manifest declares key metadata only. Runtime values are never stored here."
+    },
+    {
+      "id": "secretNeverPublic",
+      "description": "A secret exposure binding must never be copied into browser-visible variables, HTML, logs or generated static data."
+    }
+  ],
+  "cms": {
+    "label": "Configuration Binding",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "key",
+      "exposure",
+      "required",
+      "environments"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

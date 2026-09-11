@@ -1,0 +1,35 @@
+{
+  "controlId": "ACC-LOAD-001",
+  "name": "Accessible loading and error states",
+  "category": "status",
+  "requirement": "Loading, empty and error states must provide text that identifies the state and the next available action where applicable.",
+  "rationale": "Users must not depend on spinners, color or visual placement to understand system state.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "page",
+    "form",
+    "checkout",
+    "customer-cms",
+    "admin"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_load_001.json"
+}

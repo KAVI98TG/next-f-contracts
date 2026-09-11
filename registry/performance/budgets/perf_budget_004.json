@@ -1,0 +1,26 @@
+{
+  "budgetId": "PERF-BUDGET-004",
+  "name": "Generated fallback aggregate",
+  "category": "payload",
+  "scope": "contract-portal",
+  "metric": "portal.generatedFallbackBytes",
+  "target": 94371840,
+  "warningThreshold": 134217728,
+  "comparator": "lte",
+  "unit": "bytes",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-file-size",
+  "environment": "Repository/local review",
+  "notes": "Phase 36 RC keeps the original 90 MiB target but expands the hard-fail ceiling to 128 MiB because exact-history/local fallback growth is expected; crossing the target remains a visible warning.",
+  "relatedRegistryIds": [
+    "diff.releaseIndex",
+    "search.searchIndex",
+    "relationships.relationshipIndex"
+  ],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_004.json"
+}

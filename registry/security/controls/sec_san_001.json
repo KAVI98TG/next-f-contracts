@@ -1,0 +1,36 @@
+{
+  "controlId": "SEC-SAN-001",
+  "name": "Content sanitization",
+  "category": "browser",
+  "requirement": "Rich or user-supplied content that permits markup must be sanitized according to its contract before trusted rendering.",
+  "rationale": "Stored or reflected untrusted markup can become executable content.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "both",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "fields.richText"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_san_001.json"
+}

@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.recentAuthenticationPolicy",
+  "name": "Recent Authentication Policy",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines when fresh authentication is required.",
+  "purpose": "Defines when fresh authentication is required.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

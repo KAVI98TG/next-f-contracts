@@ -1,0 +1,32 @@
+{
+  "$id": "modules.capability.commerce.carts",
+  "capabilityId": "commerce.carts",
+  "name": "Carts",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Carts capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.cart",
+    "commerce.cartLine"
+  ],
+  "permissionBindings": [
+    "commerce.carts.manage",
+    "commerce.carts.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

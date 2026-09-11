@@ -1,0 +1,268 @@
+{
+  "$id": "forms.submission",
+  "name": "Form Submission",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "submission",
+  "description": "Authoritative server-side record of one form submission attempt/outcome.",
+  "purpose": "Preserves validated field snapshots, consent, anti-spam decision and source context independently from later Form edits.",
+  "formsModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false
+  },
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque submission ID.",
+      "primitive": "fields.text",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "siteId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "core.site",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "formId",
+      "required": true,
+      "nullable": false,
+      "description": "Submitted Form.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.form",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "formVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Immutable Form/revision version identifier rendered to the visitor.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Submission processing/outcome state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "received",
+            "label": "Received"
+          },
+          {
+            "value": "accepted",
+            "label": "Accepted"
+          },
+          {
+            "value": "rejected",
+            "label": "Rejected"
+          },
+          {
+            "value": "suspectedSpam",
+            "label": "Suspected spam"
+          },
+          {
+            "value": "spam",
+            "label": "Spam"
+          },
+          {
+            "value": "processing",
+            "label": "Processing"
+          },
+          {
+            "value": "completed",
+            "label": "Completed"
+          }
+        ]
+      }
+    },
+    {
+      "key": "values",
+      "required": true,
+      "nullable": false,
+      "description": "Validated submitted values.",
+      "itemsSchema": "forms.submissionValue"
+    },
+    {
+      "key": "files",
+      "required": false,
+      "nullable": false,
+      "description": "Submitted file references.",
+      "itemsSchema": "forms.submissionFile"
+    },
+    {
+      "key": "consents",
+      "required": false,
+      "nullable": false,
+      "description": "Consent snapshots.",
+      "itemsSchema": "forms.consentRecord"
+    },
+    {
+      "key": "spamDecision",
+      "required": false,
+      "nullable": true,
+      "description": "Anti-spam decision.",
+      "schema": "forms.spamDecision"
+    },
+    {
+      "key": "requestContext",
+      "required": false,
+      "nullable": true,
+      "description": "Retained request context according to policy.",
+      "schema": "forms.requestContext"
+    },
+    {
+      "key": "submittedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Server receipt timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "acceptedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Server acceptance timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "completedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Operational completion timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "idempotencyKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional duplicate-prevention key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 200,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "leadId",
+      "required": false,
+      "nullable": true,
+      "description": "Lead generated/associated from this submission.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.lead",
+        "relationshipCardinality": "one"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "forms.form",
+      "description": "Submission belongs to the Form definition used."
+    },
+    {
+      "type": "contains",
+      "target": "forms.submissionValue",
+      "description": "Contains value snapshots."
+    },
+    {
+      "type": "contains",
+      "target": "forms.consentRecord",
+      "description": "May contain consent snapshots."
+    },
+    {
+      "type": "uses",
+      "target": "forms.spamDecision",
+      "description": "May contain spam classification."
+    },
+    {
+      "type": "relatedTo",
+      "target": "forms.lead",
+      "description": "May create or associate a business Lead according to mapping rules."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "serverValidatedBeforeAccepted",
+      "description": "status may become accepted only after server-side schema/validation, anti-abuse and required-consent checks."
+    },
+    {
+      "id": "formVersionSnapshotRequired",
+      "description": "formVersion must identify the definition used when the visitor submitted."
+    },
+    {
+      "id": "immutableBusinessSnapshot",
+      "description": "Accepted submission values and consent snapshots are immutable except explicit redaction/retention operations."
+    },
+    {
+      "id": "idempotencyProtectsDuplicates",
+      "description": "When an idempotency key is used, replay must not create duplicate accepted business effects."
+    },
+    {
+      "id": "noPublicDelivery",
+      "description": "Submission records are never public content."
+    },
+    {
+      "id": "leadNotSubmissionAlias",
+      "description": "A Form Submission and a Lead are distinct records; one does not automatically imply the other."
+    }
+  ],
+  "cms": {
+    "label": "Form Submission",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "id",
+      "siteId",
+      "formId",
+      "formVersion"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.forms.consent-fields",
+  "capabilityId": "forms.consent-fields",
+  "name": "Consent Fields",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "forms",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Consent Fields capability within the Forms module.",
+  "contractBindings": [
+    "forms.consentFieldConfig",
+    "forms.consentRecord"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

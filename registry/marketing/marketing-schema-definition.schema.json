@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/schema/marketing-definition.json",
+  "title": "NEXT F Marketing and Tracking Contract Definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "category",
+    "description",
+    "purpose",
+    "marketingModel",
+    "fields",
+    "relationships",
+    "validationRules",
+    "cms",
+    "delivery",
+    "futureBindings",
+    "examples",
+    "notes"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^marketing\\.[a-z][A-Za-z0-9]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "enum": [
+        "experimental",
+        "draft",
+        "stable",
+        "deprecated",
+        "removed"
+      ]
+    },
+    "domain": {
+      "const": "marketing"
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "marketingModel": {
+      "type": "object",
+      "required": [
+        "kind",
+        "customerManaged",
+        "containsPersonalData",
+        "publicEligible",
+        "supportsRevision",
+        "dataSensitivity"
+      ]
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "validationRules": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "cms": {
+      "type": "object"
+    },
+    "delivery": {
+      "type": "object"
+    },
+    "futureBindings": {
+      "type": "object"
+    },
+    "examples": {
+      "type": "object",
+      "required": [
+        "valid",
+        "invalid"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

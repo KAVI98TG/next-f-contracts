@@ -1,0 +1,45 @@
+{
+  "$id": "api.webhooks",
+  "apiId": "api.webhooks",
+  "name": "Webhook Management API",
+  "version": "1.0.0",
+  "status": "stable",
+  "basePath": "/api/v1/webhooks/sites/{siteId}",
+  "description": "Webhook endpoint, subscription, delivery and redelivery management. Distinct from the Phase 14 outbound receiver/signature protocol.",
+  "defaultAuthMode": "organization-user",
+  "defaultRateLimitClass": "sensitive-write",
+  "defaultCachePolicy": "no-store",
+  "defaultCorsPolicy": "customer-portal",
+  "moduleBindings": [
+    "core",
+    "integrations"
+  ],
+  "operationIds": [
+    "api.webhooks.list-endpoints",
+    "api.webhooks.create-endpoint",
+    "api.webhooks.get-endpoint",
+    "api.webhooks.update-endpoint",
+    "api.webhooks.delete-endpoint",
+    "api.webhooks.verify-endpoint",
+    "api.webhooks.test-endpoint",
+    "api.webhooks.list-subscriptions",
+    "api.webhooks.create-subscription",
+    "api.webhooks.update-subscription",
+    "api.webhooks.delete-subscription",
+    "api.webhooks.list-deliveries",
+    "api.webhooks.get-delivery",
+    "api.webhooks.redeliver",
+    "api.webhooks.list-dead-letter"
+  ],
+  "publicDocumentation": true,
+  "order": 70,
+  "compatibility": {
+    "contractVersionRange": ">=0.19.0 <1.0.0",
+    "manifestBindingRequired": true
+  },
+  "boundaries": [
+    "Uses canonical NEXT F Contract Registry schemas rather than redefining domain entities.",
+    "Secrets and privileged credentials are never returned through generic API responses.",
+    "API Version and NEXT F Contract Version are independently explicit."
+  ]
+}

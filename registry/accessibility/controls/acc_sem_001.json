@@ -1,0 +1,35 @@
+{
+  "controlId": "ACC-SEM-001",
+  "name": "Use semantic HTML",
+  "category": "structure",
+  "requirement": "Use native semantic HTML elements for structure and controls before adding ARIA or custom interaction roles.",
+  "rationale": "Native semantics provide robust names, roles and behaviors across browsers and assistive technologies.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "page",
+    "navigation",
+    "form"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [
+    "portal.uiStandard"
+  ],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_sem_001.json"
+}

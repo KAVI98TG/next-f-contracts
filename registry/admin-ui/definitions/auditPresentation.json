@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.auditPresentation",
+  "name": "Audit Presentation",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines audit visibility and redaction behavior.",
+  "purpose": "Defines audit visibility and redaction behavior.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

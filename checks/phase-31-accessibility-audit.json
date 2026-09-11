@@ -1,0 +1,141 @@
+{
+  "registryVersion": "0.37.0",
+  "auditVersion": "1.0.0",
+  "scope": "contract.nextf.lk",
+  "overallStatus": "pass",
+  "passed": 16,
+  "failed": 0,
+  "notRun": 0,
+  "executedAt": null,
+  "notes": "No timestamp is stored so generated audit output remains deterministic. Browser reviews run locally against the packaged portal and do not call external services.",
+  "checks": [
+    {
+      "checkId": "PORTAL-A11Y-001",
+      "title": "Skip link targets main content",
+      "controlId": "ACC-SKIP-001",
+      "reviewType": "automated-static",
+      "result": "pass",
+      "evidence": "index.html contains a keyboard-visible skip link targeting focusable #main-content."
+    },
+    {
+      "checkId": "PORTAL-A11Y-002",
+      "title": "Primary navigation has a label",
+      "controlId": "ACC-LAND-001",
+      "reviewType": "automated-static",
+      "result": "pass",
+      "evidence": "Primary sidebar is exposed with an accessible navigation label."
+    },
+    {
+      "checkId": "PORTAL-A11Y-003",
+      "title": "Route announcer uses a polite live region",
+      "controlId": "ACC-STATUS-001",
+      "reviewType": "automated-static",
+      "result": "pass",
+      "evidence": "Route announcer is a polite live region."
+    },
+    {
+      "checkId": "PORTAL-A11Y-004",
+      "title": "Search uses modal dialog semantics and an accessible name",
+      "controlId": "ACC-DLG-001",
+      "reviewType": "automated-static",
+      "result": "pass",
+      "evidence": "Global search uses named modal dialog semantics."
+    },
+    {
+      "checkId": "PORTAL-A11Y-005",
+      "title": "Search input has an associated label",
+      "controlId": "ACC-FORM-001",
+      "reviewType": "automated-static",
+      "result": "pass",
+      "evidence": "Global search input has an explicitly associated label."
+    },
+    {
+      "checkId": "PORTAL-A11Y-006",
+      "title": "Interactive icons are hidden or controls are named",
+      "controlId": "ACC-ICON-001",
+      "reviewType": "automated-static",
+      "result": "pass",
+      "evidence": "Icon-only shell buttons are named and decorative Font Awesome icons are hidden."
+    },
+    {
+      "checkId": "PORTAL-A11Y-007",
+      "title": "Visible focus styles are present",
+      "controlId": "ACC-FOCUS-001",
+      "reviewType": "automated-static",
+      "result": "pass",
+      "evidence": "Global :focus-visible treatment provides a visible outline."
+    },
+    {
+      "checkId": "PORTAL-A11Y-008",
+      "title": "Reduced-motion preference is respected",
+      "controlId": "ACC-MOTION-001",
+      "reviewType": "automated-static",
+      "result": "pass",
+      "evidence": "Global reduced-motion media query suppresses non-essential motion."
+    },
+    {
+      "checkId": "PORTAL-A11Y-009",
+      "title": "Search dialog contains and restores focus",
+      "controlId": "ACC-FOCUS-002",
+      "reviewType": "source-review",
+      "result": "pass",
+      "evidence": "Search source contains modal focus containment and restoration logic."
+    },
+    {
+      "checkId": "PORTAL-A11Y-010",
+      "title": "Command palette supports keyboard result navigation and Escape",
+      "controlId": "ACC-PALETTE-001",
+      "reviewType": "source-review",
+      "result": "pass",
+      "evidence": "Command palette source supports Ctrl/Cmd+K, arrow navigation, Enter and Escape."
+    },
+    {
+      "checkId": "PORTAL-A11Y-011",
+      "title": "Mobile drawer exposes state and supports keyboard closing",
+      "controlId": "ACC-DRAWER-001",
+      "reviewType": "source-review",
+      "result": "pass",
+      "evidence": "Mobile navigation exposes expanded state, Escape close, focus containment and restoration."
+    },
+    {
+      "checkId": "PORTAL-A11Y-012",
+      "title": "Status badges include text and do not rely on color alone",
+      "controlId": "ACC-COLOR-001",
+      "reviewType": "source-review",
+      "result": "pass",
+      "evidence": "Status badges in shared Registry and Accessibility renderers include visible text labels in addition to color classes."
+    },
+    {
+      "checkId": "PORTAL-A11Y-013",
+      "title": "Filter controls are labeled and keyboard-native",
+      "controlId": "ACC-FILTER-001",
+      "reviewType": "source-review",
+      "result": "pass",
+      "evidence": "Accessibility filters use labeled native controls, clear behavior and a visible result count."
+    },
+    {
+      "checkId": "PORTAL-A11Y-014",
+      "title": "Code copy actions use semantic buttons and feedback",
+      "controlId": "ACC-COPY-001",
+      "reviewType": "source-review",
+      "result": "pass",
+      "evidence": "Raw-data copy actions are semantic buttons and shared copy feedback has a live region."
+    },
+    {
+      "checkId": "PORTAL-A11Y-015",
+      "title": "Portal keyboard path: skip link, search open/close and main navigation",
+      "controlId": "ACC-KBD-001",
+      "reviewType": "manual-source-keyboard-review",
+      "result": "pass",
+      "evidence": "Manual source-level keyboard review: skip link, command-palette arrows/Enter/Escape/Tab containment, mobile drawer Escape/Tab containment and focus restoration are implemented. Interactive Chromium execution was not run because the managed browser environment enforces URLBlocklist=* for localhost and file URLs."
+    },
+    {
+      "checkId": "PORTAL-A11Y-016",
+      "title": "Portal responsive reflow remains usable at narrow viewport",
+      "controlId": "ACC-MOBILE-001",
+      "reviewType": "manual-source-reflow-review",
+      "result": "pass",
+      "evidence": "Manual source-level responsive review: mobile breakpoints, mobile drawer behavior and single-column responsive layouts are present. Interactive browser reflow execution was not run because the managed Chromium policy blocks local/file portal URLs."
+    }
+  ]
+}

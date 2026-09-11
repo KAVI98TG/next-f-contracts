@@ -1,0 +1,37 @@
+{
+  "controlId": "ACC-MOBILE-001",
+  "name": "Preserve accessibility on responsive layouts",
+  "category": "visual",
+  "requirement": "Responsive transformations must preserve reading order, control names, keyboard access, focus visibility and complete functionality on narrow viewports.",
+  "rationale": "Mobile/tablet layout changes must not create a separate inaccessible interaction model.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "page",
+    "navigation",
+    "drawer",
+    "table",
+    "customer-cms",
+    "admin"
+  ],
+  "verificationMethods": [
+    "zoom-reflow",
+    "keyboard-manual",
+    "visual-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_mobile_001.json"
+}

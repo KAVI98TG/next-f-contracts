@@ -1,0 +1,137 @@
+{
+  "$id": "blocks.gallery",
+  "name": "Gallery",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "media",
+  "description": "Structured media gallery section.",
+  "purpose": "Allows editorial gallery management without exposing arbitrary slideshow or layout code.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "items",
+      "required": true,
+      "nullable": false,
+      "description": "Ordered gallery items.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "array",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      },
+      "itemsSchema": "blocks.galleryItem",
+      "collectionRules": {
+        "minItems": 1,
+        "maxItems": 60
+      }
+    },
+    {
+      "key": "lightboxEnabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the approved frontend may offer an expanded media view.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "blocks.galleryItem",
+      "description": "Every gallery item validates against Gallery Item."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "itemsConform",
+      "description": "Every items entry must validate against blocks.galleryItem."
+    }
+  ],
+  "cms": {
+    "label": "Gallery",
+    "icon": "fa-images",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "items",
+      "lightboxEnabled"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Lightbox interaction must be keyboard accessible when enabled.",
+      "Expanded media UI must manage focus and provide a close control."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

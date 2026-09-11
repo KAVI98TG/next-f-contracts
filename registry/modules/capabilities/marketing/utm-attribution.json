@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.marketing.utm-attribution",
+  "capabilityId": "marketing.utm-attribution",
+  "name": "UTM Attribution",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "marketing",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "UTM Attribution capability within the Marketing module.",
+  "contractBindings": [
+    "marketing.utmParameters",
+    "marketing.trafficSource"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

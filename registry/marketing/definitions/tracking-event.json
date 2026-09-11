@@ -1,0 +1,188 @@
+{
+  "$id": "marketing.trackingEvent",
+  "name": "Tracking Event Observation",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "tracking",
+  "description": "Provider-neutral runtime observation emitted by the NEXT F tracking layer.",
+  "purpose": "Creates one normalized event envelope that can route to analytics/advertising connectors without customer-site vendor code.",
+  "marketingModel": {
+    "kind": "observation",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "eventId",
+      "required": true,
+      "nullable": false,
+      "description": "Unique observation ID for diagnostics/deduplication.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization/Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "eventKey",
+      "required": true,
+      "nullable": false,
+      "description": "Enabled tracking event key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "occurredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Observed interaction timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "context",
+      "required": true,
+      "nullable": false,
+      "description": "Sanitized event context.",
+      "schema": "marketing.eventContext"
+    },
+    {
+      "key": "properties",
+      "required": true,
+      "nullable": false,
+      "description": "Sanitized allowlisted properties.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "Observation origin.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "browser",
+            "label": "Browser"
+          },
+          {
+            "value": "server",
+            "label": "Server"
+          },
+          {
+            "value": "cms",
+            "label": "CMS"
+          },
+          {
+            "value": "import",
+            "label": "Imported"
+          }
+        ]
+      }
+    },
+    {
+      "key": "schemaVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Tracking envelope version.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40
+      }
+    },
+    {
+      "key": "debug",
+      "required": true,
+      "nullable": false,
+      "description": "Non-production/debug observation.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "composes",
+      "target": "marketing.eventContext",
+      "description": "Carries context."
+    },
+    {
+      "type": "references",
+      "target": "marketing.trackingEventDefinition",
+      "description": "eventKey resolves to definition."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "eventDefinitionRequired",
+      "description": "eventKey resolves to enabled definition."
+    },
+    {
+      "id": "propertiesAllowlisted",
+      "description": "properties conform to property definitions/data policy."
+    },
+    {
+      "id": "noBusinessAuthority",
+      "description": "Tracking observation is analytics evidence, not Order/Payment/Lead/content authority."
+    },
+    {
+      "id": "occurredAtNotReceivedAt",
+      "description": "Observed and receipt/dispatch timestamps are distinct."
+    },
+    {
+      "id": "debugNotProductionData",
+      "description": "Debug observations isolated from production reporting."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Event Observation",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-debugger",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "eventId",
+      "scope",
+      "eventKey",
+      "occurredAt"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

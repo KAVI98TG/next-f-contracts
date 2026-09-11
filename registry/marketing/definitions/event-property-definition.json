@@ -1,0 +1,179 @@
+{
+  "$id": "marketing.eventPropertyDefinition",
+  "name": "Tracking Event Property Definition",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "tracking",
+  "description": "Allowlisted property definition for one tracking event key.",
+  "purpose": "Standardizes property names, primitive value expectations and data sensitivity without permitting arbitrary analytics payloads.",
+  "marketingModel": {
+    "kind": "definition",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "dataSensitivity": "public"
+  },
+  "fields": [
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical event property key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120,
+        "pattern": "^[a-z][A-Za-z0-9]*$"
+      }
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable property label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "description",
+      "required": true,
+      "nullable": false,
+      "description": "Property semantics.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000
+      }
+    },
+    {
+      "key": "valueType",
+      "required": true,
+      "nullable": false,
+      "description": "Expected property value family.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "text",
+            "label": "Text"
+          },
+          {
+            "value": "number",
+            "label": "Number"
+          },
+          {
+            "value": "boolean",
+            "label": "Boolean"
+          },
+          {
+            "value": "url",
+            "label": "URL"
+          },
+          {
+            "value": "id",
+            "label": "Identifier"
+          }
+        ]
+      }
+    },
+    {
+      "key": "required",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the property is required for this event definition.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "dataSensitivity",
+      "required": true,
+      "nullable": false,
+      "description": "Coarse Phase 9 sensitivity classification.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "public",
+            "label": "Public"
+          },
+          {
+            "value": "internal",
+            "label": "Internal"
+          },
+          {
+            "value": "personal",
+            "label": "Personal"
+          },
+          {
+            "value": "sensitive",
+            "label": "Sensitive"
+          }
+        ]
+      }
+    },
+    {
+      "key": "maxLength",
+      "required": false,
+      "nullable": true,
+      "description": "Optional text/identifier maximum length.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 4096
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "keyStable",
+      "description": "A published property key must retain its meaning within the compatible contract version."
+    },
+    {
+      "id": "noSecretSensitivity",
+      "description": "Secret values are never valid tracking event properties."
+    },
+    {
+      "id": "requiredPropertiesMinimal",
+      "description": "Do not mark a property required unless event semantics genuinely depend on it."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Event Property Definition",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "key",
+      "label",
+      "description",
+      "valueType"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only for explicitly safe client-side configuration or context. Operational records and identifiers remain private by default."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

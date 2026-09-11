@@ -1,0 +1,41 @@
+{
+  "registryVersion": "0.19.0",
+  "methods": [
+    {
+      "id": "GET",
+      "safe": true,
+      "idempotent": true,
+      "bodyAllowed": false
+    },
+    {
+      "id": "HEAD",
+      "safe": true,
+      "idempotent": true,
+      "bodyAllowed": false
+    },
+    {
+      "id": "POST",
+      "safe": false,
+      "idempotent": false,
+      "bodyAllowed": true
+    },
+    {
+      "id": "PATCH",
+      "safe": false,
+      "idempotent": false,
+      "bodyAllowed": true
+    },
+    {
+      "id": "PUT",
+      "safe": false,
+      "idempotent": true,
+      "bodyAllowed": true
+    },
+    {
+      "id": "DELETE",
+      "safe": false,
+      "idempotent": true,
+      "bodyAllowed": false
+    }
+  ]
+}

@@ -1,0 +1,12209 @@
+// GENERATED FILE - DO NOT EDIT DIRECTLY.
+// Sources: registry/commerce/rules/*.json
+// SHA-256: 42c50ee5e056f371691c5c29bbb02463e262fa8b2eb235aa5561e3d832d2dc6b
+export const GENERATED_COMMERCE_RULES_SOURCE_SHA256 = "42c50ee5e056f371691c5c29bbb02463e262fa8b2eb235aa5561e3d832d2dc6b";
+export const GENERATED_COMMERCE_RULES = {
+  "registryVersion": "0.13.0",
+  "rulesIndex": {
+    "registryVersion": "0.13.0",
+    "schemaVersion": "1.0.0",
+    "title": "NEXT F Commerce Rules Registry",
+    "description": "Authoritative Phase 12 cross-entity Commerce Rules.",
+    "definitionCount": 139,
+    "categoryCount": 14,
+    "sourceDirectory": "registry/commerce/rules/definitions",
+    "categories": [
+      {
+        "key": "transaction-integrity",
+        "label": "Transaction Integrity",
+        "description": "Cross-entity financial and historical invariants applied to committed commerce transactions."
+      },
+      {
+        "key": "cart-checkout",
+        "label": "Cart & Checkout",
+        "description": "Rules that keep mutable Cart and Checkout state correct before Order creation."
+      },
+      {
+        "key": "orders",
+        "label": "Orders",
+        "description": "Order totals, status dimensions, cancellation/completion and historical Order truth."
+      },
+      {
+        "key": "payments",
+        "label": "Payments",
+        "description": "Provider-neutral authorization, capture, payment and attempt reconciliation."
+      },
+      {
+        "key": "refunds",
+        "label": "Refunds",
+        "description": "Refund eligibility, bounds, reconciliation and separation from physical returns."
+      },
+      {
+        "key": "inventory",
+        "label": "Inventory",
+        "description": "Stock balance, reservations, adjustments, transfers and concurrency protection."
+      },
+      {
+        "key": "fulfillment",
+        "label": "Fulfillment",
+        "description": "Fulfillment/shipment quantity, eligibility, status and delivery evidence."
+      },
+      {
+        "key": "promotions",
+        "label": "Promotions",
+        "description": "Discount eligibility, allocation, stacking and usage limits."
+      },
+      {
+        "key": "tax",
+        "label": "Tax",
+        "description": "Tax basis, jurisdiction, rate snapshots, rounding and reconciliation."
+      },
+      {
+        "key": "returns",
+        "label": "Returns",
+        "description": "Return eligibility, quantity, lifecycle, resolution and separation from refunds/restocking."
+      },
+      {
+        "key": "catalog-customers",
+        "label": "Catalog & Customers",
+        "description": "Catalog/customer integrity rules that protect transactional history and public claims."
+      },
+      {
+        "key": "idempotency-concurrency",
+        "label": "Idempotency & Concurrency",
+        "description": "Duplicate-command protection, replay semantics and lost-update prevention."
+      },
+      {
+        "key": "security-audit",
+        "label": "Security & Audit",
+        "description": "Server authority, tenant isolation, permissions, sensitive data and auditability."
+      },
+      {
+        "key": "specialized-capabilities",
+        "label": "Specialized Capability Gates",
+        "description": "Explicit gates for commerce models that require dedicated contracts beyond Phase 11."
+      }
+    ],
+    "rules": [
+      {
+        "$id": "commerce.rule.approvedReviewOnlyPublic",
+        "name": "Approved Review Only Public",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "catalog-customers",
+        "ruleKind": "entity-invariant",
+        "description": "Only reviews in an approved/public moderation state are eligible for storefront delivery.",
+        "purpose": "Only reviews in an approved/public moderation state are eligible for storefront delivery.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.productReview",
+          "commerce.reviewModeration"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-mutation-or-publication",
+          "atomicWhenRequired": false,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.approvedReviewOnlyPublic.R1",
+            "description": "Only reviews in an approved/public moderation state are eligible for storefront delivery."
+          },
+          {
+            "id": "commerce.rule.approvedReviewOnlyPublic.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.productReview",
+            "description": "This rule constrains commerce.productReview operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.reviewModeration",
+            "description": "This rule constrains commerce.reviewModeration operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.productReview, commerce.reviewModeration satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.approvedReviewOnlyPublic and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.authoritativeServerCalculation",
+        "name": "Authoritative Server Calculation",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "transaction-integrity",
+        "ruleKind": "transaction-invariant",
+        "description": "Authoritative payable totals, discounts, taxes and shipping amounts must be calculated or verified by trusted server-side commerce logic before commit.",
+        "purpose": "Authoritative payable totals, discounts, taxes and shipping amounts must be calculated or verified by trusted server-side commerce logic before commit.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.cartTotals",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.authoritativeServerCalculation.R1",
+            "description": "Authoritative payable totals, discounts, taxes and shipping amounts must be calculated or verified by trusted server-side commerce logic before commit."
+          },
+          {
+            "id": "commerce.rule.authoritativeServerCalculation.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TOTAL_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.cartTotals",
+            "description": "This rule constrains commerce.cartTotals operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.cartTotals, commerce.orderTotals satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.authoritativeServerCalculation and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.authorizationCaptureBound",
+        "name": "Authorization Capture Bound",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "payments",
+        "ruleKind": "financial-invariant",
+        "description": "Cumulative successful captures under one authorization cannot exceed the amount currently authorized.",
+        "purpose": "Cumulative successful captures under one authorization cannot exceed the amount currently authorized.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.paymentAuthorization",
+          "commerce.paymentCapture"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.authorizationCaptureBound.R1",
+            "description": "Cumulative successful captures under one authorization cannot exceed the amount currently authorized."
+          },
+          {
+            "id": "commerce.rule.authorizationCaptureBound.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CAPTURE_EXCEEDS_AUTHORIZATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.paymentAuthorization",
+            "description": "This rule constrains commerce.paymentAuthorization operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.paymentAuthorization, commerce.paymentCapture satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.authorizationCaptureBound and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.authorizationExpiryEnforced",
+        "name": "Authorization Expiry Enforced",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "payments",
+        "ruleKind": "financial-invariant",
+        "description": "An expired authorization cannot be treated as capturable without a new provider-authorized financial fact.",
+        "purpose": "An expired authorization cannot be treated as capturable without a new provider-authorized financial fact.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.paymentAuthorization",
+          "commerce.paymentCapture"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.authorizationExpiryEnforced.R1",
+            "description": "An expired authorization cannot be treated as capturable without a new provider-authorized financial fact."
+          },
+          {
+            "id": "commerce.rule.authorizationExpiryEnforced.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_AUTHORIZATION_EXPIRED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.paymentAuthorization",
+            "description": "This rule constrains commerce.paymentAuthorization operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.paymentAuthorization, commerce.paymentCapture satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.authorizationExpiryEnforced and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.backorderPolicyExplicit",
+        "name": "Backorder Policy Explicit",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "Selling beyond available stock requires an explicit backorder/preorder-compatible policy; absence of such policy means insufficient stock must block commit.",
+        "purpose": "Selling beyond available stock requires an explicit backorder/preorder-compatible policy; absence of such policy means insufficient stock must block commit.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.productAvailability",
+          "commerce.inventoryLevel"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.backorderPolicyExplicit.R1",
+            "description": "Selling beyond available stock requires an explicit backorder/preorder-compatible policy; absence of such policy means insufficient stock must block commit."
+          },
+          {
+            "id": "commerce.rule.backorderPolicyExplicit.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INSUFFICIENT_INVENTORY",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.productAvailability",
+            "description": "This rule constrains commerce.productAvailability operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.productAvailability, commerce.inventoryLevel satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.backorderPolicyExplicit and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.bookingCapabilityGate",
+        "name": "Booking Capability Gate",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "specialized-capabilities",
+        "ruleKind": "capability-gate",
+        "description": "Capacity/time-slot booking behavior requires a dedicated approved Booking capability contract before production use.",
+        "purpose": "Capacity/time-slot booking behavior requires a dedicated approved Booking capability contract before production use.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.product",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-capability-use",
+          "atomicWhenRequired": false,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.bookingCapabilityGate.R1",
+            "description": "Capacity/time-slot booking behavior requires a dedicated approved Booking capability contract before production use."
+          },
+          {
+            "id": "commerce.rule.bookingCapabilityGate.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.product, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.bookingCapabilityGate and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.buyXGetYQuantityGuard",
+        "name": "Buy X Get Y Quantity Guard",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "promotions",
+        "ruleKind": "promotion-invariant",
+        "description": "Buy-X-get-Y style benefits cannot grant more qualifying/reward quantity than the rule and eligible cart quantities permit.",
+        "purpose": "Buy-X-get-Y style benefits cannot grant more qualifying/reward quantity than the rule and eligible cart quantities permit.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.promotionCondition",
+          "commerce.promotionBenefit",
+          "commerce.discountAllocation"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.buyXGetYQuantityGuard.R1",
+            "description": "Buy-X-get-Y style benefits cannot grant more qualifying/reward quantity than the rule and eligible cart quantities permit."
+          },
+          {
+            "id": "commerce.rule.buyXGetYQuantityGuard.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_DISCOUNT_INELIGIBLE",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.promotionCondition",
+            "description": "This rule constrains commerce.promotionCondition operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.promotionBenefit",
+            "description": "This rule constrains commerce.promotionBenefit operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discountAllocation",
+            "description": "This rule constrains commerce.discountAllocation operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.promotionCondition, commerce.promotionBenefit satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.buyXGetYQuantityGuard and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.cancelledOrderCannotNewFulfill",
+        "name": "Cancelled Order Cannot New Fulfill",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "orders",
+        "ruleKind": "order-invariant",
+        "description": "A cancelled Order cannot receive new normal fulfillments; exceptional correction requires explicit internal recovery and audit.",
+        "purpose": "A cancelled Order cannot receive new normal fulfillments; exceptional correction requires explicit internal recovery and audit.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.fulfillment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.cancelledOrderCannotNewFulfill.R1",
+            "description": "A cancelled Order cannot receive new normal fulfillments; exceptional correction requires explicit internal recovery and audit."
+          },
+          {
+            "id": "commerce.rule.cancelledOrderCannotNewFulfill.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.fulfillment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.cancelledOrderCannotNewFulfill and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.cancelledOrderFulfillmentGuard",
+        "name": "Cancelled Order Fulfillment Guard",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "fulfillment",
+        "ruleKind": "fulfillment-invariant",
+        "description": "Cancelled Orders are not eligible for new normal Fulfillment operations.",
+        "purpose": "Cancelled Orders are not eligible for new normal Fulfillment operations.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.fulfillment",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-fulfillment-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.cancelledOrderFulfillmentGuard.R1",
+            "description": "Cancelled Orders are not eligible for new normal Fulfillment operations."
+          },
+          {
+            "id": "commerce.rule.cancelledOrderFulfillmentGuard.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.fulfillment, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.cancelledOrderFulfillmentGuard and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.captureCumulativeBound",
+        "name": "Capture Cumulative Bound",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "payments",
+        "ruleKind": "financial-invariant",
+        "description": "Cumulative successful captures for a Payment cannot exceed the Payment's allowed capturable amount.",
+        "purpose": "Cumulative successful captures for a Payment cannot exceed the Payment's allowed capturable amount.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.payment",
+          "commerce.paymentCapture"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.captureCumulativeBound.R1",
+            "description": "Cumulative successful captures for a Payment cannot exceed the Payment's allowed capturable amount."
+          },
+          {
+            "id": "commerce.rule.captureCumulativeBound.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CAPTURE_EXCEEDS_AUTHORIZATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.payment, commerce.paymentCapture satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.captureCumulativeBound and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.captureCurrencyMatch",
+        "name": "Capture Currency Match",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "payments",
+        "ruleKind": "financial-invariant",
+        "description": "Capture currency must match its Payment/Authorization currency.",
+        "purpose": "Capture currency must match its Payment/Authorization currency.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.payment",
+          "commerce.paymentAuthorization",
+          "commerce.paymentCapture"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.captureCurrencyMatch.R1",
+            "description": "Capture currency must match its Payment/Authorization currency."
+          },
+          {
+            "id": "commerce.rule.captureCurrencyMatch.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CURRENCY_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentAuthorization",
+            "description": "This rule constrains commerce.paymentAuthorization operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.payment, commerce.paymentAuthorization satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.captureCurrencyMatch and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.captureRequiresValidAuthorization",
+        "name": "Capture Requires Valid Authorization",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "payments",
+        "ruleKind": "financial-invariant",
+        "description": "A capture that depends on an authorization requires a valid non-expired, non-voided authorization with sufficient remaining amount.",
+        "purpose": "A capture that depends on an authorization requires a valid non-expired, non-voided authorization with sufficient remaining amount.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.paymentAuthorization",
+          "commerce.paymentCapture"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.captureRequiresValidAuthorization.R1",
+            "description": "A capture that depends on an authorization requires a valid non-expired, non-voided authorization with sufficient remaining amount."
+          },
+          {
+            "id": "commerce.rule.captureRequiresValidAuthorization.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_AUTHORIZATION_EXPIRED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.paymentAuthorization",
+            "description": "This rule constrains commerce.paymentAuthorization operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.paymentAuthorization, commerce.paymentCapture satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.captureRequiresValidAuthorization and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.cartConvertedTerminal",
+        "name": "Cart Converted Terminal",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "cart-checkout",
+        "ruleKind": "state-and-commit-guard",
+        "description": "A Cart converted into Checkout/Order flow cannot be mutated as an active shopping basket.",
+        "purpose": "A Cart converted into Checkout/Order flow cannot be mutated as an active shopping basket.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.cart"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.cartConvertedTerminal.R1",
+            "description": "A Cart converted into Checkout/Order flow cannot be mutated as an active shopping basket."
+          },
+          {
+            "id": "commerce.rule.cartConvertedTerminal.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_ALREADY_CONVERTED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.cart",
+            "description": "This rule constrains commerce.cart operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.cart satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.cartConvertedTerminal and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.cartExpiredNotMutable",
+        "name": "Cart Expired Not Mutable",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "cart-checkout",
+        "ruleKind": "state-and-commit-guard",
+        "description": "An expired Cart is terminal for normal customer mutations; restoration requires an explicit new/clone operation rather than silently reactivating historical state.",
+        "purpose": "An expired Cart is terminal for normal customer mutations; restoration requires an explicit new/clone operation rather than silently reactivating historical state.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.cart"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": false,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.cartExpiredNotMutable.R1",
+            "description": "An expired Cart is terminal for normal customer mutations; restoration requires an explicit new/clone operation rather than silently reactivating historical state."
+          },
+          {
+            "id": "commerce.rule.cartExpiredNotMutable.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.cart",
+            "description": "This rule constrains commerce.cart operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.cart satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.cartExpiredNotMutable and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.cartIdentityStable",
+        "name": "Cart Identity Stable",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "cart-checkout",
+        "ruleKind": "state-and-commit-guard",
+        "description": "A Cart keeps one stable identity throughout its mutable lifecycle and is not replaced merely because lines or totals change.",
+        "purpose": "A Cart keeps one stable identity throughout its mutable lifecycle and is not replaced merely because lines or totals change.",
+        "severity": "standard",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.cart"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": false,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.cartIdentityStable.R1",
+            "description": "A Cart keeps one stable identity throughout its mutable lifecycle and is not replaced merely because lines or totals change."
+          },
+          {
+            "id": "commerce.rule.cartIdentityStable.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.cart",
+            "description": "This rule constrains commerce.cart operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.cart satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.cartIdentityStable and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.cartMutationRecalculatesTotals",
+        "name": "Cart Mutation Recalculates Totals",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "cart-checkout",
+        "ruleKind": "state-and-commit-guard",
+        "description": "Any Cart mutation affecting quantity, product, price, discount, shipping estimate or tax basis must invalidate and recalculate dependent totals.",
+        "purpose": "Any Cart mutation affecting quantity, product, price, discount, shipping estimate or tax basis must invalidate and recalculate dependent totals.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.cart",
+          "commerce.cartLine",
+          "commerce.cartTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": false,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.cartMutationRecalculatesTotals.R1",
+            "description": "Any Cart mutation affecting quantity, product, price, discount, shipping estimate or tax basis must invalidate and recalculate dependent totals."
+          },
+          {
+            "id": "commerce.rule.cartMutationRecalculatesTotals.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TOTAL_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.cart",
+            "description": "This rule constrains commerce.cart operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.cartLine",
+            "description": "This rule constrains commerce.cartLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.cartTotals",
+            "description": "This rule constrains commerce.cartTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.cart, commerce.cartLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.cartMutationRecalculatesTotals and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.catalogArchivePreservesTransactions",
+        "name": "Catalog Archive Preserves Transactions",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "catalog-customers",
+        "ruleKind": "entity-invariant",
+        "description": "Archiving/removing a Product or Variant from active sale must not invalidate or erase historical Order line snapshots.",
+        "purpose": "Archiving/removing a Product or Variant from active sale must not invalidate or erase historical Order line snapshots.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.product",
+          "commerce.productVariant",
+          "commerce.orderLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-mutation-or-publication",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.catalogArchivePreservesTransactions.R1",
+            "description": "Archiving/removing a Product or Variant from active sale must not invalidate or erase historical Order line snapshots."
+          },
+          {
+            "id": "commerce.rule.catalogArchivePreservesTransactions.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productVariant",
+            "description": "This rule constrains commerce.productVariant operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderLine",
+            "description": "This rule constrains commerce.orderLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.product, commerce.productVariant satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.catalogArchivePreservesTransactions and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.catalogCurrencyPolicy",
+        "name": "Catalog Currency Policy",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "catalog-customers",
+        "ruleKind": "entity-invariant",
+        "description": "Catalog price currencies must follow the Site's declared currency policy; unsupported multi-currency behavior is capability-gated.",
+        "purpose": "Catalog price currencies must follow the Site's declared currency policy; unsupported multi-currency behavior is capability-gated.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.storeSettings",
+          "commerce.productPrice",
+          "commerce.salesChannel"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-mutation-or-publication",
+          "atomicWhenRequired": false,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.catalogCurrencyPolicy.R1",
+            "description": "Catalog price currencies must follow the Site's declared currency policy; unsupported multi-currency behavior is capability-gated."
+          },
+          {
+            "id": "commerce.rule.catalogCurrencyPolicy.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CURRENCY_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.storeSettings",
+            "description": "This rule constrains commerce.storeSettings operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productPrice",
+            "description": "This rule constrains commerce.productPrice operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.salesChannel",
+            "description": "This rule constrains commerce.salesChannel operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.storeSettings, commerce.productPrice satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.catalogCurrencyPolicy and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.catalogRelationshipsValid",
+        "name": "Catalog Relationships Valid",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "catalog-customers",
+        "ruleKind": "entity-invariant",
+        "description": "Catalog relations between Product, Variant, Category, Collection, Attribute and Inventory references must remain within the owning Site and reference eligible entities.",
+        "purpose": "Catalog relations between Product, Variant, Category, Collection, Attribute and Inventory references must remain within the owning Site and reference eligible entities.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.product",
+          "commerce.productVariant",
+          "commerce.productCategory",
+          "commerce.productCollection"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-mutation-or-publication",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.catalogRelationshipsValid.R1",
+            "description": "Catalog relations between Product, Variant, Category, Collection, Attribute and Inventory references must remain within the owning Site and reference eligible entities."
+          },
+          {
+            "id": "commerce.rule.catalogRelationshipsValid.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TENANT_SCOPE_VIOLATION",
+          "retryable": false,
+          "customerSafe": false,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productVariant",
+            "description": "This rule constrains commerce.productVariant operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productCategory",
+            "description": "This rule constrains commerce.productCategory operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productCollection",
+            "description": "This rule constrains commerce.productCollection operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.product, commerce.productVariant satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.catalogRelationshipsValid and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.checkoutCatalogRevalidation",
+        "name": "Checkout Catalog Revalidation",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "cart-checkout",
+        "ruleKind": "state-and-commit-guard",
+        "description": "Checkout completion must revalidate that referenced products/variants are still purchasable and compatible with the selected sales channel.",
+        "purpose": "Checkout completion must revalidate that referenced products/variants are still purchasable and compatible with the selected sales channel.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.checkout",
+          "commerce.product",
+          "commerce.productVariant",
+          "commerce.productAvailability"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.checkoutCatalogRevalidation.R1",
+            "description": "Checkout completion must revalidate that referenced products/variants are still purchasable and compatible with the selected sales channel."
+          },
+          {
+            "id": "commerce.rule.checkoutCatalogRevalidation.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_PRODUCT_UNAVAILABLE",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productVariant",
+            "description": "This rule constrains commerce.productVariant operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productAvailability",
+            "description": "This rule constrains commerce.productAvailability operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.checkout, commerce.product satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.checkoutCatalogRevalidation and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.checkoutDiscountRevalidation",
+        "name": "Checkout Discount Revalidation",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "cart-checkout",
+        "ruleKind": "state-and-commit-guard",
+        "description": "Checkout completion must revalidate every promotion/coupon against current eligibility, usage limits and stacking policy.",
+        "purpose": "Checkout completion must revalidate every promotion/coupon against current eligibility, usage limits and stacking policy.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.checkout",
+          "commerce.discount",
+          "commerce.discountCode",
+          "commerce.discountAllocation"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.checkoutDiscountRevalidation.R1",
+            "description": "Checkout completion must revalidate every promotion/coupon against current eligibility, usage limits and stacking policy."
+          },
+          {
+            "id": "commerce.rule.checkoutDiscountRevalidation.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_DISCOUNT_INELIGIBLE",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discount",
+            "description": "This rule constrains commerce.discount operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discountCode",
+            "description": "This rule constrains commerce.discountCode operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discountAllocation",
+            "description": "This rule constrains commerce.discountAllocation operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.checkout, commerce.discount satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.checkoutDiscountRevalidation and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.checkoutInventoryRevalidation",
+        "name": "Checkout Inventory Revalidation",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "cart-checkout",
+        "ruleKind": "state-and-commit-guard",
+        "description": "Checkout completion must revalidate sufficient stock or explicit backorder eligibility before inventory is reserved/committed.",
+        "purpose": "Checkout completion must revalidate sufficient stock or explicit backorder eligibility before inventory is reserved/committed.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.checkout",
+          "commerce.inventoryLevel",
+          "commerce.inventoryReservation"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.checkoutInventoryRevalidation.R1",
+            "description": "Checkout completion must revalidate sufficient stock or explicit backorder eligibility before inventory is reserved/committed."
+          },
+          {
+            "id": "commerce.rule.checkoutInventoryRevalidation.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INSUFFICIENT_INVENTORY",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryReservation",
+            "description": "This rule constrains commerce.inventoryReservation operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.checkout, commerce.inventoryLevel satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.checkoutInventoryRevalidation and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.checkoutSingleOrderConversion",
+        "name": "Checkout Single Order Conversion",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "cart-checkout",
+        "ruleKind": "state-and-commit-guard",
+        "description": "One Checkout may produce at most one canonical Order; retrying conversion must return the original result instead of creating duplicate Orders.",
+        "purpose": "One Checkout may produce at most one canonical Order; retrying conversion must return the original result instead of creating duplicate Orders.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.checkout",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.checkoutSingleOrderConversion.R1",
+            "description": "One Checkout may produce at most one canonical Order; retrying conversion must return the original result instead of creating duplicate Orders."
+          },
+          {
+            "id": "commerce.rule.checkoutSingleOrderConversion.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_ALREADY_CONVERTED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.checkout, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.checkoutSingleOrderConversion and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.checkoutSnapshotsCart",
+        "name": "Checkout Snapshots Cart",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "cart-checkout",
+        "ruleKind": "state-and-commit-guard",
+        "description": "Checkout must snapshot the relevant Cart lines, quantities, money and selection context so later Cart changes cannot mutate the in-progress transaction.",
+        "purpose": "Checkout must snapshot the relevant Cart lines, quantities, money and selection context so later Cart changes cannot mutate the in-progress transaction.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.checkout",
+          "commerce.checkoutLine",
+          "commerce.cart"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.checkoutSnapshotsCart.R1",
+            "description": "Checkout must snapshot the relevant Cart lines, quantities, money and selection context so later Cart changes cannot mutate the in-progress transaction."
+          },
+          {
+            "id": "commerce.rule.checkoutSnapshotsCart.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.checkoutLine",
+            "description": "This rule constrains commerce.checkoutLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.cart",
+            "description": "This rule constrains commerce.cart operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.checkout, commerce.checkoutLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.checkoutSnapshotsCart and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.checkoutTaxShippingRevalidation",
+        "name": "Checkout Tax Shipping Revalidation",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "cart-checkout",
+        "ruleKind": "state-and-commit-guard",
+        "description": "Checkout completion must resolve current valid tax and shipping rules for the committed destination and selections.",
+        "purpose": "Checkout completion must resolve current valid tax and shipping rules for the committed destination and selections.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.checkout",
+          "commerce.taxConfiguration",
+          "commerce.shippingMethod",
+          "commerce.shippingRate"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.checkoutTaxShippingRevalidation.R1",
+            "description": "Checkout completion must resolve current valid tax and shipping rules for the committed destination and selections."
+          },
+          {
+            "id": "commerce.rule.checkoutTaxShippingRevalidation.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_STALE_CHECKOUT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.taxConfiguration",
+            "description": "This rule constrains commerce.taxConfiguration operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.shippingMethod",
+            "description": "This rule constrains commerce.shippingMethod operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.shippingRate",
+            "description": "This rule constrains commerce.shippingRate operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.checkout, commerce.taxConfiguration satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.checkoutTaxShippingRevalidation and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.commandCorrelation",
+        "name": "Command Correlation",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "idempotency-concurrency",
+        "ruleKind": "concurrency-invariant",
+        "description": "Material commands and resulting records must preserve a correlation/request reference sufficient for audit and reconciliation without exposing secrets.",
+        "purpose": "Material commands and resulting records must preserve a correlation/request reference sufficient for audit and reconciliation without exposing secrets.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "core.auditRecord",
+          "commerce.order",
+          "commerce.payment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-command",
+          "atomicWhenRequired": true,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.commandCorrelation.R1",
+            "description": "Material commands and resulting records must preserve a correlation/request reference sufficient for audit and reconciliation without exposing secrets."
+          },
+          {
+            "id": "commerce.rule.commandCorrelation.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "core.auditRecord",
+            "description": "This rule constrains core.auditRecord operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving core.auditRecord, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.commandCorrelation and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.commerceAuditAppendOnly",
+        "name": "Commerce Audit Append Only",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "security-audit",
+        "ruleKind": "security-invariant",
+        "description": "Audit history for material commerce actions is append-only under normal operations; correction is represented by additional audit facts.",
+        "purpose": "Audit history for material commerce actions is append-only under normal operations; correction is represented by additional audit facts.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "core.auditRecord"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "every-applicable-operation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.commerceAuditAppendOnly.R1",
+            "description": "Audit history for material commerce actions is append-only under normal operations; correction is represented by additional audit facts."
+          },
+          {
+            "id": "commerce.rule.commerceAuditAppendOnly.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "core.auditRecord",
+            "description": "This rule constrains core.auditRecord operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving core.auditRecord satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.commerceAuditAppendOnly and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.commercePermissionGate",
+        "name": "Commerce Permission Gate",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "security-audit",
+        "ruleKind": "security-invariant",
+        "description": "Privileged commerce commands must require the canonical Phase 15 permission once that registry exists; UI visibility alone is not authorization.",
+        "purpose": "Privileged commerce commands must require the canonical Phase 15 permission once that registry exists; UI visibility alone is not authorization.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.product",
+          "commerce.refund",
+          "commerce.inventoryAdjustment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "every-applicable-operation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.commercePermissionGate.R1",
+            "description": "Privileged commerce commands must require the canonical Phase 15 permission once that registry exists; UI visibility alone is not authorization."
+          },
+          {
+            "id": "commerce.rule.commercePermissionGate.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_PERMISSION_REQUIRED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryAdjustment",
+            "description": "This rule constrains commerce.inventoryAdjustment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.product satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.commercePermissionGate and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.commercePublicDeliveryWhitelist",
+        "name": "Commerce Public Delivery Whitelist",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "security-audit",
+        "ruleKind": "security-invariant",
+        "description": "Only fields explicitly approved by the relevant Commerce schema delivery boundary are eligible for unauthenticated storefront responses.",
+        "purpose": "Only fields explicitly approved by the relevant Commerce schema delivery boundary are eligible for unauthenticated storefront responses.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.product",
+          "commerce.productVariant",
+          "commerce.productPrice",
+          "commerce.productAvailability"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "every-applicable-operation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.commercePublicDeliveryWhitelist.R1",
+            "description": "Only fields explicitly approved by the relevant Commerce schema delivery boundary are eligible for unauthenticated storefront responses."
+          },
+          {
+            "id": "commerce.rule.commercePublicDeliveryWhitelist.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productVariant",
+            "description": "This rule constrains commerce.productVariant operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productPrice",
+            "description": "This rule constrains commerce.productPrice operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productAvailability",
+            "description": "This rule constrains commerce.productAvailability operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.product, commerce.productVariant satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.commercePublicDeliveryWhitelist and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.commerceSensitiveDataMinimized",
+        "name": "Commerce Sensitive Data Minimized",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "security-audit",
+        "ruleKind": "security-invariant",
+        "description": "Commerce logs, audits, events and diagnostic payloads must include only the minimum personal/sensitive data needed for the defined purpose.",
+        "purpose": "Commerce logs, audits, events and diagnostic payloads must include only the minimum personal/sensitive data needed for the defined purpose.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.commerceCustomer",
+          "commerce.checkoutContact",
+          "core.auditRecord"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "every-applicable-operation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.commerceSensitiveDataMinimized.R1",
+            "description": "Commerce logs, audits, events and diagnostic payloads must include only the minimum personal/sensitive data needed for the defined purpose."
+          },
+          {
+            "id": "commerce.rule.commerceSensitiveDataMinimized.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.commerceCustomer",
+            "description": "This rule constrains commerce.commerceCustomer operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.checkoutContact",
+            "description": "This rule constrains commerce.checkoutContact operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "core.auditRecord",
+            "description": "This rule constrains core.auditRecord operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.commerceCustomer, commerce.checkoutContact satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.commerceSensitiveDataMinimized and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.commerceTenantIsolation",
+        "name": "Commerce Tenant Isolation",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "security-audit",
+        "ruleKind": "security-invariant",
+        "description": "Every commerce read/write must enforce Organization/Site scope server-side; caller-supplied IDs do not establish authorization.",
+        "purpose": "Every commerce read/write must enforce Organization/Site scope server-side; caller-supplied IDs do not establish authorization.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "core.tenantScope",
+          "commerce.order",
+          "commerce.commerceCustomer"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "every-applicable-operation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.commerceTenantIsolation.R1",
+            "description": "Every commerce read/write must enforce Organization/Site scope server-side; caller-supplied IDs do not establish authorization."
+          },
+          {
+            "id": "commerce.rule.commerceTenantIsolation.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TENANT_SCOPE_VIOLATION",
+          "retryable": false,
+          "customerSafe": false,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "core.tenantScope",
+            "description": "This rule constrains core.tenantScope operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.commerceCustomer",
+            "description": "This rule constrains commerce.commerceCustomer operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving core.tenantScope, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.commerceTenantIsolation and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.committedTimestampOrdering",
+        "name": "Committed Timestamp Ordering",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "transaction-integrity",
+        "ruleKind": "transaction-invariant",
+        "description": "Material transaction timestamps must preserve causal ordering and cannot claim completion before the facts that produced it.",
+        "purpose": "Material transaction timestamps must preserve causal ordering and cannot claim completion before the facts that produced it.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.payment",
+          "commerce.refund",
+          "commerce.fulfillment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.committedTimestampOrdering.R1",
+            "description": "Material transaction timestamps must preserve causal ordering and cannot claim completion before the facts that produced it."
+          },
+          {
+            "id": "commerce.rule.committedTimestampOrdering.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.committedTimestampOrdering and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.couponPerCustomerLimit",
+        "name": "Coupon Per Customer Limit",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "promotions",
+        "ruleKind": "promotion-invariant",
+        "description": "Per-customer coupon limits must use a stable Commerce Customer or documented eligible identity and must be enforced server-side.",
+        "purpose": "Per-customer coupon limits must use a stable Commerce Customer or documented eligible identity and must be enforced server-side.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.discountCode",
+          "commerce.commerceCustomer"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.couponPerCustomerLimit.R1",
+            "description": "Per-customer coupon limits must use a stable Commerce Customer or documented eligible identity and must be enforced server-side."
+          },
+          {
+            "id": "commerce.rule.couponPerCustomerLimit.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_DISCOUNT_USAGE_EXHAUSTED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.discountCode",
+            "description": "This rule constrains commerce.discountCode operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.commerceCustomer",
+            "description": "This rule constrains commerce.commerceCustomer operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.discountCode, commerce.commerceCustomer satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.couponPerCustomerLimit and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.couponUsageAtomic",
+        "name": "Coupon Usage Atomic",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "promotions",
+        "ruleKind": "promotion-invariant",
+        "description": "Limited coupon usage must be consumed atomically with the transaction decision so concurrent checkouts cannot exceed the configured usage limit.",
+        "purpose": "Limited coupon usage must be consumed atomically with the transaction decision so concurrent checkouts cannot exceed the configured usage limit.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.discountCode",
+          "commerce.checkout",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.couponUsageAtomic.R1",
+            "description": "Limited coupon usage must be consumed atomically with the transaction decision so concurrent checkouts cannot exceed the configured usage limit."
+          },
+          {
+            "id": "commerce.rule.couponUsageAtomic.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_DISCOUNT_USAGE_EXHAUSTED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.discountCode",
+            "description": "This rule constrains commerce.discountCode operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.discountCode, commerce.checkout satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.couponUsageAtomic and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.cumulativeFulfillmentBound",
+        "name": "Cumulative Fulfillment Bound",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "fulfillment",
+        "ruleKind": "fulfillment-invariant",
+        "description": "Cumulative non-cancelled Fulfillment quantity cannot exceed the eligible ordered quantity after prior fulfillment and applicable adjustments.",
+        "purpose": "Cumulative non-cancelled Fulfillment quantity cannot exceed the eligible ordered quantity after prior fulfillment and applicable adjustments.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.fulfillment",
+          "commerce.fulfillmentLine",
+          "commerce.orderLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-fulfillment-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.cumulativeFulfillmentBound.R1",
+            "description": "Cumulative non-cancelled Fulfillment quantity cannot exceed the eligible ordered quantity after prior fulfillment and applicable adjustments."
+          },
+          {
+            "id": "commerce.rule.cumulativeFulfillmentBound.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_FULFILLMENT_QUANTITY_EXCEEDED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillmentLine",
+            "description": "This rule constrains commerce.fulfillmentLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderLine",
+            "description": "This rule constrains commerce.orderLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.fulfillment, commerce.fulfillmentLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.cumulativeFulfillmentBound and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.cumulativeReturnBound",
+        "name": "Cumulative Return Bound",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "returns",
+        "ruleKind": "return-invariant",
+        "description": "Cumulative approved/received return quantity cannot exceed the eligible purchased quantity after prior returns.",
+        "purpose": "Cumulative approved/received return quantity cannot exceed the eligible purchased quantity after prior returns.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.returnRequest",
+          "commerce.returnLine",
+          "commerce.orderLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-return-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.cumulativeReturnBound.R1",
+            "description": "Cumulative approved/received return quantity cannot exceed the eligible purchased quantity after prior returns."
+          },
+          {
+            "id": "commerce.rule.cumulativeReturnBound.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RETURN_QUANTITY_EXCEEDED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.returnRequest",
+            "description": "This rule constrains commerce.returnRequest operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.returnLine",
+            "description": "This rule constrains commerce.returnLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderLine",
+            "description": "This rule constrains commerce.orderLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.returnRequest, commerce.returnLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.cumulativeReturnBound and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.customerDeletionPreservesOrderSnapshots",
+        "name": "Customer Deletion Preserves Order Snapshots",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "catalog-customers",
+        "ruleKind": "entity-invariant",
+        "description": "Removing or anonymizing mutable Commerce Customer data must not destroy required historical Order customer/address snapshots.",
+        "purpose": "Removing or anonymizing mutable Commerce Customer data must not destroy required historical Order customer/address snapshots.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.commerceCustomer",
+          "commerce.customerSnapshot",
+          "commerce.order",
+          "commerce.orderAddressSnapshot"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-mutation-or-publication",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.customerDeletionPreservesOrderSnapshots.R1",
+            "description": "Removing or anonymizing mutable Commerce Customer data must not destroy required historical Order customer/address snapshots."
+          },
+          {
+            "id": "commerce.rule.customerDeletionPreservesOrderSnapshots.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.commerceCustomer",
+            "description": "This rule constrains commerce.commerceCustomer operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.customerSnapshot",
+            "description": "This rule constrains commerce.customerSnapshot operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderAddressSnapshot",
+            "description": "This rule constrains commerce.orderAddressSnapshot operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.commerceCustomer, commerce.customerSnapshot satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.customerDeletionPreservesOrderSnapshots and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.customerSafeCommerceErrors",
+        "name": "Customer Safe Commerce Errors",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "security-audit",
+        "ruleKind": "security-invariant",
+        "description": "Customer-facing error output must not expose stack traces, provider secrets, internal identifiers or sensitive reconciliation details.",
+        "purpose": "Customer-facing error output must not expose stack traces, provider secrets, internal identifiers or sensitive reconciliation details.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.checkout",
+          "commerce.payment",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "every-applicable-operation",
+          "atomicWhenRequired": false,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.customerSafeCommerceErrors.R1",
+            "description": "Customer-facing error output must not expose stack traces, provider secrets, internal identifiers or sensitive reconciliation details."
+          },
+          {
+            "id": "commerce.rule.customerSafeCommerceErrors.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.checkout, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.customerSafeCommerceErrors and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.deliveredRequiresEvidence",
+        "name": "Delivered Requires Evidence",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "fulfillment",
+        "ruleKind": "fulfillment-invariant",
+        "description": "A Shipment may become delivered only from trusted provider/manual evidence allowed by the operational policy; visitor-supplied status is insufficient.",
+        "purpose": "A Shipment may become delivered only from trusted provider/manual evidence allowed by the operational policy; visitor-supplied status is insufficient.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.shipment",
+          "commerce.trackingReference"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-fulfillment-transition",
+          "atomicWhenRequired": false,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.deliveredRequiresEvidence.R1",
+            "description": "A Shipment may become delivered only from trusted provider/manual evidence allowed by the operational policy; visitor-supplied status is insufficient."
+          },
+          {
+            "id": "commerce.rule.deliveredRequiresEvidence.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.shipment",
+            "description": "This rule constrains commerce.shipment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.trackingReference",
+            "description": "This rule constrains commerce.trackingReference operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.shipment, commerce.trackingReference satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.deliveredRequiresEvidence and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.digitalDeliveryCapabilityGate",
+        "name": "Digital Delivery Capability Gate",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "specialized-capabilities",
+        "ruleKind": "capability-gate",
+        "description": "Protected digital download/license delivery requires a dedicated approved delivery capability when simple fulfillment metadata is insufficient.",
+        "purpose": "Protected digital download/license delivery requires a dedicated approved delivery capability when simple fulfillment metadata is insufficient.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.product",
+          "commerce.fulfillment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-capability-use",
+          "atomicWhenRequired": false,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.digitalDeliveryCapabilityGate.R1",
+            "description": "Protected digital download/license delivery requires a dedicated approved delivery capability when simple fulfillment metadata is insufficient."
+          },
+          {
+            "id": "commerce.rule.digitalDeliveryCapabilityGate.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.product, commerce.fulfillment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.digitalDeliveryCapabilityGate and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.digitalProductNoPhysicalShipping",
+        "name": "Digital Product No Physical Shipping",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "fulfillment",
+        "ruleKind": "fulfillment-invariant",
+        "description": "Products that do not require physical shipping must not be forced through physical shipment requirements unless their explicit product policy says otherwise.",
+        "purpose": "Products that do not require physical shipping must not be forced through physical shipment requirements unless their explicit product policy says otherwise.",
+        "severity": "standard",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.product",
+          "commerce.fulfillment",
+          "commerce.shippingMethod"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-fulfillment-transition",
+          "atomicWhenRequired": false,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.digitalProductNoPhysicalShipping.R1",
+            "description": "Products that do not require physical shipping must not be forced through physical shipment requirements unless their explicit product policy says otherwise."
+          },
+          {
+            "id": "commerce.rule.digitalProductNoPhysicalShipping.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.shippingMethod",
+            "description": "This rule constrains commerce.shippingMethod operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.product, commerce.fulfillment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.digitalProductNoPhysicalShipping and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.discountAllocationBound",
+        "name": "Discount Allocation Bound",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "promotions",
+        "ruleKind": "promotion-invariant",
+        "description": "Allocated discount amounts cannot exceed the eligible line/order basis or produce negative payable line amounts.",
+        "purpose": "Allocated discount amounts cannot exceed the eligible line/order basis or produce negative payable line amounts.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.discountAllocation",
+          "commerce.orderLine",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.discountAllocationBound.R1",
+            "description": "Allocated discount amounts cannot exceed the eligible line/order basis or produce negative payable line amounts."
+          },
+          {
+            "id": "commerce.rule.discountAllocationBound.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TOTAL_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.discountAllocation",
+            "description": "This rule constrains commerce.discountAllocation operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderLine",
+            "description": "This rule constrains commerce.orderLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.discountAllocation, commerce.orderLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.discountAllocationBound and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.discountCurrencyConsistency",
+        "name": "Discount Currency Consistency",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "promotions",
+        "ruleKind": "promotion-invariant",
+        "description": "Fixed monetary discount values and their transaction allocations must use a compatible transaction currency.",
+        "purpose": "Fixed monetary discount values and their transaction allocations must use a compatible transaction currency.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.discount",
+          "commerce.discountAllocation",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.discountCurrencyConsistency.R1",
+            "description": "Fixed monetary discount values and their transaction allocations must use a compatible transaction currency."
+          },
+          {
+            "id": "commerce.rule.discountCurrencyConsistency.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CURRENCY_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.discount",
+            "description": "This rule constrains commerce.discount operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discountAllocation",
+            "description": "This rule constrains commerce.discountAllocation operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.discount, commerce.discountAllocation satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.discountCurrencyConsistency and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.discountEligibilityRevalidated",
+        "name": "Discount Eligibility Revalidated",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "promotions",
+        "ruleKind": "promotion-invariant",
+        "description": "Discount and coupon eligibility must be revalidated at transactional commit against the current canonical rule conditions.",
+        "purpose": "Discount and coupon eligibility must be revalidated at transactional commit against the current canonical rule conditions.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.discount",
+          "commerce.discountCode",
+          "commerce.promotionCondition"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.discountEligibilityRevalidated.R1",
+            "description": "Discount and coupon eligibility must be revalidated at transactional commit against the current canonical rule conditions."
+          },
+          {
+            "id": "commerce.rule.discountEligibilityRevalidated.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_DISCOUNT_INELIGIBLE",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.discount",
+            "description": "This rule constrains commerce.discount operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discountCode",
+            "description": "This rule constrains commerce.discountCode operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.promotionCondition",
+            "description": "This rule constrains commerce.promotionCondition operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.discount, commerce.discountCode satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.discountEligibilityRevalidated and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.discountStackingExplicit",
+        "name": "Discount Stacking Explicit",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "promotions",
+        "ruleKind": "promotion-invariant",
+        "description": "Combining multiple discounts/promotions requires an explicit stacking/precedence policy; absence of policy must not imply unlimited stacking.",
+        "purpose": "Combining multiple discounts/promotions requires an explicit stacking/precedence policy; absence of policy must not imply unlimited stacking.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.discount",
+          "commerce.discountAllocation"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.discountStackingExplicit.R1",
+            "description": "Combining multiple discounts/promotions requires an explicit stacking/precedence policy; absence of policy must not imply unlimited stacking."
+          },
+          {
+            "id": "commerce.rule.discountStackingExplicit.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_DISCOUNT_INELIGIBLE",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.discount",
+            "description": "This rule constrains commerce.discount operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discountAllocation",
+            "description": "This rule constrains commerce.discountAllocation operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.discount, commerce.discountAllocation satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.discountStackingExplicit and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.externalReferenceDoesNotOverrideTruth",
+        "name": "External Reference Does Not Override Truth",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "transaction-integrity",
+        "ruleKind": "transaction-invariant",
+        "description": "Provider IDs and external status messages are evidence and correlation data; they cannot directly override canonical NEXT F transaction truth without reconciliation.",
+        "purpose": "Provider IDs and external status messages are evidence and correlation data; they cannot directly override canonical NEXT F transaction truth without reconciliation.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "shared.externalReference",
+          "commerce.payment",
+          "commerce.shipment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.externalReferenceDoesNotOverrideTruth.R1",
+            "description": "Provider IDs and external status messages are evidence and correlation data; they cannot directly override canonical NEXT F transaction truth without reconciliation."
+          },
+          {
+            "id": "commerce.rule.externalReferenceDoesNotOverrideTruth.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_PROVIDER_RECONCILIATION_REQUIRED",
+          "retryable": true,
+          "customerSafe": false,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "shared.externalReference",
+            "description": "This rule constrains shared.externalReference operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.shipment",
+            "description": "This rule constrains commerce.shipment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving shared.externalReference, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.externalReferenceDoesNotOverrideTruth and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.failedPaymentNoPaidState",
+        "name": "Failed Payment No Paid State",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "payments",
+        "ruleKind": "financial-invariant",
+        "description": "A failed or cancelled Payment Attempt cannot directly move canonical Payment/Order financial state to paid.",
+        "purpose": "A failed or cancelled Payment Attempt cannot directly move canonical Payment/Order financial state to paid.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.paymentAttempt",
+          "commerce.payment",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.failedPaymentNoPaidState.R1",
+            "description": "A failed or cancelled Payment Attempt cannot directly move canonical Payment/Order financial state to paid."
+          },
+          {
+            "id": "commerce.rule.failedPaymentNoPaidState.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.paymentAttempt",
+            "description": "This rule constrains commerce.paymentAttempt operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.paymentAttempt, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.failedPaymentNoPaidState and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.failedRefundNoFinancialEffect",
+        "name": "Failed Refund No Financial Effect",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "refunds",
+        "ruleKind": "financial-invariant",
+        "description": "Failed or cancelled Refund attempts cannot reduce canonical settled balance or mark an Order refunded.",
+        "purpose": "Failed or cancelled Refund attempts cannot reduce canonical settled balance or mark an Order refunded.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.refund",
+          "commerce.payment",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.failedRefundNoFinancialEffect.R1",
+            "description": "Failed or cancelled Refund attempts cannot reduce canonical settled balance or mark an Order refunded."
+          },
+          {
+            "id": "commerce.rule.failedRefundNoFinancialEffect.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.refund, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.failedRefundNoFinancialEffect and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.fulfillmentDoesNotImplyPayment",
+        "name": "Fulfillment Does Not Imply Payment",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "fulfillment",
+        "ruleKind": "fulfillment-invariant",
+        "description": "Fulfillment progress must not by itself create or alter Payment/Capture facts.",
+        "purpose": "Fulfillment progress must not by itself create or alter Payment/Capture facts.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.fulfillment",
+          "commerce.payment",
+          "commerce.paymentCapture"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-fulfillment-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.fulfillmentDoesNotImplyPayment.R1",
+            "description": "Fulfillment progress must not by itself create or alter Payment/Capture facts."
+          },
+          {
+            "id": "commerce.rule.fulfillmentDoesNotImplyPayment.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.fulfillment, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.fulfillmentDoesNotImplyPayment and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.fulfillmentQuantityBound",
+        "name": "Fulfillment Quantity Bound",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "fulfillment",
+        "ruleKind": "fulfillment-invariant",
+        "description": "A Fulfillment line quantity cannot exceed the Order line quantity still eligible for fulfillment.",
+        "purpose": "A Fulfillment line quantity cannot exceed the Order line quantity still eligible for fulfillment.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.fulfillment",
+          "commerce.fulfillmentLine",
+          "commerce.orderLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-fulfillment-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.fulfillmentQuantityBound.R1",
+            "description": "A Fulfillment line quantity cannot exceed the Order line quantity still eligible for fulfillment."
+          },
+          {
+            "id": "commerce.rule.fulfillmentQuantityBound.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_FULFILLMENT_QUANTITY_EXCEEDED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillmentLine",
+            "description": "This rule constrains commerce.fulfillmentLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderLine",
+            "description": "This rule constrains commerce.orderLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.fulfillment, commerce.fulfillmentLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.fulfillmentQuantityBound and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.fulfillmentRequiresEligibleOrder",
+        "name": "Fulfillment Requires Eligible Order",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "fulfillment",
+        "ruleKind": "fulfillment-invariant",
+        "description": "A normal Fulfillment may be created only for an existing Order in an operational state that permits fulfillment.",
+        "purpose": "A normal Fulfillment may be created only for an existing Order in an operational state that permits fulfillment.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.fulfillment",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-fulfillment-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.fulfillmentRequiresEligibleOrder.R1",
+            "description": "A normal Fulfillment may be created only for an existing Order in an operational state that permits fulfillment."
+          },
+          {
+            "id": "commerce.rule.fulfillmentRequiresEligibleOrder.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.fulfillment, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.fulfillmentRequiresEligibleOrder and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.giftCardCapabilityGate",
+        "name": "Gift Card Capability Gate",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "specialized-capabilities",
+        "ruleKind": "capability-gate",
+        "description": "Stored-value gift card issuance, balances and redemption require a dedicated approved capability contract before production use.",
+        "purpose": "Stored-value gift card issuance, balances and redemption require a dedicated approved capability contract before production use.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.product",
+          "commerce.discount"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-capability-use",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.giftCardCapabilityGate.R1",
+            "description": "Stored-value gift card issuance, balances and redemption require a dedicated approved capability contract before production use."
+          },
+          {
+            "id": "commerce.rule.giftCardCapabilityGate.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discount",
+            "description": "This rule constrains commerce.discount operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.product, commerce.discount satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.giftCardCapabilityGate and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.historicalDiscountAllocationImmutable",
+        "name": "Historical Discount Allocation Immutable",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "promotions",
+        "ruleKind": "promotion-invariant",
+        "description": "Applied Order discount allocations remain historical snapshots even if the source Discount/Code is later changed, disabled or deleted from active catalog use.",
+        "purpose": "Applied Order discount allocations remain historical snapshots even if the source Discount/Code is later changed, disabled or deleted from active catalog use.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.discountAllocation",
+          "commerce.order",
+          "commerce.discount",
+          "commerce.discountCode"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.historicalDiscountAllocationImmutable.R1",
+            "description": "Applied Order discount allocations remain historical snapshots even if the source Discount/Code is later changed, disabled or deleted from active catalog use."
+          },
+          {
+            "id": "commerce.rule.historicalDiscountAllocationImmutable.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.discountAllocation",
+            "description": "This rule constrains commerce.discountAllocation operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discount",
+            "description": "This rule constrains commerce.discount operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discountCode",
+            "description": "This rule constrains commerce.discountCode operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.discountAllocation, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.historicalDiscountAllocationImmutable and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.historicalTaxImmutable",
+        "name": "Historical Tax Immutable",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "tax",
+        "ruleKind": "tax-invariant",
+        "description": "Committed tax jurisdiction, rate and amount snapshots cannot be rewritten by future tax configuration changes.",
+        "purpose": "Committed tax jurisdiction, rate and amount snapshots cannot be rewritten by future tax configuration changes.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.taxLine",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.historicalTaxImmutable.R1",
+            "description": "Committed tax jurisdiction, rate and amount snapshots cannot be rewritten by future tax configuration changes."
+          },
+          {
+            "id": "commerce.rule.historicalTaxImmutable.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.taxLine",
+            "description": "This rule constrains commerce.taxLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.taxLine, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.historicalTaxImmutable and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.idempotencyPayloadStable",
+        "name": "Idempotency Payload Stable",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "idempotency-concurrency",
+        "ruleKind": "concurrency-invariant",
+        "description": "Reusing an idempotency key with materially different canonical input is a conflict and must not execute as a new operation.",
+        "purpose": "Reusing an idempotency key with materially different canonical input is a conflict and must not execute as a new operation.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.payment",
+          "commerce.refund"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-command",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.idempotencyPayloadStable.R1",
+            "description": "Reusing an idempotency key with materially different canonical input is a conflict and must not execute as a new operation."
+          },
+          {
+            "id": "commerce.rule.idempotencyPayloadStable.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_IDEMPOTENCY_CONFLICT",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.idempotencyPayloadStable and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.idempotencyReplaySameResult",
+        "name": "Idempotency Replay Same Result",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "idempotency-concurrency",
+        "ruleKind": "concurrency-invariant",
+        "description": "Replaying the same accepted idempotent request returns the original authoritative outcome or equivalent stable reference without duplicating side effects.",
+        "purpose": "Replaying the same accepted idempotent request returns the original authoritative outcome or equivalent stable reference without duplicating side effects.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.payment",
+          "commerce.refund"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-command",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.idempotencyReplaySameResult.R1",
+            "description": "Replaying the same accepted idempotent request returns the original authoritative outcome or equivalent stable reference without duplicating side effects."
+          },
+          {
+            "id": "commerce.rule.idempotencyReplaySameResult.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_IDEMPOTENCY_CONFLICT",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.idempotencyReplaySameResult and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.idempotencyRetentionWindow",
+        "name": "Idempotency Retention Window",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "idempotency-concurrency",
+        "ruleKind": "concurrency-invariant",
+        "description": "Idempotency records must remain available for at least the command's documented duplicate-risk/retry window.",
+        "purpose": "Idempotency records must remain available for at least the command's documented duplicate-risk/retry window.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "core.entityReference"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-command",
+          "atomicWhenRequired": true,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.idempotencyRetentionWindow.R1",
+            "description": "Idempotency records must remain available for at least the command's documented duplicate-risk/retry window."
+          },
+          {
+            "id": "commerce.rule.idempotencyRetentionWindow.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_IDEMPOTENCY_CONFLICT",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "core.entityReference",
+            "description": "This rule constrains core.entityReference operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving core.entityReference satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.idempotencyRetentionWindow and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.idempotencyScope",
+        "name": "Idempotency Scope",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "idempotency-concurrency",
+        "ruleKind": "concurrency-invariant",
+        "description": "An idempotency key is scoped to the documented Site/command/actor or provider context so unrelated operations cannot collide accidentally.",
+        "purpose": "An idempotency key is scoped to the documented Site/command/actor or provider context so unrelated operations cannot collide accidentally.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "core.tenantScope"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-command",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.idempotencyScope.R1",
+            "description": "An idempotency key is scoped to the documented Site/command/actor or provider context so unrelated operations cannot collide accidentally."
+          },
+          {
+            "id": "commerce.rule.idempotencyScope.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_IDEMPOTENCY_CONFLICT",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "core.tenantScope",
+            "description": "This rule constrains core.tenantScope operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving core.tenantScope satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.idempotencyScope and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.inventoryAdjustmentLedgerRequired",
+        "name": "Inventory Adjustment Ledger Required",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "Every manual/system inventory quantity change requires an auditable Inventory Adjustment or another canonical stock movement fact.",
+        "purpose": "Every manual/system inventory quantity change requires an auditable Inventory Adjustment or another canonical stock movement fact.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.inventoryAdjustment",
+          "commerce.inventoryLevel"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.inventoryAdjustmentLedgerRequired.R1",
+            "description": "Every manual/system inventory quantity change requires an auditable Inventory Adjustment or another canonical stock movement fact."
+          },
+          {
+            "id": "commerce.rule.inventoryAdjustmentLedgerRequired.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVENTORY_CONFLICT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.inventoryAdjustment",
+            "description": "This rule constrains commerce.inventoryAdjustment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.inventoryAdjustment, commerce.inventoryLevel satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.inventoryAdjustmentLedgerRequired and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.inventoryBalanceReconcile",
+        "name": "Inventory Balance Reconcile",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "Inventory availability must reconcile on-hand, reserved and other canonical quantity dimensions according to the Inventory contract.",
+        "purpose": "Inventory availability must reconcile on-hand, reserved and other canonical quantity dimensions according to the Inventory contract.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.inventoryItem",
+          "commerce.inventoryLevel",
+          "commerce.quantity"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.inventoryBalanceReconcile.R1",
+            "description": "Inventory availability must reconcile on-hand, reserved and other canonical quantity dimensions according to the Inventory contract."
+          },
+          {
+            "id": "commerce.rule.inventoryBalanceReconcile.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVENTORY_CONFLICT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.inventoryItem",
+            "description": "This rule constrains commerce.inventoryItem operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.quantity",
+            "description": "This rule constrains commerce.quantity operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.inventoryItem, commerce.inventoryLevel satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.inventoryBalanceReconcile and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.inventoryConcurrentMutationGuard",
+        "name": "Inventory Concurrent Mutation Guard",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "Reservation, release, adjustment, transfer and order-commit operations that touch the same Inventory Level require concurrency protection.",
+        "purpose": "Reservation, release, adjustment, transfer and order-commit operations that touch the same Inventory Level require concurrency protection.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.inventoryLevel",
+          "commerce.inventoryReservation",
+          "commerce.inventoryAdjustment",
+          "commerce.inventoryTransfer"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.inventoryConcurrentMutationGuard.R1",
+            "description": "Reservation, release, adjustment, transfer and order-commit operations that touch the same Inventory Level require concurrency protection."
+          },
+          {
+            "id": "commerce.rule.inventoryConcurrentMutationGuard.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVENTORY_CONFLICT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryReservation",
+            "description": "This rule constrains commerce.inventoryReservation operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryAdjustment",
+            "description": "This rule constrains commerce.inventoryAdjustment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryTransfer",
+            "description": "This rule constrains commerce.inventoryTransfer operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.inventoryLevel, commerce.inventoryReservation satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.inventoryConcurrentMutationGuard and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.inventoryTransferConservesQuantity",
+        "name": "Inventory Transfer Conserves Quantity",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "Inventory Transfer operations must conserve quantity between source, in-transit and destination states without duplication or unexplained loss.",
+        "purpose": "Inventory Transfer operations must conserve quantity between source, in-transit and destination states without duplication or unexplained loss.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.inventoryTransfer",
+          "commerce.inventoryTransferLine",
+          "commerce.inventoryLevel"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.inventoryTransferConservesQuantity.R1",
+            "description": "Inventory Transfer operations must conserve quantity between source, in-transit and destination states without duplication or unexplained loss."
+          },
+          {
+            "id": "commerce.rule.inventoryTransferConservesQuantity.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVENTORY_CONFLICT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.inventoryTransfer",
+            "description": "This rule constrains commerce.inventoryTransfer operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryTransferLine",
+            "description": "This rule constrains commerce.inventoryTransferLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.inventoryTransfer, commerce.inventoryTransferLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.inventoryTransferConservesQuantity and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.inventoryTransferStateGuard",
+        "name": "Inventory Transfer State Guard",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "Inventory Transfer lifecycle transitions must follow the registered state machine and cannot receive stock before valid dispatch/in-transit state.",
+        "purpose": "Inventory Transfer lifecycle transitions must follow the registered state machine and cannot receive stock before valid dispatch/in-transit state.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.inventoryTransfer"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.inventoryTransferStateGuard.R1",
+            "description": "Inventory Transfer lifecycle transitions must follow the registered state machine and cannot receive stock before valid dispatch/in-transit state."
+          },
+          {
+            "id": "commerce.rule.inventoryTransferStateGuard.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.inventoryTransfer",
+            "description": "This rule constrains commerce.inventoryTransfer operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.inventoryTransfer satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.inventoryTransferStateGuard and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.lockOrderingDeadlockAvoidance",
+        "name": "Lock Ordering Deadlock Avoidance",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "idempotency-concurrency",
+        "ruleKind": "concurrency-invariant",
+        "description": "When an implementation locks multiple commerce resources, it must use a deterministic resource ordering or equivalent strategy to avoid preventable deadlocks.",
+        "purpose": "When an implementation locks multiple commerce resources, it must use a deterministic resource ordering or equivalent strategy to avoid preventable deadlocks.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.inventoryLevel",
+          "commerce.discountCode",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-command",
+          "atomicWhenRequired": true,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.lockOrderingDeadlockAvoidance.R1",
+            "description": "When an implementation locks multiple commerce resources, it must use a deterministic resource ordering or equivalent strategy to avoid preventable deadlocks."
+          },
+          {
+            "id": "commerce.rule.lockOrderingDeadlockAvoidance.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CONFLICT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discountCode",
+            "description": "This rule constrains commerce.discountCode operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.inventoryLevel, commerce.discountCode satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.lockOrderingDeadlockAvoidance and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.marketplaceCapabilityGate",
+        "name": "Marketplace Capability Gate",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "specialized-capabilities",
+        "ruleKind": "capability-gate",
+        "description": "Multi-seller marketplace settlement, seller identity, commissions and payout behavior require dedicated approved marketplace contracts.",
+        "purpose": "Multi-seller marketplace settlement, seller identity, commissions and payout behavior require dedicated approved marketplace contracts.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.payment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-capability-use",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.marketplaceCapabilityGate.R1",
+            "description": "Multi-seller marketplace settlement, seller identity, commissions and payout behavior require dedicated approved marketplace contracts."
+          },
+          {
+            "id": "commerce.rule.marketplaceCapabilityGate.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.marketplaceCapabilityGate and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.materialCommerceActionAudit",
+        "name": "Material Commerce Action Audit",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "security-audit",
+        "ruleKind": "security-invariant",
+        "description": "Material financial, inventory, order, fulfillment, promotion override and return-resolution operations must create auditable records.",
+        "purpose": "Material financial, inventory, order, fulfillment, promotion override and return-resolution operations must create auditable records.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "core.auditRecord",
+          "commerce.order",
+          "commerce.payment",
+          "commerce.inventoryAdjustment",
+          "commerce.returnResolution"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "every-applicable-operation",
+          "atomicWhenRequired": false,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.materialCommerceActionAudit.R1",
+            "description": "Material financial, inventory, order, fulfillment, promotion override and return-resolution operations must create auditable records."
+          },
+          {
+            "id": "commerce.rule.materialCommerceActionAudit.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "core.auditRecord",
+            "description": "This rule constrains core.auditRecord operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryAdjustment",
+            "description": "This rule constrains commerce.inventoryAdjustment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.returnResolution",
+            "description": "This rule constrains commerce.returnResolution operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving core.auditRecord, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.materialCommerceActionAudit and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.minimumSpendBasisExplicit",
+        "name": "Minimum Spend Basis Explicit",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "promotions",
+        "ruleKind": "promotion-invariant",
+        "description": "Minimum-spend eligibility must define whether the basis is pre-discount, post-discount, tax-inclusive/exclusive and shipping-inclusive/exclusive.",
+        "purpose": "Minimum-spend eligibility must define whether the basis is pre-discount, post-discount, tax-inclusive/exclusive and shipping-inclusive/exclusive.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.promotionCondition",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.minimumSpendBasisExplicit.R1",
+            "description": "Minimum-spend eligibility must define whether the basis is pre-discount, post-discount, tax-inclusive/exclusive and shipping-inclusive/exclusive."
+          },
+          {
+            "id": "commerce.rule.minimumSpendBasisExplicit.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_DISCOUNT_INELIGIBLE",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.promotionCondition",
+            "description": "This rule constrains commerce.promotionCondition operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.promotionCondition, commerce.orderTotals satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.minimumSpendBasisExplicit and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.monetaryPrecisionRounding",
+        "name": "Monetary Precision Rounding",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "transaction-integrity",
+        "ruleKind": "transaction-invariant",
+        "description": "Money calculations must use deterministic precision and rounding rules and must not depend on binary floating-point presentation behavior.",
+        "purpose": "Money calculations must use deterministic precision and rounding rules and must not depend on binary floating-point presentation behavior.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.moneySnapshot",
+          "commerce.orderTotals",
+          "commerce.taxLine",
+          "commerce.discountAllocation"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.monetaryPrecisionRounding.R1",
+            "description": "Money calculations must use deterministic precision and rounding rules and must not depend on binary floating-point presentation behavior."
+          },
+          {
+            "id": "commerce.rule.monetaryPrecisionRounding.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TOTAL_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.moneySnapshot",
+            "description": "This rule constrains commerce.moneySnapshot operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.taxLine",
+            "description": "This rule constrains commerce.taxLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discountAllocation",
+            "description": "This rule constrains commerce.discountAllocation operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.moneySnapshot, commerce.orderTotals satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.monetaryPrecisionRounding and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.multiCurrencyCapabilityGate",
+        "name": "Multi Currency Capability Gate",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "specialized-capabilities",
+        "ruleKind": "capability-gate",
+        "description": "Currency conversion, settlement and FX-rate behavior require a dedicated approved multi-currency contract before transactions mix currencies.",
+        "purpose": "Currency conversion, settlement and FX-rate behavior require a dedicated approved multi-currency contract before transactions mix currencies.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.moneySnapshot",
+          "commerce.productPrice",
+          "commerce.payment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-capability-use",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.multiCurrencyCapabilityGate.R1",
+            "description": "Currency conversion, settlement and FX-rate behavior require a dedicated approved multi-currency contract before transactions mix currencies."
+          },
+          {
+            "id": "commerce.rule.multiCurrencyCapabilityGate.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CURRENCY_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.moneySnapshot",
+            "description": "This rule constrains commerce.moneySnapshot operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productPrice",
+            "description": "This rule constrains commerce.productPrice operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.moneySnapshot, commerce.productPrice satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.multiCurrencyCapabilityGate and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.negativeInventoryGuard",
+        "name": "Negative Inventory Guard",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "Authoritative available/on-hand inventory must not silently become negative through concurrent operations unless the explicit allowed stock policy supports it.",
+        "purpose": "Authoritative available/on-hand inventory must not silently become negative through concurrent operations unless the explicit allowed stock policy supports it.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.inventoryLevel",
+          "commerce.inventoryAdjustment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.negativeInventoryGuard.R1",
+            "description": "Authoritative available/on-hand inventory must not silently become negative through concurrent operations unless the explicit allowed stock policy supports it."
+          },
+          {
+            "id": "commerce.rule.negativeInventoryGuard.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INSUFFICIENT_INVENTORY",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryAdjustment",
+            "description": "This rule constrains commerce.inventoryAdjustment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.inventoryLevel, commerce.inventoryAdjustment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.negativeInventoryGuard and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.nonNegativePayableTotal",
+        "name": "Non Negative Payable Total",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "transaction-integrity",
+        "ruleKind": "transaction-invariant",
+        "description": "A committed payable total cannot be negative after discounts, tax, shipping, credits and other allowed adjustments.",
+        "purpose": "A committed payable total cannot be negative after discounts, tax, shipping, credits and other allowed adjustments.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.cartTotals",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.nonNegativePayableTotal.R1",
+            "description": "A committed payable total cannot be negative after discounts, tax, shipping, credits and other allowed adjustments."
+          },
+          {
+            "id": "commerce.rule.nonNegativePayableTotal.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TOTAL_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.cartTotals",
+            "description": "This rule constrains commerce.cartTotals operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.cartTotals, commerce.orderTotals satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.nonNegativePayableTotal and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.optimisticConcurrency",
+        "name": "Optimistic Concurrency",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "idempotency-concurrency",
+        "ruleKind": "concurrency-invariant",
+        "description": "Protected mutable commerce entities use version/conditional-write checks or equivalent locking to reject stale conflicting mutations.",
+        "purpose": "Protected mutable commerce entities use version/conditional-write checks or equivalent locking to reject stale conflicting mutations.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.cart",
+          "commerce.checkout",
+          "commerce.inventoryLevel",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-command",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.optimisticConcurrency.R1",
+            "description": "Protected mutable commerce entities use version/conditional-write checks or equivalent locking to reject stale conflicting mutations."
+          },
+          {
+            "id": "commerce.rule.optimisticConcurrency.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CONFLICT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.cart",
+            "description": "This rule constrains commerce.cart operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.cart, commerce.checkout satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.optimisticConcurrency and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.orderCancellationGuard",
+        "name": "Order Cancellation Guard",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "orders",
+        "ruleKind": "order-invariant",
+        "description": "Order cancellation is allowed only when current payment, fulfillment and business-policy state permits safe cancellation and required release/reversal work is completed.",
+        "purpose": "Order cancellation is allowed only when current payment, fulfillment and business-policy state permits safe cancellation and required release/reversal work is completed.",
+        "severity": "critical",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.payment",
+          "commerce.fulfillment",
+          "commerce.inventoryReservation"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.orderCancellationGuard.R1",
+            "description": "Order cancellation is allowed only when current payment, fulfillment and business-policy state permits safe cancellation and required release/reversal work is completed."
+          },
+          {
+            "id": "commerce.rule.orderCancellationGuard.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_ORDER_NOT_CANCELLABLE",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryReservation",
+            "description": "This rule constrains commerce.inventoryReservation operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.orderCancellationGuard and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.orderCancellationReleasesReservation",
+        "name": "Order Cancellation Releases Reservation",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "Cancelling an Order/Checkout must release any still-active inventory reservation exactly once when the reserved quantity is no longer required.",
+        "purpose": "Cancelling an Order/Checkout must release any still-active inventory reservation exactly once when the reserved quantity is no longer required.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.checkout",
+          "commerce.inventoryReservation"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.orderCancellationReleasesReservation.R1",
+            "description": "Cancelling an Order/Checkout must release any still-active inventory reservation exactly once when the reserved quantity is no longer required."
+          },
+          {
+            "id": "commerce.rule.orderCancellationReleasesReservation.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RESERVATION_TERMINAL",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryReservation",
+            "description": "This rule constrains commerce.inventoryReservation operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.checkout satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.orderCancellationReleasesReservation and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.orderCompletionGuard",
+        "name": "Order Completion Guard",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "orders",
+        "ruleKind": "order-invariant",
+        "description": "An Order may become completed only when the Site's documented completion policy is satisfied and no required unresolved operational work remains.",
+        "purpose": "An Order may become completed only when the Site's documented completion policy is satisfied and no required unresolved operational work remains.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.payment",
+          "commerce.fulfillment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.orderCompletionGuard.R1",
+            "description": "An Order may become completed only when the Site's documented completion policy is satisfied and no required unresolved operational work remains."
+          },
+          {
+            "id": "commerce.rule.orderCompletionGuard.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_ORDER_NOT_COMPLETABLE",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.orderCompletionGuard and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.orderCurrencyLocked",
+        "name": "Order Currency Locked",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "orders",
+        "ruleKind": "order-invariant",
+        "description": "An Order's currency is immutable after creation; later payments/refunds must reconcile in the same currency unless a future explicit conversion contract exists.",
+        "purpose": "An Order's currency is immutable after creation; later payments/refunds must reconcile in the same currency unless a future explicit conversion contract exists.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.orderTotals",
+          "commerce.payment",
+          "commerce.refund"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.orderCurrencyLocked.R1",
+            "description": "An Order's currency is immutable after creation; later payments/refunds must reconcile in the same currency unless a future explicit conversion contract exists."
+          },
+          {
+            "id": "commerce.rule.orderCurrencyLocked.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CURRENCY_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.orderTotals satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.orderCurrencyLocked and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.orderFulfillmentStatusDerived",
+        "name": "Order Fulfillment Status Derived",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "orders",
+        "ruleKind": "order-invariant",
+        "description": "Order fulfillmentStatus must be derived/reconciled from fulfillment and return quantities rather than freely edited.",
+        "purpose": "Order fulfillmentStatus must be derived/reconciled from fulfillment and return quantities rather than freely edited.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.fulfillment",
+          "commerce.returnRequest"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.orderFulfillmentStatusDerived.R1",
+            "description": "Order fulfillmentStatus must be derived/reconciled from fulfillment and return quantities rather than freely edited."
+          },
+          {
+            "id": "commerce.rule.orderFulfillmentStatusDerived.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.returnRequest",
+            "description": "This rule constrains commerce.returnRequest operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.fulfillment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.orderFulfillmentStatusDerived and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.orderHistoricalSnapshotsImmutable",
+        "name": "Order Historical Snapshots Immutable",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "orders",
+        "ruleKind": "order-invariant",
+        "description": "Order customer, address, line, price, discount, tax and source snapshots remain historical facts after Order creation.",
+        "purpose": "Order customer, address, line, price, discount, tax and source snapshots remain historical facts after Order creation.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.orderAddressSnapshot",
+          "commerce.orderLine",
+          "commerce.orderSource"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.orderHistoricalSnapshotsImmutable.R1",
+            "description": "Order customer, address, line, price, discount, tax and source snapshots remain historical facts after Order creation."
+          },
+          {
+            "id": "commerce.rule.orderHistoricalSnapshotsImmutable.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderAddressSnapshot",
+            "description": "This rule constrains commerce.orderAddressSnapshot operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderLine",
+            "description": "This rule constrains commerce.orderLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderSource",
+            "description": "This rule constrains commerce.orderSource operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.orderAddressSnapshot satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.orderHistoricalSnapshotsImmutable and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.orderLineTotalsReconcile",
+        "name": "Order Line Totals Reconcile",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "orders",
+        "ruleKind": "order-invariant",
+        "description": "Each Order line's unit price, quantity, allocated discounts, tax and resulting line totals must reconcile to the snapshotted values.",
+        "purpose": "Each Order line's unit price, quantity, allocated discounts, tax and resulting line totals must reconcile to the snapshotted values.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.orderLine",
+          "commerce.discountAllocation",
+          "commerce.taxLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.orderLineTotalsReconcile.R1",
+            "description": "Each Order line's unit price, quantity, allocated discounts, tax and resulting line totals must reconcile to the snapshotted values."
+          },
+          {
+            "id": "commerce.rule.orderLineTotalsReconcile.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TOTAL_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.orderLine",
+            "description": "This rule constrains commerce.orderLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discountAllocation",
+            "description": "This rule constrains commerce.discountAllocation operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.taxLine",
+            "description": "This rule constrains commerce.taxLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.orderLine, commerce.discountAllocation satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.orderLineTotalsReconcile and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.orderNumberUniquePerSite",
+        "name": "Order Number Unique Per Site",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "orders",
+        "ruleKind": "order-invariant",
+        "description": "Human-facing Order numbers must be unique within their Site scope even when Orders are created concurrently.",
+        "purpose": "Human-facing Order numbers must be unique within their Site scope even when Orders are created concurrently.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.orderNumberUniquePerSite.R1",
+            "description": "Human-facing Order numbers must be unique within their Site scope even when Orders are created concurrently."
+          },
+          {
+            "id": "commerce.rule.orderNumberUniquePerSite.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CONFLICT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.orderNumberUniquePerSite and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.orderPaymentStatusDerived",
+        "name": "Order Payment Status Derived",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "orders",
+        "ruleKind": "order-invariant",
+        "description": "Order paymentStatus must be derived/reconciled from authoritative payment, capture and refund facts rather than freely edited by a user interface.",
+        "purpose": "Order paymentStatus must be derived/reconciled from authoritative payment, capture and refund facts rather than freely edited by a user interface.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.payment",
+          "commerce.paymentCapture",
+          "commerce.refund"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.orderPaymentStatusDerived.R1",
+            "description": "Order paymentStatus must be derived/reconciled from authoritative payment, capture and refund facts rather than freely edited by a user interface."
+          },
+          {
+            "id": "commerce.rule.orderPaymentStatusDerived.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.orderPaymentStatusDerived and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.orderTotalsReconcile",
+        "name": "Order Totals Reconcile",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "orders",
+        "ruleKind": "order-invariant",
+        "description": "Order subtotal, discounts, shipping, tax and grand total must reconcile exactly according to canonical money precision rules.",
+        "purpose": "Order subtotal, discounts, shipping, tax and grand total must reconcile exactly according to canonical money precision rules.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.orderTotals",
+          "commerce.orderLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.orderTotalsReconcile.R1",
+            "description": "Order subtotal, discounts, shipping, tax and grand total must reconcile exactly according to canonical money precision rules."
+          },
+          {
+            "id": "commerce.rule.orderTotalsReconcile.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TOTAL_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderLine",
+            "description": "This rule constrains commerce.orderLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.orderTotals satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.orderTotalsReconcile and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.partialFulfillmentDerived",
+        "name": "Partial Fulfillment Derived",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "fulfillment",
+        "ruleKind": "fulfillment-invariant",
+        "description": "Partially fulfilled/fulfilled Order state must be derived from cumulative eligible Fulfillment quantities.",
+        "purpose": "Partially fulfilled/fulfilled Order state must be derived from cumulative eligible Fulfillment quantities.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.fulfillment",
+          "commerce.fulfillmentLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-fulfillment-transition",
+          "atomicWhenRequired": false,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.partialFulfillmentDerived.R1",
+            "description": "Partially fulfilled/fulfilled Order state must be derived from cumulative eligible Fulfillment quantities."
+          },
+          {
+            "id": "commerce.rule.partialFulfillmentDerived.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillmentLine",
+            "description": "This rule constrains commerce.fulfillmentLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.fulfillment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.partialFulfillmentDerived and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.paymentAmountWithinOrderBalance",
+        "name": "Payment Amount Within Order Balance",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "payments",
+        "ruleKind": "financial-invariant",
+        "description": "A new successful payment/capture may not make cumulative settled amount exceed the eligible Order balance except where an explicit overpayment contract exists.",
+        "purpose": "A new successful payment/capture may not make cumulative settled amount exceed the eligible Order balance except where an explicit overpayment contract exists.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.payment",
+          "commerce.order",
+          "commerce.paymentCapture"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.paymentAmountWithinOrderBalance.R1",
+            "description": "A new successful payment/capture may not make cumulative settled amount exceed the eligible Order balance except where an explicit overpayment contract exists."
+          },
+          {
+            "id": "commerce.rule.paymentAmountWithinOrderBalance.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TOTAL_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.payment, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.paymentAmountWithinOrderBalance and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.paymentAttemptNoDuplicateFinancialFact",
+        "name": "Payment Attempt No Duplicate Financial Fact",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "payments",
+        "ruleKind": "financial-invariant",
+        "description": "Retries and repeated provider callbacks must not create duplicate successful payment/capture facts for the same underlying transaction.",
+        "purpose": "Retries and repeated provider callbacks must not create duplicate successful payment/capture facts for the same underlying transaction.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.paymentAttempt",
+          "commerce.paymentCapture",
+          "commerce.payment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.paymentAttemptNoDuplicateFinancialFact.R1",
+            "description": "Retries and repeated provider callbacks must not create duplicate successful payment/capture facts for the same underlying transaction."
+          },
+          {
+            "id": "commerce.rule.paymentAttemptNoDuplicateFinancialFact.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_PAYMENT_REFERENCE_CONFLICT",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.paymentAttempt",
+            "description": "This rule constrains commerce.paymentAttempt operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.paymentAttempt, commerce.paymentCapture satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.paymentAttemptNoDuplicateFinancialFact and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.paymentProviderReferenceUnique",
+        "name": "Payment Provider Reference Unique",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "payments",
+        "ruleKind": "financial-invariant",
+        "description": "A provider transaction/reference ID that represents one financial fact cannot be accepted as a different Payment fact within the same provider/account scope.",
+        "purpose": "A provider transaction/reference ID that represents one financial fact cannot be accepted as a different Payment fact within the same provider/account scope.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.payment",
+          "commerce.paymentAttempt",
+          "shared.externalReference"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.paymentProviderReferenceUnique.R1",
+            "description": "A provider transaction/reference ID that represents one financial fact cannot be accepted as a different Payment fact within the same provider/account scope."
+          },
+          {
+            "id": "commerce.rule.paymentProviderReferenceUnique.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_PAYMENT_REFERENCE_CONFLICT",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentAttempt",
+            "description": "This rule constrains commerce.paymentAttempt operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "shared.externalReference",
+            "description": "This rule constrains shared.externalReference operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.payment, commerce.paymentAttempt satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.paymentProviderReferenceUnique and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.paymentStatusReconcile",
+        "name": "Payment Status Reconcile",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "payments",
+        "ruleKind": "financial-invariant",
+        "description": "Payment status must reconcile from accepted attempts, authorizations, captures and refunds rather than unrestricted status edits.",
+        "purpose": "Payment status must reconcile from accepted attempts, authorizations, captures and refunds rather than unrestricted status edits.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.payment",
+          "commerce.paymentAttempt",
+          "commerce.paymentAuthorization",
+          "commerce.paymentCapture",
+          "commerce.refund"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.paymentStatusReconcile.R1",
+            "description": "Payment status must reconcile from accepted attempts, authorizations, captures and refunds rather than unrestricted status edits."
+          },
+          {
+            "id": "commerce.rule.paymentStatusReconcile.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentAttempt",
+            "description": "This rule constrains commerce.paymentAttempt operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentAuthorization",
+            "description": "This rule constrains commerce.paymentAuthorization operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.payment, commerce.paymentAttempt satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.paymentStatusReconcile and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.preorderCapabilityGate",
+        "name": "Preorder Capability Gate",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "specialized-capabilities",
+        "ruleKind": "capability-gate",
+        "description": "Preorder workflows that accept orders before ordinary stock availability require an explicit approved preorder/backorder capability and policy.",
+        "purpose": "Preorder workflows that accept orders before ordinary stock availability require an explicit approved preorder/backorder capability and policy.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.productAvailability",
+          "commerce.inventoryLevel",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-capability-use",
+          "atomicWhenRequired": false,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.preorderCapabilityGate.R1",
+            "description": "Preorder workflows that accept orders before ordinary stock availability require an explicit approved preorder/backorder capability and policy."
+          },
+          {
+            "id": "commerce.rule.preorderCapabilityGate.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INSUFFICIENT_INVENTORY",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.productAvailability",
+            "description": "This rule constrains commerce.productAvailability operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.productAvailability, commerce.inventoryLevel satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.preorderCapabilityGate and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.productPriceValid",
+        "name": "Product Price Valid",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "catalog-customers",
+        "ruleKind": "entity-invariant",
+        "description": "A purchasable Product/Variant requires an active valid price for the transaction context unless a documented price-on-request flow applies.",
+        "purpose": "A purchasable Product/Variant requires an active valid price for the transaction context unless a documented price-on-request flow applies.",
+        "severity": "critical",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.productPrice",
+          "commerce.product",
+          "commerce.productVariant"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-mutation-or-publication",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.productPriceValid.R1",
+            "description": "A purchasable Product/Variant requires an active valid price for the transaction context unless a documented price-on-request flow applies."
+          },
+          {
+            "id": "commerce.rule.productPriceValid.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_PRICE_CHANGED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.productPrice",
+            "description": "This rule constrains commerce.productPrice operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productVariant",
+            "description": "This rule constrains commerce.productVariant operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.productPrice, commerce.product satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.productPriceValid and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.promotionWindow",
+        "name": "Promotion Window",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "promotions",
+        "ruleKind": "promotion-invariant",
+        "description": "A time-bounded promotion is eligible only inside its configured effective window using an explicit timezone/time basis.",
+        "purpose": "A time-bounded promotion is eligible only inside its configured effective window using an explicit timezone/time basis.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.discount"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.promotionWindow.R1",
+            "description": "A time-bounded promotion is eligible only inside its configured effective window using an explicit timezone/time basis."
+          },
+          {
+            "id": "commerce.rule.promotionWindow.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_DISCOUNT_INELIGIBLE",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.discount",
+            "description": "This rule constrains commerce.discount operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.discount satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.promotionWindow and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.providerCallbackDeduplication",
+        "name": "Provider Callback Deduplication",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "idempotency-concurrency",
+        "ruleKind": "concurrency-invariant",
+        "description": "Repeated provider callbacks for the same external financial/shipping fact must be deduplicated before canonical state mutation.",
+        "purpose": "Repeated provider callbacks for the same external financial/shipping fact must be deduplicated before canonical state mutation.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "shared.externalReference",
+          "commerce.payment",
+          "commerce.shipment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-command",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.providerCallbackDeduplication.R1",
+            "description": "Repeated provider callbacks for the same external financial/shipping fact must be deduplicated before canonical state mutation."
+          },
+          {
+            "id": "commerce.rule.providerCallbackDeduplication.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_PAYMENT_REFERENCE_CONFLICT",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "shared.externalReference",
+            "description": "This rule constrains shared.externalReference operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.shipment",
+            "description": "This rule constrains commerce.shipment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving shared.externalReference, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.providerCallbackDeduplication and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.providerSecretsServerOnly",
+        "name": "Provider Secrets Server Only",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "security-audit",
+        "ruleKind": "security-invariant",
+        "description": "Provider API secrets, signing secrets and private credentials remain server-side references and never enter public commerce payloads.",
+        "purpose": "Provider API secrets, signing secrets and private credentials remain server-side references and never enter public commerce payloads.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "integrations.secretReference",
+          "integrations.credentialReference",
+          "commerce.paymentMethodReference"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "every-applicable-operation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.providerSecretsServerOnly.R1",
+            "description": "Provider API secrets, signing secrets and private credentials remain server-side references and never enter public commerce payloads."
+          },
+          {
+            "id": "commerce.rule.providerSecretsServerOnly.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "integrations.secretReference",
+            "description": "This rule constrains integrations.secretReference operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "integrations.credentialReference",
+            "description": "This rule constrains integrations.credentialReference operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentMethodReference",
+            "description": "This rule constrains commerce.paymentMethodReference operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving integrations.secretReference, integrations.credentialReference satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.providerSecretsServerOnly and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.purchasableVariantActive",
+        "name": "Purchasable Variant Active",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "catalog-customers",
+        "ruleKind": "entity-invariant",
+        "description": "A Variant must be active/purchasable in the relevant channel and its parent Product state must allow sale before it can enter a committed Checkout.",
+        "purpose": "A Variant must be active/purchasable in the relevant channel and its parent Product state must allow sale before it can enter a committed Checkout.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.product",
+          "commerce.productVariant",
+          "commerce.productAvailability"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-mutation-or-publication",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.purchasableVariantActive.R1",
+            "description": "A Variant must be active/purchasable in the relevant channel and its parent Product state must allow sale before it can enter a committed Checkout."
+          },
+          {
+            "id": "commerce.rule.purchasableVariantActive.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_PRODUCT_UNAVAILABLE",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productVariant",
+            "description": "This rule constrains commerce.productVariant operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productAvailability",
+            "description": "This rule constrains commerce.productAvailability operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.product, commerce.productVariant satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.purchasableVariantActive and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.rawCardDataProhibited",
+        "name": "Raw Card Data Prohibited",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "security-audit",
+        "ruleKind": "security-invariant",
+        "description": "NEXT F commerce storage, logs, events and generic schemas must never store raw PAN or CVV payment-card data.",
+        "purpose": "NEXT F commerce storage, logs, events and generic schemas must never store raw PAN or CVV payment-card data.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.payment",
+          "commerce.paymentMethodReference",
+          "commerce.checkoutPaymentSelection"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "every-applicable-operation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.rawCardDataProhibited.R1",
+            "description": "NEXT F commerce storage, logs, events and generic schemas must never store raw PAN or CVV payment-card data."
+          },
+          {
+            "id": "commerce.rule.rawCardDataProhibited.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentMethodReference",
+            "description": "This rule constrains commerce.paymentMethodReference operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.checkoutPaymentSelection",
+            "description": "This rule constrains commerce.checkoutPaymentSelection operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.payment, commerce.paymentMethodReference satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.rawCardDataProhibited and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.refundCumulativeBound",
+        "name": "Refund Cumulative Bound",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "refunds",
+        "ruleKind": "financial-invariant",
+        "description": "Cumulative successful Refund amount cannot exceed cumulative successfully captured amount after prior refunds.",
+        "purpose": "Cumulative successful Refund amount cannot exceed cumulative successfully captured amount after prior refunds.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.refund",
+          "commerce.paymentCapture"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.refundCumulativeBound.R1",
+            "description": "Cumulative successful Refund amount cannot exceed cumulative successfully captured amount after prior refunds."
+          },
+          {
+            "id": "commerce.rule.refundCumulativeBound.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_REFUND_EXCEEDS_CAPTURED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.refund, commerce.paymentCapture satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.refundCumulativeBound and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.refundCurrencyMatch",
+        "name": "Refund Currency Match",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "refunds",
+        "ruleKind": "financial-invariant",
+        "description": "Refund currency must match the captured transaction currency.",
+        "purpose": "Refund currency must match the captured transaction currency.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.refund",
+          "commerce.paymentCapture",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.refundCurrencyMatch.R1",
+            "description": "Refund currency must match the captured transaction currency."
+          },
+          {
+            "id": "commerce.rule.refundCurrencyMatch.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CURRENCY_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.refund, commerce.paymentCapture satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.refundCurrencyMatch and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.refundDoesNotImplyReturn",
+        "name": "Refund Does Not Imply Return",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "refunds",
+        "ruleKind": "financial-invariant",
+        "description": "Financial Refund completion does not imply that physical/digital goods were returned or inventory was restocked.",
+        "purpose": "Financial Refund completion does not imply that physical/digital goods were returned or inventory was restocked.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.refund",
+          "commerce.returnRequest",
+          "commerce.inventoryAdjustment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.refundDoesNotImplyReturn.R1",
+            "description": "Financial Refund completion does not imply that physical/digital goods were returned or inventory was restocked."
+          },
+          {
+            "id": "commerce.rule.refundDoesNotImplyReturn.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.returnRequest",
+            "description": "This rule constrains commerce.returnRequest operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryAdjustment",
+            "description": "This rule constrains commerce.inventoryAdjustment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.refund, commerce.returnRequest satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.refundDoesNotImplyReturn and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.refundLineQuantityBound",
+        "name": "Refund Line Quantity Bound",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "refunds",
+        "ruleKind": "financial-invariant",
+        "description": "Cumulative refunded quantity for an Order line cannot exceed the eligible purchased quantity after earlier refunds.",
+        "purpose": "Cumulative refunded quantity for an Order line cannot exceed the eligible purchased quantity after earlier refunds.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.refund",
+          "commerce.refundLine",
+          "commerce.orderLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.refundLineQuantityBound.R1",
+            "description": "Cumulative refunded quantity for an Order line cannot exceed the eligible purchased quantity after earlier refunds."
+          },
+          {
+            "id": "commerce.rule.refundLineQuantityBound.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_REFUND_QUANTITY_EXCEEDED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refundLine",
+            "description": "This rule constrains commerce.refundLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderLine",
+            "description": "This rule constrains commerce.orderLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.refund, commerce.refundLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.refundLineQuantityBound and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.refundOrderStateReconcile",
+        "name": "Refund Order State Reconcile",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "refunds",
+        "ruleKind": "financial-invariant",
+        "description": "Order and Payment refund-related statuses must reconcile from successful Refund facts and their cumulative amount.",
+        "purpose": "Order and Payment refund-related statuses must reconcile from successful Refund facts and their cumulative amount.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.refund",
+          "commerce.payment",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.refundOrderStateReconcile.R1",
+            "description": "Order and Payment refund-related statuses must reconcile from successful Refund facts and their cumulative amount."
+          },
+          {
+            "id": "commerce.rule.refundOrderStateReconcile.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.refund, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.refundOrderStateReconcile and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.refundRequiresCapturedFunds",
+        "name": "Refund Requires Captured Funds",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "refunds",
+        "ruleKind": "financial-invariant",
+        "description": "A successful Refund requires successfully captured/settled funds that remain refundable.",
+        "purpose": "A successful Refund requires successfully captured/settled funds that remain refundable.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.refund",
+          "commerce.paymentCapture",
+          "commerce.payment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.refundRequiresCapturedFunds.R1",
+            "description": "A successful Refund requires successfully captured/settled funds that remain refundable."
+          },
+          {
+            "id": "commerce.rule.refundRequiresCapturedFunds.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_REFUND_EXCEEDS_CAPTURED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.refund, commerce.paymentCapture satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.refundRequiresCapturedFunds and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.refundRestockSeparateDecision",
+        "name": "Refund Restock Separate Decision",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "refunds",
+        "ruleKind": "financial-invariant",
+        "description": "Any stock restoration associated with a Refund must be an explicit validated inventory/return action rather than an automatic assumption.",
+        "purpose": "Any stock restoration associated with a Refund must be an explicit validated inventory/return action rather than an automatic assumption.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.refund",
+          "commerce.inventoryAdjustment",
+          "commerce.returnResolution"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.refundRestockSeparateDecision.R1",
+            "description": "Any stock restoration associated with a Refund must be an explicit validated inventory/return action rather than an automatic assumption."
+          },
+          {
+            "id": "commerce.rule.refundRestockSeparateDecision.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryAdjustment",
+            "description": "This rule constrains commerce.inventoryAdjustment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.returnResolution",
+            "description": "This rule constrains commerce.returnResolution operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.refund, commerce.inventoryAdjustment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.refundRestockSeparateDecision and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.refundSuccessChangesFinancialBalance",
+        "name": "Refund Success Changes Financial Balance",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "refunds",
+        "ruleKind": "financial-invariant",
+        "description": "Only a successfully accepted Refund financial fact reduces settled/refundable balance and updates derived refund status.",
+        "purpose": "Only a successfully accepted Refund financial fact reduces settled/refundable balance and updates derived refund status.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.refund",
+          "commerce.payment",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-financial-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.refundSuccessChangesFinancialBalance.R1",
+            "description": "Only a successfully accepted Refund financial fact reduces settled/refundable balance and updates derived refund status."
+          },
+          {
+            "id": "commerce.rule.refundSuccessChangesFinancialBalance.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.refund, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.refundSuccessChangesFinancialBalance and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.rejectedReturnNoOperationalMutation",
+        "name": "Rejected Return No Operational Mutation",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "returns",
+        "ruleKind": "return-invariant",
+        "description": "A rejected Return cannot create refund, restock or fulfillment-reversal effects through the normal workflow.",
+        "purpose": "A rejected Return cannot create refund, restock or fulfillment-reversal effects through the normal workflow.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.returnRequest",
+          "commerce.refund",
+          "commerce.inventoryAdjustment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-return-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.rejectedReturnNoOperationalMutation.R1",
+            "description": "A rejected Return cannot create refund, restock or fulfillment-reversal effects through the normal workflow."
+          },
+          {
+            "id": "commerce.rule.rejectedReturnNoOperationalMutation.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.returnRequest",
+            "description": "This rule constrains commerce.returnRequest operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryAdjustment",
+            "description": "This rule constrains commerce.inventoryAdjustment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.returnRequest, commerce.refund satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.rejectedReturnNoOperationalMutation and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.reservationCommitConsumes",
+        "name": "Reservation Commit Consumes",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "Committing a Reservation must consume/reclassify its quantity exactly once and make the Reservation terminal.",
+        "purpose": "Committing a Reservation must consume/reclassify its quantity exactly once and make the Reservation terminal.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.inventoryReservation",
+          "commerce.inventoryLevel"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.reservationCommitConsumes.R1",
+            "description": "Committing a Reservation must consume/reclassify its quantity exactly once and make the Reservation terminal."
+          },
+          {
+            "id": "commerce.rule.reservationCommitConsumes.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RESERVATION_TERMINAL",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.inventoryReservation",
+            "description": "This rule constrains commerce.inventoryReservation operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.inventoryReservation, commerce.inventoryLevel satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.reservationCommitConsumes and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.reservationExpiryReleasesStock",
+        "name": "Reservation Expiry Releases Stock",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "When an active Reservation expires, its reserved quantity must become available again exactly once.",
+        "purpose": "When an active Reservation expires, its reserved quantity must become available again exactly once.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.inventoryReservation",
+          "commerce.inventoryLevel"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.reservationExpiryReleasesStock.R1",
+            "description": "When an active Reservation expires, its reserved quantity must become available again exactly once."
+          },
+          {
+            "id": "commerce.rule.reservationExpiryReleasesStock.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RESERVATION_TERMINAL",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.inventoryReservation",
+            "description": "This rule constrains commerce.inventoryReservation operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.inventoryReservation, commerce.inventoryLevel satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.reservationExpiryReleasesStock and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.reservationRequiresAvailability",
+        "name": "Reservation Requires Availability",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "A new Inventory Reservation requires sufficient available quantity unless the applicable Product/Store explicitly permits backorder behavior.",
+        "purpose": "A new Inventory Reservation requires sufficient available quantity unless the applicable Product/Store explicitly permits backorder behavior.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.inventoryReservation",
+          "commerce.inventoryLevel",
+          "commerce.productAvailability"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.reservationRequiresAvailability.R1",
+            "description": "A new Inventory Reservation requires sufficient available quantity unless the applicable Product/Store explicitly permits backorder behavior."
+          },
+          {
+            "id": "commerce.rule.reservationRequiresAvailability.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INSUFFICIENT_INVENTORY",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.inventoryReservation",
+            "description": "This rule constrains commerce.inventoryReservation operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productAvailability",
+            "description": "This rule constrains commerce.productAvailability operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.inventoryReservation, commerce.inventoryLevel satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.reservationRequiresAvailability and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.reservationTerminalNoReactivation",
+        "name": "Reservation Terminal No Reactivation",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "inventory",
+        "ruleKind": "inventory-invariant",
+        "description": "Committed, released, expired or cancelled Reservations cannot return to active state through normal operations.",
+        "purpose": "Committed, released, expired or cancelled Reservations cannot return to active state through normal operations.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.inventoryReservation"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-stock-mutation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.reservationTerminalNoReactivation.R1",
+            "description": "Committed, released, expired or cancelled Reservations cannot return to active state through normal operations."
+          },
+          {
+            "id": "commerce.rule.reservationTerminalNoReactivation.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RESERVATION_TERMINAL",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.inventoryReservation",
+            "description": "This rule constrains commerce.inventoryReservation operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.inventoryReservation satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.reservationTerminalNoReactivation and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.retrySafeSideEffects",
+        "name": "Retry Safe Side Effects",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "idempotency-concurrency",
+        "ruleKind": "concurrency-invariant",
+        "description": "Retries after timeout/unknown completion state must resolve existing outcomes before creating a second side effect.",
+        "purpose": "Retries after timeout/unknown completion state must resolve existing outcomes before creating a second side effect.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.payment",
+          "commerce.refund",
+          "commerce.fulfillment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-command",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.retrySafeSideEffects.R1",
+            "description": "Retries after timeout/unknown completion state must resolve existing outcomes before creating a second side effect."
+          },
+          {
+            "id": "commerce.rule.retrySafeSideEffects.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_IDEMPOTENCY_CONFLICT",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.payment, commerce.refund satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.retrySafeSideEffects and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.returnEligibilityWindow",
+        "name": "Return Eligibility Window",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "returns",
+        "ruleKind": "return-invariant",
+        "description": "A Return request is accepted only inside the applicable documented return window unless an authorized exception is explicitly recorded.",
+        "purpose": "A Return request is accepted only inside the applicable documented return window unless an authorized exception is explicitly recorded.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.returnRequest",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-return-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.returnEligibilityWindow.R1",
+            "description": "A Return request is accepted only inside the applicable documented return window unless an authorized exception is explicitly recorded."
+          },
+          {
+            "id": "commerce.rule.returnEligibilityWindow.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RETURN_INELIGIBLE",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.returnRequest",
+            "description": "This rule constrains commerce.returnRequest operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.returnRequest, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.returnEligibilityWindow and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.returnOwnershipScope",
+        "name": "Return Ownership Scope",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "returns",
+        "ruleKind": "return-invariant",
+        "description": "A Return request must belong to the same Site and Order/customer scope as the items it references.",
+        "purpose": "A Return request must belong to the same Site and Order/customer scope as the items it references.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.returnRequest",
+          "commerce.returnLine",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-return-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.returnOwnershipScope.R1",
+            "description": "A Return request must belong to the same Site and Order/customer scope as the items it references."
+          },
+          {
+            "id": "commerce.rule.returnOwnershipScope.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TENANT_SCOPE_VIOLATION",
+          "retryable": false,
+          "customerSafe": false,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.returnRequest",
+            "description": "This rule constrains commerce.returnRequest operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.returnLine",
+            "description": "This rule constrains commerce.returnLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.returnRequest, commerce.returnLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.returnOwnershipScope and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.returnQuantityBound",
+        "name": "Return Quantity Bound",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "returns",
+        "ruleKind": "return-invariant",
+        "description": "A Return line quantity cannot exceed the quantity eligible for return from its Order line.",
+        "purpose": "A Return line quantity cannot exceed the quantity eligible for return from its Order line.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.returnRequest",
+          "commerce.returnLine",
+          "commerce.orderLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-return-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.returnQuantityBound.R1",
+            "description": "A Return line quantity cannot exceed the quantity eligible for return from its Order line."
+          },
+          {
+            "id": "commerce.rule.returnQuantityBound.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RETURN_QUANTITY_EXCEEDED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.returnRequest",
+            "description": "This rule constrains commerce.returnRequest operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.returnLine",
+            "description": "This rule constrains commerce.returnLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderLine",
+            "description": "This rule constrains commerce.orderLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.returnRequest, commerce.returnLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.returnQuantityBound and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.returnRefundSeparate",
+        "name": "Return Refund Separate",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "returns",
+        "ruleKind": "return-invariant",
+        "description": "Approving or receiving a Return does not itself create a successful Refund; financial refund uses the Refund contract and rules.",
+        "purpose": "Approving or receiving a Return does not itself create a successful Refund; financial refund uses the Refund contract and rules.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.returnRequest",
+          "commerce.returnResolution",
+          "commerce.refund"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-return-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.returnRefundSeparate.R1",
+            "description": "Approving or receiving a Return does not itself create a successful Refund; financial refund uses the Refund contract and rules."
+          },
+          {
+            "id": "commerce.rule.returnRefundSeparate.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.returnRequest",
+            "description": "This rule constrains commerce.returnRequest operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.returnResolution",
+            "description": "This rule constrains commerce.returnResolution operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.returnRequest, commerce.returnResolution satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.returnRefundSeparate and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.returnResolutionIdempotent",
+        "name": "Return Resolution Idempotent",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "returns",
+        "ruleKind": "return-invariant",
+        "description": "Retrying the same Return resolution command must not duplicate refund, restock or other side effects.",
+        "purpose": "Retrying the same Return resolution command must not duplicate refund, restock or other side effects.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.returnResolution",
+          "commerce.returnRequest"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-return-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.returnResolutionIdempotent.R1",
+            "description": "Retrying the same Return resolution command must not duplicate refund, restock or other side effects."
+          },
+          {
+            "id": "commerce.rule.returnResolutionIdempotent.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_IDEMPOTENCY_CONFLICT",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.returnResolution",
+            "description": "This rule constrains commerce.returnResolution operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.returnRequest",
+            "description": "This rule constrains commerce.returnRequest operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.returnResolution, commerce.returnRequest satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.returnResolutionIdempotent and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.returnResolutionRequired",
+        "name": "Return Resolution Required",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "returns",
+        "ruleKind": "return-invariant",
+        "description": "A received/approved Return requires an explicit Return Resolution describing the accepted outcome and intended effects.",
+        "purpose": "A received/approved Return requires an explicit Return Resolution describing the accepted outcome and intended effects.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.returnRequest",
+          "commerce.returnResolution"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-return-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.returnResolutionRequired.R1",
+            "description": "A received/approved Return requires an explicit Return Resolution describing the accepted outcome and intended effects."
+          },
+          {
+            "id": "commerce.rule.returnResolutionRequired.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.returnRequest",
+            "description": "This rule constrains commerce.returnRequest operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.returnResolution",
+            "description": "This rule constrains commerce.returnResolution operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.returnRequest, commerce.returnResolution satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.returnResolutionRequired and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.returnRestockExplicit",
+        "name": "Return Restock Explicit",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "returns",
+        "ruleKind": "return-invariant",
+        "description": "Returned quantity affects inventory only through an explicit validated restock/inventory adjustment decision.",
+        "purpose": "Returned quantity affects inventory only through an explicit validated restock/inventory adjustment decision.",
+        "severity": "critical",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.returnResolution",
+          "commerce.inventoryAdjustment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-return-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.returnRestockExplicit.R1",
+            "description": "Returned quantity affects inventory only through an explicit validated restock/inventory adjustment decision."
+          },
+          {
+            "id": "commerce.rule.returnRestockExplicit.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.returnResolution",
+            "description": "This rule constrains commerce.returnResolution operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryAdjustment",
+            "description": "This rule constrains commerce.inventoryAdjustment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.returnResolution, commerce.inventoryAdjustment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.returnRestockExplicit and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.returnStateTransition",
+        "name": "Return State Transition",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "returns",
+        "ruleKind": "return-invariant",
+        "description": "Return lifecycle changes must follow the registered Return state machine and cannot skip required approval/receipt/resolution stages when policy requires them.",
+        "purpose": "Return lifecycle changes must follow the registered Return state machine and cannot skip required approval/receipt/resolution stages when policy requires them.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.returnRequest"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-return-transition",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.returnStateTransition.R1",
+            "description": "Return lifecycle changes must follow the registered Return state machine and cannot skip required approval/receipt/resolution stages when policy requires them."
+          },
+          {
+            "id": "commerce.rule.returnStateTransition.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_INVALID_TRANSITION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.returnRequest",
+            "description": "This rule constrains commerce.returnRequest operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.returnRequest satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.returnStateTransition and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.serverSideCommerceEnforcement",
+        "name": "Server Side Commerce Enforcement",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "security-audit",
+        "ruleKind": "security-invariant",
+        "description": "All authoritative commerce invariants must be enforced in trusted server-side code; browser logic is never the final approval boundary.",
+        "purpose": "All authoritative commerce invariants must be enforced in trusted server-side code; browser logic is never the final approval boundary.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.checkout",
+          "commerce.order",
+          "commerce.payment",
+          "commerce.inventoryLevel"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "every-applicable-operation",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.serverSideCommerceEnforcement.R1",
+            "description": "All authoritative commerce invariants must be enforced in trusted server-side code; browser logic is never the final approval boundary."
+          },
+          {
+            "id": "commerce.rule.serverSideCommerceEnforcement.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.checkout, commerce.order satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.serverSideCommerceEnforcement and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.serviceFulfillmentPolicyExplicit",
+        "name": "Service Fulfillment Policy Explicit",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "specialized-capabilities",
+        "ruleKind": "capability-gate",
+        "description": "Service products must define what constitutes fulfillment/completion instead of inheriting physical-shipment semantics.",
+        "purpose": "Service products must define what constitutes fulfillment/completion instead of inheriting physical-shipment semantics.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.product",
+          "commerce.fulfillment",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-capability-use",
+          "atomicWhenRequired": false,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.serviceFulfillmentPolicyExplicit.R1",
+            "description": "Service products must define what constitutes fulfillment/completion instead of inheriting physical-shipment semantics."
+          },
+          {
+            "id": "commerce.rule.serviceFulfillmentPolicyExplicit.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.product, commerce.fulfillment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.serviceFulfillmentPolicyExplicit and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.shipmentRequiresFulfillment",
+        "name": "Shipment Requires Fulfillment",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "fulfillment",
+        "ruleKind": "fulfillment-invariant",
+        "description": "A Shipment must reference eligible Fulfillment work/lines rather than inventing quantities independent of the Order fulfillment model.",
+        "purpose": "A Shipment must reference eligible Fulfillment work/lines rather than inventing quantities independent of the Order fulfillment model.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.shipment",
+          "commerce.fulfillment",
+          "commerce.fulfillmentLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-fulfillment-transition",
+          "atomicWhenRequired": false,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.shipmentRequiresFulfillment.R1",
+            "description": "A Shipment must reference eligible Fulfillment work/lines rather than inventing quantities independent of the Order fulfillment model."
+          },
+          {
+            "id": "commerce.rule.shipmentRequiresFulfillment.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.shipment",
+            "description": "This rule constrains commerce.shipment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillmentLine",
+            "description": "This rule constrains commerce.fulfillmentLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.shipment, commerce.fulfillment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.shipmentRequiresFulfillment and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.shippingRateSnapshotImmutable",
+        "name": "Shipping Rate Snapshot Immutable",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "fulfillment",
+        "ruleKind": "fulfillment-invariant",
+        "description": "The shipping method/rate charged on a committed transaction is a snapshot and cannot be rewritten when current shipping configuration changes.",
+        "purpose": "The shipping method/rate charged on a committed transaction is a snapshot and cannot be rewritten when current shipping configuration changes.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.shippingRate",
+          "commerce.checkoutShippingSelection",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-after-fulfillment-transition",
+          "atomicWhenRequired": false,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.shippingRateSnapshotImmutable.R1",
+            "description": "The shipping method/rate charged on a committed transaction is a snapshot and cannot be rewritten when current shipping configuration changes."
+          },
+          {
+            "id": "commerce.rule.shippingRateSnapshotImmutable.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.shippingRate",
+            "description": "This rule constrains commerce.shippingRate operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.checkoutShippingSelection",
+            "description": "This rule constrains commerce.checkoutShippingSelection operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.shippingRate, commerce.checkoutShippingSelection satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.shippingRateSnapshotImmutable and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.shippingTaxPolicyExplicit",
+        "name": "Shipping Tax Policy Explicit",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "tax",
+        "ruleKind": "tax-invariant",
+        "description": "Whether and how shipping is taxable must be explicit for the resolved tax jurisdiction/policy.",
+        "purpose": "Whether and how shipping is taxable must be explicit for the resolved tax jurisdiction/policy.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.taxConfiguration",
+          "commerce.shippingRate",
+          "commerce.taxLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": false,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.shippingTaxPolicyExplicit.R1",
+            "description": "Whether and how shipping is taxable must be explicit for the resolved tax jurisdiction/policy."
+          },
+          {
+            "id": "commerce.rule.shippingTaxPolicyExplicit.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TAX_UNRESOLVED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.taxConfiguration",
+            "description": "This rule constrains commerce.taxConfiguration operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.shippingRate",
+            "description": "This rule constrains commerce.shippingRate operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.taxLine",
+            "description": "This rule constrains commerce.taxLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.taxConfiguration, commerce.shippingRate satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.shippingTaxPolicyExplicit and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.skuUniqueWithinSite",
+        "name": "Sku Unique Within Site",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "catalog-customers",
+        "ruleKind": "entity-invariant",
+        "description": "Where SKU is used as a canonical inventory/catalog identifier, it must be unique within the Site scope defined by the store policy.",
+        "purpose": "Where SKU is used as a canonical inventory/catalog identifier, it must be unique within the Site scope defined by the store policy.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.product",
+          "commerce.productVariant",
+          "commerce.inventoryItem"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-mutation-or-publication",
+          "atomicWhenRequired": false,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.skuUniqueWithinSite.R1",
+            "description": "Where SKU is used as a canonical inventory/catalog identifier, it must be unique within the Site scope defined by the store policy."
+          },
+          {
+            "id": "commerce.rule.skuUniqueWithinSite.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CONFLICT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productVariant",
+            "description": "This rule constrains commerce.productVariant operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryItem",
+            "description": "This rule constrains commerce.inventoryItem operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.product, commerce.productVariant satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.skuUniqueWithinSite and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.staleStateRevalidation",
+        "name": "Stale State Revalidation",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "transaction-integrity",
+        "ruleKind": "transaction-invariant",
+        "description": "Before commit, mutable source state that can affect price, availability, discount, tax or shipping eligibility must be revalidated against current authoritative data.",
+        "purpose": "Before commit, mutable source state that can affect price, availability, discount, tax or shipping eligibility must be revalidated against current authoritative data.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.checkout",
+          "commerce.productPrice",
+          "commerce.inventoryLevel",
+          "commerce.discount",
+          "commerce.shippingRate",
+          "commerce.taxRate"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.staleStateRevalidation.R1",
+            "description": "Before commit, mutable source state that can affect price, availability, discount, tax or shipping eligibility must be revalidated against current authoritative data."
+          },
+          {
+            "id": "commerce.rule.staleStateRevalidation.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_STALE_CHECKOUT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productPrice",
+            "description": "This rule constrains commerce.productPrice operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryLevel",
+            "description": "This rule constrains commerce.inventoryLevel operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discount",
+            "description": "This rule constrains commerce.discount operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.shippingRate",
+            "description": "This rule constrains commerce.shippingRate operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.taxRate",
+            "description": "This rule constrains commerce.taxRate operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.checkout, commerce.productPrice satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.staleStateRevalidation and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.subscriptionCapabilityGate",
+        "name": "Subscription Capability Gate",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "specialized-capabilities",
+        "ruleKind": "capability-gate",
+        "description": "Recurring billing/subscription behavior requires a dedicated approved Subscription capability contract before production use; ordinary Order/Payment schemas are insufficient.",
+        "purpose": "Recurring billing/subscription behavior requires a dedicated approved Subscription capability contract before production use; ordinary Order/Payment schemas are insufficient.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.product",
+          "commerce.payment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-capability-use",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.subscriptionCapabilityGate.R1",
+            "description": "Recurring billing/subscription behavior requires a dedicated approved Subscription capability contract before production use; ordinary Order/Payment schemas are insufficient."
+          },
+          {
+            "id": "commerce.rule.subscriptionCapabilityGate.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.product",
+            "description": "This rule constrains commerce.product operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.product, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.subscriptionCapabilityGate and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.taxCalculationBasisExplicit",
+        "name": "Tax Calculation Basis Explicit",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "tax",
+        "ruleKind": "tax-invariant",
+        "description": "Tax calculation must use an explicit taxable basis and must not infer inclusion/exclusion behavior from display formatting.",
+        "purpose": "Tax calculation must use an explicit taxable basis and must not infer inclusion/exclusion behavior from display formatting.",
+        "severity": "critical",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.taxConfiguration",
+          "commerce.taxLine",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.taxCalculationBasisExplicit.R1",
+            "description": "Tax calculation must use an explicit taxable basis and must not infer inclusion/exclusion behavior from display formatting."
+          },
+          {
+            "id": "commerce.rule.taxCalculationBasisExplicit.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TAX_UNRESOLVED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.taxConfiguration",
+            "description": "This rule constrains commerce.taxConfiguration operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.taxLine",
+            "description": "This rule constrains commerce.taxLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.taxConfiguration, commerce.taxLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.taxCalculationBasisExplicit and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.taxCurrencyConsistency",
+        "name": "Tax Currency Consistency",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "tax",
+        "ruleKind": "tax-invariant",
+        "description": "Tax money values must use the committed transaction currency.",
+        "purpose": "Tax money values must use the committed transaction currency.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.taxLine",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.taxCurrencyConsistency.R1",
+            "description": "Tax money values must use the committed transaction currency."
+          },
+          {
+            "id": "commerce.rule.taxCurrencyConsistency.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CURRENCY_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.taxLine",
+            "description": "This rule constrains commerce.taxLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.taxLine, commerce.orderTotals satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.taxCurrencyConsistency and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.taxExemptionEvidence",
+        "name": "Tax Exemption Evidence",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "tax",
+        "ruleKind": "tax-invariant",
+        "description": "Applying a tax exemption requires the Site's configured eligibility evidence; exemption must not be granted merely from an untrusted client flag.",
+        "purpose": "Applying a tax exemption requires the Site's configured eligibility evidence; exemption must not be granted merely from an untrusted client flag.",
+        "severity": "high",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.taxConfiguration",
+          "commerce.commerceCustomer",
+          "commerce.taxLine"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": false,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.taxExemptionEvidence.R1",
+            "description": "Applying a tax exemption requires the Site's configured eligibility evidence; exemption must not be granted merely from an untrusted client flag."
+          },
+          {
+            "id": "commerce.rule.taxExemptionEvidence.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TAX_UNRESOLVED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.taxConfiguration",
+            "description": "This rule constrains commerce.taxConfiguration operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.commerceCustomer",
+            "description": "This rule constrains commerce.commerceCustomer operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.taxLine",
+            "description": "This rule constrains commerce.taxLine operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.taxConfiguration, commerce.commerceCustomer satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.taxExemptionEvidence and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.taxJurisdictionResolvedBeforeCommit",
+        "name": "Tax Jurisdiction Resolved Before Commit",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "tax",
+        "ruleKind": "tax-invariant",
+        "description": "A transaction requiring tax resolution cannot commit until the applicable jurisdiction/rules are resolved or an explicit allowed no-tax result is produced.",
+        "purpose": "A transaction requiring tax resolution cannot commit until the applicable jurisdiction/rules are resolved or an explicit allowed no-tax result is produced.",
+        "severity": "critical",
+        "configurable": true,
+        "appliesTo": [
+          "commerce.checkout",
+          "commerce.taxConfiguration",
+          "commerce.taxRate"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.taxJurisdictionResolvedBeforeCommit.R1",
+            "description": "A transaction requiring tax resolution cannot commit until the applicable jurisdiction/rules are resolved or an explicit allowed no-tax result is produced."
+          },
+          {
+            "id": "commerce.rule.taxJurisdictionResolvedBeforeCommit.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TAX_UNRESOLVED",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.checkout",
+            "description": "This rule constrains commerce.checkout operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.taxConfiguration",
+            "description": "This rule constrains commerce.taxConfiguration operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.taxRate",
+            "description": "This rule constrains commerce.taxRate operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.checkout, commerce.taxConfiguration satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.taxJurisdictionResolvedBeforeCommit and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.taxLinesReconcile",
+        "name": "Tax Lines Reconcile",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "tax",
+        "ruleKind": "tax-invariant",
+        "description": "Transaction tax lines must reconcile to the order-level tax total using the canonical rounding policy.",
+        "purpose": "Transaction tax lines must reconcile to the order-level tax total using the canonical rounding policy.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.taxLine",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.taxLinesReconcile.R1",
+            "description": "Transaction tax lines must reconcile to the order-level tax total using the canonical rounding policy."
+          },
+          {
+            "id": "commerce.rule.taxLinesReconcile.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TOTAL_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.taxLine",
+            "description": "This rule constrains commerce.taxLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.taxLine, commerce.orderTotals satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.taxLinesReconcile and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.taxModeConsistent",
+        "name": "Tax Mode Consistent",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "tax",
+        "ruleKind": "tax-invariant",
+        "description": "Tax-inclusive/exclusive mode must be applied consistently throughout line, shipping and order total calculations.",
+        "purpose": "Tax-inclusive/exclusive mode must be applied consistently throughout line, shipping and order total calculations.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.taxConfiguration",
+          "commerce.taxLine",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.taxModeConsistent.R1",
+            "description": "Tax-inclusive/exclusive mode must be applied consistently throughout line, shipping and order total calculations."
+          },
+          {
+            "id": "commerce.rule.taxModeConsistent.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TOTAL_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.taxConfiguration",
+            "description": "This rule constrains commerce.taxConfiguration operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.taxLine",
+            "description": "This rule constrains commerce.taxLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.taxConfiguration, commerce.taxLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.taxModeConsistent and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.taxRateSnapshot",
+        "name": "Tax Rate Snapshot",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "tax",
+        "ruleKind": "tax-invariant",
+        "description": "A committed transaction records the tax rate/amount basis used at that time rather than depending on future Tax Rate configuration.",
+        "purpose": "A committed transaction records the tax rate/amount basis used at that time rather than depending on future Tax Rate configuration.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.taxRate",
+          "commerce.taxLine",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.taxRateSnapshot.R1",
+            "description": "A committed transaction records the tax rate/amount basis used at that time rather than depending on future Tax Rate configuration."
+          },
+          {
+            "id": "commerce.rule.taxRateSnapshot.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.taxRate",
+            "description": "This rule constrains commerce.taxRate operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.taxLine",
+            "description": "This rule constrains commerce.taxLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.taxRate, commerce.taxLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.taxRateSnapshot and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.taxRoundingConsistent",
+        "name": "Tax Rounding Consistent",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "tax",
+        "ruleKind": "tax-invariant",
+        "description": "Tax rounding must use one documented deterministic strategy at the declared calculation level.",
+        "purpose": "Tax rounding must use one documented deterministic strategy at the declared calculation level.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.taxLine",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.taxRoundingConsistent.R1",
+            "description": "Tax rounding must use one documented deterministic strategy at the declared calculation level."
+          },
+          {
+            "id": "commerce.rule.taxRoundingConsistent.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_TOTAL_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.taxLine",
+            "description": "This rule constrains commerce.taxLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.taxLine, commerce.orderTotals satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.taxRoundingConsistent and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.transactionalCommandIdempotency",
+        "name": "Transactional Command Idempotency",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "idempotency-concurrency",
+        "ruleKind": "concurrency-invariant",
+        "description": "Commands capable of creating duplicate financial, order, inventory, refund, fulfillment or return effects require a canonical idempotency key when the command registry marks them idempotent.",
+        "purpose": "Commands capable of creating duplicate financial, order, inventory, refund, fulfillment or return effects require a canonical idempotency key when the command registry marks them idempotent.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.payment",
+          "commerce.refund",
+          "commerce.inventoryReservation",
+          "commerce.fulfillment"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-command",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.transactionalCommandIdempotency.R1",
+            "description": "Commands capable of creating duplicate financial, order, inventory, refund, fulfillment or return effects require a canonical idempotency key when the command registry marks them idempotent."
+          },
+          {
+            "id": "commerce.rule.transactionalCommandIdempotency.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_IDEMPOTENCY_CONFLICT",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryReservation",
+            "description": "This rule constrains commerce.inventoryReservation operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.fulfillment",
+            "description": "This rule constrains commerce.fulfillment operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.transactionalCommandIdempotency and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.transactionalWriteAtomicity",
+        "name": "Transactional Write Atomicity",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "transaction-integrity",
+        "ruleKind": "transaction-invariant",
+        "description": "Operations that must update multiple authoritative commerce records to preserve one invariant must commit atomically or provide equivalent all-or-nothing semantics.",
+        "purpose": "Operations that must update multiple authoritative commerce records to preserve one invariant must commit atomically or provide equivalent all-or-nothing semantics.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.payment",
+          "commerce.inventoryReservation",
+          "commerce.discountCode"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.transactionalWriteAtomicity.R1",
+            "description": "Operations that must update multiple authoritative commerce records to preserve one invariant must commit atomically or provide equivalent all-or-nothing semantics."
+          },
+          {
+            "id": "commerce.rule.transactionalWriteAtomicity.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CONFLICT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.inventoryReservation",
+            "description": "This rule constrains commerce.inventoryReservation operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.discountCode",
+            "description": "This rule constrains commerce.discountCode operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.transactionalWriteAtomicity and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.transactionCurrencyConsistency",
+        "name": "Transaction Currency Consistency",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "transaction-integrity",
+        "ruleKind": "transaction-invariant",
+        "description": "All monetary components committed into one transaction must use the transaction currency unless an explicit conversion contract exists.",
+        "purpose": "All monetary components committed into one transaction must use the transaction currency unless an explicit conversion contract exists.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.moneySnapshot",
+          "commerce.orderTotals",
+          "commerce.payment",
+          "commerce.refund"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.transactionCurrencyConsistency.R1",
+            "description": "All monetary components committed into one transaction must use the transaction currency unless an explicit conversion contract exists."
+          },
+          {
+            "id": "commerce.rule.transactionCurrencyConsistency.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CURRENCY_MISMATCH",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.moneySnapshot",
+            "description": "This rule constrains commerce.moneySnapshot operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.moneySnapshot, commerce.orderTotals satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.transactionCurrencyConsistency and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.transactionDeletionProhibited",
+        "name": "Transaction Deletion Prohibited",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "transaction-integrity",
+        "ruleKind": "transaction-invariant",
+        "description": "Committed financial and order history must be reversed, cancelled, refunded or archived using explicit domain operations rather than destructive deletion.",
+        "purpose": "Committed financial and order history must be reversed, cancelled, refunded or archived using explicit domain operations rather than destructive deletion.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.payment",
+          "commerce.paymentCapture",
+          "commerce.refund"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.transactionDeletionProhibited.R1",
+            "description": "Committed financial and order history must be reversed, cancelled, refunded or archived using explicit domain operations rather than destructive deletion."
+          },
+          {
+            "id": "commerce.rule.transactionDeletionProhibited.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.payment",
+            "description": "This rule constrains commerce.payment operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.paymentCapture",
+            "description": "This rule constrains commerce.paymentCapture operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.refund",
+            "description": "This rule constrains commerce.refund operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.payment satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.transactionDeletionProhibited and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.transactionSnapshotImmutability",
+        "name": "Transaction Snapshot Immutability",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "transaction-integrity",
+        "ruleKind": "transaction-invariant",
+        "description": "Committed commerce transaction snapshots must not be rewritten when mutable catalog, customer, promotion, shipping or tax source data changes later.",
+        "purpose": "Committed commerce transaction snapshots must not be rewritten when mutable catalog, customer, promotion, shipping or tax source data changes later.",
+        "severity": "critical",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.order",
+          "commerce.orderLine",
+          "commerce.orderTotals"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-and-during-commit",
+          "atomicWhenRequired": true,
+          "auditRequired": true,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.transactionSnapshotImmutability.R1",
+            "description": "Committed commerce transaction snapshots must not be rewritten when mutable catalog, customer, promotion, shipping or tax source data changes later."
+          },
+          {
+            "id": "commerce.rule.transactionSnapshotImmutability.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderLine",
+            "description": "This rule constrains commerce.orderLine operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.orderTotals",
+            "description": "This rule constrains commerce.orderTotals operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.order, commerce.orderLine satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.transactionSnapshotImmutability and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.variantCombinationUnique",
+        "name": "Variant Combination Unique",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "catalog-customers",
+        "ruleKind": "entity-invariant",
+        "description": "One Product cannot expose duplicate Variant option-value combinations that are operationally indistinguishable.",
+        "purpose": "One Product cannot expose duplicate Variant option-value combinations that are operationally indistinguishable.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.productVariant",
+          "commerce.productOption",
+          "commerce.productOptionValue"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-mutation-or-publication",
+          "atomicWhenRequired": false,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.variantCombinationUnique.R1",
+            "description": "One Product cannot expose duplicate Variant option-value combinations that are operationally indistinguishable."
+          },
+          {
+            "id": "commerce.rule.variantCombinationUnique.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_CONFLICT",
+          "retryable": true,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.productVariant",
+            "description": "This rule constrains commerce.productVariant operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productOption",
+            "description": "This rule constrains commerce.productOption operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.productOptionValue",
+            "description": "This rule constrains commerce.productOptionValue operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.productVariant, commerce.productOption satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.variantCombinationUnique and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      },
+      {
+        "$id": "commerce.rule.verifiedReviewEvidenceDerived",
+        "name": "Verified Review Evidence Derived",
+        "version": "0.13.0",
+        "status": "stable",
+        "domain": "commerce",
+        "category": "catalog-customers",
+        "ruleKind": "entity-invariant",
+        "description": "Verified-purchase review status must be derived from canonical purchase evidence and cannot be set merely by visitor/customer input.",
+        "purpose": "Verified-purchase review status must be derived from canonical purchase evidence and cannot be set merely by visitor/customer input.",
+        "severity": "high",
+        "configurable": false,
+        "appliesTo": [
+          "commerce.productReview",
+          "commerce.reviewModeration",
+          "commerce.order"
+        ],
+        "enforcement": {
+          "authority": "server",
+          "timing": "before-mutation-or-publication",
+          "atomicWhenRequired": false,
+          "auditRequired": false,
+          "clientValidationOnly": false
+        },
+        "requirements": [
+          {
+            "id": "commerce.rule.verifiedReviewEvidenceDerived.R1",
+            "description": "Verified-purchase review status must be derived from canonical purchase evidence and cannot be set merely by visitor/customer input."
+          },
+          {
+            "id": "commerce.rule.verifiedReviewEvidenceDerived.R2",
+            "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+          }
+        ],
+        "failure": {
+          "code": "COMMERCE_RULE_VIOLATION",
+          "retryable": false,
+          "customerSafe": true,
+          "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+        },
+        "relationships": [
+          {
+            "type": "governs",
+            "target": "commerce.productReview",
+            "description": "This rule constrains commerce.productReview operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.reviewModeration",
+            "description": "This rule constrains commerce.reviewModeration operations or state."
+          },
+          {
+            "type": "governs",
+            "target": "commerce.order",
+            "description": "This rule constrains commerce.order operations or state."
+          }
+        ],
+        "examples": {
+          "valid": [
+            "An operation involving commerce.productReview, commerce.reviewModeration satisfies the rule before authoritative state is committed."
+          ],
+          "invalid": [
+            "An implementation bypasses commerce.rule.verifiedReviewEvidenceDerived and commits a conflicting or unverifiable state."
+          ]
+        },
+        "implementationNotes": [
+          "Enforce at the server-side commerce domain boundary.",
+          "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+          "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+        ],
+        "futureBindings": {
+          "events": "phase-13",
+          "webhooks": "phase-14",
+          "permissions": "phase-15",
+          "siteManifest": "phase-16",
+          "api": "phase-18"
+        }
+      }
+    ]
+  },
+  "stateMachines": {
+    "registryVersion": "0.13.0",
+    "schemaVersion": "1.0.0",
+    "title": "NEXT F Commerce State Machines",
+    "description": "Canonical Phase 12 lifecycle transitions and guards for Phase 11 Commerce status fields.",
+    "count": 16,
+    "stateMachines": [
+      {
+        "id": "commerce.state.cart",
+        "name": "Cart Status",
+        "contract": "commerce.cart",
+        "field": "status",
+        "states": [
+          "active",
+          "converted",
+          "abandoned",
+          "expired"
+        ],
+        "initial": "active",
+        "terminal": [
+          "converted",
+          "abandoned",
+          "expired"
+        ],
+        "transitions": {
+          "active": [
+            "converted",
+            "abandoned",
+            "expired"
+          ]
+        },
+        "guards": {
+          "active->converted": [
+            "commerce.rule.cartConvertedTerminal",
+            "commerce.rule.checkoutSnapshotsCart"
+          ],
+          "active->abandoned": [],
+          "active->expired": [
+            "commerce.rule.cartExpiredNotMutable"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.checkout",
+        "name": "Checkout Status",
+        "contract": "commerce.checkout",
+        "field": "status",
+        "states": [
+          "started",
+          "information-complete",
+          "payment-pending",
+          "completed",
+          "abandoned",
+          "expired"
+        ],
+        "initial": "started",
+        "terminal": [
+          "completed",
+          "abandoned",
+          "expired"
+        ],
+        "transitions": {
+          "started": [
+            "information-complete",
+            "abandoned",
+            "expired"
+          ],
+          "information-complete": [
+            "payment-pending",
+            "completed",
+            "abandoned",
+            "expired"
+          ],
+          "payment-pending": [
+            "completed",
+            "abandoned",
+            "expired"
+          ]
+        },
+        "guards": {
+          "information-complete->completed": [
+            "commerce.rule.checkoutCatalogRevalidation",
+            "commerce.rule.checkoutInventoryRevalidation",
+            "commerce.rule.checkoutDiscountRevalidation",
+            "commerce.rule.checkoutTaxShippingRevalidation",
+            "commerce.rule.checkoutSingleOrderConversion"
+          ],
+          "payment-pending->completed": [
+            "commerce.rule.checkoutSingleOrderConversion"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.orderPayment",
+        "name": "Order Payment Status",
+        "contract": "commerce.order",
+        "field": "paymentStatus",
+        "states": [
+          "pending",
+          "authorized",
+          "partially-paid",
+          "paid",
+          "partially-refunded",
+          "refunded",
+          "failed",
+          "cancelled"
+        ],
+        "initial": "pending",
+        "terminal": [
+          "refunded",
+          "cancelled"
+        ],
+        "transitions": {
+          "pending": [
+            "authorized",
+            "partially-paid",
+            "paid",
+            "failed",
+            "cancelled"
+          ],
+          "authorized": [
+            "partially-paid",
+            "paid",
+            "failed",
+            "cancelled"
+          ],
+          "partially-paid": [
+            "paid",
+            "failed",
+            "cancelled"
+          ],
+          "paid": [
+            "partially-refunded",
+            "refunded"
+          ],
+          "partially-refunded": [
+            "refunded",
+            "paid"
+          ],
+          "failed": [
+            "pending",
+            "authorized",
+            "partially-paid",
+            "paid",
+            "cancelled"
+          ]
+        },
+        "guards": {
+          "*": [
+            "commerce.rule.orderPaymentStatusDerived",
+            "commerce.rule.paymentStatusReconcile"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.orderFulfillment",
+        "name": "Order Fulfillment Status",
+        "contract": "commerce.order",
+        "field": "fulfillmentStatus",
+        "states": [
+          "unfulfilled",
+          "processing",
+          "partially-fulfilled",
+          "fulfilled",
+          "returned",
+          "cancelled"
+        ],
+        "initial": "unfulfilled",
+        "terminal": [
+          "returned",
+          "cancelled"
+        ],
+        "transitions": {
+          "unfulfilled": [
+            "processing",
+            "partially-fulfilled",
+            "fulfilled",
+            "cancelled"
+          ],
+          "processing": [
+            "partially-fulfilled",
+            "fulfilled",
+            "cancelled"
+          ],
+          "partially-fulfilled": [
+            "fulfilled",
+            "cancelled"
+          ],
+          "fulfilled": [
+            "returned"
+          ]
+        },
+        "guards": {
+          "*": [
+            "commerce.rule.orderFulfillmentStatusDerived",
+            "commerce.rule.partialFulfillmentDerived",
+            "commerce.rule.cancelledOrderCannotNewFulfill"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.order",
+        "name": "Order Operational Status",
+        "contract": "commerce.order",
+        "field": "orderStatus",
+        "states": [
+          "open",
+          "on-hold",
+          "completed",
+          "cancelled",
+          "archived"
+        ],
+        "initial": "open",
+        "terminal": [
+          "archived"
+        ],
+        "transitions": {
+          "open": [
+            "on-hold",
+            "completed",
+            "cancelled",
+            "archived"
+          ],
+          "on-hold": [
+            "open",
+            "completed",
+            "cancelled",
+            "archived"
+          ],
+          "completed": [
+            "archived"
+          ],
+          "cancelled": [
+            "archived"
+          ]
+        },
+        "guards": {
+          "open->completed": [
+            "commerce.rule.orderCompletionGuard"
+          ],
+          "on-hold->completed": [
+            "commerce.rule.orderCompletionGuard"
+          ],
+          "open->cancelled": [
+            "commerce.rule.orderCancellationGuard"
+          ],
+          "on-hold->cancelled": [
+            "commerce.rule.orderCancellationGuard"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.payment",
+        "name": "Payment Status",
+        "contract": "commerce.payment",
+        "field": "status",
+        "states": [
+          "pending",
+          "requires-action",
+          "authorized",
+          "partially-paid",
+          "paid",
+          "failed",
+          "cancelled",
+          "partially-refunded",
+          "refunded"
+        ],
+        "initial": "pending",
+        "terminal": [
+          "cancelled",
+          "refunded"
+        ],
+        "transitions": {
+          "pending": [
+            "requires-action",
+            "authorized",
+            "partially-paid",
+            "paid",
+            "failed",
+            "cancelled"
+          ],
+          "requires-action": [
+            "authorized",
+            "partially-paid",
+            "paid",
+            "failed",
+            "cancelled"
+          ],
+          "authorized": [
+            "partially-paid",
+            "paid",
+            "failed",
+            "cancelled"
+          ],
+          "partially-paid": [
+            "paid",
+            "failed",
+            "cancelled"
+          ],
+          "paid": [
+            "partially-refunded",
+            "refunded"
+          ],
+          "partially-refunded": [
+            "refunded",
+            "paid"
+          ],
+          "failed": [
+            "pending",
+            "requires-action",
+            "cancelled"
+          ]
+        },
+        "guards": {
+          "*": [
+            "commerce.rule.paymentStatusReconcile",
+            "commerce.rule.failedPaymentNoPaidState"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.paymentAttempt",
+        "name": "Payment Attempt Status",
+        "contract": "commerce.paymentAttempt",
+        "field": "status",
+        "states": [
+          "created",
+          "requires-action",
+          "processing",
+          "succeeded",
+          "failed",
+          "cancelled"
+        ],
+        "initial": "created",
+        "terminal": [
+          "succeeded",
+          "failed",
+          "cancelled"
+        ],
+        "transitions": {
+          "created": [
+            "requires-action",
+            "processing",
+            "succeeded",
+            "failed",
+            "cancelled"
+          ],
+          "requires-action": [
+            "processing",
+            "succeeded",
+            "failed",
+            "cancelled"
+          ],
+          "processing": [
+            "succeeded",
+            "failed",
+            "cancelled"
+          ]
+        },
+        "guards": {
+          "*": [
+            "commerce.rule.paymentAttemptNoDuplicateFinancialFact"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.paymentAuthorization",
+        "name": "Payment Authorization Status",
+        "contract": "commerce.paymentAuthorization",
+        "field": "status",
+        "states": [
+          "pending",
+          "authorized",
+          "declined",
+          "expired",
+          "voided"
+        ],
+        "initial": "pending",
+        "terminal": [
+          "declined",
+          "expired",
+          "voided"
+        ],
+        "transitions": {
+          "pending": [
+            "authorized",
+            "declined",
+            "expired",
+            "voided"
+          ],
+          "authorized": [
+            "expired",
+            "voided"
+          ]
+        },
+        "guards": {
+          "authorized->expired": [
+            "commerce.rule.authorizationExpiryEnforced"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.paymentCapture",
+        "name": "Payment Capture Status",
+        "contract": "commerce.paymentCapture",
+        "field": "status",
+        "states": [
+          "pending",
+          "succeeded",
+          "failed",
+          "reversed"
+        ],
+        "initial": "pending",
+        "terminal": [
+          "failed",
+          "reversed"
+        ],
+        "transitions": {
+          "pending": [
+            "succeeded",
+            "failed"
+          ],
+          "succeeded": [
+            "reversed"
+          ]
+        },
+        "guards": {
+          "pending->succeeded": [
+            "commerce.rule.authorizationCaptureBound",
+            "commerce.rule.captureCurrencyMatch",
+            "commerce.rule.captureRequiresValidAuthorization",
+            "commerce.rule.captureCumulativeBound"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.refund",
+        "name": "Refund Status",
+        "contract": "commerce.refund",
+        "field": "status",
+        "states": [
+          "pending",
+          "processing",
+          "succeeded",
+          "failed",
+          "cancelled"
+        ],
+        "initial": "pending",
+        "terminal": [
+          "succeeded",
+          "failed",
+          "cancelled"
+        ],
+        "transitions": {
+          "pending": [
+            "processing",
+            "succeeded",
+            "failed",
+            "cancelled"
+          ],
+          "processing": [
+            "succeeded",
+            "failed",
+            "cancelled"
+          ]
+        },
+        "guards": {
+          "*": [
+            "commerce.rule.refundRequiresCapturedFunds",
+            "commerce.rule.refundCumulativeBound",
+            "commerce.rule.refundCurrencyMatch"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.inventoryReservation",
+        "name": "Inventory Reservation Status",
+        "contract": "commerce.inventoryReservation",
+        "field": "status",
+        "states": [
+          "active",
+          "committed",
+          "released",
+          "expired",
+          "cancelled"
+        ],
+        "initial": "active",
+        "terminal": [
+          "committed",
+          "released",
+          "expired",
+          "cancelled"
+        ],
+        "transitions": {
+          "active": [
+            "committed",
+            "released",
+            "expired",
+            "cancelled"
+          ]
+        },
+        "guards": {
+          "active->committed": [
+            "commerce.rule.reservationCommitConsumes"
+          ],
+          "active->released": [
+            "commerce.rule.reservationTerminalNoReactivation"
+          ],
+          "active->expired": [
+            "commerce.rule.reservationExpiryReleasesStock"
+          ],
+          "*": [
+            "commerce.rule.reservationTerminalNoReactivation"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.inventoryTransfer",
+        "name": "Inventory Transfer Status",
+        "contract": "commerce.inventoryTransfer",
+        "field": "status",
+        "states": [
+          "draft",
+          "in-transit",
+          "received",
+          "cancelled"
+        ],
+        "initial": "draft",
+        "terminal": [
+          "received",
+          "cancelled"
+        ],
+        "transitions": {
+          "draft": [
+            "in-transit",
+            "cancelled"
+          ],
+          "in-transit": [
+            "received",
+            "cancelled"
+          ]
+        },
+        "guards": {
+          "*": [
+            "commerce.rule.inventoryTransferStateGuard",
+            "commerce.rule.inventoryTransferConservesQuantity"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.fulfillment",
+        "name": "Fulfillment Status",
+        "contract": "commerce.fulfillment",
+        "field": "status",
+        "states": [
+          "pending",
+          "processing",
+          "partially-fulfilled",
+          "fulfilled",
+          "cancelled",
+          "returned"
+        ],
+        "initial": "pending",
+        "terminal": [
+          "cancelled",
+          "returned"
+        ],
+        "transitions": {
+          "pending": [
+            "processing",
+            "partially-fulfilled",
+            "fulfilled",
+            "cancelled"
+          ],
+          "processing": [
+            "partially-fulfilled",
+            "fulfilled",
+            "cancelled"
+          ],
+          "partially-fulfilled": [
+            "fulfilled",
+            "cancelled"
+          ],
+          "fulfilled": [
+            "returned"
+          ]
+        },
+        "guards": {
+          "*": [
+            "commerce.rule.fulfillmentQuantityBound",
+            "commerce.rule.cumulativeFulfillmentBound",
+            "commerce.rule.fulfillmentRequiresEligibleOrder"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.shipment",
+        "name": "Shipment Status",
+        "contract": "commerce.shipment",
+        "field": "status",
+        "states": [
+          "pending",
+          "label-created",
+          "shipped",
+          "in-transit",
+          "delivered",
+          "exception",
+          "returned",
+          "cancelled"
+        ],
+        "initial": "pending",
+        "terminal": [
+          "delivered",
+          "returned",
+          "cancelled"
+        ],
+        "transitions": {
+          "pending": [
+            "label-created",
+            "shipped",
+            "cancelled"
+          ],
+          "label-created": [
+            "shipped",
+            "cancelled"
+          ],
+          "shipped": [
+            "in-transit",
+            "delivered",
+            "exception",
+            "returned"
+          ],
+          "in-transit": [
+            "delivered",
+            "exception",
+            "returned"
+          ],
+          "exception": [
+            "in-transit",
+            "delivered",
+            "returned",
+            "cancelled"
+          ]
+        },
+        "guards": {
+          "*": [
+            "commerce.rule.shipmentRequiresFulfillment"
+          ],
+          "shipped->delivered": [
+            "commerce.rule.deliveredRequiresEvidence"
+          ],
+          "in-transit->delivered": [
+            "commerce.rule.deliveredRequiresEvidence"
+          ],
+          "exception->delivered": [
+            "commerce.rule.deliveredRequiresEvidence"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.returnRequest",
+        "name": "Return Request Status",
+        "contract": "commerce.returnRequest",
+        "field": "status",
+        "states": [
+          "requested",
+          "approved",
+          "rejected",
+          "in-transit",
+          "received",
+          "resolved",
+          "cancelled"
+        ],
+        "initial": "requested",
+        "terminal": [
+          "rejected",
+          "resolved",
+          "cancelled"
+        ],
+        "transitions": {
+          "requested": [
+            "approved",
+            "rejected",
+            "cancelled"
+          ],
+          "approved": [
+            "in-transit",
+            "received",
+            "resolved",
+            "cancelled"
+          ],
+          "in-transit": [
+            "received",
+            "cancelled"
+          ],
+          "received": [
+            "resolved"
+          ]
+        },
+        "guards": {
+          "*": [
+            "commerce.rule.returnStateTransition",
+            "commerce.rule.returnQuantityBound",
+            "commerce.rule.returnEligibilityWindow"
+          ],
+          "received->resolved": [
+            "commerce.rule.returnResolutionRequired",
+            "commerce.rule.returnResolutionIdempotent"
+          ]
+        }
+      },
+      {
+        "id": "commerce.state.discountCode",
+        "name": "Discount Code Status",
+        "contract": "commerce.discountCode",
+        "field": "status",
+        "states": [
+          "active",
+          "disabled",
+          "expired"
+        ],
+        "initial": "active",
+        "terminal": [
+          "expired"
+        ],
+        "transitions": {
+          "active": [
+            "disabled",
+            "expired"
+          ],
+          "disabled": [
+            "active",
+            "expired"
+          ]
+        },
+        "guards": {
+          "*": [
+            "commerce.rule.discountEligibilityRevalidated",
+            "commerce.rule.promotionWindow"
+          ]
+        }
+      }
+    ]
+  },
+  "commandPolicies": {
+    "registryVersion": "0.13.0",
+    "schemaVersion": "1.0.0",
+    "title": "NEXT F Commerce Command Policies",
+    "description": "Canonical Phase 12 domain command atomicity, idempotency, concurrency and audit requirements. These are not HTTP endpoints.",
+    "count": 20,
+    "commands": [
+      {
+        "id": "commerce.command.createOrderFromCheckout",
+        "name": "Create Order From Checkout",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.checkout",
+          "commerce.order",
+          "commerce.inventoryReservation",
+          "commerce.discountCode"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "checkout",
+          "inventory",
+          "discount-usage"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.checkoutSingleOrderConversion",
+          "commerce.rule.staleStateRevalidation",
+          "commerce.rule.transactionalWriteAtomicity"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.cancelOrder",
+        "name": "Cancel Order",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.order",
+          "commerce.inventoryReservation",
+          "commerce.payment"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "order",
+          "inventory"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.orderCancellationGuard",
+          "commerce.rule.orderCancellationReleasesReservation"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.authorizePayment",
+        "name": "Authorize Payment",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.payment",
+          "commerce.paymentAttempt",
+          "commerce.paymentAuthorization"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "payment",
+          "provider-reference"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.paymentAttemptNoDuplicateFinancialFact",
+          "commerce.rule.paymentProviderReferenceUnique"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.capturePayment",
+        "name": "Capture Payment",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.payment",
+          "commerce.paymentAuthorization",
+          "commerce.paymentCapture"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "payment",
+          "authorization"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.authorizationCaptureBound",
+          "commerce.rule.captureRequiresValidAuthorization",
+          "commerce.rule.captureCumulativeBound"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.refundPayment",
+        "name": "Refund Payment",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.payment",
+          "commerce.paymentCapture",
+          "commerce.refund"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "payment",
+          "refund"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.refundRequiresCapturedFunds",
+          "commerce.rule.refundCumulativeBound",
+          "commerce.rule.refundOrderStateReconcile"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.reserveInventory",
+        "name": "Reserve Inventory",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.inventoryLevel",
+          "commerce.inventoryReservation"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "inventory-level"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.reservationRequiresAvailability",
+          "commerce.rule.inventoryConcurrentMutationGuard"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.commitInventoryReservation",
+        "name": "Commit Inventory Reservation",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.inventoryLevel",
+          "commerce.inventoryReservation"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "inventory-level",
+          "reservation"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.reservationCommitConsumes",
+          "commerce.rule.reservationTerminalNoReactivation"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.releaseInventoryReservation",
+        "name": "Release Inventory Reservation",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.inventoryLevel",
+          "commerce.inventoryReservation"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "inventory-level",
+          "reservation"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.reservationTerminalNoReactivation"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.adjustInventory",
+        "name": "Adjust Inventory",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.inventoryLevel",
+          "commerce.inventoryAdjustment"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "inventory-level"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.inventoryAdjustmentLedgerRequired",
+          "commerce.rule.negativeInventoryGuard"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.createInventoryTransfer",
+        "name": "Create Inventory Transfer",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.inventoryTransfer",
+          "commerce.inventoryTransferLine"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "inventory-source",
+          "inventory-destination"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.inventoryTransferConservesQuantity"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.dispatchInventoryTransfer",
+        "name": "Dispatch Inventory Transfer",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.inventoryTransfer",
+          "commerce.inventoryLevel"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "inventory-source",
+          "transfer"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.inventoryTransferStateGuard",
+          "commerce.rule.inventoryTransferConservesQuantity"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.receiveInventoryTransfer",
+        "name": "Receive Inventory Transfer",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.inventoryTransfer",
+          "commerce.inventoryLevel"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "inventory-destination",
+          "transfer"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.inventoryTransferStateGuard",
+          "commerce.rule.inventoryTransferConservesQuantity"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.applyDiscountCode",
+        "name": "Apply Discount Code",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.discount",
+          "commerce.discountCode",
+          "commerce.checkout"
+        ],
+        "idempotencyRequired": false,
+        "atomic": false,
+        "concurrencyScopes": [
+          "checkout"
+        ],
+        "auditRequired": false,
+        "guardRules": [
+          "commerce.rule.discountEligibilityRevalidated",
+          "commerce.rule.discountStackingExplicit"
+        ],
+        "replayBehavior": "Re-evaluate as a read/evaluation-style command; any later material commit uses its own idempotent transactional command.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.consumeDiscountUsage",
+        "name": "Consume Discount Usage",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.discountCode",
+          "commerce.order"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "discount-code"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.couponUsageAtomic",
+          "commerce.rule.couponPerCustomerLimit"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.createFulfillment",
+        "name": "Create Fulfillment",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.fulfillment",
+          "commerce.fulfillmentLine",
+          "commerce.order"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "order",
+          "fulfillment"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.fulfillmentQuantityBound",
+          "commerce.rule.cumulativeFulfillmentBound",
+          "commerce.rule.fulfillmentRequiresEligibleOrder"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.createShipment",
+        "name": "Create Shipment",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.shipment",
+          "commerce.fulfillment"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "fulfillment",
+          "shipment"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.shipmentRequiresFulfillment"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.markShipmentDelivered",
+        "name": "Mark Shipment Delivered",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.shipment",
+          "commerce.trackingReference"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "shipment"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.deliveredRequiresEvidence"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.requestReturn",
+        "name": "Request Return",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.returnRequest",
+          "commerce.returnLine",
+          "commerce.order"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "order",
+          "return"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.returnQuantityBound",
+          "commerce.rule.returnEligibilityWindow"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.resolveReturn",
+        "name": "Resolve Return",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.returnRequest",
+          "commerce.returnResolution"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "return",
+          "inventory",
+          "payment"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.returnResolutionRequired",
+          "commerce.rule.returnResolutionIdempotent",
+          "commerce.rule.returnRefundSeparate",
+          "commerce.rule.returnRestockExplicit"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      },
+      {
+        "id": "commerce.command.moderateReview",
+        "name": "Moderate Review",
+        "version": "0.13.0",
+        "status": "stable",
+        "entities": [
+          "commerce.productReview",
+          "commerce.reviewModeration"
+        ],
+        "idempotencyRequired": true,
+        "atomic": true,
+        "concurrencyScopes": [
+          "review"
+        ],
+        "auditRequired": true,
+        "guardRules": [
+          "commerce.rule.verifiedReviewEvidenceDerived",
+          "commerce.rule.approvedReviewOnlyPublic"
+        ],
+        "replayBehavior": "Return the original authoritative outcome without repeating side effects.",
+        "apiBinding": "phase-18"
+      }
+    ]
+  },
+  "errorCodes": {
+    "registryVersion": "0.13.0",
+    "schemaVersion": "1.0.0",
+    "title": "NEXT F Commerce Domain Error Identifiers",
+    "description": "Stable Phase 12 domain errors. HTTP mappings are reserved for Phase 18.",
+    "count": 30,
+    "errors": [
+      {
+        "code": "COMMERCE_RULE_VIOLATION",
+        "label": "Commerce rule violation",
+        "description": "A canonical Commerce Rule was not satisfied.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_CONFLICT",
+        "label": "Commerce state conflict",
+        "description": "Authoritative state changed or a protected mutation conflicts with current state.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_STALE_CHECKOUT",
+        "label": "Checkout requires revalidation",
+        "description": "Checkout source state is stale and must be recalculated/revalidated.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_INVALID_TRANSITION",
+        "label": "Invalid lifecycle transition",
+        "description": "Requested state transition is not allowed by the canonical state machine.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_ALREADY_CONVERTED",
+        "label": "Already converted",
+        "description": "A Cart/Checkout conversion was already completed and cannot create another canonical result.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_ORDER_NOT_CANCELLABLE",
+        "label": "Order not cancellable",
+        "description": "Current Order state/policy does not allow cancellation.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_ORDER_NOT_COMPLETABLE",
+        "label": "Order not completable",
+        "description": "Required completion conditions are not satisfied.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_TOTAL_MISMATCH",
+        "label": "Commerce total mismatch",
+        "description": "Submitted or calculated monetary components do not reconcile.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_CURRENCY_MISMATCH",
+        "label": "Currency mismatch",
+        "description": "Monetary records do not use the required transaction currency.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_PRICE_CHANGED",
+        "label": "Price changed",
+        "description": "Authoritative price no longer matches the stale transaction selection.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_PRODUCT_UNAVAILABLE",
+        "label": "Product unavailable",
+        "description": "Product or Variant is not currently eligible for purchase.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_INSUFFICIENT_INVENTORY",
+        "label": "Insufficient inventory",
+        "description": "Available stock/backorder policy does not permit the requested quantity.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_RESERVATION_TERMINAL",
+        "label": "Inventory reservation is terminal",
+        "description": "Reservation has already been committed/released/expired/cancelled or cannot be reactivated.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_INVENTORY_CONFLICT",
+        "label": "Inventory conflict",
+        "description": "Concurrent or inconsistent inventory mutation prevents safe commit.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_CAPTURE_EXCEEDS_AUTHORIZATION",
+        "label": "Capture exceeds authorization",
+        "description": "Capture amount exceeds the valid remaining authorization/capturable bound.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_AUTHORIZATION_EXPIRED",
+        "label": "Authorization unavailable",
+        "description": "Authorization is expired, voided, insufficient or otherwise not valid for capture.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_PAYMENT_REFERENCE_CONFLICT",
+        "label": "Payment reference conflict",
+        "description": "External/provider financial reference is already bound to another accepted fact.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_REFUND_EXCEEDS_CAPTURED",
+        "label": "Refund exceeds captured amount",
+        "description": "Requested cumulative refund exceeds successfully captured refundable funds.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_REFUND_QUANTITY_EXCEEDED",
+        "label": "Refund quantity exceeded",
+        "description": "Refunded quantity exceeds eligible purchased quantity.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_FULFILLMENT_QUANTITY_EXCEEDED",
+        "label": "Fulfillment quantity exceeded",
+        "description": "Fulfillment quantity exceeds remaining eligible ordered quantity.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_DISCOUNT_INELIGIBLE",
+        "label": "Discount ineligible",
+        "description": "Promotion/coupon no longer satisfies eligibility or stacking requirements.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_DISCOUNT_USAGE_EXHAUSTED",
+        "label": "Discount usage exhausted",
+        "description": "Coupon/promotion usage limit has been reached.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_TAX_UNRESOLVED",
+        "label": "Tax unresolved",
+        "description": "Required tax jurisdiction/basis/rate could not be safely resolved.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_SHIPPING_UNAVAILABLE",
+        "label": "Shipping unavailable",
+        "description": "No eligible shipping method/rate can satisfy the checkout selection.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_RETURN_INELIGIBLE",
+        "label": "Return ineligible",
+        "description": "Order/line is outside the permitted return policy or eligibility rules.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_RETURN_QUANTITY_EXCEEDED",
+        "label": "Return quantity exceeded",
+        "description": "Requested cumulative return quantity exceeds eligible purchased quantity.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_IDEMPOTENCY_CONFLICT",
+        "label": "Idempotency conflict",
+        "description": "The idempotency key was reused with materially different canonical input.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_PROVIDER_RECONCILIATION_REQUIRED",
+        "label": "Provider reconciliation required",
+        "description": "External provider evidence conflicts with or cannot safely determine canonical state.",
+        "defaultRetryable": true,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_PERMISSION_REQUIRED",
+        "label": "Commerce permission required",
+        "description": "Actor lacks the required canonical commerce permission.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      },
+      {
+        "code": "COMMERCE_TENANT_SCOPE_VIOLATION",
+        "label": "Commerce tenant scope violation",
+        "description": "Operation crosses or cannot prove the required Organization/Site boundary.",
+        "defaultRetryable": false,
+        "httpMapping": "phase-18"
+      }
+    ]
+  }
+};

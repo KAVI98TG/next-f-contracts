@@ -1,0 +1,130 @@
+{
+  "registryVersion": "0.8.0",
+  "rules": [
+    {
+      "id": "AR-001",
+      "name": "Contract reuse",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-002",
+      "name": "Repository authority",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-003",
+      "name": "No silent divergence",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-004",
+      "name": "Site version pinning",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-005",
+      "name": "Customer content separation",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-006",
+      "name": "CMS is not a page builder",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-007",
+      "name": "Public content only",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-008",
+      "name": "Authenticated writes",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-009",
+      "name": "Permission contracts",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-010",
+      "name": "Standard events",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-011",
+      "name": "Standard webhooks",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-012",
+      "name": "Integration abstraction",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-013",
+      "name": "Consent before optional tracking",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-014",
+      "name": "Secrets stay server-side",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-015",
+      "name": "External account ownership",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-016",
+      "name": "Hosting and domains excluded",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-017",
+      "name": "Payment boundary",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-018",
+      "name": "Auditability",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-019",
+      "name": "Deterministic machine names",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-020",
+      "name": "Extensions are explicit",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-021",
+      "name": "Environment isolation",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-022",
+      "name": "Backward compatibility",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-023",
+      "name": "No secret examples",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-024",
+      "name": "Site-specific UI remains customer-specific",
+      "severity": "mandatory"
+    },
+    {
+      "id": "AR-025",
+      "name": "Adapters are explicit",
+      "severity": "mandatory"
+    }
+  ]
+}

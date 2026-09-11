@@ -1,0 +1,38 @@
+{
+  "controlId": "ACC-ADMIN-001",
+  "name": "NEXT F Admin accessibility",
+  "category": "management",
+  "requirement": "NEXT F Admin tables, context selectors, diagnostics, dialogs and privileged actions must satisfy applicable accessibility controls and must not communicate risk/status by color alone.",
+  "rationale": "Internal administration must remain operable and understandable for keyboard and assistive-technology users.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "admin",
+    "table",
+    "dialog",
+    "form"
+  ],
+  "verificationMethods": [
+    "keyboard-manual",
+    "screen-reader-manual",
+    "zoom-reflow"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [
+    "adminUi.adminProfile",
+    "adminUi.riskPresentation"
+  ],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_admin_001.json"
+}

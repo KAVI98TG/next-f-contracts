@@ -1,0 +1,86 @@
+{
+  "$id": "core.scheduleWindow",
+  "name": "Schedule Window",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "lifecycle",
+  "description": "Optional start/end window with explicit timezone semantics.",
+  "purpose": "Provides reusable scheduling semantics for publishing and future campaigns without relying on browser-local time.",
+  "fields": [
+    {
+      "key": "startsAt",
+      "required": false,
+      "nullable": true,
+      "description": "Inclusive start timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "endsAt",
+      "required": false,
+      "nullable": true,
+      "description": "Exclusive or effective end timestamp as defined by the parent contract.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "timeZone",
+      "required": true,
+      "nullable": false,
+      "description": "IANA timezone identifier used for human-entered scheduling.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 3,
+        "maxLength": 64,
+        "defaultValue": "UTC"
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "scheduleOrder",
+      "description": "When both timestamps exist, endsAt must be later than startsAt."
+    },
+    {
+      "id": "ianaTimeZone",
+      "description": "timeZone must be a valid IANA timezone identifier."
+    }
+  ],
+  "cms": {
+    "label": "Schedule",
+    "icon": "fa-calendar-days",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "sidebar",
+    "summaryFields": [
+      "startsAt",
+      "endsAt"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Scheduling metadata is normally operational and omitted from public payloads unless explicitly needed."
+  },
+  "examples": {
+    "valid": [
+      {
+        "startsAt": "2026-09-15T03:30:00Z",
+        "endsAt": "2026-09-30T03:30:00Z",
+        "timeZone": "Asia/Colombo"
+      },
+      {
+        "startsAt": null,
+        "endsAt": null,
+        "timeZone": "UTC"
+      }
+    ],
+    "invalid": [
+      {
+        "startsAt": "2026-10-01T00:00:00Z",
+        "endsAt": "2026-09-01T00:00:00Z",
+        "timeZone": "Asia/Colombo"
+      }
+    ]
+  },
+  "notes": []
+}

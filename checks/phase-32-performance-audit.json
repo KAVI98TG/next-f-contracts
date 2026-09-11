@@ -1,0 +1,390 @@
+{
+  "registryVersion": "0.33.0",
+  "phase": 32,
+  "overallStatus": "pass",
+  "measuredAt": null,
+  "measurementEnvironment": "repository-static-audit",
+  "measurements": {
+    "portal.indexHtmlBytes": 16956,
+    "portal.localCssBytes": 150810,
+    "portal.localJsSourceBytes": 723579,
+    "portal.generatedFallbackBytes": 91744854,
+    "portal.eagerGeneratedFallbackBytes": 0,
+    "registry.registryJsonBytes": 2331237,
+    "search.indexBytes": 10710091,
+    "relationships.indexBytes": 3161573,
+    "diff.snapshotsBytes": 348110468,
+    "portal.inlineScriptBytes": 0,
+    "portal.inlineStyleBytes": 0,
+    "portal.externalScriptCount": 0,
+    "portal.externalStylesheetCount": 1,
+    "portal.eagerDiffImportCount": 0,
+    "relationships.maxRenderedNeighbors": 80,
+    "search.defaultPageLimit": 50,
+    "portal.bootstrapRegistryLoaderCount": 23
+  },
+  "budgetResults": [
+    {
+      "budgetId": "PERF-BUDGET-001",
+      "name": "Portal HTML payload",
+      "metric": "portal.indexHtmlBytes",
+      "unit": "bytes",
+      "target": 65536,
+      "warningThreshold": 98304,
+      "comparator": "lte",
+      "actual": 16956,
+      "result": "pass",
+      "measurementMethod": "static-file-size",
+      "environment": "Hosted and file review"
+    },
+    {
+      "budgetId": "PERF-BUDGET-002",
+      "name": "Local CSS aggregate",
+      "metric": "portal.localCssBytes",
+      "unit": "bytes",
+      "target": 196608,
+      "warningThreshold": 262144,
+      "comparator": "lte",
+      "actual": 150810,
+      "result": "pass",
+      "measurementMethod": "static-file-size",
+      "environment": "Hosted and file review"
+    },
+    {
+      "budgetId": "PERF-BUDGET-003",
+      "name": "Non-generated JavaScript source",
+      "metric": "portal.localJsSourceBytes",
+      "unit": "bytes",
+      "target": 921600,
+      "warningThreshold": 1258291,
+      "comparator": "lte",
+      "actual": 723579,
+      "result": "pass",
+      "measurementMethod": "static-file-size",
+      "environment": "Hosted and file review"
+    },
+    {
+      "budgetId": "PERF-BUDGET-004",
+      "name": "Generated fallback aggregate",
+      "metric": "portal.generatedFallbackBytes",
+      "unit": "bytes",
+      "target": 94371840,
+      "warningThreshold": 104857600,
+      "comparator": "lte",
+      "actual": 91744854,
+      "result": "pass",
+      "measurementMethod": "static-file-size",
+      "environment": "Repository/local review"
+    },
+    {
+      "budgetId": "PERF-BUDGET-005",
+      "name": "Eager generated fallback bytes",
+      "metric": "portal.eagerGeneratedFallbackBytes",
+      "unit": "bytes",
+      "target": 0,
+      "warningThreshold": 524288,
+      "comparator": "lte",
+      "actual": 0,
+      "result": "pass",
+      "measurementMethod": "static-import-graph",
+      "environment": "Hosted runtime"
+    },
+    {
+      "budgetId": "PERF-BUDGET-006",
+      "name": "Registry index size",
+      "metric": "registry.registryJsonBytes",
+      "unit": "bytes",
+      "target": 3145728,
+      "warningThreshold": 4194304,
+      "comparator": "lte",
+      "actual": 2331237,
+      "result": "pass",
+      "measurementMethod": "static-file-size",
+      "environment": "Repository and hosted runtime"
+    },
+    {
+      "budgetId": "PERF-BUDGET-007",
+      "name": "Global Search index size",
+      "metric": "search.indexBytes",
+      "unit": "bytes",
+      "target": 12582912,
+      "warningThreshold": 16777216,
+      "comparator": "lte",
+      "actual": 10710091,
+      "result": "pass",
+      "measurementMethod": "static-file-size",
+      "environment": "Repository and hosted runtime"
+    },
+    {
+      "budgetId": "PERF-BUDGET-008",
+      "name": "Relationship index size",
+      "metric": "relationships.indexBytes",
+      "unit": "bytes",
+      "target": 4194304,
+      "warningThreshold": 6291456,
+      "comparator": "lte",
+      "actual": 3161573,
+      "result": "pass",
+      "measurementMethod": "static-file-size",
+      "environment": "Repository and hosted runtime"
+    },
+    {
+      "budgetId": "PERF-BUDGET-009",
+      "name": "Diff snapshot storage",
+      "metric": "diff.snapshotsBytes",
+      "unit": "bytes",
+      "target": 367001600,
+      "warningThreshold": 419430400,
+      "comparator": "lte",
+      "actual": 348110468,
+      "result": "pass",
+      "measurementMethod": "static-file-size",
+      "environment": "Repository storage"
+    },
+    {
+      "budgetId": "PERF-BUDGET-010",
+      "name": "Inline script payload",
+      "metric": "portal.inlineScriptBytes",
+      "unit": "bytes",
+      "target": 0,
+      "warningThreshold": 4096,
+      "comparator": "lte",
+      "actual": 0,
+      "result": "pass",
+      "measurementMethod": "static-html-scan",
+      "environment": "Hosted and file review"
+    },
+    {
+      "budgetId": "PERF-BUDGET-011",
+      "name": "Inline style payload",
+      "metric": "portal.inlineStyleBytes",
+      "unit": "bytes",
+      "target": 0,
+      "warningThreshold": 4096,
+      "comparator": "lte",
+      "actual": 0,
+      "result": "pass",
+      "measurementMethod": "static-html-scan",
+      "environment": "Hosted and file review"
+    },
+    {
+      "budgetId": "PERF-BUDGET-012",
+      "name": "External blocking scripts",
+      "metric": "portal.externalScriptCount",
+      "unit": "count",
+      "target": 0,
+      "warningThreshold": 0,
+      "comparator": "lte",
+      "actual": 0,
+      "result": "pass",
+      "measurementMethod": "static-html-scan",
+      "environment": "Hosted runtime"
+    },
+    {
+      "budgetId": "PERF-BUDGET-013",
+      "name": "External stylesheet dependencies",
+      "metric": "portal.externalStylesheetCount",
+      "unit": "count",
+      "target": 1,
+      "warningThreshold": 2,
+      "comparator": "lte",
+      "actual": 1,
+      "result": "pass",
+      "measurementMethod": "static-html-scan",
+      "environment": "Hosted runtime"
+    },
+    {
+      "budgetId": "PERF-BUDGET-014",
+      "name": "Eager Diff imports",
+      "metric": "portal.eagerDiffImportCount",
+      "unit": "count",
+      "target": 0,
+      "warningThreshold": 0,
+      "comparator": "lte",
+      "actual": 0,
+      "result": "pass",
+      "measurementMethod": "static-import-graph",
+      "environment": "Hosted runtime"
+    },
+    {
+      "budgetId": "PERF-BUDGET-015",
+      "name": "Relationship render bound",
+      "metric": "relationships.maxRenderedNeighbors",
+      "unit": "count",
+      "target": 80,
+      "warningThreshold": 100,
+      "comparator": "lte",
+      "actual": 80,
+      "result": "pass",
+      "measurementMethod": "config-inspection",
+      "environment": "Hosted and file review"
+    },
+    {
+      "budgetId": "PERF-BUDGET-016",
+      "name": "Search page result bound",
+      "metric": "search.defaultPageLimit",
+      "unit": "count",
+      "target": 50,
+      "warningThreshold": 100,
+      "comparator": "lte",
+      "actual": 50,
+      "result": "pass",
+      "measurementMethod": "config-inspection",
+      "environment": "Hosted and file review"
+    },
+    {
+      "budgetId": "PERF-BUDGET-017",
+      "name": "Bootstrap registry loaders",
+      "metric": "portal.bootstrapRegistryLoaderCount",
+      "unit": "count",
+      "target": 24,
+      "warningThreshold": 30,
+      "comparator": "lte",
+      "actual": 23,
+      "result": "pass",
+      "measurementMethod": "static-import-graph",
+      "environment": "Hosted runtime"
+    }
+  ],
+  "checks": [
+    {
+      "checkId": "PORTAL-PERF-001",
+      "title": "Bootstrap generated fallbacks are failure-path only",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "Static app bootstrap graph reaches 0 generated-fallback bytes; target is 0."
+    },
+    {
+      "checkId": "PORTAL-PERF-002",
+      "title": "Contract Diff remains route-lazy",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "Diff engine is dynamically imported from the lifecycle route and absent from app bootstrap."
+    },
+    {
+      "checkId": "PORTAL-PERF-003",
+      "title": "Diff snapshots are not referenced by normal bootstrap",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "Normal app/router static imports do not include snapshots.json or generated-diff."
+    },
+    {
+      "checkId": "PORTAL-PERF-004",
+      "title": "Global Search rendering is bounded",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "Page limit 50; palette limit 14."
+    },
+    {
+      "checkId": "PORTAL-PERF-005",
+      "title": "Relationship rendering is bounded",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "neighbors=80, expanded=500, rows=200"
+    },
+    {
+      "checkId": "PORTAL-PERF-006",
+      "title": "No inline script payload",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "0 inline script bytes."
+    },
+    {
+      "checkId": "PORTAL-PERF-007",
+      "title": "No inline style payload",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "0 inline style bytes."
+    },
+    {
+      "checkId": "PORTAL-PERF-008",
+      "title": "No external script dependency",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "0 external scripts in index.html."
+    },
+    {
+      "checkId": "PORTAL-PERF-009",
+      "title": "External stylesheets stay bounded",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "1 external stylesheets in index.html."
+    },
+    {
+      "checkId": "PORTAL-PERF-010",
+      "title": "Font Awesome host is preconnected",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "cdnjs.cloudflare.com is preconnected before the Font Awesome stylesheet."
+    },
+    {
+      "checkId": "PORTAL-PERF-011",
+      "title": "Performance route is lazy",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "Performance engine/pages are dynamically imported only when the route is opened."
+    },
+    {
+      "checkId": "PORTAL-PERF-012",
+      "title": "Generated fallback growth is measured",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "Generated fallback aggregate bytes are included in machine-readable budget results."
+    },
+    {
+      "checkId": "PORTAL-PERF-013",
+      "title": "Search index growth is measured",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "Search index bytes are included in machine-readable budget results."
+    },
+    {
+      "checkId": "PORTAL-PERF-014",
+      "title": "Relationship index growth is measured",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "Relationship index bytes are included in machine-readable budget results."
+    },
+    {
+      "checkId": "PORTAL-PERF-015",
+      "title": "Diff storage growth is measured",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "Diff snapshot storage bytes are included separately from initial-route budgets."
+    },
+    {
+      "checkId": "PORTAL-PERF-016",
+      "title": "Bootstrap loader count is bounded",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "23 authoritative data loaders are invoked by app bootstrap."
+    },
+    {
+      "checkId": "PORTAL-PERF-017",
+      "title": "Performance stylesheet is local",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "Performance UI styles load from a local cacheable stylesheet."
+    },
+    {
+      "checkId": "PORTAL-PERF-018",
+      "title": "No dark-mode performance override",
+      "result": "pass",
+      "reviewType": "automated-static",
+      "evidence": "Performance UI preserves the light-only portal contract."
+    }
+  ],
+  "summary": {
+    "budgetCount": 17,
+    "budgetPass": 17,
+    "budgetWarning": 0,
+    "budgetFail": 0,
+    "checkCount": 18,
+    "checkPass": 18,
+    "checkFail": 0
+  },
+  "notes": [
+    "Static repository audit does not claim browser Core Web Vitals or production field performance.",
+    "Diff snapshot storage is intentionally measured separately because Contract Diff history is route-lazy."
+  ]
+}

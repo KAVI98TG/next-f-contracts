@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "deprecations.deprecationSchema",
+  "title": "NEXT F Deprecation Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "deprecationId",
+    "affectedRegistryId",
+    "affectedVersionRange",
+    "deprecatedSince",
+    "status",
+    "reason",
+    "replacement",
+    "severity",
+    "impactScope",
+    "siteTypesAffected",
+    "modulesAffected",
+    "apisAffected",
+    "dataMigrationRequired",
+    "codeMigrationRequired",
+    "configurationMigrationRequired",
+    "autoMigratable",
+    "manualReviewRequired",
+    "relatedChangelogEntries",
+    "relatedDiffEvidence",
+    "sourceReference"
+  ],
+  "properties": {
+    "deprecationId": {
+      "type": "string",
+      "pattern": "^dep_[a-z0-9][a-z0-9._-]*$"
+    },
+    "affectedRegistryId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "affectedVersionRange": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deprecatedSince": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "deprecated",
+        "removed"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "replacement": {
+      "$ref": "replacement.schema.json"
+    },
+    "lastSupportedVersion": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "supportUntil": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Date/policy only when authoritative; null means unknown/not established."
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "impactScope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "siteTypesAffected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "modulesAffected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "apisAffected": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "dataMigrationRequired": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "codeMigrationRequired": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "configurationMigrationRequired": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "autoMigratable": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "manualReviewRequired": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "breakingRemovalTarget": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "relatedChangelogEntries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "relatedDiffEvidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "sourceReference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

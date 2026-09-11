@@ -1,0 +1,180 @@
+{
+  "registryVersion": "1.0.0",
+  "domains": [
+    {
+      "id": "accessibility",
+      "label": "Accessibility",
+      "description": "Machine-readable accessibility controls, verification expectations, surface coverage and Contract Portal audit evidence."
+    },
+    {
+      "id": "admin-ui",
+      "label": "NEXT F Admin UI",
+      "description": "Internal-only NEXT F Admin screen, control, panel and privileged operational metadata derived from canonical contracts and permissions."
+    },
+    {
+      "id": "api",
+      "label": "API",
+      "description": "Versioned public, CMS, Admin, Commerce, Event and Webhook API contracts, common envelopes and operation policies."
+    },
+    {
+      "id": "blocks",
+      "label": "Blocks",
+      "description": "Reusable section and nested Block contracts that connect structured CMS content to coded frontend components."
+    },
+    {
+      "id": "changelog",
+      "label": "Changelog",
+      "description": "Authoritative coordinated release notes, release evidence and categorized change metadata."
+    },
+    {
+      "id": "cms-ui",
+      "label": "Customer CMS UI",
+      "description": "Declarative Customer CMS screen, editor, field binding, action, layout and responsive metadata derived from canonical contracts."
+    },
+    {
+      "id": "commerce",
+      "label": "Commerce",
+      "description": "Provider-neutral catalog, inventory, customers, cart, checkout, orders, payments, tax, shipping, fulfillment, promotions, returns and reviews."
+    },
+    {
+      "id": "content",
+      "label": "Content",
+      "description": "Pages, editorial content, documentation, business content, navigation, legal content and custom collections."
+    },
+    {
+      "id": "core",
+      "label": "Core",
+      "description": "Shared identity, scope, publishing, versioning and audit contracts."
+    },
+    {
+      "id": "deprecations",
+      "label": "Deprecations",
+      "description": "Lifecycle deprecation records, replacement guidance, support windows and migration impact."
+    },
+    {
+      "id": "developer",
+      "label": "Developer",
+      "description": "Codex/AI development authority, operational workflow, stop conditions, required artifacts and implementation reporting."
+    },
+    {
+      "id": "diff",
+      "label": "Contract Diff",
+      "description": "Exact release comparison, structural change classification, compatibility impact and version recommendation metadata."
+    },
+    {
+      "id": "events",
+      "label": "Events",
+      "description": "Canonical completed-fact event definitions, envelope and production/consumption policies."
+    },
+    {
+      "id": "examples",
+      "label": "Examples",
+      "description": "Complete reference Site compositions combining canonical manifests, modules, capabilities, schemas, APIs, permissions, events, integrations and CMS/Admin metadata."
+    },
+    {
+      "id": "fields",
+      "label": "Fields",
+      "description": "Primitive reusable field contracts, field configuration and field validation vocabularies."
+    },
+    {
+      "id": "forms",
+      "label": "Forms and Leads",
+      "description": "Form Builder, submissions, anti-abuse, consent snapshots, operational Leads, notifications and mappings."
+    },
+    {
+      "id": "foundation",
+      "label": "Foundation",
+      "description": "Constitution, terminology, naming, architecture, ownership and security foundations."
+    },
+    {
+      "id": "integrations",
+      "label": "Integrations",
+      "description": "Provider connectors, authentication, configuration, mappings, runtime boundaries, synchronization, health and resilience."
+    },
+    {
+      "id": "lifecycle",
+      "label": "Lifecycle",
+      "description": "Versioning and compatibility foundations."
+    },
+    {
+      "id": "manifest",
+      "label": "Site Manifest",
+      "description": "Repository-side Site identity, pinned contract versions, environments, modules, runtime, CMS, Events, integrations and extension declarations."
+    },
+    {
+      "id": "marketing",
+      "label": "Marketing and Tracking",
+      "description": "Provider-neutral analytics, tracking, conversions, campaign attribution, consent, destinations and reporting contracts."
+    },
+    {
+      "id": "modules",
+      "label": "Modules",
+      "description": "Site modules, capabilities, dependencies and CMS/Admin navigation metadata."
+    },
+    {
+      "id": "performance",
+      "label": "Performance",
+      "description": "Machine-readable performance rules, budgets and Contract Portal measurement evidence."
+    },
+    {
+      "id": "permissions",
+      "label": "Permissions",
+      "description": "Canonical permission metadata, roles, assignments, scope binding and authorization evaluation contracts."
+    },
+    {
+      "id": "platform",
+      "label": "Platform",
+      "description": "Shared platform administration, organizations, Sites, users, roles, settings, diagnostics, support and contract operations."
+    },
+    {
+      "id": "portal",
+      "label": "Portal",
+      "description": "Contract portal presentation and navigation definitions."
+    },
+    {
+      "id": "privacy",
+      "label": "Privacy & Data",
+      "description": "Data classifications, purpose, flow eligibility, retention, consent relevance, redaction, deletion and privacy-operation metadata."
+    },
+    {
+      "id": "registry",
+      "label": "Registry",
+      "description": "Registry engine, machine-readable indexes and controlled vocabularies."
+    },
+    {
+      "id": "relationships",
+      "label": "Relationships",
+      "description": "Generated cross-reference graph, relationship semantics, dependency/impact discovery and bounded path tracing across the Contract Registry."
+    },
+    {
+      "id": "search",
+      "label": "Global Search",
+      "description": "Local browser discovery index for canonical registry items, fields, routes and repository documentation."
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "description": "Machine-readable security controls, severity, value classes, verification expectations and platform-surface mappings."
+    },
+    {
+      "id": "seo",
+      "label": "SEO",
+      "description": "Search metadata, keyword targeting, directives, structured data, redirects, sitemaps, audits, link health and search performance."
+    },
+    {
+      "id": "shared",
+      "label": "Shared",
+      "description": "Reusable cross-domain structures such as address, media, links, CTA, contact and external references."
+    },
+    {
+      "id": "validation",
+      "label": "Validation",
+      "description": "Browser and developer validation tooling for NEXT F contracts and Site Manifests."
+    },
+    {
+      "id": "webhooks",
+      "label": "Webhooks",
+      "description": "Outbound endpoint verification, subscriptions, HMAC signing, Event exposure, delivery, retries, dead-lettering and observability."
+    }
+  ]
+}

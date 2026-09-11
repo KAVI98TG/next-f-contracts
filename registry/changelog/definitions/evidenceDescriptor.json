@@ -1,0 +1,74 @@
+{
+  "$id": "changelog.evidenceDescriptor",
+  "name": "Changelog Evidence Descriptor",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "changelog",
+  "type": "schema",
+  "category": "release-lifecycle",
+  "description": "Captures the evidence level and links supporting Diff/Compatibility records without claiming deployment/runtime proof.",
+  "fields": [
+    {
+      "key": "evidenceLevel",
+      "required": true,
+      "nullable": false,
+      "description": "evidenceLevel",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "diffAvailable",
+      "required": true,
+      "nullable": false,
+      "description": "diffAvailable",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "diffRoute",
+      "required": false,
+      "nullable": true,
+      "description": "diffRoute",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "compatibilityAvailable",
+      "required": true,
+      "nullable": false,
+      "description": "compatibilityAvailable",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "compatibilityRoute",
+      "required": false,
+      "nullable": true,
+      "description": "compatibilityRoute",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "migrationRoute",
+      "required": false,
+      "nullable": true,
+      "description": "migrationRoute",
+      "primitive": "fields.url"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "changelog.changelogStandard",
+      "description": "Governed by the NEXT F Changelog Standard."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "publicTechnicalMetadataOnly",
+      "description": "Changelog metadata must not contain secrets or customer runtime records."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": true
+}

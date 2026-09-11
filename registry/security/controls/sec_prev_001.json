@@ -1,0 +1,34 @@
+{
+  "controlId": "SEC-PREV-001",
+  "name": "Preview and staging access control",
+  "category": "environments",
+  "requirement": "Non-production environments containing customer data, privileged previews or production-like integrations must be access-controlled and clearly isolated from public production.",
+  "rationale": "Preview URLs are not inherently private.",
+  "applicability": [
+    "preview",
+    "staging",
+    "customer-sites"
+  ],
+  "obligation": "mandatory",
+  "scope": "operations",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_prev_001.json"
+}

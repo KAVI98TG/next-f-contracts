@@ -1,0 +1,158 @@
+{
+  "$id": "marketing.attributionModel",
+  "name": "Attribution Model",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "campaign-attribution",
+  "description": "Reporting rule describing how eligible touchpoints receive conversion credit.",
+  "purpose": "Separates reporting methodology from raw touchpoint evidence.",
+  "marketingModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "modelKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable model key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Display name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 200
+      }
+    },
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Attribution strategy.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "firstTouch",
+            "label": "First Touch"
+          },
+          {
+            "value": "lastTouch",
+            "label": "Last Touch"
+          },
+          {
+            "value": "linear",
+            "label": "Linear"
+          },
+          {
+            "value": "positionBased",
+            "label": "Position Based"
+          },
+          {
+            "value": "custom",
+            "label": "Custom"
+          }
+        ]
+      }
+    },
+    {
+      "key": "lookbackWindowDays",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum touchpoint lookback.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 365,
+        "defaultValue": 30
+      }
+    },
+    {
+      "key": "positionFirstCredit",
+      "required": false,
+      "nullable": true,
+      "description": "First-position credit.",
+      "primitive": "fields.percentage"
+    },
+    {
+      "key": "positionLastCredit",
+      "required": false,
+      "nullable": true,
+      "description": "Last-position credit.",
+      "primitive": "fields.percentage"
+    },
+    {
+      "key": "customRules",
+      "required": false,
+      "nullable": true,
+      "description": "Validated custom attribution rules.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "reportingNotTruth",
+      "description": "Attribution is an analytical model, not proof of causality."
+    },
+    {
+      "id": "positionCreditsValid",
+      "description": "Position-based credits must form a valid distribution."
+    },
+    {
+      "id": "customRulesValidated",
+      "description": "Custom rules require deterministic validation."
+    },
+    {
+      "id": "modelKeyStable",
+      "description": "Historical reports retain model/version."
+    }
+  ],
+  "cms": {
+    "label": "Attribution Model",
+    "icon": "fa-bullseye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "attribution-model",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "modelKey",
+      "name",
+      "type",
+      "lookbackWindowDays"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,14 @@
+{
+  "$id": "accessibility.verificationMethod",
+  "name": "Accessibility Verification Method",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "description": "Controlled method for automated or manual accessibility verification.",
+  "domain": "accessibility",
+  "type": "schema",
+  "tags": [
+    "accessibility",
+    "phase-31"
+  ]
+}

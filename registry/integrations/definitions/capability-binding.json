@@ -1,0 +1,105 @@
+{
+  "$id": "integrations.capabilityBinding",
+  "name": "Capability Binding",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "configuration",
+  "description": "Enables and configures one declared connector capability for a connection.",
+  "purpose": "Allows per-Site capability activation and optional mapping references.",
+  "integrationModel": {
+    "kind": "binding",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "capabilityKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical capability.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether enabled.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "resource",
+      "required": false,
+      "nullable": true,
+      "description": "Provider resource used.",
+      "schema": "integrations.resourceReference"
+    },
+    {
+      "key": "configuration",
+      "required": false,
+      "nullable": true,
+      "description": "Capability-specific config.",
+      "itemsSchema": "integrations.configurationValue"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "integrations.resourceReference",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composesMany",
+      "target": "integrations.configurationValue",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "connectorMustDeclare",
+      "description": "Capability must exist on connector definition."
+    },
+    {
+      "id": "disabledNoExecution",
+      "description": "Disabled capability cannot execute."
+    }
+  ],
+  "cms": {
+    "label": "Capability Binding",
+    "icon": "fa-plug",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "capabilityKey",
+      "enabled",
+      "resource",
+      "configuration"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

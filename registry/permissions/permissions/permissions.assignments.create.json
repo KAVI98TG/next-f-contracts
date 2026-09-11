@@ -1,0 +1,29 @@
+{
+  "$id": "permissions.assignments.create",
+  "name": "Create Assignments",
+  "permissionId": "permissions.assignments.create",
+  "domain": "permissions",
+  "resource": "assignments",
+  "action": "create",
+  "scopeKind": "organization",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Create Assignments within the authorized organization scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

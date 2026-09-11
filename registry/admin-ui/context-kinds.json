@@ -1,0 +1,25 @@
+{
+  "registryVersion": "0.21.0",
+  "contextKinds": [
+    {
+      "id": "platform",
+      "label": "Platform",
+      "description": "Internal global platform context."
+    },
+    {
+      "id": "organization",
+      "label": "Organization",
+      "description": "Internal context scoped to one Organization."
+    },
+    {
+      "id": "site",
+      "label": "Site",
+      "description": "Internal context scoped to one Site."
+    },
+    {
+      "id": "resource",
+      "label": "Resource",
+      "description": "Specific entity/resource nested inside its authorized parent scope."
+    }
+  ]
+}

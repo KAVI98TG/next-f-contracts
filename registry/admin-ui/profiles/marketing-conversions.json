@@ -1,0 +1,114 @@
+{
+  "$id": "adminUi.profile.marketing.conversions",
+  "name": "Conversions Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "marketing.conversions",
+  "permissionDomain": "marketing",
+  "moduleId": "marketing",
+  "description": "Internal NEXT F Admin metadata for Conversions. Applies only within server-authorized administrative scope.",
+  "route": "/sites/:siteId/marketing/conversions",
+  "screenKind": "admin-editor",
+  "layoutTemplate": "inherited-resource",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "site",
+    "requiresOrganization": false,
+    "requiresSite": true,
+    "allowsCrossTenant": false,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": "cmsUi.profile.marketing.conversions",
+  "inheritanceMode": "reference-not-copy",
+  "targetContracts": [
+    "marketing.conversionDefinition",
+    "marketing.conversionSummary"
+  ],
+  "primaryTargetContract": "marketing.conversionDefinition",
+  "permissions": [
+    "marketing.conversions.create",
+    "marketing.conversions.delete",
+    "marketing.conversions.edit",
+    "marketing.conversions.manage",
+    "marketing.conversions.view"
+  ],
+  "actions": [
+    {
+      "actionId": "create",
+      "permissionId": "marketing.conversions.create",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "delete",
+      "permissionId": "marketing.conversions.delete",
+      "riskLevel": "destructive",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": true,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "edit",
+      "permissionId": "marketing.conversions.edit",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "manage",
+      "permissionId": "marketing.conversions.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "marketing.conversions.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions",
+    "customer-ui-reference",
+    "tracking-consent",
+    "data-governance"
+  ],
+  "controls": [
+    "risk-badge",
+    "explicit-confirmation"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": [
+    "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
+  ]
+}

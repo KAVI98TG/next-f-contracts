@@ -1,0 +1,29 @@
+{
+  "$id": "marketing.tracking.manage",
+  "name": "Manage Tracking",
+  "permissionId": "marketing.tracking.manage",
+  "domain": "marketing",
+  "resource": "tracking",
+  "action": "manage",
+  "scopeKind": "site",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage Tracking within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

@@ -1,0 +1,65 @@
+{
+  "registryVersion": "0.21.0",
+  "screenKinds": [
+    {
+      "id": "platform-dashboard",
+      "label": "Platform Dashboard",
+      "description": "Cross-platform health, attention and operational summary."
+    },
+    {
+      "id": "directory",
+      "label": "Directory",
+      "description": "Cross-tenant internal directory for Organizations, Sites, users or similar resources."
+    },
+    {
+      "id": "site-360",
+      "label": "Site 360",
+      "description": "Internal Site control center with contract, modules, API, integrations, health and audit context."
+    },
+    {
+      "id": "organization-360",
+      "label": "Organization 360",
+      "description": "Internal Organization control center spanning authorized Sites and organization relationships."
+    },
+    {
+      "id": "admin-list",
+      "label": "Admin List",
+      "description": "Internal searchable/filterable resource collection."
+    },
+    {
+      "id": "admin-detail",
+      "label": "Admin Detail",
+      "description": "Read-first internal detail with privileged metadata and bounded actions."
+    },
+    {
+      "id": "admin-editor",
+      "label": "Admin Editor",
+      "description": "Internal create/edit workspace backed by canonical contracts and permissions."
+    },
+    {
+      "id": "admin-operations",
+      "label": "Admin Operations",
+      "description": "Operational management surface driven by server-authoritative commands."
+    },
+    {
+      "id": "admin-report",
+      "label": "Admin Report",
+      "description": "Internal reporting, audit, diagnostics or health surface."
+    },
+    {
+      "id": "admin-settings",
+      "label": "Admin Settings",
+      "description": "Platform/Site administrative configuration with explicit scope and risk controls."
+    },
+    {
+      "id": "admin-registry",
+      "label": "Admin Registry",
+      "description": "Internal contract, event, permission, module or registry exploration surface."
+    },
+    {
+      "id": "admin-queue",
+      "label": "Admin Queue",
+      "description": "Operational queue such as migrations, delivery failures, support or replay requests."
+    }
+  ]
+}

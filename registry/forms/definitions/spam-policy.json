@@ -1,0 +1,158 @@
+{
+  "$id": "forms.spamPolicy",
+  "name": "Spam Policy",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "anti-abuse",
+  "description": "Configures provider-neutral anti-spam controls for a form.",
+  "purpose": "Lets sites apply layered abuse controls without binding the Form contract to one CAPTCHA provider.",
+  "formsModel": {
+    "kind": "policy",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether anti-spam checks are active.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "honeypotEnabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether a hidden honeypot signal is used.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "minimumCompletionSeconds",
+      "required": false,
+      "nullable": true,
+      "description": "Optional minimum plausible completion time.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "maximumLinks",
+      "required": false,
+      "nullable": true,
+      "description": "Optional maximum link count in free-text fields.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "scoreThreshold",
+      "required": false,
+      "nullable": true,
+      "description": "Provider-neutral score threshold when scored signals are available.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    {
+      "key": "challengeMode",
+      "required": true,
+      "nullable": false,
+      "description": "Whether an external challenge may be required.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "adaptive",
+            "label": "Adaptive"
+          },
+          {
+            "value": "always",
+            "label": "Always"
+          }
+        ],
+        "defaultValue": "adaptive"
+      }
+    },
+    {
+      "key": "blockedTerms",
+      "required": false,
+      "nullable": false,
+      "description": "Site-managed abusive terms used as one signal, not the sole security control.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "maxItems": 200
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "layeredSignals",
+      "description": "Spam classification should use multiple signals when practical; honeypots or blocked terms alone are not authoritative."
+    },
+    {
+      "id": "challengeProviderLater",
+      "description": "External CAPTCHA/challenge provider credentials belong to the Integration phase, not this policy."
+    },
+    {
+      "id": "noSilentDataLoss",
+      "description": "Spam decisions must be auditable and must not silently delete accepted business records."
+    },
+    {
+      "id": "accessibilityConsidered",
+      "description": "Challenges must not unnecessarily block accessible form completion."
+    }
+  ],
+  "cms": {
+    "label": "Spam Policy",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "enabled",
+      "honeypotEnabled",
+      "minimumCompletionSeconds",
+      "maximumLinks"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

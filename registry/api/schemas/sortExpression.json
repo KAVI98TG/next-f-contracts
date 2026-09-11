@@ -1,0 +1,59 @@
+{
+  "$id": "api.sortExpression",
+  "name": "Sort Expression",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "query",
+  "description": "Allow-listed sort definition.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "field",
+      "required": true,
+      "nullable": false,
+      "description": "field",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "direction",
+      "required": true,
+      "nullable": false,
+      "description": "direction",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "asc",
+          "desc"
+        ]
+      }
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    },
+    {
+      "id": "allowListOnly",
+      "description": "Only operation-declared sort fields are accepted."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

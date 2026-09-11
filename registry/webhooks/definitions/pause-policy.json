@@ -1,0 +1,83 @@
+{
+  "$id": "webhooks.pausePolicy",
+  "name": "Webhook Pause Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "subscriptions",
+  "description": "Defines how deliveries behave while a subscription or endpoint is paused.",
+  "purpose": "Prevents indefinite unbounded retention while allowing short operational recovery.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "queueWhilePaused",
+      "required": true,
+      "nullable": false,
+      "description": "Whether eligible deliveries are deferred while paused.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "maximumQueueHours",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum deferred retention window.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "onExpiry",
+      "required": true,
+      "nullable": false,
+      "description": "Action after paused retention expires.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "dead-letter"
+        ]
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "default72Hours",
+      "description": "Default maximum paused queue retention is 72 hours."
+    },
+    {
+      "id": "expiryDeadLetters",
+      "description": "Deferred deliveries exceeding the window become dead-lettered."
+    },
+    {
+      "id": "noInfiniteQueue",
+      "description": "Indefinite queue retention is prohibited."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Pause Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "queueWhilePaused",
+      "maximumQueueHours",
+      "onExpiry"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

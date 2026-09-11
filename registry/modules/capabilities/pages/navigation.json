@@ -1,0 +1,36 @@
+{
+  "$id": "modules.capability.pages.navigation",
+  "capabilityId": "pages.navigation",
+  "name": "Navigation",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "pages",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Navigation capability within the Pages module.",
+  "contractBindings": [
+    "content.navigation",
+    "content.navigationItem"
+  ],
+  "permissionBindings": [
+    "content.navigation.edit",
+    "content.navigation.manage",
+    "content.navigation.publish",
+    "content.navigation.view"
+  ],
+  "eventBindings": [
+    "navigation.updated"
+  ],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

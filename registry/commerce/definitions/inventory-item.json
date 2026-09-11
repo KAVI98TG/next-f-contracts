@@ -1,0 +1,116 @@
+{
+  "$id": "commerce.inventoryItem",
+  "name": "Inventory Item",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "inventory",
+  "description": "Inventory policy record for a purchasable Variant.",
+  "purpose": "Separates inventory control from Product editorial data.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "variantId",
+      "required": true,
+      "nullable": false,
+      "description": "Variant ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "trackInventory",
+      "required": true,
+      "nullable": false,
+      "description": "Whether quantities are authoritative.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "allowBackorder",
+      "required": true,
+      "nullable": false,
+      "description": "Whether selling beyond available stock is allowed.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "lowStockThreshold",
+      "required": false,
+      "nullable": true,
+      "description": "Optional low-stock threshold.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "commerce.productVariant",
+      "description": "References commerce.productVariant."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "onePerVariant",
+      "description": "At most one active Inventory Item per Variant within a Site."
+    }
+  ],
+  "cms": {
+    "label": "Inventory Item",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "variantId",
+      "trackInventory"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

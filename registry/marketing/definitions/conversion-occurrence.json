@@ -1,0 +1,184 @@
+{
+  "$id": "marketing.conversionOccurrence",
+  "name": "Conversion Occurrence",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "conversion",
+  "description": "Immutable observed instance of a canonical conversion.",
+  "purpose": "Separates business conversion occurrence from destination delivery so one conversion can route to multiple systems.",
+  "marketingModel": {
+    "kind": "observation",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "occurrenceId",
+      "required": true,
+      "nullable": false,
+      "description": "Unique occurrence ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "conversionKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical conversion key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "trackingEventId",
+      "required": true,
+      "nullable": false,
+      "description": "Source tracking observation ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "occurredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Conversion timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "value",
+      "required": false,
+      "nullable": true,
+      "description": "Resolved value.",
+      "schema": "marketing.conversionValue"
+    },
+    {
+      "key": "dedupeKey",
+      "required": false,
+      "nullable": true,
+      "description": "Stable dedupe key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    },
+    {
+      "key": "attribution",
+      "required": false,
+      "nullable": true,
+      "description": "Attribution context.",
+      "schema": "marketing.conversionAttribution"
+    },
+    {
+      "key": "consentState",
+      "required": false,
+      "nullable": true,
+      "description": "Consent state relevant to dispatch.",
+      "schema": "marketing.consentState"
+    },
+    {
+      "key": "sourceEntity",
+      "required": false,
+      "nullable": true,
+      "description": "Optional canonical source entity ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "references",
+      "target": "marketing.conversionDefinition",
+      "description": "conversionKey resolves to definition."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.conversionValue",
+      "description": "May carry value."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.conversionAttribution",
+      "description": "May carry attribution."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.consentState",
+      "description": "May preserve consent state."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "immutableOccurrence",
+      "description": "Meaning, occurredAt, source and value snapshot are not silently rewritten."
+    },
+    {
+      "id": "dedupeAppliedBeforeCount",
+      "description": "Deduplication applies before aggregate counting."
+    },
+    {
+      "id": "noDestinationStatus",
+      "description": "Provider delivery state belongs to dispatch results."
+    },
+    {
+      "id": "sourceEntityNotPii",
+      "description": "sourceEntity is canonical ID, never raw email/phone."
+    }
+  ],
+  "cms": {
+    "label": "Conversion Occurrence",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "occurrenceId",
+      "scope",
+      "conversionKey",
+      "trackingEventId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,128 @@
+{
+  "$id": "marketing.conversionDeduplicationPolicy",
+  "name": "Conversion Deduplication Policy",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "conversion",
+  "description": "Rules preventing duplicate counting of one business conversion.",
+  "purpose": "Standardizes deduplication before browser/server/provider delivery paths are attached.",
+  "marketingModel": {
+    "kind": "policy",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "strategy",
+      "required": true,
+      "nullable": false,
+      "description": "Deduplication strategy.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "eventId",
+            "label": "Event ID"
+          },
+          {
+            "value": "dedupeKey",
+            "label": "Dedupe Key"
+          },
+          {
+            "value": "sourceEntity",
+            "label": "Source Entity"
+          },
+          {
+            "value": "none",
+            "label": "None"
+          }
+        ]
+      }
+    },
+    {
+      "key": "windowSeconds",
+      "required": true,
+      "nullable": false,
+      "description": "Duplicate matching window.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "maximum": 2592000,
+        "defaultValue": 86400
+      }
+    },
+    {
+      "key": "caseSensitive",
+      "required": true,
+      "nullable": false,
+      "description": "Whether textual keys are case-sensitive.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "allowRetrySameId",
+      "required": true,
+      "nullable": false,
+      "description": "Technical retries with same ID do not create a second conversion.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "technicalRetryNotNewConversion",
+      "description": "Retries preserve original dedupe identity."
+    },
+    {
+      "id": "noneExplicit",
+      "description": "No deduplication is allowed only when explicitly appropriate."
+    },
+    {
+      "id": "providerDedupLater",
+      "description": "Provider-specific dedup tokens map in Phase 10."
+    }
+  ],
+  "cms": {
+    "label": "Conversion Deduplication Policy",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "strategy",
+      "windowSeconds",
+      "caseSensitive",
+      "allowRetrySameId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

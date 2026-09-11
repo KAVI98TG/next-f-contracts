@@ -1,0 +1,22 @@
+{
+  "budgetId": "PERF-BUDGET-017",
+  "name": "Bootstrap registry loaders",
+  "category": "loading",
+  "scope": "contract-portal",
+  "metric": "portal.bootstrapRegistryLoaderCount",
+  "target": 24,
+  "warningThreshold": 30,
+  "comparator": "lte",
+  "unit": "count",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-import-graph",
+  "environment": "Hosted runtime",
+  "notes": "Counts authoritative data loaders invoked by the current app shell. Future work may route-lazy more domains.",
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_017.json"
+}

@@ -1,0 +1,88 @@
+{
+  "$id": "diff.releaseDescriptor",
+  "name": "Diff Release Descriptor",
+  "version": "0.26.0",
+  "status": "stable",
+  "domain": "diff",
+  "category": "contract-diff",
+  "description": "Metadata and provenance for one Registry release snapshot",
+  "purpose": "Metadata and provenance for one Registry release snapshot",
+  "fields": [
+    {
+      "key": "version",
+      "required": true,
+      "nullable": false,
+      "description": "version",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "phase",
+      "required": false,
+      "nullable": true,
+      "description": "phase",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "available",
+      "required": true,
+      "nullable": false,
+      "description": "available",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "availability",
+      "required": true,
+      "nullable": false,
+      "description": "availability",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "itemCount",
+      "required": false,
+      "nullable": true,
+      "description": "itemCount",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "registrySha256",
+      "required": false,
+      "nullable": true,
+      "description": "registrySha256",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sourceType",
+      "required": true,
+      "nullable": false,
+      "description": "sourceType",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "sourceReference",
+      "required": false,
+      "nullable": true,
+      "description": "sourceReference",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "notes",
+      "required": false,
+      "nullable": true,
+      "description": "notes",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "contractDiffOnly",
+      "description": "Contains contract/release analysis metadata only and never customer runtime data."
+    }
+  ],
+  "cms": {
+    "label": "Diff Release Descriptor",
+    "customerEditable": false,
+    "adminEditable": false,
+    "publicEligible": true
+  }
+}

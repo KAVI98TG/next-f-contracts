@@ -1,0 +1,31 @@
+{
+  "$id": "permissions.roles.delete",
+  "name": "Delete Roles",
+  "permissionId": "permissions.roles.delete",
+  "domain": "permissions",
+  "resource": "roles",
+  "action": "delete",
+  "scopeKind": "organization",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Delete Roles within the authorized organization scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [
+    "Delete permission never overrides the underlying entity lifecycle, retention, legal-hold or archive rules."
+  ],
+  "version": "0.16.0",
+  "status": "stable"
+}

@@ -1,0 +1,4 @@
+NEXT F Contracts Phase 9 repository smoke test
+Passes: 1117
+Failures: 0
+PASS - repository structure, syntax, references, Marketing registry and light-only UI constraints are valid.

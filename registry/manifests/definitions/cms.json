@@ -1,0 +1,146 @@
+{
+  "$id": "manifest.cms",
+  "name": "Customer CMS Declaration",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "surfaces-bindings",
+  "description": "Declares how the Site participates in the NEXT F Customer CMS.",
+  "purpose": "Prevents every customer project from creating its own administration model and protects the structured-content boundary.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this Site is connected to a Customer CMS Workspace.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "workspaceMode",
+      "required": true,
+      "nullable": false,
+      "description": "CMS scope model.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "site",
+            "label": "Site Workspace"
+          }
+        ],
+        "defaultValue": "site",
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "editingMode",
+      "required": true,
+      "nullable": false,
+      "description": "Content editing model.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "structured",
+            "label": "Structured Content"
+          }
+        ],
+        "defaultValue": "structured",
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "previewEnabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether authorized users may preview unpublished content through the Site.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "publishingEnabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the Site supports CMS publishing actions.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "revisionHistoryEnabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the Site supports canonical revision/version workflows.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "arbitraryCodeEditing",
+      "required": true,
+      "nullable": false,
+      "description": "Whether Customer CMS users may inject arbitrary HTML/CSS/JavaScript.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "siteWorkspaceOnly",
+      "description": "Phase 16 Customer CMS uses one Site Workspace context rather than a separate CMS deployment per Site."
+    },
+    {
+      "id": "structuredEditingOnly",
+      "description": "editingMode must remain structured."
+    },
+    {
+      "id": "arbitraryCodeEditingProhibited",
+      "description": "arbitraryCodeEditing must be false."
+    }
+  ],
+  "cms": {
+    "label": "Customer CMS Declaration",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "enabled",
+      "workspaceMode",
+      "editingMode",
+      "previewEnabled"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

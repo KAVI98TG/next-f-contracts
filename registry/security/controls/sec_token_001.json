@@ -1,0 +1,35 @@
+{
+  "controlId": "SEC-TOKEN-001",
+  "name": "Bearer and token exposure prevention",
+  "category": "secrets",
+  "requirement": "Bearer/session/access/refresh tokens must not be logged, placed in public content, or exposed in query strings unless an explicit contract safely requires a short-lived token.",
+  "rationale": "Tokens commonly function as credentials.",
+  "applicability": [
+    "api",
+    "integrations",
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "both",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_token_001.json"
+}

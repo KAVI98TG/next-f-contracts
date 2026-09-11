@@ -1,0 +1,11 @@
+
+> next-f-contracts@0.36.0 validate:regression
+> node scripts/validate-current-regression.mjs
+
+NEXT F Contracts current regression gate
+Passes: 2444
+Failures: 0
+JSON files: 2038
+JS/MJS files: 202
+Registry items: 2170
+PASS - Current coordinated lifecycle regression gate passed.

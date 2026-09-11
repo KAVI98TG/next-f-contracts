@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.leads.notes",
+  "capabilityId": "leads.notes",
+  "name": "Notes",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "leads",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Notes capability within the Leads module.",
+  "contractBindings": [
+    "forms.leadNote"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

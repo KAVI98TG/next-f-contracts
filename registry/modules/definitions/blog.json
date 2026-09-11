@@ -1,0 +1,114 @@
+{
+  "$id": "modules.blog",
+  "moduleId": "blog",
+  "name": "Blog",
+  "version": "0.18.0",
+  "status": "stable",
+  "category": "content",
+  "icon": "fa-newspaper",
+  "order": 110,
+  "description": "Editorial publishing for Blog Posts, categories, tags, authors, related posts, scheduling and approval workflows.",
+  "selection": {
+    "mandatory": false,
+    "defaultEnabled": false,
+    "explicitManifestSelection": true,
+    "customerCanEnable": false,
+    "nextfAdminCanEnable": true
+  },
+  "dependencies": [
+    {
+      "moduleId": "core",
+      "kind": "required",
+      "reason": "Blog content uses Core publishing/versioning."
+    },
+    {
+      "moduleId": "media",
+      "kind": "required",
+      "reason": "Blog posts use canonical media references."
+    },
+    {
+      "moduleId": "seo",
+      "kind": "recommended",
+      "reason": "Published posts should normally use canonical SEO metadata."
+    }
+  ],
+  "conflicts": [],
+  "capabilityIds": [
+    "blog.categories",
+    "blog.tags",
+    "blog.authors",
+    "blog.related-posts",
+    "blog.scheduling",
+    "blog.approvals"
+  ],
+  "defaultCapabilityIds": [
+    "blog.categories",
+    "blog.tags",
+    "blog.authors"
+  ],
+  "contractBindings": [
+    "content.blogPost",
+    "content.blogCategory",
+    "content.blogTag",
+    "content.author"
+  ],
+  "permissionBindings": [
+    "content.blogcategories.create",
+    "content.blogcategories.delete",
+    "content.blogcategories.edit",
+    "content.blogcategories.manage",
+    "content.blogcategories.view",
+    "content.blogposts.approve",
+    "content.blogposts.create",
+    "content.blogposts.delete",
+    "content.blogposts.edit",
+    "content.blogposts.publish",
+    "content.blogposts.view",
+    "content.blogtags.create",
+    "content.blogtags.delete",
+    "content.blogtags.edit",
+    "content.blogtags.manage",
+    "content.blogtags.view"
+  ],
+  "eventBindings": [
+    "content.archived",
+    "content.created",
+    "content.deleted",
+    "content.published",
+    "content.restored",
+    "content.scheduled",
+    "content.unpublished",
+    "content.updated",
+    "content.version-created"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "group": "Content",
+    "navigation": [
+      {
+        "label": "Blog",
+        "path": "/content/blog",
+        "icon": "fa-newspaper",
+        "order": 20
+      }
+    ]
+  },
+  "admin": {
+    "visible": true,
+    "group": "Sites",
+    "navigation": [
+      {
+        "label": "Blog",
+        "path": "/sites/:siteId/blog",
+        "icon": "fa-newspaper",
+        "order": 30
+      }
+    ]
+  },
+  "manifest": {
+    "moduleId": "blog",
+    "capabilitySelection": "module-scoped",
+    "dependencyValidation": "strict"
+  },
+  "notes": []
+}

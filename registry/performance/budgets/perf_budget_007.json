@@ -1,0 +1,24 @@
+{
+  "budgetId": "PERF-BUDGET-007",
+  "name": "Global Search index size",
+  "category": "search",
+  "scope": "contract-portal",
+  "metric": "search.indexBytes",
+  "target": 12582912,
+  "warningThreshold": 16777216,
+  "comparator": "lte",
+  "unit": "bytes",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-file-size",
+  "environment": "Repository and hosted runtime",
+  "notes": "Search remains a local index; growth beyond the warning threshold requires segmentation/compression review.",
+  "relatedRegistryIds": [
+    "search.searchIndex"
+  ],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_007.json"
+}

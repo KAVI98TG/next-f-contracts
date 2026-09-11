@@ -1,0 +1,14 @@
+{
+  "$id": "accessibility.portalAuditCheck",
+  "name": "Portal Accessibility Audit Check",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "description": "Auditable baseline requirement and evidence for contract.nextf.lk accessibility review.",
+  "domain": "accessibility",
+  "type": "schema",
+  "tags": [
+    "accessibility",
+    "phase-31"
+  ]
+}

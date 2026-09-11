@@ -1,0 +1,210 @@
+{
+  "registryVersion": "1.0.0",
+  "surfaces": [
+    {
+      "surfaceId": "public-site",
+      "label": "Customer public website",
+      "status": "applicable",
+      "controlIds": [
+        "SEC-XSS-001",
+        "SEC-SAN-001",
+        "SEC-OUT-001",
+        "SEC-IN-001",
+        "SEC-SECRET-001",
+        "SEC-REDIR-001",
+        "SEC-QUERY-001",
+        "SEC-UPL-001",
+        "SEC-UPL-002",
+        "SEC-RATE-001",
+        "SEC-ABUSE-001",
+        "SEC-ERR-001",
+        "SEC-HDR-001",
+        "SEC-CSP-001",
+        "SEC-TLS-001",
+        "SEC-DEP-001",
+        "SEC-SUPPLY-001",
+        "SEC-INT-002",
+        "SEC-PREV-001"
+      ],
+      "reason": null
+    },
+    {
+      "surfaceId": "customer-cms",
+      "label": "Customer CMS",
+      "status": "applicable",
+      "controlIds": [
+        "SEC-AUTH-001",
+        "SEC-AUTH-002",
+        "SEC-SESS-001",
+        "SEC-AUTHZ-001",
+        "SEC-CSRF-001",
+        "SEC-XSS-001",
+        "SEC-SAN-001",
+        "SEC-OUT-001",
+        "SEC-IN-001",
+        "SEC-TOKEN-001",
+        "SEC-REDIR-001",
+        "SEC-QUERY-001",
+        "SEC-UPL-001",
+        "SEC-UPL-002",
+        "SEC-UPL-003",
+        "SEC-ABUSE-001",
+        "SEC-BRUTE-001",
+        "SEC-TENANT-001",
+        "SEC-AUDIT-001",
+        "SEC-ERR-001",
+        "SEC-HDR-001",
+        "SEC-CSP-001",
+        "SEC-TLS-001"
+      ],
+      "reason": null
+    },
+    {
+      "surfaceId": "admin",
+      "label": "NEXT F Admin",
+      "status": "applicable",
+      "controlIds": [
+        "SEC-AUTH-001",
+        "SEC-AUTH-002",
+        "SEC-SESS-001",
+        "SEC-AUTHZ-001",
+        "SEC-AUTHZ-002",
+        "SEC-CSRF-001",
+        "SEC-XSS-001",
+        "SEC-SAN-001",
+        "SEC-OUT-001",
+        "SEC-IN-001",
+        "SEC-TOKEN-001",
+        "SEC-REDIR-001",
+        "SEC-QUERY-001",
+        "SEC-UPL-001",
+        "SEC-UPL-002",
+        "SEC-UPL-003",
+        "SEC-ABUSE-001",
+        "SEC-BRUTE-001",
+        "SEC-TENANT-001",
+        "SEC-AUDIT-001",
+        "SEC-ERR-001",
+        "SEC-HDR-001",
+        "SEC-CSP-001",
+        "SEC-TLS-001",
+        "SEC-PAY-003"
+      ],
+      "reason": null
+    },
+    {
+      "surfaceId": "api",
+      "label": "NEXT F APIs",
+      "status": "applicable",
+      "controlIds": [
+        "SEC-AUTH-001",
+        "SEC-AUTHZ-001",
+        "SEC-CORS-001",
+        "SEC-SSRF-001",
+        "SEC-IN-001",
+        "SEC-SECRET-001",
+        "SEC-KEY-001",
+        "SEC-TOKEN-001",
+        "SEC-QUERY-001",
+        "SEC-UPL-003",
+        "SEC-RATE-001",
+        "SEC-TENANT-001",
+        "SEC-ENV-001",
+        "SEC-LOG-001",
+        "SEC-AUDIT-001",
+        "SEC-ERR-001",
+        "SEC-TLS-001",
+        "SEC-PAY-002",
+        "SEC-PAY-003",
+        "SEC-S2S-001",
+        "SEC-IDEMP-001"
+      ],
+      "reason": null
+    },
+    {
+      "surfaceId": "integrations",
+      "label": "Integrations",
+      "status": "applicable",
+      "controlIds": [
+        "SEC-AUTH-001",
+        "SEC-SSRF-001",
+        "SEC-SECRET-002",
+        "SEC-KEY-001",
+        "SEC-OAUTH-001",
+        "SEC-TOKEN-001",
+        "SEC-ENV-001",
+        "SEC-LOG-001",
+        "SEC-TLS-001",
+        "SEC-INT-001",
+        "SEC-INT-002",
+        "SEC-S2S-001"
+      ],
+      "reason": null
+    },
+    {
+      "surfaceId": "webhooks",
+      "label": "Webhooks",
+      "status": "applicable",
+      "controlIds": [
+        "SEC-SSRF-001",
+        "SEC-SECRET-002",
+        "SEC-LOG-001",
+        "SEC-TLS-001",
+        "SEC-PDATA-001",
+        "SEC-IDEMP-001",
+        "SEC-WH-001",
+        "SEC-WH-002",
+        "SEC-WH-003"
+      ],
+      "reason": null
+    },
+    {
+      "surfaceId": "commerce",
+      "label": "Commerce",
+      "status": "applicable",
+      "controlIds": [
+        "SEC-AUTH-001",
+        "SEC-SECRET-002",
+        "SEC-LOG-001",
+        "SEC-PAY-001",
+        "SEC-PAY-002",
+        "SEC-PAY-003",
+        "SEC-PDATA-001",
+        "SEC-IDEMP-001"
+      ],
+      "reason": null
+    },
+    {
+      "surfaceId": "site-manifest",
+      "label": "Site Manifest",
+      "status": "applicable",
+      "controlIds": [
+        "SEC-SECRET-001",
+        "SEC-ENV-001"
+      ],
+      "reason": null
+    },
+    {
+      "surfaceId": "portal",
+      "label": "Contract Portal",
+      "status": "applicable",
+      "controlIds": [
+        "SEC-DEP-001",
+        "SEC-SUPPLY-001",
+        "SEC-BACKUP-001",
+        "SEC-RECOVERY-001"
+      ],
+      "reason": null
+    },
+    {
+      "surfaceId": "build-tooling",
+      "label": "Build/validation tooling",
+      "status": "applicable",
+      "controlIds": [
+        "SEC-DEP-001",
+        "SEC-SUPPLY-001"
+      ],
+      "reason": null
+    }
+  ]
+}

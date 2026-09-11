@@ -1,0 +1,30 @@
+{
+  "$id": "modules.capability.forms.spam-protection",
+  "capabilityId": "forms.spam-protection",
+  "name": "Spam Protection",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "forms",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Spam Protection capability within the Forms module.",
+  "contractBindings": [
+    "forms.spamPolicy",
+    "forms.spamSignal",
+    "forms.spamDecision"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

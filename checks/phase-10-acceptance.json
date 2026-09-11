@@ -1,0 +1,29 @@
+{
+  "phase": 10,
+  "version": "0.11.0",
+  "status": "passed",
+  "checks": [
+    {"id":"P10-001","name":"35 shared integration schemas defined","passed":true},
+    {"id":"P10-002","name":"13 initial provider/generic connectors defined","passed":true},
+    {"id":"P10-003","name":"Canonical capability vocabulary defined","passed":true},
+    {"id":"P10-004","name":"Customer-owned provider account default locked","passed":true},
+    {"id":"P10-005","name":"Opaque server-side secret reference model locked","passed":true},
+    {"id":"P10-006","name":"OAuth and API-key boundaries defined","passed":true},
+    {"id":"P10-007","name":"Public-client configuration requires explicit eligibility","passed":true},
+    {"id":"P10-008","name":"Preview/staging/production environment isolation defined","passed":true},
+    {"id":"P10-009","name":"Phase 9 consent binding applies to client and server dispatch","passed":true},
+    {"id":"P10-010","name":"Canonical event/provider event mapping separation defined","passed":true},
+    {"id":"P10-011","name":"Canonical conversion/provider conversion mapping separation defined","passed":true},
+    {"id":"P10-012","name":"Explicit data minimization and field mapping defined","passed":true},
+    {"id":"P10-013","name":"Runtime binding prohibits arbitrary JavaScript","passed":true},
+    {"id":"P10-014","name":"Sync policy/cursor/run/result model defined","passed":true},
+    {"id":"P10-015","name":"Health checks and safe connection tests defined","passed":true},
+    {"id":"P10-016","name":"Normalized safe provider error model defined","passed":true},
+    {"id":"P10-017","name":"Rate limit and bounded retry models defined","passed":true},
+    {"id":"P10-018","name":"Custom API and Webhook outbound SSRF protections documented","passed":true},
+    {"id":"P10-019","name":"Generic Webhook does not preempt Phase 14 authority","passed":true},
+    {"id":"P10-020","name":"Integration explorer and connector detail UI available","passed":true},
+    {"id":"P10-021","name":"Generated fallback SHA-256 bound to authoritative Integration index","passed":true},
+    {"id":"P10-022","name":"Light-only paper SaaS portal design preserved","passed":true}
+  ]
+}

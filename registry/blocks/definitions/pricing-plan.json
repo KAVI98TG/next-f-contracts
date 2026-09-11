@@ -1,0 +1,208 @@
+{
+  "$id": "blocks.pricingPlan",
+  "name": "Pricing Plan",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "foundation",
+  "description": "Display-oriented pricing plan item for marketing pages.",
+  "purpose": "Supports service/package price presentation without pretending to be a transactional commerce price or checkout contract.",
+  "blockModel": {
+    "kind": "embedded",
+    "placement": "nested-only",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Plan or package name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "badge",
+      "required": false,
+      "nullable": true,
+      "description": "Optional merchandising badge such as Most Popular.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional plan summary.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1200,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "priceLabel",
+      "required": true,
+      "nullable": false,
+      "description": "Display price text such as From LKR 25,000 or Contact us.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 100,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "billingLabel",
+      "required": false,
+      "nullable": true,
+      "description": "Optional billing-period text such as per month.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "features",
+      "required": false,
+      "nullable": true,
+      "description": "Ordered human-readable feature strings.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "array",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "cta",
+      "required": false,
+      "nullable": true,
+      "description": "Optional plan CTA.",
+      "schema": "shared.cta"
+    },
+    {
+      "key": "highlighted",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the approved frontend may visually prioritize this plan.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "disclaimer",
+      "required": false,
+      "nullable": true,
+      "description": "Optional pricing qualification or terms note.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "shared.cta",
+      "description": "Plan may include a CTA."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "displayOnlyPricing",
+      "description": "priceLabel is display content and must not be used as an authoritative commerce checkout amount."
+    },
+    {
+      "id": "featuresStringsOnly",
+      "description": "features must contain non-empty plain text strings only."
+    }
+  ],
+  "cms": {
+    "label": "Pricing Plan",
+    "icon": "fa-tags",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "embedded-item-editor",
+    "summaryFields": [
+      "name",
+      "badge",
+      "description"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": false,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Pricing qualifications must remain available as text and not only through visual decoration."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

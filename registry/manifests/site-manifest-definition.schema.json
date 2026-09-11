@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/manifests/site-manifest-definition.schema.json",
+  "title": "NEXT F Site Manifest Definition Contract",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "category",
+    "description",
+    "purpose",
+    "fields",
+    "validationRules"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^manifest\\.[A-Za-z][A-Za-z0-9]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "enum": [
+        "experimental",
+        "draft",
+        "stable",
+        "deprecated",
+        "removed"
+      ]
+    },
+    "domain": {
+      "const": "manifest"
+    },
+    "category": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "array"
+    },
+    "validationRules": {
+      "type": "array"
+    }
+  }
+}

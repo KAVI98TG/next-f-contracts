@@ -1,0 +1,81 @@
+{
+  "$id": "changelog.releaseSummary",
+  "name": "Changelog Release Summary",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "changelog",
+  "type": "schema",
+  "category": "release-lifecycle",
+  "description": "Machine-readable counts and evidence summary for one coordinated release.",
+  "fields": [
+    {
+      "key": "version",
+      "required": true,
+      "nullable": false,
+      "description": "version",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "phase",
+      "required": true,
+      "nullable": false,
+      "description": "phase",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "title",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "entryCount",
+      "required": true,
+      "nullable": false,
+      "description": "entryCount",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "categoryCounts",
+      "required": true,
+      "nullable": false,
+      "description": "categoryCounts",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "evidenceLevel",
+      "required": true,
+      "nullable": false,
+      "description": "evidenceLevel",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "exactRegistrySnapshotAvailable",
+      "required": true,
+      "nullable": false,
+      "description": "exactRegistrySnapshotAvailable",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "changelog.changelogStandard",
+      "description": "Governed by the NEXT F Changelog Standard."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "publicTechnicalMetadataOnly",
+      "description": "Changelog metadata must not contain secrets or customer runtime records."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": true
+}

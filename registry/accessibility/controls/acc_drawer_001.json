@@ -1,0 +1,33 @@
+{
+  "controlId": "ACC-DRAWER-001",
+  "name": "Accessible drawers",
+  "category": "components",
+  "requirement": "Navigation and action drawers must expose their state, support keyboard closing, and manage focus without trapping users behind the drawer.",
+  "rationale": "Drawers are modal-like interactions on smaller screens and need equivalent keyboard behavior.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "drawer",
+    "navigation"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "keyboard-manual",
+    "integration-test"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_drawer_001.json"
+}

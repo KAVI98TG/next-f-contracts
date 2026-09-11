@@ -1,0 +1,145 @@
+{
+  "registryVersion": "0.23.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Reference Examples Library",
+  "description": "Complete contract-composition references for common NEXT F customer Site types. Examples are architecture references, not visual templates.",
+  "standard": "standards/30-examples-library-standard.md",
+  "definitionSchema": "registry/examples/reference-example.schema.json",
+  "categories": [
+    {
+      "id": "business",
+      "label": "Business Websites",
+      "description": "Corporate and service-led customer websites."
+    },
+    {
+      "id": "growth",
+      "label": "Growth & Lead Generation",
+      "description": "Conversion and lead-generation architecture."
+    },
+    {
+      "id": "commerce",
+      "label": "Commerce",
+      "description": "Transactional ecommerce architecture."
+    },
+    {
+      "id": "knowledge",
+      "label": "Knowledge & Documentation",
+      "description": "Documentation and self-service knowledge architecture."
+    },
+    {
+      "id": "extension",
+      "label": "Custom Extensions",
+      "description": "Controlled Site-specific extension architecture."
+    }
+  ],
+  "examples": [
+    {
+      "$id": "examples.corporate-site",
+      "slug": "corporate",
+      "name": "Corporate Website Reference",
+      "siteType": "corporate",
+      "category": "business",
+      "complexity": "standard",
+      "summary": "Content-led organization website with structured pages, blog, SEO, forms, analytics, consent and post-launch integrations.",
+      "source": "registry/examples/definitions/corporate.json",
+      "bundlePath": "examples/corporate",
+      "manifestSource": "registry/manifests/examples/corporate.json",
+      "moduleCount": 9,
+      "capabilityCount": 30,
+      "contractCount": 234,
+      "permissionCount": 139,
+      "integrationCount": 4
+    },
+    {
+      "$id": "examples.service-site",
+      "slug": "service",
+      "name": "Service Business Website Reference",
+      "siteType": "service",
+      "category": "business",
+      "complexity": "standard",
+      "summary": "Conversion-focused service website with service detail content, proof, enquiries, Leads, SEO, analytics and marketing integrations.",
+      "source": "registry/examples/definitions/service.json",
+      "bundlePath": "examples/service",
+      "manifestSource": "registry/manifests/examples/service.json",
+      "moduleCount": 11,
+      "capabilityCount": 38,
+      "contractCount": 270,
+      "permissionCount": 163,
+      "integrationCount": 6
+    },
+    {
+      "$id": "examples.lead-generation-site",
+      "slug": "lead-generation",
+      "name": "Lead Generation Website Reference",
+      "siteType": "lead-generation",
+      "category": "growth",
+      "complexity": "advanced",
+      "summary": "Campaign and organic landing-page system centered on forms, Leads, attribution, conversions, analytics and controlled ad integrations.",
+      "source": "registry/examples/definitions/lead-generation.json",
+      "bundlePath": "examples/lead-generation",
+      "manifestSource": "registry/manifests/examples/lead-generation.json",
+      "moduleCount": 10,
+      "capabilityCount": 35,
+      "contractCount": 264,
+      "permissionCount": 147,
+      "integrationCount": 8
+    },
+    {
+      "$id": "examples.commerce-site",
+      "slug": "commerce",
+      "name": "Ecommerce Website Reference",
+      "siteType": "commerce",
+      "category": "commerce",
+      "complexity": "advanced",
+      "summary": "Full ecommerce storefront reference with catalog, inventory, cart, checkout, orders, payments, shipping, returns, SEO and marketing measurement.",
+      "source": "registry/examples/definitions/commerce.json",
+      "bundlePath": "examples/commerce",
+      "manifestSource": "registry/manifests/examples/commerce.json",
+      "moduleCount": 10,
+      "capabilityCount": 46,
+      "contractCount": 445,
+      "permissionCount": 208,
+      "integrationCount": 8
+    },
+    {
+      "$id": "examples.documentation-site",
+      "slug": "documentation",
+      "name": "Documentation Website Reference",
+      "siteType": "documentation",
+      "category": "knowledge",
+      "complexity": "standard",
+      "summary": "Documentation and knowledge-base website with collections, articles, structured navigation, search, SEO, analytics and controlled downloads.",
+      "source": "registry/examples/definitions/documentation.json",
+      "bundlePath": "examples/documentation",
+      "manifestSource": "registry/manifests/examples/documentation.json",
+      "moduleCount": 8,
+      "capabilityCount": 27,
+      "contractCount": 203,
+      "permissionCount": 114,
+      "integrationCount": 4
+    },
+    {
+      "$id": "examples.custom-site",
+      "slug": "custom",
+      "name": "Custom Website Extension Reference",
+      "siteType": "custom",
+      "category": "extension",
+      "complexity": "advanced",
+      "summary": "Controlled reference for a Site whose requirements exceed canonical site types while still reusing all existing NEXT F contracts first.",
+      "source": "registry/examples/definitions/custom.json",
+      "bundlePath": "examples/custom",
+      "manifestSource": "registry/manifests/examples/custom.json",
+      "moduleCount": 7,
+      "capabilityCount": 25,
+      "contractCount": 215,
+      "permissionCount": 118,
+      "integrationCount": 4
+    }
+  ],
+  "counts": {
+    "examples": 6,
+    "siteTypes": 6,
+    "bundles": 6,
+    "categories": 5
+  }
+}

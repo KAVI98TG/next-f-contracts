@@ -1,0 +1,744 @@
+{
+  "registryVersion": "0.13.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Commerce State Machines",
+  "description": "Canonical Phase 12 lifecycle transitions and guards for Phase 11 Commerce status fields.",
+  "count": 16,
+  "stateMachines": [
+    {
+      "id": "commerce.state.cart",
+      "name": "Cart Status",
+      "contract": "commerce.cart",
+      "field": "status",
+      "states": [
+        "active",
+        "converted",
+        "abandoned",
+        "expired"
+      ],
+      "initial": "active",
+      "terminal": [
+        "converted",
+        "abandoned",
+        "expired"
+      ],
+      "transitions": {
+        "active": [
+          "converted",
+          "abandoned",
+          "expired"
+        ]
+      },
+      "guards": {
+        "active->converted": [
+          "commerce.rule.cartConvertedTerminal",
+          "commerce.rule.checkoutSnapshotsCart"
+        ],
+        "active->abandoned": [],
+        "active->expired": [
+          "commerce.rule.cartExpiredNotMutable"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.checkout",
+      "name": "Checkout Status",
+      "contract": "commerce.checkout",
+      "field": "status",
+      "states": [
+        "started",
+        "information-complete",
+        "payment-pending",
+        "completed",
+        "abandoned",
+        "expired"
+      ],
+      "initial": "started",
+      "terminal": [
+        "completed",
+        "abandoned",
+        "expired"
+      ],
+      "transitions": {
+        "started": [
+          "information-complete",
+          "abandoned",
+          "expired"
+        ],
+        "information-complete": [
+          "payment-pending",
+          "completed",
+          "abandoned",
+          "expired"
+        ],
+        "payment-pending": [
+          "completed",
+          "abandoned",
+          "expired"
+        ]
+      },
+      "guards": {
+        "information-complete->completed": [
+          "commerce.rule.checkoutCatalogRevalidation",
+          "commerce.rule.checkoutInventoryRevalidation",
+          "commerce.rule.checkoutDiscountRevalidation",
+          "commerce.rule.checkoutTaxShippingRevalidation",
+          "commerce.rule.checkoutSingleOrderConversion"
+        ],
+        "payment-pending->completed": [
+          "commerce.rule.checkoutSingleOrderConversion"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.orderPayment",
+      "name": "Order Payment Status",
+      "contract": "commerce.order",
+      "field": "paymentStatus",
+      "states": [
+        "pending",
+        "authorized",
+        "partially-paid",
+        "paid",
+        "partially-refunded",
+        "refunded",
+        "failed",
+        "cancelled"
+      ],
+      "initial": "pending",
+      "terminal": [
+        "refunded",
+        "cancelled"
+      ],
+      "transitions": {
+        "pending": [
+          "authorized",
+          "partially-paid",
+          "paid",
+          "failed",
+          "cancelled"
+        ],
+        "authorized": [
+          "partially-paid",
+          "paid",
+          "failed",
+          "cancelled"
+        ],
+        "partially-paid": [
+          "paid",
+          "failed",
+          "cancelled"
+        ],
+        "paid": [
+          "partially-refunded",
+          "refunded"
+        ],
+        "partially-refunded": [
+          "refunded",
+          "paid"
+        ],
+        "failed": [
+          "pending",
+          "authorized",
+          "partially-paid",
+          "paid",
+          "cancelled"
+        ]
+      },
+      "guards": {
+        "*": [
+          "commerce.rule.orderPaymentStatusDerived",
+          "commerce.rule.paymentStatusReconcile"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.orderFulfillment",
+      "name": "Order Fulfillment Status",
+      "contract": "commerce.order",
+      "field": "fulfillmentStatus",
+      "states": [
+        "unfulfilled",
+        "processing",
+        "partially-fulfilled",
+        "fulfilled",
+        "returned",
+        "cancelled"
+      ],
+      "initial": "unfulfilled",
+      "terminal": [
+        "returned",
+        "cancelled"
+      ],
+      "transitions": {
+        "unfulfilled": [
+          "processing",
+          "partially-fulfilled",
+          "fulfilled",
+          "cancelled"
+        ],
+        "processing": [
+          "partially-fulfilled",
+          "fulfilled",
+          "cancelled"
+        ],
+        "partially-fulfilled": [
+          "fulfilled",
+          "cancelled"
+        ],
+        "fulfilled": [
+          "returned"
+        ]
+      },
+      "guards": {
+        "*": [
+          "commerce.rule.orderFulfillmentStatusDerived",
+          "commerce.rule.partialFulfillmentDerived",
+          "commerce.rule.cancelledOrderCannotNewFulfill"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.order",
+      "name": "Order Operational Status",
+      "contract": "commerce.order",
+      "field": "orderStatus",
+      "states": [
+        "open",
+        "on-hold",
+        "completed",
+        "cancelled",
+        "archived"
+      ],
+      "initial": "open",
+      "terminal": [
+        "archived"
+      ],
+      "transitions": {
+        "open": [
+          "on-hold",
+          "completed",
+          "cancelled",
+          "archived"
+        ],
+        "on-hold": [
+          "open",
+          "completed",
+          "cancelled",
+          "archived"
+        ],
+        "completed": [
+          "archived"
+        ],
+        "cancelled": [
+          "archived"
+        ]
+      },
+      "guards": {
+        "open->completed": [
+          "commerce.rule.orderCompletionGuard"
+        ],
+        "on-hold->completed": [
+          "commerce.rule.orderCompletionGuard"
+        ],
+        "open->cancelled": [
+          "commerce.rule.orderCancellationGuard"
+        ],
+        "on-hold->cancelled": [
+          "commerce.rule.orderCancellationGuard"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.payment",
+      "name": "Payment Status",
+      "contract": "commerce.payment",
+      "field": "status",
+      "states": [
+        "pending",
+        "requires-action",
+        "authorized",
+        "partially-paid",
+        "paid",
+        "failed",
+        "cancelled",
+        "partially-refunded",
+        "refunded"
+      ],
+      "initial": "pending",
+      "terminal": [
+        "cancelled",
+        "refunded"
+      ],
+      "transitions": {
+        "pending": [
+          "requires-action",
+          "authorized",
+          "partially-paid",
+          "paid",
+          "failed",
+          "cancelled"
+        ],
+        "requires-action": [
+          "authorized",
+          "partially-paid",
+          "paid",
+          "failed",
+          "cancelled"
+        ],
+        "authorized": [
+          "partially-paid",
+          "paid",
+          "failed",
+          "cancelled"
+        ],
+        "partially-paid": [
+          "paid",
+          "failed",
+          "cancelled"
+        ],
+        "paid": [
+          "partially-refunded",
+          "refunded"
+        ],
+        "partially-refunded": [
+          "refunded",
+          "paid"
+        ],
+        "failed": [
+          "pending",
+          "requires-action",
+          "cancelled"
+        ]
+      },
+      "guards": {
+        "*": [
+          "commerce.rule.paymentStatusReconcile",
+          "commerce.rule.failedPaymentNoPaidState"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.paymentAttempt",
+      "name": "Payment Attempt Status",
+      "contract": "commerce.paymentAttempt",
+      "field": "status",
+      "states": [
+        "created",
+        "requires-action",
+        "processing",
+        "succeeded",
+        "failed",
+        "cancelled"
+      ],
+      "initial": "created",
+      "terminal": [
+        "succeeded",
+        "failed",
+        "cancelled"
+      ],
+      "transitions": {
+        "created": [
+          "requires-action",
+          "processing",
+          "succeeded",
+          "failed",
+          "cancelled"
+        ],
+        "requires-action": [
+          "processing",
+          "succeeded",
+          "failed",
+          "cancelled"
+        ],
+        "processing": [
+          "succeeded",
+          "failed",
+          "cancelled"
+        ]
+      },
+      "guards": {
+        "*": [
+          "commerce.rule.paymentAttemptNoDuplicateFinancialFact"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.paymentAuthorization",
+      "name": "Payment Authorization Status",
+      "contract": "commerce.paymentAuthorization",
+      "field": "status",
+      "states": [
+        "pending",
+        "authorized",
+        "declined",
+        "expired",
+        "voided"
+      ],
+      "initial": "pending",
+      "terminal": [
+        "declined",
+        "expired",
+        "voided"
+      ],
+      "transitions": {
+        "pending": [
+          "authorized",
+          "declined",
+          "expired",
+          "voided"
+        ],
+        "authorized": [
+          "expired",
+          "voided"
+        ]
+      },
+      "guards": {
+        "authorized->expired": [
+          "commerce.rule.authorizationExpiryEnforced"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.paymentCapture",
+      "name": "Payment Capture Status",
+      "contract": "commerce.paymentCapture",
+      "field": "status",
+      "states": [
+        "pending",
+        "succeeded",
+        "failed",
+        "reversed"
+      ],
+      "initial": "pending",
+      "terminal": [
+        "failed",
+        "reversed"
+      ],
+      "transitions": {
+        "pending": [
+          "succeeded",
+          "failed"
+        ],
+        "succeeded": [
+          "reversed"
+        ]
+      },
+      "guards": {
+        "pending->succeeded": [
+          "commerce.rule.authorizationCaptureBound",
+          "commerce.rule.captureCurrencyMatch",
+          "commerce.rule.captureRequiresValidAuthorization",
+          "commerce.rule.captureCumulativeBound"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.refund",
+      "name": "Refund Status",
+      "contract": "commerce.refund",
+      "field": "status",
+      "states": [
+        "pending",
+        "processing",
+        "succeeded",
+        "failed",
+        "cancelled"
+      ],
+      "initial": "pending",
+      "terminal": [
+        "succeeded",
+        "failed",
+        "cancelled"
+      ],
+      "transitions": {
+        "pending": [
+          "processing",
+          "succeeded",
+          "failed",
+          "cancelled"
+        ],
+        "processing": [
+          "succeeded",
+          "failed",
+          "cancelled"
+        ]
+      },
+      "guards": {
+        "*": [
+          "commerce.rule.refundRequiresCapturedFunds",
+          "commerce.rule.refundCumulativeBound",
+          "commerce.rule.refundCurrencyMatch"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.inventoryReservation",
+      "name": "Inventory Reservation Status",
+      "contract": "commerce.inventoryReservation",
+      "field": "status",
+      "states": [
+        "active",
+        "committed",
+        "released",
+        "expired",
+        "cancelled"
+      ],
+      "initial": "active",
+      "terminal": [
+        "committed",
+        "released",
+        "expired",
+        "cancelled"
+      ],
+      "transitions": {
+        "active": [
+          "committed",
+          "released",
+          "expired",
+          "cancelled"
+        ]
+      },
+      "guards": {
+        "active->committed": [
+          "commerce.rule.reservationCommitConsumes"
+        ],
+        "active->released": [
+          "commerce.rule.reservationTerminalNoReactivation"
+        ],
+        "active->expired": [
+          "commerce.rule.reservationExpiryReleasesStock"
+        ],
+        "*": [
+          "commerce.rule.reservationTerminalNoReactivation"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.inventoryTransfer",
+      "name": "Inventory Transfer Status",
+      "contract": "commerce.inventoryTransfer",
+      "field": "status",
+      "states": [
+        "draft",
+        "in-transit",
+        "received",
+        "cancelled"
+      ],
+      "initial": "draft",
+      "terminal": [
+        "received",
+        "cancelled"
+      ],
+      "transitions": {
+        "draft": [
+          "in-transit",
+          "cancelled"
+        ],
+        "in-transit": [
+          "received",
+          "cancelled"
+        ]
+      },
+      "guards": {
+        "*": [
+          "commerce.rule.inventoryTransferStateGuard",
+          "commerce.rule.inventoryTransferConservesQuantity"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.fulfillment",
+      "name": "Fulfillment Status",
+      "contract": "commerce.fulfillment",
+      "field": "status",
+      "states": [
+        "pending",
+        "processing",
+        "partially-fulfilled",
+        "fulfilled",
+        "cancelled",
+        "returned"
+      ],
+      "initial": "pending",
+      "terminal": [
+        "cancelled",
+        "returned"
+      ],
+      "transitions": {
+        "pending": [
+          "processing",
+          "partially-fulfilled",
+          "fulfilled",
+          "cancelled"
+        ],
+        "processing": [
+          "partially-fulfilled",
+          "fulfilled",
+          "cancelled"
+        ],
+        "partially-fulfilled": [
+          "fulfilled",
+          "cancelled"
+        ],
+        "fulfilled": [
+          "returned"
+        ]
+      },
+      "guards": {
+        "*": [
+          "commerce.rule.fulfillmentQuantityBound",
+          "commerce.rule.cumulativeFulfillmentBound",
+          "commerce.rule.fulfillmentRequiresEligibleOrder"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.shipment",
+      "name": "Shipment Status",
+      "contract": "commerce.shipment",
+      "field": "status",
+      "states": [
+        "pending",
+        "label-created",
+        "shipped",
+        "in-transit",
+        "delivered",
+        "exception",
+        "returned",
+        "cancelled"
+      ],
+      "initial": "pending",
+      "terminal": [
+        "delivered",
+        "returned",
+        "cancelled"
+      ],
+      "transitions": {
+        "pending": [
+          "label-created",
+          "shipped",
+          "cancelled"
+        ],
+        "label-created": [
+          "shipped",
+          "cancelled"
+        ],
+        "shipped": [
+          "in-transit",
+          "delivered",
+          "exception",
+          "returned"
+        ],
+        "in-transit": [
+          "delivered",
+          "exception",
+          "returned"
+        ],
+        "exception": [
+          "in-transit",
+          "delivered",
+          "returned",
+          "cancelled"
+        ]
+      },
+      "guards": {
+        "*": [
+          "commerce.rule.shipmentRequiresFulfillment"
+        ],
+        "shipped->delivered": [
+          "commerce.rule.deliveredRequiresEvidence"
+        ],
+        "in-transit->delivered": [
+          "commerce.rule.deliveredRequiresEvidence"
+        ],
+        "exception->delivered": [
+          "commerce.rule.deliveredRequiresEvidence"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.returnRequest",
+      "name": "Return Request Status",
+      "contract": "commerce.returnRequest",
+      "field": "status",
+      "states": [
+        "requested",
+        "approved",
+        "rejected",
+        "in-transit",
+        "received",
+        "resolved",
+        "cancelled"
+      ],
+      "initial": "requested",
+      "terminal": [
+        "rejected",
+        "resolved",
+        "cancelled"
+      ],
+      "transitions": {
+        "requested": [
+          "approved",
+          "rejected",
+          "cancelled"
+        ],
+        "approved": [
+          "in-transit",
+          "received",
+          "resolved",
+          "cancelled"
+        ],
+        "in-transit": [
+          "received",
+          "cancelled"
+        ],
+        "received": [
+          "resolved"
+        ]
+      },
+      "guards": {
+        "*": [
+          "commerce.rule.returnStateTransition",
+          "commerce.rule.returnQuantityBound",
+          "commerce.rule.returnEligibilityWindow"
+        ],
+        "received->resolved": [
+          "commerce.rule.returnResolutionRequired",
+          "commerce.rule.returnResolutionIdempotent"
+        ]
+      }
+    },
+    {
+      "id": "commerce.state.discountCode",
+      "name": "Discount Code Status",
+      "contract": "commerce.discountCode",
+      "field": "status",
+      "states": [
+        "active",
+        "disabled",
+        "expired"
+      ],
+      "initial": "active",
+      "terminal": [
+        "expired"
+      ],
+      "transitions": {
+        "active": [
+          "disabled",
+          "expired"
+        ],
+        "disabled": [
+          "active",
+          "expired"
+        ]
+      },
+      "guards": {
+        "*": [
+          "commerce.rule.discountEligibilityRevalidated",
+          "commerce.rule.promotionWindow"
+        ]
+      }
+    }
+  ]
+}

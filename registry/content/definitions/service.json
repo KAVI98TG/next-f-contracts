@@ -1,0 +1,265 @@
+{
+  "$id": "content.service",
+  "name": "Service",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "business",
+  "description": "Structured business service offered by the Organization.",
+  "purpose": "Creates one reusable service entity for service listings, dedicated service pages, related FAQs/testimonials and conversion CTAs.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "required",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Service name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "sortable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Service route slug when a dedicated service page exists.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "shortDescription",
+      "required": false,
+      "nullable": true,
+      "description": "Concise service summary.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1200,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "overview",
+      "required": false,
+      "nullable": true,
+      "description": "Structured long-form service overview.",
+      "primitive": "fields.richText",
+      "config": {
+        "maxLength": 40000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "featuredMedia",
+      "required": false,
+      "nullable": true,
+      "description": "Optional primary media.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "sections",
+      "required": false,
+      "nullable": true,
+      "description": "Optional structured service-specific sections rendered by supported service templates.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.pageSection",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "uniqueItems": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "faqs",
+      "required": false,
+      "nullable": true,
+      "description": "Reusable FAQs associated with the service.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.faq",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "uniqueItems": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "testimonials",
+      "required": false,
+      "nullable": true,
+      "description": "Reusable testimonials associated with the service.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.testimonial",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "uniqueItems": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "primaryCta",
+      "required": false,
+      "nullable": true,
+      "description": "Optional primary conversion CTA.",
+      "schema": "shared.cta"
+    },
+    {
+      "key": "isFeatured",
+      "required": true,
+      "nullable": false,
+      "description": "Whether supported service listings may prioritize this service.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false,
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "content.faq",
+      "description": "Services may reuse FAQ records."
+    },
+    {
+      "type": "references",
+      "target": "content.testimonial",
+      "description": "Services may reuse Testimonial records."
+    },
+    {
+      "type": "composes",
+      "target": "content.pageSection",
+      "description": "Service detail presentation may compose Page Section envelopes."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.cta",
+      "description": "Services may define a primary CTA."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "serviceSlugUnique",
+      "description": "Published service slugs must be unique within the Site and locale."
+    },
+    {
+      "id": "relatedRecordsSameSite",
+      "description": "Referenced FAQ, Testimonial and Section records must belong to the same Site."
+    },
+    {
+      "id": "testimonialBackReferenceConsistent",
+      "description": "When a testimonial declares relatedService, cross-references should remain consistent."
+    }
+  ],
+  "cms": {
+    "label": "Service",
+    "icon": "fa-briefcase",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "name",
+      "slug",
+      "publishing"
+    ],
+    "editorMode": "full-page-editor",
+    "primaryActions": [
+      "saveDraft",
+      "preview",
+      "publish",
+      "schedule",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published service data and approved related content may be delivered publicly."
+  },
+  "futureBindings": {
+    "blocks": "phase-6",
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "name": "Web Development",
+        "slug": "web-development",
+        "isFeatured": true
+      }
+    ],
+    "invalid": [
+      {
+        "name": "",
+        "slug": "web development"
+      }
+    ]
+  },
+  "notes": []
+}

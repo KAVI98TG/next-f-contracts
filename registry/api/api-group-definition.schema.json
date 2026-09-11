@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/api/api-group-definition.schema.json",
+  "title": "Api Group Definition",
+  "type": "object",
+  "required": [
+    "$id",
+    "apiId",
+    "name",
+    "version",
+    "basePath",
+    "defaultAuthMode",
+    "operationIds"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^api\\."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    }
+  },
+  "additionalProperties": true
+}

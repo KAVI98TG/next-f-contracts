@@ -1,0 +1,97 @@
+{
+  "$id": "manifest.contentDelivery",
+  "name": "Content Delivery Declaration",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "environment-localization",
+  "description": "Declares how coded presentation obtains published structured content.",
+  "purpose": "Makes content integration explicit without coupling NEXT F contracts to a hosting provider.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "mode",
+      "required": true,
+      "nullable": false,
+      "description": "Primary content delivery mode.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "key": "runtime",
+            "label": "Runtime API",
+            "description": "Published content is resolved by trusted/public content APIs during request/runtime execution."
+          },
+          {
+            "key": "build-time",
+            "label": "Build Time",
+            "description": "Published content is materialized during a build or regeneration process."
+          },
+          {
+            "key": "hybrid",
+            "label": "Hybrid",
+            "description": "The implementation combines build-time and runtime delivery under explicit component/data rules."
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "publishedOnly",
+      "required": true,
+      "nullable": false,
+      "description": "Whether public delivery is restricted to published/public-eligible content.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "previewSupported",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the implementation supports a protected preview flow for unpublished revisions.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "publicDeliveryPublishedOnly",
+      "description": "Public visitor delivery must not expose Draft, private or Admin-only data."
+    },
+    {
+      "id": "previewMustBeProtected",
+      "description": "Preview support must use authenticated or otherwise protected preview authorization and cannot make drafts publicly enumerable."
+    }
+  ],
+  "cms": {
+    "label": "Content Delivery Declaration",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "mode",
+      "publishedOnly",
+      "previewSupported"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

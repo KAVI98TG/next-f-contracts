@@ -1,0 +1,82 @@
+{
+  "$id": "compatibility.versionRange",
+  "name": "Version Range",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Represents an explicit compatibility range without using a floating latest value.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "minimum",
+      "required": false,
+      "nullable": true,
+      "description": "Inclusive minimum version when bounded.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "maximum",
+      "required": false,
+      "nullable": true,
+      "description": "Inclusive maximum version when bounded.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "includeMinimum",
+      "required": true,
+      "nullable": false,
+      "description": "Whether minimum is inclusive.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "includeMaximum",
+      "required": true,
+      "nullable": false,
+      "description": "Whether maximum is inclusive.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "exactVersions",
+      "required": false,
+      "nullable": true,
+      "description": "Explicit exact versions where a range is not sufficient.",
+      "primitive": "fields.multiSelect"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "minimum uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.boolean",
+      "description": "includeMinimum uses fields.boolean."
+    },
+    {
+      "type": "uses",
+      "target": "fields.multiSelect",
+      "description": "exactVersions uses fields.multiSelect."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

@@ -1,0 +1,31 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "Deletion / Anonymization Behaviors",
+  "values": [
+    {
+      "id": "delete",
+      "label": "Delete",
+      "description": "Delete when the governing operation/policy authorizes deletion."
+    },
+    {
+      "id": "anonymize",
+      "label": "Anonymize",
+      "description": "Remove identifying linkage using the approved anonymization process."
+    },
+    {
+      "id": "retain-per-policy",
+      "label": "Retain Per Policy",
+      "description": "Retain according to the owning retention class/policy."
+    },
+    {
+      "id": "protected-retention",
+      "label": "Protected Retention",
+      "description": "Do not delete automatically because integrity/security/financial evidence may require retention."
+    },
+    {
+      "id": "review-required",
+      "label": "Review Required",
+      "description": "A human/policy decision is required before deletion or anonymization."
+    }
+  ]
+}

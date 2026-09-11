@@ -1,0 +1,70 @@
+{
+  "$id": "fields.coordinates",
+  "name": "Coordinates",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "location",
+  "description": "Latitude and longitude pair using decimal degrees.",
+  "value": {
+    "jsonType": "object",
+    "canonical": "Object with lat and lng decimal degree numbers.",
+    "absence": "Absent values are represented by omission or null only when nullable is true.",
+    "shape": {
+      "lat": "number -90..90",
+      "lng": "number -180..180"
+    }
+  },
+  "cms": {
+    "editor": "coordinates",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": false,
+    "filterable": true,
+    "sortable": false,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "coordinateRange"
+  ],
+  "examples": {
+    "valid": [
+      {
+        "lat": 7.2906,
+        "lng": 80.6337
+      }
+    ],
+    "invalid": [
+      {
+        "lat": 91,
+        "lng": 0
+      }
+    ]
+  },
+  "notes": []
+}

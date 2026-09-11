@@ -1,0 +1,34 @@
+{
+  "controlId": "SEC-AUTHZ-002",
+  "name": "Privileged operation confirmation",
+  "category": "authorization",
+  "requirement": "Destructive or privileged operations must apply the confirmation and recent-authentication requirements declared by their operational metadata.",
+  "rationale": "High-impact operations require explicit user intent and policy enforcement.",
+  "applicability": [
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "both",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "adminUi.adminAction"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_authz_002.json"
+}

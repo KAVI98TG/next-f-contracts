@@ -1,0 +1,15 @@
+{
+  "$id": "deprecations.impactScope",
+  "name": "Deprecation Impact Scope",
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 28,
+  "description": "Affected Site/module/API and migration dimensions for lifecycle impact.",
+  "domain": "deprecations",
+  "type": "schema",
+  "tags": [
+    "deprecations",
+    "lifecycle",
+    "phase-28"
+  ]
+}

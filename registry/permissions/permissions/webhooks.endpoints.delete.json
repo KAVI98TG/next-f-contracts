@@ -1,0 +1,31 @@
+{
+  "$id": "webhooks.endpoints.delete",
+  "name": "Delete Endpoints",
+  "permissionId": "webhooks.endpoints.delete",
+  "domain": "webhooks",
+  "resource": "endpoints",
+  "action": "delete",
+  "scopeKind": "site",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Delete Endpoints within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [
+    "Delete permission never overrides the underlying entity lifecycle, retention, legal-hold or archive rules."
+  ],
+  "version": "0.16.0",
+  "status": "stable"
+}

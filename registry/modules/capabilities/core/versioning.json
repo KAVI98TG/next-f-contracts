@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.core.versioning",
+  "capabilityId": "core.versioning",
+  "name": "Versioning",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "core",
+  "mode": "always-on",
+  "selectable": false,
+  "defaultEnabled": true,
+  "description": "Versioning capability within the Core module.",
+  "contractBindings": [
+    "core.versionRecord",
+    "core.revisionPointer"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

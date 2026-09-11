@@ -1,0 +1,130 @@
+{
+  "registryVersion": "0.21.0",
+  "panels": [
+    {
+      "id": "scope-context",
+      "label": "Scope Context",
+      "description": "Current Platform, Organization and Site scope with stable IDs."
+    },
+    {
+      "id": "contract-compatibility",
+      "label": "Contract Compatibility",
+      "description": "Pinned version, compatibility, deprecations and migration availability."
+    },
+    {
+      "id": "site-runtime",
+      "label": "Site Runtime",
+      "description": "Runtime primitives, environments and API bindings declared by Site Manifest."
+    },
+    {
+      "id": "module-capabilities",
+      "label": "Modules & Capabilities",
+      "description": "Enabled Site Modules and capabilities with dependency validation."
+    },
+    {
+      "id": "technical-connection",
+      "label": "Technical Connection",
+      "description": "Production/preview URL references and connection health; no domain/hosting sales management."
+    },
+    {
+      "id": "integration-health",
+      "label": "Integration Health",
+      "description": "Connection, credential-state, mapping, sync and provider health."
+    },
+    {
+      "id": "event-health",
+      "label": "Event Health",
+      "description": "Canonical event production/outbox/consumer health and diagnostics."
+    },
+    {
+      "id": "webhook-health",
+      "label": "Webhook Health",
+      "description": "Endpoint/subscription/delivery/dead-letter status and signing health."
+    },
+    {
+      "id": "api-health",
+      "label": "API Health",
+      "description": "Configured API surface versions and request/health diagnostics."
+    },
+    {
+      "id": "audit",
+      "label": "Audit",
+      "description": "Scoped immutable audit history."
+    },
+    {
+      "id": "permissions",
+      "label": "Permissions",
+      "description": "Effective permission and role-assignment summary for the current context."
+    },
+    {
+      "id": "customer-ui-reference",
+      "label": "Customer CMS Reference",
+      "description": "Links to matching Customer CMS UI profile when one exists."
+    },
+    {
+      "id": "publishing",
+      "label": "Publishing",
+      "description": "Draft/published/revision state and approved publishing actions."
+    },
+    {
+      "id": "seo-provenance",
+      "label": "SEO Provenance",
+      "description": "SEO state, source, freshness and non-guarantee context."
+    },
+    {
+      "id": "form-privacy",
+      "label": "Form Privacy",
+      "description": "Submission/consent/spam/data-handling boundaries."
+    },
+    {
+      "id": "commerce-invariants",
+      "label": "Commerce Invariants",
+      "description": "Applicable Phase 12 server-authoritative rules and command constraints."
+    },
+    {
+      "id": "financial-integrity",
+      "label": "Financial Integrity",
+      "description": "Payment/capture/refund reconciliation and immutable financial state."
+    },
+    {
+      "id": "inventory-integrity",
+      "label": "Inventory Integrity",
+      "description": "Reservations, ledger movements, concurrency and available quantities."
+    },
+    {
+      "id": "delivery-integrity",
+      "label": "Delivery Integrity",
+      "description": "Fulfillment/shipment/return quantity reconciliation and state."
+    },
+    {
+      "id": "tracking-consent",
+      "label": "Tracking & Consent",
+      "description": "Provider-neutral tracking destinations, consent category and dispatch status."
+    },
+    {
+      "id": "support-context",
+      "label": "Support Context",
+      "description": "Organization/Site context and support records without identity impersonation."
+    },
+    {
+      "id": "diagnostics",
+      "label": "Diagnostics",
+      "description": "Checks, evidence, request IDs and remediation guidance."
+    },
+    {
+      "id": "migration-impact",
+      "label": "Migration Impact",
+      "description": "Affected Sites/contracts, dry-run results, compatibility and rollback readiness."
+    },
+    {
+      "id": "secret-metadata",
+      "label": "Secret Metadata",
+      "description": "Configured/missing/rotation/expiry state without secret-value disclosure."
+    },
+    {
+      "id": "data-governance",
+      "label": "Data Governance",
+      "description": "Retention, export, privacy and data classification context."
+    }
+  ]
+}

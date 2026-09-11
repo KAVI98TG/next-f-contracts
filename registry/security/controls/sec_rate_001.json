@@ -1,0 +1,36 @@
+{
+  "controlId": "SEC-RATE-001",
+  "name": "Rate limiting",
+  "category": "abuse",
+  "requirement": "Public and authenticated endpoints must apply an appropriate canonical rate-limit class based on abuse and resource risk.",
+  "rationale": "Unbounded request rates enable denial of service and automation abuse.",
+  "applicability": [
+    "api",
+    "public-site"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "medium",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "api.rate-limit-classes",
+    "api.rateLimitState"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_rate_001.json"
+}

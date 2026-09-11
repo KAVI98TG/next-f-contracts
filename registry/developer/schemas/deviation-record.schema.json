@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "developer.deviationRecord",
+  "title": "Implementation Deviation Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "deviationId",
+    "taskId",
+    "description",
+    "reason",
+    "impact",
+    "status"
+  ],
+  "properties": {
+    "deviationId": {
+      "type": "string"
+    },
+    "taskId": {
+      "type": "string"
+    },
+    "contractIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manifestPaths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "description": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "impact": {
+      "type": "string"
+    },
+    "temporary": {
+      "type": "boolean"
+    },
+    "resolution": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "accepted",
+        "resolved",
+        "rejected"
+      ]
+    }
+  }
+}

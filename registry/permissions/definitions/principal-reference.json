@@ -1,0 +1,58 @@
+{
+  "$id": "permissions.principalReference",
+  "name": "Principal Reference",
+  "domain": "permissions",
+  "type": "schema",
+  "version": "0.16.0",
+  "status": "stable",
+  "category": "foundation",
+  "description": "Identifies the authenticated human or trusted service principal participating in authorization.",
+  "purpose": "Identifies the authenticated human or trusted service principal participating in authorization.",
+  "permissionModel": {
+    "kind": "foundation",
+    "publicEligible": false,
+    "customerManaged": false
+  },
+  "fields": [
+    {
+      "key": "principalType",
+      "required": true,
+      "nullable": false,
+      "description": "organizationUser, nextfStaff, or servicePrincipal.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "principalId",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque canonical identifier for the principal.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "organizationId",
+      "required": false,
+      "nullable": true,
+      "description": "Organization context when applicable.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "permissions.principalReference.rule.1",
+      "description": "principalId must be opaque and must not embed email addresses or secrets."
+    },
+    {
+      "id": "permissions.principalReference.rule.2",
+      "description": "A principal type must be recognized before authorization evaluation."
+    }
+  ],
+  "cms": {
+    "adminVisible": true,
+    "customerVisible": false
+  },
+  "delivery": {
+    "publicAllowed": false
+  },
+  "notes": []
+}

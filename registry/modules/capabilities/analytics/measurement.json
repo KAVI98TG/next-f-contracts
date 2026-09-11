@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.analytics.measurement",
+  "capabilityId": "analytics.measurement",
+  "name": "Measurement",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "analytics",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Measurement capability within the Analytics module.",
+  "contractBindings": [
+    "marketing.analyticsConfiguration"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

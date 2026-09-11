@@ -1,0 +1,7 @@
+JSON files: 1625
+Invalid JSON: 0
+Registry entries: 1755
+Duplicate Registry IDs: 0
+Broken relationships: 0
+Missing sources: 0
+PASS: true

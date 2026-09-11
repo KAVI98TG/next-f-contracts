@@ -1,0 +1,7 @@
+{
+  "$id": "validation.cliReport",
+  "name": "Developer Validation CLI Report",
+  "description": "Machine-readable CLI execution report used by automation and Codex.",
+  "status": "stable",
+  "phase": 34
+}

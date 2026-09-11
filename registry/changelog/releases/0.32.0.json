@@ -1,0 +1,445 @@
+{
+  "$id": "changelog.release.0.32.0",
+  "version": "0.32.0",
+  "phase": 31,
+  "title": "Accessibility Standards",
+  "releaseStatus": "published-development",
+  "releaseDate": null,
+  "summary": "Phase 31 - Accessibility Standards.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_58ca08e4f321af",
+          "releaseVersion": "0.32.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Machine-readable Accessibility Registry with 44 canonical controls across semantic structure, forms, keyboard/focus, components, authoring, media, visual presentation, motion, status, navigation, data visualization, Commerce, authentication and management interfaces.",
+          "affectedRegistryIds": [
+            "accessibility.categories",
+            "accessibility.controlJsonSchema",
+            "accessibility.index",
+            "accessibility.standard",
+            "accessibility.uiTypes",
+            "accessibility.verificationMethods"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Machine-readable Accessibility Registry with 44 canonical controls across semantic structure, forms, keyboard/focus, components, authoring, media, visual presentation, motion, status, navigation, data visualization, Commerce, authentication and management interfaces.",
+          "description": "Machine-readable Accessibility Registry with 44 canonical controls across semantic structure, forms, keyboard/focus, components, authoring, media, visual presentation, motion, status, navigation, data visualization, Commerce, authentication and management interfaces.",
+          "changeType": "added",
+          "affectedDomains": [
+            "accessibility"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.32.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_473dd9044e9fa6",
+          "releaseVersion": "0.32.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Accessibility controls cross-link existing Customer CMS editor metadata, Blocks, primitive Fields, Commerce contracts and NEXT F Admin definitions without duplicating their business-data authority.",
+          "affectedRegistryIds": [
+            "accessibility.accessibilityControl",
+            "accessibility.surfaceMapping",
+            "adminUi.adminProfile",
+            "blocks.heading",
+            "blocks.richText",
+            "cmsUi.editorDefinition",
+            "cmsUi.fieldBinding",
+            "commerce.checkout",
+            "fields.image"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Accessibility controls cross-link existing Customer CMS editor metadata, Blocks, primitive Fields, Commerce contracts and NEXT F Admin definitions without duplicating their business-data authority.",
+          "description": "Accessibility controls cross-link existing Customer CMS editor metadata, Blocks, primitive Fields, Commerce contracts and NEXT F Admin definitions without duplicating their business-data authority.",
+          "changeType": "added",
+          "affectedDomains": [
+            "accessibility",
+            "admin-ui",
+            "blocks",
+            "cms-ui",
+            "commerce",
+            "fields"
+          ],
+          "affectedModules": [
+            "modules.commerce",
+            "modules.pages"
+          ],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.32.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_606b0a3734647a",
+          "releaseVersion": "0.32.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Contract Portal accessibility checklist and evidence registry cover skip navigation, labeled landmarks, route announcements, search dialog semantics, focus treatment, reduced motion, keyboard flows, mobile navigation, filters, copy actions and responsive behavior.",
+          "affectedRegistryIds": [
+            "accessibility.portalAudit",
+            "accessibility.portalAuditCheck",
+            "accessibility.portalChecklist"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Contract Portal accessibility checklist and evidence registry cover skip navigation, labeled landmarks, route announcements, search dialog semantics, focus treatment, reduced motion, keyboard flows, mobile navigation, filters, copy actions and responsive behavior.",
+          "description": "Contract Portal accessibility checklist and evidence registry cover skip navigation, labeled landmarks, route announcements, search dialog semantics, focus treatment, reduced motion, keyboard flows, mobile navigation, filters, copy actions and responsive behavior.",
+          "changeType": "added",
+          "affectedDomains": [
+            "accessibility"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.32.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "changed",
+      "label": "Changed",
+      "entries": [
+        {
+          "entryId": "chg_ea261e77e0a9f9",
+          "releaseVersion": "0.32.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Standards -> Accessibility is now a data-driven Phase 31 explorer with category, severity, UI type, verification method, applicability and manual-review filters plus control, surface, audit and raw JSON views.",
+          "affectedRegistryIds": [
+            "accessibility.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Standards -> Accessibility is now a data-driven Phase 31 explorer with category, severity, UI type, verification method, applicability and manual-review filters plus control, surface, audit and raw JSON views.",
+          "description": "Standards -> Accessibility is now a data-driven Phase 31 explorer with category, severity, UI type, verification method, applicability and manual-review filters plus control, surface, audit and raw JSON views.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "accessibility"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.32.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_cd55387ea32c06",
+          "releaseVersion": "0.32.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Phase 31 adds explicit authoring guidance for alt text, accessible labels, help/error association, heading constraints and caption/transcript references while keeping visual implementation details out of unrelated business contracts.",
+          "affectedRegistryIds": [
+            "accessibility.control.acc_author_001",
+            "accessibility.control.acc_heading_002",
+            "accessibility.control.acc_img_001",
+            "accessibility.control.acc_media_001",
+            "accessibility.control.acc_media_002"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 31 adds explicit authoring guidance for alt text, accessible labels, help/error association, heading constraints and caption/transcript references while keeping visual implementation details out of unrelated business contracts.",
+          "description": "Phase 31 adds explicit authoring guidance for alt text, accessible labels, help/error association, heading constraints and caption/transcript references while keeping visual implementation details out of unrelated business contracts.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "accessibility"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.32.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "fixed",
+      "label": "Fixed",
+      "entries": [
+        {
+          "entryId": "chg_ea3eb762bc01bd",
+          "releaseVersion": "0.32.0",
+          "category": "fixed",
+          "originalSection": "Fixed",
+          "summary": "Mobile portal navigation now supports Escape closing, keyboard focus containment and focus restoration in addition to aria-expanded state.",
+          "affectedRegistryIds": [
+            "portal.navigation"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Mobile portal navigation now supports Escape closing, keyboard focus containment and focus restoration in addition to aria-expanded state.",
+          "description": "Mobile portal navigation now supports Escape closing, keyboard focus containment and focus restoration in addition to aria-expanded state.",
+          "changeType": "fixed",
+          "affectedDomains": [
+            "portal"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.32.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "integrity",
+      "label": "Integrity",
+      "entries": [
+        {
+          "entryId": "chg_45f06abbf72061",
+          "releaseVersion": "0.32.0",
+          "category": "integrity",
+          "originalSection": "Integrity",
+          "summary": "Accessibility validation, smoke tests and current regression gates verify controlled vocabularies, Registry references, portal audit evidence, generated fallback integrity, Search/Relationship integration and release synchronization.",
+          "affectedRegistryIds": [
+            "accessibility.index",
+            "accessibility.portalAudit",
+            "relationships.relationshipIndex",
+            "search.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Accessibility validation, smoke tests and current regression gates verify controlled vocabularies, Registry references, portal audit evidence, generated fallback integrity, Search/Relationship integration and release synchronization.",
+          "description": "Accessibility validation, smoke tests and current regression gates verify controlled vocabularies, Registry references, portal audit evidence, generated fallback integrity, Search/Relationship integration and release synchronization.",
+          "changeType": "integrity",
+          "affectedDomains": [
+            "accessibility",
+            "relationships"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.32.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "documentation",
+      "label": "Documentation",
+      "entries": [
+        {
+          "entryId": "chg_0237b1129c215d",
+          "releaseVersion": "0.32.0",
+          "category": "documentation",
+          "originalSection": "Documentation",
+          "summary": "README, AGENTS and the NEXT F Development Standard document Phase 31 accessibility authority, Codex behavior and the rule that automated checks do not constitute full accessibility certification.",
+          "affectedRegistryIds": [
+            "accessibility.standard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "README, AGENTS and the NEXT F Development Standard document Phase 31 accessibility authority, Codex behavior and the rule that automated checks do not constitute full accessibility certification.",
+          "description": "README, AGENTS and the NEXT F Development Standard document Phase 31 accessibility authority, Codex behavior and the rule that automated checks do not constitute full accessibility certification.",
+          "changeType": "documentation",
+          "affectedDomains": [
+            "accessibility"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.32.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sourceType": "authoritative-release-json",
+    "sourceReference": "registry/changelog/releases/0.32.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "registry/registry.json"
+  },
+  "evidence": {
+    "evidenceLevel": "notes-and-exact-registry",
+    "diffAvailable": true,
+    "diffRoute": "#/lifecycle/diff?from=0.31.0&to=0.32.0",
+    "compatibilityAvailable": true,
+    "compatibilityRoute": "#/lifecycle/compatibility",
+    "migrationRoute": null
+  },
+  "support": {
+    "supportLevel": "current-development",
+    "compatibilityStatus": "compatible",
+    "productionEligible": false,
+    "summary": "This is the current coordinated Contract Registry release; Phase 31 defines accessibility standards, metadata and portal audit evidence, not universal accessibility certification of every future runtime product."
+  },
+  "migrationNotes": null,
+  "recommendedAction": "New and changed NEXT F interfaces should resolve and apply the relevant accessibility controls, run available automated checks, and explicitly record required manual review. Existing Sites remain pinned until explicit validation and upgrade review.",
+  "sourceVersion": "0.31.0",
+  "targetVersion": "0.32.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "entryCount": 8,
+  "categoryCounts": {
+    "added": 3,
+    "changed": 2,
+    "fixed": 1,
+    "integrity": 1,
+    "documentation": 1
+  },
+  "affected": {
+    "domains": [
+      "accessibility",
+      "admin-ui",
+      "blocks",
+      "cms-ui",
+      "commerce",
+      "fields",
+      "portal",
+      "relationships"
+    ],
+    "modules": [
+      "modules.commerce",
+      "modules.pages"
+    ],
+    "contracts": [
+      "accessibility.accessibilityControl",
+      "accessibility.categories",
+      "accessibility.control.acc_author_001",
+      "accessibility.control.acc_heading_002",
+      "accessibility.control.acc_img_001",
+      "accessibility.control.acc_media_001",
+      "accessibility.control.acc_media_002",
+      "accessibility.controlJsonSchema",
+      "accessibility.index",
+      "accessibility.portalAudit",
+      "accessibility.portalAuditCheck",
+      "accessibility.portalChecklist",
+      "accessibility.standard",
+      "accessibility.surfaceMapping",
+      "accessibility.uiTypes",
+      "accessibility.verificationMethods",
+      "adminUi.adminProfile",
+      "blocks.heading",
+      "blocks.richText",
+      "cmsUi.editorDefinition",
+      "cmsUi.fieldBinding",
+      "commerce.checkout",
+      "fields.image",
+      "portal.navigation",
+      "relationships.relationshipIndex",
+      "search.index"
+    ],
+    "events": [],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [
+      "cmsUi.editorDefinition",
+      "cmsUi.fieldBinding"
+    ],
+    "adminMetadata": [
+      "adminUi.adminProfile"
+    ]
+  },
+  "breakingChange": false,
+  "migrationRequired": false
+}

@@ -1,0 +1,301 @@
+{
+  "manifestVersion": "1.0.0",
+  "contracts": {
+    "contractVersion": "0.23.0",
+    "manifestSpecVersion": "1.0.0",
+    "compatibilityMode": "strict-major"
+  },
+  "site": {
+    "siteId": "site_example_commerce",
+    "name": "Example Commerce Website",
+    "siteType": "commerce",
+    "primaryUrl": "https://shop.example.com"
+  },
+  "localization": {
+    "defaultLocale": "en-LK",
+    "supportedLocales": [
+      "en-LK"
+    ],
+    "timeZone": "Asia/Colombo"
+  },
+  "environments": [
+    {
+      "id": "development",
+      "kind": "development",
+      "baseUrl": "http://localhost:5173",
+      "enabled": true
+    },
+    {
+      "id": "preview",
+      "kind": "preview",
+      "baseUrl": "https://preview.shop.example.com",
+      "enabled": true
+    },
+    {
+      "id": "production",
+      "kind": "production",
+      "baseUrl": "https://shop.example.com",
+      "enabled": true
+    }
+  ],
+  "contentDelivery": {
+    "mode": "hybrid",
+    "publishedOnly": true,
+    "previewSupported": true
+  },
+  "modules": [
+    {
+      "moduleId": "core",
+      "enabled": true,
+      "capabilities": []
+    },
+    {
+      "moduleId": "media",
+      "enabled": true,
+      "capabilities": []
+    },
+    {
+      "moduleId": "pages",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "pages.reusable-content",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "blog",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "blog.scheduling",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "seo",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "seo.redirects",
+          "enabled": true
+        },
+        {
+          "capabilityId": "seo.structured-data",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "consent",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "consent.preferences",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "analytics",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "analytics.reporting",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "marketing",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "marketing.conversions",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "integrations",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "integrations.health",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "commerce",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "commerce.variants",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.inventory",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.checkout",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.orders",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.payments",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.shipping",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.discounts",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.refunds",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.returns",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.reviews",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.taxes",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.subscriptions",
+          "enabled": true
+        }
+      ]
+    }
+  ],
+  "runtime": {
+    "siteIdentity": true,
+    "contentConnector": true,
+    "eventLayer": true,
+    "consentLayer": true,
+    "integrationLoader": true
+  },
+  "cms": {
+    "enabled": true,
+    "workspaceMode": "site",
+    "editingMode": "structured",
+    "previewEnabled": true,
+    "publishingEnabled": true,
+    "revisionHistoryEnabled": true,
+    "arbitraryCodeEditing": false
+  },
+  "apiBindings": [
+    {
+      "apiId": "api.public-content",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.public-interaction",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.commerce",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.events",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    }
+  ],
+  "events": {
+    "produces": [
+      "cart.created",
+      "checkout.started",
+      "checkout.completed",
+      "order.created"
+    ],
+    "consumes": []
+  },
+  "tracking": {
+    "events": [
+      "page.viewed",
+      "cta.clicked",
+      "form.started",
+      "form.submitted"
+    ]
+  },
+  "integrations": [
+    {
+      "connectorId": "integrations.googleTagManager",
+      "environments": [
+        "production"
+      ],
+      "enabled": true
+    },
+    {
+      "connectorId": "integrations.googleAnalytics4",
+      "environments": [
+        "production"
+      ],
+      "enabled": true
+    },
+    {
+      "connectorId": "integrations.googleAds",
+      "environments": [
+        "production"
+      ],
+      "enabled": true
+    },
+    {
+      "connectorId": "integrations.meta",
+      "environments": [
+        "production"
+      ],
+      "enabled": true
+    }
+  ],
+  "configuration": [
+    {
+      "key": "NEXTF_SITE_ID",
+      "exposure": "public",
+      "required": true,
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ],
+      "purpose": "Identifies the Site to the NEXT F runtime without containing a secret value."
+    }
+  ],
+  "extensions": []
+}

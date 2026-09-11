@@ -1,0 +1,40 @@
+{
+  "registryVersion": "0.7.0",
+  "categories": [
+    {
+      "id": "identity",
+      "label": "Identity and Scope",
+      "description": "Entity identity, tenant scope and compact references."
+    },
+    {
+      "id": "lifecycle",
+      "label": "Lifecycle and Publishing",
+      "description": "Visibility, scheduling, publishing and revision state."
+    },
+    {
+      "id": "audit",
+      "label": "Audit and Versioning",
+      "description": "Immutable versions, audit actors and action records."
+    },
+    {
+      "id": "contact",
+      "label": "Contact and Location",
+      "description": "Reusable address and contact structures."
+    },
+    {
+      "id": "media",
+      "label": "Media",
+      "description": "Provider-neutral media assets and contextual media references."
+    },
+    {
+      "id": "action",
+      "label": "Links and Actions",
+      "description": "Reusable links and calls to action."
+    },
+    {
+      "id": "integration",
+      "label": "External References",
+      "description": "Provider-neutral external identifiers and references."
+    }
+  ]
+}

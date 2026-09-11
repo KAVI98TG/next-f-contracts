@@ -1,0 +1,45 @@
+{
+  "$id": "api.nextf-admin",
+  "apiId": "api.nextf-admin",
+  "name": "NEXT F Admin API",
+  "version": "1.0.0",
+  "status": "stable",
+  "basePath": "/api/v1/admin",
+  "description": "Privileged NEXT F platform operations for Organizations, Sites, modules, compatibility, integrations, diagnostics and audit.",
+  "defaultAuthMode": "nextf-admin",
+  "defaultRateLimitClass": "sensitive-write",
+  "defaultCachePolicy": "no-store",
+  "defaultCorsPolicy": "admin-portal",
+  "moduleBindings": [
+    "core",
+    "integrations"
+  ],
+  "operationIds": [
+    "api.nextf-admin.list-organizations",
+    "api.nextf-admin.create-organization",
+    "api.nextf-admin.get-organization",
+    "api.nextf-admin.update-organization",
+    "api.nextf-admin.list-sites",
+    "api.nextf-admin.create-site",
+    "api.nextf-admin.get-site",
+    "api.nextf-admin.update-site",
+    "api.nextf-admin.get-site-modules",
+    "api.nextf-admin.update-site-modules",
+    "api.nextf-admin.check-contract-compatibility",
+    "api.nextf-admin.update-contract-binding",
+    "api.nextf-admin.get-diagnostics",
+    "api.nextf-admin.list-audit",
+    "api.nextf-admin.get-integration-health"
+  ],
+  "publicDocumentation": true,
+  "order": 40,
+  "compatibility": {
+    "contractVersionRange": ">=0.19.0 <1.0.0",
+    "manifestBindingRequired": true
+  },
+  "boundaries": [
+    "Uses canonical NEXT F Contract Registry schemas rather than redefining domain entities.",
+    "Secrets and privileged credentials are never returned through generic API responses.",
+    "API Version and NEXT F Contract Version are independently explicit."
+  ]
+}

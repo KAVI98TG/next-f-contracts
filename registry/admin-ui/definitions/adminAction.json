@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.adminAction",
+  "name": "Admin Action",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines a permission-bound internal action and its risk gates.",
+  "purpose": "Defines a permission-bound internal action and its risk gates.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

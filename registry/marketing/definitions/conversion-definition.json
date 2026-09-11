@@ -1,0 +1,226 @@
+{
+  "$id": "marketing.conversionDefinition",
+  "name": "Conversion Definition",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "conversion",
+  "description": "Canonical business conversion mapped to one or more tracking events.",
+  "purpose": "Creates one NEXT F conversion key that future GA4, Google Ads, Meta and other connectors can consume consistently.",
+  "marketingModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable conversion identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "conversionKey",
+      "required": true,
+      "nullable": false,
+      "description": "Stable conversion key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "pattern": "^[a-z][A-Za-z0-9._-]*$"
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Conversion name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 200
+      }
+    },
+    {
+      "key": "category",
+      "required": true,
+      "nullable": false,
+      "description": "Business category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "lead",
+            "label": "Lead"
+          },
+          {
+            "value": "contact",
+            "label": "Contact"
+          },
+          {
+            "value": "signup",
+            "label": "Signup"
+          },
+          {
+            "value": "download",
+            "label": "Download"
+          },
+          {
+            "value": "engagement",
+            "label": "Engagement"
+          },
+          {
+            "value": "purchase",
+            "label": "Purchase"
+          },
+          {
+            "value": "custom",
+            "label": "Custom"
+          }
+        ]
+      }
+    },
+    {
+      "key": "triggerEventKey",
+      "required": true,
+      "nullable": false,
+      "description": "Tracking event key that may produce conversion.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "primary",
+      "required": true,
+      "nullable": false,
+      "description": "Primary business conversion.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "value",
+      "required": true,
+      "nullable": false,
+      "description": "Value behavior.",
+      "schema": "marketing.conversionValue"
+    },
+    {
+      "key": "requiredConsentCategoryKey",
+      "required": true,
+      "nullable": false,
+      "description": "Consent category required for optional marketing dispatch.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether conversion is active.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "Uses identity."
+    },
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "composes",
+      "target": "marketing.conversionValue",
+      "description": "Defines value."
+    },
+    {
+      "type": "references",
+      "target": "marketing.trackingEventDefinition",
+      "description": "triggerEventKey resolves to tracking definition."
+    },
+    {
+      "type": "relatedTo",
+      "target": "forms.conversionMapping",
+      "description": "Form mappings can resolve conversionKey here."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "conversionKeyUniquePerSite",
+      "description": "conversionKey unique within Site."
+    },
+    {
+      "id": "triggerEventResolvable",
+      "description": "triggerEventKey resolves to enabled tracking definition."
+    },
+    {
+      "id": "formsMappingResolution",
+      "description": "forms.conversionMapping.conversionKey should resolve here when Forms enabled."
+    },
+    {
+      "id": "noProviderIds",
+      "description": "Provider conversion IDs belong to Phase 10 connectors."
+    },
+    {
+      "id": "purchaseForwardReference",
+      "description": "Purchase transaction semantics finalized in Phase 11."
+    }
+  ],
+  "cms": {
+    "label": "Conversion Definition",
+    "icon": "fa-bullseye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "conversion-editor",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "conversionKey",
+      "name"
+    ],
+    "primaryActions": [
+      "view",
+      "edit",
+      "test"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,81 @@
+{
+  "$id": "api.uploadSession",
+  "name": "Upload Session",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "files",
+  "description": "Short-lived server-authorized upload session.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "sessionId",
+      "required": true,
+      "nullable": false,
+      "description": "sessionId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "mediaId",
+      "required": true,
+      "nullable": false,
+      "description": "mediaId",
+      "primitive": false
+    },
+    {
+      "key": "expiresAt",
+      "required": true,
+      "nullable": false,
+      "description": "expiresAt",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "maxBytes",
+      "required": true,
+      "nullable": false,
+      "description": "maxBytes",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "allowedMimeTypes",
+      "required": true,
+      "nullable": false,
+      "description": "allowedMimeTypes",
+      "primitive": "fields.tag"
+    },
+    {
+      "key": "uploadTarget",
+      "required": true,
+      "nullable": false,
+      "description": "uploadTarget",
+      "primitive": "fields.url"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    },
+    {
+      "id": "shortLived",
+      "description": "Upload targets are short-lived, scoped and cannot grant arbitrary storage access."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

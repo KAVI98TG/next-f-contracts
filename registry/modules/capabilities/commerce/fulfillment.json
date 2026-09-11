@@ -1,0 +1,39 @@
+{
+  "$id": "modules.capability.commerce.fulfillment",
+  "capabilityId": "commerce.fulfillment",
+  "name": "Fulfillment",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Fulfillment capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.fulfillment",
+    "commerce.shipment"
+  ],
+  "permissionBindings": [
+    "commerce.fulfillments.create",
+    "commerce.fulfillments.edit",
+    "commerce.fulfillments.manage",
+    "commerce.fulfillments.view"
+  ],
+  "eventBindings": [
+    "fulfillment.cancelled",
+    "fulfillment.completed",
+    "fulfillment.created",
+    "fulfillment.updated"
+  ],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

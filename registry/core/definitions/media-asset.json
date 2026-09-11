@@ -1,0 +1,306 @@
+{
+  "$id": "shared.mediaAsset",
+  "name": "Media Asset",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "shared",
+  "category": "media",
+  "description": "Provider-neutral metadata for an uploaded or connected media asset.",
+  "purpose": "Lets Content, Commerce, Documentation and other modules reference media consistently without coupling contracts to a storage provider.",
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque Media Asset ID.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 4,
+        "maxLength": 128,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "siteId",
+      "required": true,
+      "nullable": false,
+      "description": "Site owning the asset.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "core.site",
+        "relationshipCardinality": "one",
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "kind",
+      "required": true,
+      "nullable": false,
+      "description": "High-level media kind.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "image",
+            "label": "Image"
+          },
+          {
+            "value": "video",
+            "label": "Video"
+          },
+          {
+            "value": "audio",
+            "label": "Audio"
+          },
+          {
+            "value": "document",
+            "label": "Document"
+          },
+          {
+            "value": "file",
+            "label": "File"
+          }
+        ],
+        "filterable": true
+      }
+    },
+    {
+      "key": "fileName",
+      "required": true,
+      "nullable": false,
+      "description": "Sanitized display filename.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255,
+        "searchable": true
+      }
+    },
+    {
+      "key": "mimeType",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical MIME type.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "filterable": true
+      }
+    },
+    {
+      "key": "sizeBytes",
+      "required": true,
+      "nullable": false,
+      "description": "Asset size in bytes.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    },
+    {
+      "key": "width",
+      "required": false,
+      "nullable": true,
+      "description": "Pixel width when applicable.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "height",
+      "required": false,
+      "nullable": true,
+      "description": "Pixel height when applicable.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "durationSeconds",
+      "required": false,
+      "nullable": true,
+      "description": "Media duration in seconds when applicable.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "checksum",
+      "required": false,
+      "nullable": true,
+      "description": "Non-secret content checksum for integrity/deduplication.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "title",
+      "required": false,
+      "nullable": true,
+      "description": "Human-readable media title.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 200
+      }
+    },
+    {
+      "key": "altText",
+      "required": false,
+      "nullable": true,
+      "description": "Default accessible alternative text for meaningful images.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300,
+        "localizable": true
+      }
+    },
+    {
+      "key": "caption",
+      "required": false,
+      "nullable": true,
+      "description": "Default media caption.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "localizable": true
+      }
+    },
+    {
+      "key": "credit",
+      "required": false,
+      "nullable": true,
+      "description": "Attribution/credit text.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300
+      }
+    },
+    {
+      "key": "copyright",
+      "required": false,
+      "nullable": true,
+      "description": "Copyright statement if applicable.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300
+      }
+    },
+    {
+      "key": "focalPoint",
+      "required": false,
+      "nullable": true,
+      "description": "Normalized/presentation focal point when supported.",
+      "primitive": "fields.coordinates"
+    },
+    {
+      "key": "publicUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Public delivery URL only when the asset is intentionally public.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Asset creation/import timestamp.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "core.tenantScope",
+      "description": "Media ownership follows Site tenant boundaries."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "dimensionsMatchKind",
+      "description": "width/height apply only to media kinds with dimensions."
+    },
+    {
+      "id": "durationMatchKind",
+      "description": "durationSeconds applies only when the media kind supports duration."
+    },
+    {
+      "id": "publicUrlNotSecret",
+      "description": "publicUrl must never contain embedded credentials or secrets."
+    },
+    {
+      "id": "altTextContextual",
+      "description": "Meaningful public images require appropriate alt text either at asset or reference context."
+    }
+  ],
+  "cms": {
+    "label": "Media Asset",
+    "icon": "fa-photo-film",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "media-library",
+    "summaryFields": [
+      "fileName",
+      "kind",
+      "sizeBytes"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only media explicitly intended for public access may expose publicUrl."
+  },
+  "examples": {
+    "valid": [
+      {
+        "id": "media_01ABC",
+        "siteId": "site_01ABC",
+        "kind": "image",
+        "fileName": "factory.jpg",
+        "mimeType": "image/jpeg",
+        "sizeBytes": 245000,
+        "width": 1600,
+        "height": 900,
+        "title": "Factory",
+        "altText": "Exterior of the factory",
+        "createdAt": "2026-09-09T12:00:00Z"
+      }
+    ],
+    "invalid": [
+      {
+        "id": "media_01ABC",
+        "siteId": "site_01ABC",
+        "kind": "image",
+        "fileName": "x.jpg",
+        "mimeType": "image/jpeg",
+        "sizeBytes": -1,
+        "createdAt": "invalid"
+      }
+    ]
+  },
+  "notes": [
+    "Storage bucket names, private object keys and provider credentials are implementation details and are not required in the public contract."
+  ]
+}

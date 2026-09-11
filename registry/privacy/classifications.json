@@ -1,0 +1,47 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "Primary Data Classifications",
+  "description": "Single primary sensitivity classification used by NEXT F privacy metadata.",
+  "classes": [
+    {
+      "id": "public",
+      "label": "Public",
+      "description": "Information intentionally eligible for unauthenticated public delivery under its owning contract.",
+      "defaultPublicDeliveryEligible": true,
+      "defaultAnalyticsEligible": true,
+      "defaultLogEligibility": "allowed"
+    },
+    {
+      "id": "internal",
+      "label": "Internal",
+      "description": "Operational or configuration information that is not public but is not inherently personal or secret.",
+      "defaultPublicDeliveryEligible": false,
+      "defaultAnalyticsEligible": false,
+      "defaultLogEligibility": "conditional"
+    },
+    {
+      "id": "personal",
+      "label": "Personal",
+      "description": "Information relating to or reasonably linkable to a person, visitor, customer, lead or staff principal.",
+      "defaultPublicDeliveryEligible": false,
+      "defaultAnalyticsEligible": false,
+      "defaultLogEligibility": "redacted-only"
+    },
+    {
+      "id": "sensitive",
+      "label": "Sensitive",
+      "description": "Higher-risk personal, financial, authentication, transaction or operational information requiring restricted handling.",
+      "defaultPublicDeliveryEligible": false,
+      "defaultAnalyticsEligible": false,
+      "defaultLogEligibility": "redacted-only"
+    },
+    {
+      "id": "secret",
+      "label": "Secret",
+      "description": "Credentials, tokens, signing material, encryption keys or equivalent values that must not be disclosed through public/runtime data flows.",
+      "defaultPublicDeliveryEligible": false,
+      "defaultAnalyticsEligible": false,
+      "defaultLogEligibility": "prohibited"
+    }
+  ]
+}

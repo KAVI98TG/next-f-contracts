@@ -1,0 +1,135 @@
+{
+  "$id": "manifest.siteDescriptor",
+  "name": "Site Descriptor",
+  "version": "0.17.0",
+  "status": "stable",
+  "domain": "manifest",
+  "category": "identity-versioning",
+  "description": "Minimal repository-side identity for the Site consuming NEXT F contracts.",
+  "purpose": "Lets Codex, validation tooling and runtime adapters identify the Site without duplicating the full core.site record.",
+  "manifestModel": {
+    "kind": "embedded",
+    "customerManaged": false,
+    "repositoryManaged": true
+  },
+  "fields": [
+    {
+      "key": "siteId",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical NEXT F Site ID.",
+      "primitive": "fields.text",
+      "config": {
+        "pattern": "^site_[A-Za-z0-9_-]+$",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable development label for the Site.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 200,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "siteType",
+      "required": true,
+      "nullable": false,
+      "description": "Descriptive Site type. Site type never grants functionality.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "key": "corporate",
+            "label": "Corporate",
+            "description": "General organization/company website."
+          },
+          {
+            "key": "service",
+            "label": "Service Business",
+            "description": "Service-led website focused on offerings, proof and enquiries."
+          },
+          {
+            "key": "lead-generation",
+            "label": "Lead Generation",
+            "description": "Conversion-led website where qualified enquiries are a primary business outcome."
+          },
+          {
+            "key": "commerce",
+            "label": "Commerce",
+            "description": "Website with the NEXT F Commerce module and transactional storefront capabilities."
+          },
+          {
+            "key": "documentation",
+            "label": "Documentation",
+            "description": "Documentation, knowledge-base or help-centric website."
+          },
+          {
+            "key": "custom",
+            "label": "Custom",
+            "description": "Site whose primary purpose does not fit another descriptive type. Modules still define capabilities."
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "primaryUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Optional current production URL reference.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "core.site",
+      "description": "siteId must resolve to the canonical Site record in trusted platform context."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "siteIdMustResolve",
+      "description": "siteId must resolve to exactly one canonical core.site when connected to NEXT F Platform."
+    },
+    {
+      "id": "siteTypeIsDescriptive",
+      "description": "siteType is descriptive only. Enabled Modules and Capabilities determine functional behavior."
+    },
+    {
+      "id": "primaryUrlDoesNotImplyOwnership",
+      "description": "primaryUrl is a technical reference and never implies NEXT F owns the domain or hosting service."
+    }
+  ],
+  "cms": {
+    "label": "Site Descriptor",
+    "icon": "fa-file-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "development",
+    "summaryFields": [
+      "siteId",
+      "name",
+      "siteType",
+      "primaryUrl"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Manifest definitions contain technical declarations only. Secret values are prohibited."
+  },
+  "notes": []
+}

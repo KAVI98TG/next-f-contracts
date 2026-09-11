@@ -1,0 +1,35 @@
+{
+  "controlId": "ACC-MEDIA-001",
+  "name": "Captions for synchronized media",
+  "category": "media",
+  "requirement": "Prerecorded video with meaningful spoken content must support captions when the content requires them.",
+  "rationale": "Captions provide equivalent access to spoken audio.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "audio-video"
+  ],
+  "verificationMethods": [
+    "content-review",
+    "visual-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [
+    "blocks.video"
+  ],
+  "relatedFields": [
+    "fields.video"
+  ],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_media_001.json"
+}

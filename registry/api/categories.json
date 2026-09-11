@@ -1,0 +1,40 @@
+{
+  "registryVersion": "0.19.0",
+  "categories": [
+    {
+      "id": "envelopes",
+      "label": "Envelopes & Errors",
+      "description": "Canonical success/error envelopes, request metadata and validation issues."
+    },
+    {
+      "id": "query",
+      "label": "Query & Collections",
+      "description": "Pagination, filtering, sorting, searching, includes and field selection."
+    },
+    {
+      "id": "security",
+      "label": "Security & Authorization",
+      "description": "Authentication context, permission requirements and tenant/request scope."
+    },
+    {
+      "id": "integrity",
+      "label": "Mutation Integrity",
+      "description": "Idempotency, optimistic concurrency and command result semantics."
+    },
+    {
+      "id": "delivery",
+      "label": "Delivery & Runtime",
+      "description": "Caching, versioning, localization, rate limits, CORS and health."
+    },
+    {
+      "id": "files",
+      "label": "Files & Uploads",
+      "description": "Controlled file upload session and completion contracts."
+    },
+    {
+      "id": "operations",
+      "label": "Operations & Bulk",
+      "description": "Operation references, bulk execution and deletion semantics."
+    }
+  ]
+}

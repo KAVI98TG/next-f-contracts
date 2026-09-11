@@ -1,0 +1,132 @@
+{
+  "phase": 15,
+  "version": "0.16.0",
+  "status": "passed",
+  "checks": [
+    {
+      "id": "P15-001",
+      "name": "Canonical domain.resource.action vocabulary implemented",
+      "passed": true
+    },
+    {
+      "id": "P15-002",
+      "name": "Deny-by-default authorization locked",
+      "passed": true
+    },
+    {
+      "id": "P15-003",
+      "name": "Wildcard grants prohibited",
+      "passed": true
+    },
+    {
+      "id": "P15-004",
+      "name": "Direct user grants prohibited in V1",
+      "passed": true
+    },
+    {
+      "id": "P15-005",
+      "name": "No implicit action hierarchy",
+      "passed": true
+    },
+    {
+      "id": "P15-006",
+      "name": "Platform/Organization/Site/resource/self scopes defined",
+      "passed": true
+    },
+    {
+      "id": "P15-007",
+      "name": "Permission risk levels defined",
+      "passed": true
+    },
+    {
+      "id": "P15-008",
+      "name": "Customer vs NEXT F Admin eligibility metadata defined",
+      "passed": true
+    },
+    {
+      "id": "P15-009",
+      "name": "Sensitive/recent-auth requirements represented",
+      "passed": true
+    },
+    {
+      "id": "P15-010",
+      "name": "Destructive confirmation metadata represented",
+      "passed": true
+    },
+    {
+      "id": "P15-011",
+      "name": "Custom role privilege ceiling defined",
+      "passed": true
+    },
+    {
+      "id": "P15-012",
+      "name": "Reference customer roles defined",
+      "passed": true
+    },
+    {
+      "id": "P15-013",
+      "name": "Protected NEXT F internal roles defined",
+      "passed": true
+    },
+    {
+      "id": "P15-014",
+      "name": "Role assignments explicitly scoped",
+      "passed": true
+    },
+    {
+      "id": "P15-015",
+      "name": "Authorization context and decision schemas defined",
+      "passed": true
+    },
+    {
+      "id": "P15-016",
+      "name": "Permission checks use exact IDs",
+      "passed": true
+    },
+    {
+      "id": "P15-017",
+      "name": "Existing major contracts mapped to permission families",
+      "passed": true
+    },
+    {
+      "id": "P15-018",
+      "name": "Portal Permission Explorer implemented",
+      "passed": true
+    },
+    {
+      "id": "P15-019",
+      "name": "Generated offline fallback integrity protected",
+      "passed": true
+    },
+    {
+      "id": "P15-020",
+      "name": "Permission IDs indexed in global Contract Registry",
+      "passed": true
+    },
+    {
+      "id": "P15-021",
+      "name": "Permission/Role detail views implemented",
+      "passed": true
+    },
+    {
+      "id": "P15-022",
+      "name": "Hosting/domain capabilities remain excluded",
+      "passed": true
+    },
+    {
+      "id": "P15-023",
+      "name": "Commerce financial permissions do not bypass Commerce Rules",
+      "passed": true
+    },
+    {
+      "id": "P15-024",
+      "name": "Secret-management permissions do not expose secret values",
+      "passed": true
+    },
+    {
+      "id": "P15-025",
+      "name": "Prior Webhook detail recursion defect corrected",
+      "passed": true
+    }
+  ]
+}

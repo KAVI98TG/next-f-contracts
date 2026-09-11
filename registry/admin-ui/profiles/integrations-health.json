@@ -1,0 +1,78 @@
+{
+  "$id": "adminUi.profile.integrations.health",
+  "name": "Health Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "integrations.health",
+  "permissionDomain": "integrations",
+  "moduleId": "integrations",
+  "description": "Internal NEXT F Admin metadata for Health. Applies only within server-authorized administrative scope.",
+  "route": "/sites/:siteId/integrations/health",
+  "screenKind": "admin-operations",
+  "layoutTemplate": "integration-operations",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "site",
+    "requiresOrganization": false,
+    "requiresSite": true,
+    "allowsCrossTenant": false,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": "cmsUi.profile.integrations.health",
+  "inheritanceMode": "reference-not-copy",
+  "targetContracts": [
+    "integrations.healthSnapshot",
+    "integrations.connectionTest"
+  ],
+  "primaryTargetContract": "integrations.healthSnapshot",
+  "permissions": [
+    "integrations.health.view"
+  ],
+  "actions": [
+    {
+      "actionId": "view",
+      "permissionId": "integrations.health.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "site"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions",
+    "customer-ui-reference",
+    "integration-health",
+    "secret-metadata"
+  ],
+  "controls": [
+    "risk-badge"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": [
+    "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate.",
+    "Credential/secret values remain server-side; Admin displays state, fingerprints/metadata or rotation controls only."
+  ]
+}

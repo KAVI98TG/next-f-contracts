@@ -1,0 +1,136 @@
+{
+  "registryVersion": "0.26.0",
+  "title": "Contract Diff Change Types",
+  "types": [
+    {
+      "id": "item-added",
+      "label": "Item added",
+      "description": "A canonical Registry item exists only in the target release."
+    },
+    {
+      "id": "item-removed",
+      "label": "Item removed",
+      "description": "A canonical Registry item exists only in the source release."
+    },
+    {
+      "id": "item-modified",
+      "label": "Item modified",
+      "description": "The same Registry item has structural or source changes."
+    },
+    {
+      "id": "status-changed",
+      "label": "Status changed",
+      "description": "Lifecycle status changed."
+    },
+    {
+      "id": "version-changed",
+      "label": "Version changed",
+      "description": "Contract version metadata changed."
+    },
+    {
+      "id": "field-added",
+      "label": "Field added",
+      "description": "A keyed schema field was added."
+    },
+    {
+      "id": "field-removed",
+      "label": "Field removed",
+      "description": "A keyed schema field was removed."
+    },
+    {
+      "id": "field-required-changed",
+      "label": "Required state changed",
+      "description": "A field required flag changed."
+    },
+    {
+      "id": "field-nullability-changed",
+      "label": "Nullability changed",
+      "description": "A field nullable flag changed."
+    },
+    {
+      "id": "field-type-changed",
+      "label": "Field binding changed",
+      "description": "Primitive/schema/items binding changed."
+    },
+    {
+      "id": "validation-tightened",
+      "label": "Validation tightened",
+      "description": "A validation constraint became stricter."
+    },
+    {
+      "id": "validation-relaxed",
+      "label": "Validation relaxed",
+      "description": "A validation constraint became less restrictive."
+    },
+    {
+      "id": "enum-value-added",
+      "label": "Enum value added",
+      "description": "A select/enum option was added."
+    },
+    {
+      "id": "enum-value-removed",
+      "label": "Enum value removed",
+      "description": "A select/enum option was removed."
+    },
+    {
+      "id": "relationship-added",
+      "label": "Relationship added",
+      "description": "A canonical relationship was added."
+    },
+    {
+      "id": "relationship-removed",
+      "label": "Relationship removed",
+      "description": "A canonical relationship was removed."
+    },
+    {
+      "id": "permission-added",
+      "label": "Permission added",
+      "description": "A Permission association was added."
+    },
+    {
+      "id": "permission-removed",
+      "label": "Permission removed",
+      "description": "A Permission association was removed."
+    },
+    {
+      "id": "event-added",
+      "label": "Event added",
+      "description": "An Event association was added."
+    },
+    {
+      "id": "event-removed",
+      "label": "Event removed",
+      "description": "An Event association was removed."
+    },
+    {
+      "id": "validation-rule-added",
+      "label": "Validation rule added",
+      "description": "A named validation rule was added."
+    },
+    {
+      "id": "validation-rule-removed",
+      "label": "Validation rule removed",
+      "description": "A named validation rule was removed."
+    },
+    {
+      "id": "validation-rule-changed",
+      "label": "Validation rule changed",
+      "description": "A named validation rule changed."
+    },
+    {
+      "id": "documentation-changed",
+      "label": "Documentation changed",
+      "description": "Human-facing descriptive text changed without a detected structural change."
+    },
+    {
+      "id": "metadata-changed",
+      "label": "Metadata changed",
+      "description": "Non-structural Registry metadata changed."
+    },
+    {
+      "id": "source-changed",
+      "label": "Source changed",
+      "description": "Source content changed but could not be structurally classified."
+    }
+  ]
+}

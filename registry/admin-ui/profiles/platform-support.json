@@ -1,0 +1,84 @@
+{
+  "$id": "adminUi.profile.platform.support",
+  "name": "Support Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "platform.support",
+  "permissionDomain": "platform",
+  "moduleId": "core",
+  "description": "Internal NEXT F Admin metadata for Support. Applies only within server-authorized administrative scope.",
+  "route": "/platform/support",
+  "screenKind": "admin-queue",
+  "layoutTemplate": "support-operations",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "platform",
+    "requiresOrganization": false,
+    "requiresSite": false,
+    "allowsCrossTenant": true,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": null,
+  "inheritanceMode": "none",
+  "targetContracts": [],
+  "primaryTargetContract": null,
+  "permissions": [
+    "platform.support.manage",
+    "platform.support.view"
+  ],
+  "actions": [
+    {
+      "actionId": "manage",
+      "permissionId": "platform.support.manage",
+      "riskLevel": "elevated",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "platform.support.view",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "platform"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions",
+    "support-context",
+    "technical-connection",
+    "diagnostics"
+  ],
+  "controls": [
+    "risk-badge",
+    "recent-auth-gate"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": [
+    "Support context does not grant hidden customer impersonation."
+  ]
+}

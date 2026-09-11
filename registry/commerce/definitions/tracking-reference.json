@@ -1,0 +1,111 @@
+{
+  "$id": "commerce.trackingReference",
+  "name": "Tracking Reference",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "fulfillment",
+  "description": "Normalized Shipment tracking reference.",
+  "purpose": "Makes carrier tracking provider-neutral.",
+  "commerceModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "carrier",
+      "required": true,
+      "nullable": false,
+      "description": "Carrier/service label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "trackingNumber",
+      "required": true,
+      "nullable": false,
+      "description": "Tracking number/reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "trackingUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Optional tracking URL.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "status",
+      "required": false,
+      "nullable": true,
+      "description": "Normalized status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "label-created",
+          "in-transit",
+          "out-for-delivery",
+          "delivered",
+          "exception",
+          "returned",
+          "unknown"
+        ]
+      }
+    },
+    {
+      "key": "lastUpdatedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Optional provider update time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "normalizedStatus",
+      "description": "Carrier-specific statuses are mapped to canonical values."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Reference",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "carrier",
+      "trackingNumber",
+      "trackingUrl",
+      "status"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

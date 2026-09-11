@@ -1,0 +1,175 @@
+{
+  "contractVersion": "1.0.0",
+  "surface": "customer-cms",
+  "navigation": [
+    {
+      "moduleId": "core",
+      "label": "Overview",
+      "path": "/overview",
+      "icon": "fa-gauge-high",
+      "order": 10
+    },
+    {
+      "moduleId": "core",
+      "label": "Activity",
+      "path": "/activity",
+      "icon": "fa-clock-rotate-left",
+      "order": 90
+    },
+    {
+      "moduleId": "media",
+      "label": "Media",
+      "path": "/content/media",
+      "icon": "fa-photo-film",
+      "order": 40
+    },
+    {
+      "moduleId": "pages",
+      "label": "Pages",
+      "path": "/content/pages",
+      "icon": "fa-file-lines",
+      "order": 10
+    },
+    {
+      "moduleId": "pages",
+      "label": "Reusable Content",
+      "path": "/content/reusable",
+      "icon": "fa-clone",
+      "order": 20
+    },
+    {
+      "moduleId": "pages",
+      "label": "Navigation",
+      "path": "/website/navigation",
+      "icon": "fa-bars",
+      "order": 30
+    },
+    {
+      "moduleId": "pages",
+      "label": "Custom Collections",
+      "path": "/content/collections",
+      "icon": "fa-table-list",
+      "order": 50
+    },
+    {
+      "moduleId": "blog",
+      "label": "Blog",
+      "path": "/content/blog",
+      "icon": "fa-newspaper",
+      "order": 20
+    },
+    {
+      "moduleId": "seo",
+      "label": "SEO",
+      "path": "/growth/seo",
+      "icon": "fa-magnifying-glass-chart",
+      "order": 10
+    },
+    {
+      "moduleId": "consent",
+      "label": "Consent & Privacy",
+      "path": "/website/consent",
+      "icon": "fa-shield-halved",
+      "order": 20
+    },
+    {
+      "moduleId": "analytics",
+      "label": "Analytics",
+      "path": "/growth/analytics",
+      "icon": "fa-chart-line",
+      "order": 40
+    },
+    {
+      "moduleId": "marketing",
+      "label": "Conversions",
+      "path": "/growth/conversions",
+      "icon": "fa-bullseye",
+      "order": 50
+    },
+    {
+      "moduleId": "marketing",
+      "label": "Marketing",
+      "path": "/growth/marketing",
+      "icon": "fa-megaphone",
+      "order": 60
+    },
+    {
+      "moduleId": "integrations",
+      "label": "Integrations",
+      "path": "/website/integrations",
+      "icon": "fa-plug",
+      "order": 10
+    },
+    {
+      "moduleId": "commerce",
+      "label": "Products",
+      "path": "/commerce/products",
+      "icon": "fa-box",
+      "order": 10
+    },
+    {
+      "moduleId": "commerce",
+      "label": "Categories",
+      "path": "/commerce/categories",
+      "icon": "fa-tags",
+      "order": 20
+    },
+    {
+      "moduleId": "commerce",
+      "label": "Collections",
+      "path": "/commerce/collections",
+      "icon": "fa-layer-group",
+      "order": 30
+    },
+    {
+      "moduleId": "commerce",
+      "label": "Inventory",
+      "path": "/commerce/inventory",
+      "icon": "fa-warehouse",
+      "order": 40
+    },
+    {
+      "moduleId": "commerce",
+      "label": "Orders",
+      "path": "/commerce/orders",
+      "icon": "fa-receipt",
+      "order": 50
+    },
+    {
+      "moduleId": "commerce",
+      "label": "Customers",
+      "path": "/commerce/customers",
+      "icon": "fa-users",
+      "order": 60
+    },
+    {
+      "moduleId": "commerce",
+      "label": "Discounts",
+      "path": "/commerce/discounts",
+      "icon": "fa-percent",
+      "order": 70
+    },
+    {
+      "moduleId": "commerce",
+      "label": "Returns",
+      "path": "/commerce/returns",
+      "icon": "fa-rotate-left",
+      "order": 80
+    },
+    {
+      "moduleId": "commerce",
+      "label": "Reviews",
+      "path": "/commerce/reviews",
+      "icon": "fa-star",
+      "order": 90
+    },
+    {
+      "moduleId": "commerce",
+      "label": "Store Settings",
+      "path": "/commerce/settings",
+      "icon": "fa-gear",
+      "order": 100
+    }
+  ],
+  "sourceExampleId": "examples.commerce-site"
+}

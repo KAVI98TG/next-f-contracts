@@ -1,0 +1,274 @@
+{
+  "$id": "seo.metadata",
+  "name": "SEO Metadata",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "metadata",
+  "description": "Canonical per-target SEO metadata record used by Customer CMS editors and website renderers.",
+  "purpose": "Centralizes title, description, keywords, canonical, robots, social metadata, structured data and language alternates without duplicating SEO fields in every Content contract.",
+  "seoModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable SEO record identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "target",
+      "required": true,
+      "nullable": false,
+      "description": "Content or other routable entity this metadata describes.",
+      "schema": "core.entityReference"
+    },
+    {
+      "key": "metaTitle",
+      "required": false,
+      "nullable": true,
+      "description": "Search-result title override. Length guidance is an audit recommendation, not a hard ranking rule.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "metaDescription",
+      "required": false,
+      "nullable": true,
+      "description": "Search-result description suggestion. Search engines may choose different snippets.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "keywords",
+      "required": false,
+      "nullable": true,
+      "description": "Optional focus and supporting keyword targets.",
+      "schema": "seo.keywordSet"
+    },
+    {
+      "key": "canonicalUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Preferred absolute canonical URL.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "robots",
+      "required": false,
+      "nullable": true,
+      "description": "Page-level robots directives.",
+      "schema": "seo.robotsDirective"
+    },
+    {
+      "key": "openGraph",
+      "required": false,
+      "nullable": true,
+      "description": "Open Graph overrides.",
+      "schema": "seo.openGraph"
+    },
+    {
+      "key": "socialCard",
+      "required": false,
+      "nullable": true,
+      "description": "Generic social-card overrides.",
+      "schema": "seo.socialCard"
+    },
+    {
+      "key": "structuredData",
+      "required": false,
+      "nullable": true,
+      "description": "Zero or more structured-data objects.",
+      "itemsSchema": "seo.structuredData",
+      "config": {
+        "maxItems": 20
+      }
+    },
+    {
+      "key": "alternates",
+      "required": false,
+      "nullable": true,
+      "description": "Language/region alternate URLs.",
+      "itemsSchema": "seo.alternateLanguage",
+      "config": {
+        "maxItems": 50
+      }
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Most recent SEO metadata update timestamp.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "SEO records use canonical identity."
+    },
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "SEO records are tenant scoped."
+    },
+    {
+      "type": "references",
+      "target": "core.entityReference",
+      "description": "Attaches metadata to a canonical target entity."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "seo.keywordSet",
+      "description": "May include keyword targeting."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "seo.robotsDirective",
+      "description": "May include page-level robots directives."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "seo.openGraph",
+      "description": "May include Open Graph values."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "seo.socialCard",
+      "description": "May include social-card values."
+    },
+    {
+      "type": "optionallyComposesMany",
+      "target": "seo.structuredData",
+      "description": "May include multiple structured-data objects."
+    },
+    {
+      "type": "optionallyComposesMany",
+      "target": "seo.alternateLanguage",
+      "description": "May include alternate language URLs."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "oneRecordPerTargetLocale",
+      "description": "At most one active seo.metadata record may exist for a target entity and locale context unless a future localization contract defines variants."
+    },
+    {
+      "id": "canonicalNoFragment",
+      "description": "canonicalUrl must not include a URL fragment."
+    },
+    {
+      "id": "canonicalHttpsProduction",
+      "description": "Production canonical URLs should use HTTPS except explicitly approved exceptional environments."
+    },
+    {
+      "id": "noRankingGuarantee",
+      "description": "Metadata validation and scores must never be presented as ranking guarantees."
+    },
+    {
+      "id": "descriptionIsSuggestion",
+      "description": "metaDescription is a suggested snippet and must not be represented as controlling a search engine result."
+    }
+  ],
+  "cms": {
+    "label": "SEO",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "seo-workspace",
+    "summaryFields": [
+      "metaTitle",
+      "metaDescription",
+      "canonicalUrl",
+      "robots"
+    ],
+    "fieldGroups": [
+      "search-preview",
+      "keywords",
+      "indexing",
+      "social",
+      "structured-data",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "analyze",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "identity": {
+          "id": "seo_01",
+          "createdAt": "2026-09-10T00:00:00Z",
+          "updatedAt": "2026-09-10T00:00:00Z"
+        },
+        "scope": {
+          "organizationId": "org_01",
+          "siteId": "site_01"
+        },
+        "target": {
+          "entityType": "content.blogPost",
+          "entityId": "post_01"
+        },
+        "metaTitle": "Preventive Maintenance Guide",
+        "metaDescription": "Practical guidance for reducing downtime.",
+        "canonicalUrl": "https://example.lk/blog/preventive-maintenance",
+        "updatedAt": "2026-09-10T00:00:00Z"
+      }
+    ],
+    "invalid": [
+      {
+        "target": null,
+        "canonicalUrl": "javascript:alert(1)"
+      }
+    ]
+  },
+  "notes": []
+}

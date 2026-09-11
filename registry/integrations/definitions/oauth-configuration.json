@@ -1,0 +1,131 @@
+{
+  "$id": "integrations.oauthConfiguration",
+  "name": "OAuth Configuration",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "authentication",
+  "description": "OAuth 2 connection configuration without access/refresh token values.",
+  "purpose": "Defines authorization metadata and protected token references for provider connectors.",
+  "integrationModel": {
+    "kind": "auth-configuration",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "secret"
+  },
+  "fields": [
+    {
+      "key": "authorizationUrl",
+      "required": true,
+      "nullable": false,
+      "description": "Authorization endpoint.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "tokenUrl",
+      "required": true,
+      "nullable": false,
+      "description": "Token endpoint.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "scopes",
+      "required": true,
+      "nullable": false,
+      "description": "Requested scopes.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "clientId",
+      "required": false,
+      "nullable": true,
+      "description": "OAuth client identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "clientSecretRef",
+      "required": false,
+      "nullable": true,
+      "description": "Protected client secret.",
+      "schema": "integrations.secretReference"
+    },
+    {
+      "key": "accessTokenRef",
+      "required": false,
+      "nullable": true,
+      "description": "Protected access token.",
+      "schema": "integrations.secretReference"
+    },
+    {
+      "key": "refreshTokenRef",
+      "required": false,
+      "nullable": true,
+      "description": "Protected refresh token.",
+      "schema": "integrations.secretReference"
+    },
+    {
+      "key": "redirectUri",
+      "required": false,
+      "nullable": true,
+      "description": "Registered callback URL.",
+      "primitive": "fields.url"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "integrations.secretReference",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "tokensNeverInline",
+      "description": "Access and refresh tokens are secret references only."
+    },
+    {
+      "id": "minimumScopes",
+      "description": "Request only scopes required for enabled capabilities."
+    },
+    {
+      "id": "stateAndPkceImplementation",
+      "description": "Runtime OAuth implementation must use appropriate anti-forgery protections such as state and PKCE where applicable."
+    }
+  ],
+  "cms": {
+    "label": "OAuth Configuration",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "authorizationUrl",
+      "tokenUrl",
+      "scopes",
+      "clientId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

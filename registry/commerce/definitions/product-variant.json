@@ -1,0 +1,200 @@
+{
+  "$id": "commerce.productVariant",
+  "name": "Product Variant",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "catalog",
+  "description": "Purchasable Product variant.",
+  "purpose": "Provides SKU, option combination, price and fulfillment/inventory settings at purchasable-unit level.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "productId",
+      "required": true,
+      "nullable": false,
+      "description": "Parent Product ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Variant display label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "optionValueKeys",
+      "required": true,
+      "nullable": false,
+      "description": "Chosen option value keys.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "minItems": 1,
+        "uniqueItems": true
+      }
+    },
+    {
+      "key": "sku",
+      "required": false,
+      "nullable": true,
+      "description": "Optional SKU.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "price",
+      "required": false,
+      "nullable": true,
+      "description": "Variant price.",
+      "schema": "commerce.productPrice"
+    },
+    {
+      "key": "mediaIds",
+      "required": false,
+      "nullable": true,
+      "description": "Optional media asset IDs.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "uniqueItems": true
+      }
+    },
+    {
+      "key": "requiresShipping",
+      "required": true,
+      "nullable": false,
+      "description": "Whether physical shipping is required.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "trackInventory",
+      "required": true,
+      "nullable": false,
+      "description": "Whether inventory is tracked.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "weight",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shipping weight.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "weightUnit",
+      "required": false,
+      "nullable": true,
+      "description": "Weight unit.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "g",
+          "kg",
+          "oz",
+          "lb"
+        ]
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Variant status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "draft",
+          "active",
+          "archived"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "commerce.product",
+      "description": "References commerce.product."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "commerce.productPrice",
+      "description": "References commerce.productPrice."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "combinationUnique",
+      "description": "Option combination is unique within the Product."
+    },
+    {
+      "id": "skuUnique",
+      "description": "SKU is unique within Site when present."
+    },
+    {
+      "id": "weightPair",
+      "description": "weight and weightUnit appear together."
+    }
+  ],
+  "cms": {
+    "label": "Product Variant",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "productId",
+      "title"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly public storefront fields may be delivered; operational, personal, payment and internal metadata remain private."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

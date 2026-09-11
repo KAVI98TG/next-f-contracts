@@ -1,0 +1,41 @@
+{
+  "controlId": "SEC-PDATA-001",
+  "name": "Personal-data security minimization",
+  "category": "privacy",
+  "requirement": "Personal data must be collected, exposed, logged, emitted and delivered only when the owning contract and purpose require it, with appropriate authorization.",
+  "rationale": "Reducing unnecessary exposure reduces breach impact.",
+  "applicability": [
+    "forms",
+    "commerce",
+    "marketing",
+    "events",
+    "webhooks"
+  ],
+  "obligation": "mandatory",
+  "scope": "both",
+  "affectedModules": [
+    "modules.forms",
+    "modules.leads",
+    "modules.commerce",
+    "modules.marketing"
+  ],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_pdata_001.json"
+}

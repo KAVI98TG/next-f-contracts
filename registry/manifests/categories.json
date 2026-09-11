@@ -1,0 +1,30 @@
+{
+  "registryVersion": "0.17.0",
+  "categories": [
+    {
+      "id": "identity-versioning",
+      "label": "Identity and Versioning",
+      "description": "Site identity, manifest format and pinned contract version."
+    },
+    {
+      "id": "environment-localization",
+      "label": "Environment and Localization",
+      "description": "Environment-neutral URLs, locale, timezone and delivery declarations."
+    },
+    {
+      "id": "capability-runtime",
+      "label": "Capabilities and Runtime",
+      "description": "Modules, capabilities and mandatory NEXT F runtime primitives."
+    },
+    {
+      "id": "surfaces-bindings",
+      "label": "CMS and Platform Bindings",
+      "description": "CMS, API, event, tracking, integration and configuration declarations."
+    },
+    {
+      "id": "extensions",
+      "label": "Extensions",
+      "description": "Explicit namespaced Site-specific contract extension declarations."
+    }
+  ]
+}

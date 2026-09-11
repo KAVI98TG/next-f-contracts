@@ -1,0 +1,123 @@
+{
+  "$id": "webhooks.httpOutcomePolicy",
+  "name": "Webhook HTTP Outcome Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "delivery",
+  "description": "Canonical mapping from receiver HTTP status classes to webhook delivery behavior.",
+  "purpose": "Prevents customer projects from inventing incompatible HTTP retry semantics.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "successRange",
+      "required": true,
+      "nullable": false,
+      "description": "Successful status range.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "retryableStatuses",
+      "required": true,
+      "nullable": false,
+      "description": "Explicit retryable client statuses.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "serverErrorsRetryable",
+      "required": true,
+      "nullable": false,
+      "description": "Whether 5xx statuses are retryable.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "redirectHandling",
+      "required": true,
+      "nullable": false,
+      "description": "3xx handling.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "terminal-no-follow"
+        ]
+      }
+    },
+    {
+      "key": "goneHandling",
+      "required": true,
+      "nullable": false,
+      "description": "410 handling.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "disable-endpoint"
+        ]
+      }
+    },
+    {
+      "key": "otherClientErrorHandling",
+      "required": true,
+      "nullable": false,
+      "description": "Other 4xx handling.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "terminal"
+        ]
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "2xx",
+      "description": "200-299 is success."
+    },
+    {
+      "id": "retryable",
+      "description": "408, 425, 429 and 5xx are retryable within retry budget."
+    },
+    {
+      "id": "redirect",
+      "description": "3xx is terminal and never auto-followed."
+    },
+    {
+      "id": "gone",
+      "description": "410 is terminal and disables the endpoint."
+    },
+    {
+      "id": "other4xx",
+      "description": "Other 4xx statuses are terminal."
+    }
+  ],
+  "cms": {
+    "label": "Webhook HTTP Outcome Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "successRange",
+      "retryableStatuses",
+      "serverErrorsRetryable",
+      "redirectHandling"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

@@ -1,0 +1,138 @@
+{
+  "$id": "forms.autoResponse",
+  "name": "Form Auto-response",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "automation",
+  "description": "Configures a visitor-facing email response after an accepted submission.",
+  "purpose": "Keeps acknowledgement email behavior separate from internal notifications.",
+  "formsModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "formId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Form.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.form",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether automatic response is enabled.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "recipientFieldKey",
+      "required": true,
+      "nullable": false,
+      "description": "Form field containing the validated recipient email.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "subjectTemplate",
+      "required": true,
+      "nullable": false,
+      "description": "Allowlisted-variable subject template.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300
+      }
+    },
+    {
+      "key": "bodyTemplate",
+      "required": true,
+      "nullable": false,
+      "description": "Response body.",
+      "primitive": "fields.richText"
+    },
+    {
+      "key": "replyTo",
+      "required": false,
+      "nullable": true,
+      "description": "Optional reply-to address.",
+      "primitive": "fields.email"
+    },
+    {
+      "key": "onlyAfterAccepted",
+      "required": true,
+      "nullable": false,
+      "description": "Must remain true in Phase 8.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "recipientMustBeEmailField",
+      "description": "recipientFieldKey must identify a validated email field."
+    },
+    {
+      "id": "acceptedOnly",
+      "description": "Auto-response must not be sent before server acceptance."
+    },
+    {
+      "id": "noSensitiveEcho",
+      "description": "Sensitive submitted values must not be echoed into the response unless explicitly designed and authorized."
+    },
+    {
+      "id": "antiAbuseRequired",
+      "description": "Auto-response must respect anti-abuse/rate-limit controls to avoid becoming a mail relay."
+    }
+  ],
+  "cms": {
+    "label": "Form Auto-response",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "formId",
+      "enabled",
+      "recipientFieldKey",
+      "subjectTemplate"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,35 @@
+{
+  "controlId": "SEC-LOG-001",
+  "name": "Secret-safe logging",
+  "category": "logging",
+  "requirement": "Logs must exclude secrets and credentials and minimize personal data while preserving operational security evidence.",
+  "rationale": "Logs are broadly retained and accessed and can become a secondary data breach source.",
+  "applicability": [
+    "api",
+    "integrations",
+    "webhooks",
+    "commerce"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_log_001.json"
+}

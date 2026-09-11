@@ -1,0 +1,82 @@
+{
+  "$id": "api.customer-cms.create-custom-entry",
+  "operationId": "api.customer-cms.create-custom-entry",
+  "name": "Create Custom Entry",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.customer-cms",
+  "method": "POST",
+  "path": "/collections/{collectionKey}/entries",
+  "description": "Create Custom Entry",
+  "authentication": {
+    "mode": "organization-user",
+    "permissions": [
+      "content.customentries.create"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "collectionKey"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "content.customCollectionEntry",
+    "bodyProjection": "operation-writable-fields-only"
+  },
+  "response": {
+    "successStatus": 201,
+    "envelope": "api.successEnvelope",
+    "dataContract": "content.customCollectionEntry",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled"
+    ],
+    "projection": "workspace-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-write",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "pages",
+    "blog",
+    "documentation",
+    "seo",
+    "forms",
+    "leads"
+  ],
+  "contractBindings": [
+    "content.customCollectionEntry"
+  ],
+  "eventBindings": [
+    "content.created"
+  ],
+  "publicSurface": false,
+  "privacy": "private",
+  "notes": []
+}

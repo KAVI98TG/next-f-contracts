@@ -1,0 +1,31 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "Redaction Behaviors",
+  "values": [
+    {
+      "id": "none",
+      "label": "None",
+      "description": "No redaction needed within an authorized context."
+    },
+    {
+      "id": "mask",
+      "label": "Mask",
+      "description": "Mask most of the value for display/diagnostics."
+    },
+    {
+      "id": "partial",
+      "label": "Partial",
+      "description": "Expose only the contract-approved safe subset."
+    },
+    {
+      "id": "pseudonymize",
+      "label": "Pseudonymize",
+      "description": "Replace direct identity with a bounded pseudonymous identifier; this is not automatically anonymous."
+    },
+    {
+      "id": "remove",
+      "label": "Remove",
+      "description": "Omit the value entirely from the destination or output."
+    }
+  ]
+}

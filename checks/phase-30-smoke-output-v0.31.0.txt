@@ -1,0 +1,4 @@
+NEXT F Contracts Phase 30 smoke
+Passes: 26
+Failures: 0
+PASS

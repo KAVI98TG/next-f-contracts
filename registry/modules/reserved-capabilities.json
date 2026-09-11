@@ -1,0 +1,25 @@
+{
+  "registryVersion": "0.18.0",
+  "items": [
+    {
+      "capabilityId": "commerce.subscriptions",
+      "reason": "Requires dedicated recurring billing, entitlement and lifecycle contracts before use."
+    },
+    {
+      "capabilityId": "commerce.bookings",
+      "reason": "Requires scheduling, resource availability and reservation contracts before use."
+    },
+    {
+      "capabilityId": "commerce.gift-cards",
+      "reason": "Requires stored-value issuance, redemption and liability contracts before use."
+    },
+    {
+      "capabilityId": "commerce.marketplace",
+      "reason": "Requires seller, commission, settlement and marketplace governance contracts before use."
+    },
+    {
+      "capabilityId": "commerce.preorders",
+      "reason": "Requires preorder authorization, inventory and fulfillment rules before use."
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "$id": "blocks.documents",
+  "name": "Documents",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "utility",
+  "description": "Documentation/article listing block.",
+  "purpose": "Allows approved documentation to be selected or queried without duplicating article content in page data.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "selectionMode",
+      "required": true,
+      "nullable": false,
+      "description": "How documents are selected.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "manual",
+            "label": "Manual selection"
+          },
+          {
+            "value": "collection",
+            "label": "Documentation collection"
+          },
+          {
+            "value": "category",
+            "label": "Documentation category"
+          }
+        ],
+        "defaultValue": "manual",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "documents",
+      "required": false,
+      "nullable": true,
+      "description": "Manual documentation article selection.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.documentationArticle",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true,
+        "uniqueItems": true,
+        "minItems": 1,
+        "maxItems": 50
+      }
+    },
+    {
+      "key": "collection",
+      "required": false,
+      "nullable": true,
+      "description": "Documentation collection used by collection mode.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.documentationCollection",
+        "relationshipCardinality": "one",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "category",
+      "required": false,
+      "nullable": true,
+      "description": "Documentation category used by category mode.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.documentationCategory",
+        "relationshipCardinality": "one",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "limit",
+      "required": false,
+      "nullable": true,
+      "description": "Maximum automatically selected documents.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 100,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "content.documentationArticle",
+      "description": "May list Documentation Articles."
+    },
+    {
+      "type": "references",
+      "target": "content.documentationCollection",
+      "description": "May query a Documentation Collection."
+    },
+    {
+      "type": "references",
+      "target": "content.documentationCategory",
+      "description": "May query a Documentation Category."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "modeRequirement",
+      "description": "Manual mode requires documents, collection mode requires collection, and category mode requires category."
+    },
+    {
+      "id": "publishedOnly",
+      "description": "Only public-eligible published documents may be rendered publicly."
+    }
+  ],
+  "cms": {
+    "label": "Documents",
+    "icon": "fa-book-open",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "selectionMode",
+      "documents"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": []
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

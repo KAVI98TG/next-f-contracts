@@ -1,0 +1,295 @@
+{
+  "$id": "content.documentationArticle",
+  "name": "Documentation Article",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "documentation",
+  "description": "Versioned structured documentation article.",
+  "purpose": "Supports searchable manuals, guides, help content and policy documentation with collection/category organization and revision history.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "required",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Article title.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 220,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Article slug within its documentation route.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "summary",
+      "required": false,
+      "nullable": true,
+      "description": "Short article summary.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1200,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "content",
+      "required": true,
+      "nullable": false,
+      "description": "Structured documentation body.",
+      "primitive": "fields.richText",
+      "config": {
+        "minLength": 1,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "collection",
+      "required": true,
+      "nullable": false,
+      "description": "Owning documentation collection.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.documentationCollection",
+        "relationshipCardinality": "one",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "category",
+      "required": false,
+      "nullable": true,
+      "description": "Optional documentation category.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.documentationCategory",
+        "relationshipCardinality": "one",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "author",
+      "required": false,
+      "nullable": true,
+      "description": "Optional editorial author.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.author",
+        "relationshipCardinality": "one",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "versionLabel",
+      "required": false,
+      "nullable": true,
+      "description": "Optional version applicability label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "tableOfContents",
+      "required": true,
+      "nullable": false,
+      "description": "Whether supported frontend implementations may render a generated table of contents.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "relatedArticles",
+      "required": false,
+      "nullable": true,
+      "description": "Optional manually related documentation.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.documentationArticle",
+        "relationshipCardinality": "many",
+        "customerEditable": true,
+        "adminEditable": true,
+        "uniqueItems": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "attachments",
+      "required": false,
+      "nullable": true,
+      "description": "Optional ordered list of shared.mediaReference-compatible download attachments.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "array",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "content.documentationCollection",
+      "description": "Article belongs to one collection."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "content.documentationCategory",
+      "description": "Article may be categorized."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "content.author",
+      "description": "Article may identify an Author."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "categoryMatchesCollection",
+      "description": "If category is set, it must belong to collection."
+    },
+    {
+      "id": "articleSlugUniqueWithinCollection",
+      "description": "slug must be unique within the collection and locale."
+    },
+    {
+      "id": "relatedArticlesNotSelf",
+      "description": "relatedArticles cannot include the current article."
+    },
+    {
+      "id": "attachmentsValidate",
+      "description": "Each attachment must resolve to an approved Media Asset/reference and must not expose private files through a public article."
+    }
+  ],
+  "cms": {
+    "label": "Documentation Article",
+    "icon": "fa-book-open",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "title",
+      "collection",
+      "publishing"
+    ],
+    "editorMode": "editorial-workspace",
+    "primaryActions": [
+      "saveDraft",
+      "preview",
+      "publish",
+      "schedule",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published documentation may be delivered with only visibility-eligible related records and attachments."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "title": "Installation",
+        "slug": "installation",
+        "collection": "doc-collection-id",
+        "content": {
+          "type": "doc",
+          "content": []
+        },
+        "tableOfContents": true
+      }
+    ],
+    "invalid": [
+      {
+        "title": "Installation",
+        "slug": "bad slug",
+        "collection": null,
+        "content": "raw html"
+      }
+    ]
+  },
+  "notes": [
+    "Table of contents is derived from structured headings; it is not a manually trusted HTML fragment."
+  ]
+}

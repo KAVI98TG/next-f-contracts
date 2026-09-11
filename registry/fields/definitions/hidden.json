@@ -1,0 +1,59 @@
+{
+  "$id": "fields.hidden",
+  "name": "Hidden",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "system",
+  "description": "Field not rendered as an ordinary Customer CMS control. Visibility never grants write permission.",
+  "value": {
+    "jsonType": "any-json",
+    "canonical": "Value type is declared by the parent schema or referenced primitive; hidden affects CMS presentation only.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "hidden",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": false,
+    "filterable": false,
+    "sortable": false,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width"
+  ],
+  "validationRules": [
+    "required",
+    "notNull",
+    "hiddenWritePolicy"
+  ],
+  "examples": {
+    "valid": [
+      "system-value"
+    ],
+    "invalid": []
+  },
+  "notes": [
+    "Hidden is not a security control. Server-side authorization still applies."
+  ]
+}

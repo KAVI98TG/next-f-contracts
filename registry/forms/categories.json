@@ -1,0 +1,40 @@
+{
+  "registryVersion": "0.9.0",
+  "categories": [
+    {
+      "id": "builder",
+      "label": "Form Builder",
+      "description": "Form definitions, fields, layout, validation and availability."
+    },
+    {
+      "id": "logic",
+      "label": "Conditional Logic",
+      "description": "Safe declarative conditions and groups used to control form visibility and behavior."
+    },
+    {
+      "id": "submission",
+      "label": "Submissions",
+      "description": "Submission snapshots, values, uploads and request context."
+    },
+    {
+      "id": "anti-abuse",
+      "label": "Anti-abuse",
+      "description": "Rate limiting, spam policy, signals and decisions."
+    },
+    {
+      "id": "consent-data",
+      "label": "Consent and Data Handling",
+      "description": "Consent capture and data-handling controls without claiming legal sufficiency."
+    },
+    {
+      "id": "leads",
+      "label": "Leads",
+      "description": "Lead records, source, status, assignment, deduplication and timeline operations."
+    },
+    {
+      "id": "automation",
+      "label": "Notifications and Mapping",
+      "description": "Confirmation, notifications, auto-response, lead mapping and future conversion mapping."
+    }
+  ]
+}

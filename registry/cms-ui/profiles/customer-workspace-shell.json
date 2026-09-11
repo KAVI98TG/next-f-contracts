@@ -1,0 +1,83 @@
+{
+  "$id": "cmsUi.profile.customerWorkspaceShell",
+  "name": "Customer Site Workspace Shell",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "workspace-shell",
+  "resource": "core.workspace",
+  "moduleId": "core",
+  "description": "Permanent Customer CMS shell that renders navigation from enabled Site Modules and keeps every customer in their own Site Workspace.",
+  "targetContracts": [
+    "core.site",
+    "modules.core"
+  ],
+  "primaryTargetContract": "core.site",
+  "route": "/overview",
+  "screenKind": "dashboard",
+  "layoutTemplate": "dashboard",
+  "responsivePolicy": "standard",
+  "fieldBindings": [],
+  "navigation": {
+    "source": "registry/modules/index.json",
+    "surface": "customer-cms",
+    "filter": "enabled Site Manifest modules/capabilities plus authorized permissions",
+    "siteSwitcher": "when-authorized-for-multiple-sites",
+    "organizationSwitcher": "when-authorized-for-multiple-organizations"
+  },
+  "header": {
+    "showSiteName": true,
+    "showPrimaryUrlReference": true,
+    "showEnvironment": true,
+    "showNotifications": true,
+    "showAccountMenu": true
+  },
+  "globalActions": [
+    "global-search",
+    "command-palette",
+    "help",
+    "notifications"
+  ],
+  "states": [
+    "loading",
+    "populated",
+    "authorization-denied",
+    "network-error",
+    "empty",
+    "validation-error",
+    "not-found",
+    "conflict",
+    "success"
+  ],
+  "permissions": [
+    "core.workspace.view"
+  ],
+  "actions": [
+    {
+      "actionId": "view",
+      "permissionId": "core.workspace.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "accessibility": {
+    "skipLink": true,
+    "routeAnnouncements": true,
+    "focusManagement": true,
+    "keyboardComplete": true
+  },
+  "notes": [
+    "Hosting and domain billing controls are intentionally absent. Website URL is a technical reference only."
+  ],
+  "views": [
+    {
+      "id": "primary",
+      "kind": "dashboard",
+      "route": "/overview",
+      "layoutTemplate": "dashboard",
+      "requiresPermission": "core.workspace.view",
+      "purpose": "Primary Site-scoped Customer CMS surface."
+    }
+  ]
+}

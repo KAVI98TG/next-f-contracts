@@ -1,0 +1,60 @@
+{
+  "$id": "diff.itemHistory",
+  "name": "Contract Item History",
+  "version": "0.26.0",
+  "status": "stable",
+  "domain": "diff",
+  "category": "contract-diff",
+  "description": "Release-by-release presence and source hash history for one canonical Registry item",
+  "purpose": "Release-by-release presence and source hash history for one canonical Registry item",
+  "fields": [
+    {
+      "key": "itemId",
+      "required": true,
+      "nullable": false,
+      "description": "itemId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "entries",
+      "required": true,
+      "nullable": false,
+      "description": "entries",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "firstSeen",
+      "required": true,
+      "nullable": false,
+      "description": "firstSeen",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "lastSeen",
+      "required": true,
+      "nullable": false,
+      "description": "lastSeen",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "distinctSnapshots",
+      "required": true,
+      "nullable": false,
+      "description": "distinctSnapshots",
+      "primitive": "fields.integer"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "contractDiffOnly",
+      "description": "Contains contract/release analysis metadata only and never customer runtime data."
+    }
+  ],
+  "cms": {
+    "label": "Contract Item History",
+    "customerEditable": false,
+    "adminEditable": false,
+    "publicEligible": true
+  }
+}

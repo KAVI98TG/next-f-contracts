@@ -1,0 +1,33 @@
+{
+  "controlId": "ACC-MEDIA-002",
+  "name": "Transcripts where applicable",
+  "category": "media",
+  "requirement": "Audio-first or information-dense media must provide a text transcript or equivalent alternative where applicable.",
+  "rationale": "Transcripts support users who cannot access audio and improve review/searchability.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "audio-video"
+  ],
+  "verificationMethods": [
+    "content-review"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [
+    "fields.audio",
+    "fields.video"
+  ],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_media_002.json"
+}

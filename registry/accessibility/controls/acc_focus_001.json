@@ -1,0 +1,39 @@
+{
+  "controlId": "ACC-FOCUS-001",
+  "name": "Visible keyboard focus",
+  "category": "keyboard",
+  "requirement": "Keyboard focus must always have a clearly visible indicator on interactive controls.",
+  "rationale": "Visible focus is required for users to understand current keyboard position.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "page",
+    "navigation",
+    "form",
+    "dialog",
+    "drawer",
+    "menu",
+    "filter",
+    "command-palette"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "keyboard-manual",
+    "visual-manual"
+  ],
+  "severity": "critical",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_focus_001.json"
+}

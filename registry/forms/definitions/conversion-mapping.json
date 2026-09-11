@@ -1,0 +1,179 @@
+{
+  "$id": "forms.conversionMapping",
+  "name": "Form Conversion Mapping",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "automation",
+  "description": "Declares that an accepted form outcome should map to a future registered marketing conversion key.",
+  "purpose": "Creates the stable bridge needed for Phase 9 conversions without directly embedding Google, Meta or other vendor tracking code in the Form.",
+  "formsModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "formId",
+      "required": true,
+      "nullable": false,
+      "description": "Source Form.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.form",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether conversion mapping is active.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "outcome",
+      "required": true,
+      "nullable": false,
+      "description": "Form outcome eligible for conversion mapping.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "accepted",
+            "label": "Accepted"
+          },
+          {
+            "value": "leadCreated",
+            "label": "Lead created"
+          }
+        ]
+      }
+    },
+    {
+      "key": "conversionKey",
+      "required": true,
+      "nullable": false,
+      "description": "Future canonical Marketing conversion key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "valueMode",
+      "required": true,
+      "nullable": false,
+      "description": "How a future conversion value is determined.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "none",
+            "label": "No value"
+          },
+          {
+            "value": "fixed",
+            "label": "Fixed"
+          },
+          {
+            "value": "mappedField",
+            "label": "Mapped field"
+          }
+        ]
+      }
+    },
+    {
+      "key": "fixedValue",
+      "required": false,
+      "nullable": true,
+      "description": "Optional fixed monetary conversion value.",
+      "primitive": "fields.currency"
+    },
+    {
+      "key": "sourceFieldKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional field key used by a future validated conversion-value mapping.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "requiresMarketingConsent",
+      "required": true,
+      "nullable": false,
+      "description": "Whether dispatch to marketing destinations requires marketing consent.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "forms.form",
+      "description": "Conversion mapping belongs to a Form."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "notCanonicalMarketingYet",
+      "description": "conversionKey is a forward reference; canonical conversion/event contracts are introduced in Phase 9 and Phase 13."
+    },
+    {
+      "id": "noVendorCode",
+      "description": "This mapping must not contain Google Ads, Meta Pixel or other vendor scripts."
+    },
+    {
+      "id": "valueModeExclusive",
+      "description": "fixedValue/sourceFieldKey usage must match valueMode."
+    },
+    {
+      "id": "consentEnforcedAtDispatch",
+      "description": "Future marketing dispatch must obey consent and destination rules, not merely this flag."
+    }
+  ],
+  "cms": {
+    "label": "Form Conversion Mapping",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "formId",
+      "enabled",
+      "outcome",
+      "conversionKey"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

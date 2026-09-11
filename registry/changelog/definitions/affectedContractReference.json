@@ -1,0 +1,53 @@
+{
+  "$id": "changelog.affectedContractReference",
+  "name": "Affected Contract Reference",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "changelog",
+  "type": "schema",
+  "category": "release-lifecycle",
+  "description": "Optional reference from a release-note entry to one or more canonical Registry definitions.",
+  "fields": [
+    {
+      "key": "registryId",
+      "required": true,
+      "nullable": false,
+      "description": "registryId",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "relationship",
+      "required": false,
+      "nullable": true,
+      "description": "relationship",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "note",
+      "required": false,
+      "nullable": true,
+      "description": "note",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "changelog.changelogStandard",
+      "description": "Governed by the NEXT F Changelog Standard."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "publicTechnicalMetadataOnly",
+      "description": "Changelog metadata must not contain secrets or customer runtime records."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": true
+}

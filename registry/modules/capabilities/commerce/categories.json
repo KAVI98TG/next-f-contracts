@@ -1,0 +1,34 @@
+{
+  "$id": "modules.capability.commerce.categories",
+  "capabilityId": "commerce.categories",
+  "name": "Categories",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Categories capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.productCategory"
+  ],
+  "permissionBindings": [
+    "commerce.categories.create",
+    "commerce.categories.delete",
+    "commerce.categories.edit",
+    "commerce.categories.manage",
+    "commerce.categories.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

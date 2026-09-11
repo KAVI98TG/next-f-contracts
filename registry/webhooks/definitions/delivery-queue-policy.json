@@ -1,0 +1,100 @@
+{
+  "$id": "webhooks.deliveryQueuePolicy",
+  "name": "Webhook Delivery Queue Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "resilience",
+  "description": "Queueing and pause behavior for pending webhook deliveries.",
+  "purpose": "Defines finite deferred retention and best-effort processing order.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "initialOrdering",
+      "required": true,
+      "nullable": false,
+      "description": "Initial queue ordering behavior.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "best-effort-fifo"
+        ]
+      }
+    },
+    {
+      "key": "pausedRetentionHours",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum retention while endpoint/subscription is paused.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "onPauseExpiry",
+      "required": true,
+      "nullable": false,
+      "description": "Outcome after pause retention expires.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "dead-letter"
+        ]
+      }
+    },
+    {
+      "key": "historicalBackfill",
+      "required": true,
+      "nullable": false,
+      "description": "Whether pre-activation events are queued.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "bestEffortOnly",
+      "description": "FIFO is best effort for initial delivery; retries may overtake later deliveries."
+    },
+    {
+      "id": "eventOrderAuthority",
+      "description": "Webhook arrival order is never authoritative; consumers use canonical Event ordering/correlation metadata."
+    },
+    {
+      "id": "defaultPauseRetention",
+      "description": "Paused deliveries may be deferred for at most 72 hours by default."
+    },
+    {
+      "id": "noBackfillV1",
+      "description": "Historical backfill is disabled in V1."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Delivery Queue Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "initialOrdering",
+      "pausedRetentionHours",
+      "onPauseExpiry",
+      "historicalBackfill"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

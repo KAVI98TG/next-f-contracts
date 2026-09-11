@@ -1,0 +1,22 @@
+{
+  "budgetId": "PERF-BUDGET-011",
+  "name": "Inline style payload",
+  "category": "payload",
+  "scope": "contract-portal",
+  "metric": "portal.inlineStyleBytes",
+  "target": 0,
+  "warningThreshold": 4096,
+  "comparator": "lte",
+  "unit": "bytes",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-html-scan",
+  "environment": "Hosted and file review",
+  "notes": "Keep styling in cacheable CSS assets.",
+  "relatedRegistryIds": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_011.json"
+}

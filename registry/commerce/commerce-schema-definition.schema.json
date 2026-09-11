@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/commerce/commerce-schema-definition.schema.json",
+  "title": "NEXT F Commerce Schema Definition",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "category",
+    "description",
+    "purpose",
+    "commerceModel",
+    "fields",
+    "relationships",
+    "validationRules",
+    "cms",
+    "delivery",
+    "futureBindings",
+    "examples",
+    "notes"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^commerce\\.[A-Za-z][A-Za-z0-9]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "const": "0.12.0"
+    },
+    "status": {
+      "enum": [
+        "stable",
+        "draft",
+        "experimental",
+        "deprecated",
+        "removed"
+      ]
+    },
+    "domain": {
+      "const": "commerce"
+    },
+    "category": {
+      "enum": [
+        "foundation",
+        "catalog",
+        "inventory",
+        "customer",
+        "cart-checkout",
+        "orders",
+        "payments",
+        "fulfillment",
+        "promotions",
+        "tax",
+        "returns"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "commerceModel": {
+      "type": "object",
+      "required": [
+        "kind",
+        "customerManaged",
+        "containsPersonalData",
+        "publicEligible",
+        "supportsRevision",
+        "transactional",
+        "dataSensitivity"
+      ]
+    },
+    "fields": {
+      "type": "array",
+      "minItems": 1
+    },
+    "relationships": {
+      "type": "array"
+    },
+    "validationRules": {
+      "type": "array"
+    },
+    "cms": {
+      "type": "object"
+    },
+    "delivery": {
+      "type": "object"
+    },
+    "futureBindings": {
+      "type": "object"
+    },
+    "examples": {
+      "type": "object"
+    },
+    "notes": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": false
+}

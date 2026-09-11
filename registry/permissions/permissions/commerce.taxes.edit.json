@@ -1,0 +1,29 @@
+{
+  "$id": "commerce.taxes.edit",
+  "name": "Edit Taxes",
+  "permissionId": "commerce.taxes.edit",
+  "domain": "commerce",
+  "resource": "taxes",
+  "action": "edit",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Edit Taxes within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

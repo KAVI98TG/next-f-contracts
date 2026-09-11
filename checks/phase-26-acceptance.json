@@ -1,0 +1,97 @@
+{
+  "phase": 26,
+  "version": "0.27.0",
+  "status": "passed",
+  "checks": [
+    {
+      "id": "P26-001",
+      "name": "Compatibility Center Standard created",
+      "passed": true
+    },
+    {
+      "id": "P26-002",
+      "name": "Compatibility Policy strengthened",
+      "passed": true
+    },
+    {
+      "id": "P26-003",
+      "name": "Compatibility status vocabulary created",
+      "passed": true
+    },
+    {
+      "id": "P26-004",
+      "name": "Support-level vocabulary created",
+      "passed": true
+    },
+    {
+      "id": "P26-005",
+      "name": "Pre-1.0 production-support truth preserved",
+      "passed": true
+    },
+    {
+      "id": "P26-006",
+      "name": "Exact release readiness generated from Contract Diff evidence",
+      "passed": true
+    },
+    {
+      "id": "P26-007",
+      "name": "Unavailable exact history remains unknown/history-only",
+      "passed": true
+    },
+    {
+      "id": "P26-008",
+      "name": "Platform specification and runtime implementation are separated",
+      "passed": true
+    },
+    {
+      "id": "P26-009",
+      "name": "Site Runtime/SDK support is not fabricated",
+      "passed": true
+    },
+    {
+      "id": "P26-010",
+      "name": "Six reference Site Manifests assessed",
+      "passed": true
+    },
+    {
+      "id": "P26-011",
+      "name": "Module and capability bindings checked",
+      "passed": true
+    },
+    {
+      "id": "P26-012",
+      "name": "API, Event, tracking and Integration bindings checked",
+      "passed": true
+    },
+    {
+      "id": "P26-013",
+      "name": "Compatibility Center has no migration/deployment side effects",
+      "passed": true
+    },
+    {
+      "id": "P26-014",
+      "name": "Global Search regenerated",
+      "passed": true
+    },
+    {
+      "id": "P26-015",
+      "name": "Relationship Explorer regenerated",
+      "passed": true
+    },
+    {
+      "id": "P26-016",
+      "name": "Current exact Contract Diff snapshot regenerated",
+      "passed": true
+    },
+    {
+      "id": "P26-017",
+      "name": "Phase 26 validator passes",
+      "passed": true
+    },
+    {
+      "id": "P26-018",
+      "name": "Phase 26 runtime smoke passes",
+      "passed": true
+    }
+  ]
+}

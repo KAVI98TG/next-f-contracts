@@ -1,0 +1,46 @@
+{
+  "registryVersion": "0.15.0",
+  "endpoint": [
+    "pending-verification",
+    "active",
+    "degraded",
+    "paused",
+    "disabled"
+  ],
+  "subscription": [
+    "draft",
+    "active",
+    "paused",
+    "disabled"
+  ],
+  "delivery": [
+    "pending",
+    "deferred",
+    "delivering",
+    "succeeded",
+    "retry-scheduled",
+    "failed",
+    "dead-lettered",
+    "cancelled"
+  ],
+  "attempt": [
+    "pending",
+    "in-flight",
+    "succeeded",
+    "failed",
+    "timed-out",
+    "rejected"
+  ],
+  "verification": [
+    "pending",
+    "succeeded",
+    "failed",
+    "expired"
+  ],
+  "health": [
+    "healthy",
+    "degraded",
+    "paused",
+    "disabled"
+  ]
+}

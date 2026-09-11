@@ -1,0 +1,73 @@
+{
+  "$id": "api.public-interaction.complete-upload",
+  "operationId": "api.public-interaction.complete-upload",
+  "name": "Complete Public Form File Upload",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.public-interaction",
+  "method": "POST",
+  "path": "/forms/{formId}/uploads/{sessionId}/complete",
+  "description": "Complete Public Form File Upload",
+  "authentication": {
+    "mode": "anonymous",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "formId",
+      "sessionId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "api.uploadCompletion",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "upload_session_invalid",
+      "file_rejected",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "public-write",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "forms"
+  ],
+  "contractBindings": [
+    "api.uploadCompletion"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "personal",
+  "notes": []
+}

@@ -1,0 +1,147 @@
+{
+  "$id": "content.blogTag",
+  "name": "Blog Tag",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "blog",
+  "description": "Lightweight reusable tag for Blog Posts.",
+  "purpose": "Standardizes editorial tags and avoids uncontrolled duplicate tag strings.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "optional",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Tag name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 100,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "sortable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Tag slug.",
+      "primitive": "fields.slug",
+      "config": {
+        "minLength": 1,
+        "maxLength": 120,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional tag description.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "tagSlugUnique",
+      "description": "slug must be unique within the Site blog tags."
+    },
+    {
+      "id": "tagNameNormalized",
+      "description": "Equivalent tags should not be duplicated only by casing or whitespace."
+    }
+  ],
+  "cms": {
+    "label": "Blog Tag",
+    "icon": "fa-tags",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "name",
+      "slug"
+    ],
+    "editorMode": "compact-editor",
+    "primaryActions": [
+      "save",
+      "publish"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published tags may be exposed as post taxonomy."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "name": "SEO",
+        "slug": "seo"
+      }
+    ],
+    "invalid": [
+      {
+        "name": "",
+        "slug": ""
+      }
+    ]
+  },
+  "notes": []
+}

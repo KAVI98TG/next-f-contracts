@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.integrations.meta",
+  "capabilityId": "integrations.meta",
+  "name": "Meta",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "integrations",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Meta capability within the Integrations module.",
+  "contractBindings": [
+    "integrations.meta"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

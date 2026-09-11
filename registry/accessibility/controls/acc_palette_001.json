@@ -1,0 +1,34 @@
+{
+  "controlId": "ACC-PALETTE-001",
+  "name": "Accessible command palette",
+  "category": "navigation",
+  "requirement": "Command palettes must support keyboard opening, result navigation, Escape closing, focus containment/restoration and announced result state.",
+  "rationale": "Keyboard-first discovery must remain predictable to keyboard and screen-reader users.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "command-palette",
+    "dialog"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "keyboard-manual",
+    "screen-reader-manual",
+    "integration-test"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_palette_001.json"
+}

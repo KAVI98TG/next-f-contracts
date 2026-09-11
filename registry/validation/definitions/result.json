@@ -1,0 +1,7 @@
+{
+  "$id": "validation.result",
+  "name": "Validation Result",
+  "description": "Overall manifest validation result containing validity, normalized non-mutating summaries, layer results and diagnostics.",
+  "status": "stable",
+  "phase": 33
+}

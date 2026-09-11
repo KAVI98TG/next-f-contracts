@@ -1,0 +1,123 @@
+{
+  "$id": "marketing.conversionValue",
+  "name": "Conversion Value",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "conversion",
+  "description": "Normalized monetary/non-monetary value for a conversion.",
+  "purpose": "Prevents value logic from being encoded independently inside ad/analytics scripts.",
+  "marketingModel": {
+    "kind": "value-object",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "mode",
+      "required": true,
+      "nullable": false,
+      "description": "How value is determined.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "none",
+            "label": "No value"
+          },
+          {
+            "value": "fixed",
+            "label": "Fixed"
+          },
+          {
+            "value": "eventProperty",
+            "label": "Event property"
+          },
+          {
+            "value": "transaction",
+            "label": "Transaction"
+          }
+        ]
+      }
+    },
+    {
+      "key": "value",
+      "required": false,
+      "nullable": true,
+      "description": "Resolved/fixed monetary value.",
+      "primitive": "fields.currency"
+    },
+    {
+      "key": "sourcePropertyKey",
+      "required": false,
+      "nullable": true,
+      "description": "Event property used for eventProperty mode.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "transactionReference",
+      "required": false,
+      "nullable": true,
+      "description": "Future transaction reference.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "modeExclusive",
+      "description": "Fields used correspond to selected mode."
+    },
+    {
+      "id": "transactionForwardReference",
+      "description": "Transaction-backed values are finalized in Phase 11."
+    },
+    {
+      "id": "noNegativeValueUnlessDefined",
+      "description": "Negative values require explicit adjustment/refund semantics."
+    }
+  ],
+  "cms": {
+    "label": "Conversion Value",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "mode",
+      "value",
+      "sourcePropertyKey",
+      "transactionReference"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

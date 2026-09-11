@@ -1,0 +1,70 @@
+{
+  "$id": "api.error",
+  "name": "API Error",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "envelopes",
+  "description": "Canonical structured error object.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "code",
+      "required": true,
+      "nullable": false,
+      "description": "code",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "message",
+      "required": true,
+      "nullable": false,
+      "description": "message",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "details",
+      "required": false,
+      "nullable": false,
+      "description": "details",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "fieldIssues",
+      "required": false,
+      "nullable": false,
+      "description": "fieldIssues",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "retryable",
+      "required": false,
+      "nullable": false,
+      "description": "retryable",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

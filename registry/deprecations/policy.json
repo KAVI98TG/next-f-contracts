@@ -1,0 +1,28 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Deprecation Policy",
+  "authoritativeRecordDirectory": "registry/deprecations/records/",
+  "generatedIndex": "registry/deprecations/index.json",
+  "lifecycleStates": [
+    "experimental",
+    "draft",
+    "stable",
+    "deprecated",
+    "removed"
+  ],
+  "rules": {
+    "stableRemovalRequiresMajorLifecycleTransition": true,
+    "deprecatedRemainsDiscoverableUntilSupportEnds": true,
+    "replacementMustBeExplicitWhenKnown": true,
+    "noReplacementMustBeExplicit": true,
+    "newWorkPrefersReplacement": true,
+    "existingSitesNeverAutoUpgrade": true,
+    "removedItemsRemainHistoricallyDiscoverable": true,
+    "deprecatedIdentifiersRemainMachineIdentifiable": true,
+    "unknownSupportDataMustRemainUnknown": true,
+    "noFabricatedSupportDates": true
+  },
+  "siteUpgradePolicy": "explicit-review-and-validation",
+  "productionSupportDeclared": false
+}

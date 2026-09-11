@@ -1,0 +1,41 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "methods": [
+    {
+      "id": "static-file-size",
+      "label": "Static file-size inspection",
+      "description": "Measure repository artifact bytes without executing a browser."
+    },
+    {
+      "id": "static-import-graph",
+      "label": "Static import-graph inspection",
+      "description": "Trace static ES-module imports reachable from the app bootstrap."
+    },
+    {
+      "id": "static-html-scan",
+      "label": "Static HTML scan",
+      "description": "Inspect inline/external resources and loading hints in HTML."
+    },
+    {
+      "id": "config-inspection",
+      "label": "Configuration inspection",
+      "description": "Read bounded search/relationship/runtime limits from machine-readable config."
+    },
+    {
+      "id": "browser-profile",
+      "label": "Browser profiling",
+      "description": "Measure runtime/network/layout behavior in a representative browser environment."
+    },
+    {
+      "id": "field-observation",
+      "label": "Field observation",
+      "description": "Measure production runtime telemetry where a future runtime exposes it."
+    },
+    {
+      "id": "manual-review",
+      "label": "Manual review",
+      "description": "Review loading, pagination, media and integration behavior where static proof is insufficient."
+    }
+  ]
+}

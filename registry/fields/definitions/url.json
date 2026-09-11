@@ -1,0 +1,74 @@
+{
+  "$id": "fields.url",
+  "name": "URL",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "text",
+  "description": "Web or application URL with explicit allowed-scheme validation.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "URL string. Parent contracts define allowed schemes and whether relative URLs are permitted.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "url",
+    "inputMode": "url",
+    "supportsPlaceholder": true,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": true,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "placeholder",
+    "minLength",
+    "maxLength",
+    "pattern",
+    "trim",
+    "normalizeWhitespace",
+    "allowEmptyString",
+    "autocomplete",
+    "inputMode",
+    "caseSensitive"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "minLength",
+    "maxLength",
+    "urlFormat"
+  ],
+  "examples": {
+    "valid": [
+      "https://example.com/path"
+    ],
+    "invalid": [
+      "javascript:alert(1)"
+    ]
+  },
+  "notes": [
+    "Dangerous executable schemes are not valid public navigation destinations."
+  ]
+}

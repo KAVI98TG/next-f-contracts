@@ -1,0 +1,67 @@
+{
+  "$id": "diff.releaseComparison",
+  "name": "Release Comparison",
+  "version": "0.26.0",
+  "status": "stable",
+  "domain": "diff",
+  "category": "contract-diff",
+  "description": "Summary and item-level changes between two exact Registry releases",
+  "purpose": "Summary and item-level changes between two exact Registry releases",
+  "fields": [
+    {
+      "key": "fromVersion",
+      "required": true,
+      "nullable": false,
+      "description": "fromVersion",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "toVersion",
+      "required": true,
+      "nullable": false,
+      "description": "toVersion",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "summary",
+      "required": true,
+      "nullable": false,
+      "description": "summary",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "recommendedVersionImpact",
+      "required": true,
+      "nullable": false,
+      "description": "recommendedVersionImpact",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "requiresManualReview",
+      "required": true,
+      "nullable": false,
+      "description": "requiresManualReview",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "changes",
+      "required": true,
+      "nullable": false,
+      "description": "changes",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "contractDiffOnly",
+      "description": "Contains contract/release analysis metadata only and never customer runtime data."
+    }
+  ],
+  "cms": {
+    "label": "Release Comparison",
+    "customerEditable": false,
+    "adminEditable": false,
+    "publicEligible": true
+  }
+}

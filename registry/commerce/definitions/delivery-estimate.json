@@ -1,0 +1,110 @@
+{
+  "$id": "commerce.deliveryEstimate",
+  "name": "Delivery Estimate",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "fulfillment",
+  "description": "Provider-neutral delivery estimate.",
+  "purpose": "Keeps promised/estimated delivery information structured and distinct from actual tracking facts.",
+  "commerceModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "minimumBusinessDays",
+      "required": false,
+      "nullable": true,
+      "description": "Minimum estimated business days.",
+      "itemsPrimitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "maximumBusinessDays",
+      "required": false,
+      "nullable": true,
+      "description": "Maximum estimated business days.",
+      "itemsPrimitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "estimatedFrom",
+      "required": false,
+      "nullable": true,
+      "description": "Optional estimated arrival window start.",
+      "itemsPrimitive": "fields.dateTime"
+    },
+    {
+      "key": "estimatedTo",
+      "required": false,
+      "nullable": true,
+      "description": "Optional estimated arrival window end.",
+      "itemsPrimitive": "fields.dateTime"
+    },
+    {
+      "key": "label",
+      "required": false,
+      "nullable": true,
+      "description": "Optional customer-facing estimate label.",
+      "itemsPrimitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "orderedRange",
+      "description": "Minimum cannot exceed maximum and estimatedFrom cannot exceed estimatedTo."
+    },
+    {
+      "id": "estimateNotGuarantee",
+      "description": "An estimate is not converted into an actual deliveredAt fact."
+    }
+  ],
+  "cms": {
+    "label": "Delivery Estimate",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "minimumBusinessDays",
+      "maximumBusinessDays",
+      "estimatedFrom",
+      "estimatedTo"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly public storefront fields may be delivered; operational, personal, payment and internal metadata remain private."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

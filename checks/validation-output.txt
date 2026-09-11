@@ -1,0 +1,35 @@
+NEXT F Contracts Phase 0 validation
+Repository version: 0.5.0
+Phase 0 baseline: 0.1.0
+Passes: 47
+Failures: 0
+PASS - Phase 0 foundation is internally consistent.
+
+NEXT F Contracts Phase 1 baseline validation
+Repository version: 0.5.0
+Passes: 45
+Failures: 0
+PASS - Phase 1 light SaaS portal baseline is preserved.
+
+NEXT F Contracts Phase 2 validation
+Version: 0.5.0
+Registry items: 80
+Passes: 2027
+Failures: 0
+PASS - Phase 2 Registry Engine is internally consistent.
+
+NEXT F Contracts Phase 3 validation
+Version: 0.5.0
+Primitive fields: 33
+Registry items: 80
+Passes: 1620
+Failures: 0
+PASS - Phase 3 Primitive Field Registry is internally consistent.
+
+NEXT F Contracts Phase 4 validation
+Version: 0.5.0
+Shared Core Schemas: 19
+Registry items: 80
+Passes: 1324
+Failures: 0
+PASS - Phase 4 Shared Core Schemas are internally consistent.

@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.documentation.categories",
+  "capabilityId": "documentation.categories",
+  "name": "Categories",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "documentation",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Categories capability within the Documentation module.",
+  "contractBindings": [
+    "content.documentationCategory"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

@@ -1,0 +1,122 @@
+{
+  "registryVersion": "0.22.0",
+  "stages": [
+    {
+      "id": "intake",
+      "order": 1,
+      "label": "Intake",
+      "goal": "Resolve requested outcome, repository, Site, target environment and allowed change boundary.",
+      "requiredEvidence": [
+        "task goal",
+        "repository scope",
+        "target environment"
+      ],
+      "blocksOn": [
+        "unclear-target-repository"
+      ]
+    },
+    {
+      "id": "repository-discovery",
+      "order": 2,
+      "label": "Repository Discovery",
+      "goal": "Inspect existing stack, structure, commands, manifest, adapters, migrations and tests before modification.",
+      "requiredEvidence": [
+        "framework/runtime",
+        "package manager",
+        "build/test commands",
+        "manifest location or absence"
+      ]
+    },
+    {
+      "id": "manifest-resolution",
+      "order": 3,
+      "label": "Manifest Resolution",
+      "goal": "Resolve the exact Site Manifest and pinned Contract/API versions.",
+      "requiredEvidence": [
+        "siteId",
+        "contractVersion",
+        "module selections",
+        "api bindings"
+      ],
+      "blocksOn": [
+        "missing-required-manifest",
+        "invalid-manifest",
+        "unsupported-contract-version"
+      ]
+    },
+    {
+      "id": "registry-resolution",
+      "order": 4,
+      "label": "Registry Resolution",
+      "goal": "Resolve canonical contracts, Modules, Capabilities, APIs, Permissions, Events, Webhooks, Integrations and UI metadata.",
+      "requiredEvidence": [
+        "contract mapping"
+      ],
+      "blocksOn": [
+        "unknown-module-or-capability",
+        "canonical-conflict"
+      ]
+    },
+    {
+      "id": "requirement-mapping",
+      "order": 5,
+      "label": "Requirement Mapping",
+      "goal": "Map each requested behavior to canonical NEXT F definitions and identify missing coverage.",
+      "requiredEvidence": [
+        "feature-to-contract map"
+      ],
+      "blocksOn": [
+        "missing-required-contract"
+      ]
+    },
+    {
+      "id": "implementation-plan",
+      "order": 6,
+      "label": "Implementation Plan",
+      "goal": "Define the smallest compatible change set, boundaries, tests, migrations and risks.",
+      "requiredEvidence": [
+        "implementation plan"
+      ]
+    },
+    {
+      "id": "implementation",
+      "order": 7,
+      "label": "Implementation",
+      "goal": "Implement customer-specific behavior against canonical contracts without parallel architecture.",
+      "requiredEvidence": [
+        "changed files",
+        "adapter boundaries"
+      ]
+    },
+    {
+      "id": "verification",
+      "order": 8,
+      "label": "Verification",
+      "goal": "Run relevant syntax, type, lint, test, build, migration and contract checks that are available.",
+      "requiredEvidence": [
+        "executed commands",
+        "results",
+        "unrun checks"
+      ]
+    },
+    {
+      "id": "deviation-review",
+      "order": 9,
+      "label": "Deviation Review",
+      "goal": "Compare implementation with Manifest/contracts and record every deviation or extension.",
+      "requiredEvidence": [
+        "deviation list",
+        "extension records when required"
+      ]
+    },
+    {
+      "id": "handoff",
+      "order": 10,
+      "label": "Handoff",
+      "goal": "Produce a complete implementation report and unresolved-risk summary.",
+      "requiredEvidence": [
+        "implementation report"
+      ]
+    }
+  ]
+}

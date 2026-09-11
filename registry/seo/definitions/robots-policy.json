@@ -1,0 +1,152 @@
+{
+  "$id": "seo.robotsPolicy",
+  "name": "Robots.txt Policy",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "directives",
+  "description": "Site-level robots.txt rules and sitemap references.",
+  "purpose": "Provides a structured robots.txt source without exposing arbitrary server configuration.",
+  "seoModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Policy identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "rules",
+      "required": false,
+      "nullable": true,
+      "description": "Ordered robots.txt rules.",
+      "itemsSchema": "seo.robotsRule",
+      "config": {
+        "maxItems": 500
+      }
+    },
+    {
+      "key": "sitemapUrls",
+      "required": false,
+      "nullable": true,
+      "description": "Absolute sitemap URLs.",
+      "itemsPrimitive": "fields.url",
+      "config": {
+        "maxItems": 50
+      }
+    },
+    {
+      "key": "additionalComment",
+      "required": false,
+      "nullable": true,
+      "description": "Optional non-directive comment text for generated robots.txt.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 2000,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "seo.robotsRule",
+      "description": "Policy contains robots.txt rules."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noNoindexDirective",
+      "description": "robots.txt policy must not invent a noindex directive; indexing directives belong in seo.robotsDirective."
+    },
+    {
+      "id": "sitemapsAbsolute",
+      "description": "Every sitemap URL must be absolute HTTP(S)."
+    },
+    {
+      "id": "policyDoesNotAuthorizeAccess",
+      "description": "Allow rules do not grant application authorization; security cannot rely on robots.txt."
+    }
+  ],
+  "cms": {
+    "label": "Robots.txt Policy",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "rules",
+      "sitemapUrls"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "identity": {
+          "id": "robots_01",
+          "createdAt": "2026-09-10T00:00:00Z",
+          "updatedAt": "2026-09-10T00:00:00Z"
+        },
+        "scope": {
+          "organizationId": "org_01",
+          "siteId": "site_01"
+        },
+        "rules": [
+          {
+            "userAgent": "*",
+            "directive": "disallow",
+            "path": "/preview/"
+          }
+        ],
+        "sitemapUrls": [
+          "https://example.lk/sitemap.xml"
+        ]
+      }
+    ],
+    "invalid": [
+      {
+        "rules": [
+          {
+            "userAgent": "*",
+            "directive": "noindex",
+            "path": "/"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": []
+}

@@ -1,0 +1,120 @@
+{
+  "$id": "compatibility.finding",
+  "name": "Compatibility Finding",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Normalized evidence/action item emitted by a compatibility assessment.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "findingId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable finding instance ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "code",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical finding code.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "dimension",
+      "required": true,
+      "nullable": false,
+      "description": "Compatibility dimension.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Result status.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "blocking",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this finding blocks target adoption.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "message",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable explanation.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "affectedIds",
+      "required": false,
+      "nullable": true,
+      "description": "Affected canonical identifiers.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "evidenceRefs",
+      "required": false,
+      "nullable": true,
+      "description": "Authoritative source references.",
+      "primitive": "fields.multiSelect"
+    },
+    {
+      "key": "recommendedAction",
+      "required": false,
+      "nullable": true,
+      "description": "Action when remediation/review is needed.",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "findingId uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "code uses fields.select."
+    },
+    {
+      "type": "uses",
+      "target": "fields.boolean",
+      "description": "blocking uses fields.boolean."
+    },
+    {
+      "type": "uses",
+      "target": "fields.textarea",
+      "description": "message uses fields.textarea."
+    },
+    {
+      "type": "uses",
+      "target": "fields.multiSelect",
+      "description": "affectedIds uses fields.multiSelect."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

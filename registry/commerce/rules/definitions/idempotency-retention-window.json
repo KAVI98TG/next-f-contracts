@@ -1,0 +1,66 @@
+{
+  "$id": "commerce.rule.idempotencyRetentionWindow",
+  "name": "Idempotency Retention Window",
+  "version": "0.13.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "idempotency-concurrency",
+  "ruleKind": "concurrency-invariant",
+  "description": "Idempotency records must remain available for at least the command's documented duplicate-risk/retry window.",
+  "purpose": "Idempotency records must remain available for at least the command's documented duplicate-risk/retry window.",
+  "severity": "high",
+  "configurable": true,
+  "appliesTo": [
+    "core.entityReference"
+  ],
+  "enforcement": {
+    "authority": "server",
+    "timing": "before-and-during-command",
+    "atomicWhenRequired": true,
+    "auditRequired": false,
+    "clientValidationOnly": false
+  },
+  "requirements": [
+    {
+      "id": "commerce.rule.idempotencyRetentionWindow.R1",
+      "description": "Idempotency records must remain available for at least the command's documented duplicate-risk/retry window."
+    },
+    {
+      "id": "commerce.rule.idempotencyRetentionWindow.R2",
+      "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+    }
+  ],
+  "failure": {
+    "code": "COMMERCE_IDEMPOTENCY_CONFLICT",
+    "retryable": false,
+    "customerSafe": true,
+    "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+  },
+  "relationships": [
+    {
+      "type": "governs",
+      "target": "core.entityReference",
+      "description": "This rule constrains core.entityReference operations or state."
+    }
+  ],
+  "examples": {
+    "valid": [
+      "An operation involving core.entityReference satisfies the rule before authoritative state is committed."
+    ],
+    "invalid": [
+      "An implementation bypasses commerce.rule.idempotencyRetentionWindow and commits a conflicting or unverifiable state."
+    ]
+  },
+  "implementationNotes": [
+    "Enforce at the server-side commerce domain boundary.",
+    "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+    "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+  ],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  }
+}

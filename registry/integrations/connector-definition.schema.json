@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/schema/connector-definition.json",
+  "title": "NEXT F Provider Connector Definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "type",
+    "providerKey",
+    "family",
+    "description",
+    "ownership",
+    "runtimeModes",
+    "capabilities",
+    "authentication",
+    "configurationFields",
+    "consent",
+    "dataHandling",
+    "health",
+    "actions",
+    "mappings",
+    "futureBindings",
+    "notes"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^integrations\\.[a-z][A-Za-z0-9]*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "enum": [
+        "experimental",
+        "draft",
+        "stable",
+        "deprecated",
+        "removed"
+      ]
+    },
+    "domain": {
+      "const": "integrations"
+    },
+    "type": {
+      "const": "connector"
+    },
+    "providerKey": {
+      "type": "string",
+      "minLength": 1
+    },
+    "family": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ownership": {
+      "enum": [
+        "customer",
+        "nextf",
+        "external-party"
+      ]
+    },
+    "runtimeModes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authentication": {
+      "type": "object"
+    },
+    "configurationFields": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "consent": {
+      "type": "object"
+    },
+    "dataHandling": {
+      "type": "object"
+    },
+    "health": {
+      "type": "object"
+    },
+    "actions": {
+      "type": "array"
+    },
+    "mappings": {
+      "type": "array"
+    },
+    "futureBindings": {
+      "type": "object"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,13 @@
+NEXT F Contracts Phase 23 validation
+Version: 0.24.0
+Search documents: 5703
+Registry records: 1767
+Field records: 3863
+Route records: 37
+Documentation records: 36
+Registry entries: 1767
+JSON files checked: 1637
+Passes: 9446
+Failures: 0
+
+PASS - Global Search is internally consistent.

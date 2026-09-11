@@ -1,0 +1,79 @@
+{
+  "$id": "api.webhooks.redeliver",
+  "operationId": "api.webhooks.redeliver",
+  "name": "Request Webhook Redelivery",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.webhooks",
+  "method": "POST",
+  "path": "/deliveries/{deliveryId}/redeliver",
+  "description": "Request Webhook Redelivery",
+  "authentication": {
+    "mode": "organization-user",
+    "permissions": [
+      "webhooks.deliveries.manage"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "deliveryId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "api.commandResult",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "webhook_delivery_not_redeliverable",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "sensitive-write",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "integrations"
+  ],
+  "contractBindings": [
+    "webhooks.delivery",
+    "api.commandResult"
+  ],
+  "eventBindings": [
+    "webhook.redelivery-requested"
+  ],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": []
+}

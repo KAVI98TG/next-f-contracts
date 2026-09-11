@@ -1,0 +1,33 @@
+{
+  "$id": "modules.capability.integrations.health",
+  "capabilityId": "integrations.health",
+  "name": "Integration Health",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "integrations",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Integration Health capability within the Integrations module.",
+  "contractBindings": [
+    "integrations.healthCheck"
+  ],
+  "permissionBindings": [
+    "integrations.health.view"
+  ],
+  "eventBindings": [
+    "integration.health-degraded",
+    "integration.health-restored"
+  ],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

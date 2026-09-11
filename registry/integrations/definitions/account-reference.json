@@ -1,0 +1,107 @@
+{
+  "$id": "integrations.accountReference",
+  "name": "Account Reference",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "configuration",
+  "description": "Non-secret reference to an external provider account.",
+  "purpose": "Lets a connection identify the customer-owned provider account without embedding credentials.",
+  "integrationModel": {
+    "kind": "external-reference",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "providerKey",
+      "required": true,
+      "nullable": false,
+      "description": "Provider key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "externalAccountId",
+      "required": true,
+      "nullable": false,
+      "description": "Provider account ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "displayName",
+      "required": false,
+      "nullable": true,
+      "description": "Human account label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "ownerType",
+      "required": true,
+      "nullable": false,
+      "description": "Account owner.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "customer",
+          "nextf",
+          "external-party"
+        ]
+      }
+    },
+    {
+      "key": "verifiedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Most recent verification.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "noCredentials",
+      "description": "Account references contain no credentials."
+    },
+    {
+      "id": "customerOwnershipExplicit",
+      "description": "Ownership is explicit and defaults operationally to customer."
+    }
+  ],
+  "cms": {
+    "label": "Account Reference",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "providerKey",
+      "externalAccountId",
+      "displayName",
+      "ownerType"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

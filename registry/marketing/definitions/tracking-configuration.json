@@ -1,0 +1,209 @@
+{
+  "$id": "marketing.trackingConfiguration",
+  "name": "Tracking Configuration",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "configuration",
+  "description": "Site-level switchboard for NEXT F tracking behavior before provider connectors are applied.",
+  "purpose": "Defines whether tracking is enabled, which definitions are available, how consent is enforced and which data policies apply.",
+  "marketingModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable configuration identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether runtime may collect eligible events.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "dataLayer",
+      "required": true,
+      "nullable": false,
+      "description": "Data layer config.",
+      "schema": "marketing.dataLayerConfiguration"
+    },
+    {
+      "key": "dataPolicy",
+      "required": true,
+      "nullable": false,
+      "description": "Data policy.",
+      "schema": "marketing.trackingDataPolicy"
+    },
+    {
+      "key": "consentPolicy",
+      "required": true,
+      "nullable": false,
+      "description": "Consent policy.",
+      "schema": "marketing.consentPolicy"
+    },
+    {
+      "key": "analytics",
+      "required": true,
+      "nullable": false,
+      "description": "Analytics settings.",
+      "schema": "marketing.analyticsConfiguration"
+    },
+    {
+      "key": "eventDefinitions",
+      "required": false,
+      "nullable": true,
+      "description": "Enabled tracking event definitions.",
+      "itemsSchema": "marketing.trackingEventDefinition",
+      "config": {
+        "maxItems": 200
+      }
+    },
+    {
+      "key": "destinations",
+      "required": false,
+      "nullable": true,
+      "description": "Logical destinations.",
+      "itemsSchema": "marketing.marketingDestination",
+      "config": {
+        "maxItems": 100
+      }
+    },
+    {
+      "key": "debugMode",
+      "required": true,
+      "nullable": false,
+      "description": "Non-production tracking diagnostics enabled.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Most recent config update.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "Uses identity."
+    },
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "composes",
+      "target": "marketing.dataLayerConfiguration",
+      "description": "Controls queue."
+    },
+    {
+      "type": "composes",
+      "target": "marketing.trackingDataPolicy",
+      "description": "Applies data rules."
+    },
+    {
+      "type": "composes",
+      "target": "marketing.consentPolicy",
+      "description": "Applies consent."
+    },
+    {
+      "type": "composes",
+      "target": "marketing.analyticsConfiguration",
+      "description": "Applies analytics."
+    },
+    {
+      "type": "composesMany",
+      "target": "marketing.trackingEventDefinition",
+      "description": "Declares tracking."
+    },
+    {
+      "type": "composesMany",
+      "target": "marketing.marketingDestination",
+      "description": "Declares destinations."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "disabledMeansNoOptionalTracking",
+      "description": "When disabled, optional analytics/marketing tracking is not dispatched."
+    },
+    {
+      "id": "debugNeverBypassesConsent",
+      "description": "Debug never bypasses consent/data/security."
+    },
+    {
+      "id": "noVendorCredentials",
+      "description": "No provider credentials in tracking config."
+    },
+    {
+      "id": "configurationPinnedToSite",
+      "description": "Configuration resolved to current Site/environment."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Configuration",
+    "icon": "fa-bullseye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "marketing-settings",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "enabled",
+      "dataLayer"
+    ],
+    "primaryActions": [
+      "view",
+      "edit",
+      "test"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

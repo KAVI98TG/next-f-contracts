@@ -1,0 +1,7 @@
+{
+  "$id": "validation.cliExitCode",
+  "name": "Developer Validation CLI Exit Code",
+  "description": "Stable process exit-code contract for NEXT F developer validation automation.",
+  "status": "stable",
+  "phase": 34
+}

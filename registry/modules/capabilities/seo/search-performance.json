@@ -1,0 +1,32 @@
+{
+  "$id": "modules.capability.seo.search-performance",
+  "capabilityId": "seo.search-performance",
+  "name": "Search Performance",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "seo",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Search Performance capability within the SEO module.",
+  "contractBindings": [
+    "seo.searchPerformance",
+    "seo.searchQuery"
+  ],
+  "permissionBindings": [
+    "seo.searchperformance.export",
+    "seo.searchperformance.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

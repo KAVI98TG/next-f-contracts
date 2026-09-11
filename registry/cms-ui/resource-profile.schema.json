@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/schemas/cms-ui/resource-profile.schema.json",
+  "title": "NEXT F Customer CMS UI Resource Profile",
+  "type": "object",
+  "required": [
+    "$id",
+    "name",
+    "version",
+    "status",
+    "domain",
+    "profileType",
+    "resource",
+    "route",
+    "screenKind",
+    "layoutTemplate",
+    "permissions",
+    "actions"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^cmsUi\\.profile\\."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "const": "0.20.0"
+    },
+    "status": {
+      "enum": [
+        "stable",
+        "draft",
+        "experimental",
+        "deprecated"
+      ]
+    },
+    "domain": {
+      "const": "cms-ui"
+    },
+    "profileType": {
+      "enum": [
+        "resource",
+        "workspace-shell"
+      ]
+    },
+    "resource": {
+      "type": "string",
+      "minLength": 1
+    },
+    "moduleId": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "targetContracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "primaryTargetContract": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "route": {
+      "type": "string",
+      "pattern": "^/"
+    },
+    "screenKind": {
+      "type": "string"
+    },
+    "layoutTemplate": {
+      "type": "string"
+    },
+    "responsivePolicy": {
+      "type": "string"
+    },
+    "fieldBindings": {
+      "type": "array"
+    },
+    "relatedPanels": {
+      "type": "array"
+    },
+    "actions": {
+      "type": "array"
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

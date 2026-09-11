@@ -1,0 +1,181 @@
+{
+  "$id": "marketing.trackingConsentRecord",
+  "name": "Tracking Consent Record",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "consent",
+  "description": "Immutable technical record of a tracking-consent state change.",
+  "purpose": "Provides audit evidence for tracking decisions without reusing form-specific consent records.",
+  "marketingModel": {
+    "kind": "record",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "recordId",
+      "required": true,
+      "nullable": false,
+      "description": "Unique record ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "capturedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Capture timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "sessionId",
+      "required": false,
+      "nullable": true,
+      "description": "Associated session ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "anonymousVisitorId",
+      "required": false,
+      "nullable": true,
+      "description": "Associated anonymous visitor ID if allowed.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "policyVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Consent policy version.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40
+      }
+    },
+    {
+      "key": "preferences",
+      "required": true,
+      "nullable": false,
+      "description": "Preference snapshot.",
+      "itemsSchema": "marketing.consentPreference",
+      "config": {
+        "minItems": 1,
+        "maxItems": 50
+      }
+    },
+    {
+      "key": "interactionSource",
+      "required": true,
+      "nullable": false,
+      "description": "Interface/source creating record.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "banner",
+            "label": "Consent Banner"
+          },
+          {
+            "value": "settings",
+            "label": "Privacy Settings"
+          },
+          {
+            "value": "api",
+            "label": "API"
+          },
+          {
+            "value": "system",
+            "label": "System"
+          }
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "composesMany",
+      "target": "marketing.consentPreference",
+      "description": "Stores preference snapshot."
+    },
+    {
+      "type": "relatedTo",
+      "target": "forms.consentRecord",
+      "description": "Form-specific consent remains separate."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "appendOnly",
+      "description": "Consent records are append-only; corrections create new records."
+    },
+    {
+      "id": "notFormConsent",
+      "description": "Tracking consent does not replace form/business-purpose consent."
+    },
+    {
+      "id": "notLegalConclusion",
+      "description": "Record existence alone is not legal compliance proof."
+    },
+    {
+      "id": "retentionPolicy",
+      "description": "Retention follows privacy/data policy."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Consent Record",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "recordId",
+      "scope",
+      "capturedAt",
+      "sessionId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

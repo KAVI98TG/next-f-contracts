@@ -1,0 +1,184 @@
+{
+  "$id": "marketing.analyticsObservation",
+  "name": "Analytics Observation",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "reporting",
+  "description": "Normalized metric observation for a period and dimension set.",
+  "purpose": "Provides provider-neutral shape for NEXT F analytics and later imported provider measurements.",
+  "marketingModel": {
+    "kind": "derived",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "observationId",
+      "required": true,
+      "nullable": false,
+      "description": "Unique observation ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "metricKey",
+      "required": true,
+      "nullable": false,
+      "description": "Metric definition key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "periodStart",
+      "required": true,
+      "nullable": false,
+      "description": "Period start.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "periodEnd",
+      "required": true,
+      "nullable": false,
+      "description": "Period end.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "value",
+      "required": true,
+      "nullable": false,
+      "description": "Observed/aggregated value.",
+      "primitive": "fields.decimal"
+    },
+    {
+      "key": "currency",
+      "required": false,
+      "nullable": true,
+      "description": "Currency when needed.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 3
+      }
+    },
+    {
+      "key": "dimensions",
+      "required": false,
+      "nullable": true,
+      "description": "Validated dimension map.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "Measurement origin.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "nextf",
+            "label": "NEXT F"
+          },
+          {
+            "value": "external",
+            "label": "External Provider"
+          },
+          {
+            "value": "combined",
+            "label": "Combined"
+          }
+        ]
+      }
+    },
+    {
+      "key": "generatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Generation/import timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "references",
+      "target": "marketing.metricDefinition",
+      "description": "metricKey resolves to metric."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.dimensionDefinition",
+      "description": "Dimension keys resolve to definitions."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "periodOrder",
+      "description": "periodEnd after periodStart."
+    },
+    {
+      "id": "currencyRequiredForMoney",
+      "description": "Currency required for currency metrics."
+    },
+    {
+      "id": "sourcePreserved",
+      "description": "Imported/derived source provenance retained."
+    },
+    {
+      "id": "derivedNotEditable",
+      "description": "Observations are not directly editable."
+    }
+  ],
+  "cms": {
+    "label": "Analytics Observation",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "observationId",
+      "scope",
+      "metricKey",
+      "periodStart"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

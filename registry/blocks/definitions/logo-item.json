@@ -1,0 +1,114 @@
+{
+  "$id": "blocks.logoItem",
+  "name": "Logo Item",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "foundation",
+  "description": "Reusable organization/partner/client logo item.",
+  "purpose": "Keeps logo media, human-readable name and optional link together.",
+  "blockModel": {
+    "kind": "embedded",
+    "placement": "nested-only",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Organization or brand name represented by the logo.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "logo",
+      "required": true,
+      "nullable": false,
+      "description": "Logo asset.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "link",
+      "required": false,
+      "nullable": true,
+      "description": "Optional destination.",
+      "schema": "shared.link"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "shared.mediaReference",
+      "description": "Uses a media reference for the logo."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.link",
+      "description": "May link to an organization website or related page."
+    }
+  ],
+  "validationRules": [],
+  "cms": {
+    "label": "Logo Item",
+    "icon": "fa-certificate",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "embedded-item-editor",
+    "summaryFields": [
+      "name",
+      "logo",
+      "link"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": false,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Logo alternative text should identify the represented organization when the logo conveys content."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

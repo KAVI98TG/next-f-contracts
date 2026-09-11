@@ -1,0 +1,108 @@
+{
+  "$id": "webhooks.endpointVerification",
+  "name": "Endpoint Verification",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "endpoints",
+  "description": "State and evidence for proving control of a webhook destination.",
+  "purpose": "Prevents delivery to arbitrary unverified destinations.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Verification state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "pending",
+          "succeeded",
+          "failed",
+          "expired"
+        ]
+      }
+    },
+    {
+      "key": "challengeId",
+      "required": false,
+      "nullable": true,
+      "description": "Opaque verification challenge ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "issuedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Challenge issue time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "expiresAt",
+      "required": false,
+      "nullable": true,
+      "description": "Challenge expiry time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "verifiedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Successful verification time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "lastFailureCode",
+      "required": false,
+      "nullable": true,
+      "description": "Failure code if verification failed.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "ttl",
+      "description": "Challenges expire after the configured verification TTL."
+    },
+    {
+      "id": "successRequiresExactEcho",
+      "description": "Success requires HTTP 200 and exact challenge echo."
+    },
+    {
+      "id": "sameSecurityControls",
+      "description": "Verification uses the same outbound network, signing, timeout and redaction controls as normal delivery."
+    }
+  ],
+  "cms": {
+    "label": "Endpoint Verification",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "status",
+      "challengeId",
+      "issuedAt",
+      "expiresAt"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

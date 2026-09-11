@@ -1,0 +1,71 @@
+{
+  "$id": "fields.percentage",
+  "name": "Percentage",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "numeric",
+  "description": "Percentage value with explicit numeric bounds, normally 0 through 100 unless parent semantics declare otherwise.",
+  "value": {
+    "jsonType": "number",
+    "canonical": "Finite JSON number representing percentage points, not a 0..1 fraction.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "percentage",
+    "inputMode": "decimal",
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": true,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "minimum",
+    "maximum",
+    "step",
+    "precision",
+    "inputMode"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "minimum",
+    "maximum",
+    "precision",
+    "step",
+    "percentageRange"
+  ],
+  "examples": {
+    "valid": [
+      0,
+      12.5,
+      100
+    ],
+    "invalid": [
+      "12%"
+    ]
+  },
+  "notes": []
+}

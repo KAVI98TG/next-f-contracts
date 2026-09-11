@@ -1,0 +1,161 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "High-risk Privacy Coverage",
+  "areas": [
+    {
+      "area": "authentication",
+      "status": "covered",
+      "targetRegistryIds": [
+        "permissions.principalReference",
+        "permissions.authorizationDecision",
+        "security.control.sec_auth_001",
+        "security.control.sec_sess_001",
+        "security.secretClasses"
+      ],
+      "fieldHandlingIds": [
+        "PRIV-FLD-001",
+        "PRIV-FLD-002",
+        "PRIV-FLD-003",
+        "PRIV-FLD-004"
+      ],
+      "notes": "Explicit Phase 30 classification/handling coverage for this high-risk area. Additional fields inherit owning-contract/security rules unless explicitly classified."
+    },
+    {
+      "area": "forms-leads",
+      "status": "covered",
+      "targetRegistryIds": [
+        "forms.submission",
+        "forms.lead",
+        "forms.consentRecord"
+      ],
+      "fieldHandlingIds": [
+        "PRIV-FLD-010",
+        "PRIV-FLD-011",
+        "PRIV-FLD-012",
+        "PRIV-FLD-013",
+        "PRIV-FLD-014",
+        "PRIV-FLD-015",
+        "PRIV-FLD-016",
+        "PRIV-FLD-017",
+        "PRIV-FLD-018",
+        "PRIV-FLD-019",
+        "PRIV-FLD-020",
+        "PRIV-FLD-021"
+      ],
+      "notes": "Explicit Phase 30 classification/handling coverage for this high-risk area. Additional fields inherit owning-contract/security rules unless explicitly classified."
+    },
+    {
+      "area": "marketing",
+      "status": "covered",
+      "targetRegistryIds": [
+        "marketing.trackingEvent",
+        "marketing.trackingConsentRecord",
+        "marketing.sessionContext",
+        "marketing.consentPolicy"
+      ],
+      "fieldHandlingIds": [
+        "PRIV-FLD-030",
+        "PRIV-FLD-031",
+        "PRIV-FLD-032",
+        "PRIV-FLD-033",
+        "PRIV-FLD-034",
+        "PRIV-FLD-035",
+        "PRIV-FLD-036",
+        "PRIV-FLD-037"
+      ],
+      "notes": "Explicit Phase 30 classification/handling coverage for this high-risk area. Additional fields inherit owning-contract/security rules unless explicitly classified."
+    },
+    {
+      "area": "integrations",
+      "status": "covered",
+      "targetRegistryIds": [
+        "integrations.credentialReference",
+        "integrations.secretReference",
+        "integrations.apiKeyConfiguration",
+        "integrations.oauthConfiguration"
+      ],
+      "fieldHandlingIds": [
+        "PRIV-FLD-040",
+        "PRIV-FLD-041",
+        "PRIV-FLD-042",
+        "PRIV-FLD-043",
+        "PRIV-FLD-044",
+        "PRIV-FLD-045",
+        "PRIV-FLD-046",
+        "PRIV-FLD-047"
+      ],
+      "notes": "Explicit Phase 30 classification/handling coverage for this high-risk area. Additional fields inherit owning-contract/security rules unless explicitly classified."
+    },
+    {
+      "area": "commerce",
+      "status": "covered",
+      "targetRegistryIds": [
+        "commerce.payment",
+        "commerce.paymentMethodReference",
+        "commerce.order"
+      ],
+      "fieldHandlingIds": [
+        "PRIV-FLD-050",
+        "PRIV-FLD-051",
+        "PRIV-FLD-052",
+        "PRIV-FLD-053",
+        "PRIV-FLD-054",
+        "PRIV-FLD-055",
+        "PRIV-FLD-056"
+      ],
+      "notes": "Explicit Phase 30 classification/handling coverage for this high-risk area. Additional fields inherit owning-contract/security rules unless explicitly classified."
+    },
+    {
+      "area": "payments",
+      "status": "covered",
+      "targetRegistryIds": [
+        "commerce.payment",
+        "commerce.paymentMethodReference",
+        "commerce.rule.rawCardDataProhibited"
+      ],
+      "fieldHandlingIds": [
+        "PRIV-FLD-050",
+        "PRIV-FLD-051",
+        "PRIV-FLD-052",
+        "PRIV-FLD-053",
+        "PRIV-FLD-054",
+        "PRIV-FLD-055",
+        "PRIV-FLD-056"
+      ],
+      "notes": "Explicit Phase 30 classification/handling coverage for this high-risk area. Additional fields inherit owning-contract/security rules unless explicitly classified."
+    },
+    {
+      "area": "webhooks",
+      "status": "covered",
+      "targetRegistryIds": [
+        "webhooks.delivery",
+        "webhooks.deliveryAttempt",
+        "webhooks.signingKeyReference"
+      ],
+      "fieldHandlingIds": [
+        "PRIV-FLD-060",
+        "PRIV-FLD-061",
+        "PRIV-FLD-062",
+        "PRIV-FLD-063",
+        "PRIV-FLD-064"
+      ],
+      "notes": "Explicit Phase 30 classification/handling coverage for this high-risk area. Additional fields inherit owning-contract/security rules unless explicitly classified."
+    },
+    {
+      "area": "audit",
+      "status": "covered",
+      "targetRegistryIds": [
+        "core.auditRecord",
+        "security.control.sec_audit_001"
+      ],
+      "fieldHandlingIds": [
+        "PRIV-FLD-070",
+        "PRIV-FLD-071",
+        "PRIV-FLD-072",
+        "PRIV-FLD-073",
+        "PRIV-FLD-074"
+      ],
+      "notes": "Explicit Phase 30 classification/handling coverage for this high-risk area. Additional fields inherit owning-contract/security rules unless explicitly classified."
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "$id": "content.location",
+  "name": "Business Location",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "business",
+  "description": "Structured public business location and opening information.",
+  "purpose": "Provides one canonical content entity for branches/offices without confusing CMS locations with hosting or infrastructure regions.",
+  "contentModel": {
+    "kind": "entity",
+    "routing": "optional",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Public location/branch name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 180,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "sortable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "slug",
+      "required": false,
+      "nullable": true,
+      "description": "Optional public location page slug.",
+      "primitive": "fields.slug",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "address",
+      "required": true,
+      "nullable": false,
+      "description": "Structured postal address.",
+      "schema": "shared.address"
+    },
+    {
+      "key": "coordinates",
+      "required": false,
+      "nullable": true,
+      "description": "Optional map coordinates.",
+      "primitive": "fields.coordinates",
+      "config": {
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "contact",
+      "required": false,
+      "nullable": true,
+      "description": "Optional location-specific contact details.",
+      "schema": "shared.contactPoint"
+    },
+    {
+      "key": "businessHours",
+      "required": false,
+      "nullable": true,
+      "description": "Structured weekly opening-hours data using future-normalized day/time entries.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "object",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "directionsUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Optional external maps/directions URL.",
+      "primitive": "fields.url",
+      "config": {
+        "maxLength": 2048,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "featuredMedia",
+      "required": false,
+      "nullable": true,
+      "description": "Optional branch/location media.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "displayOrder",
+      "required": false,
+      "nullable": true,
+      "description": "Default location listing order.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": true,
+        "adminEditable": true,
+        "sortable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical publishing, visibility and scheduling state.",
+      "schema": "core.publishing"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Current and published revision pointers.",
+      "schema": "core.revisionPointer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "shared.address",
+      "description": "Location uses the canonical address structure."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.contactPoint",
+      "description": "Location may define branch contact details."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "shared.mediaReference",
+      "description": "Location may use featured media."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "coordinatesValid",
+      "description": "Coordinates must satisfy the primitive latitude/longitude bounds."
+    },
+    {
+      "id": "hoursStructured",
+      "description": "businessHours must not be stored as executable markup; normalized hours adapters may evolve later."
+    },
+    {
+      "id": "locationSlugUniqueWhenUsed",
+      "description": "When location routes are enabled, slug must be unique within the Site."
+    }
+  ],
+  "cms": {
+    "label": "Business Location",
+    "icon": "fa-location-dot",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "main",
+    "summaryFields": [
+      "name",
+      "address",
+      "publishing"
+    ],
+    "editorMode": "full-page-editor",
+    "primaryActions": [
+      "saveDraft",
+      "preview",
+      "publish",
+      "restore"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Published business location details may be delivered publicly."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": "seo.metadata",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "name": "Kandy Office",
+        "coordinates": {
+          "latitude": 7.2906,
+          "longitude": 80.6337
+        }
+      }
+    ],
+    "invalid": [
+      {
+        "name": "",
+        "coordinates": {
+          "latitude": 200,
+          "longitude": 80
+        }
+      }
+    ]
+  },
+  "notes": [
+    "This Location content type represents a customer business location, not a server, hosting or cloud region."
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "$id": "commerce.inventoryAdjustment",
+  "name": "Inventory Adjustment",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "inventory",
+  "description": "Append-only inventory quantity change.",
+  "purpose": "Creates an auditable inventory ledger instead of unexplained stock mutation.",
+  "commerceModel": {
+    "kind": "transaction",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "inventoryItemId",
+      "required": true,
+      "nullable": false,
+      "description": "Inventory Item ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "locationId",
+      "required": true,
+      "nullable": false,
+      "description": "Inventory Location ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "delta",
+      "required": true,
+      "nullable": false,
+      "description": "Signed quantity delta.",
+      "primitive": "fields.decimal"
+    },
+    {
+      "key": "reason",
+      "required": true,
+      "nullable": false,
+      "description": "Adjustment reason.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "received",
+          "sold",
+          "returned",
+          "damaged",
+          "lost",
+          "correction",
+          "transfer-in",
+          "transfer-out",
+          "reservation",
+          "release",
+          "other"
+        ]
+      }
+    },
+    {
+      "key": "note",
+      "required": false,
+      "nullable": true,
+      "description": "Optional note.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "actor",
+      "required": true,
+      "nullable": false,
+      "description": "Actor/system source.",
+      "schema": "core.actorReference"
+    },
+    {
+      "key": "occurredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Occurrence time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.inventoryItem",
+      "description": "References commerce.inventoryItem."
+    },
+    {
+      "type": "references",
+      "target": "commerce.inventoryLocation",
+      "description": "References commerce.inventoryLocation."
+    },
+    {
+      "type": "composes",
+      "target": "core.actorReference",
+      "description": "References core.actorReference."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "appendOnly",
+      "description": "Recorded adjustments are immutable; corrections use a new adjustment."
+    },
+    {
+      "id": "deltaNonZero",
+      "description": "Adjustment delta cannot be zero."
+    }
+  ],
+  "cms": {
+    "label": "Inventory Adjustment",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "inventoryItemId",
+      "locationId"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

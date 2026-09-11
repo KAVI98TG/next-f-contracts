@@ -1,0 +1,129 @@
+{
+  "$id": "integrations.conversionMapping",
+  "name": "Conversion Mapping",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "mapping",
+  "description": "Maps a canonical NEXT F conversion definition to a provider conversion resource.",
+  "purpose": "Keeps Google/Meta/etc conversion identifiers outside the canonical conversion contract.",
+  "integrationModel": {
+    "kind": "mapping",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "conversionKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical NEXT F conversion key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "providerConversionId",
+      "required": false,
+      "nullable": true,
+      "description": "Provider conversion action/rule ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "providerLabel",
+      "required": false,
+      "nullable": true,
+      "description": "Provider conversion label/name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "resource",
+      "required": false,
+      "nullable": true,
+      "description": "Provider conversion resource.",
+      "schema": "integrations.resourceReference"
+    },
+    {
+      "key": "dispatchMode",
+      "required": true,
+      "nullable": false,
+      "description": "Dispatch mode.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "client",
+          "server",
+          "both"
+        ]
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether mapping is enabled.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "integrations.resourceReference",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "references",
+      "target": "marketing.conversionDefinition",
+      "description": "Maps Phase 9 canonical conversions."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "canonicalConversionPreserved",
+      "description": "NEXT F conversion key remains authoritative."
+    },
+    {
+      "id": "providerIdsAdapterSpecific",
+      "description": "Provider IDs remain integration mapping data."
+    },
+    {
+      "id": "consentAppliedAtDispatch",
+      "description": "Conversion dispatch evaluates applicable consent/data policy."
+    }
+  ],
+  "cms": {
+    "label": "Conversion Mapping",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "conversionKey",
+      "providerConversionId",
+      "providerLabel",
+      "resource"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

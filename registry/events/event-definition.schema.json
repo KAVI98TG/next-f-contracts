@@ -1,0 +1,38 @@
+{
+  "$id": "events.eventDefinitionFileSchema",
+  "version": "0.14.0",
+  "required": [
+    "$id",
+    "eventKey",
+    "eventVersion",
+    "version",
+    "status",
+    "domain",
+    "category",
+    "name",
+    "description",
+    "trigger",
+    "producerKey",
+    "subjectContracts",
+    "dataPolicy",
+    "webhookEligible",
+    "consumers",
+    "payloadFields",
+    "productionPolicy",
+    "idempotency",
+    "orderingPolicy",
+    "retention",
+    "relationships",
+    "validationRules"
+  ],
+  "eventKeyPattern": "^[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*$",
+  "statusValues": [
+    "stable",
+    "draft",
+    "experimental",
+    "deprecated"
+  ],
+  "notes": [
+    "This validates registry definition metadata, not live Event Envelope occurrences."
+  ]
+}

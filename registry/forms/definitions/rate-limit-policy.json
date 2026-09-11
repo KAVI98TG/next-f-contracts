@@ -1,0 +1,151 @@
+{
+  "$id": "forms.rateLimitPolicy",
+  "name": "Form Rate Limit Policy",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "anti-abuse",
+  "description": "Defines server-side submission throttling for one form.",
+  "purpose": "Reduces automated abuse and accidental duplicate submissions without treating rate limiting as authentication.",
+  "formsModel": {
+    "kind": "policy",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether throttling is enabled.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Primary throttling key strategy.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "formClient",
+            "label": "Form + client signal"
+          },
+          {
+            "value": "formSession",
+            "label": "Form + session"
+          },
+          {
+            "value": "siteClient",
+            "label": "Site + client signal"
+          }
+        ]
+      }
+    },
+    {
+      "key": "maxAttempts",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum attempts within the window.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1
+      }
+    },
+    {
+      "key": "windowSeconds",
+      "required": true,
+      "nullable": false,
+      "description": "Rolling/fixed policy window in seconds.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1
+      }
+    },
+    {
+      "key": "cooldownSeconds",
+      "required": false,
+      "nullable": true,
+      "description": "Optional cooldown after a limit is exceeded.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "responseMode",
+      "required": true,
+      "nullable": false,
+      "description": "Behavior after limit.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "reject",
+            "label": "Reject"
+          },
+          {
+            "value": "challenge",
+            "label": "Challenge"
+          }
+        ]
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "serverEnforced",
+      "description": "Rate limits must be enforced server-side."
+    },
+    {
+      "id": "notAuthentication",
+      "description": "Rate limiting is an anti-abuse mechanism, not an identity or permission control."
+    },
+    {
+      "id": "privacyAwareKeying",
+      "description": "Client-signal storage must respect the Site data-handling/privacy policy."
+    }
+  ],
+  "cms": {
+    "label": "Form Rate Limit Policy",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "enabled",
+      "scope",
+      "maxAttempts",
+      "windowSeconds"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

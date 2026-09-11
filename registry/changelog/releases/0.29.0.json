@@ -1,0 +1,352 @@
+{
+  "$id": "changelog.release.0.29.0",
+  "version": "0.29.0",
+  "phase": 28,
+  "title": "Deprecation System",
+  "releaseStatus": "published-development",
+  "releaseDate": null,
+  "summary": "Phase 28 - Deprecation System.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_80b7e6c8fd152a",
+          "releaseVersion": "0.29.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Authoritative Deprecation Registry with canonical lifecycle policy, empty evidence-based record set, generated index and local fallback.",
+          "affectedRegistryIds": [
+            "deprecations.deprecationStandard",
+            "deprecations.index",
+            "deprecations.policy"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Authoritative Deprecation Registry with canonical lifecycle policy, empty evidence-based record set, generated index and local fallback.",
+          "description": "Authoritative Deprecation Registry with canonical lifecycle policy, empty evidence-based record set, generated index and local fallback.",
+          "changeType": "added",
+          "affectedDomains": [
+            "deprecations"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.29.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_b986ed22110156",
+          "releaseVersion": "0.29.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Canonical deprecation and replacement JSON Schemas plus reusable lifecycle, support-window and impact definitions.",
+          "affectedRegistryIds": [
+            "deprecations.deprecationJsonSchema",
+            "deprecations.deprecationRecord",
+            "deprecations.impactScope",
+            "deprecations.lifecycleState",
+            "deprecations.replacementJsonSchema",
+            "deprecations.replacementReference",
+            "deprecations.supportWindow"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Canonical deprecation and replacement JSON Schemas plus reusable lifecycle, support-window and impact definitions.",
+          "description": "Canonical deprecation and replacement JSON Schemas plus reusable lifecycle, support-window and impact definitions.",
+          "changeType": "added",
+          "affectedDomains": [
+            "deprecations"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.29.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_8989a3160daafd",
+          "releaseVersion": "0.29.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Canonical experimental, draft, stable, deprecated and removed lifecycle vocabulary with deprecation severity levels.",
+          "affectedRegistryIds": [
+            "deprecations.lifecycleStates",
+            "deprecations.severityLevels"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Canonical experimental, draft, stable, deprecated and removed lifecycle vocabulary with deprecation severity levels.",
+          "description": "Canonical experimental, draft, stable, deprecated and removed lifecycle vocabulary with deprecation severity levels.",
+          "changeType": "added",
+          "affectedDomains": [
+            "deprecations"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.29.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_b3ac4e4549f72f",
+          "releaseVersion": "0.29.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Lifecycle Deprecations portal with active, upcoming removal, removed, filtering, replacement, migration, evidence and raw JSON views.",
+          "affectedRegistryIds": [
+            "deprecations.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Lifecycle Deprecations portal with active, upcoming removal, removed, filtering, replacement, migration, evidence and raw JSON views.",
+          "description": "Lifecycle Deprecations portal with active, upcoming removal, removed, filtering, replacement, migration, evidence and raw JSON views.",
+          "changeType": "added",
+          "affectedDomains": [
+            "deprecations"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.29.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "changed",
+      "label": "Changed",
+      "entries": [
+        {
+          "entryId": "chg_ac851113e4e1e0",
+          "releaseVersion": "0.29.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Registry detail, Global Search and Relationship discovery are prepared to surface deprecation records without creating a parallel lifecycle authority.",
+          "affectedRegistryIds": [
+            "deprecations.index",
+            "relationships.relationshipIndex",
+            "search.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Registry detail, Global Search and Relationship discovery are prepared to surface deprecation records without creating a parallel lifecycle authority.",
+          "description": "Registry detail, Global Search and Relationship discovery are prepared to surface deprecation records without creating a parallel lifecycle authority.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "deprecations",
+            "relationships"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.29.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_884fd55a4feb7b",
+          "releaseVersion": "0.29.0",
+          "category": "changed",
+          "originalSection": "Changed",
+          "summary": "Codex and development guidance now requires warnings for deprecated definitions, replacement preference for new work and explicit migration planning for existing Sites.",
+          "affectedRegistryIds": [
+            "deprecations.deprecationStandard"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Codex and development guidance now requires warnings for deprecated definitions, replacement preference for new work and explicit migration planning for existing Sites.",
+          "description": "Codex and development guidance now requires warnings for deprecated definitions, replacement preference for new work and explicit migration planning for existing Sites.",
+          "changeType": "changed",
+          "affectedDomains": [
+            "deprecations"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.29.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "internal",
+      "label": "Internal / Tooling",
+      "entries": [
+        {
+          "entryId": "chg_83f382f66cc60c",
+          "releaseVersion": "0.29.0",
+          "category": "internal",
+          "originalSection": "Internal / Tooling",
+          "summary": "Phase 28 validators and smoke tests enforce lifecycle consistency, replacement integrity, no replacement loops, Changelog agreement and generated fallback integrity.",
+          "affectedRegistryIds": [
+            "deprecations.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Phase 28 validators and smoke tests enforce lifecycle consistency, replacement integrity, no replacement loops, Changelog agreement and generated fallback integrity.",
+          "description": "Phase 28 validators and smoke tests enforce lifecycle consistency, replacement integrity, no replacement loops, Changelog agreement and generated fallback integrity.",
+          "changeType": "internal",
+          "affectedDomains": [
+            "deprecations"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/0.29.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sourceType": "authoritative-release-json",
+    "sourceReference": "registry/changelog/releases/0.29.0.json",
+    "migratedFrom": null,
+    "exactRegistrySnapshotAvailable": true,
+    "exactRegistrySource": "registry/registry.json"
+  },
+  "evidence": {
+    "evidenceLevel": "notes-and-exact-registry",
+    "diffAvailable": true,
+    "diffRoute": "#/lifecycle/diff?from=0.28.0&to=0.29.0",
+    "compatibilityAvailable": true,
+    "compatibilityRoute": "#/lifecycle/compatibility",
+    "migrationRoute": null
+  },
+  "support": {
+    "supportLevel": "current-development",
+    "compatibilityStatus": "compatible",
+    "productionEligible": false,
+    "summary": "This is the current coordinated Contract Registry release."
+  },
+  "corrections": [],
+  "migrationNotes": null,
+  "recommendedAction": "New implementations should avoid deprecated definitions when a replacement exists; existing Sites remain pinned until explicit migration review and validation.",
+  "sourceVersion": "0.28.0",
+  "targetVersion": "0.29.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "entryCount": 7,
+  "categoryCounts": {
+    "added": 4,
+    "changed": 2,
+    "internal": 1
+  },
+  "affected": {
+    "domains": [
+      "deprecations",
+      "relationships"
+    ],
+    "modules": [],
+    "contracts": [
+      "deprecations.deprecationJsonSchema",
+      "deprecations.deprecationRecord",
+      "deprecations.deprecationStandard",
+      "deprecations.impactScope",
+      "deprecations.index",
+      "deprecations.lifecycleState",
+      "deprecations.lifecycleStates",
+      "deprecations.policy",
+      "deprecations.replacementJsonSchema",
+      "deprecations.replacementReference",
+      "deprecations.severityLevels",
+      "deprecations.supportWindow",
+      "relationships.relationshipIndex",
+      "search.index"
+    ],
+    "events": [],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  },
+  "breakingChange": false,
+  "migrationRequired": false
+}

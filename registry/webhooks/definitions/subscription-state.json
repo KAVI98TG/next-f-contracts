@@ -1,0 +1,100 @@
+{
+  "$id": "webhooks.subscriptionState",
+  "name": "Webhook Subscription State",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "subscriptions",
+  "description": "Lifecycle state for a webhook subscription.",
+  "purpose": "Separates human/configuration state from individual delivery state.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Subscription status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "draft",
+          "active",
+          "paused",
+          "disabled"
+        ]
+      }
+    },
+    {
+      "key": "reason",
+      "required": false,
+      "nullable": true,
+      "description": "Optional state reason.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "changedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Last state transition time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "changedBy",
+      "required": false,
+      "nullable": true,
+      "description": "Actor responsible for transition.",
+      "schema": "core.actorReference"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "core.actorReference",
+      "description": "References core.actorReference."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "activeRequirements",
+      "description": "Active requires verified endpoint, valid selection and valid data policy."
+    },
+    {
+      "id": "disabledTerminalUntilExplicitChange",
+      "description": "Disabled subscriptions do not resume automatically."
+    },
+    {
+      "id": "stateAudited",
+      "description": "Manual state transitions must be auditable."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Subscription State",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "status",
+      "reason",
+      "changedAt",
+      "changedBy"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

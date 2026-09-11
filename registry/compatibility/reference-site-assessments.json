@@ -1,0 +1,573 @@
+{
+  "registryVersion": "1.0.0",
+  "targetVersion": "1.0.0",
+  "generatedAt": "2026-09-11T00:00:00Z",
+  "evidenceMode": "repository-reference-manifests",
+  "productionData": false,
+  "assessments": [
+    {
+      "id": "site_example_corporate",
+      "name": "Example Corporate Website",
+      "siteType": "corporate",
+      "manifestSource": "registry/manifests/examples/corporate.json",
+      "manifestRoute": "#/development/site-manifest?example=corporate",
+      "sourceContractVersion": "0.23.0",
+      "targetContractVersion": "1.0.0",
+      "overallStatus": "review-required",
+      "productionDecision": "not-approved-runtime-evidence",
+      "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "dimensions": [
+        {
+          "dimension": "contract-release",
+          "status": "review-required",
+          "required": true,
+          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+        },
+        {
+          "dimension": "site-manifest",
+          "status": "compatible",
+          "required": true,
+          "summary": "Manifest uses the supported 1.0.0 specification shape."
+        },
+        {
+          "dimension": "modules",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Modules exist and required Module dependencies resolve."
+        },
+        {
+          "dimension": "capabilities",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Capabilities exist, belong to their Module and are not reserved."
+        },
+        {
+          "dimension": "api",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared API bindings resolve to exact canonical API versions."
+        },
+        {
+          "dimension": "permissions",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "Site Manifest examples do not declare role assignments; runtime authorization is assessed by the Permission Registry."
+        },
+        {
+          "dimension": "events",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared canonical Events resolve."
+        },
+        {
+          "dimension": "webhooks",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "No explicit Webhook subscription/runtime declaration is required by these reference manifests."
+        },
+        {
+          "dimension": "integrations",
+          "status": "compatible",
+          "required": false,
+          "summary": "All enabled Integration connector IDs resolve."
+        },
+        {
+          "dimension": "customer-cms-ui",
+          "status": "unknown",
+          "required": false,
+          "summary": "Customer CMS metadata exists, but a final production CMS runtime is not declared by this static registry."
+        },
+        {
+          "dimension": "nextf-admin-ui",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "NEXT F Admin runtime compatibility is an internal platform concern, not a public reference Site assertion."
+        },
+        {
+          "dimension": "site-runtime",
+          "status": "unknown",
+          "required": true,
+          "summary": "All five runtime primitives are declared by the Manifest, but no formal Site Runtime/SDK release/version compatibility declaration exists yet."
+        },
+        {
+          "dimension": "data-migration",
+          "status": "review-required",
+          "required": false,
+          "summary": "Upgrade path requires explicit review/migration planning."
+        }
+      ],
+      "findings": [],
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+    },
+    {
+      "id": "site_example_service",
+      "name": "Example Service Website",
+      "siteType": "service",
+      "manifestSource": "registry/manifests/examples/service.json",
+      "manifestRoute": "#/development/site-manifest?example=service",
+      "sourceContractVersion": "0.23.0",
+      "targetContractVersion": "1.0.0",
+      "overallStatus": "review-required",
+      "productionDecision": "not-approved-runtime-evidence",
+      "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "dimensions": [
+        {
+          "dimension": "contract-release",
+          "status": "review-required",
+          "required": true,
+          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+        },
+        {
+          "dimension": "site-manifest",
+          "status": "compatible",
+          "required": true,
+          "summary": "Manifest uses the supported 1.0.0 specification shape."
+        },
+        {
+          "dimension": "modules",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Modules exist and required Module dependencies resolve."
+        },
+        {
+          "dimension": "capabilities",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Capabilities exist, belong to their Module and are not reserved."
+        },
+        {
+          "dimension": "api",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared API bindings resolve to exact canonical API versions."
+        },
+        {
+          "dimension": "permissions",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "Site Manifest examples do not declare role assignments; runtime authorization is assessed by the Permission Registry."
+        },
+        {
+          "dimension": "events",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared canonical Events resolve."
+        },
+        {
+          "dimension": "webhooks",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "No explicit Webhook subscription/runtime declaration is required by these reference manifests."
+        },
+        {
+          "dimension": "integrations",
+          "status": "compatible",
+          "required": false,
+          "summary": "All enabled Integration connector IDs resolve."
+        },
+        {
+          "dimension": "customer-cms-ui",
+          "status": "unknown",
+          "required": false,
+          "summary": "Customer CMS metadata exists, but a final production CMS runtime is not declared by this static registry."
+        },
+        {
+          "dimension": "nextf-admin-ui",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "NEXT F Admin runtime compatibility is an internal platform concern, not a public reference Site assertion."
+        },
+        {
+          "dimension": "site-runtime",
+          "status": "unknown",
+          "required": true,
+          "summary": "All five runtime primitives are declared by the Manifest, but no formal Site Runtime/SDK release/version compatibility declaration exists yet."
+        },
+        {
+          "dimension": "data-migration",
+          "status": "review-required",
+          "required": false,
+          "summary": "Upgrade path requires explicit review/migration planning."
+        }
+      ],
+      "findings": [],
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+    },
+    {
+      "id": "site_example_leadgen",
+      "name": "Example Lead Generation Website",
+      "siteType": "lead-generation",
+      "manifestSource": "registry/manifests/examples/lead-generation.json",
+      "manifestRoute": "#/development/site-manifest?example=lead-generation",
+      "sourceContractVersion": "0.23.0",
+      "targetContractVersion": "1.0.0",
+      "overallStatus": "review-required",
+      "productionDecision": "not-approved-runtime-evidence",
+      "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "dimensions": [
+        {
+          "dimension": "contract-release",
+          "status": "review-required",
+          "required": true,
+          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+        },
+        {
+          "dimension": "site-manifest",
+          "status": "compatible",
+          "required": true,
+          "summary": "Manifest uses the supported 1.0.0 specification shape."
+        },
+        {
+          "dimension": "modules",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Modules exist and required Module dependencies resolve."
+        },
+        {
+          "dimension": "capabilities",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Capabilities exist, belong to their Module and are not reserved."
+        },
+        {
+          "dimension": "api",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared API bindings resolve to exact canonical API versions."
+        },
+        {
+          "dimension": "permissions",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "Site Manifest examples do not declare role assignments; runtime authorization is assessed by the Permission Registry."
+        },
+        {
+          "dimension": "events",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared canonical Events resolve."
+        },
+        {
+          "dimension": "webhooks",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "No explicit Webhook subscription/runtime declaration is required by these reference manifests."
+        },
+        {
+          "dimension": "integrations",
+          "status": "compatible",
+          "required": false,
+          "summary": "All enabled Integration connector IDs resolve."
+        },
+        {
+          "dimension": "customer-cms-ui",
+          "status": "unknown",
+          "required": false,
+          "summary": "Customer CMS metadata exists, but a final production CMS runtime is not declared by this static registry."
+        },
+        {
+          "dimension": "nextf-admin-ui",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "NEXT F Admin runtime compatibility is an internal platform concern, not a public reference Site assertion."
+        },
+        {
+          "dimension": "site-runtime",
+          "status": "unknown",
+          "required": true,
+          "summary": "All five runtime primitives are declared by the Manifest, but no formal Site Runtime/SDK release/version compatibility declaration exists yet."
+        },
+        {
+          "dimension": "data-migration",
+          "status": "review-required",
+          "required": false,
+          "summary": "Upgrade path requires explicit review/migration planning."
+        }
+      ],
+      "findings": [],
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+    },
+    {
+      "id": "site_example_commerce",
+      "name": "Example Commerce Website",
+      "siteType": "commerce",
+      "manifestSource": "registry/manifests/examples/commerce.json",
+      "manifestRoute": "#/development/site-manifest?example=commerce",
+      "sourceContractVersion": "0.23.0",
+      "targetContractVersion": "1.0.0",
+      "overallStatus": "review-required",
+      "productionDecision": "not-approved-runtime-evidence",
+      "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "dimensions": [
+        {
+          "dimension": "contract-release",
+          "status": "review-required",
+          "required": true,
+          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+        },
+        {
+          "dimension": "site-manifest",
+          "status": "compatible",
+          "required": true,
+          "summary": "Manifest uses the supported 1.0.0 specification shape."
+        },
+        {
+          "dimension": "modules",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Modules exist and required Module dependencies resolve."
+        },
+        {
+          "dimension": "capabilities",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Capabilities exist, belong to their Module and are not reserved."
+        },
+        {
+          "dimension": "api",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared API bindings resolve to exact canonical API versions."
+        },
+        {
+          "dimension": "permissions",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "Site Manifest examples do not declare role assignments; runtime authorization is assessed by the Permission Registry."
+        },
+        {
+          "dimension": "events",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared canonical Events resolve."
+        },
+        {
+          "dimension": "webhooks",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "No explicit Webhook subscription/runtime declaration is required by these reference manifests."
+        },
+        {
+          "dimension": "integrations",
+          "status": "compatible",
+          "required": false,
+          "summary": "All enabled Integration connector IDs resolve."
+        },
+        {
+          "dimension": "customer-cms-ui",
+          "status": "unknown",
+          "required": false,
+          "summary": "Customer CMS metadata exists, but a final production CMS runtime is not declared by this static registry."
+        },
+        {
+          "dimension": "nextf-admin-ui",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "NEXT F Admin runtime compatibility is an internal platform concern, not a public reference Site assertion."
+        },
+        {
+          "dimension": "site-runtime",
+          "status": "unknown",
+          "required": true,
+          "summary": "All five runtime primitives are declared by the Manifest, but no formal Site Runtime/SDK release/version compatibility declaration exists yet."
+        },
+        {
+          "dimension": "data-migration",
+          "status": "review-required",
+          "required": false,
+          "summary": "Upgrade path requires explicit review/migration planning."
+        }
+      ],
+      "findings": [],
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+    },
+    {
+      "id": "site_example_docs",
+      "name": "Example Documentation Website",
+      "siteType": "documentation",
+      "manifestSource": "registry/manifests/examples/documentation.json",
+      "manifestRoute": "#/development/site-manifest?example=documentation",
+      "sourceContractVersion": "0.23.0",
+      "targetContractVersion": "1.0.0",
+      "overallStatus": "review-required",
+      "productionDecision": "not-approved-runtime-evidence",
+      "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "dimensions": [
+        {
+          "dimension": "contract-release",
+          "status": "review-required",
+          "required": true,
+          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+        },
+        {
+          "dimension": "site-manifest",
+          "status": "compatible",
+          "required": true,
+          "summary": "Manifest uses the supported 1.0.0 specification shape."
+        },
+        {
+          "dimension": "modules",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Modules exist and required Module dependencies resolve."
+        },
+        {
+          "dimension": "capabilities",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Capabilities exist, belong to their Module and are not reserved."
+        },
+        {
+          "dimension": "api",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared API bindings resolve to exact canonical API versions."
+        },
+        {
+          "dimension": "permissions",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "Site Manifest examples do not declare role assignments; runtime authorization is assessed by the Permission Registry."
+        },
+        {
+          "dimension": "events",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared canonical Events resolve."
+        },
+        {
+          "dimension": "webhooks",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "No explicit Webhook subscription/runtime declaration is required by these reference manifests."
+        },
+        {
+          "dimension": "integrations",
+          "status": "compatible",
+          "required": false,
+          "summary": "All enabled Integration connector IDs resolve."
+        },
+        {
+          "dimension": "customer-cms-ui",
+          "status": "unknown",
+          "required": false,
+          "summary": "Customer CMS metadata exists, but a final production CMS runtime is not declared by this static registry."
+        },
+        {
+          "dimension": "nextf-admin-ui",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "NEXT F Admin runtime compatibility is an internal platform concern, not a public reference Site assertion."
+        },
+        {
+          "dimension": "site-runtime",
+          "status": "unknown",
+          "required": true,
+          "summary": "All five runtime primitives are declared by the Manifest, but no formal Site Runtime/SDK release/version compatibility declaration exists yet."
+        },
+        {
+          "dimension": "data-migration",
+          "status": "review-required",
+          "required": false,
+          "summary": "Upgrade path requires explicit review/migration planning."
+        }
+      ],
+      "findings": [],
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+    },
+    {
+      "id": "site_example_custom",
+      "name": "Example Custom Website",
+      "siteType": "custom",
+      "manifestSource": "registry/manifests/examples/custom.json",
+      "manifestRoute": "#/development/site-manifest?example=custom",
+      "sourceContractVersion": "0.23.0",
+      "targetContractVersion": "1.0.0",
+      "overallStatus": "review-required",
+      "productionDecision": "not-approved-runtime-evidence",
+      "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "dimensions": [
+        {
+          "dimension": "contract-release",
+          "status": "review-required",
+          "required": true,
+          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+        },
+        {
+          "dimension": "site-manifest",
+          "status": "compatible",
+          "required": true,
+          "summary": "Manifest uses the supported 1.0.0 specification shape."
+        },
+        {
+          "dimension": "modules",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Modules exist and required Module dependencies resolve."
+        },
+        {
+          "dimension": "capabilities",
+          "status": "compatible",
+          "required": true,
+          "summary": "All enabled Capabilities exist, belong to their Module and are not reserved."
+        },
+        {
+          "dimension": "api",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared API bindings resolve to exact canonical API versions."
+        },
+        {
+          "dimension": "permissions",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "Site Manifest examples do not declare role assignments; runtime authorization is assessed by the Permission Registry."
+        },
+        {
+          "dimension": "events",
+          "status": "compatible",
+          "required": true,
+          "summary": "All declared canonical Events resolve."
+        },
+        {
+          "dimension": "webhooks",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "No explicit Webhook subscription/runtime declaration is required by these reference manifests."
+        },
+        {
+          "dimension": "integrations",
+          "status": "compatible",
+          "required": false,
+          "summary": "All enabled Integration connector IDs resolve."
+        },
+        {
+          "dimension": "customer-cms-ui",
+          "status": "unknown",
+          "required": false,
+          "summary": "Customer CMS metadata exists, but a final production CMS runtime is not declared by this static registry."
+        },
+        {
+          "dimension": "nextf-admin-ui",
+          "status": "not-applicable",
+          "required": false,
+          "summary": "NEXT F Admin runtime compatibility is an internal platform concern, not a public reference Site assertion."
+        },
+        {
+          "dimension": "site-runtime",
+          "status": "unknown",
+          "required": true,
+          "summary": "All five runtime primitives are declared by the Manifest, but no formal Site Runtime/SDK release/version compatibility declaration exists yet."
+        },
+        {
+          "dimension": "data-migration",
+          "status": "review-required",
+          "required": false,
+          "summary": "Upgrade path requires explicit review/migration planning."
+        }
+      ],
+      "findings": [],
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+    }
+  ]
+}

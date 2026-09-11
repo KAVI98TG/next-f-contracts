@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.forms.conversion-mapping",
+  "capabilityId": "forms.conversion-mapping",
+  "name": "Conversion Mapping",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "forms",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Conversion Mapping capability within the Forms module.",
+  "contractBindings": [
+    "forms.conversionMapping"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

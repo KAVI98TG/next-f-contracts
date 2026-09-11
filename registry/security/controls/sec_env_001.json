@@ -1,0 +1,36 @@
+{
+  "controlId": "SEC-ENV-001",
+  "name": "Environment isolation",
+  "category": "isolation",
+  "requirement": "Development, preview/staging and production environments must keep credentials, data access and integrations appropriately isolated.",
+  "rationale": "Environment crossover can expose production data or credentials.",
+  "applicability": [
+    "site-manifest",
+    "integrations",
+    "api"
+  ],
+  "obligation": "mandatory",
+  "scope": "operations",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "integrations.environmentBinding"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_env_001.json"
+}

@@ -1,0 +1,60 @@
+{
+  "$id": "api.concurrencyContext",
+  "name": "Concurrency Context",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "integrity",
+  "description": "Optimistic concurrency validator metadata.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "etag",
+      "required": true,
+      "nullable": false,
+      "description": "etag",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "lastModifiedAt",
+      "required": false,
+      "nullable": false,
+      "description": "lastModifiedAt",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "version",
+      "required": false,
+      "nullable": false,
+      "description": "version",
+      "primitive": "fields.integer"
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    },
+    {
+      "id": "strongPrecondition",
+      "description": "Revision-sensitive mutations use strong ETag/If-Match semantics where the operation declares concurrency required."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

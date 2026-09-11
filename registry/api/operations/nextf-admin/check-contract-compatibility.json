@@ -1,0 +1,75 @@
+{
+  "$id": "api.nextf-admin.check-contract-compatibility",
+  "operationId": "api.nextf-admin.check-contract-compatibility",
+  "name": "Check Contract Compatibility",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.nextf-admin",
+  "method": "POST",
+  "path": "/sites/{siteId}/compatibility/check",
+  "description": "Check Contract Compatibility",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "platform.contracts.view"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "api.commandResult",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "admin-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "sensitive-write",
+    "cors": "admin-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "integrations"
+  ],
+  "contractBindings": [
+    "manifest.contractBinding",
+    "api.versionContext"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "internal",
+  "notes": []
+}

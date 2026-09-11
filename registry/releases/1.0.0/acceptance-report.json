@@ -1,0 +1,397 @@
+{
+  "registryVersion": "1.0.0",
+  "phase": 37,
+  "title": "NEXT F Contracts V1.0.0 Production Acceptance",
+  "releaseStatus": "STABLE",
+  "generatedAt": "2026-09-11T06:34:11.454Z",
+  "summary": {
+    "categories": 31,
+    "pass": 30,
+    "fail": 0,
+    "deferred": 1,
+    "blockingFailures": 0,
+    "supplementaryDeferred": 5
+  },
+  "categories": [
+    {
+      "id": "registry-integrity",
+      "label": "Contract Registry integrity",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/qa/report.json",
+        "registry/registry.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "schema-validity",
+      "label": "Schema validity",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "checks/phase-36-acceptance.json",
+        "registry/registry.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "modules",
+      "label": "Modules",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/modules/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "capabilities",
+      "label": "Capabilities",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/modules/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "permissions",
+      "label": "Permissions",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/permissions/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "events",
+      "label": "Events",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/events/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "webhooks",
+      "label": "Webhooks",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/webhooks/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "apis",
+      "label": "APIs",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/api/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "site-manifest",
+      "label": "Site Manifest",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/manifests/nextf-site-manifest.schema.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "commerce-invariants",
+      "label": "Commerce invariants",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "standards/20-commerce-rules-standard.md",
+        "registry/commerce-rules/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "cms-metadata",
+      "label": "Customer CMS metadata",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/cms-ui/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "admin-metadata",
+      "label": "NEXT F Admin metadata",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/admin-ui/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "integrations",
+      "label": "Integrations",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/integrations/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "security",
+      "label": "Security standards",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/security/index.json",
+        "standards/37-security-standard.md"
+      ],
+      "reason": null
+    },
+    {
+      "id": "privacy",
+      "label": "Privacy/data classification",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/privacy/index.json",
+        "standards/38-privacy-data-standard.md"
+      ],
+      "reason": null
+    },
+    {
+      "id": "accessibility",
+      "label": "Accessibility standards",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/accessibility/index.json",
+        "registry/accessibility/portal-audit.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "performance",
+      "label": "Performance standards",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/performance/index.json",
+        "registry/performance/portal-audit.json"
+      ],
+      "reason": "2 non-blocking storage-budget warnings remain visible."
+    },
+    {
+      "id": "browser-validation",
+      "label": "Browser validation",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/validation/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "cli-validation",
+      "label": "CLI validation",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/cli/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "starter-packs",
+      "label": "Starter packs",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/starters/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "examples",
+      "label": "Examples",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/examples/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "search",
+      "label": "Global Search",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/search/search-index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "relationships",
+      "label": "Relationships",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/relationships/relationship-index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "diff",
+      "label": "Contract Diff",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/diff/release-index.json",
+        "registry/diff/snapshots/1.0.0.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "compatibility",
+      "label": "Compatibility Center",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/compatibility/index.json",
+        "registry/compatibility/policy.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "changelog",
+      "label": "Changelog",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/changelog/index.json",
+        "registry/changelog/releases/1.0.0.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "deprecations",
+      "label": "Deprecations",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "registry/deprecations/index.json"
+      ],
+      "reason": null
+    },
+    {
+      "id": "documentation",
+      "label": "Documentation",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "README.md",
+        "AGENTS.md",
+        "NEXT-F-WEBSITE-DEVELOPMENT-STANDARD.md"
+      ],
+      "reason": null
+    },
+    {
+      "id": "portal-runtime",
+      "label": "Portal runtime",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "index.html",
+        "js/router.js",
+        "checks/phase-36-acceptance.md"
+      ],
+      "reason": null
+    },
+    {
+      "id": "local-file-review",
+      "label": "Local/file review behavior",
+      "status": "DEFERRED",
+      "blocking": false,
+      "evidence": [
+        "js/generated-registry.js",
+        "js/generated-search-index.js",
+        "js/generated-diff.js"
+      ],
+      "reason": "Generated fallbacks, including a bounded consumer-contract Diff snapshot bundle, are available. A live file:// browser acceptance session remains environment-dependent and is not inferred from static validation."
+    },
+    {
+      "id": "packaging",
+      "label": "Packaging",
+      "status": "PASS",
+      "blocking": true,
+      "evidence": [
+        "package.json",
+        "VERSION"
+      ],
+      "reason": "Final archive integrity is additionally verified after package creation."
+    }
+  ],
+  "supplementary": [
+    {
+      "id": "live-assistive-technology",
+      "label": "Live assistive-technology/browser keyboard review",
+      "status": "DEFERRED",
+      "blocking": false,
+      "evidence": [
+        "registry/accessibility/portal-audit.json"
+      ],
+      "reason": "Managed browser policy prevents proving a live assistive-technology session here; source/static accessibility acceptance is PASS and this does not change Registry contract stability."
+    },
+    {
+      "id": "site-runtime-deployment",
+      "label": "NEXT F Site Runtime / SDK deployment",
+      "status": "DEFERRED",
+      "blocking": false,
+      "evidence": [
+        "registry/compatibility/component-matrix.json"
+      ],
+      "reason": "No production Site Runtime/SDK release is declared; Registry V1 stability does not require deployment of every consumer."
+    },
+    {
+      "id": "customer-cms-runtime",
+      "label": "Customer CMS runtime deployment",
+      "status": "DEFERRED",
+      "blocking": false,
+      "evidence": [
+        "registry/compatibility/component-matrix.json"
+      ],
+      "reason": "Metadata is stable; final Customer CMS runtime deployment remains outside Contract Registry acceptance."
+    },
+    {
+      "id": "admin-runtime",
+      "label": "NEXT F Admin runtime deployment",
+      "status": "DEFERRED",
+      "blocking": false,
+      "evidence": [
+        "registry/compatibility/component-matrix.json"
+      ],
+      "reason": "Metadata is stable; final Admin runtime deployment remains outside Contract Registry acceptance."
+    },
+    {
+      "id": "api-runtime-deployment",
+      "label": "API runtime deployment",
+      "status": "DEFERRED",
+      "blocking": false,
+      "evidence": [
+        "registry/compatibility/component-matrix.json"
+      ],
+      "reason": "API contracts are stable; deployed API runtime support remains independently evidenced."
+    }
+  ],
+  "releaseRule": "V1.0.0 is valid only when blockingFailures is zero. Runtime deployment DEFERRED items do not convert unknown runtime compatibility into support claims."
+}

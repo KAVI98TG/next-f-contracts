@@ -1,0 +1,99 @@
+{
+  "$id": "compatibility.componentConstraint",
+  "name": "Component Compatibility Constraint",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Declares a compatibility requirement between two canonical surfaces.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "sourceComponentId",
+      "required": true,
+      "nullable": false,
+      "description": "Source component.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "targetComponentId",
+      "required": true,
+      "nullable": false,
+      "description": "Required/related component.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "relationship",
+      "required": true,
+      "nullable": false,
+      "description": "Compatibility relationship.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "versionRange",
+      "required": false,
+      "nullable": true,
+      "description": "Allowed version range.",
+      "schema": "compatibility.versionRange"
+    },
+    {
+      "key": "required",
+      "required": true,
+      "nullable": false,
+      "description": "Whether failure blocks the source.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "notes",
+      "required": false,
+      "nullable": true,
+      "description": "Constraint notes.",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.slug",
+      "description": "sourceComponentId uses fields.slug."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "relationship uses fields.select."
+    },
+    {
+      "type": "composes",
+      "target": "compatibility.versionRange",
+      "description": "versionRange reuses compatibility.versionRange."
+    },
+    {
+      "type": "uses",
+      "target": "fields.boolean",
+      "description": "required uses fields.boolean."
+    },
+    {
+      "type": "uses",
+      "target": "fields.textarea",
+      "description": "notes uses fields.textarea."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

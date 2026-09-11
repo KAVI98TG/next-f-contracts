@@ -1,0 +1,12 @@
+PASS registry/examples/definitions/commerce.json
+PASS registry/examples/definitions/corporate.json
+PASS registry/examples/definitions/custom.json
+PASS registry/examples/definitions/documentation.json
+PASS registry/examples/definitions/lead-generation.json
+PASS registry/examples/definitions/service.json
+PASS registry/manifests/examples/commerce.json
+PASS registry/manifests/examples/corporate.json
+PASS registry/manifests/examples/custom.json
+PASS registry/manifests/examples/documentation.json
+PASS registry/manifests/examples/lead-generation.json
+PASS registry/manifests/examples/service.json

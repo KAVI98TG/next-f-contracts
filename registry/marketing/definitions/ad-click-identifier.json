@@ -1,0 +1,150 @@
+{
+  "$id": "marketing.adClickIdentifier",
+  "name": "Advertising Click Identifier",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "campaign-attribution",
+  "description": "Provider-neutral captured advertising click identifier.",
+  "purpose": "Allows future advertising connectors to use click IDs without embedding provider-specific fields throughout tracking contracts.",
+  "marketingModel": {
+    "kind": "context",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Known identifier family.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "gclid",
+            "label": "GCLID"
+          },
+          {
+            "value": "gbraid",
+            "label": "GBRAID"
+          },
+          {
+            "value": "wbraid",
+            "label": "WBRAID"
+          },
+          {
+            "value": "fbclid",
+            "label": "FBCLID"
+          },
+          {
+            "value": "msclkid",
+            "label": "MSCLKID"
+          },
+          {
+            "value": "ttclid",
+            "label": "TTCLID"
+          },
+          {
+            "value": "liFatId",
+            "label": "LinkedIn FAT ID"
+          },
+          {
+            "value": "custom",
+            "label": "Custom"
+          }
+        ]
+      }
+    },
+    {
+      "key": "value",
+      "required": true,
+      "nullable": false,
+      "description": "Captured identifier value.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 2048
+      }
+    },
+    {
+      "key": "capturedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Capture timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "expiresAt",
+      "required": false,
+      "nullable": true,
+      "description": "Optional expiry/deletion timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "sourceHost",
+      "required": false,
+      "nullable": true,
+      "description": "Optional source hostname where identifier was observed.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 255
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "treatedAsPersonalIdentifier",
+      "description": "Advertising click IDs are handled as potentially personal/pseudonymous identifiers."
+    },
+    {
+      "id": "retentionBounded",
+      "description": "Retention follows Site policy and connector requirements."
+    },
+    {
+      "id": "notPublic",
+      "description": "Raw click identifiers are not public API/CMS preview data."
+    },
+    {
+      "id": "providerLogicLater",
+      "description": "Provider-specific validation and dispatch belongs to Phase 10."
+    }
+  ],
+  "cms": {
+    "label": "Advertising Click Identifier",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "type",
+      "value",
+      "capturedAt",
+      "expiresAt"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

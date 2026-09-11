@@ -1,0 +1,32 @@
+{
+  "controlId": "ACC-MENU-001",
+  "name": "Accessible menus",
+  "category": "components",
+  "requirement": "Menus and menu-like controls must use an interaction model consistent with their semantic role and provide keyboard equivalents for every action.",
+  "rationale": "Custom menus can create keyboard traps or inconsistent navigation if roles and keys disagree.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "menu",
+    "navigation"
+  ],
+  "verificationMethods": [
+    "keyboard-manual",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_menu_001.json"
+}

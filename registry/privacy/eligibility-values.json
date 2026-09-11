@@ -1,0 +1,26 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "Data Flow Eligibility",
+  "values": [
+    {
+      "id": "allowed",
+      "label": "Allowed",
+      "description": "Allowed when the owning contract and authorization permit it."
+    },
+    {
+      "id": "conditional",
+      "label": "Conditional",
+      "description": "Allowed only after purpose, consent, authorization or destination-specific checks."
+    },
+    {
+      "id": "redacted-only",
+      "label": "Redacted Only",
+      "description": "Only a redacted/minimized representation may flow to this destination."
+    },
+    {
+      "id": "prohibited",
+      "label": "Prohibited",
+      "description": "Must not flow to this destination."
+    }
+  ]
+}

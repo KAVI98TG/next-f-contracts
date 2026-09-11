@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "developer.contractExtensionProposal",
+  "title": "Contract Extension Proposal",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "proposalId",
+    "requirement",
+    "businessReason",
+    "proposedNamespace",
+    "proposedId",
+    "compatibilityImpact",
+    "securityPrivacyImpact",
+    "status"
+  ],
+  "properties": {
+    "proposalId": {
+      "type": "string"
+    },
+    "siteId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "requirement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "businessReason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposedNamespace": {
+      "type": "string",
+      "minLength": 1
+    },
+    "proposedId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "webhookImpact": {
+      "type": "string"
+    },
+    "apiImpact": {
+      "type": "string"
+    },
+    "cmsUiImpact": {
+      "type": "string"
+    },
+    "adminUiImpact": {
+      "type": "string"
+    },
+    "integrationImpact": {
+      "type": "string"
+    },
+    "dataClassification": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "securityPrivacyImpact": {
+      "type": "string"
+    },
+    "compatibilityImpact": {
+      "type": "string"
+    },
+    "migrationImpact": {
+      "type": "string"
+    },
+    "alternativesConsidered": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "proposed",
+        "approved",
+        "rejected",
+        "superseded"
+      ]
+    }
+  }
+}

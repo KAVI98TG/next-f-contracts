@@ -1,0 +1,34 @@
+{
+  "$id": "modules.capability.blog.tags",
+  "capabilityId": "blog.tags",
+  "name": "Tags",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "blog",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Tags capability within the Blog module.",
+  "contractBindings": [
+    "content.blogTag"
+  ],
+  "permissionBindings": [
+    "content.blogtags.create",
+    "content.blogtags.delete",
+    "content.blogtags.edit",
+    "content.blogtags.manage",
+    "content.blogtags.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

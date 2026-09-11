@@ -1,0 +1,72 @@
+{
+  "$id": "fields.integer",
+  "name": "Integer",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "numeric",
+  "description": "Whole-number value with no fractional component.",
+  "value": {
+    "jsonType": "number",
+    "canonical": "Finite JSON number with zero fractional component.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "integer",
+    "inputMode": "numeric",
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": true,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "minimum",
+    "maximum",
+    "step",
+    "precision",
+    "inputMode"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "integer",
+    "minimum",
+    "maximum",
+    "step"
+  ],
+  "examples": {
+    "valid": [
+      0,
+      1,
+      -25,
+      5000
+    ],
+    "invalid": [
+      1.25,
+      "10"
+    ]
+  },
+  "notes": []
+}

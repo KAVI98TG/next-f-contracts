@@ -1,0 +1,83 @@
+{
+  "$id": "integrations.googleSearchConsole",
+  "name": "Google Search Console",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "google",
+  "family": "search",
+  "description": "Server-side Search Console reporting and property verification connector.",
+  "ownership": "customer",
+  "runtimeModes": [
+    "nextf-server",
+    "provider-api"
+  ],
+  "capabilities": [
+    "reporting.read",
+    "resource.discover",
+    "account.verify"
+  ],
+  "authentication": {
+    "type": "oauth2"
+  },
+  "configurationFields": [
+    {
+      "key": "propertyUri",
+      "label": "Search Console Property URI",
+      "primitive": "fields.text",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": true,
+      "helpText": "Exact Search Console property identifier, including URL-prefix properties or sc-domain: domain properties.",
+      "validation": {
+        "minLength": 1,
+        "examples": [
+          "https://example.com/",
+          "sc-domain:example.com"
+        ]
+      }
+    },
+    {
+      "key": "oauthProfileRef",
+      "label": "OAuth Profile",
+      "primitive": "fields.text",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": false,
+      "helpText": "OAuth Profile",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [],
+    "mode": "not-tracking"
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  },
+  "notes": [
+    "Search Console data source/freshness must remain visible in SEO/reporting records."
+  ],
+  "aliases": [
+    "GSC",
+    "Search Console"
+  ]
+}

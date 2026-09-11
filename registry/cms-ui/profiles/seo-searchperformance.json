@@ -1,0 +1,390 @@
+{
+  "$id": "cmsUi.profile.seo.searchperformance",
+  "name": "Search Performance",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "seo.searchperformance",
+  "moduleId": "seo",
+  "description": "Customer CMS presentation metadata for Search Performance within authorized Site scope.",
+  "targetContracts": [
+    "seo.searchPerformance",
+    "seo.searchQuery"
+  ],
+  "primaryTargetContract": "seo.searchPerformance",
+  "route": "/growth/seo/search-performance",
+  "screenKind": "report",
+  "layoutTemplate": "analytics-report",
+  "responsivePolicy": "operational",
+  "fieldBindings": [
+    {
+      "field": "scope",
+      "label": "Scope",
+      "description": "Site scope.",
+      "editorId": "hidden",
+      "group": "system",
+      "zone": "hidden-system",
+      "order": 10,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "core.tenantScope",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "query",
+      "label": "Query",
+      "description": "Optional query dimension.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 20,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": null,
+      "width": "half",
+      "sourceFieldType": "seo.searchQuery",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "pageUrl",
+      "label": "Page URL",
+      "description": "Optional page dimension.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 30,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.url",
+      "validationHint": {},
+      "searchable": true,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "startDate",
+      "label": "Start Date",
+      "description": "Inclusive reporting start date.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 40,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.date",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "endDate",
+      "label": "End Date",
+      "description": "Inclusive reporting end date.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 50,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.date",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "clicks",
+      "label": "Clicks",
+      "description": "Observed organic clicks.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 60,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.integer",
+      "validationHint": {
+        "minimum": 0
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "impressions",
+      "label": "Impressions",
+      "description": "Observed organic impressions.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 70,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.integer",
+      "validationHint": {
+        "minimum": 0
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "ctr",
+      "label": "Ctr",
+      "description": "Observed click-through rate in percentage points.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 80,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.percentage",
+      "validationHint": {
+        "minimum": 0,
+        "maximum": 100
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "averagePosition",
+      "label": "Average Position",
+      "description": "Observed average position when supplied by the provider.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 90,
+      "required": false,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.decimal",
+      "validationHint": {
+        "minimum": 0
+      },
+      "searchable": false,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "sourceProvider",
+      "label": "Source Provider",
+      "description": "Provider/source identifier such as google-search-console.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 100,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.text",
+      "validationHint": {
+        "maxLength": 120
+      },
+      "searchable": false,
+      "filterable": true,
+      "sortable": false,
+      "localizable": false,
+      "revisionTracked": false
+    },
+    {
+      "field": "importedAt",
+      "label": "Imported At",
+      "description": "Time NEXT F received/imported this metric set.",
+      "editorId": "read-only",
+      "group": "configuration",
+      "zone": "main",
+      "order": 110,
+      "required": true,
+      "customerEditable": false,
+      "adminEditable": false,
+      "width": "half",
+      "sourceFieldType": "fields.dateTime",
+      "validationHint": {},
+      "searchable": false,
+      "filterable": false,
+      "sortable": true,
+      "localizable": false,
+      "revisionTracked": false
+    }
+  ],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [
+      {
+        "field": "scope",
+        "label": "Scope",
+        "rendererId": "primary-text",
+        "order": 10,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "query",
+        "label": "Query",
+        "rendererId": "text",
+        "order": 20,
+        "mobilePriority": "high"
+      },
+      {
+        "field": "pageUrl",
+        "label": "Page URL",
+        "rendererId": "text",
+        "order": 30,
+        "mobilePriority": "normal"
+      },
+      {
+        "field": "startDate",
+        "label": "Start Date",
+        "rendererId": "text",
+        "order": 40,
+        "mobilePriority": "normal"
+      }
+    ],
+    "search": true,
+    "filters": [
+      {
+        "field": "sourceProvider",
+        "label": "Source Provider"
+      }
+    ],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [
+      {
+        "field": "clicks",
+        "label": "Clicks"
+      },
+      {
+        "field": "impressions",
+        "label": "Impressions"
+      },
+      {
+        "field": "ctr",
+        "label": "Ctr"
+      },
+      {
+        "field": "averagePosition",
+        "label": "Average Position"
+      },
+      {
+        "field": "importedAt",
+        "label": "Imported At"
+      }
+    ],
+    "searchFields": [
+      "pageUrl"
+    ]
+  },
+  "actions": [
+    {
+      "actionId": "export",
+      "permissionId": "seo.searchperformance.export",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "seo.searchperformance.view",
+      "riskLevel": "standard",
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "seo.searchperformance.export",
+    "seo.searchperformance.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": false,
+    "warnOnLeave": false,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/growth/seo/search-performance",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "seo.searchperformance.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "detail",
+      "route": "/growth/seo/search-performance/:id",
+      "layoutTemplate": "operational-detail",
+      "requiresPermission": "seo.searchperformance.view",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

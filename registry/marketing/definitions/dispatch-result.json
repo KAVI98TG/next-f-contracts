@@ -1,0 +1,175 @@
+{
+  "$id": "marketing.dispatchResult",
+  "name": "Marketing Dispatch Result",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "destination",
+  "description": "Outcome of a logical destination dispatch attempt.",
+  "purpose": "Provides diagnostics/retry decisions without writing provider secrets or raw personal payloads into logs.",
+  "marketingModel": {
+    "kind": "operational",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "dispatchId",
+      "required": true,
+      "nullable": false,
+      "description": "Associated dispatch request ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "destinationKey",
+      "required": true,
+      "nullable": false,
+      "description": "Destination key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Outcome.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "queued",
+            "label": "Queued"
+          },
+          {
+            "value": "sent",
+            "label": "Sent"
+          },
+          {
+            "value": "skipped",
+            "label": "Skipped"
+          },
+          {
+            "value": "failed",
+            "label": "Failed"
+          }
+        ]
+      }
+    },
+    {
+      "key": "occurredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Outcome timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "reasonCode",
+      "required": false,
+      "nullable": true,
+      "description": "Stable non-secret reason code.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "httpStatus",
+      "required": false,
+      "nullable": true,
+      "description": "Optional upstream HTTP status.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 100,
+        "maximum": 599
+      }
+    },
+    {
+      "key": "retryable",
+      "required": true,
+      "nullable": false,
+      "description": "Whether retry allowed.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "providerReference",
+      "required": false,
+      "nullable": true,
+      "description": "Optional non-secret provider receipt/reference.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "marketing.dispatchRequest",
+      "description": "Belongs to dispatch request."
+    },
+    {
+      "type": "references",
+      "target": "marketing.marketingDestination",
+      "description": "Identifies destination."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noRawErrorSecrets",
+      "description": "Error logging cannot include credentials/full sensitive payloads."
+    },
+    {
+      "id": "skippedNotFailure",
+      "description": "Consent/data-policy skip differs from technical failure."
+    },
+    {
+      "id": "retryPolicyLater",
+      "description": "Detailed retry orchestration finalized later."
+    }
+  ],
+  "cms": {
+    "label": "Marketing Dispatch Result",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "dispatchId",
+      "destinationKey",
+      "status",
+      "occurredAt"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

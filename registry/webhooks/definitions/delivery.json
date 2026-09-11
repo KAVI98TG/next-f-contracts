@@ -1,0 +1,191 @@
+{
+  "$id": "webhooks.delivery",
+  "name": "Webhook Delivery",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "delivery",
+  "description": "One logical outbound delivery created for one subscription and one canonical Event.",
+  "purpose": "Provides stable retry/idempotency identity across all HTTP attempts.",
+  "webhookModel": {
+    "kind": "entity",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable Delivery identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "subscriptionId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning subscription ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "endpointId",
+      "required": true,
+      "nullable": false,
+      "description": "Resolved destination endpoint ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "eventId",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Event occurrence ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "eventKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Event key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "eventVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Event definition version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "Bound Site environment.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "preview",
+          "staging",
+          "production"
+        ]
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Logical delivery status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "pending",
+          "deferred",
+          "delivering",
+          "succeeded",
+          "retry-scheduled",
+          "failed",
+          "dead-lettered",
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "key": "attemptCount",
+      "required": true,
+      "nullable": false,
+      "description": "Total created attempts.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Delivery creation time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "terminalAt",
+      "required": false,
+      "nullable": true,
+      "description": "Terminal completion time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "lastFailure",
+      "required": false,
+      "nullable": true,
+      "description": "Most recent failure summary.",
+      "schema": "webhooks.deliveryFailure"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "References core.entityIdentity."
+    },
+    {
+      "type": "references",
+      "target": "webhooks.subscription",
+      "description": "References webhooks.subscription."
+    },
+    {
+      "type": "references",
+      "target": "webhooks.endpoint",
+      "description": "References webhooks.endpoint."
+    },
+    {
+      "type": "references",
+      "target": "events.eventEnvelope",
+      "description": "References events.eventEnvelope."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "webhooks.deliveryFailure",
+      "description": "References webhooks.deliveryFailure."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "logicalUniqueness",
+      "description": "At most one logical Delivery may exist for the same `(subscriptionId,eventId)`."
+    },
+    {
+      "id": "retriesSameDelivery",
+      "description": "Automatic retries and manual redelivery create new Attempts under the same logical Delivery."
+    },
+    {
+      "id": "sameCanonicalEvent",
+      "description": "All attempts preserve the original canonical Event ID and Event semantics."
+    },
+    {
+      "id": "terminalImmutable",
+      "description": "Terminal outcome history cannot be rewritten; later redelivery is recorded as a new Attempt."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Delivery",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "identity",
+      "subscriptionId",
+      "endpointId",
+      "eventId"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

@@ -1,0 +1,129 @@
+{
+  "$id": "compatibility.assessment",
+  "name": "Compatibility Assessment",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Aggregates multidimensional compatibility evidence for one subject and target.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "assessmentId",
+      "required": true,
+      "nullable": false,
+      "description": "Assessment identity.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "subjectType",
+      "required": true,
+      "nullable": false,
+      "description": "Site, release or component subject.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "subjectId",
+      "required": true,
+      "nullable": false,
+      "description": "Non-secret subject identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sourceContractVersion",
+      "required": false,
+      "nullable": true,
+      "description": "Pinned/source Contract Version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "targetContractVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Target Contract Version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "overallStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Aggregated compatibility status.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "dimensions",
+      "required": true,
+      "nullable": false,
+      "description": "Dimension results.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "findings",
+      "required": false,
+      "nullable": true,
+      "description": "Compatibility findings.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "evaluatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Assessment generation time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "evidenceMode",
+      "required": true,
+      "nullable": false,
+      "description": "Exact/reference/runtime evidence mode.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "productionDecision",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this result can be used for production approval.",
+      "primitive": "fields.select"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "assessmentId uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "subjectType uses fields.select."
+    },
+    {
+      "type": "uses",
+      "target": "fields.json",
+      "description": "dimensions uses fields.json."
+    },
+    {
+      "type": "uses",
+      "target": "fields.dateTime",
+      "description": "evaluatedAt uses fields.dateTime."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

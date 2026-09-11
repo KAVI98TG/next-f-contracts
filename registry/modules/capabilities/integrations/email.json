@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.integrations.email",
+  "capabilityId": "integrations.email",
+  "name": "Email Provider",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "integrations",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Email Provider capability within the Integrations module.",
+  "contractBindings": [
+    "integrations.emailProvider"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

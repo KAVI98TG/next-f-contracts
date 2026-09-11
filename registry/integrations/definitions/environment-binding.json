@@ -1,0 +1,140 @@
+{
+  "$id": "integrations.environmentBinding",
+  "name": "Environment Binding",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "configuration",
+  "description": "Binds one integration connection to a NEXT F Site environment and provider resources/configuration.",
+  "purpose": "Prevents accidental mixing of preview, staging and production provider state.",
+  "integrationModel": {
+    "kind": "binding",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "secret"
+  },
+  "fields": [
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "Site environment.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "preview",
+          "staging",
+          "production"
+        ]
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether active in this environment.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "account",
+      "required": false,
+      "nullable": true,
+      "description": "Provider account.",
+      "schema": "integrations.accountReference"
+    },
+    {
+      "key": "resources",
+      "required": false,
+      "nullable": true,
+      "description": "Provider resources.",
+      "itemsSchema": "integrations.resourceReference"
+    },
+    {
+      "key": "configuration",
+      "required": false,
+      "nullable": true,
+      "description": "Environment config.",
+      "itemsSchema": "integrations.configurationValue"
+    },
+    {
+      "key": "credentials",
+      "required": false,
+      "nullable": true,
+      "description": "Environment credential set.",
+      "schema": "integrations.credentialReference"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "integrations.accountReference",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composesMany",
+      "target": "integrations.resourceReference",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composesMany",
+      "target": "integrations.configurationValue",
+      "description": "Uses the referenced canonical contract."
+    },
+    {
+      "type": "composes",
+      "target": "integrations.credentialReference",
+      "description": "Uses the referenced canonical contract."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "oneBindingPerEnvironment",
+      "description": "A connection has at most one active binding per Site environment."
+    },
+    {
+      "id": "productionIsolation",
+      "description": "Production resources/credentials are not silently inherited from non-production."
+    },
+    {
+      "id": "credentialsServerSide",
+      "description": "Credential references remain server-side."
+    }
+  ],
+  "cms": {
+    "label": "Environment Binding",
+    "icon": "fa-plug",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "environment",
+      "enabled",
+      "account",
+      "resources"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,30 @@
+{
+  "$id": "platform.organizations.export",
+  "name": "Export Organizations",
+  "permissionId": "platform.organizations.export",
+  "domain": "platform",
+  "resource": "organizations",
+  "action": "export",
+  "scopeKind": "platform",
+  "riskLevel": "standard",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Export Organizations within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [
+    "Export remains subject to field-level data minimization and the resource data policy."
+  ],
+  "version": "0.16.0",
+  "status": "stable"
+}

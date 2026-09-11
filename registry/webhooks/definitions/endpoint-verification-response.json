@@ -1,0 +1,62 @@
+{
+  "$id": "webhooks.endpointVerificationResponse",
+  "name": "Endpoint Verification Response",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "endpoints",
+  "description": "Expected receiver response during endpoint verification.",
+  "purpose": "Defines the one response flow whose body has protocol semantics.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "challenge",
+      "required": true,
+      "nullable": false,
+      "description": "Exact challenge value received in the verification request.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "status200",
+      "description": "HTTP status must be exactly 200."
+    },
+    {
+      "id": "exactEcho",
+      "description": "challenge must exactly equal the active, unexpired challenge."
+    },
+    {
+      "id": "noExtraAuthority",
+      "description": "Response body does not create any business state."
+    }
+  ],
+  "cms": {
+    "label": "Endpoint Verification Response",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "challenge"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

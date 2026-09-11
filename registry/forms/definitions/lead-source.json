@@ -1,0 +1,165 @@
+{
+  "$id": "forms.leadSource",
+  "name": "Lead Source",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "leads",
+  "description": "Provider-neutral source information for a Lead.",
+  "purpose": "Records the immediate business source before richer campaign attribution is added by the Marketing phase.",
+  "formsModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Source category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "form",
+            "label": "form"
+          },
+          {
+            "value": "manual",
+            "label": "manual"
+          },
+          {
+            "value": "import",
+            "label": "import"
+          },
+          {
+            "value": "integration",
+            "label": "integration"
+          },
+          {
+            "value": "referral",
+            "label": "referral"
+          },
+          {
+            "value": "phone",
+            "label": "phone"
+          },
+          {
+            "value": "email",
+            "label": "email"
+          },
+          {
+            "value": "other",
+            "label": "other"
+          }
+        ]
+      }
+    },
+    {
+      "key": "formId",
+      "required": false,
+      "nullable": true,
+      "description": "Source Form when type=form.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.form",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "submissionId",
+      "required": false,
+      "nullable": true,
+      "description": "Source Submission when applicable.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.submission",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "sourceUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Immediate source/landing URL when available.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "referrerUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Referrer when retained.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "label",
+      "required": false,
+      "nullable": true,
+      "description": "Human-readable source label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240
+      }
+    },
+    {
+      "key": "externalReference",
+      "required": false,
+      "nullable": true,
+      "description": "Non-secret external source reference.",
+      "schema": "shared.externalReference"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "formSourceNeedsForm",
+      "description": "type=form requires formId."
+    },
+    {
+      "id": "campaignAttributionLater",
+      "description": "UTM/ad-platform attribution is not redefined here; it will bind to Phase 9 Marketing contracts."
+    },
+    {
+      "id": "sourceMetadataUntrusted",
+      "description": "URLs and external labels must be treated as untrusted metadata."
+    }
+  ],
+  "cms": {
+    "label": "Lead Source",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "type",
+      "formId",
+      "submissionId",
+      "sourceUrl"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

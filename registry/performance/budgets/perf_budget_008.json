@@ -1,0 +1,24 @@
+{
+  "budgetId": "PERF-BUDGET-008",
+  "name": "Relationship index size",
+  "category": "relationships",
+  "scope": "contract-portal",
+  "metric": "relationships.indexBytes",
+  "target": 4194304,
+  "warningThreshold": 6291456,
+  "comparator": "lte",
+  "unit": "bytes",
+  "applicability": [
+    "contract-portal"
+  ],
+  "measurementMethod": "static-file-size",
+  "environment": "Repository and hosted runtime",
+  "notes": "Relationship graph must remain bounded and compact enough for interactive local traversal.",
+  "relatedRegistryIds": [
+    "relationships.relationshipIndex"
+  ],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 32,
+  "sourceReference": "registry/performance/budgets/perf_budget_008.json"
+}

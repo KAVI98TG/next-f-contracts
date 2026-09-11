@@ -1,0 +1,132 @@
+{
+  "$id": "integrations.configurationField",
+  "name": "Configuration Field",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "configuration",
+  "description": "Typed metadata for one connector configuration setting.",
+  "purpose": "Allows Admin/Customer CMS to render safe provider configuration without hardcoded one-off forms.",
+  "integrationModel": {
+    "kind": "field-definition",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable field key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "UI label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "primitive",
+      "required": true,
+      "nullable": false,
+      "description": "Registered primitive field ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "required",
+      "required": true,
+      "nullable": false,
+      "description": "Whether required.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "publicClientEligible",
+      "required": true,
+      "nullable": false,
+      "description": "Whether safe/required for client runtime.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "secret",
+      "required": true,
+      "nullable": false,
+      "description": "Whether value must be secret-referenced.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "customerEditable",
+      "required": true,
+      "nullable": false,
+      "description": "Whether authorized customer users may edit.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "helpText",
+      "required": false,
+      "nullable": true,
+      "description": "Configuration guidance.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "validation",
+      "required": false,
+      "nullable": true,
+      "description": "Provider-specific non-secret validation metadata.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "secretAndPublicMutuallyExclusive",
+      "description": "Secret fields cannot be public-client eligible."
+    },
+    {
+      "id": "registeredPrimitive",
+      "description": "Primitive must resolve to NEXT F Field Registry."
+    },
+    {
+      "id": "noSecretDefaults",
+      "description": "Secret fields never have literal default values."
+    }
+  ],
+  "cms": {
+    "label": "Configuration Field",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "key",
+      "label",
+      "primitive",
+      "required"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

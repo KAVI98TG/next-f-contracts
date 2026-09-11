@@ -1,0 +1,41 @@
+{
+  "controlId": "ACC-IMG-001",
+  "name": "Alternative text for meaningful images",
+  "category": "media",
+  "requirement": "Meaningful images must have appropriate alternative text; decorative images must be intentionally hidden from assistive technology.",
+  "rationale": "Image purpose must remain available when visual content cannot be perceived.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "image"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "content-review",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [
+    "cmsUi.fieldBinding"
+  ],
+  "relatedBlocks": [
+    "blocks.gallery",
+    "blocks.textImage",
+    "blocks.hero"
+  ],
+  "relatedFields": [
+    "fields.image",
+    "fields.gallery"
+  ],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_img_001.json"
+}

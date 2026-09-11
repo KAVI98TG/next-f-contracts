@@ -1,0 +1,75 @@
+{
+  "$id": "fields.slug",
+  "name": "Slug",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "text",
+  "description": "Stable URL path segment generated or edited under a lowercase URL-safe policy.",
+  "value": {
+    "jsonType": "string",
+    "canonical": "Lowercase ASCII slug using letters, digits and single hyphen separators.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "slug",
+    "inputMode": "text",
+    "supportsPlaceholder": true,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": true,
+    "localizable": true,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "placeholder",
+    "minLength",
+    "maxLength",
+    "pattern",
+    "trim",
+    "normalizeWhitespace",
+    "allowEmptyString",
+    "autocomplete",
+    "inputMode",
+    "caseSensitive"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "minLength",
+    "maxLength",
+    "slugFormat"
+  ],
+  "examples": {
+    "valid": [
+      "web-development",
+      "about-us"
+    ],
+    "invalid": [
+      "About Us",
+      "web--development",
+      "/about"
+    ]
+  },
+  "notes": []
+}

@@ -1,0 +1,190 @@
+{
+  "$id": "changelog.changeEntry",
+  "name": "Changelog Change Entry",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "changelog",
+  "type": "schema",
+  "category": "release-lifecycle",
+  "description": "One categorized narrative statement describing an intentional release change.",
+  "fields": [
+    {
+      "key": "entryId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable deterministic machine ID for this release change.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "releaseVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Exact Registry release version that owns the change.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "category",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical changelog category.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "title",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable title for the change entry.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "description",
+      "required": true,
+      "nullable": false,
+      "description": "Full human-readable description of the change.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "changeType",
+      "required": true,
+      "nullable": false,
+      "description": "Stable machine change type, aligned to the canonical changelog category.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "originalSection",
+      "required": false,
+      "nullable": true,
+      "description": "Original human section label where historical notes were migrated.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "summary",
+      "required": true,
+      "nullable": false,
+      "description": "Concise release-note text retained for backward-compatible projections.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "affectedRegistryIds",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Registry IDs explicitly affected by the change.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "affectedDomains",
+      "required": true,
+      "nullable": false,
+      "description": "Derived domains of explicitly affected Registry IDs.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "affectedModules",
+      "required": true,
+      "nullable": false,
+      "description": "Derived Module IDs associated with explicitly affected Registry IDs.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "impact",
+      "required": true,
+      "nullable": false,
+      "description": "Structured compatibility, migration, action and security impact metadata.",
+      "schema": "changelog.impactClassification"
+    },
+    {
+      "key": "relatedDiffEvidence",
+      "required": false,
+      "nullable": true,
+      "description": "Exact per-change Diff evidence when explicitly linked; null when unavailable.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "relatedMigrationGuide",
+      "required": false,
+      "nullable": true,
+      "description": "Migration guide reference when one exists.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "relatedDeprecationRecord",
+      "required": false,
+      "nullable": true,
+      "description": "Deprecation record reference when one exists.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sourceReference",
+      "required": false,
+      "nullable": true,
+      "description": "Repository source/evidence reference supporting this change entry.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sourceCommitReference",
+      "required": false,
+      "nullable": true,
+      "description": "Commit or tag reference only when authoritative evidence exists.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "provenance",
+      "required": true,
+      "nullable": false,
+      "description": "Controlled provenance class for the release-note statement.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "notes",
+      "required": false,
+      "nullable": true,
+      "description": "Additional bounded context that does not override canonical contracts.",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "changelog.changelogStandard",
+      "description": "Governed by the NEXT F Changelog Standard."
+    },
+    {
+      "type": "composes",
+      "target": "changelog.impactClassification",
+      "description": "Each change entry carries structured impact/action metadata."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "categoryControlled",
+      "description": "category and changeType must resolve to registry/changelog/sections.json and agree."
+    },
+    {
+      "id": "stableIdentity",
+      "description": "entryId remains stable and unique across the release train."
+    },
+    {
+      "id": "affectedReferencesResolve",
+      "description": "Every current affectedRegistryId must resolve; historical/removed references require explicit historical evidence."
+    },
+    {
+      "id": "unknownImpactIsNull",
+      "description": "Unknown breaking, migration or action state is represented as null rather than guessed."
+    },
+    {
+      "id": "evidenceBounded",
+      "description": "Per-change Diff, migration, deprecation and compatibility assertions require explicit evidence."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Entry text and references must not contain secrets or customer runtime records."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": true
+}

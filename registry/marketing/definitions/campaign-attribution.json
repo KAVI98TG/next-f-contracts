@@ -1,0 +1,140 @@
+{
+  "$id": "marketing.campaignAttribution",
+  "name": "Campaign Attribution",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "campaign-attribution",
+  "description": "Computed attribution result for one conversion occurrence.",
+  "purpose": "Preserves which model and touchpoints were used so historical credit remains explainable.",
+  "marketingModel": {
+    "kind": "derived",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "attributionId",
+      "required": true,
+      "nullable": false,
+      "description": "Unique result ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "conversionOccurrenceId",
+      "required": true,
+      "nullable": false,
+      "description": "Conversion occurrence being attributed.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "model",
+      "required": true,
+      "nullable": false,
+      "description": "Model used.",
+      "schema": "marketing.attributionModel"
+    },
+    {
+      "key": "credits",
+      "required": true,
+      "nullable": false,
+      "description": "Touchpoint credit distribution.",
+      "itemsSchema": "marketing.attributionCredit",
+      "config": {
+        "minItems": 1,
+        "maxItems": 100
+      }
+    },
+    {
+      "key": "calculatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Calculation timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "modelVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Model/config version.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "marketing.attributionModel",
+      "description": "Records the model."
+    },
+    {
+      "type": "composesMany",
+      "target": "marketing.attributionCredit",
+      "description": "Records credits."
+    },
+    {
+      "type": "references",
+      "target": "marketing.conversionOccurrence",
+      "description": "Attributes one conversion occurrence."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "creditsNormalize",
+      "description": "Total attribution credit equals 100% within rounding tolerance."
+    },
+    {
+      "id": "historicalReproducibility",
+      "description": "Retain model version and evidence."
+    },
+    {
+      "id": "derivedNotEditable",
+      "description": "Computed result is not directly editable."
+    }
+  ],
+  "cms": {
+    "label": "Campaign Attribution",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "attributionId",
+      "conversionOccurrenceId",
+      "model",
+      "credits"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

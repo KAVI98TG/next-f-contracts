@@ -1,0 +1,7 @@
+{
+  "$id": "validation.cliCommand",
+  "name": "Developer Validation CLI Command",
+  "description": "Machine-readable description of a supported NEXT F developer validation CLI command.",
+  "status": "stable",
+  "phase": 34
+}

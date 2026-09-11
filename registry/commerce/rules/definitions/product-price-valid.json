@@ -1,0 +1,78 @@
+{
+  "$id": "commerce.rule.productPriceValid",
+  "name": "Product Price Valid",
+  "version": "0.13.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "catalog-customers",
+  "ruleKind": "entity-invariant",
+  "description": "A purchasable Product/Variant requires an active valid price for the transaction context unless a documented price-on-request flow applies.",
+  "purpose": "A purchasable Product/Variant requires an active valid price for the transaction context unless a documented price-on-request flow applies.",
+  "severity": "critical",
+  "configurable": true,
+  "appliesTo": [
+    "commerce.productPrice",
+    "commerce.product",
+    "commerce.productVariant"
+  ],
+  "enforcement": {
+    "authority": "server",
+    "timing": "before-mutation-or-publication",
+    "atomicWhenRequired": true,
+    "auditRequired": true,
+    "clientValidationOnly": false
+  },
+  "requirements": [
+    {
+      "id": "commerce.rule.productPriceValid.R1",
+      "description": "A purchasable Product/Variant requires an active valid price for the transaction context unless a documented price-on-request flow applies."
+    },
+    {
+      "id": "commerce.rule.productPriceValid.R2",
+      "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+    }
+  ],
+  "failure": {
+    "code": "COMMERCE_PRICE_CHANGED",
+    "retryable": false,
+    "customerSafe": true,
+    "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+  },
+  "relationships": [
+    {
+      "type": "governs",
+      "target": "commerce.productPrice",
+      "description": "This rule constrains commerce.productPrice operations or state."
+    },
+    {
+      "type": "governs",
+      "target": "commerce.product",
+      "description": "This rule constrains commerce.product operations or state."
+    },
+    {
+      "type": "governs",
+      "target": "commerce.productVariant",
+      "description": "This rule constrains commerce.productVariant operations or state."
+    }
+  ],
+  "examples": {
+    "valid": [
+      "An operation involving commerce.productPrice, commerce.product satisfies the rule before authoritative state is committed."
+    ],
+    "invalid": [
+      "An implementation bypasses commerce.rule.productPriceValid and commits a conflicting or unverifiable state."
+    ]
+  },
+  "implementationNotes": [
+    "Enforce at the server-side commerce domain boundary.",
+    "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+    "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+  ],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  }
+}

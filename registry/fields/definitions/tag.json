@@ -1,0 +1,71 @@
+{
+  "$id": "fields.tag",
+  "name": "Tag",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "choice",
+  "description": "Array of lightweight taxonomy/tag values, optionally allowing controlled custom additions.",
+  "value": {
+    "jsonType": "array",
+    "canonical": "Array of normalized tag strings or configured tag machine values.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "tag-input",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": true,
+    "filterable": true,
+    "sortable": false,
+    "localizable": true,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width",
+    "minItems",
+    "maxItems",
+    "uniqueItems",
+    "options",
+    "allowCustomOptions",
+    "caseSensitive"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull",
+    "minItems",
+    "maxItems",
+    "uniqueItems"
+  ],
+  "examples": {
+    "valid": [
+      [
+        "SEO",
+        "Technical"
+      ]
+    ],
+    "invalid": [
+      "SEO"
+    ]
+  },
+  "notes": []
+}

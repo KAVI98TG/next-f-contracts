@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "deprecations.replacementSchema",
+  "title": "Deprecation Replacement",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "disposition"
+  ],
+  "properties": {
+    "disposition": {
+      "type": "string",
+      "enum": [
+        "replacement",
+        "no-replacement",
+        "unknown"
+      ]
+    },
+    "replacementId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "instructions": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "migrationGuideReference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "disposition": {
+            "const": "replacement"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "replacementId"
+        ],
+        "properties": {
+          "replacementId": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "disposition": {
+            "const": "no-replacement"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "replacementId": {
+            "const": null
+          }
+        }
+      }
+    }
+  ]
+}

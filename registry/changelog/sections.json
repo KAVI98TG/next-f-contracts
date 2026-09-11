@@ -1,0 +1,125 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "Changelog Change Categories",
+  "description": "Canonical release-note categories and aliases used by NEXT F Changelog records.",
+  "categories": [
+    {
+      "id": "added",
+      "label": "Added",
+      "tone": "success",
+      "description": "New backward-compatible capability, contract, tooling or documentation introduced by the release.",
+      "aliases": [
+        "Added"
+      ]
+    },
+    {
+      "id": "changed",
+      "label": "Changed",
+      "tone": "info",
+      "description": "Existing behavior, metadata or implementation intentionally changed.",
+      "aliases": [
+        "Changed",
+        "Architecture",
+        "Compatibility"
+      ]
+    },
+    {
+      "id": "fixed",
+      "label": "Fixed",
+      "tone": "success",
+      "description": "A defect or inconsistency was corrected.",
+      "aliases": [
+        "Fixed"
+      ]
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "tone": "danger",
+      "description": "Security, privacy or abuse-resistance change requiring explicit visibility.",
+      "aliases": [
+        "Security",
+        "Security and privacy"
+      ]
+    },
+    {
+      "id": "deprecated",
+      "label": "Deprecated",
+      "tone": "warning",
+      "description": "A still-supported item should not be used for new implementations.",
+      "aliases": [
+        "Deprecated"
+      ]
+    },
+    {
+      "id": "removed",
+      "label": "Removed",
+      "tone": "danger",
+      "description": "A previously available item is no longer present in the active release.",
+      "aliases": [
+        "Removed"
+      ]
+    },
+    {
+      "id": "breaking",
+      "label": "Breaking",
+      "tone": "danger",
+      "description": "Known incompatibility requiring an explicit major-version/migration review.",
+      "aliases": [
+        "Breaking",
+        "Breaking changes"
+      ]
+    },
+    {
+      "id": "migration",
+      "label": "Migration",
+      "tone": "warning",
+      "description": "Migration-specific instructions or state-transition work.",
+      "aliases": [
+        "Migration",
+        "Migrations"
+      ]
+    },
+    {
+      "id": "integrity",
+      "label": "Integrity",
+      "tone": "purple",
+      "description": "Registry consistency, validation, evidence, safety or boundary protection.",
+      "aliases": [
+        "Integrity",
+        "Boundaries",
+        "Boundaries locked"
+      ]
+    },
+    {
+      "id": "documentation",
+      "label": "Documentation",
+      "tone": "neutral",
+      "description": "Documentation-only release work.",
+      "aliases": [
+        "Documentation",
+        "Docs"
+      ]
+    },
+    {
+      "id": "preserved",
+      "label": "Preserved",
+      "tone": "neutral",
+      "description": "Explicitly confirms an architectural or compatibility boundary was intentionally preserved.",
+      "aliases": [
+        "Preserved",
+        "Protected"
+      ]
+    },
+    {
+      "id": "internal",
+      "label": "Internal",
+      "tone": "neutral",
+      "description": "Internal implementation/maintenance detail with no declared external semantic impact.",
+      "aliases": [
+        "Internal"
+      ]
+    }
+  ]
+}

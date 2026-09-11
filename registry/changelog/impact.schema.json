@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/changelog/impact.schema.json",
+  "title": "NEXT F Changelog Impact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "compatibilityClassification",
+    "breakingChange",
+    "migrationRequired",
+    "customerSiteActionRequired",
+    "adminActionRequired",
+    "apiActionRequired",
+    "cmsActionRequired",
+    "securityRelevance"
+  ],
+  "properties": {
+    "compatibilityClassification": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "breaking",
+        "potentially-breaking",
+        "deprecation",
+        "review-required",
+        "non-breaking",
+        "documentation",
+        "metadata",
+        "none",
+        null
+      ]
+    },
+    "breakingChange": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "migrationRequired": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "customerSiteActionRequired": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "adminActionRequired": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "apiActionRequired": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "cmsActionRequired": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "securityRelevance": {
+      "type": "boolean"
+    }
+  }
+}

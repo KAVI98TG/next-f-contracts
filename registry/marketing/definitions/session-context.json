@@ -1,0 +1,128 @@
+{
+  "$id": "marketing.sessionContext",
+  "name": "Session Context",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "context",
+  "description": "First-party analytics session context used to group eligible observations.",
+  "purpose": "Defines session boundaries without treating sessions as user identity or authorization.",
+  "marketingModel": {
+    "kind": "context",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "sessionId",
+      "required": true,
+      "nullable": false,
+      "description": "Random first-party session identifier.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "startedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Session start timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "lastActivityAt",
+      "required": true,
+      "nullable": false,
+      "description": "Most recent tracked activity timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "landingPage",
+      "required": false,
+      "nullable": true,
+      "description": "First eligible page context.",
+      "schema": "marketing.pageContext"
+    },
+    {
+      "key": "initialTrafficSource",
+      "required": false,
+      "nullable": true,
+      "description": "First eligible traffic source.",
+      "schema": "marketing.trafficSource"
+    },
+    {
+      "key": "isNewSession",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this observation began a new analytics session.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.pageContext",
+      "description": "May preserve landing page."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.trafficSource",
+      "description": "May preserve initial traffic source."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "notAuthenticationSession",
+      "description": "Analytics session IDs are not authentication/session authorization credentials."
+    },
+    {
+      "id": "randomNotFingerprint",
+      "description": "sessionId is random and not derived from fingerprinting."
+    },
+    {
+      "id": "sessionTimeoutConfigured",
+      "description": "Expiry comes from Analytics Configuration."
+    }
+  ],
+  "cms": {
+    "label": "Session Context",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "sessionId",
+      "startedAt",
+      "lastActivityAt",
+      "landingPage"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

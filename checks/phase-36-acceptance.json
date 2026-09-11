@@ -1,0 +1,50 @@
+{
+  "phase": 36,
+  "version": "0.37.0",
+  "status": "RELEASE_CANDIDATE",
+  "validation": {
+    "pass": 192,
+    "fail": 0
+  },
+  "smoke": {
+    "pass": 16,
+    "fail": 0
+  },
+  "regression": {
+    "pass": 2461,
+    "fail": 0
+  },
+  "registryHealth": {
+    "total": 36,
+    "pass": 33,
+    "warning": 1,
+    "deferred": 1,
+    "notApplicable": 1,
+    "fail": 0,
+    "criticalFailures": 0,
+    "blockingFailures": 0
+  },
+  "accessibility": {
+    "pass": 16,
+    "fail": 0
+  },
+  "performance": {
+    "budgetPass": 15,
+    "budgetWarning": 2,
+    "budgetFail": 0,
+    "checkPass": 18,
+    "checkFail": 0,
+    "eagerGeneratedFallbackBytes": 0
+  },
+  "registryItems": 2176,
+  "searchDocuments": 7268,
+  "relationshipNodes": 2176,
+  "relationshipEdges": 7519,
+  "changelogReleases": 37,
+  "changelogEntries": 593,
+  "exactDiffReleases": 32,
+  "compatibilityTarget": "0.37.0",
+  "registrySha256": "3f8c4d4267c03fad44e71b51b75ebb4482a3c2738ca6fb6133c62cb210f28162",
+  "diffSha256": "3f8c4d4267c03fad44e71b51b75ebb4482a3c2738ca6fb6133c62cb210f28162",
+  "shaMatch": true
+}

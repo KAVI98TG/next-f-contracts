@@ -1,0 +1,36 @@
+{
+  "$id": "api.events",
+  "apiId": "api.events",
+  "name": "Event API",
+  "version": "1.0.0",
+  "status": "stable",
+  "basePath": "/api/v1/events/sites/{siteId}",
+  "description": "Canonical Event observation/inspection APIs plus sanitized tracking ingestion. External clients cannot inject authoritative Phase 13 domain Events.",
+  "defaultAuthMode": "site-server",
+  "defaultRateLimitClass": "server-to-server",
+  "defaultCachePolicy": "no-store",
+  "defaultCorsPolicy": "server-only",
+  "moduleBindings": [
+    "core",
+    "analytics",
+    "marketing"
+  ],
+  "operationIds": [
+    "api.events.ingest-tracking",
+    "api.events.list-domain-events",
+    "api.events.get-domain-event",
+    "api.events.get-correlation-chain",
+    "api.events.get-pipeline-health"
+  ],
+  "publicDocumentation": true,
+  "order": 60,
+  "compatibility": {
+    "contractVersionRange": ">=0.19.0 <1.0.0",
+    "manifestBindingRequired": true
+  },
+  "boundaries": [
+    "Uses canonical NEXT F Contract Registry schemas rather than redefining domain entities.",
+    "Secrets and privileged credentials are never returned through generic API responses.",
+    "API Version and NEXT F Contract Version are independently explicit."
+  ]
+}

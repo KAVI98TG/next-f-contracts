@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/schemas/relationship-index.schema.json",
+  "title": "NEXT F Relationship Index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "registryVersion",
+    "schemaVersion",
+    "source",
+    "sourceSha256",
+    "stats",
+    "nodes",
+    "edges",
+    "symbolicAssociations"
+  ],
+  "properties": {
+    "registryVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "schemaVersion": {
+      "const": "1.0.0"
+    },
+    "source": {
+      "const": "registry/registry.json"
+    },
+    "sourceSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "stats": {
+      "type": "object",
+      "required": [
+        "nodes",
+        "edges",
+        "explicitEdges",
+        "permissionAssociations",
+        "eventAssociations",
+        "relationshipTypes",
+        "isolatedNodes",
+        "parallelEdgeGroups",
+        "selfLoops",
+        "symbolicAssociations",
+        "unresolvedExplicitTargets"
+      ],
+      "additionalProperties": {
+        "type": [
+          "integer",
+          "number",
+          "string",
+          "boolean",
+          "array",
+          "object",
+          "null"
+        ]
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "domain",
+          "type",
+          "status",
+          "phase",
+          "source",
+          "outgoing",
+          "incoming",
+          "degree"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "phase": {
+            "type": "integer"
+          },
+          "source": {
+            "type": "string"
+          },
+          "outgoing": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "incoming": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "degree": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source",
+          "target",
+          "type",
+          "family",
+          "origin",
+          "description",
+          "ordinal"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "family": {
+            "type": "string"
+          },
+          "origin": {
+            "enum": [
+              "explicit",
+              "permissionAssociation",
+              "eventAssociation"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "symbolicAssociations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source",
+          "target",
+          "kind",
+          "origin",
+          "reason"
+        ],
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

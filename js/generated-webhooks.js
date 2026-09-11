@@ -1,0 +1,7554 @@
+// GENERATED FILE - DO NOT EDIT DIRECTLY.
+// Sources: registry/webhooks/*.json
+// SHA-256: 5280609dbf77069ac262e7caaf2d46440de9e0dc64c72430f96ffb545d2ecc8c
+export const GENERATED_WEBHOOKS_SOURCE_SHA256 = "5280609dbf77069ac262e7caaf2d46440de9e0dc64c72430f96ffb545d2ecc8c";
+export const GENERATED_WEBHOOKS = {
+  "registryVersion": "0.15.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Webhook Registry",
+  "description": "Canonical outbound Webhook configuration, security, delivery, resilience and observability contracts layered on the NEXT F Event Registry.",
+  "definitionCount": 45,
+  "eligibleEventCount": 110,
+  "categoryCount": 8,
+  "sourceDirectory": "registry/webhooks/definitions",
+  "categories": [
+    {
+      "key": "foundation",
+      "label": "Foundation",
+      "description": "Core references, environment, ownership, event exposure and data-access boundaries."
+    },
+    {
+      "key": "endpoints",
+      "label": "Endpoints",
+      "description": "Destination URL, verification, health, outbound network and authentication contracts."
+    },
+    {
+      "key": "subscriptions",
+      "label": "Subscriptions",
+      "description": "Event selection, filters, states, pause behavior and endpoint bindings."
+    },
+    {
+      "key": "payload",
+      "label": "Payload & HTTP",
+      "description": "Webhook body, headers, response handling and canonical HTTP representation."
+    },
+    {
+      "key": "security",
+      "label": "Signing & Security",
+      "description": "HMAC signing, key references, secret rotation and replay resistance."
+    },
+    {
+      "key": "delivery",
+      "label": "Delivery",
+      "description": "Logical deliveries, attempts, requests, responses, failures and HTTP outcome classification."
+    },
+    {
+      "key": "resilience",
+      "label": "Retry & Resilience",
+      "description": "Backoff, timeouts, rate limits, queueing, dead-lettering and manual redelivery."
+    },
+    {
+      "key": "operations",
+      "label": "Operations & Observability",
+      "description": "Testing, summaries, logs, retention, redaction and metrics."
+    }
+  ],
+  "schemas": [
+    {
+      "$id": "webhooks.dataAccessPolicy",
+      "name": "Webhook Data Access Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "foundation",
+      "description": "Explicitly defines which event data classifications a subscription may receive.",
+      "purpose": "Separates event webhook eligibility from authorization to disclose its payload.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "allowedClassifications",
+          "required": true,
+          "nullable": false,
+          "description": "Explicit allowed data classifications.",
+          "primitive": "fields.multiSelect",
+          "config": {
+            "options": [
+              "public",
+              "internal",
+              "personal",
+              "sensitive",
+              "financial"
+            ]
+          }
+        },
+        {
+          "key": "allowPersonalData",
+          "required": true,
+          "nullable": false,
+          "description": "Whether personal data is explicitly authorized.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "allowSensitiveData",
+          "required": true,
+          "nullable": false,
+          "description": "Whether sensitive data is explicitly authorized.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "allowFinancialData",
+          "required": true,
+          "nullable": false,
+          "description": "Whether financial data is explicitly authorized.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "purpose",
+          "required": true,
+          "nullable": false,
+          "description": "Human-readable approved delivery purpose.",
+          "primitive": "fields.textarea"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "leastPrivilege",
+          "description": "Only classifications necessary for the approved integration purpose may be enabled."
+        },
+        {
+          "id": "eligibilityNotAuthorization",
+          "description": "webhookEligible does not itself authorize disclosure."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Secret-class data is never allowed through generic webhook payloads."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Data Access Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "allowedClassifications",
+          "allowPersonalData",
+          "allowSensitiveData",
+          "allowFinancialData"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.deadLetter",
+      "name": "Webhook Dead Letter",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "resilience",
+      "description": "Terminal record for a delivery that cannot be completed within permitted retry/defer policy.",
+      "purpose": "Preserves bounded operational evidence and enables controlled manual diagnosis/redelivery.",
+      "webhookModel": {
+        "kind": "entity",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "sensitive"
+      },
+      "fields": [
+        {
+          "key": "deadLetterId",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque dead-letter record ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "deliveryId",
+          "required": true,
+          "nullable": false,
+          "description": "Logical Delivery ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "reasonCode",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical reason.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "lastFailure",
+          "required": true,
+          "nullable": false,
+          "description": "Final failure summary.",
+          "schema": "webhooks.deliveryFailure"
+        },
+        {
+          "key": "deadLetteredAt",
+          "required": true,
+          "nullable": false,
+          "description": "Transition timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "expiresAt",
+          "required": true,
+          "nullable": false,
+          "description": "Metadata retention expiry.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "redeliveryEligibleUntil",
+          "required": false,
+          "nullable": true,
+          "description": "Manual redelivery eligibility cutoff.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "webhooks.delivery",
+          "description": "References webhooks.delivery."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.deliveryFailure",
+          "description": "References webhooks.deliveryFailure."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "terminalMetadata",
+          "description": "Dead-lettering ends automatic retry processing for the Delivery."
+        },
+        {
+          "id": "defaultRetention",
+          "description": "Dead-letter metadata is retained for 30 days by default."
+        },
+        {
+          "id": "redeliveryWindow",
+          "description": "Manual redelivery is permitted only inside the configured window, default 7 days after terminal outcome."
+        },
+        {
+          "id": "noPayloadForever",
+          "description": "Dead-letter status does not extend exact payload retention indefinitely."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Dead Letter",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "deadLetterId",
+          "deliveryId",
+          "reasonCode",
+          "lastFailure"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.delivery",
+      "name": "Webhook Delivery",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "delivery",
+      "description": "One logical outbound delivery created for one subscription and one canonical Event.",
+      "purpose": "Provides stable retry/idempotency identity across all HTTP attempts.",
+      "webhookModel": {
+        "kind": "entity",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "sensitive"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable Delivery identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "subscriptionId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning subscription ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "endpointId",
+          "required": true,
+          "nullable": false,
+          "description": "Resolved destination endpoint ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "eventId",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical Event occurrence ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "eventKey",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical Event key.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "eventVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical Event definition version.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "environment",
+          "required": true,
+          "nullable": false,
+          "description": "Bound Site environment.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "preview",
+              "staging",
+              "production"
+            ]
+          }
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Logical delivery status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "pending",
+              "deferred",
+              "delivering",
+              "succeeded",
+              "retry-scheduled",
+              "failed",
+              "dead-lettered",
+              "cancelled"
+            ]
+          }
+        },
+        {
+          "key": "attemptCount",
+          "required": true,
+          "nullable": false,
+          "description": "Total created attempts.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Delivery creation time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "terminalAt",
+          "required": false,
+          "nullable": true,
+          "description": "Terminal completion time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "lastFailure",
+          "required": false,
+          "nullable": true,
+          "description": "Most recent failure summary.",
+          "schema": "webhooks.deliveryFailure"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "References core.entityIdentity."
+        },
+        {
+          "type": "references",
+          "target": "webhooks.subscription",
+          "description": "References webhooks.subscription."
+        },
+        {
+          "type": "references",
+          "target": "webhooks.endpoint",
+          "description": "References webhooks.endpoint."
+        },
+        {
+          "type": "references",
+          "target": "events.eventEnvelope",
+          "description": "References events.eventEnvelope."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "webhooks.deliveryFailure",
+          "description": "References webhooks.deliveryFailure."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "logicalUniqueness",
+          "description": "At most one logical Delivery may exist for the same `(subscriptionId,eventId)`."
+        },
+        {
+          "id": "retriesSameDelivery",
+          "description": "Automatic retries and manual redelivery create new Attempts under the same logical Delivery."
+        },
+        {
+          "id": "sameCanonicalEvent",
+          "description": "All attempts preserve the original canonical Event ID and Event semantics."
+        },
+        {
+          "id": "terminalImmutable",
+          "description": "Terminal outcome history cannot be rewritten; later redelivery is recorded as a new Attempt."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Delivery",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "identity",
+          "subscriptionId",
+          "endpointId",
+          "eventId"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.deliveryAttempt",
+      "name": "Webhook Delivery Attempt",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "delivery",
+      "description": "One concrete HTTP attempt belonging to a logical webhook Delivery.",
+      "purpose": "Preserves per-attempt timing, request outcome and retry history without changing the Event.",
+      "webhookModel": {
+        "kind": "entity",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "sensitive"
+      },
+      "fields": [
+        {
+          "key": "attemptId",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque Attempt ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "deliveryId",
+          "required": true,
+          "nullable": false,
+          "description": "Parent logical Delivery.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "attemptNumber",
+          "required": true,
+          "nullable": false,
+          "description": "One-based attempt sequence.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "kind",
+          "required": true,
+          "nullable": false,
+          "description": "Attempt origin.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "initial",
+              "automatic-retry",
+              "manual-redelivery"
+            ]
+          }
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Attempt status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "pending",
+              "in-flight",
+              "succeeded",
+              "failed",
+              "timed-out",
+              "rejected"
+            ]
+          }
+        },
+        {
+          "key": "request",
+          "required": true,
+          "nullable": false,
+          "description": "Sanitized request metadata.",
+          "schema": "webhooks.deliveryRequest"
+        },
+        {
+          "key": "response",
+          "required": false,
+          "nullable": true,
+          "description": "Optional sanitized response metadata.",
+          "schema": "webhooks.deliveryResponse"
+        },
+        {
+          "key": "failure",
+          "required": false,
+          "nullable": true,
+          "description": "Optional failure classification.",
+          "schema": "webhooks.deliveryFailure"
+        },
+        {
+          "key": "startedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Attempt start time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "completedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Attempt completion time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "nextRetryAt",
+          "required": false,
+          "nullable": true,
+          "description": "Scheduled retry time when applicable.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "belongsTo",
+          "target": "webhooks.delivery",
+          "description": "References webhooks.delivery."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.deliveryRequest",
+          "description": "References webhooks.deliveryRequest."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "webhooks.deliveryResponse",
+          "description": "References webhooks.deliveryResponse."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "webhooks.deliveryFailure",
+          "description": "References webhooks.deliveryFailure."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "sequentialNumber",
+          "description": "attemptNumber increases monotonically within one logical Delivery."
+        },
+        {
+          "id": "maxAttempts",
+          "description": "Automatic attempt creation respects the active retry policy."
+        },
+        {
+          "id": "noSecretDiagnostics",
+          "description": "Stored attempt records contain only redacted/safe request and response metadata."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Delivery Attempt",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "attemptId",
+          "deliveryId",
+          "attemptNumber",
+          "kind"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.deliveryFailure",
+      "name": "Webhook Delivery Failure",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "delivery",
+      "description": "Canonical failure record for one webhook attempt or terminal delivery outcome.",
+      "purpose": "Normalizes network, policy, configuration and HTTP failures for retry and diagnostics.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "code",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical webhook failure code.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "classification",
+          "required": true,
+          "nullable": false,
+          "description": "Failure handling class.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "retryable",
+              "terminal",
+              "disable-endpoint",
+              "deferred",
+              "dead-letter"
+            ]
+          }
+        },
+        {
+          "key": "message",
+          "required": true,
+          "nullable": false,
+          "description": "Safe operator-facing summary.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "httpStatus",
+          "required": false,
+          "nullable": true,
+          "description": "Optional associated HTTP status.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "occurredAt",
+          "required": true,
+          "nullable": false,
+          "description": "Failure timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "retryable",
+          "required": true,
+          "nullable": false,
+          "description": "Resolved retry decision.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "details",
+          "required": false,
+          "nullable": true,
+          "description": "Sanitized bounded diagnostics.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "registeredCode",
+          "description": "code must exist in the webhook failure-code vocabulary."
+        },
+        {
+          "id": "classificationConsistent",
+          "description": "classification and retryable must agree with canonical failure policy unless an explicitly documented policy override applies."
+        },
+        {
+          "id": "safeMessage",
+          "description": "message/details never include secrets or unrestricted receiver content."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Delivery Failure",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "code",
+          "classification",
+          "message",
+          "httpStatus"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.deliveryLogRecord",
+      "name": "Webhook Delivery Log Record",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "operations",
+      "description": "Redacted operational log record for webhook processing.",
+      "purpose": "Supports troubleshooting while keeping secret and sensitive diagnostics bounded.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "logId",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque log record ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "deliveryId",
+          "required": false,
+          "nullable": true,
+          "description": "Related Delivery ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "attemptId",
+          "required": false,
+          "nullable": true,
+          "description": "Related Attempt ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "level",
+          "required": true,
+          "nullable": false,
+          "description": "Log severity.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "info",
+              "warning",
+              "error"
+            ]
+          }
+        },
+        {
+          "key": "message",
+          "required": true,
+          "nullable": false,
+          "description": "Safe operator-facing message.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "failureCode",
+          "required": false,
+          "nullable": true,
+          "description": "Optional registered failure code.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "metadata",
+          "required": false,
+          "nullable": true,
+          "description": "Sanitized bounded metadata.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "recordedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Log timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyReferences",
+          "target": "webhooks.delivery",
+          "description": "References webhooks.delivery."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "webhooks.deliveryAttempt",
+          "description": "References webhooks.deliveryAttempt."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "redactedBeforePersistence",
+          "description": "Secrets, signatures, authorization and sensitive URL values are redacted before storage."
+        },
+        {
+          "id": "noRawBodies",
+          "description": "Normal logs never persist arbitrary raw request/response bodies."
+        },
+        {
+          "id": "boundedMetadata",
+          "description": "Diagnostic metadata must be size-bounded."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Delivery Log Record",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "logId",
+          "deliveryId",
+          "attemptId",
+          "level"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.deliveryMetricSnapshot",
+      "name": "Webhook Delivery Metric Snapshot",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "operations",
+      "description": "Time-bounded aggregate metrics for webhook delivery health.",
+      "purpose": "Supports dashboards without using raw delivery logs as analytics records.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "endpointId",
+          "required": false,
+          "nullable": true,
+          "description": "Optional endpoint scope.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "subscriptionId",
+          "required": false,
+          "nullable": true,
+          "description": "Optional subscription scope.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "windowStart",
+          "required": true,
+          "nullable": false,
+          "description": "Aggregation window start.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "windowEnd",
+          "required": true,
+          "nullable": false,
+          "description": "Aggregation window end.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "deliveries",
+          "required": true,
+          "nullable": false,
+          "description": "Logical deliveries counted.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "successes",
+          "required": true,
+          "nullable": false,
+          "description": "Succeeded logical deliveries.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "failures",
+          "required": true,
+          "nullable": false,
+          "description": "Failed/dead-lettered logical deliveries.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "attempts",
+          "required": true,
+          "nullable": false,
+          "description": "HTTP attempts counted.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "averageDurationMs",
+          "required": false,
+          "nullable": true,
+          "description": "Average observed attempt duration.",
+          "primitive": "fields.decimal"
+        },
+        {
+          "key": "p95DurationMs",
+          "required": false,
+          "nullable": true,
+          "description": "95th percentile attempt duration.",
+          "primitive": "fields.decimal"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyReferences",
+          "target": "webhooks.endpoint",
+          "description": "References webhooks.endpoint."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "webhooks.subscription",
+          "description": "References webhooks.subscription."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "windowValid",
+          "description": "windowEnd must be later than windowStart."
+        },
+        {
+          "id": "countsNonNegative",
+          "description": "All metric counts are non-negative."
+        },
+        {
+          "id": "aggregateOnly",
+          "description": "Snapshot does not embed event payloads, personal data or secrets."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Delivery Metric Snapshot",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "endpointId",
+          "subscriptionId",
+          "windowStart",
+          "windowEnd"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.deliveryQueuePolicy",
+      "name": "Webhook Delivery Queue Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "resilience",
+      "description": "Queueing and pause behavior for pending webhook deliveries.",
+      "purpose": "Defines finite deferred retention and best-effort processing order.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "initialOrdering",
+          "required": true,
+          "nullable": false,
+          "description": "Initial queue ordering behavior.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "best-effort-fifo"
+            ]
+          }
+        },
+        {
+          "key": "pausedRetentionHours",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum retention while endpoint/subscription is paused.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "onPauseExpiry",
+          "required": true,
+          "nullable": false,
+          "description": "Outcome after pause retention expires.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "dead-letter"
+            ]
+          }
+        },
+        {
+          "key": "historicalBackfill",
+          "required": true,
+          "nullable": false,
+          "description": "Whether pre-activation events are queued.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "bestEffortOnly",
+          "description": "FIFO is best effort for initial delivery; retries may overtake later deliveries."
+        },
+        {
+          "id": "eventOrderAuthority",
+          "description": "Webhook arrival order is never authoritative; consumers use canonical Event ordering/correlation metadata."
+        },
+        {
+          "id": "defaultPauseRetention",
+          "description": "Paused deliveries may be deferred for at most 72 hours by default."
+        },
+        {
+          "id": "noBackfillV1",
+          "description": "Historical backfill is disabled in V1."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Delivery Queue Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "initialOrdering",
+          "pausedRetentionHours",
+          "onPauseExpiry",
+          "historicalBackfill"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.deliveryRequest",
+      "name": "Webhook Delivery Request",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "delivery",
+      "description": "Sanitized metadata describing the exact outbound HTTP request used for an attempt.",
+      "purpose": "Supports troubleshooting without persisting secrets or unrestricted raw headers.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "method",
+          "required": true,
+          "nullable": false,
+          "description": "HTTP method.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "url",
+          "required": true,
+          "nullable": false,
+          "description": "Destination URL with sensitive query values redacted.",
+          "primitive": "fields.url"
+        },
+        {
+          "key": "headers",
+          "required": true,
+          "nullable": false,
+          "description": "Sanitized protocol header metadata.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "payloadBytes",
+          "required": true,
+          "nullable": false,
+          "description": "Serialized request-body size.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "payloadChecksum",
+          "required": true,
+          "nullable": false,
+          "description": "Non-secret checksum of exact serialized body bytes.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "sentAt",
+          "required": true,
+          "nullable": false,
+          "description": "Dispatch timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "postOnly",
+          "description": "Webhook delivery method is POST."
+        },
+        {
+          "id": "redacted",
+          "description": "Authorization, signature, secret-backed custom headers and sensitive URL query values are removed/redacted before persistence."
+        },
+        {
+          "id": "payloadRetentionSeparate",
+          "description": "Exact payload retention is governed separately and is not implied by this diagnostic record."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Delivery Request",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "method",
+          "url",
+          "headers",
+          "payloadBytes"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.deliveryResponse",
+      "name": "Webhook Delivery Response",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "delivery",
+      "description": "Bounded sanitized response metadata for one webhook Attempt.",
+      "purpose": "Supports outcome classification while preventing receiver responses from becoming business authority.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "httpStatus",
+          "required": false,
+          "nullable": true,
+          "description": "Receiver HTTP status.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "headers",
+          "required": false,
+          "nullable": true,
+          "description": "Allow-listed non-sensitive response headers.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "diagnosticSnippet",
+          "required": false,
+          "nullable": true,
+          "description": "Bounded redacted response body snippet.",
+          "primitive": "fields.textarea"
+        },
+        {
+          "key": "receivedBytes",
+          "required": false,
+          "nullable": true,
+          "description": "Number of response bytes read up to policy limit.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "durationMs",
+          "required": false,
+          "nullable": true,
+          "description": "Total observed request duration.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "receivedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Response timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "diagnosticOnly",
+          "description": "Normal response bodies cannot create authoritative NEXT F business state."
+        },
+        {
+          "id": "maxDiagnosticRead",
+          "description": "Default diagnostic body read/retention is capped at 65536 bytes."
+        },
+        {
+          "id": "redact",
+          "description": "Sensitive values must be redacted before persistence."
+        },
+        {
+          "id": "verificationException",
+          "description": "Only endpoint verification defines a semantic response-body challenge contract."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Delivery Response",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "httpStatus",
+          "headers",
+          "diagnosticSnippet",
+          "receivedBytes"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.deliverySummary",
+      "name": "Webhook Delivery Summary",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "operations",
+      "description": "Compact safe summary of a logical webhook delivery for dashboards and lists.",
+      "purpose": "Provides operational visibility without exposing retained event payloads or secrets.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "deliveryId",
+          "required": true,
+          "nullable": false,
+          "description": "Logical Delivery ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "eventKey",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical Event key.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Current delivery status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "pending",
+              "deferred",
+              "delivering",
+              "succeeded",
+              "retry-scheduled",
+              "failed",
+              "dead-lettered",
+              "cancelled"
+            ]
+          }
+        },
+        {
+          "key": "attemptCount",
+          "required": true,
+          "nullable": false,
+          "description": "Attempts created.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Delivery creation timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "lastAttemptAt",
+          "required": false,
+          "nullable": true,
+          "description": "Last attempt timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "nextRetryAt",
+          "required": false,
+          "nullable": true,
+          "description": "Next scheduled retry.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "lastFailureCode",
+          "required": false,
+          "nullable": true,
+          "description": "Safe failure code.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "webhooks.delivery",
+          "description": "References webhooks.delivery."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "noPayload",
+          "description": "Summary never embeds the canonical event payload."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Summary never exposes authentication/signature material."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Delivery Summary",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "deliveryId",
+          "eventKey",
+          "status",
+          "attemptCount"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.endpoint",
+      "name": "Webhook Endpoint",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "endpoints",
+      "description": "Verified outbound HTTPS destination used by one or more webhook subscriptions.",
+      "purpose": "Defines the destination without exposing secret material.",
+      "webhookModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable entity identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Tenant scope.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Human-readable endpoint name.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "url",
+          "required": true,
+          "nullable": false,
+          "description": "HTTPS destination URL.",
+          "primitive": "fields.url"
+        },
+        {
+          "key": "environment",
+          "required": true,
+          "nullable": false,
+          "description": "Single environment binding.",
+          "schema": "webhooks.environmentBinding"
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Endpoint status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "pending-verification",
+              "active",
+              "degraded",
+              "paused",
+              "disabled"
+            ]
+          }
+        },
+        {
+          "key": "verification",
+          "required": true,
+          "nullable": false,
+          "description": "Current verification state.",
+          "schema": "webhooks.endpointVerification"
+        },
+        {
+          "key": "health",
+          "required": true,
+          "nullable": false,
+          "description": "Current health summary.",
+          "schema": "webhooks.endpointHealth"
+        },
+        {
+          "key": "networkPolicy",
+          "required": true,
+          "nullable": false,
+          "description": "Outbound network restrictions.",
+          "schema": "webhooks.endpointNetworkPolicy"
+        },
+        {
+          "key": "authentication",
+          "required": false,
+          "nullable": true,
+          "description": "Optional destination authentication.",
+          "schema": "webhooks.endpointAuthentication"
+        },
+        {
+          "key": "customHeaders",
+          "required": false,
+          "nullable": true,
+          "description": "Controlled custom headers.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "References core.entityIdentity."
+        },
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "References core.tenantScope."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.environmentBinding",
+          "description": "References webhooks.environmentBinding."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.endpointVerification",
+          "description": "References webhooks.endpointVerification."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.endpointHealth",
+          "description": "References webhooks.endpointHealth."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.endpointNetworkPolicy",
+          "description": "References webhooks.endpointNetworkPolicy."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "webhooks.endpointAuthentication",
+          "description": "References webhooks.endpointAuthentication."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "httpsOnly",
+          "description": "Endpoint URL must use HTTPS."
+        },
+        {
+          "id": "verifiedBeforeActive",
+          "description": "Endpoint cannot become active until challenge verification succeeds."
+        },
+        {
+          "id": "noRedirectFollowing",
+          "description": "Delivery and verification requests must not automatically follow redirects."
+        },
+        {
+          "id": "networkRevalidation",
+          "description": "Destination resolution must be revalidated at connection time against outbound-network rules."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Endpoint",
+        "icon": "fa-webhook",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "webhook-endpoint",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "name",
+          "url"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": true,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.endpointAuthentication",
+      "name": "Endpoint Authentication",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "endpoints",
+      "description": "Optional structured authentication sent in addition to mandatory NEXT F webhook signing.",
+      "purpose": "Supports receiver authentication without exposing arbitrary secret-bearing headers.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "mode",
+          "required": true,
+          "nullable": false,
+          "description": "Authentication mode.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "none",
+              "bearer-secret",
+              "basic-secret",
+              "api-key-header"
+            ]
+          }
+        },
+        {
+          "key": "secretReference",
+          "required": false,
+          "nullable": true,
+          "description": "Server-side secret reference.",
+          "schema": "integrations.secretReference"
+        },
+        {
+          "key": "username",
+          "required": false,
+          "nullable": true,
+          "description": "Username for basic-secret mode.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "headerName",
+          "required": false,
+          "nullable": true,
+          "description": "Header name for api-key-header mode.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "integrations.secretReference",
+          "description": "References integrations.secretReference."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "signatureAlwaysRequired",
+          "description": "Destination authentication never replaces NEXT F HMAC webhook signing."
+        },
+        {
+          "id": "secretServerSide",
+          "description": "Secret value is never returned through the contract or public/browser configuration."
+        },
+        {
+          "id": "reservedHeaders",
+          "description": "headerName may not override reserved protocol, proxy, cookie or hop-by-hop headers."
+        }
+      ],
+      "cms": {
+        "label": "Endpoint Authentication",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "mode",
+          "secretReference",
+          "username",
+          "headerName"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.endpointHealth",
+      "name": "Endpoint Health",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "endpoints",
+      "description": "Operational health state derived from logical webhook delivery outcomes.",
+      "purpose": "Provides consistent degradation, recovery and pause behavior.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Health state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "healthy",
+              "degraded",
+              "paused",
+              "disabled"
+            ]
+          }
+        },
+        {
+          "key": "consecutiveFailedDeliveries",
+          "required": true,
+          "nullable": false,
+          "description": "Consecutive failed logical deliveries.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "lastSuccessAt",
+          "required": false,
+          "nullable": true,
+          "description": "Last successful logical delivery.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "lastFailureAt",
+          "required": false,
+          "nullable": true,
+          "description": "Last failed logical delivery.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "degradedAt",
+          "required": false,
+          "nullable": true,
+          "description": "When degraded state began.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "pausedAt",
+          "required": false,
+          "nullable": true,
+          "description": "When auto-pause began.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "degradeThreshold",
+          "description": "Default degradation occurs after 5 consecutive failed logical deliveries."
+        },
+        {
+          "id": "pauseThreshold",
+          "description": "Default auto-pause occurs after 20 consecutive failed logical deliveries."
+        },
+        {
+          "id": "successResetsFailures",
+          "description": "A successful logical delivery resets the consecutive failure count."
+        }
+      ],
+      "cms": {
+        "label": "Endpoint Health",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "status",
+          "consecutiveFailedDeliveries",
+          "lastSuccessAt",
+          "lastFailureAt"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.endpointNetworkPolicy",
+      "name": "Endpoint Network Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "endpoints",
+      "description": "Outbound network policy applied to endpoint verification and deliveries.",
+      "purpose": "Provides SSRF-resistant destination controls.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "httpsOnly",
+          "required": true,
+          "nullable": false,
+          "description": "HTTPS is mandatory.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "minimumTlsVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Minimum TLS version.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "allowedPorts",
+          "required": true,
+          "nullable": false,
+          "description": "Allowed destination ports.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "allowPrivateNetworks",
+          "required": true,
+          "nullable": false,
+          "description": "Whether private network destinations are allowed.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "followRedirects",
+          "required": true,
+          "nullable": false,
+          "description": "Whether redirects may be followed.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "resolveAtConnection",
+          "required": true,
+          "nullable": false,
+          "description": "Whether DNS/IP resolution is revalidated at connection time.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "publicInternetV1",
+          "description": "V1 supports public-internet destinations only."
+        },
+        {
+          "id": "blockedRanges",
+          "description": "Private, loopback, link-local, multicast, reserved and cloud-metadata addresses are prohibited."
+        },
+        {
+          "id": "noUserInfo",
+          "description": "URL user-info credentials are prohibited."
+        },
+        {
+          "id": "dnsRebindingDefense",
+          "description": "Resolved addresses must be rechecked immediately before connection."
+        },
+        {
+          "id": "noRedirects",
+          "description": "Automatic redirects are prohibited."
+        },
+        {
+          "id": "ports",
+          "description": "Default permitted ports are 443 and 8443."
+        }
+      ],
+      "cms": {
+        "label": "Endpoint Network Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "httpsOnly",
+          "minimumTlsVersion",
+          "allowedPorts",
+          "allowPrivateNetworks"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.endpointVerification",
+      "name": "Endpoint Verification",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "endpoints",
+      "description": "State and evidence for proving control of a webhook destination.",
+      "purpose": "Prevents delivery to arbitrary unverified destinations.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Verification state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "pending",
+              "succeeded",
+              "failed",
+              "expired"
+            ]
+          }
+        },
+        {
+          "key": "challengeId",
+          "required": false,
+          "nullable": true,
+          "description": "Opaque verification challenge ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "issuedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Challenge issue time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "expiresAt",
+          "required": false,
+          "nullable": true,
+          "description": "Challenge expiry time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "verifiedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Successful verification time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "lastFailureCode",
+          "required": false,
+          "nullable": true,
+          "description": "Failure code if verification failed.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "ttl",
+          "description": "Challenges expire after the configured verification TTL."
+        },
+        {
+          "id": "successRequiresExactEcho",
+          "description": "Success requires HTTP 200 and exact challenge echo."
+        },
+        {
+          "id": "sameSecurityControls",
+          "description": "Verification uses the same outbound network, signing, timeout and redaction controls as normal delivery."
+        }
+      ],
+      "cms": {
+        "label": "Endpoint Verification",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "status",
+          "challengeId",
+          "issuedAt",
+          "expiresAt"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.endpointVerificationPayload",
+      "name": "Endpoint Verification Payload",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "endpoints",
+      "description": "Signed payload sent to verify a webhook destination.",
+      "purpose": "Provides a non-business synthetic challenge that proves receiver control.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Protocol message type.",
+          "primitive": "fields.text",
+          "config": {
+            "defaultValue": "webhook.endpoint-verification"
+          }
+        },
+        {
+          "key": "challengeId",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque challenge ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "challenge",
+          "required": true,
+          "nullable": false,
+          "description": "Cryptographically unpredictable challenge value.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "issuedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Issue timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "expiresAt",
+          "required": true,
+          "nullable": false,
+          "description": "Expiry timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "synthetic",
+          "description": "Verification payload is a protocol message, not a canonical domain Event."
+        },
+        {
+          "id": "unpredictableChallenge",
+          "description": "challenge must be cryptographically unpredictable."
+        },
+        {
+          "id": "signed",
+          "description": "Verification request must be signed using the active webhook signing policy."
+        }
+      ],
+      "cms": {
+        "label": "Endpoint Verification Payload",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "type",
+          "challengeId",
+          "challenge",
+          "issuedAt"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.endpointVerificationResponse",
+      "name": "Endpoint Verification Response",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "endpoints",
+      "description": "Expected receiver response during endpoint verification.",
+      "purpose": "Defines the one response flow whose body has protocol semantics.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "challenge",
+          "required": true,
+          "nullable": false,
+          "description": "Exact challenge value received in the verification request.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "status200",
+          "description": "HTTP status must be exactly 200."
+        },
+        {
+          "id": "exactEcho",
+          "description": "challenge must exactly equal the active, unexpired challenge."
+        },
+        {
+          "id": "noExtraAuthority",
+          "description": "Response body does not create any business state."
+        }
+      ],
+      "cms": {
+        "label": "Endpoint Verification Response",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "challenge"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.environmentBinding",
+      "name": "Webhook Environment Binding",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "foundation",
+      "description": "Binds a webhook object to exactly one Site environment.",
+      "purpose": "Prevents preview, staging and production event delivery from crossing environment boundaries.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "siteId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "environment",
+          "required": true,
+          "nullable": false,
+          "description": "Single bound environment.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "preview",
+              "staging",
+              "production"
+            ]
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "core.site",
+          "description": "Binding belongs to one Site."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "singleEnvironment",
+          "description": "One endpoint/subscription is bound to exactly one environment."
+        },
+        {
+          "id": "noCrossEnvironment",
+          "description": "Events from another environment must never be delivered through the binding."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Environment Binding",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "siteId",
+          "environment"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.eventExposure",
+      "name": "Webhook Event Exposure",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "foundation",
+      "description": "Resolved exposure decision for one canonical event and webhook subscription.",
+      "purpose": "Produces an auditable allow/deny decision before a delivery is created.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "eventKey",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical Event Registry key.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "eventVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical Event version.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "eligible",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the Event Registry marks the event webhook-eligible.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "selected",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the exact event is selected by the subscription.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "environmentMatches",
+          "required": true,
+          "nullable": false,
+          "description": "Whether event and subscription environments match.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "dataAuthorized",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the subscription data policy authorizes the payload.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "allowed",
+          "required": true,
+          "nullable": false,
+          "description": "Final exposure decision.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "denialReason",
+          "required": false,
+          "nullable": true,
+          "description": "Canonical denial reason when not allowed.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "events.eventDefinition",
+          "description": "Event definition controls eligibility."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "allConditionsRequired",
+          "description": "allowed may be true only when eligible, selected, environmentMatches and dataAuthorized are all true."
+        },
+        {
+          "id": "exactSelection",
+          "description": "Wildcard event selection is not permitted in V1."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Event Exposure",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "eventKey",
+          "eventVersion",
+          "eligible",
+          "selected"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.eventSelection",
+      "name": "Webhook Event Selection",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "subscriptions",
+      "description": "Exact canonical Event allow-list for a webhook subscription.",
+      "purpose": "Prevents ambiguous wildcard subscriptions and provides deterministic delivery eligibility.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "eventKeys",
+          "required": true,
+          "nullable": false,
+          "description": "Exact Event Registry keys.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "catalogVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Contract Registry version used to validate selection.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "events.eventDefinition",
+          "description": "Each selected key must resolve to a canonical Event definition."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "nonEmpty",
+          "description": "At least one exact event key is required for an active subscription."
+        },
+        {
+          "id": "noWildcards",
+          "description": "Wildcard and prefix matching are prohibited in V1."
+        },
+        {
+          "id": "eligibleOnly",
+          "description": "Selected definitions must have webhookEligible=true."
+        },
+        {
+          "id": "unique",
+          "description": "Duplicate event keys are prohibited."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Event Selection",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "eventKeys",
+          "catalogVersion"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.failureClassification",
+      "name": "Webhook Failure Classification",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "delivery",
+      "description": "Controlled classification vocabulary used to decide terminal, deferred, retry or endpoint-disable behavior.",
+      "purpose": "Separates stable operational handling from provider-specific exception strings.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "code",
+          "required": true,
+          "nullable": false,
+          "description": "Failure classification key.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "retryable",
+              "terminal",
+              "disable-endpoint",
+              "deferred",
+              "dead-letter"
+            ]
+          }
+        },
+        {
+          "key": "description",
+          "required": true,
+          "nullable": false,
+          "description": "Human-readable meaning.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "createsRetry",
+          "required": true,
+          "nullable": false,
+          "description": "Whether an automatic retry may be scheduled.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "terminalForAttempt",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the current Attempt is terminal.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "canonical",
+          "description": "Classification values are controlled by the registry."
+        },
+        {
+          "id": "attemptVsDelivery",
+          "description": "An Attempt can be terminal while the logical Delivery remains retry-scheduled."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Failure Classification",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "code",
+          "description",
+          "createsRetry",
+          "terminalForAttempt"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.headerPolicy",
+      "name": "Webhook Header Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "payload",
+      "description": "Required and reserved HTTP header contract for webhook requests.",
+      "purpose": "Ensures receivers can authenticate, identify and diagnose deliveries consistently.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "requiredHeaders",
+          "required": true,
+          "nullable": false,
+          "description": "Protocol-required header names and sources.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "reservedHeaders",
+          "required": true,
+          "nullable": false,
+          "description": "Headers customers cannot override.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "allowCustomHeaders",
+          "required": true,
+          "nullable": false,
+          "description": "Whether controlled custom headers are supported.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composesMany",
+          "target": "webhooks.requestHeader",
+          "description": "References webhooks.requestHeader."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "requiredProtocolHeaders",
+          "description": "All protocol headers defined in registry/webhooks/headers.json must be sent."
+        },
+        {
+          "id": "reservedProtected",
+          "description": "Custom configuration cannot override reserved headers."
+        },
+        {
+          "id": "signatureSensitive",
+          "description": "NextF-Webhook-Signature is always redacted in diagnostics."
+        },
+        {
+          "id": "noHopByHopOverrides",
+          "description": "Hop-by-hop/proxy/cookie headers cannot be customer-defined."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Header Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "requiredHeaders",
+          "reservedHeaders",
+          "allowCustomHeaders"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.httpOutcomePolicy",
+      "name": "Webhook HTTP Outcome Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "delivery",
+      "description": "Canonical mapping from receiver HTTP status classes to webhook delivery behavior.",
+      "purpose": "Prevents customer projects from inventing incompatible HTTP retry semantics.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "successRange",
+          "required": true,
+          "nullable": false,
+          "description": "Successful status range.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "retryableStatuses",
+          "required": true,
+          "nullable": false,
+          "description": "Explicit retryable client statuses.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "serverErrorsRetryable",
+          "required": true,
+          "nullable": false,
+          "description": "Whether 5xx statuses are retryable.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "redirectHandling",
+          "required": true,
+          "nullable": false,
+          "description": "3xx handling.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "terminal-no-follow"
+            ]
+          }
+        },
+        {
+          "key": "goneHandling",
+          "required": true,
+          "nullable": false,
+          "description": "410 handling.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "disable-endpoint"
+            ]
+          }
+        },
+        {
+          "key": "otherClientErrorHandling",
+          "required": true,
+          "nullable": false,
+          "description": "Other 4xx handling.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "terminal"
+            ]
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "2xx",
+          "description": "200-299 is success."
+        },
+        {
+          "id": "retryable",
+          "description": "408, 425, 429 and 5xx are retryable within retry budget."
+        },
+        {
+          "id": "redirect",
+          "description": "3xx is terminal and never auto-followed."
+        },
+        {
+          "id": "gone",
+          "description": "410 is terminal and disables the endpoint."
+        },
+        {
+          "id": "other4xx",
+          "description": "Other 4xx statuses are terminal."
+        }
+      ],
+      "cms": {
+        "label": "Webhook HTTP Outcome Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "successRange",
+          "retryableStatuses",
+          "serverErrorsRetryable",
+          "redirectHandling"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.pausePolicy",
+      "name": "Webhook Pause Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "subscriptions",
+      "description": "Defines how deliveries behave while a subscription or endpoint is paused.",
+      "purpose": "Prevents indefinite unbounded retention while allowing short operational recovery.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "queueWhilePaused",
+          "required": true,
+          "nullable": false,
+          "description": "Whether eligible deliveries are deferred while paused.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "maximumQueueHours",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum deferred retention window.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "onExpiry",
+          "required": true,
+          "nullable": false,
+          "description": "Action after paused retention expires.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "dead-letter"
+            ]
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "default72Hours",
+          "description": "Default maximum paused queue retention is 72 hours."
+        },
+        {
+          "id": "expiryDeadLetters",
+          "description": "Deferred deliveries exceeding the window become dead-lettered."
+        },
+        {
+          "id": "noInfiniteQueue",
+          "description": "Indefinite queue retention is prohibited."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Pause Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "queueWhilePaused",
+          "maximumQueueHours",
+          "onExpiry"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.payloadEnvelope",
+      "name": "Webhook Payload Envelope",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "payload",
+      "description": "Canonical outbound JSON envelope wrapping an exact NEXT F domain Event occurrence.",
+      "purpose": "Adds delivery metadata without changing the authoritative Event identity or payload semantics.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "deliveryId",
+          "required": true,
+          "nullable": false,
+          "description": "Logical webhook delivery ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "subscriptionId",
+          "required": true,
+          "nullable": false,
+          "description": "Subscription responsible for the delivery.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "attemptNumber",
+          "required": true,
+          "nullable": false,
+          "description": "Current delivery attempt number.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "sentAt",
+          "required": true,
+          "nullable": false,
+          "description": "Timestamp immediately before request dispatch.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "event",
+          "required": true,
+          "nullable": false,
+          "description": "Exact canonical event occurrence.",
+          "schema": "events.eventEnvelope"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "events.eventEnvelope",
+          "description": "References events.eventEnvelope."
+        },
+        {
+          "type": "references",
+          "target": "webhooks.subscription",
+          "description": "References webhooks.subscription."
+        },
+        {
+          "type": "references",
+          "target": "webhooks.delivery",
+          "description": "References webhooks.delivery."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "eventUnmodified",
+          "description": "Canonical Event identity, key, version and semantics must not be rewritten for the receiver."
+        },
+        {
+          "id": "sameEventAcrossRetries",
+          "description": "All retries/redeliveries of one logical Delivery preserve the same canonical eventId."
+        },
+        {
+          "id": "jsonUtf8",
+          "description": "Payload is serialized as UTF-8 JSON."
+        },
+        {
+          "id": "sizeLimit",
+          "description": "Serialized payload must not exceed the configured maximum, default 256 KiB."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Payload Envelope",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "deliveryId",
+          "subscriptionId",
+          "attemptNumber",
+          "sentAt"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.payloadPolicy",
+      "name": "Webhook Payload Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "payload",
+      "description": "Canonical serialization, size and enrichment rules for outbound webhook bodies.",
+      "purpose": "Prevents uncontrolled data enrichment, compression ambiguity and oversized deliveries.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "contentType",
+          "required": true,
+          "nullable": false,
+          "description": "HTTP media type.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "encoding",
+          "required": true,
+          "nullable": false,
+          "description": "Character encoding.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "contentEncoding",
+          "required": true,
+          "nullable": false,
+          "description": "HTTP content encoding.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "maximumBytes",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum serialized request body bytes.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "allowEntitySnapshotEnrichment",
+          "required": true,
+          "nullable": false,
+          "description": "Whether arbitrary current entity snapshots can be appended.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "canonicalDefaults",
+          "description": "Default is application/json; charset=utf-8, UTF-8, identity encoding and 262144 bytes."
+        },
+        {
+          "id": "noArbitrarySnapshot",
+          "description": "Unrestricted entity snapshot enrichment is prohibited."
+        },
+        {
+          "id": "signExactBytes",
+          "description": "Signature is calculated over the exact serialized raw body bytes sent on the wire."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Payload Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "contentType",
+          "encoding",
+          "contentEncoding",
+          "maximumBytes"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.ratePolicy",
+      "name": "Webhook Rate Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "resilience",
+      "description": "Per-endpoint delivery rate and concurrency controls.",
+      "purpose": "Protects both NEXT F delivery infrastructure and receiver endpoints from unbounded bursts.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "requestsPerSecond",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum request start rate per endpoint.",
+          "primitive": "fields.decimal"
+        },
+        {
+          "key": "maxConcurrentRequests",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum simultaneous requests per endpoint.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Rate-control scope.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "endpoint"
+            ]
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "defaults",
+          "description": "Default is 10 requests per second and 4 concurrent requests per endpoint."
+        },
+        {
+          "id": "retryIncluded",
+          "description": "Retries, redeliveries, tests and verification requests are subject to applicable network/rate controls."
+        },
+        {
+          "id": "orderingNotGuaranteed",
+          "description": "Rate limiting must not be interpreted as strict cross-delivery ordering."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Rate Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "requestsPerSecond",
+          "maxConcurrentRequests",
+          "scope"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.redactionPolicy",
+      "name": "Webhook Redaction Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "operations",
+      "description": "Mandatory diagnostic redaction rules.",
+      "purpose": "Prevents secret and sensitive transport values from leaking through logs, UI or persisted diagnostics.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "redactAuthorization",
+          "required": true,
+          "nullable": false,
+          "description": "Always redact Authorization values.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "redactSignature",
+          "required": true,
+          "nullable": false,
+          "description": "Always redact NEXT F webhook signatures.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "redactSecretBackedHeaders",
+          "required": true,
+          "nullable": false,
+          "description": "Always redact secret-backed custom header values.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "redactSensitiveQueryValues",
+          "required": true,
+          "nullable": false,
+          "description": "Redact sensitive URL query parameter values.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "redactConfiguredFields",
+          "required": false,
+          "nullable": true,
+          "description": "Additional explicit field/path redactions.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "beforePersistence",
+          "description": "Redaction happens before diagnostic persistence."
+        },
+        {
+          "id": "cannotDisableMandatory",
+          "description": "Mandatory secret/auth/signature redactions cannot be disabled."
+        },
+        {
+          "id": "payloadPolicyStillApplies",
+          "description": "Redaction is not a substitute for data-access/exposure policy."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Redaction Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "redactAuthorization",
+          "redactSignature",
+          "redactSecretBackedHeaders",
+          "redactSensitiveQueryValues"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.redeliveryRequest",
+      "name": "Webhook Redelivery Request",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "resilience",
+      "description": "Audited operator request to attempt delivery again for an existing logical Delivery.",
+      "purpose": "Supports controlled recovery without creating a duplicate canonical Event or duplicate logical Delivery.",
+      "webhookModel": {
+        "kind": "entity",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "requestId",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque redelivery request ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "deliveryId",
+          "required": true,
+          "nullable": false,
+          "description": "Existing logical Delivery.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "requestedBy",
+          "required": true,
+          "nullable": false,
+          "description": "Authorized actor.",
+          "schema": "core.actorReference"
+        },
+        {
+          "key": "requestedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Request timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "reason",
+          "required": true,
+          "nullable": false,
+          "description": "Operator reason.",
+          "primitive": "fields.textarea"
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Request status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "accepted",
+              "rejected",
+              "attempt-created"
+            ]
+          }
+        },
+        {
+          "key": "rejectionReason",
+          "required": false,
+          "nullable": true,
+          "description": "Reason when request is rejected.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "webhooks.delivery",
+          "description": "References webhooks.delivery."
+        },
+        {
+          "type": "composes",
+          "target": "core.actorReference",
+          "description": "References core.actorReference."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "sameDelivery",
+          "description": "Accepted redelivery creates another Attempt on the same logical Delivery."
+        },
+        {
+          "id": "sameEvent",
+          "description": "Redelivery never creates or mutates the canonical Event."
+        },
+        {
+          "id": "withinWindow",
+          "description": "Request must be inside the exact-payload/manual-redelivery availability window."
+        },
+        {
+          "id": "permissioned",
+          "description": "Manual redelivery requires explicit administrative permission and audit."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Redelivery Request",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "requestId",
+          "deliveryId",
+          "requestedBy",
+          "requestedAt"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.replayProtection",
+      "name": "Webhook Replay Protection",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "security",
+      "description": "Receiver-side replay-resistance expectations for signed webhook requests.",
+      "purpose": "Combines request timestamp validation with stable Event and Delivery identifiers.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "timestampToleranceSeconds",
+          "required": true,
+          "nullable": false,
+          "description": "Permitted request timestamp tolerance.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "eventIdHeader",
+          "required": true,
+          "nullable": false,
+          "description": "Header containing canonical Event ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "deliveryIdHeader",
+          "required": true,
+          "nullable": false,
+          "description": "Header containing logical Delivery ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "signatureRequired",
+          "required": true,
+          "nullable": false,
+          "description": "Whether HMAC validation is required.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "timestampValidation",
+          "description": "Reject otherwise valid signatures outside the configured freshness window unless implementing a documented redelivery exception based on the new request timestamp."
+        },
+        {
+          "id": "idempotentConsumer",
+          "description": "Receivers should record processed eventId/delivery identity for their own idempotency needs."
+        },
+        {
+          "id": "newAttemptTimestamp",
+          "description": "Each retry has a fresh signature timestamp while retaining the same canonical eventId and logical deliveryId."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Replay Protection",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "timestampToleranceSeconds",
+          "eventIdHeader",
+          "deliveryIdHeader",
+          "signatureRequired"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.requestHeader",
+      "name": "Webhook Request Header",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "endpoints",
+      "description": "Controlled non-reserved request header configured for a webhook endpoint.",
+      "purpose": "Allows bounded receiver-specific metadata without creating an arbitrary raw-request interface.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Header name.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "value",
+          "required": false,
+          "nullable": true,
+          "description": "Non-secret literal value.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "secretReference",
+          "required": false,
+          "nullable": true,
+          "description": "Optional secret-backed value.",
+          "schema": "integrations.secretReference"
+        },
+        {
+          "key": "sensitive",
+          "required": true,
+          "nullable": false,
+          "description": "Whether diagnostics must always redact the value.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "integrations.secretReference",
+          "description": "References integrations.secretReference."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "oneValueSource",
+          "description": "Use either literal value or secretReference, never both."
+        },
+        {
+          "id": "reservedProhibited",
+          "description": "Reserved NEXT F, Authorization, proxy, cookie and hop-by-hop headers cannot be overridden."
+        },
+        {
+          "id": "validHeaderName",
+          "description": "Header name must satisfy HTTP token syntax."
+        },
+        {
+          "id": "noControlChars",
+          "description": "Header values cannot contain CR/LF or control-character injection."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Request Header",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "name",
+          "value",
+          "secretReference",
+          "sensitive"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.responsePolicy",
+      "name": "Webhook Response Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "payload",
+      "description": "Defines how receiver HTTP responses are interpreted.",
+      "purpose": "Treats status as delivery outcome and response body as bounded diagnostics except during endpoint verification.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "successMinimum",
+          "required": true,
+          "nullable": false,
+          "description": "Minimum successful HTTP status.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "successMaximum",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum successful HTTP status.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "maximumDiagnosticBytes",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum response bytes retained/read for diagnostics.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "followRedirects",
+          "required": true,
+          "nullable": false,
+          "description": "Whether 3xx responses are followed.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "responseBodyAuthoritative",
+          "required": true,
+          "nullable": false,
+          "description": "Whether normal response bodies can create NEXT F business state.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "2xxSuccess",
+          "description": "HTTP 200 through 299 are successful deliveries."
+        },
+        {
+          "id": "redirectTerminal",
+          "description": "3xx responses are terminal and never followed automatically."
+        },
+        {
+          "id": "retryableStatuses",
+          "description": "408, 425, 429 and 5xx responses are retryable subject to policy."
+        },
+        {
+          "id": "other4xxTerminal",
+          "description": "Other 4xx responses are terminal except 410 additionally disables the endpoint."
+        },
+        {
+          "id": "diagnosticOnly",
+          "description": "Normal delivery response bodies are diagnostic only."
+        },
+        {
+          "id": "diagnosticLimit",
+          "description": "At most 65536 response bytes are read/retained for diagnostics by default."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Response Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "successMinimum",
+          "successMaximum",
+          "maximumDiagnosticBytes",
+          "followRedirects"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.retentionPolicy",
+      "name": "Webhook Retention Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "operations",
+      "description": "Retention windows for payloads, diagnostics and delivery metadata.",
+      "purpose": "Balances redelivery/debugging needs with data minimization.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "payloadAfterTerminalDays",
+          "required": true,
+          "nullable": false,
+          "description": "Exact retry/redelivery payload retention after terminal state.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "responseSnippetHours",
+          "required": true,
+          "nullable": false,
+          "description": "Attempt diagnostic response retention.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "deliveryMetadataDays",
+          "required": true,
+          "nullable": false,
+          "description": "Delivery/attempt metadata retention.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "deadLetterMetadataDays",
+          "required": true,
+          "nullable": false,
+          "description": "Dead-letter metadata retention.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "manualRedeliveryWindowDays",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum manual redelivery window.",
+          "primitive": "fields.integer"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "defaults",
+          "description": "Defaults are 7d exact payload, 24h response snippet, 30d delivery metadata, 30d dead-letter metadata and 7d manual redelivery."
+        },
+        {
+          "id": "privacyCanTighten",
+          "description": "Future privacy/data-retention policy may reduce these windows."
+        },
+        {
+          "id": "noIndefiniteSensitivePayload",
+          "description": "Sensitive exact payload retention is never indefinite."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Retention Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "payloadAfterTerminalDays",
+          "responseSnippetHours",
+          "deliveryMetadataDays",
+          "deadLetterMetadataDays"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.retryPolicy",
+      "name": "Webhook Retry Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "resilience",
+      "description": "Bounded automatic retry schedule for retryable webhook failures.",
+      "purpose": "Defines deterministic retry limits while allowing bounded jitter and Retry-After handling.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "maxAttempts",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum total attempts including initial attempt.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "retryDelaysSeconds",
+          "required": true,
+          "nullable": false,
+          "description": "Base delay before attempts 2..N.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "jitterPercent",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum percentage jitter around base delay.",
+          "primitive": "fields.percentage"
+        },
+        {
+          "key": "honorRetryAfter",
+          "required": true,
+          "nullable": false,
+          "description": "Whether bounded Retry-After can influence scheduling.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "retryAfterMinimumSeconds",
+          "required": true,
+          "nullable": false,
+          "description": "Minimum accepted Retry-After value.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "retryAfterMaximumSeconds",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum accepted Retry-After value.",
+          "primitive": "fields.integer"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "defaultAttempts",
+          "description": "Default maximum is 8 total attempts including initial."
+        },
+        {
+          "id": "defaultSchedule",
+          "description": "Default delays are 60, 300, 900, 3600, 14400, 43200 and 86400 seconds."
+        },
+        {
+          "id": "defaultJitter",
+          "description": "Default jitter is 20 percent."
+        },
+        {
+          "id": "boundedRetryAfter",
+          "description": "Accepted Retry-After is bounded between 5 and 86400 seconds."
+        },
+        {
+          "id": "noInfiniteRetry",
+          "description": "Retries must terminate and transition to a terminal/dead-letter state."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Retry Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "maxAttempts",
+          "retryDelaysSeconds",
+          "jitterPercent",
+          "honorRetryAfter"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.secretRotation",
+      "name": "Webhook Secret Rotation",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "security",
+      "description": "Finite-overlap rotation record for webhook signing secrets.",
+      "purpose": "Allows receivers to migrate from an old signing secret without an unbounded multi-key verification period.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "secret"
+      },
+      "fields": [
+        {
+          "key": "previousKey",
+          "required": true,
+          "nullable": false,
+          "description": "Previous signing key.",
+          "schema": "webhooks.signingKeyReference"
+        },
+        {
+          "key": "nextKey",
+          "required": true,
+          "nullable": false,
+          "description": "Replacement signing key.",
+          "schema": "webhooks.signingKeyReference"
+        },
+        {
+          "key": "startedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Rotation start time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "overlapEndsAt",
+          "required": true,
+          "nullable": false,
+          "description": "Finite overlap end time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Rotation status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "scheduled",
+              "overlap",
+              "completed",
+              "cancelled"
+            ]
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "webhooks.signingKeyReference",
+          "description": "References previous signing key."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.signingKeyReference",
+          "description": "References next signing key."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "defaultOverlap",
+          "description": "Default overlap window is 24 hours."
+        },
+        {
+          "id": "dualSignatureOverlap",
+          "description": "During overlap, delivery may include verifiable signatures for both active keys using documented v1 entries."
+        },
+        {
+          "id": "finite",
+          "description": "An overlap must always have an explicit end time."
+        },
+        {
+          "id": "oldKeyRetired",
+          "description": "Old key is no longer accepted after rotation completion."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Secret Rotation",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "previousKey",
+          "nextKey",
+          "startedAt",
+          "overlapEndsAt"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.signaturePolicy",
+      "name": "Webhook Signature Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "security",
+      "description": "Mandatory HMAC signature protocol for every NEXT F webhook request.",
+      "purpose": "Allows receivers to verify request authenticity and body integrity without exposing the signing secret.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "algorithm",
+          "required": true,
+          "nullable": false,
+          "description": "Signature algorithm.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "version",
+          "required": true,
+          "nullable": false,
+          "description": "Signature scheme version.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "timestampToleranceSeconds",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum accepted request timestamp age/skew.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "signedInput",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical signed byte sequence description.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "headerName",
+          "required": true,
+          "nullable": false,
+          "description": "Signature header name.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "format",
+          "required": true,
+          "nullable": false,
+          "description": "Header value format.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "minimumSecretEntropyBytes",
+          "required": true,
+          "nullable": false,
+          "description": "Minimum signing-secret entropy.",
+          "primitive": "fields.integer"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "algorithmV1",
+          "description": "V1 uses HMAC-SHA256."
+        },
+        {
+          "id": "signedInputV1",
+          "description": "V1 signs `<unix-seconds>.<exact raw UTF-8 request body bytes>`."
+        },
+        {
+          "id": "formatV1",
+          "description": "Signature header format is `t=<unix-seconds>,v1=<lowercase-hex-hmac>`."
+        },
+        {
+          "id": "constantTime",
+          "description": "Receivers should compare computed signatures using constant-time comparison."
+        },
+        {
+          "id": "timestampFreshness",
+          "description": "Receiver must validate timestamp freshness; default tolerance is 300 seconds."
+        },
+        {
+          "id": "mandatory",
+          "description": "Signature validation is independent of optional destination authentication."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Signature Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "algorithm",
+          "version",
+          "timestampToleranceSeconds",
+          "signedInput"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.signingKeyReference",
+      "name": "Webhook Signing Key Reference",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "security",
+      "description": "Write-only server-side reference to a webhook HMAC signing secret.",
+      "purpose": "Separates secret material from browser-visible endpoint and subscription configuration.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "secret"
+      },
+      "fields": [
+        {
+          "key": "secretReference",
+          "required": true,
+          "nullable": false,
+          "description": "Protected secret-store reference.",
+          "schema": "integrations.secretReference"
+        },
+        {
+          "key": "keyVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque signing-key version identifier.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Key creation time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "activeFrom",
+          "required": true,
+          "nullable": false,
+          "description": "When key becomes valid for signing.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "retireAfter",
+          "required": false,
+          "nullable": true,
+          "description": "Optional end of verification overlap.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "integrations.secretReference",
+          "description": "References integrations.secretReference."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "minimumEntropy",
+          "description": "New signing secrets require at least 32 bytes of cryptographic entropy."
+        },
+        {
+          "id": "writeOnly",
+          "description": "Raw signing secret is shown only through an explicit one-time secure setup flow and is not readable afterward."
+        },
+        {
+          "id": "serverSideOnly",
+          "description": "Secret material never appears in browser bundles, registry data or normal API responses."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Signing Key Reference",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "secretReference",
+          "keyVersion",
+          "createdAt",
+          "activeFrom"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.subscription",
+      "name": "Webhook Subscription",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "subscriptions",
+      "description": "Explicit binding between one verified endpoint and an exact allow-list of canonical Events.",
+      "purpose": "Controls which eligible domain facts may create outbound webhook deliveries.",
+      "webhookModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable identity.",
+          "schema": "core.entityIdentity"
+        },
+        {
+          "key": "ownership",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Organization/Site.",
+          "schema": "webhooks.subscriptionOwnership"
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Human-readable subscription name.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "endpointId",
+          "required": true,
+          "nullable": false,
+          "description": "Verified endpoint ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "environment",
+          "required": true,
+          "nullable": false,
+          "description": "Bound environment.",
+          "schema": "webhooks.environmentBinding"
+        },
+        {
+          "key": "selection",
+          "required": true,
+          "nullable": false,
+          "description": "Exact Event allow-list.",
+          "schema": "webhooks.eventSelection"
+        },
+        {
+          "key": "filters",
+          "required": false,
+          "nullable": true,
+          "description": "Optional bounded filters.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "dataAccess",
+          "required": true,
+          "nullable": false,
+          "description": "Approved event-data classifications.",
+          "schema": "webhooks.dataAccessPolicy"
+        },
+        {
+          "key": "state",
+          "required": true,
+          "nullable": false,
+          "description": "Current subscription state.",
+          "schema": "webhooks.subscriptionState"
+        },
+        {
+          "key": "pausePolicy",
+          "required": true,
+          "nullable": false,
+          "description": "Pause and deferred-delivery behavior.",
+          "schema": "webhooks.pausePolicy"
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Creation timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "updatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Last update timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.entityIdentity",
+          "description": "References core.entityIdentity."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.subscriptionOwnership",
+          "description": "References webhooks.subscriptionOwnership."
+        },
+        {
+          "type": "references",
+          "target": "webhooks.endpoint",
+          "description": "References webhooks.endpoint."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.environmentBinding",
+          "description": "References webhooks.environmentBinding."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.eventSelection",
+          "description": "References webhooks.eventSelection."
+        },
+        {
+          "type": "optionallyComposesMany",
+          "target": "webhooks.subscriptionFilter",
+          "description": "References webhooks.subscriptionFilter."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.dataAccessPolicy",
+          "description": "References webhooks.dataAccessPolicy."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.subscriptionState",
+          "description": "References webhooks.subscriptionState."
+        },
+        {
+          "type": "composes",
+          "target": "webhooks.pausePolicy",
+          "description": "References webhooks.pausePolicy."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "verifiedEndpoint",
+          "description": "Subscription can become active only when endpoint is active and verified."
+        },
+        {
+          "id": "exactEventAllowList",
+          "description": "V1 subscriptions select exact canonical event keys; wildcards are prohibited."
+        },
+        {
+          "id": "eligibleOnly",
+          "description": "All selected events must be webhookEligible in the Event Registry."
+        },
+        {
+          "id": "sameEnvironment",
+          "description": "Subscription and endpoint environment must match."
+        },
+        {
+          "id": "noHistoricalBackfill",
+          "description": "V1 does not backfill historical events before activation."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Subscription",
+        "icon": "fa-webhook",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "webhook-subscription",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "identity",
+          "ownership",
+          "name",
+          "endpointId"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": true,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.subscriptionFilter",
+      "name": "Webhook Subscription Filter",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "subscriptions",
+      "description": "Optional bounded filter applied after event selection and before delivery creation.",
+      "purpose": "Allows narrow subscription routing without introducing arbitrary executable predicates.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "fieldPath",
+          "required": true,
+          "nullable": false,
+          "description": "Approved event metadata/payload field path.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "operator",
+          "required": true,
+          "nullable": false,
+          "description": "Supported deterministic operator.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "equals",
+              "not-equals",
+              "in",
+              "not-in",
+              "exists",
+              "not-exists"
+            ]
+          }
+        },
+        {
+          "key": "value",
+          "required": false,
+          "nullable": true,
+          "description": "Comparison value where required.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "allowListedPaths",
+          "description": "Filter paths must be explicitly permitted by the selected Event definition or platform policy."
+        },
+        {
+          "id": "noCode",
+          "description": "Regular-expression execution, scripts and arbitrary expressions are prohibited in V1."
+        },
+        {
+          "id": "filterDoesNotAuthorizeData",
+          "description": "Matching a field does not grant permission to expose that field in the outbound payload."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Subscription Filter",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "fieldPath",
+          "operator",
+          "value"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.subscriptionOwnership",
+      "name": "Subscription Ownership",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "foundation",
+      "description": "Records the Organization/Site ownership boundary for a webhook subscription.",
+      "purpose": "Enforces tenant isolation for webhook configuration and delivery operations.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "organizationId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Organization ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "siteId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site ID.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "core.organization",
+          "description": "References core.organization."
+        },
+        {
+          "type": "references",
+          "target": "core.site",
+          "description": "References core.site."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "siteBelongsToOrganization",
+          "description": "siteId must belong to organizationId."
+        },
+        {
+          "id": "serverEnforced",
+          "description": "Caller supplied IDs are never sufficient authorization."
+        }
+      ],
+      "cms": {
+        "label": "Subscription Ownership",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "organizationId",
+          "siteId"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.subscriptionState",
+      "name": "Webhook Subscription State",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "subscriptions",
+      "description": "Lifecycle state for a webhook subscription.",
+      "purpose": "Separates human/configuration state from individual delivery state.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Subscription status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "draft",
+              "active",
+              "paused",
+              "disabled"
+            ]
+          }
+        },
+        {
+          "key": "reason",
+          "required": false,
+          "nullable": true,
+          "description": "Optional state reason.",
+          "primitive": "fields.textarea"
+        },
+        {
+          "key": "changedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Last state transition time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "changedBy",
+          "required": false,
+          "nullable": true,
+          "description": "Actor responsible for transition.",
+          "schema": "core.actorReference"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "optionallyComposes",
+          "target": "core.actorReference",
+          "description": "References core.actorReference."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "activeRequirements",
+          "description": "Active requires verified endpoint, valid selection and valid data policy."
+        },
+        {
+          "id": "disabledTerminalUntilExplicitChange",
+          "description": "Disabled subscriptions do not resume automatically."
+        },
+        {
+          "id": "stateAudited",
+          "description": "Manual state transitions must be auditable."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Subscription State",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "status",
+          "reason",
+          "changedAt",
+          "changedBy"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.testDelivery",
+      "name": "Webhook Test Delivery",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "operations",
+      "description": "Synthetic signed delivery used to test an endpoint and receiver implementation.",
+      "purpose": "Allows safe diagnostics without impersonating a real domain Event or mutating business state.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "testId",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque synthetic test ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "endpointId",
+          "required": true,
+          "nullable": false,
+          "description": "Target verified or pending-verification endpoint.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "subscriptionId",
+          "required": false,
+          "nullable": true,
+          "description": "Optional subscription context.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "requestedBy",
+          "required": true,
+          "nullable": false,
+          "description": "Authorized actor.",
+          "schema": "core.actorReference"
+        },
+        {
+          "key": "requestedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Request timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "syntheticEventKey",
+          "required": true,
+          "nullable": false,
+          "description": "Reserved synthetic protocol key.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "result",
+          "required": false,
+          "nullable": true,
+          "description": "Optional delivery outcome summary.",
+          "schema": "webhooks.deliverySummary"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "webhooks.endpoint",
+          "description": "References webhooks.endpoint."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "webhooks.subscription",
+          "description": "References webhooks.subscription."
+        },
+        {
+          "type": "composes",
+          "target": "core.actorReference",
+          "description": "References core.actorReference."
+        },
+        {
+          "type": "optionallyComposes",
+          "target": "webhooks.deliverySummary",
+          "description": "References webhooks.deliverySummary."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "syntheticOnly",
+          "description": "Test payload cannot use a real canonical Event ID or claim a real business event occurred."
+        },
+        {
+          "id": "noBusinessMutation",
+          "description": "Test delivery cannot create authoritative customer/business state."
+        },
+        {
+          "id": "sameControls",
+          "description": "Network, signature, timeout, rate and redaction controls apply to tests."
+        },
+        {
+          "id": "audited",
+          "description": "Test requests are auditable."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Test Delivery",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "testId",
+          "endpointId",
+          "subscriptionId",
+          "requestedBy"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.timeoutPolicy",
+      "name": "Webhook Timeout Policy",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "resilience",
+      "description": "Outbound connection and total execution timeout contract.",
+      "purpose": "Caps resource usage and prevents slow receivers from holding delivery workers indefinitely.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "connectTimeoutSeconds",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum connection establishment time.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "totalTimeoutSeconds",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum total request execution time.",
+          "primitive": "fields.integer"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "defaults",
+          "description": "Defaults are 5 seconds connect and 15 seconds total."
+        },
+        {
+          "id": "totalNotLessThanConnect",
+          "description": "Total timeout must be greater than or equal to connect timeout."
+        },
+        {
+          "id": "bounded",
+          "description": "Deployments may tighten values but cannot remove finite timeouts."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Timeout Policy",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "connectTimeoutSeconds",
+          "totalTimeoutSeconds"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    },
+    {
+      "$id": "webhooks.webhookReference",
+      "name": "Webhook Reference",
+      "version": "0.15.0",
+      "status": "stable",
+      "domain": "webhooks",
+      "category": "foundation",
+      "description": "Compact reference to a webhook endpoint, subscription, delivery or attempt.",
+      "purpose": "Allows schemas and logs to reference webhook objects without embedding full sensitive records.",
+      "webhookModel": {
+        "kind": "schema",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque webhook object ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "kind",
+          "required": true,
+          "nullable": false,
+          "description": "Referenced webhook object kind.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "endpoint",
+              "subscription",
+              "delivery",
+              "attempt",
+              "dead-letter"
+            ]
+          }
+        },
+        {
+          "key": "displayName",
+          "required": false,
+          "nullable": true,
+          "description": "Optional safe display name.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "opaqueId",
+          "description": "Reference IDs are opaque and must not encode secrets or personal data."
+        },
+        {
+          "id": "kindMatchesTarget",
+          "description": "kind must match the referenced object type."
+        }
+      ],
+      "cms": {
+        "label": "Webhook Reference",
+        "icon": "fa-webhook",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "webhook-contract",
+        "defaultPlacement": "webhooks",
+        "summaryFields": [
+          "id",
+          "kind",
+          "displayName"
+        ]
+      },
+      "delivery": {
+        "publicDelivery": false,
+        "customerCmsDelivery": false,
+        "adminDelivery": true,
+        "notes": [
+          "Webhook registry contracts are configuration/operations data and are never public website content."
+        ]
+      },
+      "futureBindings": []
+    }
+  ],
+  "statuses": {
+    "registryVersion": "0.15.0",
+    "endpoint": [
+      "pending-verification",
+      "active",
+      "degraded",
+      "paused",
+      "disabled"
+    ],
+    "subscription": [
+      "draft",
+      "active",
+      "paused",
+      "disabled"
+    ],
+    "delivery": [
+      "pending",
+      "deferred",
+      "delivering",
+      "succeeded",
+      "retry-scheduled",
+      "failed",
+      "dead-lettered",
+      "cancelled"
+    ],
+    "attempt": [
+      "pending",
+      "in-flight",
+      "succeeded",
+      "failed",
+      "timed-out",
+      "rejected"
+    ],
+    "verification": [
+      "pending",
+      "succeeded",
+      "failed",
+      "expired"
+    ],
+    "health": [
+      "healthy",
+      "degraded",
+      "paused",
+      "disabled"
+    ]
+  },
+  "headers": {
+    "registryVersion": "0.15.0",
+    "requestHeaders": [
+      {
+        "name": "Content-Type",
+        "required": true,
+        "value": "application/json; charset=utf-8",
+        "sensitive": false
+      },
+      {
+        "name": "User-Agent",
+        "required": true,
+        "value": "NEXT-F-Webhooks/<contract-version>",
+        "sensitive": false
+      },
+      {
+        "name": "NextF-Webhook-Id",
+        "required": true,
+        "source": "deliveryId",
+        "sensitive": false
+      },
+      {
+        "name": "NextF-Webhook-Subscription-Id",
+        "required": true,
+        "source": "subscriptionId",
+        "sensitive": false
+      },
+      {
+        "name": "NextF-Event-Id",
+        "required": true,
+        "source": "eventId",
+        "sensitive": false
+      },
+      {
+        "name": "NextF-Event-Key",
+        "required": true,
+        "source": "eventKey",
+        "sensitive": false
+      },
+      {
+        "name": "NextF-Event-Version",
+        "required": true,
+        "source": "eventVersion",
+        "sensitive": false
+      },
+      {
+        "name": "NextF-Contract-Version",
+        "required": true,
+        "source": "contractVersion",
+        "sensitive": false
+      },
+      {
+        "name": "NextF-Environment",
+        "required": true,
+        "source": "environment",
+        "sensitive": false
+      },
+      {
+        "name": "NextF-Webhook-Attempt",
+        "required": true,
+        "source": "attemptNumber",
+        "sensitive": false
+      },
+      {
+        "name": "NextF-Webhook-Signature",
+        "required": true,
+        "source": "signaturePolicy",
+        "sensitive": true
+      }
+    ],
+    "reservedHeaders": [
+      "Host",
+      "Content-Length",
+      "Transfer-Encoding",
+      "Connection",
+      "Proxy-Authorization",
+      "Proxy-Authenticate",
+      "Forwarded",
+      "X-Forwarded-For",
+      "X-Forwarded-Host",
+      "Cookie",
+      "Set-Cookie",
+      "NextF-Webhook-Signature",
+      "NextF-Webhook-Id",
+      "NextF-Webhook-Subscription-Id",
+      "NextF-Event-Id",
+      "NextF-Event-Key",
+      "NextF-Event-Version",
+      "NextF-Contract-Version",
+      "NextF-Environment",
+      "NextF-Webhook-Attempt"
+    ],
+    "notes": [
+      "Authorization is configured through structured destination authentication, not arbitrary custom headers.",
+      "Header values classified as secrets are never displayed after initial secure setup."
+    ]
+  },
+  "failureCodes": [
+    {
+      "code": "network.dns-failure",
+      "classification": "retryable",
+      "description": "DNS resolution failed or returned no allowed address."
+    },
+    {
+      "code": "network.blocked-address",
+      "classification": "terminal",
+      "description": "Resolved destination is private, loopback, link-local, reserved, multicast or otherwise prohibited."
+    },
+    {
+      "code": "network.connect-timeout",
+      "classification": "retryable",
+      "description": "Connection was not established before the configured connect timeout."
+    },
+    {
+      "code": "network.tls-failure",
+      "classification": "retryable",
+      "description": "TLS negotiation or certificate validation failed; repeated configuration failures may degrade endpoint health."
+    },
+    {
+      "code": "network.connection-reset",
+      "classification": "retryable",
+      "description": "Connection closed unexpectedly."
+    },
+    {
+      "code": "request.total-timeout",
+      "classification": "retryable",
+      "description": "Total request execution exceeded the configured timeout."
+    },
+    {
+      "code": "request.payload-too-large",
+      "classification": "terminal",
+      "description": "Serialized webhook payload exceeded the permitted maximum."
+    },
+    {
+      "code": "http.redirect",
+      "classification": "terminal",
+      "description": "A 3xx response was returned. Redirects are never automatically followed."
+    },
+    {
+      "code": "http.unauthorized",
+      "classification": "terminal",
+      "description": "Receiver returned HTTP 401."
+    },
+    {
+      "code": "http.forbidden",
+      "classification": "terminal",
+      "description": "Receiver returned HTTP 403."
+    },
+    {
+      "code": "http.not-found",
+      "classification": "terminal",
+      "description": "Receiver returned HTTP 404."
+    },
+    {
+      "code": "http.gone",
+      "classification": "disable-endpoint",
+      "description": "Receiver returned HTTP 410 and explicitly indicates the endpoint is gone."
+    },
+    {
+      "code": "http.request-timeout",
+      "classification": "retryable",
+      "description": "Receiver returned HTTP 408."
+    },
+    {
+      "code": "http.too-early",
+      "classification": "retryable",
+      "description": "Receiver returned HTTP 425."
+    },
+    {
+      "code": "http.rate-limited",
+      "classification": "retryable",
+      "description": "Receiver returned HTTP 429. A valid bounded Retry-After may influence scheduling."
+    },
+    {
+      "code": "http.client-error",
+      "classification": "terminal",
+      "description": "Receiver returned a non-retryable 4xx response."
+    },
+    {
+      "code": "http.server-error",
+      "classification": "retryable",
+      "description": "Receiver returned a retryable 5xx response."
+    },
+    {
+      "code": "response.body-too-large",
+      "classification": "terminal",
+      "description": "Response body exceeded the diagnostic read limit."
+    },
+    {
+      "code": "endpoint.unverified",
+      "classification": "terminal",
+      "description": "Delivery cannot start because destination verification is incomplete."
+    },
+    {
+      "code": "endpoint.disabled",
+      "classification": "terminal",
+      "description": "Delivery cannot start because the endpoint is disabled."
+    },
+    {
+      "code": "subscription.paused",
+      "classification": "deferred",
+      "description": "Delivery is held while the subscription is paused."
+    },
+    {
+      "code": "subscription.disabled",
+      "classification": "terminal",
+      "description": "Delivery cannot start because the subscription is disabled."
+    },
+    {
+      "code": "event.not-eligible",
+      "classification": "terminal",
+      "description": "Selected canonical Event is not webhook eligible."
+    },
+    {
+      "code": "policy.environment-mismatch",
+      "classification": "terminal",
+      "description": "Event and subscription environment bindings do not match."
+    },
+    {
+      "code": "policy.data-not-authorized",
+      "classification": "terminal",
+      "description": "Subscription is not approved for the Event data classification."
+    },
+    {
+      "code": "policy.event-not-selected",
+      "classification": "terminal",
+      "description": "Event is not explicitly selected by the subscription."
+    },
+    {
+      "code": "config.invalid",
+      "classification": "terminal",
+      "description": "Webhook configuration failed contract validation."
+    },
+    {
+      "code": "delivery.max-attempts",
+      "classification": "dead-letter",
+      "description": "Retryable failures exhausted the permitted attempt budget."
+    },
+    {
+      "code": "delivery.pause-retention-expired",
+      "classification": "dead-letter",
+      "description": "A deferred delivery exceeded the paused-subscription retention window."
+    },
+    {
+      "code": "delivery.cancelled",
+      "classification": "terminal",
+      "description": "Delivery was explicitly cancelled by an authorized platform operation."
+    },
+    {
+      "code": "unknown",
+      "classification": "retryable",
+      "description": "An unexpected transport failure occurred; bounded retry policy still applies."
+    }
+  ],
+  "defaultPolicies": {
+    "registryVersion": "0.15.0",
+    "protocol": {
+      "method": "POST",
+      "contentType": "application/json; charset=utf-8",
+      "encoding": "UTF-8",
+      "contentEncoding": "identity",
+      "automaticRedirects": false,
+      "maximumPayloadBytes": 262144,
+      "maximumResponseDiagnosticBytes": 65536
+    },
+    "timeouts": {
+      "connectTimeoutSeconds": 5,
+      "totalTimeoutSeconds": 15
+    },
+    "signature": {
+      "algorithm": "HMAC-SHA256",
+      "version": "v1",
+      "timestampToleranceSeconds": 300,
+      "bodyMode": "raw-utf8",
+      "format": "t=<unix-seconds>,v1=<lowercase-hex-hmac>",
+      "minimumSecretEntropyBytes": 32,
+      "rotationOverlapHours": 24
+    },
+    "retry": {
+      "maxAttempts": 8,
+      "retryDelaysSeconds": [
+        60,
+        300,
+        900,
+        3600,
+        14400,
+        43200,
+        86400
+      ],
+      "jitterPercent": 20,
+      "retryAfterMinimumSeconds": 5,
+      "retryAfterMaximumSeconds": 86400
+    },
+    "rate": {
+      "requestsPerSecond": 10,
+      "maxConcurrentRequests": 4
+    },
+    "health": {
+      "degradedAfterConsecutiveFailures": 5,
+      "pauseAfterConsecutiveFailures": 20,
+      "pauseQueueRetentionHours": 72
+    },
+    "retention": {
+      "payloadAfterTerminalDays": 7,
+      "attemptResponseSnippetHours": 24,
+      "deliveryMetadataDays": 30,
+      "deadLetterMetadataDays": 30,
+      "manualRedeliveryWindowDays": 7
+    },
+    "verification": {
+      "challengeTtlSeconds": 600,
+      "requiredHttpStatus": 200,
+      "challengeResponseField": "challenge"
+    },
+    "network": {
+      "httpsOnly": true,
+      "minimumTlsVersion": "1.2",
+      "allowPrivateNetworks": false,
+      "allowLoopback": false,
+      "allowLinkLocal": false,
+      "allowMulticast": false,
+      "allowReservedNetworks": false,
+      "allowCloudMetadata": false,
+      "allowUrlUserInfo": false,
+      "followRedirects": false,
+      "allowedPorts": [
+        443,
+        8443
+      ]
+    },
+    "subscription": {
+      "wildcardsAllowed": false,
+      "historicalBackfill": false,
+      "crossEnvironmentDelivery": false
+    }
+  },
+  "eventCatalog": {
+    "registryVersion": "0.15.0",
+    "sourceRegistry": "registry/events/index.json",
+    "exactAllowListOnly": true,
+    "wildcardSubscriptions": false,
+    "historicalBackfill": false,
+    "eligibleEventCount": 110,
+    "events": [
+      {
+        "eventKey": "cart.abandoned",
+        "name": "Cart Abandoned",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-cart-checkout",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.cart"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Cart meets the configured abandoned-cart definition."
+      },
+      {
+        "eventKey": "cart.converted",
+        "name": "Cart Converted",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-cart-checkout",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.cart"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Cart is successfully converted through Checkout into an Order."
+      },
+      {
+        "eventKey": "cart.created",
+        "name": "Cart Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-cart-checkout",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.cart"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A canonical Cart is created."
+      },
+      {
+        "eventKey": "cart.expired",
+        "name": "Cart Expired",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-cart-checkout",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.cart"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Cart expires and is no longer mutable."
+      },
+      {
+        "eventKey": "cart.updated",
+        "name": "Cart Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-cart-checkout",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.cart"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Cart lines, discounts, customer association or other material mutable state changes."
+      },
+      {
+        "eventKey": "checkout.abandoned",
+        "name": "Checkout Abandoned",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-cart-checkout",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.checkout"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Checkout meets the configured abandoned-checkout definition."
+      },
+      {
+        "eventKey": "checkout.completed",
+        "name": "Checkout Completed",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-cart-checkout",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.checkout"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Checkout completes successfully and creates or resolves to its authoritative Order outcome."
+      },
+      {
+        "eventKey": "checkout.expired",
+        "name": "Checkout Expired",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-cart-checkout",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.checkout"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Checkout expires and can no longer be committed."
+      },
+      {
+        "eventKey": "checkout.started",
+        "name": "Checkout Started",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-cart-checkout",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.checkout"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A canonical Checkout entity is created from an eligible Cart."
+      },
+      {
+        "eventKey": "checkout.updated",
+        "name": "Checkout Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-cart-checkout",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.checkout"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Checkout contact, address, shipping, payment selection or totals change after server revalidation."
+      },
+      {
+        "eventKey": "collection.created",
+        "name": "Product Collection Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.productCollection"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Product Collection is created."
+      },
+      {
+        "eventKey": "collection.updated",
+        "name": "Product Collection Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.productCollection"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Product Collection is materially updated."
+      },
+      {
+        "eventKey": "consent.recorded",
+        "name": "Consent Recorded",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "forms-domain",
+        "subjectContracts": [
+          "forms.consentRecord"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A canonical form/business-purpose consent record is committed."
+      },
+      {
+        "eventKey": "consent.updated",
+        "name": "Marketing Consent Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "marketing",
+        "producerKey": "marketing-domain",
+        "subjectContracts": [
+          "marketing.consentState"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "The current marketing/analytics consent state changes through a permitted consent workflow."
+      },
+      {
+        "eventKey": "content.archived",
+        "name": "Content Archived",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "content.page",
+          "content.blogPost",
+          "content.documentationArticle",
+          "content.service",
+          "content.faq",
+          "content.testimonial",
+          "content.teamMember",
+          "content.location",
+          "content.legalPage",
+          "content.customCollectionEntry",
+          "content.reusableContent"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Content enters archived lifecycle state."
+      },
+      {
+        "eventKey": "content.created",
+        "name": "Content Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "content.page",
+          "content.blogPost",
+          "content.documentationArticle",
+          "content.service",
+          "content.faq",
+          "content.testimonial",
+          "content.teamMember",
+          "content.location",
+          "content.legalPage",
+          "content.customCollectionEntry",
+          "content.reusableContent"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A canonical content entity is created."
+      },
+      {
+        "eventKey": "content.deleted",
+        "name": "Content Deleted",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "content.page",
+          "content.blogPost",
+          "content.documentationArticle",
+          "content.service",
+          "content.faq",
+          "content.testimonial",
+          "content.teamMember",
+          "content.location",
+          "content.legalPage",
+          "content.customCollectionEntry",
+          "content.reusableContent"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A content entity is deleted according to its retention/deletion policy."
+      },
+      {
+        "eventKey": "content.published",
+        "name": "Content Published",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "content.page",
+          "content.blogPost",
+          "content.documentationArticle",
+          "content.service",
+          "content.faq",
+          "content.testimonial",
+          "content.teamMember",
+          "content.location",
+          "content.legalPage",
+          "content.customCollectionEntry",
+          "content.reusableContent"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A content revision becomes the active published revision."
+      },
+      {
+        "eventKey": "content.restored",
+        "name": "Content Restored",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "content.page",
+          "content.blogPost",
+          "content.documentationArticle",
+          "content.service",
+          "content.faq",
+          "content.testimonial",
+          "content.teamMember",
+          "content.location",
+          "content.legalPage",
+          "content.customCollectionEntry",
+          "content.reusableContent"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A restorable content entity or revision is restored."
+      },
+      {
+        "eventKey": "content.scheduled",
+        "name": "Content Scheduled",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "content.page",
+          "content.blogPost",
+          "content.documentationArticle",
+          "content.service",
+          "content.faq",
+          "content.testimonial",
+          "content.teamMember",
+          "content.location",
+          "content.legalPage",
+          "content.customCollectionEntry",
+          "content.reusableContent"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A future publication or unpublication schedule is committed."
+      },
+      {
+        "eventKey": "content.unpublished",
+        "name": "Content Unpublished",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "content.page",
+          "content.blogPost",
+          "content.documentationArticle",
+          "content.service",
+          "content.faq",
+          "content.testimonial",
+          "content.teamMember",
+          "content.location",
+          "content.legalPage",
+          "content.customCollectionEntry",
+          "content.reusableContent"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Previously published content is removed from public delivery without deleting the entity."
+      },
+      {
+        "eventKey": "content.updated",
+        "name": "Content Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "content.page",
+          "content.blogPost",
+          "content.documentationArticle",
+          "content.service",
+          "content.faq",
+          "content.testimonial",
+          "content.teamMember",
+          "content.location",
+          "content.legalPage",
+          "content.customCollectionEntry",
+          "content.reusableContent"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A material content revision is committed."
+      },
+      {
+        "eventKey": "content.version-created",
+        "name": "Content Version Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "content.page",
+          "content.blogPost",
+          "content.documentationArticle",
+          "content.service",
+          "content.faq",
+          "content.testimonial",
+          "content.teamMember",
+          "content.location",
+          "content.legalPage",
+          "content.customCollectionEntry",
+          "content.reusableContent"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A new immutable content version snapshot is created."
+      },
+      {
+        "eventKey": "conversion.recorded",
+        "name": "Conversion Recorded",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "marketing",
+        "producerKey": "marketing-domain",
+        "subjectContracts": [
+          "marketing.conversionOccurrence"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "An authoritative conversion occurrence is recorded after its source business fact is validated."
+      },
+      {
+        "eventKey": "customer.archived",
+        "name": "Commerce Customer Archived",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-customers",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.commerceCustomer"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Commerce Customer becomes archived while transaction snapshots remain preserved."
+      },
+      {
+        "eventKey": "customer.created",
+        "name": "Commerce Customer Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-customers",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.commerceCustomer"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Commerce Customer record is created."
+      },
+      {
+        "eventKey": "customer.updated",
+        "name": "Commerce Customer Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-customers",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.commerceCustomer"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Commerce Customer profile/contact data is materially updated."
+      },
+      {
+        "eventKey": "discount.activated",
+        "name": "Discount Activated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.discount"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Discount becomes operationally active."
+      },
+      {
+        "eventKey": "discount.created",
+        "name": "Discount Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.discount"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Discount is created."
+      },
+      {
+        "eventKey": "discount.deactivated",
+        "name": "Discount Deactivated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.discount"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Discount becomes operationally inactive."
+      },
+      {
+        "eventKey": "discount.updated",
+        "name": "Discount Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.discount"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Discount is materially updated."
+      },
+      {
+        "eventKey": "form.archived",
+        "name": "Form Archived",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "forms-domain",
+        "subjectContracts": [
+          "forms.form"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Form definition becomes archived/inactive."
+      },
+      {
+        "eventKey": "form.created",
+        "name": "Form Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "forms-domain",
+        "subjectContracts": [
+          "forms.form"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A canonical Form definition is created."
+      },
+      {
+        "eventKey": "form.published",
+        "name": "Form Published",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "forms-domain",
+        "subjectContracts": [
+          "forms.form"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Form definition becomes active for visitor submission."
+      },
+      {
+        "eventKey": "form.rejected",
+        "name": "Form Rejected",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "forms-domain",
+        "subjectContracts": [
+          "forms.form"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A submission attempt is rejected by authoritative validation, availability, rate-limit or anti-abuse policy."
+      },
+      {
+        "eventKey": "form.submitted",
+        "name": "Form Submitted",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "forms-domain",
+        "subjectContracts": [
+          "forms.submission"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A visitor submission has passed authoritative validation/anti-abuse policy and the Submission record is committed."
+      },
+      {
+        "eventKey": "form.updated",
+        "name": "Form Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "forms-domain",
+        "subjectContracts": [
+          "forms.form"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Form definition is materially updated."
+      },
+      {
+        "eventKey": "fulfillment.cancelled",
+        "name": "Fulfillment Cancelled",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.fulfillment"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Fulfillment is cancelled according to lifecycle rules."
+      },
+      {
+        "eventKey": "fulfillment.completed",
+        "name": "Fulfillment Completed",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.fulfillment"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Fulfillment reaches completed state."
+      },
+      {
+        "eventKey": "fulfillment.created",
+        "name": "Fulfillment Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.fulfillment"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Fulfillment is created for eligible Order quantity."
+      },
+      {
+        "eventKey": "fulfillment.updated",
+        "name": "Fulfillment Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.fulfillment"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Fulfillment is materially updated within allowed lifecycle rules."
+      },
+      {
+        "eventKey": "integration.connected",
+        "name": "Integration Connected",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "integrations",
+        "producerKey": "integration-domain",
+        "subjectContracts": [
+          "integrations.integrationConnection"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "An Integration connection successfully completes required configuration/authentication validation and becomes connected."
+      },
+      {
+        "eventKey": "integration.disconnected",
+        "name": "Integration Disconnected",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "integrations",
+        "producerKey": "integration-domain",
+        "subjectContracts": [
+          "integrations.integrationConnection"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "An Integration connection is intentionally disconnected or revoked."
+      },
+      {
+        "eventKey": "integration.health-degraded",
+        "name": "Integration Health Degraded",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "integrations",
+        "producerKey": "integration-domain",
+        "subjectContracts": [
+          "integrations.integrationConnection"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Integration health crosses into a degraded/unhealthy state."
+      },
+      {
+        "eventKey": "integration.health-restored",
+        "name": "Integration Health Restored",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "integrations",
+        "producerKey": "integration-domain",
+        "subjectContracts": [
+          "integrations.integrationConnection"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A previously degraded Integration returns to healthy state."
+      },
+      {
+        "eventKey": "integration.sync-failed",
+        "name": "Integration Sync Failed",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "integrations",
+        "producerKey": "integration-domain",
+        "subjectContracts": [
+          "integrations.integrationConnection"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A synchronization run reaches terminal failure."
+      },
+      {
+        "eventKey": "integration.sync-started",
+        "name": "Integration Sync Started",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "integrations",
+        "producerKey": "integration-domain",
+        "subjectContracts": [
+          "integrations.integrationConnection"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A provider synchronization run begins."
+      },
+      {
+        "eventKey": "integration.sync-succeeded",
+        "name": "Integration Sync Succeeded",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "integrations",
+        "producerKey": "integration-domain",
+        "subjectContracts": [
+          "integrations.integrationConnection"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A synchronization run completes successfully."
+      },
+      {
+        "eventKey": "inventory.adjusted",
+        "name": "Inventory Adjusted",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-inventory",
+        "producerKey": "inventory-domain",
+        "subjectContracts": [
+          "commerce.inventoryItem",
+          "commerce.inventoryLevel"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "An explicit inventory adjustment is committed."
+      },
+      {
+        "eventKey": "inventory.back-in-stock",
+        "name": "Inventory Back in Stock",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-inventory",
+        "producerKey": "inventory-domain",
+        "subjectContracts": [
+          "commerce.inventoryItem",
+          "commerce.inventoryLevel"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Previously out-of-stock inventory becomes available again."
+      },
+      {
+        "eventKey": "inventory.committed",
+        "name": "Inventory Committed",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-inventory",
+        "producerKey": "inventory-domain",
+        "subjectContracts": [
+          "commerce.inventoryItem",
+          "commerce.inventoryLevel"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Reserved inventory is consumed by a committed transaction."
+      },
+      {
+        "eventKey": "inventory.low",
+        "name": "Inventory Low",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-inventory",
+        "producerKey": "inventory-domain",
+        "subjectContracts": [
+          "commerce.inventoryItem",
+          "commerce.inventoryLevel"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Available quantity crosses from above to at/below the configured low-stock threshold."
+      },
+      {
+        "eventKey": "inventory.out-of-stock",
+        "name": "Inventory Out of Stock",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-inventory",
+        "producerKey": "inventory-domain",
+        "subjectContracts": [
+          "commerce.inventoryItem",
+          "commerce.inventoryLevel"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Available quantity crosses to the configured out-of-stock condition."
+      },
+      {
+        "eventKey": "inventory.released",
+        "name": "Inventory Released",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-inventory",
+        "producerKey": "inventory-domain",
+        "subjectContracts": [
+          "commerce.inventoryItem",
+          "commerce.inventoryLevel"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A prior inventory reservation is released."
+      },
+      {
+        "eventKey": "inventory.reserved",
+        "name": "Inventory Reserved",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-inventory",
+        "producerKey": "inventory-domain",
+        "subjectContracts": [
+          "commerce.inventoryItem",
+          "commerce.inventoryLevel"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Available inventory is atomically reserved for an eligible workflow."
+      },
+      {
+        "eventKey": "inventory.transferred",
+        "name": "Inventory Transferred",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-inventory",
+        "producerKey": "inventory-domain",
+        "subjectContracts": [
+          "commerce.inventoryItem",
+          "commerce.inventoryLevel"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "An inventory transfer between canonical locations is committed without creating/destroying quantity."
+      },
+      {
+        "eventKey": "lead.assigned",
+        "name": "Lead Assigned",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "leads-domain",
+        "subjectContracts": [
+          "forms.lead"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Lead assignment changes to a canonical actor."
+      },
+      {
+        "eventKey": "lead.created",
+        "name": "Lead Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "leads-domain",
+        "subjectContracts": [
+          "forms.lead"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A canonical Lead record is committed from an accepted source or authorized manual creation."
+      },
+      {
+        "eventKey": "lead.merged",
+        "name": "Lead Merged",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "leads-domain",
+        "subjectContracts": [
+          "forms.lead"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Two or more duplicate Lead records are explicitly merged according to policy."
+      },
+      {
+        "eventKey": "lead.status-changed",
+        "name": "Lead Status Changed",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "leads-domain",
+        "subjectContracts": [
+          "forms.lead"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Lead status changes from one canonical Site status to another."
+      },
+      {
+        "eventKey": "lead.updated",
+        "name": "Lead Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "forms-leads",
+        "producerKey": "leads-domain",
+        "subjectContracts": [
+          "forms.lead"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Material Lead business data is committed."
+      },
+      {
+        "eventKey": "media.created",
+        "name": "Media Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "shared.mediaAsset"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A media asset record is committed."
+      },
+      {
+        "eventKey": "media.deleted",
+        "name": "Media Deleted",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "shared.mediaAsset"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A media asset record is deleted/retired according to policy."
+      },
+      {
+        "eventKey": "media.updated",
+        "name": "Media Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "shared.mediaAsset"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Media metadata is materially updated."
+      },
+      {
+        "eventKey": "navigation.updated",
+        "name": "Navigation Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "content",
+        "producerKey": "content-domain",
+        "subjectContracts": [
+          "content.navigation"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Navigation structure is materially changed."
+      },
+      {
+        "eventKey": "order.archived",
+        "name": "Order Archived",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Order becomes archived without destroying transaction history."
+      },
+      {
+        "eventKey": "order.cancelled",
+        "name": "Order Cancelled",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Order cancellation is committed after all guards pass."
+      },
+      {
+        "eventKey": "order.completed",
+        "name": "Order Completed",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Order completion guards pass and operational status becomes completed."
+      },
+      {
+        "eventKey": "order.created",
+        "name": "Order Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A canonical Order is committed from a completed Checkout or authorized order-creation workflow."
+      },
+      {
+        "eventKey": "order.fulfilled",
+        "name": "Order Fulfilled",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Fulfillment reconciliation confirms all required fulfillable quantity is fulfilled."
+      },
+      {
+        "eventKey": "order.on-hold",
+        "name": "Order On Hold",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Order operational status enters on-hold."
+      },
+      {
+        "eventKey": "order.paid",
+        "name": "Order Paid",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Payment reconciliation determines the Order payable balance is fully satisfied."
+      },
+      {
+        "eventKey": "order.partially-fulfilled",
+        "name": "Order Partially Fulfilled",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Fulfillment reconciliation confirms some but not all fulfillable quantity is fulfilled."
+      },
+      {
+        "eventKey": "order.partially-paid",
+        "name": "Order Partially Paid",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Payment reconciliation determines the Order has received a positive amount below the payable total."
+      },
+      {
+        "eventKey": "order.partially-refunded",
+        "name": "Order Partially Refunded",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Successful refunds reduce captured funds while a positive net captured amount remains."
+      },
+      {
+        "eventKey": "order.refunded",
+        "name": "Order Refunded",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Successful refunds fully reconcile the refundable captured amount according to the Order state."
+      },
+      {
+        "eventKey": "order.updated",
+        "name": "Order Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-orders",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.order"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Allowed non-historical Order metadata changes are committed."
+      },
+      {
+        "eventKey": "payment.authorized",
+        "name": "Payment Authorized",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-payments",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.paymentAuthorization"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A payment provider authorization has been validated and reconciled to a canonical authorization."
+      },
+      {
+        "eventKey": "payment.captured",
+        "name": "Payment Captured",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-payments",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.paymentCapture"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A validated capture succeeds and is recorded canonically."
+      },
+      {
+        "eventKey": "payment.created",
+        "name": "Payment Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-payments",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.payment"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A canonical Payment record is created for an Order."
+      },
+      {
+        "eventKey": "payment.failed",
+        "name": "Payment Failed",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-payments",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.payment"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Payment attempt or Payment reaches authoritative failure state."
+      },
+      {
+        "eventKey": "payment.succeeded",
+        "name": "Payment Succeeded",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-payments",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.payment"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Payment reaches successful settled/captured state according to its provider-neutral contract."
+      },
+      {
+        "eventKey": "product.archived",
+        "name": "Product Archived",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.product"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Product enters archived state."
+      },
+      {
+        "eventKey": "product.created",
+        "name": "Product Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.product"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Product is created."
+      },
+      {
+        "eventKey": "product.published",
+        "name": "Product Published",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.product"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Product becomes eligible for active storefront publication."
+      },
+      {
+        "eventKey": "product.updated",
+        "name": "Product Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.product"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Product is materially updated."
+      },
+      {
+        "eventKey": "redirect.created",
+        "name": "Redirect Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "seo",
+        "producerKey": "seo-domain",
+        "subjectContracts": [
+          "seo.redirect"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A canonical redirect is created."
+      },
+      {
+        "eventKey": "redirect.deleted",
+        "name": "Redirect Deleted",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "seo",
+        "producerKey": "seo-domain",
+        "subjectContracts": [
+          "seo.redirect"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A canonical redirect is removed."
+      },
+      {
+        "eventKey": "redirect.updated",
+        "name": "Redirect Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "seo",
+        "producerKey": "seo-domain",
+        "subjectContracts": [
+          "seo.redirect"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A canonical redirect is materially updated."
+      },
+      {
+        "eventKey": "refund.created",
+        "name": "Refund Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-payments",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.refund"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A canonical Refund request/record is created."
+      },
+      {
+        "eventKey": "refund.failed",
+        "name": "Refund Failed",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-payments",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.refund"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A refund attempt reaches authoritative failure state without applying successful financial effect."
+      },
+      {
+        "eventKey": "refund.succeeded",
+        "name": "Refund Succeeded",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-payments",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.refund"
+        ],
+        "dataPolicy": {
+          "sensitivity": "sensitive",
+          "containsPersonalData": true,
+          "containsFinancialData": true,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A refund succeeds with the provider and is reconciled canonically."
+      },
+      {
+        "eventKey": "return.approved",
+        "name": "Return Approved",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.returnRequest"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Return request is approved."
+      },
+      {
+        "eventKey": "return.cancelled",
+        "name": "Return Cancelled",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.returnRequest"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Return request is cancelled before completion."
+      },
+      {
+        "eventKey": "return.completed",
+        "name": "Return Completed",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.returnRequest"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Return resolution is completed."
+      },
+      {
+        "eventKey": "return.received",
+        "name": "Return Received",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.returnRequest"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Returned goods/services are recorded as received where applicable."
+      },
+      {
+        "eventKey": "return.rejected",
+        "name": "Return Rejected",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.returnRequest"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Return request is rejected without refund/restock side effects."
+      },
+      {
+        "eventKey": "return.requested",
+        "name": "Return Requested",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.returnRequest"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A customer or authorized operator creates a Return request."
+      },
+      {
+        "eventKey": "review.approved",
+        "name": "Product Review Approved",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-customers",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.productReview"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Product Review passes moderation and becomes approved."
+      },
+      {
+        "eventKey": "review.created",
+        "name": "Product Review Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-customers",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.productReview"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Product Review is submitted and stored for moderation."
+      },
+      {
+        "eventKey": "review.published",
+        "name": "Product Review Published",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-customers",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.productReview"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "An approved Product Review becomes publicly eligible."
+      },
+      {
+        "eventKey": "review.rejected",
+        "name": "Product Review Rejected",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-customers",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.productReview"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Product Review is rejected by moderation."
+      },
+      {
+        "eventKey": "seo.updated",
+        "name": "SEO Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "seo",
+        "producerKey": "seo-domain",
+        "subjectContracts": [
+          "seo.metadata"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "Canonical SEO metadata/configuration is materially updated."
+      },
+      {
+        "eventKey": "shipment.created",
+        "name": "Shipment Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.shipment"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Shipment record is created for a Fulfillment."
+      },
+      {
+        "eventKey": "shipment.delivered",
+        "name": "Shipment Delivered",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.shipment"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "Delivery evidence is reconciled and the Shipment reaches delivered state."
+      },
+      {
+        "eventKey": "shipment.delivery-failed",
+        "name": "Shipment Delivery Failed",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.shipment"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A delivery attempt reaches a provider-neutral failed-delivery state."
+      },
+      {
+        "eventKey": "shipment.dispatched",
+        "name": "Shipment Dispatched",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-fulfillment",
+        "producerKey": "fulfillment-domain",
+        "subjectContracts": [
+          "commerce.shipment"
+        ],
+        "dataPolicy": {
+          "sensitivity": "personal",
+          "containsPersonalData": true,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": true
+        },
+        "description": "A Shipment is handed to the carrier/dispatch workflow with required evidence."
+      },
+      {
+        "eventKey": "sitemap.updated",
+        "name": "Sitemap Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "seo",
+        "producerKey": "seo-domain",
+        "subjectContracts": [
+          "seo.sitemapEntry"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Site sitemap configuration or generated publication set materially changes."
+      },
+      {
+        "eventKey": "variant.created",
+        "name": "Product Variant Created",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.productVariant"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Product Variant is created."
+      },
+      {
+        "eventKey": "variant.updated",
+        "name": "Product Variant Updated",
+        "eventVersion": "1.0.0",
+        "contractVersion": "0.14.0",
+        "category": "commerce-catalog",
+        "producerKey": "commerce-domain",
+        "subjectContracts": [
+          "commerce.productVariant"
+        ],
+        "dataPolicy": {
+          "sensitivity": "internal",
+          "containsPersonalData": false,
+          "containsFinancialData": false,
+          "containsSecrets": false,
+          "redactionRequired": false
+        },
+        "description": "A Product Variant is materially updated."
+      }
+    ]
+  }
+};

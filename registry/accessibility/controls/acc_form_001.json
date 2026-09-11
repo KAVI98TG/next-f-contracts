@@ -1,0 +1,44 @@
+{
+  "controlId": "ACC-FORM-001",
+  "name": "Associate labels with inputs",
+  "category": "forms",
+  "requirement": "Every user-editable form control must have an explicitly associated visible or programmatic label.",
+  "rationale": "Labels provide the accessible name and persistent context for input controls.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "form",
+    "checkout",
+    "authentication"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "screen-reader-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [
+    "cmsUi.fieldBinding"
+  ],
+  "relatedBlocks": [],
+  "relatedFields": [
+    "fields.text",
+    "fields.textarea",
+    "fields.select",
+    "fields.multiSelect",
+    "fields.email",
+    "fields.phone",
+    "fields.date",
+    "fields.dateTime"
+  ],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_form_001.json"
+}

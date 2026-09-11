@@ -1,0 +1,128 @@
+{
+  "$id": "webhooks.deliverySummary",
+  "name": "Webhook Delivery Summary",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "operations",
+  "description": "Compact safe summary of a logical webhook delivery for dashboards and lists.",
+  "purpose": "Provides operational visibility without exposing retained event payloads or secrets.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "deliveryId",
+      "required": true,
+      "nullable": false,
+      "description": "Logical Delivery ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "eventKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Event key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Current delivery status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "pending",
+          "deferred",
+          "delivering",
+          "succeeded",
+          "retry-scheduled",
+          "failed",
+          "dead-lettered",
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "key": "attemptCount",
+      "required": true,
+      "nullable": false,
+      "description": "Attempts created.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Delivery creation timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "lastAttemptAt",
+      "required": false,
+      "nullable": true,
+      "description": "Last attempt timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "nextRetryAt",
+      "required": false,
+      "nullable": true,
+      "description": "Next scheduled retry.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "lastFailureCode",
+      "required": false,
+      "nullable": true,
+      "description": "Safe failure code.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "webhooks.delivery",
+      "description": "References webhooks.delivery."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noPayload",
+      "description": "Summary never embeds the canonical event payload."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Summary never exposes authentication/signature material."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Delivery Summary",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "deliveryId",
+      "eventKey",
+      "status",
+      "attemptCount"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

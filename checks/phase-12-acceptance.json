@@ -1,0 +1,222 @@
+{
+  "phase": 12,
+  "version": "0.13.0",
+  "status": "passed",
+  "checks": [
+    {
+      "id": "P12-001",
+      "name": "Commerce Rules Standard created",
+      "passed": true
+    },
+    {
+      "id": "P12-002",
+      "name": "139 canonical Commerce Rules created",
+      "passed": true
+    },
+    {
+      "id": "P12-003",
+      "name": "14 controlled rule categories created",
+      "passed": true
+    },
+    {
+      "id": "P12-004",
+      "name": "Rule IDs use canonical commerce.rule.* naming",
+      "passed": true
+    },
+    {
+      "id": "P12-005",
+      "name": "All rules are server-authoritative",
+      "passed": true
+    },
+    {
+      "id": "P12-006",
+      "name": "No rule treats client validation as authority",
+      "passed": true
+    },
+    {
+      "id": "P12-007",
+      "name": "Rule severity metadata defined",
+      "passed": true
+    },
+    {
+      "id": "P12-008",
+      "name": "Fixed versus configurable policy metadata defined",
+      "passed": true
+    },
+    {
+      "id": "P12-009",
+      "name": "Atomicity metadata defined",
+      "passed": true
+    },
+    {
+      "id": "P12-010",
+      "name": "Audit requirements defined",
+      "passed": true
+    },
+    {
+      "id": "P12-011",
+      "name": "Rule requirements are machine-readable",
+      "passed": true
+    },
+    {
+      "id": "P12-012",
+      "name": "Rule failures use registered Commerce domain errors",
+      "passed": true
+    },
+    {
+      "id": "P12-013",
+      "name": "Rule applicability references canonical contracts",
+      "passed": true
+    },
+    {
+      "id": "P12-014",
+      "name": "Transaction snapshot invariants defined",
+      "passed": true
+    },
+    {
+      "id": "P12-015",
+      "name": "Cart and Checkout commit rules defined",
+      "passed": true
+    },
+    {
+      "id": "P12-016",
+      "name": "Order reconciliation and transition rules defined",
+      "passed": true
+    },
+    {
+      "id": "P12-017",
+      "name": "Payment authorization/capture invariants defined",
+      "passed": true
+    },
+    {
+      "id": "P12-018",
+      "name": "Refund bounds and reconciliation defined",
+      "passed": true
+    },
+    {
+      "id": "P12-019",
+      "name": "Inventory reservation/adjustment/transfer rules defined",
+      "passed": true
+    },
+    {
+      "id": "P12-020",
+      "name": "Fulfillment and shipment rules defined",
+      "passed": true
+    },
+    {
+      "id": "P12-021",
+      "name": "Promotion eligibility/usage/stacking rules defined",
+      "passed": true
+    },
+    {
+      "id": "P12-022",
+      "name": "Tax basis/rate/rounding rules defined",
+      "passed": true
+    },
+    {
+      "id": "P12-023",
+      "name": "Return, Refund and Restock separation defined",
+      "passed": true
+    },
+    {
+      "id": "P12-024",
+      "name": "Catalog and Commerce Customer integrity rules defined",
+      "passed": true
+    },
+    {
+      "id": "P12-025",
+      "name": "Idempotency and concurrency rules defined",
+      "passed": true
+    },
+    {
+      "id": "P12-026",
+      "name": "Commerce security and audit rules defined",
+      "passed": true
+    },
+    {
+      "id": "P12-027",
+      "name": "Specialized capability gates defined",
+      "passed": true
+    },
+    {
+      "id": "P12-028",
+      "name": "16 canonical state machines defined",
+      "passed": true
+    },
+    {
+      "id": "P12-029",
+      "name": "State machines match Phase 11 enum values",
+      "passed": true
+    },
+    {
+      "id": "P12-030",
+      "name": "20 domain command policies defined",
+      "passed": true
+    },
+    {
+      "id": "P12-031",
+      "name": "30 Commerce domain error identifiers defined",
+      "passed": true
+    },
+    {
+      "id": "P12-032",
+      "name": "HTTP mappings explicitly reserved for Phase 18",
+      "passed": true
+    },
+    {
+      "id": "P12-033",
+      "name": "Events/Webhooks/Permissions remain reserved for future phases",
+      "passed": true
+    },
+    {
+      "id": "P12-034",
+      "name": "Commerce Rules globally indexed",
+      "passed": true
+    },
+    {
+      "id": "P12-035",
+      "name": "business-rule registry type added",
+      "passed": true
+    },
+    {
+      "id": "P12-036",
+      "name": "governs relationship vocabulary added",
+      "passed": true
+    },
+    {
+      "id": "P12-037",
+      "name": "Generated local fallback checksum-protected",
+      "passed": true
+    },
+    {
+      "id": "P12-038",
+      "name": "Commerce Rules portal explorer available",
+      "passed": true
+    },
+    {
+      "id": "P12-039",
+      "name": "Light-only paper SaaS design preserved",
+      "passed": true
+    },
+    {
+      "id": "P12-040",
+      "name": "Phase 11 Commerce Core versions preserved",
+      "passed": true
+    },
+    {
+      "id": "P12-041",
+      "name": "Legacy Commerce sync made phase-safe for V0.12.0 metadata",
+      "passed": true
+    },
+    {
+      "id": "P12-042",
+      "name": "Phase 12 validation passes",
+      "passed": true
+    },
+    {
+      "id": "P12-043",
+      "name": "Phase 12 repository smoke test passes",
+      "passed": true
+    }
+  ]
+}

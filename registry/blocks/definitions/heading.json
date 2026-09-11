@@ -1,0 +1,168 @@
+{
+  "$id": "blocks.heading",
+  "name": "Section Heading",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "foundation",
+  "description": "Reusable heading group for section-level blocks.",
+  "purpose": "Keeps eyebrow, heading and description semantics consistent without forcing visual layout.",
+  "blockModel": {
+    "kind": "embedded",
+    "placement": "nested-only",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "eyebrow",
+      "required": false,
+      "nullable": true,
+      "description": "Optional short contextual label above the heading.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "heading",
+      "required": true,
+      "nullable": false,
+      "description": "Primary section heading.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 220,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional supporting description.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 2000,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "semanticLevel",
+      "required": true,
+      "nullable": false,
+      "description": "Developer-controlled semantic heading level.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "h1",
+            "label": "H1"
+          },
+          {
+            "value": "h2",
+            "label": "H2"
+          },
+          {
+            "value": "h3",
+            "label": "H3"
+          },
+          {
+            "value": "h4",
+            "label": "H4"
+          }
+        ],
+        "defaultValue": "h2",
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "Uses canonical text primitives."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "semanticLevelControlled",
+      "description": "semanticLevel is controlled by NEXT F/developer configuration so customer edits cannot break heading hierarchy."
+    }
+  ],
+  "cms": {
+    "label": "Section Heading",
+    "icon": "fa-heading",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "embedded-item-editor",
+    "summaryFields": [
+      "eyebrow",
+      "heading",
+      "description"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": false,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Rendered heading level must match semanticLevel.",
+      "Do not use visual size as a substitute for semantic heading order."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "heading": "Engineering solutions",
+        "semanticLevel": "h2"
+      }
+    ],
+    "invalid": [
+      {
+        "heading": "",
+        "semanticLevel": "h9"
+      }
+    ]
+  },
+  "notes": []
+}

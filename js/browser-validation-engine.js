@@ -1,0 +1,2 @@
+import {parseAndValidateManifest} from './manifest-validation-core.js';
+export async function loadBrowserValidation(){let data,source='authoritative-json';try{const r=await fetch('./registry/validation/index.json',{cache:'no-store'});if(!r.ok)throw new Error(String(r.status));data=await r.json()}catch{const m=await import('./generated-validation.js');data=m.GENERATED_VALIDATION;source='generated-local-fallback'}return {data,source,validateText:text=>parseAndValidateManifest(text,data),samples:data.samples??[]};}

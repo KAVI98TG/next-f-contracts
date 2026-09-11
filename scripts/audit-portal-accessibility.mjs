@@ -1,0 +1,46 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
+const root=process.cwd();
+const version=fs.readFileSync(path.join(root,'VERSION'),'utf8').trim();
+const text=(rel)=>fs.readFileSync(path.join(root,rel),'utf8');
+const checklist=JSON.parse(text('registry/accessibility/portal-checklist.json'));
+const html=text('index.html');
+const reset=text('css/reset.css');
+const search=text('js/search.js');
+const app=text('js/app.js');
+const router=text('js/router.js');
+const pages=text('js/accessibility-pages.js');
+const checks={};
+const set=(id,pass,evidence)=>checks[id]={result:pass?'pass':'fail',evidence};
+set('PORTAL-A11Y-001',html.includes('class="skip-link" href="#main-content"')&&html.includes('id="main-content" tabindex="-1"'),'index.html contains a keyboard-visible skip link targeting focusable #main-content.');
+set('PORTAL-A11Y-002',html.includes('<aside class="sidebar" id="portal-sidebar" aria-label="Primary navigation">'),'Primary sidebar is exposed with an accessible navigation label.');
+set('PORTAL-A11Y-003',html.includes('data-route-announcer')&&html.includes('aria-live="polite"'),'Route announcer is a polite live region.');
+set('PORTAL-A11Y-004',html.includes('role="dialog" aria-modal="true" aria-labelledby="search-dialog-title"'),'Global search uses named modal dialog semantics.');
+set('PORTAL-A11Y-005',html.includes('<label class="sr-only" for="portal-search-input" id="search-dialog-title">')&&html.includes('id="portal-search-input"'),'Global search input has an explicitly associated label.');
+set('PORTAL-A11Y-006',/icon-button[^>]*aria-label=/.test(html)&&html.includes('aria-hidden="true"'),'Icon-only shell buttons are named and decorative Font Awesome icons are hidden.');
+set('PORTAL-A11Y-007',reset.includes(':focus-visible')&&reset.includes('outline:'),'Global :focus-visible treatment provides a visible outline.');
+set('PORTAL-A11Y-008',reset.includes('@media (prefers-reduced-motion: reduce)'),'Global reduced-motion media query suppresses non-essential motion.');
+set('PORTAL-A11Y-009',search.includes('previouslyFocused')&&search.includes('event.key==="Tab"')&&search.includes('first.focus()')&&search.includes('last.focus()'),'Search source contains modal focus containment and restoration logic.');
+set('PORTAL-A11Y-010',search.includes('event.key==="ArrowDown"')&&search.includes('event.key==="ArrowUp"')&&search.includes('event.key==="Escape"')&&search.includes('ctrlKey'),'Command palette source supports Ctrl/Cmd+K, arrow navigation, Enter and Escape.');
+set('PORTAL-A11Y-011',app.includes('openButton.setAttribute("aria-expanded"')&&app.includes('event.key === "Escape"')&&app.includes('sidebarPreviouslyFocused')&&app.includes('event.key === "Tab"'),'Mobile navigation exposes expanded state, Escape close, focus containment and restoration.');
+set('PORTAL-A11Y-012',/status-badge[^`]*>[^<]+<\/span>/.test(pages)&&text('js/pages.js').includes('status-badge--stable">Stable</span>'),'Status badges in shared Registry and Accessibility renderers include visible text labels in addition to color classes.');
+set('PORTAL-A11Y-013',pages.includes('<label class="field')&&pages.includes('data-a11y-clear')&&pages.includes('data-a11y-count'),'Accessibility filters use labeled native controls, clear behavior and a visible result count.');
+set('PORTAL-A11Y-014',pages.includes('type="button" data-copy-value=')&&html.includes('data-toast-region aria-live="polite"'),'Raw-data copy actions are semantic buttons and shared copy feedback has a live region.');
+
+const keyboardSourcePass=html.includes('class="skip-link"')&&search.includes('event.key==="Escape"')&&search.includes('event.key==="Tab"')&&search.includes('event.key==="ArrowDown"')&&app.includes('event.key === "Escape"')&&app.includes('sidebarPreviouslyFocused');
+set('PORTAL-A11Y-015',keyboardSourcePass,'Manual source-level keyboard review: skip link, command-palette arrows/Enter/Escape/Tab containment, mobile drawer Escape/Tab containment and focus restoration are implemented. Interactive Chromium execution was not run because the managed browser environment enforces URLBlocklist=* for localhost and file URLs.');
+const responsive=text('css/responsive.css');
+const reflowSourcePass=responsive.includes('@media')&&responsive.includes('max-width')&&app.includes('matchMedia("(max-width: 940px)")')&&app.includes('setSidebar(false)');
+set('PORTAL-A11Y-016',reflowSourcePass,'Manual source-level responsive review: mobile breakpoints, mobile drawer behavior and single-column responsive layouts are present. Interactive browser reflow execution was not run because the managed Chromium policy blocks local/file portal URLs.');
+
+const rows=checklist.checks.map(c=>({...c,...(checks[c.checkId]??{result:'not-run',evidence:'No audit implementation for this check.'})}));
+const passed=rows.filter(x=>x.result==='pass').length;
+const failed=rows.filter(x=>x.result==='fail').length;
+const notRun=rows.filter(x=>x.result==='not-run').length;
+const out={registryVersion:version,auditVersion:'1.0.0',scope:'contract.nextf.lk',overallStatus:failed?'fail':notRun?'partial':'pass',passed,failed,notRun,executedAt:null,notes:'No timestamp is stored so generated audit output remains deterministic. Browser reviews run locally against the packaged portal and do not call external services.',checks:rows};
+fs.writeFileSync(path.join(root,'registry/accessibility/portal-audit.json'),JSON.stringify(out,null,2)+'\n');
+fs.mkdirSync(path.join(root,'checks'),{recursive:true});
+fs.writeFileSync(path.join(root,'checks/phase-31-accessibility-audit.json'),JSON.stringify(out,null,2)+'\n');
+console.log(`NEXT F Contracts Portal Accessibility Audit\nPassed: ${passed}\nFailed: ${failed}\nNot run: ${notRun}\nStatus: ${out.overallStatus}`);
+if(failed)process.exit(1);

@@ -1,0 +1,8 @@
+{
+  "$id": "performance.performanceMetric",
+  "name": "Performance Metric",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "performance",
+  "description": "Controlled measurable metric used by a Performance Budget."
+}

@@ -1,0 +1,6 @@
+
+NEXT F Phase 13 repository smoke test
+Passes: 42
+Failures: 0
+
+PASS - repository and Event Registry portal wiring smoke test.

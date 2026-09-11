@@ -1,0 +1,113 @@
+{
+  "$id": "compatibility.supportWindow",
+  "name": "Compatibility Support Window",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Explicit dated support window; never inferred from SemVer.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "releaseOrRange",
+      "required": true,
+      "nullable": false,
+      "description": "Release/range covered.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "supportLevel",
+      "required": true,
+      "nullable": false,
+      "description": "Declared support level.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "startsAt",
+      "required": true,
+      "nullable": false,
+      "description": "Window start.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "endsAt",
+      "required": false,
+      "nullable": true,
+      "description": "Window end when finite.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "securityFixes",
+      "required": true,
+      "nullable": false,
+      "description": "Whether security fixes are included.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "compatibilityFixes",
+      "required": true,
+      "nullable": false,
+      "description": "Whether compatibility fixes are included.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "newSiteAdoption",
+      "required": true,
+      "nullable": false,
+      "description": "Whether new Sites may adopt this version.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "notes",
+      "required": false,
+      "nullable": true,
+      "description": "Support policy notes.",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "releaseOrRange uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "supportLevel uses fields.select."
+    },
+    {
+      "type": "uses",
+      "target": "fields.dateTime",
+      "description": "startsAt uses fields.dateTime."
+    },
+    {
+      "type": "uses",
+      "target": "fields.boolean",
+      "description": "securityFixes uses fields.boolean."
+    },
+    {
+      "type": "uses",
+      "target": "fields.textarea",
+      "description": "notes uses fields.textarea."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

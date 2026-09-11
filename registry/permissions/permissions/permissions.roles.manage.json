@@ -1,0 +1,29 @@
+{
+  "$id": "permissions.roles.manage",
+  "name": "Manage Roles",
+  "permissionId": "permissions.roles.manage",
+  "domain": "permissions",
+  "resource": "roles",
+  "action": "manage",
+  "scopeKind": "organization",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage Roles within the authorized organization scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

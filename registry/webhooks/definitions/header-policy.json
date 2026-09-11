@@ -1,0 +1,88 @@
+{
+  "$id": "webhooks.headerPolicy",
+  "name": "Webhook Header Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "payload",
+  "description": "Required and reserved HTTP header contract for webhook requests.",
+  "purpose": "Ensures receivers can authenticate, identify and diagnose deliveries consistently.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "requiredHeaders",
+      "required": true,
+      "nullable": false,
+      "description": "Protocol-required header names and sources.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "reservedHeaders",
+      "required": true,
+      "nullable": false,
+      "description": "Headers customers cannot override.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "allowCustomHeaders",
+      "required": true,
+      "nullable": false,
+      "description": "Whether controlled custom headers are supported.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "webhooks.requestHeader",
+      "description": "References webhooks.requestHeader."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "requiredProtocolHeaders",
+      "description": "All protocol headers defined in registry/webhooks/headers.json must be sent."
+    },
+    {
+      "id": "reservedProtected",
+      "description": "Custom configuration cannot override reserved headers."
+    },
+    {
+      "id": "signatureSensitive",
+      "description": "NextF-Webhook-Signature is always redacted in diagnostics."
+    },
+    {
+      "id": "noHopByHopOverrides",
+      "description": "Hop-by-hop/proxy/cookie headers cannot be customer-defined."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Header Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "requiredHeaders",
+      "reservedHeaders",
+      "allowCustomHeaders"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

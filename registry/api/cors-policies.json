@@ -1,0 +1,30 @@
+{
+  "registryVersion": "0.19.0",
+  "policies": [
+    {
+      "id": "public-read",
+      "label": "Public Read Origins",
+      "description": "GET/HEAD public content may be exposed according to configured Site origin policy."
+    },
+    {
+      "id": "site-origin",
+      "label": "Site Origin",
+      "description": "Browser requests restricted to configured Site origins; CORS is not authorization."
+    },
+    {
+      "id": "customer-portal",
+      "label": "Customer Portal",
+      "description": "Customer CMS origins only, with authenticated session/CSRF protections."
+    },
+    {
+      "id": "admin-portal",
+      "label": "NEXT F Admin Portal",
+      "description": "NEXT F Admin origins only."
+    },
+    {
+      "id": "server-only",
+      "label": "Server Only",
+      "description": "Browser CORS access is prohibited."
+    }
+  ]
+}

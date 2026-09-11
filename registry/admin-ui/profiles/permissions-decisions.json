@@ -1,0 +1,79 @@
+{
+  "$id": "adminUi.profile.permissions.decisions",
+  "name": "Decisions Admin",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-profile",
+  "profileType": "resource",
+  "resource": "permissions.decisions",
+  "permissionDomain": "permissions",
+  "moduleId": "core",
+  "description": "Internal NEXT F Admin metadata for Decisions. Applies only within server-authorized administrative scope.",
+  "route": "/sites/:siteId/access/decisions",
+  "screenKind": "admin-operations",
+  "layoutTemplate": "access-manager",
+  "internalOnly": true,
+  "customerVisible": false,
+  "context": {
+    "kind": "organization",
+    "requiresOrganization": true,
+    "requiresSite": false,
+    "allowsCrossTenant": false,
+    "directUrlScopeGuard": "server-required"
+  },
+  "baseCustomerProfileId": null,
+  "inheritanceMode": "none",
+  "targetContracts": [],
+  "primaryTargetContract": null,
+  "permissions": [
+    "permissions.decisions.export",
+    "permissions.decisions.view"
+  ],
+  "actions": [
+    {
+      "actionId": "export",
+      "permissionId": "permissions.decisions.export",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "organization"
+    },
+    {
+      "actionId": "view",
+      "permissionId": "permissions.decisions.view",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "scopeKind": "organization"
+    }
+  ],
+  "panels": [
+    "scope-context",
+    "audit",
+    "permissions"
+  ],
+  "controls": [
+    "risk-badge",
+    "recent-auth-gate"
+  ],
+  "security": {
+    "serverAuthorizationRequired": true,
+    "directUrlReauthorization": true,
+    "secretValuesNeverRendered": true,
+    "crossTenantRequiresPlatformScope": true,
+    "customerIdentityImpersonation": false,
+    "adminCanBypassCanonicalBusinessRules": false
+  },
+  "audit": {
+    "requiredForMutations": true,
+    "requestIdVisibleWhenAvailable": true,
+    "redactSecrets": true
+  },
+  "dataPolicy": {
+    "internalOnlyMetadata": true,
+    "customerHidden": true,
+    "minimumNecessaryDisplay": true
+  },
+  "notes": []
+}

@@ -1,0 +1,31 @@
+{
+  "$id": "modules.capability.seo.indexing",
+  "capabilityId": "seo.indexing",
+  "name": "Indexing",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "seo",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Indexing capability within the SEO module.",
+  "contractBindings": [
+    "seo.indexingStatus"
+  ],
+  "permissionBindings": [
+    "seo.indexing.manage",
+    "seo.indexing.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

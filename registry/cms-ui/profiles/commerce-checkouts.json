@@ -1,0 +1,100 @@
+{
+  "$id": "cmsUi.profile.commerce.checkouts",
+  "name": "Checkouts",
+  "version": "0.20.0",
+  "status": "stable",
+  "domain": "cms-ui",
+  "profileType": "resource",
+  "resource": "commerce.checkouts",
+  "moduleId": "commerce",
+  "description": "Customer CMS presentation metadata for Checkouts within authorized Site scope.",
+  "targetContracts": [
+    "commerce.checkout"
+  ],
+  "primaryTargetContract": "commerce.checkout",
+  "route": "/commerce/checkouts",
+  "screenKind": "operations",
+  "layoutTemplate": "commerce-operations",
+  "responsivePolicy": "operational",
+  "fieldBindings": [],
+  "relatedPanels": [],
+  "list": {
+    "enabled": true,
+    "columns": [],
+    "search": true,
+    "filters": [],
+    "bulkActions": "permission-and-rule-bound",
+    "sorts": [],
+    "searchFields": []
+  },
+  "actions": [
+    {
+      "actionId": "manage",
+      "permissionId": "commerce.checkouts.manage",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    },
+    {
+      "actionId": "view",
+      "permissionId": "commerce.checkouts.view",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "permissions": [
+    "commerce.checkouts.manage",
+    "commerce.checkouts.view"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "validation-error",
+    "authorization-denied",
+    "not-found",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "unsavedChanges": {
+    "track": false,
+    "warnOnLeave": false,
+    "autosave": "draft-only-when-supported",
+    "neverAutoExecute": [
+      "publish",
+      "approve",
+      "delete",
+      "refund",
+      "fulfill",
+      "disconnect",
+      "rotate-secret"
+    ]
+  },
+  "accessibility": {
+    "labelsRequired": true,
+    "keyboardComplete": true,
+    "nonColorStatus": true,
+    "dragAlternativeRequired": false
+  },
+  "notes": [],
+  "views": [
+    {
+      "id": "index",
+      "kind": "list",
+      "route": "/commerce/checkouts",
+      "layoutTemplate": "data-list",
+      "requiresPermission": "commerce.checkouts.view",
+      "purpose": "Browse, search, filter and open authorized resources."
+    },
+    {
+      "id": "record",
+      "kind": "operations",
+      "route": "/commerce/checkouts/:id",
+      "layoutTemplate": "commerce-operations",
+      "requiresPermission": "commerce.checkouts.manage",
+      "purpose": "Inspect and, where authorized, operate or edit one resource."
+    }
+  ]
+}

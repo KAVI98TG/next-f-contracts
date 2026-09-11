@@ -1,0 +1,45 @@
+{
+  "registryVersion": "0.11.0",
+  "categories": [
+    {
+      "key": "foundation",
+      "label": "Foundation",
+      "description": "Provider, connector, connection and capability contracts."
+    },
+    {
+      "key": "authentication",
+      "label": "Authentication",
+      "description": "Secret references, credentials, OAuth and API key contracts."
+    },
+    {
+      "key": "configuration",
+      "label": "Configuration",
+      "description": "Typed settings, accounts, resources and environment bindings."
+    },
+    {
+      "key": "mapping",
+      "label": "Mapping",
+      "description": "Events, conversions, data and provider action mappings."
+    },
+    {
+      "key": "runtime",
+      "label": "Runtime",
+      "description": "Client/server execution and data-policy boundaries."
+    },
+    {
+      "key": "sync",
+      "label": "Synchronization",
+      "description": "Controlled pull/push synchronization state and results."
+    },
+    {
+      "key": "health",
+      "label": "Health",
+      "description": "Connection checks, health snapshots and safe diagnostics."
+    },
+    {
+      "key": "resilience",
+      "label": "Resilience",
+      "description": "Rate-limit and retry behavior."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+NEXT F Contracts Phase 23 smoke
+Passes: 78
+Failures: 0
+Search batch: 408ms
+PASS - Global Search portal/runtime smoke test complete.

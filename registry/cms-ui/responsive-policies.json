@@ -1,0 +1,37 @@
+{
+  "registryVersion": "0.20.0",
+  "policies": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "sidebar": "stack-below-main",
+      "table": "responsive-cards",
+      "stickyActions": "bottom-safe-area",
+      "dragAlternative": "required"
+    },
+    {
+      "id": "editorial",
+      "label": "Editorial",
+      "sidebar": "accordion-below-editor",
+      "table": "responsive-cards",
+      "stickyActions": "bottom-safe-area",
+      "dragAlternative": "required"
+    },
+    {
+      "id": "operational",
+      "label": "Operational",
+      "sidebar": "stack-below-main",
+      "table": "priority-columns-plus-cards",
+      "stickyActions": "contextual",
+      "dragAlternative": "required"
+    },
+    {
+      "id": "builder",
+      "label": "Builder",
+      "sidebar": "drawer-or-stack",
+      "table": "responsive-cards",
+      "stickyActions": "bottom-safe-area",
+      "dragAlternative": "required"
+    }
+  ]
+}

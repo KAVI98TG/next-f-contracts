@@ -1,0 +1,173 @@
+{
+  "$id": "webhooks.deliveryAttempt",
+  "name": "Webhook Delivery Attempt",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "delivery",
+  "description": "One concrete HTTP attempt belonging to a logical webhook Delivery.",
+  "purpose": "Preserves per-attempt timing, request outcome and retry history without changing the Event.",
+  "webhookModel": {
+    "kind": "entity",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "attemptId",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque Attempt ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "deliveryId",
+      "required": true,
+      "nullable": false,
+      "description": "Parent logical Delivery.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "attemptNumber",
+      "required": true,
+      "nullable": false,
+      "description": "One-based attempt sequence.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "kind",
+      "required": true,
+      "nullable": false,
+      "description": "Attempt origin.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "initial",
+          "automatic-retry",
+          "manual-redelivery"
+        ]
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Attempt status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "pending",
+          "in-flight",
+          "succeeded",
+          "failed",
+          "timed-out",
+          "rejected"
+        ]
+      }
+    },
+    {
+      "key": "request",
+      "required": true,
+      "nullable": false,
+      "description": "Sanitized request metadata.",
+      "schema": "webhooks.deliveryRequest"
+    },
+    {
+      "key": "response",
+      "required": false,
+      "nullable": true,
+      "description": "Optional sanitized response metadata.",
+      "schema": "webhooks.deliveryResponse"
+    },
+    {
+      "key": "failure",
+      "required": false,
+      "nullable": true,
+      "description": "Optional failure classification.",
+      "schema": "webhooks.deliveryFailure"
+    },
+    {
+      "key": "startedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Attempt start time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "completedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Attempt completion time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "nextRetryAt",
+      "required": false,
+      "nullable": true,
+      "description": "Scheduled retry time when applicable.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "webhooks.delivery",
+      "description": "References webhooks.delivery."
+    },
+    {
+      "type": "composes",
+      "target": "webhooks.deliveryRequest",
+      "description": "References webhooks.deliveryRequest."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "webhooks.deliveryResponse",
+      "description": "References webhooks.deliveryResponse."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "webhooks.deliveryFailure",
+      "description": "References webhooks.deliveryFailure."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "sequentialNumber",
+      "description": "attemptNumber increases monotonically within one logical Delivery."
+    },
+    {
+      "id": "maxAttempts",
+      "description": "Automatic attempt creation respects the active retry policy."
+    },
+    {
+      "id": "noSecretDiagnostics",
+      "description": "Stored attempt records contain only redacted/safe request and response metadata."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Delivery Attempt",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "attemptId",
+      "deliveryId",
+      "attemptNumber",
+      "kind"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

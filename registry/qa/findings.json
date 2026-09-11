@@ -1,0 +1,43 @@
+{
+  "registryVersion": "0.37.0",
+  "phase": 36,
+  "count": 3,
+  "findings": [
+    {
+      "checkId": "QA-A11Y-002",
+      "result": "DEFERRED",
+      "severity": "low",
+      "description": "Live browser keyboard/screen-reader acceptance remains a manual Phase 36 review requirement",
+      "evidence": [
+        "Managed browser automation is environment-dependent; do not fabricate execution."
+      ],
+      "affectedDefinitions": [],
+      "remediationStatus": "manual-review"
+    },
+    {
+      "checkId": "QA-PERF-001",
+      "result": "WARNING",
+      "severity": "medium",
+      "description": "Phase 32 performance audit has no hard failures",
+      "evidence": [
+        "registry/performance/portal-audit.json",
+        "Audit status: warning",
+        "Budget warnings: 2",
+        "Budget failures: 0"
+      ],
+      "affectedDefinitions": [],
+      "remediationStatus": "monitor"
+    },
+    {
+      "checkId": "QA-PERF-002",
+      "result": "NOT_APPLICABLE",
+      "severity": "info",
+      "description": "Real-user performance telemetry is outside Registry QA and remains runtime evidence",
+      "evidence": [
+        "Registry QA validates repository budgets, not deployed RUM/Core Web Vitals."
+      ],
+      "affectedDefinitions": [],
+      "remediationStatus": "not-applicable"
+    }
+  ]
+}

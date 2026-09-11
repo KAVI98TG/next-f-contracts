@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.media.images",
+  "capabilityId": "media.images",
+  "name": "Image Assets",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "media",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Image Assets capability within the Media module.",
+  "contractBindings": [
+    "shared.mediaAsset",
+    "shared.mediaReference"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

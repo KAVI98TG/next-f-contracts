@@ -1,0 +1,73 @@
+{
+  "$id": "api.nextf-admin.update-organization",
+  "operationId": "api.nextf-admin.update-organization",
+  "name": "Update Organization",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.nextf-admin",
+  "method": "PATCH",
+  "path": "/organizations/{organizationId}",
+  "description": "Update Organization",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "platform.organizations.edit"
+    ],
+    "permissionMode": "all",
+    "scope": "platform"
+  },
+  "request": {
+    "pathParameters": [
+      "organizationId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "If-Match"
+    ],
+    "bodyContract": "core.organization",
+    "bodyProjection": "operation-writable-fields-only"
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "core.organization",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "module_disabled",
+      "not_found"
+    ],
+    "projection": "admin-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": true,
+      "requestHeader": "If-Match",
+      "responseHeader": "ETag"
+    },
+    "cache": "no-store",
+    "rateLimit": "sensitive-write",
+    "cors": "admin-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "integrations"
+  ],
+  "contractBindings": [
+    "core.organization"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "internal",
+  "notes": []
+}

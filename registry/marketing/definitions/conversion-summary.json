@@ -1,0 +1,171 @@
+{
+  "$id": "marketing.conversionSummary",
+  "name": "Conversion Summary",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "reporting",
+  "description": "Aggregate conversion metrics for a fixed period.",
+  "purpose": "Standardizes CMS dashboard conversion counts/values independently from provider reporting screens.",
+  "marketingModel": {
+    "kind": "snapshot",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "summaryId",
+      "required": true,
+      "nullable": false,
+      "description": "Unique summary ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "conversionKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical conversion key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "periodStart",
+      "required": true,
+      "nullable": false,
+      "description": "Period start.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "periodEnd",
+      "required": true,
+      "nullable": false,
+      "description": "Period end.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "occurrenceCount",
+      "required": true,
+      "nullable": false,
+      "description": "Deduplicated conversion count.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "totalValue",
+      "required": false,
+      "nullable": true,
+      "description": "Optional total value.",
+      "primitive": "fields.currency"
+    },
+    {
+      "key": "conversionRate",
+      "required": false,
+      "nullable": true,
+      "description": "Optional rate with valid denominator.",
+      "primitive": "fields.percentage"
+    },
+    {
+      "key": "generatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Generation timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "attributionModelKey",
+      "required": false,
+      "nullable": true,
+      "description": "Attribution model key if relevant.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "references",
+      "target": "marketing.conversionDefinition",
+      "description": "conversionKey resolves to definition."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.attributionModel",
+      "description": "May record attribution model."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "deduplicatedCount",
+      "description": "Count calculated after deduplication."
+    },
+    {
+      "id": "rateDenominatorDefined",
+      "description": "Rate never displayed without valid denominator."
+    },
+    {
+      "id": "periodOrder",
+      "description": "periodEnd after periodStart."
+    },
+    {
+      "id": "summaryDerived",
+      "description": "Summary is derived, not directly edited."
+    }
+  ],
+  "cms": {
+    "label": "Conversion Summary",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "summaryId",
+      "scope",
+      "conversionKey",
+      "periodStart"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

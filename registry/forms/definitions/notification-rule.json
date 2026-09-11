@@ -1,0 +1,180 @@
+{
+  "$id": "forms.notificationRule",
+  "name": "Form Notification Rule",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "automation",
+  "description": "Defines an operational notification after a server-classified submission outcome.",
+  "purpose": "Lets customer teams receive submission notifications without embedding mail-provider implementation details in forms.",
+  "formsModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque notification rule ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "formId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Form.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.form",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the rule is active.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "outcome",
+      "required": true,
+      "nullable": false,
+      "description": "Submission outcome that triggers this rule.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "accepted",
+            "label": "Accepted"
+          },
+          {
+            "value": "suspectedSpam",
+            "label": "Suspected spam"
+          },
+          {
+            "value": "rejected",
+            "label": "Rejected"
+          }
+        ]
+      }
+    },
+    {
+      "key": "recipients",
+      "required": true,
+      "nullable": false,
+      "description": "Resolved recipients.",
+      "itemsSchema": "forms.notificationRecipient",
+      "config": {
+        "minItems": 1,
+        "maxItems": 20
+      }
+    },
+    {
+      "key": "subjectTemplate",
+      "required": true,
+      "nullable": false,
+      "description": "Allowlisted-variable subject template.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 300
+      }
+    },
+    {
+      "key": "bodyTemplate",
+      "required": true,
+      "nullable": false,
+      "description": "Notification body template using allowlisted placeholders only.",
+      "primitive": "fields.richText"
+    },
+    {
+      "key": "includeFieldKeys",
+      "required": false,
+      "nullable": false,
+      "description": "Explicit submission fields allowed in the message.",
+      "itemsPrimitive": "fields.text"
+    },
+    {
+      "key": "includeSensitiveFields",
+      "required": true,
+      "nullable": false,
+      "description": "Whether fields marked sensitive may be included; default false and requires elevated authorization later.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "forms.form",
+      "description": "Notification belongs to one Form."
+    },
+    {
+      "type": "contains",
+      "target": "forms.notificationRecipient",
+      "description": "Notification resolves configured recipients."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "templateAllowlist",
+      "description": "Templates may interpolate only registered placeholders; arbitrary code/expression execution is prohibited."
+    },
+    {
+      "id": "sensitiveDefaultExcluded",
+      "description": "Sensitive form values are excluded from notifications by default."
+    },
+    {
+      "id": "providerDecoupled",
+      "description": "Email/provider credentials and delivery mechanics belong to Integration/API implementation contracts."
+    },
+    {
+      "id": "recipientLimit",
+      "description": "A notification rule must enforce recipient-count limits."
+    }
+  ],
+  "cms": {
+    "label": "Form Notification Rule",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "id",
+      "formId",
+      "enabled",
+      "outcome"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,86 @@
+{
+  "$id": "api.commerce.list-orders",
+  "operationId": "api.commerce.list-orders",
+  "name": "List Managed Orders",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.commerce",
+  "method": "GET",
+  "path": "/management/orders",
+  "description": "List Managed Orders",
+  "authentication": {
+    "mode": "organization-user",
+    "permissions": [
+      "commerce.orders.view"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [
+      {
+        "name": "cursor",
+        "contract": "api.paginationRequest"
+      },
+      {
+        "name": "limit",
+        "contract": "api.paginationRequest"
+      },
+      {
+        "name": "locale",
+        "contract": "api.localeContext"
+      }
+    ],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "commerce.order",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "media",
+    "commerce"
+  ],
+  "contractBindings": [
+    "commerce.order"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "personal",
+  "notes": []
+}

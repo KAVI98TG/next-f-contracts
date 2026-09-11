@@ -1,0 +1,258 @@
+{
+  "$id": "seo.brokenLink",
+  "name": "Broken Link Record",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "links",
+  "description": "Operational record for a link that fails or resolves undesirably.",
+  "purpose": "Standardizes broken-link health reporting and remediation workflow.",
+  "seoModel": {
+    "kind": "derived",
+    "customerManaged": true,
+    "derived": true,
+    "supportsRevision": false,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Finding identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "sourceUrl",
+      "required": true,
+      "nullable": false,
+      "description": "URL containing the broken link.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true
+      }
+    },
+    {
+      "key": "targetUrl",
+      "required": true,
+      "nullable": false,
+      "description": "Destination that failed or behaved unexpectedly.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true
+      }
+    },
+    {
+      "key": "linkType",
+      "required": true,
+      "nullable": false,
+      "description": "Internal or external link classification.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "internal",
+            "label": "Internal"
+          },
+          {
+            "value": "external",
+            "label": "External"
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "httpStatus",
+      "required": false,
+      "nullable": true,
+      "description": "Observed HTTP status when available.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 100,
+        "maximum": 599,
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "failureType",
+      "required": true,
+      "nullable": false,
+      "description": "Normalized failure classification.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "http-error",
+            "label": "Http Error"
+          },
+          {
+            "value": "timeout",
+            "label": "Timeout"
+          },
+          {
+            "value": "dns",
+            "label": "Dns"
+          },
+          {
+            "value": "tls",
+            "label": "Tls"
+          },
+          {
+            "value": "redirect-loop",
+            "label": "Redirect Loop"
+          },
+          {
+            "value": "invalid-url",
+            "label": "Invalid Url"
+          },
+          {
+            "value": "blocked",
+            "label": "Blocked"
+          },
+          {
+            "value": "unknown",
+            "label": "Unknown"
+          }
+        ],
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    },
+    {
+      "key": "detectedAt",
+      "required": true,
+      "nullable": false,
+      "description": "First detection time for this finding.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "lastCheckedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Most recent check time.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "sortable": true
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Remediation workflow state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "open",
+            "label": "Open"
+          },
+          {
+            "value": "ignored",
+            "label": "Ignored"
+          },
+          {
+            "value": "resolved",
+            "label": "Resolved"
+          }
+        ],
+        "defaultValue": "open",
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "observedNotAssumed",
+      "description": "httpStatus and failureType record observed checks and must not be fabricated."
+    },
+    {
+      "id": "resolutionRequiresRecheck",
+      "description": "resolved should normally follow a successful recheck or explicit human override."
+    }
+  ],
+  "cms": {
+    "label": "Broken Link Record",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "sourceUrl",
+      "targetUrl"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "identity": {
+          "id": "broken_01",
+          "createdAt": "2026-09-10T00:00:00Z",
+          "updatedAt": "2026-09-10T00:00:00Z"
+        },
+        "scope": {
+          "organizationId": "org_01",
+          "siteId": "site_01"
+        },
+        "sourceUrl": "https://example.lk/blog/a",
+        "targetUrl": "https://example.lk/missing",
+        "linkType": "internal",
+        "httpStatus": 404,
+        "failureType": "http-error",
+        "detectedAt": "2026-09-10T00:00:00Z",
+        "lastCheckedAt": "2026-09-10T00:00:00Z",
+        "status": "open"
+      }
+    ],
+    "invalid": [
+      {
+        "httpStatus": 999,
+        "failureType": "404"
+      }
+    ]
+  },
+  "notes": []
+}

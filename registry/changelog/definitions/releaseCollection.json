@@ -1,0 +1,60 @@
+{
+  "$id": "changelog.releaseCollection",
+  "name": "Changelog Release Collection",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "changelog",
+  "type": "schema",
+  "category": "release-lifecycle",
+  "description": "Ordered collection metadata for all authoritative Changelog release notes.",
+  "fields": [
+    {
+      "key": "currentVersion",
+      "required": true,
+      "nullable": false,
+      "description": "currentVersion",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "releaseCount",
+      "required": true,
+      "nullable": false,
+      "description": "releaseCount",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "entryCount",
+      "required": true,
+      "nullable": false,
+      "description": "entryCount",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "releases",
+      "required": true,
+      "nullable": false,
+      "description": "releases",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "changelog.changelogStandard",
+      "description": "Governed by the NEXT F Changelog Standard."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "publicTechnicalMetadataOnly",
+      "description": "Changelog metadata must not contain secrets or customer runtime records."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": true
+}

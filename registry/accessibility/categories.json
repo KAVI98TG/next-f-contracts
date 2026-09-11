@@ -1,0 +1,75 @@
+{
+  "registryVersion": "1.0.0",
+  "categories": [
+    {
+      "id": "structure",
+      "label": "Structure & Semantics",
+      "description": "Semantic HTML, headings and landmarks."
+    },
+    {
+      "id": "forms",
+      "label": "Forms & Validation",
+      "description": "Labels, instructions, help and error association."
+    },
+    {
+      "id": "keyboard",
+      "label": "Keyboard & Focus",
+      "description": "Keyboard operation, visible focus and focus management."
+    },
+    {
+      "id": "components",
+      "label": "Interactive Components",
+      "description": "Dialogs, drawers, menus, tables and complex controls."
+    },
+    {
+      "id": "authoring",
+      "label": "Authoring & Editors",
+      "description": "Accessible editing, rich text and content-authoring metadata."
+    },
+    {
+      "id": "media",
+      "label": "Images & Media",
+      "description": "Alternative text, captions and transcripts."
+    },
+    {
+      "id": "visual",
+      "label": "Visual Presentation",
+      "description": "Contrast, reflow, touch targets and non-color-only meaning."
+    },
+    {
+      "id": "motion",
+      "label": "Motion",
+      "description": "Reduced-motion and animation behavior."
+    },
+    {
+      "id": "status",
+      "label": "Status & Feedback",
+      "description": "Live regions, loading, errors and status messages."
+    },
+    {
+      "id": "navigation",
+      "label": "Navigation & Discovery",
+      "description": "Navigation, skip links, filters and command palette."
+    },
+    {
+      "id": "data-viz",
+      "label": "Data Visualization",
+      "description": "Charts and visual data alternatives."
+    },
+    {
+      "id": "commerce",
+      "label": "Commerce",
+      "description": "Accessible checkout and transaction flows."
+    },
+    {
+      "id": "authentication",
+      "label": "Authentication",
+      "description": "Accessible sign-in and authentication flows."
+    },
+    {
+      "id": "management",
+      "label": "Management Interfaces",
+      "description": "Customer CMS, Admin and operational interfaces."
+    }
+  ]
+}

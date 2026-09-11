@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.commerce.multi-location-inventory",
+  "capabilityId": "commerce.multi-location-inventory",
+  "name": "Multi-location Inventory",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Multi-location Inventory capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.inventoryLocation",
+    "commerce.inventoryTransfer"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

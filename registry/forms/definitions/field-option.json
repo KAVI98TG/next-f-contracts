@@ -1,0 +1,117 @@
+{
+  "$id": "forms.fieldOption",
+  "name": "Form Field Option",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "builder",
+  "description": "One selectable option for select, radio or checkbox-style fields.",
+  "purpose": "Provides stable machine values separately from customer-facing labels.",
+  "formsModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "value",
+      "required": true,
+      "nullable": false,
+      "description": "Stable machine value submitted by the form.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Customer-facing localized option label.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 200,
+        "localizable": true
+      }
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional explanatory text.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500,
+        "localizable": true
+      }
+    },
+    {
+      "key": "disabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the option remains visible but cannot be selected.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "sortOrder",
+      "required": true,
+      "nullable": false,
+      "description": "Deterministic display order.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "stableOptionValue",
+      "description": "Changing an option label must not silently change its stored machine value."
+    },
+    {
+      "id": "uniqueOptionValueByField",
+      "description": "Option values must be unique inside one field."
+    }
+  ],
+  "cms": {
+    "label": "Form Field Option",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "value",
+      "label",
+      "description",
+      "disabled"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

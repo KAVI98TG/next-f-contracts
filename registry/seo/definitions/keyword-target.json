@@ -1,0 +1,182 @@
+{
+  "$id": "seo.keywordTarget",
+  "name": "Keyword Target",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "keywords",
+  "description": "One intentional search phrase and its targeting context.",
+  "purpose": "Standardizes focus-keyword targeting without treating keyword repetition as a ranking guarantee.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "phrase",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical keyword or search phrase.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 200,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "intent",
+      "required": false,
+      "nullable": true,
+      "description": "Search intent classification.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "informational",
+            "label": "Informational"
+          },
+          {
+            "value": "navigational",
+            "label": "Navigational"
+          },
+          {
+            "value": "commercial",
+            "label": "Commercial"
+          },
+          {
+            "value": "transactional",
+            "label": "Transactional"
+          },
+          {
+            "value": "local",
+            "label": "Local"
+          },
+          {
+            "value": "mixed",
+            "label": "Mixed"
+          },
+          {
+            "value": "unknown",
+            "label": "Unknown"
+          }
+        ],
+        "defaultValue": "unknown",
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "locale",
+      "required": false,
+      "nullable": true,
+      "description": "Optional BCP 47 language/locale tag.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 35,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "targetLocation",
+      "required": false,
+      "nullable": true,
+      "description": "Optional geographic market descriptor.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "targetUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Optional intended canonical landing URL.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": true,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "notes",
+      "required": false,
+      "nullable": true,
+      "description": "Internal optimization notes.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1200,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "keywordNoStuffingGuarantee",
+      "description": "The contract records targeting intent only and must not imply keyword density or repetition guarantees ranking."
+    },
+    {
+      "id": "localeFormat",
+      "description": "Non-null locale should use a valid BCP 47 language tag."
+    }
+  ],
+  "cms": {
+    "label": "Keyword Target",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "phrase",
+      "intent",
+      "locale",
+      "targetLocation"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational SEO data is private by default and is not part of unauthenticated public content responses."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "phrase": "preventive maintenance services",
+        "intent": "commercial",
+        "locale": "en-LK",
+        "targetLocation": "Sri Lanka"
+      }
+    ],
+    "invalid": [
+      {
+        "phrase": "",
+        "intent": "guaranteed-rank"
+      }
+    ]
+  },
+  "notes": []
+}

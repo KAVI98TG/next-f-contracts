@@ -1,0 +1,45 @@
+{
+  "registryVersion": "0.10.0",
+  "categories": [
+    {
+      "id": "configuration",
+      "label": "Configuration",
+      "description": "Site-level tracking, analytics and data-handling configuration."
+    },
+    {
+      "id": "tracking",
+      "label": "Tracking Events",
+      "description": "Provider-neutral event definitions, observations and property rules."
+    },
+    {
+      "id": "context",
+      "label": "Event Context",
+      "description": "Page, session, visitor, device, referrer and traffic context attached to tracking."
+    },
+    {
+      "id": "campaign-attribution",
+      "label": "Campaign & Attribution",
+      "description": "UTM, click identifiers, campaigns, touchpoints and attribution models."
+    },
+    {
+      "id": "conversion",
+      "label": "Conversions",
+      "description": "Conversion definitions, values, occurrences, attribution and deduplication."
+    },
+    {
+      "id": "consent",
+      "label": "Consent",
+      "description": "Tracking consent categories, policy, state, preferences and records."
+    },
+    {
+      "id": "destination",
+      "label": "Destinations & Dispatch",
+      "description": "Logical marketing destinations, routing and delivery outcomes without provider credentials."
+    },
+    {
+      "id": "reporting",
+      "label": "Analytics & Reporting",
+      "description": "Metrics, dimensions, observations and aggregate performance snapshots."
+    }
+  ]
+}

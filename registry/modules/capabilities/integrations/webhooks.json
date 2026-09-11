@@ -1,0 +1,47 @@
+{
+  "$id": "modules.capability.integrations.webhooks",
+  "capabilityId": "integrations.webhooks",
+  "name": "Webhook Connector",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "integrations",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Webhook Connector capability within the Integrations module.",
+  "contractBindings": [
+    "integrations.webhook"
+  ],
+  "permissionBindings": [
+    "webhooks.deadletters.manage",
+    "webhooks.deadletters.view",
+    "webhooks.deliveries.export",
+    "webhooks.deliveries.manage",
+    "webhooks.deliveries.view",
+    "webhooks.endpoints.create",
+    "webhooks.endpoints.delete",
+    "webhooks.endpoints.edit",
+    "webhooks.endpoints.manage",
+    "webhooks.endpoints.view",
+    "webhooks.secrets.manage",
+    "webhooks.subscriptions.create",
+    "webhooks.subscriptions.delete",
+    "webhooks.subscriptions.edit",
+    "webhooks.subscriptions.manage",
+    "webhooks.subscriptions.view",
+    "webhooks.tests.create",
+    "webhooks.tests.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

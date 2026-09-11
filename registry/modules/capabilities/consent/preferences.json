@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.consent.preferences",
+  "capabilityId": "consent.preferences",
+  "name": "Consent Preferences",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "consent",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Consent Preferences capability within the Consent module.",
+  "contractBindings": [
+    "marketing.consentPreference",
+    "marketing.consentState"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

@@ -1,0 +1,4 @@
+NEXT F Contracts Phase 36 smoke
+Passes: 16
+Failures: 0
+PASS

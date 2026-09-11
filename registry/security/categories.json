@@ -1,0 +1,95 @@
+{
+  "registryVersion": "1.0.0",
+  "categories": [
+    {
+      "id": "authentication",
+      "label": "Authentication",
+      "description": "Identity verification and authentication boundaries."
+    },
+    {
+      "id": "sessions",
+      "label": "Session Management",
+      "description": "Session creation, rotation, expiry and revocation."
+    },
+    {
+      "id": "authorization",
+      "label": "Authorization",
+      "description": "Permission evaluation and privileged operation controls."
+    },
+    {
+      "id": "browser",
+      "label": "Browser Security",
+      "description": "CSRF, XSS, sanitization, redirects and browser execution boundaries."
+    },
+    {
+      "id": "api",
+      "label": "API & Service Security",
+      "description": "CORS, rate limits, service authentication and safe API boundaries."
+    },
+    {
+      "id": "secrets",
+      "label": "Secrets & Credentials",
+      "description": "Secrets, API keys, OAuth credentials and token handling."
+    },
+    {
+      "id": "uploads",
+      "label": "File Uploads",
+      "description": "Upload type, size, scanning, storage and download safety."
+    },
+    {
+      "id": "abuse",
+      "label": "Abuse Prevention",
+      "description": "Rate limiting, brute force and automated abuse resistance."
+    },
+    {
+      "id": "isolation",
+      "label": "Isolation",
+      "description": "Tenant, Site and environment isolation."
+    },
+    {
+      "id": "logging",
+      "label": "Logging & Audit",
+      "description": "Security logging, auditability and safe error behavior."
+    },
+    {
+      "id": "transport",
+      "label": "Transport & Headers",
+      "description": "TLS, HTTPS, CSP and security headers."
+    },
+    {
+      "id": "supply-chain",
+      "label": "Dependency & Supply Chain",
+      "description": "Dependency hygiene and build artifact integrity."
+    },
+    {
+      "id": "recovery",
+      "label": "Backup & Recovery",
+      "description": "Contract-data backup and recovery expectations."
+    },
+    {
+      "id": "commerce",
+      "label": "Commerce Security",
+      "description": "Payment and transaction security boundaries."
+    },
+    {
+      "id": "privacy",
+      "label": "Personal Data Security",
+      "description": "Security handling for personal and sensitive information."
+    },
+    {
+      "id": "integrations",
+      "label": "Integration Security",
+      "description": "External-provider connection and credential boundaries."
+    },
+    {
+      "id": "environments",
+      "label": "Preview & Environment Security",
+      "description": "Preview, staging and production separation."
+    },
+    {
+      "id": "webhooks",
+      "label": "Webhook Security",
+      "description": "Endpoint security, signing, replay resistance and delivery trust."
+    }
+  ]
+}

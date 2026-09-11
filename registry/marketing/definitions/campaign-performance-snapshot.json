@@ -1,0 +1,183 @@
+{
+  "$id": "marketing.campaignPerformanceSnapshot",
+  "name": "Campaign Performance Snapshot",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "reporting",
+  "description": "Derived campaign performance metrics for a fixed period.",
+  "purpose": "Provides stable reporting shape for future external campaign imports without making NEXT F the ad-account source of truth.",
+  "marketingModel": {
+    "kind": "snapshot",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "snapshotId",
+      "required": true,
+      "nullable": false,
+      "description": "Unique snapshot ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "campaignKey",
+      "required": true,
+      "nullable": false,
+      "description": "Campaign key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "periodStart",
+      "required": true,
+      "nullable": false,
+      "description": "Period start.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "periodEnd",
+      "required": true,
+      "nullable": false,
+      "description": "Period end.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "impressions",
+      "required": false,
+      "nullable": true,
+      "description": "Observed impressions.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "clicks",
+      "required": false,
+      "nullable": true,
+      "description": "Observed clicks.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "spend",
+      "required": false,
+      "nullable": true,
+      "description": "Observed ad spend.",
+      "primitive": "fields.currency"
+    },
+    {
+      "key": "conversions",
+      "required": false,
+      "nullable": true,
+      "description": "Attributed conversion count/credit.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "conversionValue",
+      "required": false,
+      "nullable": true,
+      "description": "Attributed conversion value.",
+      "primitive": "fields.currency"
+    },
+    {
+      "key": "generatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Generation/import timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "sourceFreshThrough",
+      "required": false,
+      "nullable": true,
+      "description": "Latest upstream data time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "marketing.campaignDefinition",
+      "description": "campaignKey resolves to campaign."
+    },
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "externalSourceNotInvented",
+      "description": "Imported metrics retain provider/source provenance."
+    },
+    {
+      "id": "spendCurrencyExplicit",
+      "description": "Spend always carries currency."
+    },
+    {
+      "id": "attributionNotCausality",
+      "description": "Conversion metrics are attribution, not proven causation."
+    },
+    {
+      "id": "immutablePeriodSnapshot",
+      "description": "Regeneration creates new snapshot."
+    }
+  ],
+  "cms": {
+    "label": "Campaign Performance Snapshot",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "snapshotId",
+      "scope",
+      "campaignKey",
+      "periodStart"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

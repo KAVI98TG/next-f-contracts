@@ -1,0 +1,130 @@
+{
+  "$id": "blocks.form",
+  "name": "Form",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "conversion",
+  "description": "Form placement block that references the canonical Forms module when available.",
+  "purpose": "Keeps form placement separate from form-definition logic and prevents page content from embedding arbitrary form scripts.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "heading",
+      "required": false,
+      "nullable": true,
+      "description": "Optional shared section heading content.",
+      "schema": "blocks.heading"
+    },
+    {
+      "key": "form",
+      "required": true,
+      "nullable": false,
+      "description": "Reference to the canonical form entity when Forms is enabled.",
+      "schema": "core.entityReference"
+    },
+    {
+      "key": "successContext",
+      "required": false,
+      "nullable": true,
+      "description": "Optional contextual copy shown around a successful submission; the Form contract remains authoritative for submission behavior.",
+      "primitive": "fields.textarea",
+      "config": {
+        "maxLength": 1200,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "variantKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-defined presentation variant key. This is not free-form styling.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 100,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "core.entityReference",
+      "description": "Uses an entity reference until the Forms contract becomes authoritative in Phase 8."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "formTargetType",
+      "description": "When Phase 8 is active, form must reference an entity conforming to the canonical forms.form contract."
+    },
+    {
+      "id": "noEmbeddedFormScript",
+      "description": "Arbitrary form HTML or third-party script snippets are prohibited in this block."
+    }
+  ],
+  "cms": {
+    "label": "Form",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "heading",
+      "form",
+      "successContext"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": [
+      "Referenced forms must provide programmatic labels, instructions, validation feedback and keyboard-operable controls."
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": "phase-8-required",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": []
+}

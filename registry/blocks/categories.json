@@ -1,0 +1,55 @@
+{
+  "registryVersion": "0.7.0",
+  "categories": [
+    {
+      "id": "foundation",
+      "label": "Foundation",
+      "description": "Nested helpers reused by multiple Block contracts."
+    },
+    {
+      "id": "hero",
+      "label": "Hero",
+      "description": "Primary introduction and above-the-fold content."
+    },
+    {
+      "id": "editorial",
+      "label": "Editorial",
+      "description": "Long-form and mixed editorial content."
+    },
+    {
+      "id": "media",
+      "label": "Media",
+      "description": "Image, gallery and video presentation content."
+    },
+    {
+      "id": "listing",
+      "label": "Listings",
+      "description": "Structured lists sourced from reusable content entities."
+    },
+    {
+      "id": "proof",
+      "label": "Trust & Proof",
+      "description": "Testimonials, logos, stats and other credibility content."
+    },
+    {
+      "id": "business",
+      "label": "Business",
+      "description": "Services, team, locations, pricing and process content."
+    },
+    {
+      "id": "conversion",
+      "label": "Conversion",
+      "description": "Calls to action and form placement."
+    },
+    {
+      "id": "utility",
+      "label": "Utility",
+      "description": "Documents and related-content navigation."
+    },
+    {
+      "id": "extension",
+      "label": "Extension",
+      "description": "Strictly registered Site-specific extension blocks."
+    }
+  ]
+}

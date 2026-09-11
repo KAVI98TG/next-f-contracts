@@ -1,0 +1,36 @@
+{
+  "controlId": "SEC-SSRF-001",
+  "name": "Server-side outbound request restrictions",
+  "category": "api",
+  "requirement": "Server-side URL fetching and callback delivery must reject unsafe schemes/targets and apply network policy before connecting.",
+  "rationale": "Untrusted URLs can otherwise reach internal or privileged network resources.",
+  "applicability": [
+    "api",
+    "integrations",
+    "webhooks"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [
+    "webhooks.endpointNetworkPolicy"
+  ],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_ssrf_001.json"
+}

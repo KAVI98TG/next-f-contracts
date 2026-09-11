@@ -1,0 +1,94 @@
+{
+  "$id": "events.eventActor",
+  "name": "Event Actor",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Optional actor context explaining who or what initiated the causative operation.",
+  "purpose": "Optional actor context explaining who or what initiated the causative operation.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "actor",
+      "required": true,
+      "nullable": false,
+      "description": "Actor reference.",
+      "schema": "core.actorReference"
+    },
+    {
+      "key": "ipAddress",
+      "required": false,
+      "nullable": true,
+      "description": "Optional server-observed network address; personal data when retained.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "userAgent",
+      "required": false,
+      "nullable": true,
+      "description": "Optional bounded user-agent diagnostic string.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 1000
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.actorReference",
+      "description": "Uses canonical actor references."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "actorNotAuthority",
+      "description": "Actor context records causation context; it does not itself authorize the operation."
+    },
+    {
+      "id": "minimizePersonalData",
+      "description": "IP/user-agent data must be retained only when operationally justified."
+    }
+  ],
+  "cms": {
+    "label": "Event Actor",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "actor",
+      "ipAddress",
+      "userAgent"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

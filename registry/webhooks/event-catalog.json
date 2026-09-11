@@ -1,0 +1,2198 @@
+{
+  "registryVersion": "0.15.0",
+  "sourceRegistry": "registry/events/index.json",
+  "exactAllowListOnly": true,
+  "wildcardSubscriptions": false,
+  "historicalBackfill": false,
+  "eligibleEventCount": 110,
+  "events": [
+    {
+      "eventKey": "cart.abandoned",
+      "name": "Cart Abandoned",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-cart-checkout",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.cart"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Cart meets the configured abandoned-cart definition."
+    },
+    {
+      "eventKey": "cart.converted",
+      "name": "Cart Converted",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-cart-checkout",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.cart"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Cart is successfully converted through Checkout into an Order."
+    },
+    {
+      "eventKey": "cart.created",
+      "name": "Cart Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-cart-checkout",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.cart"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A canonical Cart is created."
+    },
+    {
+      "eventKey": "cart.expired",
+      "name": "Cart Expired",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-cart-checkout",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.cart"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Cart expires and is no longer mutable."
+    },
+    {
+      "eventKey": "cart.updated",
+      "name": "Cart Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-cart-checkout",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.cart"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Cart lines, discounts, customer association or other material mutable state changes."
+    },
+    {
+      "eventKey": "checkout.abandoned",
+      "name": "Checkout Abandoned",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-cart-checkout",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.checkout"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Checkout meets the configured abandoned-checkout definition."
+    },
+    {
+      "eventKey": "checkout.completed",
+      "name": "Checkout Completed",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-cart-checkout",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.checkout"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Checkout completes successfully and creates or resolves to its authoritative Order outcome."
+    },
+    {
+      "eventKey": "checkout.expired",
+      "name": "Checkout Expired",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-cart-checkout",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.checkout"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Checkout expires and can no longer be committed."
+    },
+    {
+      "eventKey": "checkout.started",
+      "name": "Checkout Started",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-cart-checkout",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.checkout"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A canonical Checkout entity is created from an eligible Cart."
+    },
+    {
+      "eventKey": "checkout.updated",
+      "name": "Checkout Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-cart-checkout",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.checkout"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Checkout contact, address, shipping, payment selection or totals change after server revalidation."
+    },
+    {
+      "eventKey": "collection.created",
+      "name": "Product Collection Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.productCollection"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Product Collection is created."
+    },
+    {
+      "eventKey": "collection.updated",
+      "name": "Product Collection Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.productCollection"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Product Collection is materially updated."
+    },
+    {
+      "eventKey": "consent.recorded",
+      "name": "Consent Recorded",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "forms-domain",
+      "subjectContracts": [
+        "forms.consentRecord"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A canonical form/business-purpose consent record is committed."
+    },
+    {
+      "eventKey": "consent.updated",
+      "name": "Marketing Consent Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "marketing",
+      "producerKey": "marketing-domain",
+      "subjectContracts": [
+        "marketing.consentState"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "The current marketing/analytics consent state changes through a permitted consent workflow."
+    },
+    {
+      "eventKey": "content.archived",
+      "name": "Content Archived",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "content.page",
+        "content.blogPost",
+        "content.documentationArticle",
+        "content.service",
+        "content.faq",
+        "content.testimonial",
+        "content.teamMember",
+        "content.location",
+        "content.legalPage",
+        "content.customCollectionEntry",
+        "content.reusableContent"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Content enters archived lifecycle state."
+    },
+    {
+      "eventKey": "content.created",
+      "name": "Content Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "content.page",
+        "content.blogPost",
+        "content.documentationArticle",
+        "content.service",
+        "content.faq",
+        "content.testimonial",
+        "content.teamMember",
+        "content.location",
+        "content.legalPage",
+        "content.customCollectionEntry",
+        "content.reusableContent"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A canonical content entity is created."
+    },
+    {
+      "eventKey": "content.deleted",
+      "name": "Content Deleted",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "content.page",
+        "content.blogPost",
+        "content.documentationArticle",
+        "content.service",
+        "content.faq",
+        "content.testimonial",
+        "content.teamMember",
+        "content.location",
+        "content.legalPage",
+        "content.customCollectionEntry",
+        "content.reusableContent"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A content entity is deleted according to its retention/deletion policy."
+    },
+    {
+      "eventKey": "content.published",
+      "name": "Content Published",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "content.page",
+        "content.blogPost",
+        "content.documentationArticle",
+        "content.service",
+        "content.faq",
+        "content.testimonial",
+        "content.teamMember",
+        "content.location",
+        "content.legalPage",
+        "content.customCollectionEntry",
+        "content.reusableContent"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A content revision becomes the active published revision."
+    },
+    {
+      "eventKey": "content.restored",
+      "name": "Content Restored",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "content.page",
+        "content.blogPost",
+        "content.documentationArticle",
+        "content.service",
+        "content.faq",
+        "content.testimonial",
+        "content.teamMember",
+        "content.location",
+        "content.legalPage",
+        "content.customCollectionEntry",
+        "content.reusableContent"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A restorable content entity or revision is restored."
+    },
+    {
+      "eventKey": "content.scheduled",
+      "name": "Content Scheduled",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "content.page",
+        "content.blogPost",
+        "content.documentationArticle",
+        "content.service",
+        "content.faq",
+        "content.testimonial",
+        "content.teamMember",
+        "content.location",
+        "content.legalPage",
+        "content.customCollectionEntry",
+        "content.reusableContent"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A future publication or unpublication schedule is committed."
+    },
+    {
+      "eventKey": "content.unpublished",
+      "name": "Content Unpublished",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "content.page",
+        "content.blogPost",
+        "content.documentationArticle",
+        "content.service",
+        "content.faq",
+        "content.testimonial",
+        "content.teamMember",
+        "content.location",
+        "content.legalPage",
+        "content.customCollectionEntry",
+        "content.reusableContent"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Previously published content is removed from public delivery without deleting the entity."
+    },
+    {
+      "eventKey": "content.updated",
+      "name": "Content Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "content.page",
+        "content.blogPost",
+        "content.documentationArticle",
+        "content.service",
+        "content.faq",
+        "content.testimonial",
+        "content.teamMember",
+        "content.location",
+        "content.legalPage",
+        "content.customCollectionEntry",
+        "content.reusableContent"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A material content revision is committed."
+    },
+    {
+      "eventKey": "content.version-created",
+      "name": "Content Version Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "content.page",
+        "content.blogPost",
+        "content.documentationArticle",
+        "content.service",
+        "content.faq",
+        "content.testimonial",
+        "content.teamMember",
+        "content.location",
+        "content.legalPage",
+        "content.customCollectionEntry",
+        "content.reusableContent"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A new immutable content version snapshot is created."
+    },
+    {
+      "eventKey": "conversion.recorded",
+      "name": "Conversion Recorded",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "marketing",
+      "producerKey": "marketing-domain",
+      "subjectContracts": [
+        "marketing.conversionOccurrence"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "An authoritative conversion occurrence is recorded after its source business fact is validated."
+    },
+    {
+      "eventKey": "customer.archived",
+      "name": "Commerce Customer Archived",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-customers",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.commerceCustomer"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Commerce Customer becomes archived while transaction snapshots remain preserved."
+    },
+    {
+      "eventKey": "customer.created",
+      "name": "Commerce Customer Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-customers",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.commerceCustomer"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Commerce Customer record is created."
+    },
+    {
+      "eventKey": "customer.updated",
+      "name": "Commerce Customer Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-customers",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.commerceCustomer"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Commerce Customer profile/contact data is materially updated."
+    },
+    {
+      "eventKey": "discount.activated",
+      "name": "Discount Activated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.discount"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Discount becomes operationally active."
+    },
+    {
+      "eventKey": "discount.created",
+      "name": "Discount Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.discount"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Discount is created."
+    },
+    {
+      "eventKey": "discount.deactivated",
+      "name": "Discount Deactivated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.discount"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Discount becomes operationally inactive."
+    },
+    {
+      "eventKey": "discount.updated",
+      "name": "Discount Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.discount"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Discount is materially updated."
+    },
+    {
+      "eventKey": "form.archived",
+      "name": "Form Archived",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "forms-domain",
+      "subjectContracts": [
+        "forms.form"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Form definition becomes archived/inactive."
+    },
+    {
+      "eventKey": "form.created",
+      "name": "Form Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "forms-domain",
+      "subjectContracts": [
+        "forms.form"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A canonical Form definition is created."
+    },
+    {
+      "eventKey": "form.published",
+      "name": "Form Published",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "forms-domain",
+      "subjectContracts": [
+        "forms.form"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Form definition becomes active for visitor submission."
+    },
+    {
+      "eventKey": "form.rejected",
+      "name": "Form Rejected",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "forms-domain",
+      "subjectContracts": [
+        "forms.form"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A submission attempt is rejected by authoritative validation, availability, rate-limit or anti-abuse policy."
+    },
+    {
+      "eventKey": "form.submitted",
+      "name": "Form Submitted",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "forms-domain",
+      "subjectContracts": [
+        "forms.submission"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A visitor submission has passed authoritative validation/anti-abuse policy and the Submission record is committed."
+    },
+    {
+      "eventKey": "form.updated",
+      "name": "Form Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "forms-domain",
+      "subjectContracts": [
+        "forms.form"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Form definition is materially updated."
+    },
+    {
+      "eventKey": "fulfillment.cancelled",
+      "name": "Fulfillment Cancelled",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.fulfillment"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Fulfillment is cancelled according to lifecycle rules."
+    },
+    {
+      "eventKey": "fulfillment.completed",
+      "name": "Fulfillment Completed",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.fulfillment"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Fulfillment reaches completed state."
+    },
+    {
+      "eventKey": "fulfillment.created",
+      "name": "Fulfillment Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.fulfillment"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Fulfillment is created for eligible Order quantity."
+    },
+    {
+      "eventKey": "fulfillment.updated",
+      "name": "Fulfillment Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.fulfillment"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Fulfillment is materially updated within allowed lifecycle rules."
+    },
+    {
+      "eventKey": "integration.connected",
+      "name": "Integration Connected",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "integrations",
+      "producerKey": "integration-domain",
+      "subjectContracts": [
+        "integrations.integrationConnection"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "An Integration connection successfully completes required configuration/authentication validation and becomes connected."
+    },
+    {
+      "eventKey": "integration.disconnected",
+      "name": "Integration Disconnected",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "integrations",
+      "producerKey": "integration-domain",
+      "subjectContracts": [
+        "integrations.integrationConnection"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "An Integration connection is intentionally disconnected or revoked."
+    },
+    {
+      "eventKey": "integration.health-degraded",
+      "name": "Integration Health Degraded",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "integrations",
+      "producerKey": "integration-domain",
+      "subjectContracts": [
+        "integrations.integrationConnection"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Integration health crosses into a degraded/unhealthy state."
+    },
+    {
+      "eventKey": "integration.health-restored",
+      "name": "Integration Health Restored",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "integrations",
+      "producerKey": "integration-domain",
+      "subjectContracts": [
+        "integrations.integrationConnection"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A previously degraded Integration returns to healthy state."
+    },
+    {
+      "eventKey": "integration.sync-failed",
+      "name": "Integration Sync Failed",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "integrations",
+      "producerKey": "integration-domain",
+      "subjectContracts": [
+        "integrations.integrationConnection"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A synchronization run reaches terminal failure."
+    },
+    {
+      "eventKey": "integration.sync-started",
+      "name": "Integration Sync Started",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "integrations",
+      "producerKey": "integration-domain",
+      "subjectContracts": [
+        "integrations.integrationConnection"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A provider synchronization run begins."
+    },
+    {
+      "eventKey": "integration.sync-succeeded",
+      "name": "Integration Sync Succeeded",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "integrations",
+      "producerKey": "integration-domain",
+      "subjectContracts": [
+        "integrations.integrationConnection"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A synchronization run completes successfully."
+    },
+    {
+      "eventKey": "inventory.adjusted",
+      "name": "Inventory Adjusted",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-inventory",
+      "producerKey": "inventory-domain",
+      "subjectContracts": [
+        "commerce.inventoryItem",
+        "commerce.inventoryLevel"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "An explicit inventory adjustment is committed."
+    },
+    {
+      "eventKey": "inventory.back-in-stock",
+      "name": "Inventory Back in Stock",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-inventory",
+      "producerKey": "inventory-domain",
+      "subjectContracts": [
+        "commerce.inventoryItem",
+        "commerce.inventoryLevel"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Previously out-of-stock inventory becomes available again."
+    },
+    {
+      "eventKey": "inventory.committed",
+      "name": "Inventory Committed",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-inventory",
+      "producerKey": "inventory-domain",
+      "subjectContracts": [
+        "commerce.inventoryItem",
+        "commerce.inventoryLevel"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Reserved inventory is consumed by a committed transaction."
+    },
+    {
+      "eventKey": "inventory.low",
+      "name": "Inventory Low",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-inventory",
+      "producerKey": "inventory-domain",
+      "subjectContracts": [
+        "commerce.inventoryItem",
+        "commerce.inventoryLevel"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Available quantity crosses from above to at/below the configured low-stock threshold."
+    },
+    {
+      "eventKey": "inventory.out-of-stock",
+      "name": "Inventory Out of Stock",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-inventory",
+      "producerKey": "inventory-domain",
+      "subjectContracts": [
+        "commerce.inventoryItem",
+        "commerce.inventoryLevel"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Available quantity crosses to the configured out-of-stock condition."
+    },
+    {
+      "eventKey": "inventory.released",
+      "name": "Inventory Released",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-inventory",
+      "producerKey": "inventory-domain",
+      "subjectContracts": [
+        "commerce.inventoryItem",
+        "commerce.inventoryLevel"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A prior inventory reservation is released."
+    },
+    {
+      "eventKey": "inventory.reserved",
+      "name": "Inventory Reserved",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-inventory",
+      "producerKey": "inventory-domain",
+      "subjectContracts": [
+        "commerce.inventoryItem",
+        "commerce.inventoryLevel"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Available inventory is atomically reserved for an eligible workflow."
+    },
+    {
+      "eventKey": "inventory.transferred",
+      "name": "Inventory Transferred",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-inventory",
+      "producerKey": "inventory-domain",
+      "subjectContracts": [
+        "commerce.inventoryItem",
+        "commerce.inventoryLevel"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "An inventory transfer between canonical locations is committed without creating/destroying quantity."
+    },
+    {
+      "eventKey": "lead.assigned",
+      "name": "Lead Assigned",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "leads-domain",
+      "subjectContracts": [
+        "forms.lead"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Lead assignment changes to a canonical actor."
+    },
+    {
+      "eventKey": "lead.created",
+      "name": "Lead Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "leads-domain",
+      "subjectContracts": [
+        "forms.lead"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A canonical Lead record is committed from an accepted source or authorized manual creation."
+    },
+    {
+      "eventKey": "lead.merged",
+      "name": "Lead Merged",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "leads-domain",
+      "subjectContracts": [
+        "forms.lead"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Two or more duplicate Lead records are explicitly merged according to policy."
+    },
+    {
+      "eventKey": "lead.status-changed",
+      "name": "Lead Status Changed",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "leads-domain",
+      "subjectContracts": [
+        "forms.lead"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Lead status changes from one canonical Site status to another."
+    },
+    {
+      "eventKey": "lead.updated",
+      "name": "Lead Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "forms-leads",
+      "producerKey": "leads-domain",
+      "subjectContracts": [
+        "forms.lead"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Material Lead business data is committed."
+    },
+    {
+      "eventKey": "media.created",
+      "name": "Media Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "shared.mediaAsset"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A media asset record is committed."
+    },
+    {
+      "eventKey": "media.deleted",
+      "name": "Media Deleted",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "shared.mediaAsset"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A media asset record is deleted/retired according to policy."
+    },
+    {
+      "eventKey": "media.updated",
+      "name": "Media Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "shared.mediaAsset"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Media metadata is materially updated."
+    },
+    {
+      "eventKey": "navigation.updated",
+      "name": "Navigation Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "content",
+      "producerKey": "content-domain",
+      "subjectContracts": [
+        "content.navigation"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Navigation structure is materially changed."
+    },
+    {
+      "eventKey": "order.archived",
+      "name": "Order Archived",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Order becomes archived without destroying transaction history."
+    },
+    {
+      "eventKey": "order.cancelled",
+      "name": "Order Cancelled",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Order cancellation is committed after all guards pass."
+    },
+    {
+      "eventKey": "order.completed",
+      "name": "Order Completed",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Order completion guards pass and operational status becomes completed."
+    },
+    {
+      "eventKey": "order.created",
+      "name": "Order Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A canonical Order is committed from a completed Checkout or authorized order-creation workflow."
+    },
+    {
+      "eventKey": "order.fulfilled",
+      "name": "Order Fulfilled",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Fulfillment reconciliation confirms all required fulfillable quantity is fulfilled."
+    },
+    {
+      "eventKey": "order.on-hold",
+      "name": "Order On Hold",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Order operational status enters on-hold."
+    },
+    {
+      "eventKey": "order.paid",
+      "name": "Order Paid",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Payment reconciliation determines the Order payable balance is fully satisfied."
+    },
+    {
+      "eventKey": "order.partially-fulfilled",
+      "name": "Order Partially Fulfilled",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Fulfillment reconciliation confirms some but not all fulfillable quantity is fulfilled."
+    },
+    {
+      "eventKey": "order.partially-paid",
+      "name": "Order Partially Paid",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Payment reconciliation determines the Order has received a positive amount below the payable total."
+    },
+    {
+      "eventKey": "order.partially-refunded",
+      "name": "Order Partially Refunded",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Successful refunds reduce captured funds while a positive net captured amount remains."
+    },
+    {
+      "eventKey": "order.refunded",
+      "name": "Order Refunded",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Successful refunds fully reconcile the refundable captured amount according to the Order state."
+    },
+    {
+      "eventKey": "order.updated",
+      "name": "Order Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-orders",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.order"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Allowed non-historical Order metadata changes are committed."
+    },
+    {
+      "eventKey": "payment.authorized",
+      "name": "Payment Authorized",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-payments",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.paymentAuthorization"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A payment provider authorization has been validated and reconciled to a canonical authorization."
+    },
+    {
+      "eventKey": "payment.captured",
+      "name": "Payment Captured",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-payments",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.paymentCapture"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A validated capture succeeds and is recorded canonically."
+    },
+    {
+      "eventKey": "payment.created",
+      "name": "Payment Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-payments",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.payment"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A canonical Payment record is created for an Order."
+    },
+    {
+      "eventKey": "payment.failed",
+      "name": "Payment Failed",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-payments",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.payment"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Payment attempt or Payment reaches authoritative failure state."
+    },
+    {
+      "eventKey": "payment.succeeded",
+      "name": "Payment Succeeded",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-payments",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.payment"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Payment reaches successful settled/captured state according to its provider-neutral contract."
+    },
+    {
+      "eventKey": "product.archived",
+      "name": "Product Archived",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.product"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Product enters archived state."
+    },
+    {
+      "eventKey": "product.created",
+      "name": "Product Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.product"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Product is created."
+    },
+    {
+      "eventKey": "product.published",
+      "name": "Product Published",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.product"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Product becomes eligible for active storefront publication."
+    },
+    {
+      "eventKey": "product.updated",
+      "name": "Product Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.product"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Product is materially updated."
+    },
+    {
+      "eventKey": "redirect.created",
+      "name": "Redirect Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "seo",
+      "producerKey": "seo-domain",
+      "subjectContracts": [
+        "seo.redirect"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A canonical redirect is created."
+    },
+    {
+      "eventKey": "redirect.deleted",
+      "name": "Redirect Deleted",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "seo",
+      "producerKey": "seo-domain",
+      "subjectContracts": [
+        "seo.redirect"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A canonical redirect is removed."
+    },
+    {
+      "eventKey": "redirect.updated",
+      "name": "Redirect Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "seo",
+      "producerKey": "seo-domain",
+      "subjectContracts": [
+        "seo.redirect"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A canonical redirect is materially updated."
+    },
+    {
+      "eventKey": "refund.created",
+      "name": "Refund Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-payments",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.refund"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A canonical Refund request/record is created."
+    },
+    {
+      "eventKey": "refund.failed",
+      "name": "Refund Failed",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-payments",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.refund"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A refund attempt reaches authoritative failure state without applying successful financial effect."
+    },
+    {
+      "eventKey": "refund.succeeded",
+      "name": "Refund Succeeded",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-payments",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.refund"
+      ],
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A refund succeeds with the provider and is reconciled canonically."
+    },
+    {
+      "eventKey": "return.approved",
+      "name": "Return Approved",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.returnRequest"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Return request is approved."
+    },
+    {
+      "eventKey": "return.cancelled",
+      "name": "Return Cancelled",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.returnRequest"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Return request is cancelled before completion."
+    },
+    {
+      "eventKey": "return.completed",
+      "name": "Return Completed",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.returnRequest"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Return resolution is completed."
+    },
+    {
+      "eventKey": "return.received",
+      "name": "Return Received",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.returnRequest"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Returned goods/services are recorded as received where applicable."
+    },
+    {
+      "eventKey": "return.rejected",
+      "name": "Return Rejected",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.returnRequest"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Return request is rejected without refund/restock side effects."
+    },
+    {
+      "eventKey": "return.requested",
+      "name": "Return Requested",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.returnRequest"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A customer or authorized operator creates a Return request."
+    },
+    {
+      "eventKey": "review.approved",
+      "name": "Product Review Approved",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-customers",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.productReview"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Product Review passes moderation and becomes approved."
+    },
+    {
+      "eventKey": "review.created",
+      "name": "Product Review Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-customers",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.productReview"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Product Review is submitted and stored for moderation."
+    },
+    {
+      "eventKey": "review.published",
+      "name": "Product Review Published",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-customers",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.productReview"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "An approved Product Review becomes publicly eligible."
+    },
+    {
+      "eventKey": "review.rejected",
+      "name": "Product Review Rejected",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-customers",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.productReview"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Product Review is rejected by moderation."
+    },
+    {
+      "eventKey": "seo.updated",
+      "name": "SEO Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "seo",
+      "producerKey": "seo-domain",
+      "subjectContracts": [
+        "seo.metadata"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "Canonical SEO metadata/configuration is materially updated."
+    },
+    {
+      "eventKey": "shipment.created",
+      "name": "Shipment Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.shipment"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Shipment record is created for a Fulfillment."
+    },
+    {
+      "eventKey": "shipment.delivered",
+      "name": "Shipment Delivered",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.shipment"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "Delivery evidence is reconciled and the Shipment reaches delivered state."
+    },
+    {
+      "eventKey": "shipment.delivery-failed",
+      "name": "Shipment Delivery Failed",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.shipment"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A delivery attempt reaches a provider-neutral failed-delivery state."
+    },
+    {
+      "eventKey": "shipment.dispatched",
+      "name": "Shipment Dispatched",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-fulfillment",
+      "producerKey": "fulfillment-domain",
+      "subjectContracts": [
+        "commerce.shipment"
+      ],
+      "dataPolicy": {
+        "sensitivity": "personal",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "description": "A Shipment is handed to the carrier/dispatch workflow with required evidence."
+    },
+    {
+      "eventKey": "sitemap.updated",
+      "name": "Sitemap Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "seo",
+      "producerKey": "seo-domain",
+      "subjectContracts": [
+        "seo.sitemapEntry"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Site sitemap configuration or generated publication set materially changes."
+    },
+    {
+      "eventKey": "variant.created",
+      "name": "Product Variant Created",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.productVariant"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Product Variant is created."
+    },
+    {
+      "eventKey": "variant.updated",
+      "name": "Product Variant Updated",
+      "eventVersion": "1.0.0",
+      "contractVersion": "0.14.0",
+      "category": "commerce-catalog",
+      "producerKey": "commerce-domain",
+      "subjectContracts": [
+        "commerce.productVariant"
+      ],
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": false
+      },
+      "description": "A Product Variant is materially updated."
+    }
+  ]
+}

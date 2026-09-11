@@ -1,0 +1,7 @@
+NEXT F Contracts Phase 3 validation
+Version: 0.5.0
+Primitive fields: 33
+Registry items: 80
+Passes: 1620
+Failures: 0
+PASS - Phase 3 Primitive Field Registry is internally consistent.

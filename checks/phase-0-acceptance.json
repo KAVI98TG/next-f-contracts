@@ -1,0 +1,25 @@
+{
+  "phase": "0",
+  "version": "0.1.0",
+  "status": "passed",
+  "checks": [
+    {"id":"P0-001","name":"Canonical terminology defined","passed":true},
+    {"id":"P0-002","name":"Ambiguous and reserved terminology defined","passed":true},
+    {"id":"P0-003","name":"Field naming convention frozen","passed":true},
+    {"id":"P0-004","name":"Contract ID naming convention frozen","passed":true},
+    {"id":"P0-005","name":"Event naming convention frozen","passed":true},
+    {"id":"P0-006","name":"Permission naming convention frozen","passed":true},
+    {"id":"P0-007","name":"ID prefix baseline defined","passed":true},
+    {"id":"P0-008","name":"CMS and presentation boundary defined","passed":true},
+    {"id":"P0-009","name":"Hosting and domain responsibility excluded","passed":true},
+    {"id":"P0-010","name":"External account ownership rule defined","passed":true},
+    {"id":"P0-011","name":"Public/private data boundary defined","passed":true},
+    {"id":"P0-012","name":"Secrets boundary defined","passed":true},
+    {"id":"P0-013","name":"Payment data boundary defined","passed":true},
+    {"id":"P0-014","name":"Contract lifecycle baseline defined","passed":true},
+    {"id":"P0-015","name":"Compatibility baseline defined","passed":true},
+    {"id":"P0-016","name":"Codex authority rules defined","passed":true},
+    {"id":"P0-017","name":"Machine-readable Phase 0 files created","passed":true},
+    {"id":"P0-018","name":"Repository authority order defined","passed":true}
+  ]
+}

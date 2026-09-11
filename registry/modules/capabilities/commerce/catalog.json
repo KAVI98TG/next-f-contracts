@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.commerce.catalog",
+  "capabilityId": "commerce.catalog",
+  "name": "Catalog",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Catalog capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.product"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

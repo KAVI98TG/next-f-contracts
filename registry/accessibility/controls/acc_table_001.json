@@ -1,0 +1,32 @@
+{
+  "controlId": "ACC-TABLE-001",
+  "name": "Accessible data tables",
+  "category": "components",
+  "requirement": "Data tables must identify headers and relationships programmatically; responsive transformations must preserve data context.",
+  "rationale": "Table structure is needed to associate cells with their meaning.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "table"
+  ],
+  "verificationMethods": [
+    "automated-static",
+    "screen-reader-manual",
+    "zoom-reflow"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_table_001.json"
+}

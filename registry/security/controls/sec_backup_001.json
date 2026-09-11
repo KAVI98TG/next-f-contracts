@@ -1,0 +1,33 @@
+{
+  "controlId": "SEC-BACKUP-001",
+  "name": "Contract-data backup",
+  "category": "recovery",
+  "requirement": "Authoritative contract source and critical registry release artifacts must be recoverable from version-controlled or otherwise verified backups.",
+  "rationale": "Loss or silent corruption of contract authority would affect every consumer.",
+  "applicability": [
+    "registry",
+    "portal"
+  ],
+  "obligation": "mandatory",
+  "scope": "operations",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_backup_001.json"
+}

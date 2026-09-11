@@ -1,0 +1,127 @@
+{
+  "$id": "modules.core",
+  "moduleId": "core",
+  "name": "Core",
+  "version": "0.18.0",
+  "status": "stable",
+  "category": "foundation",
+  "icon": "fa-cubes",
+  "order": 10,
+  "description": "Tenant identity, Site scope, publishing, versioning, audit and shared platform primitives required by every NEXT F Site.",
+  "selection": {
+    "mandatory": true,
+    "defaultEnabled": true,
+    "explicitManifestSelection": true,
+    "customerCanEnable": false,
+    "nextfAdminCanEnable": false
+  },
+  "dependencies": [],
+  "conflicts": [],
+  "capabilityIds": [
+    "core.identity",
+    "core.publishing",
+    "core.versioning",
+    "core.audit",
+    "core.tenant-isolation"
+  ],
+  "defaultCapabilityIds": [
+    "core.identity",
+    "core.publishing",
+    "core.versioning",
+    "core.audit",
+    "core.tenant-isolation"
+  ],
+  "contractBindings": [
+    "core.actorReference",
+    "core.auditRecord",
+    "core.entityIdentity",
+    "core.entityReference",
+    "core.organization",
+    "core.publishing",
+    "core.revisionPointer",
+    "core.scheduleWindow",
+    "core.sharedCoreStandard",
+    "core.site",
+    "core.tenantScope",
+    "core.versionRecord",
+    "core.visibility",
+    "shared.address",
+    "shared.contactPoint",
+    "shared.cta",
+    "shared.externalReference",
+    "shared.link",
+    "shared.mediaAsset",
+    "shared.mediaReference"
+  ],
+  "permissionBindings": [
+    "core.audit.export",
+    "core.audit.view",
+    "core.members.create",
+    "core.members.delete",
+    "core.members.edit",
+    "core.members.manage",
+    "core.members.view",
+    "core.settings.edit",
+    "core.settings.manage",
+    "core.settings.view",
+    "core.sitehealth.view",
+    "core.workspace.manage",
+    "core.workspace.view",
+    "platform.sites.create",
+    "platform.sites.delete",
+    "platform.sites.edit",
+    "platform.sites.export",
+    "platform.sites.manage",
+    "platform.sites.view"
+  ],
+  "eventBindings": [
+    "site.activated",
+    "site.connection-degraded",
+    "site.connection-restored",
+    "site.created",
+    "site.suspended",
+    "site.updated"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "group": "Foundation",
+    "navigation": [
+      {
+        "label": "Overview",
+        "path": "/overview",
+        "icon": "fa-gauge-high",
+        "order": 10
+      },
+      {
+        "label": "Activity",
+        "path": "/activity",
+        "icon": "fa-clock-rotate-left",
+        "order": 90
+      }
+    ]
+  },
+  "admin": {
+    "visible": true,
+    "group": "Sites",
+    "navigation": [
+      {
+        "label": "Site Overview",
+        "path": "/sites/:siteId",
+        "icon": "fa-globe",
+        "order": 10
+      },
+      {
+        "label": "Activity",
+        "path": "/sites/:siteId/activity",
+        "icon": "fa-clock-rotate-left",
+        "order": 90
+      }
+    ]
+  },
+  "manifest": {
+    "moduleId": "core",
+    "capabilitySelection": "module-scoped",
+    "dependencyValidation": "strict"
+  },
+  "notes": []
+}

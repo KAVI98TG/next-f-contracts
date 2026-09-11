@@ -1,0 +1,35 @@
+{
+  "$id": "modules.capability.commerce.payments",
+  "capabilityId": "commerce.payments",
+  "name": "Payments",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "commerce",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Payments capability within the Commerce module.",
+  "contractBindings": [
+    "commerce.payment",
+    "commerce.paymentAttempt",
+    "commerce.paymentAuthorization",
+    "commerce.paymentCapture"
+  ],
+  "permissionBindings": [
+    "commerce.payments.export",
+    "commerce.payments.manage",
+    "commerce.payments.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

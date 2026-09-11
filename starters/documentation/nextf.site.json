@@ -1,0 +1,195 @@
+{
+  "manifestVersion": "1.0.0",
+  "contracts": {
+    "contractVersion": "1.0.0",
+    "manifestSpecVersion": "1.0.0",
+    "compatibilityMode": "strict-major"
+  },
+  "site": {
+    "siteId": "site_starter_documentation",
+    "name": "Documentation Starter Site",
+    "siteType": "documentation",
+    "primaryUrl": "https://docs.example.com"
+  },
+  "localization": {
+    "defaultLocale": "en-LK",
+    "supportedLocales": [
+      "en-LK"
+    ],
+    "timeZone": "Asia/Colombo"
+  },
+  "environments": [
+    {
+      "id": "development",
+      "kind": "development",
+      "baseUrl": "http://localhost:5173",
+      "enabled": true
+    },
+    {
+      "id": "preview",
+      "kind": "preview",
+      "baseUrl": "https://preview.docs.example.com",
+      "enabled": true
+    },
+    {
+      "id": "production",
+      "kind": "production",
+      "baseUrl": "https://docs.example.com",
+      "enabled": true
+    }
+  ],
+  "contentDelivery": {
+    "mode": "hybrid",
+    "publishedOnly": true,
+    "previewSupported": true
+  },
+  "modules": [
+    {
+      "moduleId": "core",
+      "enabled": true,
+      "capabilities": []
+    },
+    {
+      "moduleId": "media",
+      "enabled": true,
+      "capabilities": []
+    },
+    {
+      "moduleId": "pages",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "pages.reusable-content",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "documentation",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "documentation.versioning",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "seo",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "seo.redirects",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "consent",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "consent.preferences",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "analytics",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "analytics.reporting",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "integrations",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "integrations.health",
+          "enabled": true
+        }
+      ]
+    }
+  ],
+  "runtime": {
+    "siteIdentity": true,
+    "contentConnector": true,
+    "eventLayer": true,
+    "consentLayer": true,
+    "integrationLoader": true
+  },
+  "cms": {
+    "enabled": true,
+    "workspaceMode": "site",
+    "editingMode": "structured",
+    "previewEnabled": true,
+    "publishingEnabled": true,
+    "revisionHistoryEnabled": true,
+    "arbitraryCodeEditing": false
+  },
+  "apiBindings": [
+    {
+      "apiId": "api.public-content",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.public-interaction",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    }
+  ],
+  "events": {
+    "produces": [],
+    "consumes": []
+  },
+  "tracking": {
+    "events": [
+      "page.viewed",
+      "search.performed",
+      "document.downloaded"
+    ]
+  },
+  "integrations": [
+    {
+      "connectorId": "integrations.googleAnalytics4",
+      "environments": [
+        "production"
+      ],
+      "enabled": true
+    },
+    {
+      "connectorId": "integrations.googleSearchConsole",
+      "environments": [
+        "production"
+      ],
+      "enabled": true
+    }
+  ],
+  "configuration": [
+    {
+      "key": "NEXTF_SITE_ID",
+      "exposure": "public",
+      "required": true,
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ],
+      "purpose": "Identifies the Site to the NEXT F runtime without containing a secret value."
+    }
+  ],
+  "extensions": []
+}

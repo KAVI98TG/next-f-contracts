@@ -1,0 +1,56 @@
+{
+  "$id": "api.localeContext",
+  "name": "Locale Context",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "delivery",
+  "description": "Request localization preferences constrained by Site Manifest.",
+  "apiModel": {
+    "kind": "support-schema",
+    "publicSurface": false
+  },
+  "fields": [
+    {
+      "key": "locale",
+      "required": true,
+      "nullable": false,
+      "description": "locale",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "timeZone",
+      "required": true,
+      "nullable": false,
+      "description": "timeZone",
+      "primitive": false
+    },
+    {
+      "key": "fallbackLocale",
+      "required": true,
+      "nullable": false,
+      "description": "fallbackLocale",
+      "primitive": false
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "The schema must not expose credentials, signing secrets, private tokens or payment card data."
+    },
+    {
+      "id": "contractVersionAware",
+      "description": "Values must be interpreted against the operation's pinned API and NEXT F Contract Versions."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "developerVisible": true
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Individual operations decide whether a safe projection may appear in public responses."
+  },
+  "notes": []
+}

@@ -1,0 +1,1345 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Performance Registry",
+  "description": "Machine-readable performance rules, budgets and Contract Portal measurement evidence.",
+  "ruleCount": 36,
+  "budgetCount": 17,
+  "categories": [
+    {
+      "id": "payload",
+      "label": "Payload Discipline",
+      "description": "HTML, CSS, JavaScript and generated-data payload size discipline.",
+      "ruleCount": 3,
+      "budgetCount": 6
+    },
+    {
+      "id": "loading",
+      "label": "Loading & Routing",
+      "description": "Route loading, lazy loading, code splitting and registry-data loading.",
+      "ruleCount": 4,
+      "budgetCount": 2
+    },
+    {
+      "id": "caching",
+      "label": "Caching",
+      "description": "Public-content caching and authenticated/private caching boundaries.",
+      "ruleCount": 3,
+      "budgetCount": 0
+    },
+    {
+      "id": "media",
+      "label": "Images & Media",
+      "description": "Responsive images, modern formats, lazy media and delivery sizing.",
+      "ruleCount": 4,
+      "budgetCount": 0
+    },
+    {
+      "id": "fonts",
+      "label": "Fonts",
+      "description": "Font loading, system stacks, preload restraint and rendering behavior.",
+      "ruleCount": 1,
+      "budgetCount": 0
+    },
+    {
+      "id": "third-party",
+      "label": "Third-party Integrations",
+      "description": "Non-blocking provider loading, consent and failure isolation.",
+      "ruleCount": 4,
+      "budgetCount": 2
+    },
+    {
+      "id": "api",
+      "label": "API & Data Access",
+      "description": "Request counts, batching, pagination and response shaping.",
+      "ruleCount": 3,
+      "budgetCount": 0
+    },
+    {
+      "id": "search",
+      "label": "Search",
+      "description": "Search-index size, bounded results and query behavior.",
+      "ruleCount": 1,
+      "budgetCount": 2
+    },
+    {
+      "id": "relationships",
+      "label": "Relationship Explorer",
+      "description": "Bounded graph traversal and rendering.",
+      "ruleCount": 1,
+      "budgetCount": 2
+    },
+    {
+      "id": "diff",
+      "label": "Contract Diff",
+      "description": "Historical snapshot isolation and lazy loading.",
+      "ruleCount": 1,
+      "budgetCount": 2
+    },
+    {
+      "id": "large-data",
+      "label": "Large Data Rendering",
+      "description": "Raw JSON, large tables and list rendering boundaries.",
+      "ruleCount": 2,
+      "budgetCount": 1
+    },
+    {
+      "id": "memory",
+      "label": "Memory",
+      "description": "Bounded in-memory state and cleanup of expensive route data.",
+      "ruleCount": 1,
+      "budgetCount": 0
+    },
+    {
+      "id": "mobile",
+      "label": "Mobile",
+      "description": "Mobile CPU, network and interaction responsiveness.",
+      "ruleCount": 1,
+      "budgetCount": 0
+    },
+    {
+      "id": "web-vitals",
+      "label": "Core Web Vitals",
+      "description": "Measurement guidance for LCP, INP and CLS without ranking guarantees.",
+      "ruleCount": 2,
+      "budgetCount": 0
+    },
+    {
+      "id": "observability",
+      "label": "Observability",
+      "description": "Performance evidence and future connector/runtime timing visibility.",
+      "ruleCount": 3,
+      "budgetCount": 0
+    },
+    {
+      "id": "resilience",
+      "label": "Resilience",
+      "description": "Optional integration failure isolation from primary content and navigation.",
+      "ruleCount": 2,
+      "budgetCount": 0
+    }
+  ],
+  "rules": [
+    {
+      "ruleId": "PERF-RULE-001",
+      "name": "HTML payload discipline",
+      "category": "payload",
+      "requirement": "Keep page shells semantic and compact; do not embed large Registry payloads directly into HTML.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_001.json"
+    },
+    {
+      "ruleId": "PERF-RULE-002",
+      "name": "CSS payload discipline",
+      "category": "payload",
+      "requirement": "Use shared tokens/components and avoid duplicated or oversized inline styles.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_002.json"
+    },
+    {
+      "ruleId": "PERF-RULE-003",
+      "name": "JavaScript payload discipline",
+      "category": "payload",
+      "requirement": "Prefer small ES modules, shared utilities and data-driven rendering over duplicated page-specific code.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_003.json"
+    },
+    {
+      "ruleId": "PERF-RULE-004",
+      "name": "Route-lazy heavy features",
+      "category": "loading",
+      "requirement": "Heavy features and historical datasets must load only when the user opens the relevant route.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_004.json"
+    },
+    {
+      "ruleId": "PERF-RULE-005",
+      "name": "Generated fallbacks are failure-path assets",
+      "category": "loading",
+      "requirement": "Generated local fallbacks must load dynamically only when authoritative JSON cannot be read; normal hosted runtime must not eagerly parse them.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_005.json"
+    },
+    {
+      "ruleId": "PERF-RULE-006",
+      "name": "Registry JSON loading",
+      "category": "loading",
+      "requirement": "Load only the Registry data required by the current shell or feature, and avoid duplicating the same authoritative data into unrelated runtime bundles.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_006.json"
+    },
+    {
+      "ruleId": "PERF-RULE-007",
+      "name": "Public content caching",
+      "category": "caching",
+      "requirement": "Public immutable or versioned content may use cache-friendly policies appropriate to freshness and invalidation requirements.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_007.json"
+    },
+    {
+      "ruleId": "PERF-RULE-008",
+      "name": "Authenticated cache boundary",
+      "category": "caching",
+      "requirement": "Authenticated, tenant-specific or permission-filtered responses must not be placed into unsafe shared caches.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_008.json"
+    },
+    {
+      "ruleId": "PERF-RULE-009",
+      "name": "Image optimization",
+      "category": "media",
+      "requirement": "Customer sites should deliver appropriately compressed images sized for their rendered use.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "manual-review"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_009.json"
+    },
+    {
+      "ruleId": "PERF-RULE-010",
+      "name": "Responsive images",
+      "category": "media",
+      "requirement": "Use srcset/sizes or equivalent responsive-image delivery when one image asset serves materially different viewport sizes.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "manual-review"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_010.json"
+    },
+    {
+      "ruleId": "PERF-RULE-011",
+      "name": "Modern image formats",
+      "category": "media",
+      "requirement": "Prefer efficient modern formats when browser and content requirements permit while preserving a compatible delivery path.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "manual-review"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_011.json"
+    },
+    {
+      "ruleId": "PERF-RULE-012",
+      "name": "Lazy non-critical images",
+      "category": "media",
+      "requirement": "Images below the initial viewport should normally use lazy loading; critical/LCP media must not be lazily delayed without evidence.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "manual-review"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_012.json"
+    },
+    {
+      "ruleId": "PERF-RULE-013",
+      "name": "Font loading discipline",
+      "category": "fonts",
+      "requirement": "Prefer system or locally controlled fonts where appropriate; preload only fonts required for initial rendering and avoid unnecessary weights/styles.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "manual-review"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_013.json"
+    },
+    {
+      "ruleId": "PERF-RULE-014",
+      "name": "Third-party scripts are non-blocking",
+      "category": "third-party",
+      "requirement": "Optional third-party integrations must not block primary content rendering or core navigation.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_014.json"
+    },
+    {
+      "ruleId": "PERF-RULE-015",
+      "name": "Consent-gated marketing scripts",
+      "category": "third-party",
+      "requirement": "Analytics and advertising scripts that require consent must not load or dispatch before the applicable consent state permits them.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [
+        "marketing.consentState",
+        "privacy.consentBoundaries"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_015.json"
+    },
+    {
+      "ruleId": "PERF-RULE-016",
+      "name": "No duplicate provider scripts",
+      "category": "third-party",
+      "requirement": "Load a provider runtime at most once per page/runtime unless the provider contract explicitly requires otherwise.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_016.json"
+    },
+    {
+      "ruleId": "PERF-RULE-017",
+      "name": "Enabled connectors only",
+      "category": "third-party",
+      "requirement": "Load only connectors enabled by the Site Manifest/configuration for the current Site and environment.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [
+        "manifest.siteManifest",
+        "integrations.connectorDefinition"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_017.json"
+    },
+    {
+      "ruleId": "PERF-RULE-018",
+      "name": "Connector failure isolation",
+      "category": "resilience",
+      "requirement": "Third-party provider failure must not break primary site content, forms unrelated to that provider, or navigation.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "manual-review"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_018.json"
+    },
+    {
+      "ruleId": "PERF-RULE-019",
+      "name": "API request discipline",
+      "category": "api",
+      "requirement": "Avoid avoidable request waterfalls and repeated reads of identical resources within one interaction.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_019.json"
+    },
+    {
+      "ruleId": "PERF-RULE-020",
+      "name": "Batching where safe",
+      "category": "api",
+      "requirement": "Use batching or aggregate endpoints when it reduces request overhead without weakening authorization, caching or data ownership boundaries.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [
+        "api.apiContractStandard"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_020.json"
+    },
+    {
+      "ruleId": "PERF-RULE-021",
+      "name": "Pagination for unbounded collections",
+      "category": "api",
+      "requirement": "APIs and management interfaces must paginate or otherwise bound collections that can grow without a small deterministic maximum.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [
+        "api.apiContractStandard"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_021.json"
+    },
+    {
+      "ruleId": "PERF-RULE-022",
+      "name": "Bounded Global Search rendering",
+      "category": "search",
+      "requirement": "Global Search must keep palette/page result rendering bounded independently from total index size.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [
+        "search.searchIndex",
+        "search.searchConfiguration"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_022.json"
+    },
+    {
+      "ruleId": "PERF-RULE-023",
+      "name": "Bounded Relationship Explorer",
+      "category": "relationships",
+      "requirement": "Relationship traversal, neighbor rendering, path depth and edge-table rows must remain bounded by machine-readable configuration.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [
+        "relationships.relationshipIndex",
+        "relationships.relationshipConfiguration"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_023.json"
+    },
+    {
+      "ruleId": "PERF-RULE-024",
+      "name": "Lazy Contract Diff history",
+      "category": "diff",
+      "requirement": "Historical Diff snapshots and large release history must not load on ordinary Registry, Search or Overview routes.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [
+        "diff.releaseIndex"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_024.json"
+    },
+    {
+      "ruleId": "PERF-RULE-025",
+      "name": "Lazy raw JSON",
+      "category": "large-data",
+      "requirement": "Very large raw JSON should not be eagerly rendered into the DOM; show it on explicit detail/expand actions where practical.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_025.json"
+    },
+    {
+      "ruleId": "PERF-RULE-026",
+      "name": "Bounded large tables and lists",
+      "category": "large-data",
+      "requirement": "Large tables/lists must paginate, virtualize, filter, collapse or otherwise remain usable instead of rendering unbounded rows.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_026.json"
+    },
+    {
+      "ruleId": "PERF-RULE-027",
+      "name": "Bounded memory use",
+      "category": "memory",
+      "requirement": "Release references to route-only large datasets when no longer needed where the runtime architecture supports it, and avoid unbounded caches.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_027.json"
+    },
+    {
+      "ruleId": "PERF-RULE-028",
+      "name": "Mobile-first performance review",
+      "category": "mobile",
+      "requirement": "Evaluate expensive routes and integrations under constrained mobile CPU/network assumptions rather than desktop-only conditions.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "manual-review"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_028.json"
+    },
+    {
+      "ruleId": "PERF-RULE-029",
+      "name": "Core Web Vitals guidance",
+      "category": "web-vitals",
+      "requirement": "Use LCP, INP and CLS as user-experience signals with environment/context recorded; do not present them as guaranteed search-ranking outcomes.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "manual-review"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_029.json"
+    },
+    {
+      "ruleId": "PERF-RULE-030",
+      "name": "Provider timing observability",
+      "category": "observability",
+      "requirement": "Future Site Runtime connector observability should expose slow/failing integration timing without leaking secret or personal payload data.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [
+        "integrations.connectorDefinition"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_030.json"
+    },
+    {
+      "ruleId": "PERF-RULE-031",
+      "name": "Measure generated artifact growth",
+      "category": "observability",
+      "requirement": "Search, Relationship, Diff and local fallback artifact sizes must be measured during release validation so growth is visible before packaging.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_031.json"
+    },
+    {
+      "ruleId": "PERF-RULE-032",
+      "name": "Performance evidence is environment-specific",
+      "category": "observability",
+      "requirement": "Synthetic/static checks and browser profiles must record environment and method; a repository size check is not equivalent to field performance.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_032.json"
+    },
+    {
+      "ruleId": "PERF-RULE-033",
+      "name": "No ranking guarantee",
+      "category": "web-vitals",
+      "requirement": "Performance improvements may support usability and technical quality, but NEXT F must not claim guaranteed search-engine ranking improvements.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "manual-review"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_033.json"
+    },
+    {
+      "ruleId": "PERF-RULE-034",
+      "name": "Route data isolation",
+      "category": "loading",
+      "requirement": "Heavy route-only data must not be pulled into the main shell merely because a generated fallback exists.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_034.json"
+    },
+    {
+      "ruleId": "PERF-RULE-035",
+      "name": "Authenticated response cache variation",
+      "category": "caching",
+      "requirement": "Where authenticated caching is used, cache keys and variation must preserve identity, tenant, permission and representation boundaries.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "static-analysis",
+        "browser-profile"
+      ],
+      "relatedRegistryIds": [
+        "api.cachePolicy"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_035.json"
+    },
+    {
+      "ruleId": "PERF-RULE-036",
+      "name": "Primary content survives marketing failure",
+      "category": "resilience",
+      "requirement": "Analytics, advertising and optional marketing-provider failures must degrade independently from primary content and commerce-critical flows.",
+      "applicability": [
+        "customer-site",
+        "customer-cms",
+        "admin",
+        "contract-portal"
+      ],
+      "verificationMethods": [
+        "manual-review"
+      ],
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/rules/perf_rule_036.json"
+    }
+  ],
+  "budgets": [
+    {
+      "budgetId": "PERF-BUDGET-001",
+      "name": "Portal HTML payload",
+      "category": "payload",
+      "scope": "contract-portal",
+      "metric": "portal.indexHtmlBytes",
+      "target": 65536,
+      "warningThreshold": 98304,
+      "comparator": "lte",
+      "unit": "bytes",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-file-size",
+      "environment": "Hosted and file review",
+      "notes": "Keeps the shell small enough to parse quickly; generated data must not be embedded into HTML.",
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_001.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-002",
+      "name": "Local CSS aggregate",
+      "category": "payload",
+      "scope": "contract-portal",
+      "metric": "portal.localCssBytes",
+      "target": 196608,
+      "warningThreshold": 262144,
+      "comparator": "lte",
+      "unit": "bytes",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-file-size",
+      "environment": "Hosted and file review",
+      "notes": "All portal CSS combined. Route-specific growth should be monitored even though styles remain static assets.",
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_002.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-003",
+      "name": "Non-generated JavaScript source",
+      "category": "payload",
+      "scope": "contract-portal",
+      "metric": "portal.localJsSourceBytes",
+      "target": 921600,
+      "warningThreshold": 1258291,
+      "comparator": "lte",
+      "unit": "bytes",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-file-size",
+      "environment": "Hosted and file review",
+      "notes": "Excludes generated fallbacks so authored runtime complexity can be monitored independently.",
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_003.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-004",
+      "name": "Generated fallback aggregate",
+      "category": "payload",
+      "scope": "contract-portal",
+      "metric": "portal.generatedFallbackBytes",
+      "target": 94371840,
+      "warningThreshold": 134217728,
+      "comparator": "lte",
+      "unit": "bytes",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-file-size",
+      "environment": "Repository/local review",
+      "notes": "Phase 36 RC keeps the original 90 MiB target but expands the hard-fail ceiling to 128 MiB because exact-history/local fallback growth is expected; crossing the target remains a visible warning.",
+      "relatedRegistryIds": [
+        "diff.releaseIndex",
+        "search.searchIndex",
+        "relationships.relationshipIndex"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_004.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-005",
+      "name": "Eager generated fallback bytes",
+      "category": "loading",
+      "scope": "contract-portal",
+      "metric": "portal.eagerGeneratedFallbackBytes",
+      "target": 0,
+      "warningThreshold": 524288,
+      "comparator": "lte",
+      "unit": "bytes",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-import-graph",
+      "environment": "Hosted runtime",
+      "notes": "Normal hosted loading must not parse generated local fallbacks before authoritative JSON fails.",
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_005.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-006",
+      "name": "Registry index size",
+      "category": "large-data",
+      "scope": "contract-portal",
+      "metric": "registry.registryJsonBytes",
+      "target": 3145728,
+      "warningThreshold": 4194304,
+      "comparator": "lte",
+      "unit": "bytes",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-file-size",
+      "environment": "Repository and hosted runtime",
+      "notes": "Canonical Registry index size budget.",
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_006.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-007",
+      "name": "Global Search index size",
+      "category": "search",
+      "scope": "contract-portal",
+      "metric": "search.indexBytes",
+      "target": 12582912,
+      "warningThreshold": 16777216,
+      "comparator": "lte",
+      "unit": "bytes",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-file-size",
+      "environment": "Repository and hosted runtime",
+      "notes": "Search remains a local index; growth beyond the warning threshold requires segmentation/compression review.",
+      "relatedRegistryIds": [
+        "search.searchIndex"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_007.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-008",
+      "name": "Relationship index size",
+      "category": "relationships",
+      "scope": "contract-portal",
+      "metric": "relationships.indexBytes",
+      "target": 4194304,
+      "warningThreshold": 6291456,
+      "comparator": "lte",
+      "unit": "bytes",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-file-size",
+      "environment": "Repository and hosted runtime",
+      "notes": "Relationship graph must remain bounded and compact enough for interactive local traversal.",
+      "relatedRegistryIds": [
+        "relationships.relationshipIndex"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_008.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-009",
+      "name": "Diff snapshot storage",
+      "category": "diff",
+      "scope": "contract-portal",
+      "metric": "diff.snapshotsBytes",
+      "target": 367001600,
+      "warningThreshold": 536870912,
+      "comparator": "lte",
+      "unit": "bytes",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-file-size",
+      "environment": "Repository storage",
+      "notes": "Phase 36 RC keeps the original 350 MiB target but expands the hard-fail ceiling to 512 MiB for accumulated exact Diff history; crossing the target remains a visible storage warning and does not affect initial-route transfer.",
+      "relatedRegistryIds": [
+        "diff.releaseIndex"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_009.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-010",
+      "name": "Inline script payload",
+      "category": "payload",
+      "scope": "contract-portal",
+      "metric": "portal.inlineScriptBytes",
+      "target": 0,
+      "warningThreshold": 4096,
+      "comparator": "lte",
+      "unit": "bytes",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-html-scan",
+      "environment": "Hosted and file review",
+      "notes": "Avoid large inline scripts that bypass caching and content-policy boundaries.",
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_010.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-011",
+      "name": "Inline style payload",
+      "category": "payload",
+      "scope": "contract-portal",
+      "metric": "portal.inlineStyleBytes",
+      "target": 0,
+      "warningThreshold": 4096,
+      "comparator": "lte",
+      "unit": "bytes",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-html-scan",
+      "environment": "Hosted and file review",
+      "notes": "Keep styling in cacheable CSS assets.",
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_011.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-012",
+      "name": "External blocking scripts",
+      "category": "third-party",
+      "scope": "contract-portal",
+      "metric": "portal.externalScriptCount",
+      "target": 0,
+      "warningThreshold": 0,
+      "comparator": "lte",
+      "unit": "count",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-html-scan",
+      "environment": "Hosted runtime",
+      "notes": "Contract Portal core operation must not depend on blocking external scripts.",
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_012.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-013",
+      "name": "External stylesheet dependencies",
+      "category": "third-party",
+      "scope": "contract-portal",
+      "metric": "portal.externalStylesheetCount",
+      "target": 1,
+      "warningThreshold": 2,
+      "comparator": "lte",
+      "unit": "count",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-html-scan",
+      "environment": "Hosted runtime",
+      "notes": "The current Font Awesome stylesheet is the only intended external stylesheet dependency.",
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_013.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-014",
+      "name": "Eager Diff imports",
+      "category": "diff",
+      "scope": "contract-portal",
+      "metric": "portal.eagerDiffImportCount",
+      "target": 0,
+      "warningThreshold": 0,
+      "comparator": "lte",
+      "unit": "count",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-import-graph",
+      "environment": "Hosted runtime",
+      "notes": "Contract Diff history must remain route-lazy and must not load during normal portal bootstrap.",
+      "relatedRegistryIds": [
+        "diff.releaseIndex"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_014.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-015",
+      "name": "Relationship render bound",
+      "category": "relationships",
+      "scope": "contract-portal",
+      "metric": "relationships.maxRenderedNeighbors",
+      "target": 80,
+      "warningThreshold": 100,
+      "comparator": "lte",
+      "unit": "count",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "config-inspection",
+      "environment": "Hosted and file review",
+      "notes": "Prevents unbounded graph rendering on high-degree Registry nodes.",
+      "relatedRegistryIds": [
+        "relationships.relationshipConfiguration"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_015.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-016",
+      "name": "Search page result bound",
+      "category": "search",
+      "scope": "contract-portal",
+      "metric": "search.defaultPageLimit",
+      "target": 50,
+      "warningThreshold": 100,
+      "comparator": "lte",
+      "unit": "count",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "config-inspection",
+      "environment": "Hosted and file review",
+      "notes": "Keeps result rendering bounded even when the index grows.",
+      "relatedRegistryIds": [
+        "search.searchConfiguration"
+      ],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_016.json"
+    },
+    {
+      "budgetId": "PERF-BUDGET-017",
+      "name": "Bootstrap registry loaders",
+      "category": "loading",
+      "scope": "contract-portal",
+      "metric": "portal.bootstrapRegistryLoaderCount",
+      "target": 24,
+      "warningThreshold": 30,
+      "comparator": "lte",
+      "unit": "count",
+      "applicability": [
+        "contract-portal"
+      ],
+      "measurementMethod": "static-import-graph",
+      "environment": "Hosted runtime",
+      "notes": "Counts authoritative data loaders invoked by the current app shell. Future work may route-lazy more domains.",
+      "relatedRegistryIds": [],
+      "version": "0.37.0",
+      "status": "stable",
+      "phase": 32,
+      "sourceReference": "registry/performance/budgets/perf_budget_017.json"
+    }
+  ],
+  "definitions": [
+    {
+      "$id": "performance.measurementMethod",
+      "name": "Performance Measurement Method",
+      "version": "1.0.0",
+      "status": "stable",
+      "domain": "performance",
+      "description": "Controlled method used to gather performance evidence."
+    },
+    {
+      "$id": "performance.performanceAudit",
+      "name": "Performance Audit",
+      "version": "1.0.0",
+      "status": "stable",
+      "domain": "performance",
+      "description": "Measured Contract Portal performance evidence against Phase 32 budgets."
+    },
+    {
+      "$id": "performance.performanceBudget",
+      "name": "Performance Budget",
+      "version": "1.0.0",
+      "status": "stable",
+      "domain": "performance",
+      "description": "Machine-readable target/warning threshold for one performance metric."
+    },
+    {
+      "$id": "performance.performanceMetric",
+      "name": "Performance Metric",
+      "version": "1.0.0",
+      "status": "stable",
+      "domain": "performance",
+      "description": "Controlled measurable metric used by a Performance Budget."
+    },
+    {
+      "$id": "performance.performanceRule",
+      "name": "Performance Rule",
+      "version": "1.0.0",
+      "status": "stable",
+      "domain": "performance",
+      "description": "Machine-readable implementation requirement for performance behavior."
+    }
+  ],
+  "portalAuditSummary": {
+    "budgetCount": 17,
+    "budgetPass": 15,
+    "budgetWarning": 2,
+    "budgetFail": 0,
+    "checkCount": 18,
+    "checkPass": 18,
+    "checkFail": 0
+  },
+  "sources": {
+    "standard": "standards/40-performance-standard.md",
+    "budgetSchema": "registry/performance/performance-budget.schema.json",
+    "ruleSchema": "registry/performance/performance-rule.schema.json",
+    "categories": "registry/performance/categories.json",
+    "metrics": "registry/performance/metrics.json",
+    "measurementMethods": "registry/performance/measurement-methods.json",
+    "thirdPartyRules": "registry/performance/third-party-rules.json",
+    "portalAudit": "registry/performance/portal-audit.json"
+  }
+}

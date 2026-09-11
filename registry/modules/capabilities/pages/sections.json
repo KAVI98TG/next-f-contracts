@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.pages.sections",
+  "capabilityId": "pages.sections",
+  "name": "Structured Sections",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "pages",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Structured Sections capability within the Pages module.",
+  "contractBindings": [
+    "content.page",
+    "content.pageSection"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

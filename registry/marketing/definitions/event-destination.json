@@ -1,0 +1,160 @@
+{
+  "$id": "marketing.eventDestination",
+  "name": "Event Destination Rule",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "destination",
+  "description": "Eligibility rule connecting a tracking event to a logical destination.",
+  "purpose": "Centralizes consent-aware routing instead of embedding destination checks in site code.",
+  "marketingModel": {
+    "kind": "mapping",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "eventKey",
+      "required": true,
+      "nullable": false,
+      "description": "Source tracking event key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "destinationKey",
+      "required": true,
+      "nullable": false,
+      "description": "Target destination key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether route active.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "requiredConsentCategoryKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional route-specific consent override.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80
+      }
+    },
+    {
+      "key": "propertyAllowlist",
+      "required": false,
+      "nullable": true,
+      "description": "Properties allowed to leave NEXT F.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "maxItems": 200
+      }
+    },
+    {
+      "key": "propertyDenylist",
+      "required": false,
+      "nullable": true,
+      "description": "Properties always removed.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "maxItems": 200
+      }
+    },
+    {
+      "key": "serverOnly",
+      "required": true,
+      "nullable": false,
+      "description": "Whether route is trusted-server only.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "marketing.trackingEventDefinition",
+      "description": "eventKey resolves to definition."
+    },
+    {
+      "type": "references",
+      "target": "marketing.marketingDestination",
+      "description": "destinationKey resolves to destination."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.consentCategory",
+      "description": "May override consent requirement."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "denyWins",
+      "description": "Denylist wins over allowlist."
+    },
+    {
+      "id": "consentEvaluatedAtDispatch",
+      "description": "Consent eligibility reevaluated at dispatch."
+    },
+    {
+      "id": "serverOnlyEnforced",
+      "description": "serverOnly cannot run from untrusted client code."
+    },
+    {
+      "id": "noSecretProperties",
+      "description": "Secrets prohibited regardless of allowlist."
+    }
+  ],
+  "cms": {
+    "label": "Event Destination Rule",
+    "icon": "fa-bullseye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "routing-rule",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "eventKey",
+      "destinationKey",
+      "enabled",
+      "requiredConsentCategoryKey"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

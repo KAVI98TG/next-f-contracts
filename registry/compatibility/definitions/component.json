@@ -1,0 +1,101 @@
+{
+  "$id": "compatibility.component",
+  "name": "Compatibility Component",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "lifecycle",
+  "type": "schema",
+  "description": "Identifies a canonical platform surface assessed for compatibility.",
+  "category": "compatibility",
+  "fields": [
+    {
+      "key": "componentId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable component identifier.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "componentType",
+      "required": true,
+      "nullable": false,
+      "description": "Component type vocabulary.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Display name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "specificationVersion",
+      "required": false,
+      "nullable": true,
+      "description": "Own specification/API version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "registryRelease",
+      "required": false,
+      "nullable": true,
+      "description": "Registry release that introduced/published the current definition.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "runtimeImplemented",
+      "required": true,
+      "nullable": false,
+      "description": "Whether an actual runtime implementation is declared.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "source",
+      "required": false,
+      "nullable": true,
+      "description": "Authoritative non-secret source reference.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "implements",
+      "target": "compatibility.compatibilityCenterStandard",
+      "description": "Governed by the Compatibility Center Standard."
+    },
+    {
+      "type": "uses",
+      "target": "fields.slug",
+      "description": "componentId uses fields.slug."
+    },
+    {
+      "type": "uses",
+      "target": "fields.select",
+      "description": "componentType uses fields.select."
+    },
+    {
+      "type": "uses",
+      "target": "fields.text",
+      "description": "name uses fields.text."
+    },
+    {
+      "type": "uses",
+      "target": "fields.boolean",
+      "description": "runtimeImplemented uses fields.boolean."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSecrets",
+      "description": "Compatibility metadata and evidence must not contain secrets or customer-sensitive payloads."
+    }
+  ],
+  "cms": {
+    "customerVisible": false,
+    "adminVisible": true,
+    "customerEditable": false,
+    "adminEditable": false
+  },
+  "publicDelivery": false
+}

@@ -1,0 +1,78 @@
+{
+  "$id": "commerce.rule.providerCallbackDeduplication",
+  "name": "Provider Callback Deduplication",
+  "version": "0.13.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "idempotency-concurrency",
+  "ruleKind": "concurrency-invariant",
+  "description": "Repeated provider callbacks for the same external financial/shipping fact must be deduplicated before canonical state mutation.",
+  "purpose": "Repeated provider callbacks for the same external financial/shipping fact must be deduplicated before canonical state mutation.",
+  "severity": "critical",
+  "configurable": false,
+  "appliesTo": [
+    "shared.externalReference",
+    "commerce.payment",
+    "commerce.shipment"
+  ],
+  "enforcement": {
+    "authority": "server",
+    "timing": "before-and-during-command",
+    "atomicWhenRequired": true,
+    "auditRequired": true,
+    "clientValidationOnly": false
+  },
+  "requirements": [
+    {
+      "id": "commerce.rule.providerCallbackDeduplication.R1",
+      "description": "Repeated provider callbacks for the same external financial/shipping fact must be deduplicated before canonical state mutation."
+    },
+    {
+      "id": "commerce.rule.providerCallbackDeduplication.R2",
+      "description": "The rule must be evaluated from authoritative server-side state and must not trust browser-calculated or provider-reported state without required validation/reconciliation."
+    }
+  ],
+  "failure": {
+    "code": "COMMERCE_PAYMENT_REFERENCE_CONFLICT",
+    "retryable": false,
+    "customerSafe": true,
+    "notes": "Phase 12 defines the domain error identifier. HTTP mapping and response envelopes are reserved for Phase 18."
+  },
+  "relationships": [
+    {
+      "type": "governs",
+      "target": "shared.externalReference",
+      "description": "This rule constrains shared.externalReference operations or state."
+    },
+    {
+      "type": "governs",
+      "target": "commerce.payment",
+      "description": "This rule constrains commerce.payment operations or state."
+    },
+    {
+      "type": "governs",
+      "target": "commerce.shipment",
+      "description": "This rule constrains commerce.shipment operations or state."
+    }
+  ],
+  "examples": {
+    "valid": [
+      "An operation involving shared.externalReference, commerce.payment satisfies the rule before authoritative state is committed."
+    ],
+    "invalid": [
+      "An implementation bypasses commerce.rule.providerCallbackDeduplication and commits a conflicting or unverifiable state."
+    ]
+  },
+  "implementationNotes": [
+    "Enforce at the server-side commerce domain boundary.",
+    "Use canonical Phase 11 schemas as the data model; do not create shadow transaction models.",
+    "If provider behavior differs, translate through an adapter and reconcile to canonical NEXT F state."
+  ],
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18"
+  }
+}

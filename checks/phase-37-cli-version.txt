@@ -1,0 +1,1 @@
+nextf-contract 1.0.0 (Registry 1.0.0)

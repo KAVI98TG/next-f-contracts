@@ -1,0 +1,32 @@
+{
+  "controlId": "ACC-CODE-001",
+  "name": "Accessible code and raw-data views",
+  "category": "components",
+  "requirement": "Code/raw-data viewers must preserve selectable text, readable overflow behavior and keyboard-accessible copy actions without requiring syntax color to understand content.",
+  "rationale": "Technical source views are primary content in the Contract Portal.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "code-viewer"
+  ],
+  "verificationMethods": [
+    "keyboard-manual",
+    "zoom-reflow",
+    "visual-manual"
+  ],
+  "severity": "high",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_code_001.json"
+}

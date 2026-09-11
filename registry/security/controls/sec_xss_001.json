@@ -1,0 +1,36 @@
+{
+  "controlId": "SEC-XSS-001",
+  "name": "No arbitrary script execution from managed content",
+  "category": "browser",
+  "requirement": "CMS/content values must not create arbitrary executable script paths in customer websites or management interfaces.",
+  "rationale": "Structured content is data, not trusted executable code.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin"
+  ],
+  "obligation": "mandatory",
+  "scope": "both",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "fields.richText"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_xss_001.json"
+}

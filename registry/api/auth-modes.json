@@ -1,0 +1,45 @@
+{
+  "registryVersion": "0.19.0",
+  "authModes": [
+    {
+      "id": "anonymous",
+      "label": "Anonymous",
+      "description": "No authenticated identity. Still subject to origin, abuse, module and data policies."
+    },
+    {
+      "id": "anonymous-or-commerce-customer",
+      "label": "Anonymous or Commerce Customer",
+      "description": "May use an anonymous cart/session or an authenticated Commerce Customer context."
+    },
+    {
+      "id": "organization-user",
+      "label": "Organization User",
+      "description": "Authenticated Customer CMS user scoped through Phase 15 authorization."
+    },
+    {
+      "id": "nextf-admin",
+      "label": "NEXT F Admin",
+      "description": "Authenticated NEXT F internal principal with platform authorization."
+    },
+    {
+      "id": "commerce-customer",
+      "label": "Commerce Customer",
+      "description": "Authenticated storefront customer; never equivalent to an Organization User."
+    },
+    {
+      "id": "site-server",
+      "label": "Site Server",
+      "description": "Trusted server-to-server Site integration identity. Browser use is prohibited."
+    },
+    {
+      "id": "internal-service",
+      "label": "Internal Service",
+      "description": "NEXT F trusted service identity for internal processing only."
+    },
+    {
+      "id": "preview-grant",
+      "label": "Preview Grant",
+      "description": "Short-lived scoped grant for unpublished preview content only."
+    }
+  ]
+}

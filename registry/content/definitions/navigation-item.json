@@ -1,0 +1,202 @@
+{
+  "$id": "content.navigationItem",
+  "name": "Navigation Item",
+  "version": "0.6.0",
+  "status": "stable",
+  "domain": "content",
+  "category": "navigation",
+  "description": "One ordered link entry inside a Navigation container.",
+  "purpose": "Standardizes labels, destinations, hierarchy and visibility while leaving navbar/footer presentation to the coded website.",
+  "contentModel": {
+    "kind": "embedded",
+    "routing": "none",
+    "cardinality": "many",
+    "customerManaged": true,
+    "supportsPublishing": false,
+    "supportsRevision": false
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site scope.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Public navigation label.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 120,
+        "customerEditable": true,
+        "adminEditable": true,
+        "localizable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "link",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical destination and link behavior.",
+      "schema": "shared.link"
+    },
+    {
+      "key": "parentItem",
+      "required": false,
+      "nullable": true,
+      "description": "Optional parent item for nested navigation.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "content.navigationItem",
+        "relationshipCardinality": "one",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "order",
+      "required": true,
+      "nullable": false,
+      "description": "Order within the same parent/navigation level.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "customerEditable": true,
+        "adminEditable": true,
+        "sortable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "iconKey",
+      "required": false,
+      "nullable": true,
+      "description": "Optional developer-approved icon key; never raw executable icon markup.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120,
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the item is active.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true,
+        "customerEditable": true,
+        "adminEditable": true,
+        "filterable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "visibility",
+      "required": true,
+      "nullable": false,
+      "description": "Visibility policy applied to the navigation item.",
+      "schema": "core.visibility"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "shared.link",
+      "description": "Navigation Items use shared link semantics."
+    },
+    {
+      "type": "selfReferences",
+      "target": "content.navigationItem",
+      "description": "Items may form a hierarchy."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noNavigationCycles",
+      "description": "parentItem relationships must not form cycles."
+    },
+    {
+      "id": "parentSameNavigation",
+      "description": "Parent and child must belong to the same Navigation container."
+    },
+    {
+      "id": "enabledLinkValid",
+      "description": "Enabled items require a valid safe Link."
+    },
+    {
+      "id": "iconKeyNotMarkup",
+      "description": "iconKey must be an approved identifier, not raw HTML/SVG/script content."
+    }
+  ],
+  "cms": {
+    "label": "Navigation Item",
+    "icon": "fa-link",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "embedded",
+    "summaryFields": [
+      "label",
+      "order",
+      "enabled"
+    ],
+    "editorMode": "navigation-item-editor",
+    "primaryActions": [
+      "edit",
+      "reorder",
+      "disable"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Enabled visibility-eligible items may be delivered in public navigation payloads."
+  },
+  "futureBindings": {
+    "blocks": null,
+    "seo": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "label": "Services",
+        "link": {
+          "action": "internal",
+          "destination": "/services",
+          "newTab": false
+        },
+        "order": 1,
+        "enabled": true
+      }
+    ],
+    "invalid": [
+      {
+        "label": "Bad",
+        "link": {
+          "action": "external",
+          "destination": "javascript:alert(1)"
+        },
+        "order": -1,
+        "enabled": true
+      }
+    ]
+  },
+  "notes": []
+}

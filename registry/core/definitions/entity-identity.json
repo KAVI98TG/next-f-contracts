@@ -1,0 +1,98 @@
+{
+  "$id": "core.entityIdentity",
+  "name": "Entity Identity",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "identity",
+  "description": "Stable identity metadata for a canonical NEXT F entity.",
+  "purpose": "Provides one reusable identity object so later schemas do not redefine primary IDs and identity creation semantics.",
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque stable entity identifier.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 4,
+        "maxLength": 128,
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true,
+        "filterable": true,
+        "sortable": true,
+        "revisionTracked": false
+      }
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Timestamp when the entity was first created.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "revisionTracked": false
+      }
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Timestamp of the latest authoritative mutation.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false,
+        "revisionTracked": false
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "entityIdStable",
+      "description": "id must remain stable for the lifetime of the entity."
+    },
+    {
+      "id": "updatedNotBeforeCreated",
+      "description": "updatedAt must not be earlier than createdAt."
+    }
+  ],
+  "cms": {
+    "label": "Identity",
+    "icon": "fa-fingerprint",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "system",
+    "summaryFields": [
+      "id"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Opaque public entity IDs may be delivered only when the parent contract permits them."
+  },
+  "examples": {
+    "valid": [
+      {
+        "id": "prod_01ABC",
+        "createdAt": "2026-09-09T10:00:00Z",
+        "updatedAt": "2026-09-09T10:00:00Z"
+      }
+    ],
+    "invalid": [
+      {
+        "id": "",
+        "createdAt": "yesterday",
+        "updatedAt": "today"
+      }
+    ]
+  },
+  "notes": [
+    "Entity IDs are identifiers, not authorization evidence.",
+    "ID prefixes are governed by the Phase 0 naming standard."
+  ]
+}

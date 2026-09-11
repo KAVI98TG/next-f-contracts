@@ -1,0 +1,4 @@
+NEXT F Contracts HTML structure smoke test
+Duplicate IDs: 0
+Missing local assets: 0
+PASS

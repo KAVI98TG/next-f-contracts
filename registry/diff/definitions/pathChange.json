@@ -1,0 +1,74 @@
+{
+  "$id": "diff.pathChange",
+  "name": "Diff Path Change",
+  "version": "0.26.0",
+  "status": "stable",
+  "domain": "diff",
+  "category": "contract-diff",
+  "description": "One before/after structural path change with machine classification",
+  "purpose": "One before/after structural path change with machine classification",
+  "fields": [
+    {
+      "key": "path",
+      "required": true,
+      "nullable": false,
+      "description": "path",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "changeType",
+      "required": true,
+      "nullable": false,
+      "description": "changeType",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "impact",
+      "required": true,
+      "nullable": false,
+      "description": "impact",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "confidence",
+      "required": true,
+      "nullable": false,
+      "description": "confidence",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "before",
+      "required": false,
+      "nullable": true,
+      "description": "before",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "after",
+      "required": false,
+      "nullable": true,
+      "description": "after",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "summary",
+      "required": true,
+      "nullable": false,
+      "description": "summary",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "contractDiffOnly",
+      "description": "Contains contract/release analysis metadata only and never customer runtime data."
+    }
+  ],
+  "cms": {
+    "label": "Diff Path Change",
+    "customerEditable": false,
+    "adminEditable": false,
+    "publicEligible": true
+  }
+}

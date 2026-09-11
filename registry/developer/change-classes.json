@@ -1,0 +1,56 @@
+{
+  "registryVersion": "0.22.0",
+  "classes": [
+    {
+      "id": "presentation-only",
+      "label": "Presentation Only",
+      "compatibilityRisk": "low",
+      "examples": [
+        "layout",
+        "responsive styling",
+        "animation"
+      ],
+      "contractReview": "confirm no data semantics changed"
+    },
+    {
+      "id": "implementation-compatible",
+      "label": "Implementation Compatible",
+      "compatibilityRisk": "medium",
+      "examples": [
+        "adapter refactor",
+        "internal performance change"
+      ],
+      "contractReview": "canonical behavior must remain identical"
+    },
+    {
+      "id": "additive-contract",
+      "label": "Additive Contract Change",
+      "compatibilityRisk": "medium",
+      "examples": [
+        "optional field",
+        "new capability"
+      ],
+      "contractReview": "requires NEXT F Contract minor-release classification"
+    },
+    {
+      "id": "breaking-contract",
+      "label": "Breaking Contract Change",
+      "compatibilityRisk": "high",
+      "examples": [
+        "rename/remove stable field",
+        "semantic change"
+      ],
+      "contractReview": "requires major-version/migration path"
+    },
+    {
+      "id": "data-migration",
+      "label": "Persisted Data Migration",
+      "compatibilityRisk": "high",
+      "examples": [
+        "storage schema change",
+        "contract upgrade migration"
+      ],
+      "contractReview": "requires migration and recovery plan"
+    }
+  ]
+}

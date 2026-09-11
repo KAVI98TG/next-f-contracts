@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.forms.auto-response",
+  "capabilityId": "forms.auto-response",
+  "name": "Auto Response",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "forms",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Auto Response capability within the Forms module.",
+  "contractBindings": [
+    "forms.autoResponse"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

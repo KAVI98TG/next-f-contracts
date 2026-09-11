@@ -1,0 +1,28 @@
+{
+  "$id": "platform.settings.edit",
+  "name": "Edit Settings",
+  "permissionId": "platform.settings.edit",
+  "domain": "platform",
+  "resource": "settings",
+  "action": "edit",
+  "scopeKind": "platform",
+  "riskLevel": "privileged",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Edit Settings within the authorized platform scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

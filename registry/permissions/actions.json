@@ -1,0 +1,45 @@
+{
+  "registryVersion": "0.16.0",
+  "actions": [
+    {
+      "key": "view",
+      "label": "View",
+      "description": "Read permitted records, configuration or operational information without modifying it."
+    },
+    {
+      "key": "create",
+      "label": "Create",
+      "description": "Create a new resource instance within the authorized scope."
+    },
+    {
+      "key": "edit",
+      "label": "Edit",
+      "description": "Modify an existing resource without granting broader administrative authority."
+    },
+    {
+      "key": "delete",
+      "label": "Delete",
+      "description": "Remove or request removal of a resource where the underlying contract permits deletion."
+    },
+    {
+      "key": "publish",
+      "label": "Publish",
+      "description": "Move publishable content into a publicly deliverable state where contract rules permit."
+    },
+    {
+      "key": "approve",
+      "label": "Approve",
+      "description": "Approve content or workflow state independently from ordinary editing."
+    },
+    {
+      "key": "manage",
+      "label": "Manage",
+      "description": "Perform resource-specific operational or administrative actions not represented by narrower actions."
+    },
+    {
+      "key": "export",
+      "label": "Export",
+      "description": "Export permitted records or reports from the authorized scope."
+    }
+  ]
+}

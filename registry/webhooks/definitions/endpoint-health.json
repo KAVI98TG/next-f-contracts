@@ -1,0 +1,108 @@
+{
+  "$id": "webhooks.endpointHealth",
+  "name": "Endpoint Health",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "endpoints",
+  "description": "Operational health state derived from logical webhook delivery outcomes.",
+  "purpose": "Provides consistent degradation, recovery and pause behavior.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Health state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "healthy",
+          "degraded",
+          "paused",
+          "disabled"
+        ]
+      }
+    },
+    {
+      "key": "consecutiveFailedDeliveries",
+      "required": true,
+      "nullable": false,
+      "description": "Consecutive failed logical deliveries.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "lastSuccessAt",
+      "required": false,
+      "nullable": true,
+      "description": "Last successful logical delivery.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "lastFailureAt",
+      "required": false,
+      "nullable": true,
+      "description": "Last failed logical delivery.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "degradedAt",
+      "required": false,
+      "nullable": true,
+      "description": "When degraded state began.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "pausedAt",
+      "required": false,
+      "nullable": true,
+      "description": "When auto-pause began.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "degradeThreshold",
+      "description": "Default degradation occurs after 5 consecutive failed logical deliveries."
+    },
+    {
+      "id": "pauseThreshold",
+      "description": "Default auto-pause occurs after 20 consecutive failed logical deliveries."
+    },
+    {
+      "id": "successResetsFailures",
+      "description": "A successful logical delivery resets the consecutive failure count."
+    }
+  ],
+  "cms": {
+    "label": "Endpoint Health",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "status",
+      "consecutiveFailedDeliveries",
+      "lastSuccessAt",
+      "lastFailureAt"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

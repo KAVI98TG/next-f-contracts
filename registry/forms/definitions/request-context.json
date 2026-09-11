@@ -1,0 +1,122 @@
+{
+  "$id": "forms.requestContext",
+  "name": "Submission Request Context",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "submission",
+  "description": "Minimal technical/context metadata captured with a form submission according to Site data-handling policy.",
+  "purpose": "Supports diagnostics and source understanding while keeping request metadata separate from business field values.",
+  "formsModel": {
+    "kind": "operational-record",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false
+  },
+  "fields": [
+    {
+      "key": "sourceUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Page URL from which the form was submitted.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "referrerUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Referrer URL when retained and available.",
+      "primitive": "fields.url"
+    },
+    {
+      "key": "userAgent",
+      "required": false,
+      "nullable": true,
+      "description": "User-agent string only when configured for retention.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 1000
+      }
+    },
+    {
+      "key": "clientSignalHash",
+      "required": false,
+      "nullable": true,
+      "description": "Non-reversible or protected client signal derivative used for abuse control when configured.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 256
+      }
+    },
+    {
+      "key": "locale",
+      "required": false,
+      "nullable": true,
+      "description": "Visitor locale hint.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40
+      }
+    },
+    {
+      "key": "requestId",
+      "required": false,
+      "nullable": true,
+      "description": "Server request correlation ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "obeyDataHandling",
+      "description": "Presence of request metadata must follow forms.dataHandling."
+    },
+    {
+      "id": "noRawSecrets",
+      "description": "Request context must not copy authorization headers, cookies, access tokens or secrets."
+    },
+    {
+      "id": "clientMetadataUntrusted",
+      "description": "Client-provided URLs, locale and user-agent data are untrusted metadata."
+    }
+  ],
+  "cms": {
+    "label": "Submission Request Context",
+    "icon": "fa-rectangle-list",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "sourceUrl",
+      "referrerUrl",
+      "userAgent",
+      "clientSignalHash"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

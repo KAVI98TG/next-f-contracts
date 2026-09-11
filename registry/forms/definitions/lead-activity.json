@@ -1,0 +1,171 @@
+{
+  "$id": "forms.leadActivity",
+  "name": "Lead Activity",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "leads",
+  "description": "Immutable timeline entry describing an operational action on a Lead.",
+  "purpose": "Supports a readable lead timeline independently from the future global Event Registry.",
+  "formsModel": {
+    "kind": "operational-record",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false
+  },
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque activity ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "leadId",
+      "required": true,
+      "nullable": false,
+      "description": "Lead.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.lead",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Activity category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "created",
+            "label": "created"
+          },
+          {
+            "value": "statusChanged",
+            "label": "statusChanged"
+          },
+          {
+            "value": "assigned",
+            "label": "assigned"
+          },
+          {
+            "value": "noteAdded",
+            "label": "noteAdded"
+          },
+          {
+            "value": "contactAttempt",
+            "label": "contactAttempt"
+          },
+          {
+            "value": "contactCompleted",
+            "label": "contactCompleted"
+          },
+          {
+            "value": "converted",
+            "label": "converted"
+          },
+          {
+            "value": "closed",
+            "label": "closed"
+          },
+          {
+            "value": "other",
+            "label": "other"
+          }
+        ]
+      }
+    },
+    {
+      "key": "occurredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Activity timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "actor",
+      "required": false,
+      "nullable": true,
+      "description": "Actor when applicable.",
+      "schema": "core.actorReference"
+    },
+    {
+      "key": "summary",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable non-secret summary.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500
+      }
+    },
+    {
+      "key": "metadata",
+      "required": false,
+      "nullable": true,
+      "description": "Small non-secret activity metadata.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "forms.lead",
+      "description": "Activity belongs to one Lead."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "appendOnly",
+      "description": "Lead Activity records are append-only operational history."
+    },
+    {
+      "id": "notGlobalEventContract",
+      "description": "This timeline model does not define canonical integration events; those are introduced in Phase 13."
+    },
+    {
+      "id": "metadataNoSecrets",
+      "description": "Activity metadata must not contain secrets and should minimize personal data."
+    }
+  ],
+  "cms": {
+    "label": "Lead Activity",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "id",
+      "leadId",
+      "type",
+      "occurredAt"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

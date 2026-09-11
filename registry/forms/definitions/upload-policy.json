@@ -1,0 +1,124 @@
+{
+  "$id": "forms.uploadPolicy",
+  "name": "Form Upload Policy",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "builder",
+  "description": "Controls files accepted by one form upload field.",
+  "purpose": "Makes file constraints explicit and server-enforceable.",
+  "formsModel": {
+    "kind": "policy",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "allowedMimeTypes",
+      "required": false,
+      "nullable": false,
+      "description": "Allowed MIME types.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "maxItems": 50
+      }
+    },
+    {
+      "key": "allowedExtensions",
+      "required": false,
+      "nullable": false,
+      "description": "Allowed lowercase file extensions.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "maxItems": 50
+      }
+    },
+    {
+      "key": "maxFileSizeBytes",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum file size in bytes.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1
+      }
+    },
+    {
+      "key": "maxFiles",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum number of files accepted by the field.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 20
+      }
+    },
+    {
+      "key": "requireSecurityScan",
+      "required": true,
+      "nullable": false,
+      "description": "Whether server-side security scanning must succeed before the file is usable.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "serverEnforcedUploadPolicy",
+      "description": "MIME type, extension and file size restrictions must be enforced server-side."
+    },
+    {
+      "id": "filenameNotTrusted",
+      "description": "Original filenames are display metadata and must never determine executable server paths."
+    },
+    {
+      "id": "scanBeforeUse",
+      "description": "When scanning is required, files must remain unavailable to downstream users until scan outcome is clean."
+    },
+    {
+      "id": "noPublicByDefault",
+      "description": "Form-uploaded files are private by default."
+    }
+  ],
+  "cms": {
+    "label": "Form Upload Policy",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "allowedMimeTypes",
+      "allowedExtensions",
+      "maxFileSizeBytes",
+      "maxFiles"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

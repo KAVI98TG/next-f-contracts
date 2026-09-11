@@ -1,0 +1,29 @@
+{
+  "$id": "permissions.assignments.edit",
+  "name": "Edit Assignments",
+  "permissionId": "permissions.assignments.edit",
+  "domain": "permissions",
+  "resource": "assignments",
+  "action": "edit",
+  "scopeKind": "organization",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Edit Assignments within the authorized organization scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

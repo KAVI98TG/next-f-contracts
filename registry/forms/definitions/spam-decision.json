@@ -1,0 +1,164 @@
+{
+  "$id": "forms.spamDecision",
+  "name": "Spam Decision",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "anti-abuse",
+  "description": "Server-side anti-spam classification for a submission.",
+  "purpose": "Keeps spam outcome, score and evidence auditable and separate from the original submitted data.",
+  "formsModel": {
+    "kind": "operational-record",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false
+  },
+  "fields": [
+    {
+      "key": "classification",
+      "required": true,
+      "nullable": false,
+      "description": "Final classification.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "clean",
+            "label": "Clean"
+          },
+          {
+            "value": "suspected",
+            "label": "Suspected"
+          },
+          {
+            "value": "spam",
+            "label": "Spam"
+          },
+          {
+            "value": "blocked",
+            "label": "Blocked"
+          }
+        ]
+      }
+    },
+    {
+      "key": "score",
+      "required": false,
+      "nullable": true,
+      "description": "Normalized overall suspicion score when available.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    {
+      "key": "signals",
+      "required": false,
+      "nullable": false,
+      "description": "Signals used in the classification.",
+      "itemsSchema": "forms.spamSignal"
+    },
+    {
+      "key": "decidedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Decision timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "decisionMethod",
+      "required": true,
+      "nullable": false,
+      "description": "How the decision was made.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "rules",
+            "label": "Rules"
+          },
+          {
+            "value": "provider",
+            "label": "Provider"
+          },
+          {
+            "value": "combined",
+            "label": "Combined"
+          },
+          {
+            "value": "manual",
+            "label": "Manual review"
+          }
+        ]
+      }
+    },
+    {
+      "key": "reviewed",
+      "required": true,
+      "nullable": false,
+      "description": "Whether a human review has occurred.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "contains",
+      "target": "forms.spamSignal",
+      "description": "Decision contains anti-spam signals."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "decisionServerSide",
+      "description": "Authoritative spam decisions are made server-side."
+    },
+    {
+      "id": "retainReasoning",
+      "description": "Enough non-secret reasoning should be retained for support/audit review."
+    },
+    {
+      "id": "manualOverrideAudited",
+      "description": "Manual reclassification must generate an audit record later under the canonical audit/event system."
+    }
+  ],
+  "cms": {
+    "label": "Spam Decision",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "classification",
+      "score",
+      "signals",
+      "decidedAt"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,170 @@
+{
+  "$id": "seo.structuredData",
+  "name": "Structured Data",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "structured-data",
+  "description": "One structured-data JSON-LD object and validation state.",
+  "purpose": "Supports schema.org-style structured data without allowing executable script payloads or fabricated claims.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "schemaType",
+      "required": true,
+      "nullable": false,
+      "description": "Primary structured-data type name, such as Organization, Article, Product or FAQPage.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 120,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true
+      }
+    },
+    {
+      "key": "payload",
+      "required": true,
+      "nullable": false,
+      "description": "JSON-compatible structured-data object without script tags or executable values.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "json-ld-object",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "How the structured-data object was produced.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "generated",
+            "label": "Generated"
+          },
+          {
+            "value": "managed",
+            "label": "Managed"
+          },
+          {
+            "value": "imported",
+            "label": "Imported"
+          }
+        ],
+        "defaultValue": "generated",
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "validationStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Most recent validation state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "unknown",
+            "label": "Unknown"
+          },
+          {
+            "value": "valid",
+            "label": "Valid"
+          },
+          {
+            "value": "warning",
+            "label": "Warning"
+          },
+          {
+            "value": "invalid",
+            "label": "Invalid"
+          }
+        ],
+        "defaultValue": "unknown",
+        "customerEditable": false,
+        "adminEditable": false,
+        "filterable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "jsonObjectOnly",
+      "description": "payload must be a JSON object/array appropriate for JSON-LD and must not include executable code, functions or <script> markup."
+    },
+    {
+      "id": "claimsMustBeTruthful",
+      "description": "Structured data must describe visible or otherwise legitimately represented content and must not fabricate reviews, prices, availability or organizational claims."
+    },
+    {
+      "id": "typeMatchesPayload",
+      "description": "schemaType must correspond to the primary @type represented by payload when present."
+    }
+  ],
+  "cms": {
+    "label": "Structured Data",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "schemaType",
+      "payload",
+      "source",
+      "validationStatus"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "schemaType": "Article",
+        "payload": {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Example"
+        },
+        "source": "generated",
+        "validationStatus": "valid"
+      }
+    ],
+    "invalid": [
+      {
+        "schemaType": "Review",
+        "payload": "<script>alert(1)</script>",
+        "source": "managed",
+        "validationStatus": "valid"
+      }
+    ]
+  },
+  "notes": []
+}

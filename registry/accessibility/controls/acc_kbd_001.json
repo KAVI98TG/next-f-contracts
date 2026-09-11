@@ -1,0 +1,39 @@
+{
+  "controlId": "ACC-KBD-001",
+  "name": "Full keyboard operation",
+  "category": "keyboard",
+  "requirement": "All functionality must be operable from a keyboard without requiring pointer-specific interaction.",
+  "rationale": "Keyboard access is fundamental for many assistive-technology and motor-impaired users.",
+  "applicability": [
+    "public-site",
+    "customer-cms",
+    "admin",
+    "contract-portal"
+  ],
+  "affectedUiTypes": [
+    "page",
+    "navigation",
+    "form",
+    "dialog",
+    "drawer",
+    "menu",
+    "table",
+    "filter",
+    "command-palette"
+  ],
+  "verificationMethods": [
+    "keyboard-manual",
+    "integration-test"
+  ],
+  "severity": "critical",
+  "relatedCmsEditorTypes": [],
+  "relatedBlocks": [],
+  "relatedFields": [],
+  "relatedRegistryIds": [],
+  "manualReviewRequired": true,
+  "subrequirements": [],
+  "version": "1.0.0",
+  "status": "stable",
+  "phase": 31,
+  "sourceReference": "registry/accessibility/controls/acc_kbd_001.json"
+}

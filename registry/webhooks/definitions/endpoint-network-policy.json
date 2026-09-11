@@ -1,0 +1,112 @@
+{
+  "$id": "webhooks.endpointNetworkPolicy",
+  "name": "Endpoint Network Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "endpoints",
+  "description": "Outbound network policy applied to endpoint verification and deliveries.",
+  "purpose": "Provides SSRF-resistant destination controls.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "httpsOnly",
+      "required": true,
+      "nullable": false,
+      "description": "HTTPS is mandatory.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "minimumTlsVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Minimum TLS version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "allowedPorts",
+      "required": true,
+      "nullable": false,
+      "description": "Allowed destination ports.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "allowPrivateNetworks",
+      "required": true,
+      "nullable": false,
+      "description": "Whether private network destinations are allowed.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "followRedirects",
+      "required": true,
+      "nullable": false,
+      "description": "Whether redirects may be followed.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "resolveAtConnection",
+      "required": true,
+      "nullable": false,
+      "description": "Whether DNS/IP resolution is revalidated at connection time.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "publicInternetV1",
+      "description": "V1 supports public-internet destinations only."
+    },
+    {
+      "id": "blockedRanges",
+      "description": "Private, loopback, link-local, multicast, reserved and cloud-metadata addresses are prohibited."
+    },
+    {
+      "id": "noUserInfo",
+      "description": "URL user-info credentials are prohibited."
+    },
+    {
+      "id": "dnsRebindingDefense",
+      "description": "Resolved addresses must be rechecked immediately before connection."
+    },
+    {
+      "id": "noRedirects",
+      "description": "Automatic redirects are prohibited."
+    },
+    {
+      "id": "ports",
+      "description": "Default permitted ports are 443 and 8443."
+    }
+  ],
+  "cms": {
+    "label": "Endpoint Network Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "httpsOnly",
+      "minimumTlsVersion",
+      "allowedPorts",
+      "allowPrivateNetworks"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

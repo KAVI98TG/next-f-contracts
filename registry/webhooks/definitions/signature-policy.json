@@ -1,0 +1,119 @@
+{
+  "$id": "webhooks.signaturePolicy",
+  "name": "Webhook Signature Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "security",
+  "description": "Mandatory HMAC signature protocol for every NEXT F webhook request.",
+  "purpose": "Allows receivers to verify request authenticity and body integrity without exposing the signing secret.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "algorithm",
+      "required": true,
+      "nullable": false,
+      "description": "Signature algorithm.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "version",
+      "required": true,
+      "nullable": false,
+      "description": "Signature scheme version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "timestampToleranceSeconds",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum accepted request timestamp age/skew.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "signedInput",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical signed byte sequence description.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "headerName",
+      "required": true,
+      "nullable": false,
+      "description": "Signature header name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "format",
+      "required": true,
+      "nullable": false,
+      "description": "Header value format.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "minimumSecretEntropyBytes",
+      "required": true,
+      "nullable": false,
+      "description": "Minimum signing-secret entropy.",
+      "primitive": "fields.integer"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "algorithmV1",
+      "description": "V1 uses HMAC-SHA256."
+    },
+    {
+      "id": "signedInputV1",
+      "description": "V1 signs `<unix-seconds>.<exact raw UTF-8 request body bytes>`."
+    },
+    {
+      "id": "formatV1",
+      "description": "Signature header format is `t=<unix-seconds>,v1=<lowercase-hex-hmac>`."
+    },
+    {
+      "id": "constantTime",
+      "description": "Receivers should compare computed signatures using constant-time comparison."
+    },
+    {
+      "id": "timestampFreshness",
+      "description": "Receiver must validate timestamp freshness; default tolerance is 300 seconds."
+    },
+    {
+      "id": "mandatory",
+      "description": "Signature validation is independent of optional destination authentication."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Signature Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "algorithm",
+      "version",
+      "timestampToleranceSeconds",
+      "signedInput"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

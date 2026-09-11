@@ -1,0 +1,62 @@
+{
+  "$id": "fields.boolean",
+  "name": "Boolean",
+  "version": "0.4.0",
+  "status": "stable",
+  "category": "numeric",
+  "description": "True/false value for explicit binary state.",
+  "value": {
+    "jsonType": "boolean",
+    "canonical": "JSON boolean true or false.",
+    "absence": "Absent values are represented by omission or null only when nullable is true."
+  },
+  "cms": {
+    "editor": "toggle",
+    "inputMode": null,
+    "supportsPlaceholder": false,
+    "supportsHelpText": true,
+    "supportsWidth": true
+  },
+  "capabilities": {
+    "searchable": false,
+    "filterable": true,
+    "sortable": true,
+    "localizable": false,
+    "revisionTracked": true
+  },
+  "supportedConfig": [
+    "key",
+    "label",
+    "description",
+    "helpText",
+    "required",
+    "nullable",
+    "defaultValue",
+    "customerEditable",
+    "adminEditable",
+    "searchable",
+    "filterable",
+    "sortable",
+    "localizable",
+    "revisionTracked",
+    "conditionalVisibility",
+    "width"
+  ],
+  "validationRules": [
+    "required",
+    "type",
+    "notNull"
+  ],
+  "examples": {
+    "valid": [
+      true,
+      false
+    ],
+    "invalid": [
+      0,
+      1,
+      "true"
+    ]
+  },
+  "notes": []
+}

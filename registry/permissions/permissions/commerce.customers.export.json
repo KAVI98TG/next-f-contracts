@@ -1,0 +1,31 @@
+{
+  "$id": "commerce.customers.export",
+  "name": "Export Customers",
+  "permissionId": "commerce.customers.export",
+  "domain": "commerce",
+  "resource": "customers",
+  "action": "export",
+  "scopeKind": "site",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Export Customers within the authorized site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [
+    "Export remains subject to field-level data minimization and the resource data policy."
+  ],
+  "version": "0.16.0",
+  "status": "stable"
+}

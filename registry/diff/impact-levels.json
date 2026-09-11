@@ -1,0 +1,54 @@
+{
+  "registryVersion": "0.26.0",
+  "title": "Contract Diff Impact Levels",
+  "levels": [
+    {
+      "id": "breaking",
+      "label": "Breaking",
+      "rank": 70,
+      "description": "Existing conforming consumers may fail or become invalid."
+    },
+    {
+      "id": "potentially-breaking",
+      "label": "Potentially breaking",
+      "rank": 60,
+      "description": "May break strict consumers; manual compatibility review is required."
+    },
+    {
+      "id": "deprecation",
+      "label": "Deprecation",
+      "rank": 50,
+      "description": "Still available but should not be used for new implementations."
+    },
+    {
+      "id": "review-required",
+      "label": "Review required",
+      "rank": 40,
+      "description": "Automated structural analysis cannot safely decide semantic compatibility."
+    },
+    {
+      "id": "non-breaking",
+      "label": "Non-breaking",
+      "rank": 30,
+      "description": "Backward-compatible additive or relaxed change under the current standard."
+    },
+    {
+      "id": "documentation",
+      "label": "Documentation",
+      "rank": 20,
+      "description": "Descriptive documentation changed without detected machine semantics."
+    },
+    {
+      "id": "metadata",
+      "label": "Metadata",
+      "rank": 10,
+      "description": "Non-behavioral Registry metadata changed."
+    },
+    {
+      "id": "none",
+      "label": "No change",
+      "rank": 0,
+      "description": "No detected change."
+    }
+  ]
+}

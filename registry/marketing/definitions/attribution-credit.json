@@ -1,0 +1,97 @@
+{
+  "$id": "marketing.attributionCredit",
+  "name": "Attribution Credit",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "campaign-attribution",
+  "description": "Credit assigned to one attribution touchpoint.",
+  "purpose": "Provides a normalized reusable value for multi-touch attribution.",
+  "marketingModel": {
+    "kind": "value-object",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "touchpointId",
+      "required": true,
+      "nullable": false,
+      "description": "Attributed touchpoint ID.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160
+      }
+    },
+    {
+      "key": "credit",
+      "required": true,
+      "nullable": false,
+      "description": "Share of credit.",
+      "primitive": "fields.percentage"
+    },
+    {
+      "key": "reason",
+      "required": false,
+      "nullable": true,
+      "description": "Optional calculation reason.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "marketing.attributionTouchpoint",
+      "description": "References an eligible touchpoint."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "creditRange",
+      "description": "Credit remains from 0% to 100%."
+    },
+    {
+      "id": "touchpointMustExist",
+      "description": "Referenced touchpoint exists and is eligible."
+    }
+  ],
+  "cms": {
+    "label": "Attribution Credit",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "touchpointId",
+      "credit",
+      "reason"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

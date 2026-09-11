@@ -1,0 +1,172 @@
+{
+  "$id": "commerce.productCollection",
+  "name": "Product Collection",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "catalog",
+  "description": "Manual or rule-driven merchandising collection.",
+  "purpose": "Separates campaign merchandising groups from Product taxonomy.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Collection name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Collection URL slug.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "description",
+      "required": false,
+      "nullable": true,
+      "description": "Optional description.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "collectionType",
+      "required": true,
+      "nullable": false,
+      "description": "Membership strategy.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "manual",
+          "automatic"
+        ]
+      }
+    },
+    {
+      "key": "productIds",
+      "required": false,
+      "nullable": true,
+      "description": "Manual Product IDs.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "uniqueItems": true
+      }
+    },
+    {
+      "key": "rules",
+      "required": false,
+      "nullable": true,
+      "description": "Automatic collection rules.",
+      "itemsSchema": "commerce.collectionRule"
+    },
+    {
+      "key": "ruleMatch",
+      "required": false,
+      "nullable": true,
+      "description": "Rule conjunction.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "all",
+          "any"
+        ]
+      }
+    },
+    {
+      "key": "featuredMedia",
+      "required": false,
+      "nullable": true,
+      "description": "Optional collection image.",
+      "schema": "shared.mediaReference"
+    },
+    {
+      "key": "publishing",
+      "required": true,
+      "nullable": false,
+      "description": "Publishing state.",
+      "schema": "core.publishing"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "commerce.product",
+      "description": "References commerce.product."
+    },
+    {
+      "type": "optionallyComposesMany",
+      "target": "commerce.collectionRule",
+      "description": "References commerce.collectionRule."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "manualVsAutomatic",
+      "description": "Manual collections use Product IDs; automatic collections use rules."
+    },
+    {
+      "id": "slugUnique",
+      "description": "Published collection slugs are unique within Site/locale."
+    }
+  ],
+  "cms": {
+    "label": "Product Collection",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "name",
+      "slug"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Only explicitly public storefront fields may be delivered; operational, personal, payment and internal metadata remain private."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

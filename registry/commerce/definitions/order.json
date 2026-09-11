@@ -1,0 +1,235 @@
+{
+  "$id": "commerce.order",
+  "name": "Order",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "orders",
+  "description": "Authoritative commerce transaction after Checkout.",
+  "purpose": "Separates financial, fulfillment and operational state while preserving committed snapshots.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": true,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "orderNumber",
+      "required": true,
+      "nullable": false,
+      "description": "Human-facing Order number.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "Order origin.",
+      "schema": "commerce.orderSource"
+    },
+    {
+      "key": "customerSnapshot",
+      "required": true,
+      "nullable": false,
+      "description": "Customer snapshot.",
+      "schema": "commerce.customerSnapshot"
+    },
+    {
+      "key": "addresses",
+      "required": false,
+      "nullable": true,
+      "description": "Billing/shipping snapshots.",
+      "itemsSchema": "commerce.orderAddressSnapshot"
+    },
+    {
+      "key": "lines",
+      "required": true,
+      "nullable": false,
+      "description": "Purchased lines.",
+      "itemsSchema": "commerce.orderLine",
+      "config": {
+        "minItems": 1
+      }
+    },
+    {
+      "key": "totals",
+      "required": true,
+      "nullable": false,
+      "description": "Order totals.",
+      "schema": "commerce.orderTotals"
+    },
+    {
+      "key": "paymentStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Financial state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "pending",
+          "authorized",
+          "partially-paid",
+          "paid",
+          "partially-refunded",
+          "refunded",
+          "failed",
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "key": "fulfillmentStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Fulfillment state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "unfulfilled",
+          "processing",
+          "partially-fulfilled",
+          "fulfilled",
+          "returned",
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "key": "orderStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Overall operational state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "open",
+          "on-hold",
+          "completed",
+          "cancelled",
+          "archived"
+        ]
+      }
+    },
+    {
+      "key": "placedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Placement time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "cancelledAt",
+      "required": false,
+      "nullable": true,
+      "description": "Optional cancellation time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "completedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Optional completion time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "commerce.orderSource",
+      "description": "References commerce.orderSource."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.customerSnapshot",
+      "description": "References commerce.customerSnapshot."
+    },
+    {
+      "type": "optionallyComposesMany",
+      "target": "commerce.orderAddressSnapshot",
+      "description": "References commerce.orderAddressSnapshot."
+    },
+    {
+      "type": "composesMany",
+      "target": "commerce.orderLine",
+      "description": "References commerce.orderLine."
+    },
+    {
+      "type": "composes",
+      "target": "commerce.orderTotals",
+      "description": "References commerce.orderTotals."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "statusDimensionsSeparate",
+      "description": "Payment, fulfillment and overall Order states are separate dimensions."
+    },
+    {
+      "id": "orderNumberUnique",
+      "description": "Order number is unique within Site."
+    },
+    {
+      "id": "historicalSnapshotsStable",
+      "description": "Catalog/customer changes do not mutate committed Order snapshots."
+    },
+    {
+      "id": "financialChangesViaPayments",
+      "description": "Financial state is reconciled through Payment/Refund records, not arbitrary direct edits."
+    }
+  ],
+  "cms": {
+    "label": "Order",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "orderNumber",
+      "paymentStatus",
+      "fulfillmentStatus",
+      "placedAt"
+    ],
+    "primaryActions": [
+      "view",
+      "manage"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

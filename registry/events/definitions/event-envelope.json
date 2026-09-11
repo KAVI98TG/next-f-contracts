@@ -1,0 +1,213 @@
+{
+  "$id": "events.eventEnvelope",
+  "name": "Event Envelope",
+  "version": "0.14.0",
+  "status": "stable",
+  "domain": "events",
+  "category": "foundation",
+  "description": "Immutable canonical occurrence envelope shared by every NEXT F domain event.",
+  "purpose": "Immutable canonical occurrence envelope shared by every NEXT F domain event.",
+  "eventModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "eventId",
+      "required": true,
+      "nullable": false,
+      "description": "Globally unique opaque event occurrence ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "eventKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Event Registry key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "eventVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Semantic version of this event definition.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "contractVersion",
+      "required": true,
+      "nullable": false,
+      "description": "NEXT F Contract Registry release used to validate the occurrence.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "occurredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Timestamp when the authoritative domain fact occurred.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "recordedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Timestamp when the event occurrence was durably recorded.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "Execution environment.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "preview",
+          "staging",
+          "production"
+        ]
+      }
+    },
+    {
+      "key": "producer",
+      "required": true,
+      "nullable": false,
+      "description": "Logical producer.",
+      "schema": "events.eventProducer"
+    },
+    {
+      "key": "subject",
+      "required": true,
+      "nullable": false,
+      "description": "Primary subject.",
+      "schema": "events.eventSubject"
+    },
+    {
+      "key": "actor",
+      "required": false,
+      "nullable": true,
+      "description": "Optional actor context.",
+      "schema": "events.eventActor"
+    },
+    {
+      "key": "correlation",
+      "required": false,
+      "nullable": true,
+      "description": "Correlation context.",
+      "schema": "events.eventCorrelation"
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "Event origin.",
+      "schema": "events.eventSource"
+    },
+    {
+      "key": "payload",
+      "required": true,
+      "nullable": false,
+      "description": "Event-specific payload object.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "dataPolicy",
+      "required": true,
+      "nullable": false,
+      "description": "Payload data policy snapshot.",
+      "schema": "events.eventDataPolicy"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "events.eventProducer",
+      "description": "Identifies logical producer."
+    },
+    {
+      "type": "composes",
+      "target": "events.eventSubject",
+      "description": "References primary subject."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "events.eventActor",
+      "description": "May include actor context."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "events.eventCorrelation",
+      "description": "May include correlation."
+    },
+    {
+      "type": "composes",
+      "target": "events.eventSource",
+      "description": "Records event origin."
+    },
+    {
+      "type": "composes",
+      "target": "events.eventDataPolicy",
+      "description": "Records payload data policy."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "immutable",
+      "description": "Once recorded, the event occurrence is immutable."
+    },
+    {
+      "id": "keyResolves",
+      "description": "eventKey and eventVersion must resolve to a supported Event Registry definition."
+    },
+    {
+      "id": "recordedNotBeforeOccurred",
+      "description": "recordedAt must not precede occurredAt except documented clock-skew tolerance."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Envelope and payload must never contain secrets or raw payment-card data."
+    },
+    {
+      "id": "environmentIsolation",
+      "description": "Preview/staging events must not be consumed as production events by default."
+    }
+  ],
+  "cms": {
+    "label": "Event Envelope",
+    "icon": "fa-bolt",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "event-contract",
+    "defaultPlacement": "events",
+    "summaryFields": [
+      "eventId",
+      "eventKey",
+      "eventVersion",
+      "contractVersion"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Event infrastructure metadata is internal unless explicitly documented otherwise."
+  },
+  "futureBindings": {
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

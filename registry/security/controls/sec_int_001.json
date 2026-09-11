@@ -1,0 +1,38 @@
+{
+  "controlId": "SEC-INT-001",
+  "name": "Integration credential isolation",
+  "category": "integrations",
+  "requirement": "Third-party connections must keep provider credentials protected, environment-scoped and separate from customer-visible configuration.",
+  "rationale": "External providers often grant access beyond one page or request.",
+  "applicability": [
+    "integrations"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [
+    "modules.integrations"
+  ],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "critical",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "integrations.authenticationProfile",
+    "integrations.credentialReference",
+    "integrations.secretReference"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_int_001.json"
+}

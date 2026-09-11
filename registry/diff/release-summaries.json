@@ -1,0 +1,293 @@
+{
+  "registryVersion": "1.0.0",
+  "summaries": [
+    {
+      "fromVersion": "0.3.0",
+      "toVersion": "0.4.0",
+      "added": 39,
+      "removed": 0,
+      "modified": 7,
+      "unchanged": 14,
+      "totalCompared": 60
+    },
+    {
+      "fromVersion": "0.4.0",
+      "toVersion": "0.5.0",
+      "added": 20,
+      "removed": 0,
+      "modified": 10,
+      "unchanged": 50,
+      "totalCompared": 80
+    },
+    {
+      "fromVersion": "0.5.0",
+      "toVersion": "0.6.0",
+      "added": 21,
+      "removed": 0,
+      "modified": 14,
+      "unchanged": 66,
+      "totalCompared": 101
+    },
+    {
+      "fromVersion": "0.6.0",
+      "toVersion": "0.7.0",
+      "added": 31,
+      "removed": 0,
+      "modified": 14,
+      "unchanged": 87,
+      "totalCompared": 132
+    },
+    {
+      "fromVersion": "0.7.0",
+      "toVersion": "0.8.0",
+      "added": 23,
+      "removed": 0,
+      "modified": 31,
+      "unchanged": 101,
+      "totalCompared": 155
+    },
+    {
+      "fromVersion": "0.8.0",
+      "toVersion": "0.9.0",
+      "added": 36,
+      "removed": 0,
+      "modified": 9,
+      "unchanged": 146,
+      "totalCompared": 191
+    },
+    {
+      "fromVersion": "0.9.0",
+      "toVersion": "0.10.0",
+      "added": 45,
+      "removed": 0,
+      "modified": 6,
+      "unchanged": 185,
+      "totalCompared": 236
+    },
+    {
+      "fromVersion": "0.10.0",
+      "toVersion": "0.11.0",
+      "added": 49,
+      "removed": 0,
+      "modified": 6,
+      "unchanged": 230,
+      "totalCompared": 285
+    },
+    {
+      "fromVersion": "0.11.0",
+      "toVersion": "0.12.0",
+      "added": 73,
+      "removed": 0,
+      "modified": 6,
+      "unchanged": 279,
+      "totalCompared": 358
+    },
+    {
+      "fromVersion": "0.12.0",
+      "toVersion": "0.14.0",
+      "added": 277,
+      "removed": 0,
+      "modified": 6,
+      "unchanged": 352,
+      "totalCompared": 635
+    },
+    {
+      "fromVersion": "0.14.0",
+      "toVersion": "0.16.0",
+      "added": 421,
+      "removed": 0,
+      "modified": 63,
+      "unchanged": 572,
+      "totalCompared": 1056
+    },
+    {
+      "fromVersion": "0.16.0",
+      "toVersion": "0.17.0",
+      "added": 24,
+      "removed": 0,
+      "modified": 4,
+      "unchanged": 1052,
+      "totalCompared": 1080
+    },
+    {
+      "fromVersion": "0.17.0",
+      "toVersion": "0.18.0",
+      "added": 109,
+      "removed": 0,
+      "modified": 15,
+      "unchanged": 1065,
+      "totalCompared": 1189
+    },
+    {
+      "fromVersion": "0.18.0",
+      "toVersion": "0.20.0",
+      "added": 424,
+      "removed": 94,
+      "modified": 16,
+      "unchanged": 1079,
+      "totalCompared": 1613
+    },
+    {
+      "fromVersion": "0.20.0",
+      "toVersion": "0.21.0",
+      "added": 163,
+      "removed": 0,
+      "modified": 4,
+      "unchanged": 1515,
+      "totalCompared": 1682
+    },
+    {
+      "fromVersion": "0.21.0",
+      "toVersion": "0.22.0",
+      "added": 73,
+      "removed": 0,
+      "modified": 6,
+      "unchanged": 1676,
+      "totalCompared": 1755
+    },
+    {
+      "fromVersion": "0.22.0",
+      "toVersion": "0.23.0",
+      "added": 9,
+      "removed": 0,
+      "modified": 7,
+      "unchanged": 1748,
+      "totalCompared": 1764
+    },
+    {
+      "fromVersion": "0.23.0",
+      "toVersion": "0.24.0",
+      "added": 3,
+      "removed": 0,
+      "modified": 5,
+      "unchanged": 1759,
+      "totalCompared": 1767
+    },
+    {
+      "fromVersion": "0.24.0",
+      "toVersion": "0.25.0",
+      "added": 4,
+      "removed": 0,
+      "modified": 10,
+      "unchanged": 1757,
+      "totalCompared": 1771
+    },
+    {
+      "fromVersion": "0.25.0",
+      "toVersion": "0.26.0",
+      "added": 14,
+      "removed": 0,
+      "modified": 13,
+      "unchanged": 1758,
+      "totalCompared": 1785
+    },
+    {
+      "fromVersion": "0.26.0",
+      "toVersion": "0.27.0",
+      "added": 27,
+      "removed": 0,
+      "modified": 28,
+      "unchanged": 1757,
+      "totalCompared": 1812
+    },
+    {
+      "fromVersion": "0.27.0",
+      "toVersion": "0.28.0",
+      "added": 50,
+      "removed": 0,
+      "modified": 54,
+      "unchanged": 1758,
+      "totalCompared": 1862
+    },
+    {
+      "fromVersion": "0.28.0",
+      "toVersion": "0.29.0",
+      "added": 13,
+      "removed": 0,
+      "modified": 76,
+      "unchanged": 1786,
+      "totalCompared": 1875
+    },
+    {
+      "fromVersion": "0.29.0",
+      "toVersion": "0.30.0",
+      "added": 63,
+      "removed": 0,
+      "modified": 89,
+      "unchanged": 1786,
+      "totalCompared": 1938
+    },
+    {
+      "fromVersion": "0.30.0",
+      "toVersion": "0.31.0",
+      "added": 83,
+      "removed": 0,
+      "modified": 150,
+      "unchanged": 1788,
+      "totalCompared": 2021
+    },
+    {
+      "fromVersion": "0.31.0",
+      "toVersion": "0.32.0",
+      "added": 59,
+      "removed": 0,
+      "modified": 232,
+      "unchanged": 1789,
+      "totalCompared": 2080
+    },
+    {
+      "fromVersion": "0.32.0",
+      "toVersion": "0.33.0",
+      "added": 68,
+      "removed": 0,
+      "modified": 290,
+      "unchanged": 1790,
+      "totalCompared": 2148
+    },
+    {
+      "fromVersion": "0.33.0",
+      "toVersion": "0.34.0",
+      "added": 6,
+      "removed": 0,
+      "modified": 357,
+      "unchanged": 1791,
+      "totalCompared": 2154
+    },
+    {
+      "fromVersion": "0.34.0",
+      "toVersion": "0.35.0",
+      "added": 6,
+      "removed": 0,
+      "modified": 362,
+      "unchanged": 1792,
+      "totalCompared": 2160
+    },
+    {
+      "fromVersion": "0.35.0",
+      "toVersion": "0.36.0",
+      "added": 10,
+      "removed": 0,
+      "modified": 367,
+      "unchanged": 1793,
+      "totalCompared": 2170
+    },
+    {
+      "fromVersion": "0.36.0",
+      "toVersion": "0.37.0",
+      "added": 6,
+      "removed": 0,
+      "modified": 376,
+      "unchanged": 1794,
+      "totalCompared": 2176
+    },
+    {
+      "fromVersion": "0.37.0",
+      "toVersion": "1.0.0",
+      "added": 6,
+      "removed": 0,
+      "modified": 380,
+      "unchanged": 1796,
+      "totalCompared": 2182
+    }
+  ]
+}

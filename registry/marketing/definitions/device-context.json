@@ -1,0 +1,148 @@
+{
+  "$id": "marketing.deviceContext",
+  "name": "Device Context",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "context",
+  "description": "Coarse device and client environment metadata for analytics breakdowns.",
+  "purpose": "Provides useful dimensions without creating a fingerprinting surface.",
+  "marketingModel": {
+    "kind": "context",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "deviceCategory",
+      "required": false,
+      "nullable": true,
+      "description": "Coarse device category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "desktop",
+            "label": "Desktop"
+          },
+          {
+            "value": "tablet",
+            "label": "Tablet"
+          },
+          {
+            "value": "mobile",
+            "label": "Mobile"
+          },
+          {
+            "value": "other",
+            "label": "Other"
+          }
+        ]
+      }
+    },
+    {
+      "key": "browserFamily",
+      "required": false,
+      "nullable": true,
+      "description": "Coarse browser family.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80
+      }
+    },
+    {
+      "key": "osFamily",
+      "required": false,
+      "nullable": true,
+      "description": "Coarse OS family.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80
+      }
+    },
+    {
+      "key": "language",
+      "required": false,
+      "nullable": true,
+      "description": "Client language.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40
+      }
+    },
+    {
+      "key": "viewportWidth",
+      "required": false,
+      "nullable": true,
+      "description": "Viewport width CSS px.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "maximum": 20000
+      }
+    },
+    {
+      "key": "viewportHeight",
+      "required": false,
+      "nullable": true,
+      "description": "Viewport height CSS px.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 0,
+        "maximum": 20000
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "coarseOnly",
+      "description": "Do not collect high-entropy characteristics merely to distinguish visitors."
+    },
+    {
+      "id": "noFingerprintHash",
+      "description": "No fingerprint hash may be derived."
+    },
+    {
+      "id": "optionalDimensions",
+      "description": "Device fields are optional and policy/consent-aware."
+    }
+  ],
+  "cms": {
+    "label": "Device Context",
+    "icon": "fa-bullseye",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "deviceCategory",
+      "browserFamily",
+      "osFamily",
+      "language"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

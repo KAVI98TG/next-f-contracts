@@ -1,0 +1,132 @@
+{
+  "$id": "webhooks.testDelivery",
+  "name": "Webhook Test Delivery",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "operations",
+  "description": "Synthetic signed delivery used to test an endpoint and receiver implementation.",
+  "purpose": "Allows safe diagnostics without impersonating a real domain Event or mutating business state.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "testId",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque synthetic test ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "endpointId",
+      "required": true,
+      "nullable": false,
+      "description": "Target verified or pending-verification endpoint.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "subscriptionId",
+      "required": false,
+      "nullable": true,
+      "description": "Optional subscription context.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "requestedBy",
+      "required": true,
+      "nullable": false,
+      "description": "Authorized actor.",
+      "schema": "core.actorReference"
+    },
+    {
+      "key": "requestedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Request timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "syntheticEventKey",
+      "required": true,
+      "nullable": false,
+      "description": "Reserved synthetic protocol key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "result",
+      "required": false,
+      "nullable": true,
+      "description": "Optional delivery outcome summary.",
+      "schema": "webhooks.deliverySummary"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "webhooks.endpoint",
+      "description": "References webhooks.endpoint."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "webhooks.subscription",
+      "description": "References webhooks.subscription."
+    },
+    {
+      "type": "composes",
+      "target": "core.actorReference",
+      "description": "References core.actorReference."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "webhooks.deliverySummary",
+      "description": "References webhooks.deliverySummary."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "syntheticOnly",
+      "description": "Test payload cannot use a real canonical Event ID or claim a real business event occurred."
+    },
+    {
+      "id": "noBusinessMutation",
+      "description": "Test delivery cannot create authoritative customer/business state."
+    },
+    {
+      "id": "sameControls",
+      "description": "Network, signature, timeout, rate and redaction controls apply to tests."
+    },
+    {
+      "id": "audited",
+      "description": "Test requests are auditable."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Test Delivery",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "testId",
+      "endpointId",
+      "subscriptionId",
+      "requestedBy"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

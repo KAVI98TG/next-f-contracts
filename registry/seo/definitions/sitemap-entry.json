@@ -1,0 +1,116 @@
+{
+  "$id": "seo.sitemapEntry",
+  "name": "Sitemap Entry",
+  "version": "0.8.0",
+  "status": "stable",
+  "domain": "seo",
+  "category": "indexing",
+  "description": "One canonical URL eligible for an XML sitemap.",
+  "purpose": "Provides a host-independent sitemap data contract for public indexable URLs and multilingual alternates.",
+  "seoModel": {
+    "kind": "value-object",
+    "customerManaged": true,
+    "derived": false,
+    "supportsRevision": true,
+    "target": "site-or-entity"
+  },
+  "fields": [
+    {
+      "key": "url",
+      "required": true,
+      "nullable": false,
+      "description": "Absolute canonical URL.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": true,
+        "searchable": true
+      }
+    },
+    {
+      "key": "lastModifiedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Optional truthful last meaningful content modification time.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": true,
+        "sortable": true
+      }
+    },
+    {
+      "key": "alternates",
+      "required": false,
+      "nullable": true,
+      "description": "Optional alternate-language URLs.",
+      "itemsSchema": "seo.alternateLanguage",
+      "config": {
+        "maxItems": 50
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "optionallyComposesMany",
+      "target": "seo.alternateLanguage",
+      "description": "May include hreflang-style alternate URLs."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "publicCanonicalOnly",
+      "description": "Sitemap URLs must be public canonical URLs eligible for indexing."
+    },
+    {
+      "id": "excludeNoindex",
+      "description": "Targets explicitly marked noindex must not appear in a generated public sitemap."
+    },
+    {
+      "id": "truthfulLastModified",
+      "description": "lastModifiedAt must reflect meaningful content modification and must not be automatically refreshed solely because of deployment."
+    }
+  ],
+  "cms": {
+    "label": "Sitemap Entry",
+    "icon": "fa-magnifying-glass-chart",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "summaryFields": [
+      "url",
+      "lastModifiedAt",
+      "alternates"
+    ],
+    "fieldGroups": [
+      "seo"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public delivery is allowed only when the parent Site/API explicitly exposes this SEO data."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {
+        "url": "https://example.lk/services/web-development",
+        "lastModifiedAt": "2026-09-09T12:00:00Z"
+      }
+    ],
+    "invalid": [
+      {
+        "url": "/relative-page"
+      }
+    ]
+  },
+  "notes": []
+}

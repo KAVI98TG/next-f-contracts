@@ -1,0 +1,119 @@
+{
+  "$id": "shared.externalReference",
+  "name": "External Reference",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "shared",
+  "category": "integration",
+  "description": "Provider-neutral reference from a NEXT F entity to an identifier in an external system.",
+  "purpose": "Supports adapters and integrations without changing canonical NEXT F entities to mirror vendor models.",
+  "fields": [
+    {
+      "key": "provider",
+      "required": true,
+      "nullable": false,
+      "description": "Stable provider/connector machine identifier.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 2,
+        "maxLength": 120,
+        "customerEditable": false,
+        "adminEditable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "externalId",
+      "required": true,
+      "nullable": false,
+      "description": "Identifier assigned by the external provider.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 512,
+        "customerEditable": false,
+        "adminEditable": true,
+        "searchable": true
+      }
+    },
+    {
+      "key": "externalUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Optional non-secret provider URL for human navigation.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    },
+    {
+      "key": "syncedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Timestamp of the last successful synchronization.",
+      "primitive": "fields.dateTime",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "metadata",
+      "required": false,
+      "nullable": true,
+      "description": "Non-secret adapter metadata needed for synchronization.",
+      "primitive": "fields.json",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "providerCanonical",
+      "description": "provider should resolve to a canonical connector/integration identifier when one exists."
+    },
+    {
+      "id": "metadataNoSecrets",
+      "description": "metadata must not contain secrets, refresh tokens or privileged credentials."
+    }
+  ],
+  "cms": {
+    "label": "External Reference",
+    "icon": "fa-arrow-up-right-from-square",
+    "customerVisible": false,
+    "adminVisible": true,
+    "defaultPlacement": "technical",
+    "summaryFields": [
+      "provider",
+      "externalId"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "External provider identifiers are technical integration metadata and are private by default."
+  },
+  "examples": {
+    "valid": [
+      {
+        "provider": "google-search-console",
+        "externalId": "sc-domain:example.com",
+        "externalUrl": "https://search.google.com/",
+        "syncedAt": "2026-09-09T12:00:00Z"
+      }
+    ],
+    "invalid": [
+      {
+        "provider": "stripe",
+        "externalId": "",
+        "metadata": {
+          "secret": "sk_live_example"
+        }
+      }
+    ]
+  },
+  "notes": []
+}

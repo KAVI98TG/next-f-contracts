@@ -1,0 +1,105 @@
+{
+  "$id": "integrations.connectionStatus",
+  "name": "Connection Status",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "foundation",
+  "description": "Normalized provider-independent integration connection state.",
+  "purpose": "Makes Admin/CMS health behavior consistent across providers.",
+  "integrationModel": {
+    "kind": "status",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "state",
+      "required": true,
+      "nullable": false,
+      "description": "Normalized state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "draft",
+          "connecting",
+          "connected",
+          "degraded",
+          "reauthorizationRequired",
+          "disabled",
+          "error",
+          "revoked"
+        ]
+      }
+    },
+    {
+      "key": "reasonCode",
+      "required": false,
+      "nullable": true,
+      "description": "Safe machine reason code.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "message",
+      "required": false,
+      "nullable": true,
+      "description": "Safe human-readable status message.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "changedAt",
+      "required": true,
+      "nullable": false,
+      "description": "When state last changed.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "providerStatesMapped",
+      "description": "Provider-specific states must map to one canonical state."
+    },
+    {
+      "id": "noSecretErrors",
+      "description": "Status messages cannot include secrets or authorization data."
+    }
+  ],
+  "cms": {
+    "label": "Connection Status",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "state",
+      "reasonCode",
+      "message",
+      "changedAt"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

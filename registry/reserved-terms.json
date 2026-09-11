@@ -1,0 +1,41 @@
+{
+  "registryVersion": "0.8.0",
+  "rules": [
+    {
+      "term": "Client",
+      "status": "human-only",
+      "useInstead": "Organization",
+      "note": "Do not use Client as a canonical tenant schema name."
+    },
+    {
+      "term": "Customer",
+      "status": "ambiguous",
+      "useInstead": "Organization or Commerce Customer",
+      "note": "Always qualify the meaning."
+    },
+    {
+      "term": "CMS User",
+      "status": "deprecated",
+      "useInstead": "Organization User",
+      "note": "CMS User is ambiguous."
+    },
+    {
+      "term": "Post",
+      "status": "qualified-only",
+      "useInstead": "Blog Post",
+      "note": "Use BlogPost as the canonical blog entity."
+    },
+    {
+      "term": "Article",
+      "status": "qualified-only",
+      "useInstead": "Documentation Article or another explicit content type",
+      "note": "Avoid generic Article in canonical schemas."
+    },
+    {
+      "term": "Sale",
+      "status": "avoid",
+      "useInstead": "Order or Payment as appropriate",
+      "note": "Sale is too ambiguous for canonical commerce events."
+    }
+  ]
+}

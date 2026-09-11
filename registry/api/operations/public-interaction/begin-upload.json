@@ -1,0 +1,73 @@
+{
+  "$id": "api.public-interaction.begin-upload",
+  "operationId": "api.public-interaction.begin-upload",
+  "name": "Begin Public Form File Upload",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.public-interaction",
+  "method": "POST",
+  "path": "/forms/{formId}/uploads",
+  "description": "Begin Public Form File Upload",
+  "authentication": {
+    "mode": "anonymous",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "formId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 201,
+    "envelope": "api.successEnvelope",
+    "dataContract": "api.uploadSession",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "payload_too_large",
+      "file_rejected",
+      "rate_limited",
+      "module_disabled"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "public-write",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "forms"
+  ],
+  "contractBindings": [
+    "forms.form",
+    "api.uploadSession"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "personal",
+  "notes": []
+}

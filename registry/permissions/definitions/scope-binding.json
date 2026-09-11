@@ -1,0 +1,76 @@
+{
+  "$id": "permissions.scopeBinding",
+  "name": "Scope Binding",
+  "domain": "permissions",
+  "type": "schema",
+  "version": "0.16.0",
+  "status": "stable",
+  "category": "foundation",
+  "description": "Binds a role assignment or permission evaluation to platform, Organization, Site, resource or self scope.",
+  "purpose": "Binds a role assignment or permission evaluation to platform, Organization, Site, resource or self scope.",
+  "permissionModel": {
+    "kind": "foundation",
+    "publicEligible": false,
+    "customerManaged": false
+  },
+  "fields": [
+    {
+      "key": "scopeKind",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical authorization scope kind.",
+      "primitive": "fields.select"
+    },
+    {
+      "key": "organizationId",
+      "required": false,
+      "nullable": true,
+      "description": "Organization scope identifier when required.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "siteId",
+      "required": false,
+      "nullable": true,
+      "description": "Site scope identifier when required.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "resourceType",
+      "required": false,
+      "nullable": true,
+      "description": "Canonical resource identifier when using resource scope.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "resourceId",
+      "required": false,
+      "nullable": true,
+      "description": "Opaque resource identifier when using resource scope.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "permissions.scopeBinding.rule.1",
+      "description": "Site scope requires a siteId."
+    },
+    {
+      "id": "permissions.scopeBinding.rule.2",
+      "description": "Organization scope requires an organizationId."
+    },
+    {
+      "id": "permissions.scopeBinding.rule.3",
+      "description": "Resource scope requires resourceType and resourceId plus a valid parent Organization/Site boundary."
+    }
+  ],
+  "cms": {
+    "adminVisible": true,
+    "customerVisible": false
+  },
+  "delivery": {
+    "publicAllowed": false
+  },
+  "notes": []
+}

@@ -1,0 +1,118 @@
+{
+  "$id": "forms.leadAssignment",
+  "name": "Lead Assignment",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "leads",
+  "description": "Record of assigning a Lead to an authorized Organization user or team actor.",
+  "purpose": "Separates assignment history from the Lead record so ownership changes remain auditable.",
+  "formsModel": {
+    "kind": "operational-record",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false
+  },
+  "fields": [
+    {
+      "key": "leadId",
+      "required": true,
+      "nullable": false,
+      "description": "Assigned Lead.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "forms.lead",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "assignee",
+      "required": false,
+      "nullable": true,
+      "description": "Assigned actor.",
+      "schema": "core.actorReference"
+    },
+    {
+      "key": "assignedBy",
+      "required": false,
+      "nullable": true,
+      "description": "Actor performing the assignment.",
+      "schema": "core.actorReference"
+    },
+    {
+      "key": "assignedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Assignment timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "reason",
+      "required": false,
+      "nullable": true,
+      "description": "Optional assignment reason.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 500
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "forms.lead",
+      "description": "Assignment belongs to a Lead."
+    },
+    {
+      "type": "uses",
+      "target": "core.actorReference",
+      "description": "Assignment resolves platform actors."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "assigneeAuthorizedForSite",
+      "description": "Assignee must be authorized for the Lead Site when permission contracts are introduced."
+    },
+    {
+      "id": "assignmentAuditable",
+      "description": "Changes to assignment must remain auditable and must not rewrite history."
+    }
+  ],
+  "cms": {
+    "label": "Lead Assignment",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "leadId",
+      "assignee",
+      "assignedBy",
+      "assignedAt"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

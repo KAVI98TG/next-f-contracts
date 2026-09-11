@@ -1,0 +1,80 @@
+{
+  "registryVersion": "0.15.0",
+  "categories": [
+    {
+      "key": "foundation",
+      "label": "Event Foundation",
+      "description": "Envelope, producer, consumer, correlation, ordering, idempotency, retention and data-policy contracts."
+    },
+    {
+      "key": "site",
+      "label": "Site",
+      "description": "Site lifecycle and technical connection facts."
+    },
+    {
+      "key": "content",
+      "label": "Content & Publishing",
+      "description": "Structured content, media, navigation and publication lifecycle facts."
+    },
+    {
+      "key": "seo",
+      "label": "SEO",
+      "description": "SEO configuration, redirect and sitemap operational facts."
+    },
+    {
+      "key": "forms-leads",
+      "label": "Forms & Leads",
+      "description": "Accepted submissions, Leads, assignments, status and consent records."
+    },
+    {
+      "key": "commerce-catalog",
+      "label": "Commerce Catalog",
+      "description": "Products, variants, collections and discounts."
+    },
+    {
+      "key": "commerce-cart-checkout",
+      "label": "Cart & Checkout",
+      "description": "Cart and Checkout lifecycle facts."
+    },
+    {
+      "key": "commerce-orders",
+      "label": "Orders",
+      "description": "Order creation, state, financial and fulfillment reconciliation facts."
+    },
+    {
+      "key": "commerce-payments",
+      "label": "Payments & Refunds",
+      "description": "Payment authorization/capture/success/failure and refund facts."
+    },
+    {
+      "key": "commerce-inventory",
+      "label": "Inventory",
+      "description": "Inventory reservations, adjustments, transfers and stock threshold facts."
+    },
+    {
+      "key": "commerce-fulfillment",
+      "label": "Fulfillment & Returns",
+      "description": "Fulfillment, shipment, delivery and return lifecycle facts."
+    },
+    {
+      "key": "commerce-customers",
+      "label": "Commerce Customers & Reviews",
+      "description": "Commerce Customer and product review facts."
+    },
+    {
+      "key": "marketing",
+      "label": "Marketing",
+      "description": "Authoritative conversion and consent-state business facts; separate from visitor tracking observations."
+    },
+    {
+      "key": "integrations",
+      "label": "Integrations",
+      "description": "External connection, synchronization and health facts."
+    },
+    {
+      "key": "webhooks",
+      "label": "Webhooks",
+      "description": "Webhook endpoint, subscription, delivery and signing lifecycle facts. These events are never themselves webhook eligible."
+    }
+  ]
+}

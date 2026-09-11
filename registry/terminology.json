@@ -1,0 +1,155 @@
+{
+  "registryVersion": "0.8.0",
+  "terms": [
+    {
+      "term": "Platform",
+      "canonicalId": "platform",
+      "definition": "The complete NEXT F website management ecosystem."
+    },
+    {
+      "term": "Contract Registry",
+      "canonicalId": "contractRegistry",
+      "definition": "The authoritative collection of versioned NEXT F contract definitions and metadata."
+    },
+    {
+      "term": "Contract Portal",
+      "canonicalId": "contractPortal",
+      "definition": "The web interface at contract.nextf.lk that presents the registry."
+    },
+    {
+      "term": "Organization",
+      "canonicalId": "organization",
+      "definition": "The business customer tenant that owns one or more Sites."
+    },
+    {
+      "term": "Site",
+      "canonicalId": "site",
+      "definition": "A customer website integrated with NEXT F website contracts."
+    },
+    {
+      "term": "Workspace",
+      "canonicalId": "workspace",
+      "definition": "The customer-facing CMS context for managing one Site."
+    },
+    {
+      "term": "Environment",
+      "canonicalId": "environment",
+      "definition": "A technical execution target such as preview, staging or production."
+    },
+    {
+      "term": "Module",
+      "canonicalId": "module",
+      "definition": "A major functional area composed of contracts, permissions, events and capabilities."
+    },
+    {
+      "term": "Capability",
+      "canonicalId": "capability",
+      "definition": "A smaller feature within a Module that may be independently enabled when supported."
+    },
+    {
+      "term": "Schema",
+      "canonicalId": "schema",
+      "definition": "A machine-readable structural definition of data and validation requirements."
+    },
+    {
+      "term": "Entity",
+      "canonicalId": "entity",
+      "definition": "A modeled business or platform concept with identity and lifecycle."
+    },
+    {
+      "term": "Entry",
+      "canonicalId": "entry",
+      "definition": "A stored instance of an Entity or Custom Collection definition."
+    },
+    {
+      "term": "Field",
+      "canonicalId": "field",
+      "definition": "A single typed property within a Schema."
+    },
+    {
+      "term": "Field Group",
+      "canonicalId": "fieldGroup",
+      "definition": "A reusable group of Fields referenced by multiple Schemas."
+    },
+    {
+      "term": "Block",
+      "canonicalId": "block",
+      "definition": "A structured content unit rendered by a developer-controlled component."
+    },
+    {
+      "term": "Content Type",
+      "canonicalId": "contentType",
+      "definition": "A schema intended for customer-managed website content."
+    },
+    {
+      "term": "Manifest",
+      "canonicalId": "manifest",
+      "definition": "A machine-readable declaration of contract version, modules and capabilities."
+    },
+    {
+      "term": "Site Manifest",
+      "canonicalId": "siteManifest",
+      "definition": "The authoritative Manifest for one customer Site."
+    },
+    {
+      "term": "Contract",
+      "canonicalId": "contract",
+      "definition": "A versioned authoritative definition of data, behavior, events, permissions or interfaces."
+    },
+    {
+      "term": "Contract Version",
+      "canonicalId": "contractVersion",
+      "definition": "The semantic version of a contract or coordinated registry release."
+    },
+    {
+      "term": "API Version",
+      "canonicalId": "apiVersion",
+      "definition": "The version of an HTTP or programmatic API surface."
+    },
+    {
+      "term": "Event",
+      "canonicalId": "event",
+      "definition": "A standardized statement that something has happened."
+    },
+    {
+      "term": "Webhook",
+      "canonicalId": "webhook",
+      "definition": "An outbound HTTP delivery mechanism for a supported Event."
+    },
+    {
+      "term": "Permission",
+      "canonicalId": "permission",
+      "definition": "A stable identifier granting an action on a resource or domain."
+    },
+    {
+      "term": "Role",
+      "canonicalId": "role",
+      "definition": "A named collection of Permissions."
+    },
+    {
+      "term": "Integration",
+      "canonicalId": "integration",
+      "definition": "A configured connection between NEXT F capabilities and an external system."
+    },
+    {
+      "term": "Connector",
+      "canonicalId": "connector",
+      "definition": "The reusable implementation contract for a category or provider integration."
+    },
+    {
+      "term": "Public Content",
+      "canonicalId": "publicContent",
+      "definition": "Published Site data explicitly allowed for unauthenticated delivery."
+    },
+    {
+      "term": "Organization User",
+      "canonicalId": "organizationUser",
+      "definition": "A person authorized to access Organization or Site workspaces."
+    },
+    {
+      "term": "Commerce Customer",
+      "canonicalId": "commerceCustomer",
+      "definition": "A buyer or account holder interacting with an ecommerce Site."
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "registryVersion": "0.15.0",
+  "consumers": [
+    {
+      "key": "audit",
+      "label": "Audit",
+      "description": "Append-only audit and trace consumers."
+    },
+    {
+      "key": "customer-cms",
+      "label": "Customer CMS",
+      "description": "Customer workspace updates and activity."
+    },
+    {
+      "key": "nextf-admin",
+      "label": "NEXT F Admin",
+      "description": "Internal platform operations and diagnostics."
+    },
+    {
+      "key": "notification",
+      "label": "Notifications",
+      "description": "User-facing operational notifications."
+    },
+    {
+      "key": "automation",
+      "label": "Automation",
+      "description": "Future workflow/automation consumers."
+    },
+    {
+      "key": "analytics",
+      "label": "Analytics",
+      "description": "Aggregate/reporting consumers; does not redefine marketing tracking semantics."
+    },
+    {
+      "key": "integration-dispatch",
+      "label": "Integration Dispatch",
+      "description": "Provider connector consumers."
+    },
+    {
+      "key": "cache-invalidation",
+      "label": "Cache Invalidation",
+      "description": "Published website cache/ISR invalidation consumers."
+    },
+    {
+      "key": "search-index",
+      "label": "Search Index",
+      "description": "Site/search index synchronization consumers."
+    },
+    {
+      "key": "commerce-reconciliation",
+      "label": "Commerce Reconciliation",
+      "description": "Derived order/payment/inventory state consumers."
+    },
+    {
+      "key": "webhook-bridge",
+      "label": "Webhook Bridge",
+      "description": "Phase 14 outbound webhook delivery bridge."
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "$id": "marketing.analyticsConfiguration",
+  "name": "Analytics Configuration",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "configuration",
+  "description": "Site-level analytics session, retention and reporting defaults.",
+  "purpose": "Standardizes analytics behavior independently from a provider property such as GA4.",
+  "marketingModel": {
+    "kind": "configuration",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable config identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether analytics observations may be generated subject to consent.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "sessionTimeoutMinutes",
+      "required": true,
+      "nullable": false,
+      "description": "Inactivity window starting a new analytics session.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 1440,
+        "defaultValue": 30
+      }
+    },
+    {
+      "key": "reportingTimeZone",
+      "required": true,
+      "nullable": false,
+      "description": "IANA timezone for reporting boundaries.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 80
+      }
+    },
+    {
+      "key": "reportingCurrency",
+      "required": false,
+      "nullable": true,
+      "description": "Currency code for normalized reports.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 3
+      }
+    },
+    {
+      "key": "defaultAttributionModel",
+      "required": false,
+      "nullable": true,
+      "description": "Default reporting attribution model.",
+      "schema": "marketing.attributionModel"
+    },
+    {
+      "key": "excludeInternalTraffic",
+      "required": true,
+      "nullable": false,
+      "description": "Whether configured internal traffic excluded.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "rawObservationRetentionDays",
+      "required": true,
+      "nullable": false,
+      "description": "Retention for raw analytics observations.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 730,
+        "defaultValue": 90
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "Uses identity."
+    },
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Site-scoped."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "marketing.attributionModel",
+      "description": "May define default attribution."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "providerNeutral",
+      "description": "No GA4 Measurement ID, Meta Pixel ID or provider credential here."
+    },
+    {
+      "id": "retentionRespectsDataPolicy",
+      "description": "Retention cannot exceed stricter data/privacy rules."
+    },
+    {
+      "id": "timezoneValid",
+      "description": "reportingTimeZone must be supported IANA timezone."
+    },
+    {
+      "id": "currencyNotImplicit",
+      "description": "Monetary reporting states currency explicitly."
+    }
+  ],
+  "cms": {
+    "label": "Analytics Configuration",
+    "icon": "fa-bullseye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "analytics-settings",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "enabled",
+      "sessionTimeoutMinutes"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

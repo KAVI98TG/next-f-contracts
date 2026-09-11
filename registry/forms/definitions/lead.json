@@ -1,0 +1,210 @@
+{
+  "$id": "forms.lead",
+  "name": "Lead",
+  "version": "0.9.0",
+  "status": "stable",
+  "domain": "forms",
+  "category": "leads",
+  "description": "Customer-business lead record created manually, from forms or from future integrations.",
+  "purpose": "Provides a lightweight website lead workflow without conflating anonymous submissions, commerce customers or platform organizations.",
+  "formsModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": true
+  },
+  "fields": [
+    {
+      "key": "id",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque Lead ID.",
+      "primitive": "fields.text",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": false
+      }
+    },
+    {
+      "key": "siteId",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "core.site",
+        "relationshipCardinality": "one"
+      }
+    },
+    {
+      "key": "displayName",
+      "required": true,
+      "nullable": false,
+      "description": "Lead/person display name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240
+      }
+    },
+    {
+      "key": "organizationName",
+      "required": false,
+      "nullable": true,
+      "description": "Optional business/company name.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240
+      }
+    },
+    {
+      "key": "contactPoints",
+      "required": false,
+      "nullable": false,
+      "description": "Private contact methods associated with the Lead.",
+      "itemsSchema": "shared.contactPoint"
+    },
+    {
+      "key": "source",
+      "required": false,
+      "nullable": true,
+      "description": "Lead source.",
+      "schema": "forms.leadSource"
+    },
+    {
+      "key": "statusKey",
+      "required": true,
+      "nullable": false,
+      "description": "Current Site-defined lead status key.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 120
+      }
+    },
+    {
+      "key": "assignedTo",
+      "required": false,
+      "nullable": true,
+      "description": "Current assignee.",
+      "schema": "core.actorReference"
+    },
+    {
+      "key": "tags",
+      "required": false,
+      "nullable": false,
+      "description": "Customer-managed operational tags.",
+      "itemsPrimitive": "fields.tag"
+    },
+    {
+      "key": "submissionIds",
+      "required": false,
+      "nullable": false,
+      "description": "Source/related Form Submission IDs.",
+      "itemsPrimitive": "fields.text"
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Lead creation timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Last modification timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "lastActivityAt",
+      "required": false,
+      "nullable": true,
+      "description": "Last operational activity timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "uses",
+      "target": "forms.leadSource",
+      "description": "Lead stores source information."
+    },
+    {
+      "type": "references",
+      "target": "forms.submission",
+      "description": "Lead may reference source submissions."
+    },
+    {
+      "type": "uses",
+      "target": "forms.leadStatusDefinition",
+      "description": "Current status resolves against Site lead statuses."
+    },
+    {
+      "type": "uses",
+      "target": "core.actorReference",
+      "description": "Lead may be assigned to an actor."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "siteIsolation",
+      "description": "Lead belongs to one Site and cannot link submissions/users from another tenant without an explicit cross-site platform contract."
+    },
+    {
+      "id": "contactPointsPrivate",
+      "description": "Lead contact points are private operational data even though shared.contactPoint can be public in other contexts."
+    },
+    {
+      "id": "statusMustExist",
+      "description": "statusKey must resolve to an active or historical forms.leadStatusDefinition for the same Site."
+    },
+    {
+      "id": "leadNotCommerceCustomer",
+      "description": "A website Lead is not automatically a Commerce Customer."
+    },
+    {
+      "id": "leadNotOrganization",
+      "description": "A Lead is not the NEXT F customer Organization tenant."
+    },
+    {
+      "id": "duplicateHandlingExplicit",
+      "description": "Potential duplicate Leads must follow an explicit deduplication policy instead of silent arbitrary merging."
+    }
+  ],
+  "cms": {
+    "label": "Lead",
+    "icon": "fa-rectangle-list",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "forms",
+    "summaryFields": [
+      "id",
+      "siteId",
+      "displayName",
+      "organizationName"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Operational/private by default. Public APIs must not expose this record."
+  },
+  "futureBindings": {
+    "marketing": "phase-9",
+    "integrations": "phase-10",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

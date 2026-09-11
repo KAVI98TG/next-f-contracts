@@ -1,0 +1,157 @@
+{
+  "$id": "core.site",
+  "name": "Site",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "core",
+  "category": "identity",
+  "description": "Minimal canonical customer website identity and Organization ownership reference.",
+  "purpose": "Provides one host-provider-neutral Site record that later manifests, CMS workspaces, content, integrations and health contracts can reference.",
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical entity identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "organizationId",
+      "required": true,
+      "nullable": false,
+      "description": "Organization that owns the Site.",
+      "primitive": "fields.relation",
+      "config": {
+        "relationshipTarget": "core.organization",
+        "relationshipCardinality": "one",
+        "customerEditable": false,
+        "adminEditable": false,
+        "searchable": true,
+        "filterable": true
+      }
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Human-readable Site name.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 200,
+        "customerEditable": true,
+        "adminEditable": true,
+        "searchable": true,
+        "sortable": true
+      }
+    },
+    {
+      "key": "primaryUrl",
+      "required": false,
+      "nullable": true,
+      "description": "Current primary public URL reference when configured.",
+      "primitive": "fields.url",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": true,
+        "searchable": true
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "NEXT F platform Site lifecycle status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "active",
+            "label": "Active"
+          },
+          {
+            "value": "paused",
+            "label": "Paused"
+          },
+          {
+            "value": "archived",
+            "label": "Archived"
+          }
+        ],
+        "defaultValue": "active",
+        "customerEditable": false,
+        "adminEditable": true,
+        "filterable": true
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.entityIdentity",
+      "description": "Sites use canonical entity identity."
+    },
+    {
+      "type": "references",
+      "target": "core.organization",
+      "description": "Every Site belongs to one Organization."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "siteBelongsToOrganization",
+      "description": "organizationId must resolve to the owning Organization."
+    },
+    {
+      "id": "primaryUrlIsReferenceOnly",
+      "description": "primaryUrl identifies the website and must not imply NEXT F owns the domain or hosting service."
+    }
+  ],
+  "cms": {
+    "label": "Site",
+    "icon": "fa-globe",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "platform",
+    "summaryFields": [
+      "name",
+      "primaryUrl",
+      "status"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Selected Site identity such as name/primaryUrl may be public when a parent API explicitly exposes it. Tenant/control metadata remains private."
+  },
+  "examples": {
+    "valid": [
+      {
+        "identity": {
+          "id": "site_01ABC",
+          "createdAt": "2026-09-09T10:00:00Z",
+          "updatedAt": "2026-09-09T10:00:00Z"
+        },
+        "organizationId": "org_01ABC",
+        "name": "Example Engineering Website",
+        "primaryUrl": "https://example.com",
+        "status": "active"
+      }
+    ],
+    "invalid": [
+      {
+        "identity": {
+          "id": "site_01ABC",
+          "createdAt": "2026-09-09T10:00:00Z",
+          "updatedAt": "2026-09-09T10:00:00Z"
+        },
+        "organizationId": "org_01ABC",
+        "name": "",
+        "primaryUrl": "ftp://example.com",
+        "status": "active"
+      }
+    ]
+  },
+  "notes": [
+    "Site is hosting-provider neutral. Domain and hosting ownership remain with the customer Organization."
+  ]
+}

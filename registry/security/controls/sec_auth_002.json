@@ -1,0 +1,35 @@
+{
+  "controlId": "SEC-AUTH-002",
+  "name": "Recent authentication for high-risk actions",
+  "category": "authentication",
+  "requirement": "High-risk operations that declare recent-authentication requirements must re-establish sufficiently recent user authentication before execution.",
+  "rationale": "Long-lived sessions must not silently authorize sensitive account or credential changes.",
+  "applicability": [
+    "admin",
+    "customer-cms"
+  ],
+  "obligation": "mandatory",
+  "scope": "server",
+  "affectedModules": [],
+  "verificationMethods": [
+    "configuration-review",
+    "integration-test"
+  ],
+  "evidenceTypes": [
+    "configuration",
+    "test-result"
+  ],
+  "violationSeverity": "high",
+  "relatedPermissions": [],
+  "relatedApiRules": [],
+  "relatedWebhookRules": [],
+  "relatedCommerceRules": [],
+  "relatedRegistryIds": [
+    "adminUi.adminAction"
+  ],
+  "subrequirements": [],
+  "version": "0.30.0",
+  "status": "stable",
+  "phase": 29,
+  "sourceReference": "registry/security/controls/sec_auth_002.json"
+}

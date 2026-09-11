@@ -1,0 +1,134 @@
+{
+  "$id": "blocks.custom",
+  "name": "Registered Custom Block",
+  "version": "0.7.0",
+  "status": "stable",
+  "domain": "blocks",
+  "category": "extension",
+  "description": "Escape hatch for a Site-specific structured Block contract registered by NEXT F.",
+  "purpose": "Allows truly customer-specific sections without weakening the platform by permitting arbitrary HTML, CSS or JavaScript.",
+  "blockModel": {
+    "kind": "section",
+    "placement": "page-section",
+    "customerManaged": true,
+    "developerControlledPresentation": true,
+    "supportsRevision": true,
+    "allowsArbitraryHtml": false,
+    "allowsArbitraryCss": false,
+    "allowsArbitraryScript": false
+  },
+  "fields": [
+    {
+      "key": "extensionId",
+      "required": true,
+      "nullable": false,
+      "description": "Registered Site-specific extension contract identifier.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 3,
+        "maxLength": 180,
+        "pattern": "^extensions\\.[a-zA-Z0-9.-]+$",
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "extensionVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Pinned extension contract version.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 5,
+        "maxLength": 32,
+        "customerEditable": false,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    },
+    {
+      "key": "data",
+      "required": true,
+      "nullable": false,
+      "description": "Structured payload validated against the registered extension schema.",
+      "primitive": "fields.json",
+      "config": {
+        "format": "object",
+        "customerEditable": true,
+        "adminEditable": true,
+        "revisionTracked": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "extensionRegistered",
+      "description": "extensionId and extensionVersion must resolve to a Site-authorized registered extension contract."
+    },
+    {
+      "id": "payloadConforms",
+      "description": "data must validate against that registered extension schema."
+    },
+    {
+      "id": "noExecutablePayload",
+      "description": "Extension payload must not contain executable JavaScript, unrestricted HTML/CSS or secrets."
+    },
+    {
+      "id": "noCanonicalOverride",
+      "description": "Custom extensions must not redefine the semantics of an existing canonical NEXT F Block."
+    }
+  ],
+  "cms": {
+    "label": "Registered Custom Block",
+    "icon": "fa-puzzle-piece",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "block-editor",
+    "summaryFields": [
+      "extensionId",
+      "extensionVersion",
+      "data"
+    ],
+    "fieldGroups": [
+      "content",
+      "media",
+      "actions",
+      "advanced"
+    ],
+    "primaryActions": [
+      "edit",
+      "preview"
+    ]
+  },
+  "presentation": {
+    "layoutControlledBy": "frontend",
+    "styleControlledBy": "frontend",
+    "componentMappingRequired": true,
+    "variantKeyPolicy": "developer-defined-approved-key-only"
+  },
+  "accessibility": {
+    "requirements": []
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Block data may be delivered only through an eligible published parent content entity."
+  },
+  "futureBindings": {
+    "seo": null,
+    "forms": null,
+    "events": "phase-13",
+    "permissions": "phase-15"
+  },
+  "examples": {
+    "valid": [
+      {}
+    ],
+    "invalid": []
+  },
+  "notes": [
+    "Use only when no canonical Block can express the business requirement.",
+    "Promote broadly reusable extensions into the canonical registry through the normal contract lifecycle."
+  ]
+}

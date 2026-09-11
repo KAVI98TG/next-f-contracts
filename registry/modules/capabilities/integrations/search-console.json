@@ -1,0 +1,28 @@
+{
+  "$id": "modules.capability.integrations.search-console",
+  "capabilityId": "integrations.search-console",
+  "name": "Google Search Console",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "integrations",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Google Search Console capability within the Integrations module.",
+  "contractBindings": [
+    "integrations.googleSearchConsole"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

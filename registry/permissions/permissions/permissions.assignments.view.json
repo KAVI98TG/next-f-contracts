@@ -1,0 +1,29 @@
+{
+  "$id": "permissions.assignments.view",
+  "name": "View Assignments",
+  "permissionId": "permissions.assignments.view",
+  "domain": "permissions",
+  "resource": "assignments",
+  "action": "view",
+  "scopeKind": "organization",
+  "riskLevel": "standard",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "View Assignments within the authorized organization scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "0.16.0",
+  "status": "stable"
+}

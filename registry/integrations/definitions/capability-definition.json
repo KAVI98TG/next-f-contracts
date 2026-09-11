@@ -1,0 +1,123 @@
+{
+  "$id": "integrations.capabilityDefinition",
+  "name": "Capability Definition",
+  "version": "0.11.0",
+  "status": "stable",
+  "domain": "integrations",
+  "category": "foundation",
+  "description": "Canonical description of an operation an integration connector can provide.",
+  "purpose": "Enables feature checks independent of provider names.",
+  "integrationModel": {
+    "kind": "capability",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "capabilityKey",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical capability key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Display label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "runtime",
+      "required": true,
+      "nullable": false,
+      "description": "Primary runtime.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "client",
+          "server",
+          "either"
+        ]
+      }
+    },
+    {
+      "key": "dataDirection",
+      "required": true,
+      "nullable": false,
+      "description": "Data direction.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "outbound",
+          "inbound",
+          "bidirectional",
+          "none"
+        ]
+      }
+    },
+    {
+      "key": "sideEffectLevel",
+      "required": true,
+      "nullable": false,
+      "description": "Operational side effect classification.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "none",
+          "read-only",
+          "reversible",
+          "external-write"
+        ]
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "stableCapabilityKeys",
+      "description": "Capability keys are stable and provider-neutral."
+    },
+    {
+      "id": "declaredBeforeUse",
+      "description": "Connector must declare capability before connection enables it."
+    }
+  ],
+  "cms": {
+    "label": "Capability Definition",
+    "icon": "fa-plug",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "integration-schema",
+    "defaultPlacement": "integrations",
+    "summaryFields": [
+      "capabilityKey",
+      "label",
+      "runtime",
+      "dataDirection"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Only explicitly public-eligible fields may enter client/runtime configuration; secrets and privileged operational metadata remain server-side."
+  },
+  "futureBindings": {
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,104 @@
+{
+  "$id": "modules.documentation",
+  "moduleId": "documentation",
+  "name": "Documentation",
+  "version": "0.18.0",
+  "status": "stable",
+  "category": "content",
+  "icon": "fa-book-open",
+  "order": 120,
+  "description": "Structured documentation collections, categories and articles with attachments, visibility, related content and version-aware publishing.",
+  "selection": {
+    "mandatory": false,
+    "defaultEnabled": false,
+    "explicitManifestSelection": true,
+    "customerCanEnable": false,
+    "nextfAdminCanEnable": true
+  },
+  "dependencies": [
+    {
+      "moduleId": "core",
+      "kind": "required",
+      "reason": "Documentation is versioned and Site-scoped."
+    },
+    {
+      "moduleId": "media",
+      "kind": "required",
+      "reason": "Documentation may reference attachments/media."
+    },
+    {
+      "moduleId": "seo",
+      "kind": "recommended",
+      "reason": "Public documentation benefits from canonical SEO metadata."
+    }
+  ],
+  "conflicts": [],
+  "capabilityIds": [
+    "documentation.collections",
+    "documentation.categories",
+    "documentation.attachments",
+    "documentation.related-articles",
+    "documentation.versioning",
+    "documentation.visibility"
+  ],
+  "defaultCapabilityIds": [
+    "documentation.collections",
+    "documentation.categories",
+    "documentation.versioning",
+    "documentation.visibility"
+  ],
+  "contractBindings": [
+    "content.documentationCollection",
+    "content.documentationCategory",
+    "content.documentationArticle"
+  ],
+  "permissionBindings": [
+    "content.documentation.approve",
+    "content.documentation.create",
+    "content.documentation.delete",
+    "content.documentation.edit",
+    "content.documentation.publish",
+    "content.documentation.view"
+  ],
+  "eventBindings": [
+    "content.archived",
+    "content.created",
+    "content.deleted",
+    "content.published",
+    "content.restored",
+    "content.scheduled",
+    "content.unpublished",
+    "content.updated",
+    "content.version-created"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "group": "Content",
+    "navigation": [
+      {
+        "label": "Documentation",
+        "path": "/content/documentation",
+        "icon": "fa-book-open",
+        "order": 30
+      }
+    ]
+  },
+  "admin": {
+    "visible": true,
+    "group": "Sites",
+    "navigation": [
+      {
+        "label": "Documentation",
+        "path": "/sites/:siteId/documentation",
+        "icon": "fa-book-open",
+        "order": 35
+      }
+    ]
+  },
+  "manifest": {
+    "moduleId": "documentation",
+    "capabilitySelection": "module-scoped",
+    "dependencyValidation": "strict"
+  },
+  "notes": []
+}

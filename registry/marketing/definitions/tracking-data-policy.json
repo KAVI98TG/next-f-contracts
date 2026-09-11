@@ -1,0 +1,184 @@
+{
+  "$id": "marketing.trackingDataPolicy",
+  "name": "Tracking Data Policy",
+  "version": "0.10.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "configuration",
+  "description": "Data minimization, retention and identity-use rules for marketing tracking.",
+  "purpose": "Defines what the tracking layer may collect before Phase 30 introduces the wider privacy classification framework.",
+  "marketingModel": {
+    "kind": "policy",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "policyVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Stable tracking data policy version.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 40
+      }
+    },
+    {
+      "key": "retentionDays",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum retention period for raw tracking observations in NEXT F-managed storage.",
+      "primitive": "fields.integer",
+      "config": {
+        "minimum": 1,
+        "maximum": 730,
+        "defaultValue": 90
+      }
+    },
+    {
+      "key": "allowAnonymousVisitorId",
+      "required": true,
+      "nullable": false,
+      "description": "Whether a random first-party anonymous visitor identifier may be used.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "allowAuthenticatedSubjectLinking",
+      "required": true,
+      "nullable": false,
+      "description": "Whether tracking may link to an authenticated canonical subject ID when explicitly permitted.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "allowRawQueryString",
+      "required": true,
+      "nullable": false,
+      "description": "Whether arbitrary raw query strings may be retained.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "allowFullReferrerPath",
+      "required": true,
+      "nullable": false,
+      "description": "Whether full external referrer paths may be retained rather than hostname only.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "allowedPropertyKeys",
+      "required": false,
+      "nullable": true,
+      "description": "Explicit additional event-property allowlist.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "maxItems": 500
+      }
+    },
+    {
+      "key": "prohibitedPropertyKeys",
+      "required": false,
+      "nullable": true,
+      "description": "Property keys prohibited from tracking payloads.",
+      "itemsPrimitive": "fields.text",
+      "config": {
+        "maxItems": 500
+      }
+    },
+    {
+      "key": "stripUrlFragments",
+      "required": true,
+      "nullable": false,
+      "description": "Whether URL fragments are removed before tracking.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    },
+    {
+      "key": "stripSensitiveQueryParameters",
+      "required": true,
+      "nullable": false,
+      "description": "Whether sensitive query parameters are removed before storage/dispatch.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "dataMinimizationDefault",
+      "description": "Collect only data required for declared analytics, conversion or attribution purposes."
+    },
+    {
+      "id": "noFingerprinting",
+      "description": "Browser/device attributes must not be combined to create covert fingerprint identifiers."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Tracking properties must never contain passwords, tokens, private keys or payment credentials."
+    },
+    {
+      "id": "noRawFormPayloads",
+      "description": "Entire form submissions must never be copied into generic tracking properties."
+    },
+    {
+      "id": "queryStringsMinimized",
+      "description": "Raw query strings default to prohibited because they may contain personal or secret values."
+    },
+    {
+      "id": "identityLinkingOptIn",
+      "description": "Authenticated subject linking is disabled by default and requires explicit policy and permission support."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Data Policy",
+    "icon": "fa-bullseye",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "policy-editor",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "policyVersion",
+      "retentionDays",
+      "allowAnonymousVisitorId",
+      "allowAuthenticatedSubjectLinking"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational by default. Public APIs must not expose this record unless a later contract explicitly permits a safe subset."
+  },
+  "futureBindings": {
+    "integrations": "phase-10",
+    "commerce": "phase-11",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

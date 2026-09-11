@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.customerProfileInheritance",
+  "name": "Customer Profile Inheritance",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines safe reuse of Customer CMS UI metadata in Admin.",
+  "purpose": "Defines safe reuse of Customer CMS UI metadata in Admin.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

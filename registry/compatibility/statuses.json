@@ -1,0 +1,54 @@
+{
+  "registryVersion": "1.0.0",
+  "statuses": [
+    {
+      "id": "compatible",
+      "label": "Compatible",
+      "rank": 10,
+      "blocking": false,
+      "description": "All evaluated required dimensions are satisfied."
+    },
+    {
+      "id": "compatible-with-upgrade",
+      "label": "Compatible, upgrade available",
+      "rank": 20,
+      "blocking": false,
+      "description": "No detected blocking change, but an explicit newer target is available."
+    },
+    {
+      "id": "unknown",
+      "label": "Unknown",
+      "rank": 50,
+      "blockingForProduction": true,
+      "description": "Evidence is insufficient or an exact/runtime declaration is unavailable."
+    },
+    {
+      "id": "review-required",
+      "label": "Review required",
+      "rank": 60,
+      "blockingForProduction": true,
+      "description": "Potentially breaking, deprecated or semantic/security-sensitive evidence needs review."
+    },
+    {
+      "id": "migration-required",
+      "label": "Migration required",
+      "rank": 80,
+      "blocking": true,
+      "description": "Detected change requires implementation/data migration before adoption."
+    },
+    {
+      "id": "incompatible",
+      "label": "Incompatible",
+      "rank": 100,
+      "blocking": true,
+      "description": "A required binding cannot operate against the target as declared."
+    },
+    {
+      "id": "not-applicable",
+      "label": "Not applicable",
+      "rank": 0,
+      "blocking": false,
+      "description": "This compatibility dimension does not apply."
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "$id": "starters.service-business",
+  "slug": "service-business",
+  "name": "Service Business Site Starter",
+  "version": "1.0.0",
+  "status": "stable",
+  "siteType": "service",
+  "sourceExampleId": "examples.service-site",
+  "bundlePath": "starters/service-business",
+  "manifestPath": "starters/service-business/nextf.site.json",
+  "summary": "Conversion-focused service website with service detail content, proof, enquiries, Leads, SEO, analytics and marketing integrations.",
+  "modules": [
+    "core",
+    "media",
+    "pages",
+    "blog",
+    "seo",
+    "forms",
+    "leads",
+    "consent",
+    "analytics",
+    "marketing",
+    "integrations"
+  ],
+  "capabilities": [
+    "core.identity",
+    "core.publishing",
+    "core.versioning",
+    "core.audit",
+    "core.tenant-isolation",
+    "media.library",
+    "media.images",
+    "media.contextual-metadata",
+    "pages.sections",
+    "pages.reusable-content",
+    "pages.navigation",
+    "blog.categories",
+    "blog.tags",
+    "blog.authors",
+    "blog.scheduling",
+    "seo.metadata",
+    "seo.social-sharing",
+    "seo.sitemap",
+    "seo.robots",
+    "seo.redirects",
+    "seo.audits",
+    "forms.notifications",
+    "forms.spam-protection",
+    "forms.consent-fields",
+    "leads.status",
+    "leads.activity",
+    "leads.deduplication",
+    "leads.assignment",
+    "consent.preferences",
+    "consent.records",
+    "consent.categories",
+    "consent.integration-gating",
+    "analytics.measurement",
+    "analytics.reporting",
+    "marketing.conversions",
+    "marketing.utm-attribution",
+    "marketing.destinations",
+    "integrations.health"
+  ],
+  "contractCount": 270,
+  "apiBindings": [
+    {
+      "apiId": "api.public-content",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.public-interaction",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.events",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "preview",
+        "production"
+      ]
+    }
+  ],
+  "trackingEvents": [
+    "page.viewed",
+    "cta.clicked",
+    "form.started",
+    "form.submitted"
+  ],
+  "integrations": [
+    {
+      "connectorId": "integrations.googleTagManager",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleAnalytics4",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleSearchConsole",
+      "required": true,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.googleAds",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.meta",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    },
+    {
+      "connectorId": "integrations.microsoftClarity",
+      "required": false,
+      "environments": [
+        "production"
+      ]
+    }
+  ],
+  "permissionCount": 163,
+  "eventCount": 57,
+  "files": [
+    "nextf.site.json",
+    "AGENTS.md",
+    "README.md",
+    "CONTRACT-RESOLUTION-SUMMARY.md",
+    "INTEGRATION-ARCHITECTURE.md",
+    ".env.example",
+    "CONTENT-CONTRACT-MAP.json",
+    "EVENT-MAP.json",
+    "TRACKING-EVENT-MAP.json",
+    "PERMISSION-EXPECTATIONS.md",
+    "API-BINDINGS.md",
+    "CMS-MAPPING.json",
+    "ADMIN-MAPPING.json",
+    "EXTENSIONS.md",
+    "VALIDATION.md",
+    "ACCEPTANCE-CHECKLIST.md"
+  ],
+  "validationCommand": "node bin/nextf-contract.mjs validate starters/service-business/nextf.site.json --verbose",
+  "codexInstruction": "Read `AGENTS.md` and `nextf.site.json`, resolve the pinned NEXT F Contract Version, use only enabled Modules/Capabilities, reuse canonical contracts, run NEXT F validation before completion, and report deviations."
+}

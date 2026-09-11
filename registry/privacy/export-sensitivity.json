@@ -1,0 +1,21 @@
+{
+  "registryVersion": "1.0.0",
+  "title": "Export Sensitivity",
+  "values": [
+    {
+      "id": "normal",
+      "label": "Normal",
+      "description": "Normal authorized export handling."
+    },
+    {
+      "id": "restricted",
+      "label": "Restricted",
+      "description": "Export requires explicit authorization and appropriate minimization/audit."
+    },
+    {
+      "id": "highly-restricted",
+      "label": "Highly Restricted",
+      "description": "Export is generally prohibited or requires exceptional privileged handling."
+    }
+  ]
+}

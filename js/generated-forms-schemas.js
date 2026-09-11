@@ -1,0 +1,5703 @@
+// GENERATED FILE - DO NOT EDIT DIRECTLY.
+// Source: registry/forms/index.json
+// SHA-256: bd9d82bf2c6038cc91a4aee17953185cab3503d1488e9cf60a146fed5391fb08
+export const GENERATED_FORMS_SCHEMAS_SOURCE_SHA256 = "bd9d82bf2c6038cc91a4aee17953185cab3503d1488e9cf60a146fed5391fb08";
+export const GENERATED_FORMS_SCHEMAS = {
+  "registryVersion": "0.9.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Forms and Leads Contract Registry",
+  "description": "Generated index of authoritative Phase 8 Forms and Leads definitions.",
+  "definitionCount": 35,
+  "sourceDirectory": "registry/forms/definitions",
+  "schemas": [
+    {
+      "$id": "forms.autoResponse",
+      "name": "Form Auto-response",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "automation",
+      "description": "Configures a visitor-facing email response after an accepted submission.",
+      "purpose": "Keeps acknowledgement email behavior separate from internal notifications.",
+      "formsModel": {
+        "kind": "configuration",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "formId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Form.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.form",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether automatic response is enabled.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "recipientFieldKey",
+          "required": true,
+          "nullable": false,
+          "description": "Form field containing the validated recipient email.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "subjectTemplate",
+          "required": true,
+          "nullable": false,
+          "description": "Allowlisted-variable subject template.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300
+          }
+        },
+        {
+          "key": "bodyTemplate",
+          "required": true,
+          "nullable": false,
+          "description": "Response body.",
+          "primitive": "fields.richText"
+        },
+        {
+          "key": "replyTo",
+          "required": false,
+          "nullable": true,
+          "description": "Optional reply-to address.",
+          "primitive": "fields.email"
+        },
+        {
+          "key": "onlyAfterAccepted",
+          "required": true,
+          "nullable": false,
+          "description": "Must remain true in Phase 8.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "recipientMustBeEmailField",
+          "description": "recipientFieldKey must identify a validated email field."
+        },
+        {
+          "id": "acceptedOnly",
+          "description": "Auto-response must not be sent before server acceptance."
+        },
+        {
+          "id": "noSensitiveEcho",
+          "description": "Sensitive submitted values must not be echoed into the response unless explicitly designed and authorized."
+        },
+        {
+          "id": "antiAbuseRequired",
+          "description": "Auto-response must respect anti-abuse/rate-limit controls to avoid becoming a mail relay."
+        }
+      ],
+      "cms": {
+        "label": "Form Auto-response",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "formId",
+          "enabled",
+          "recipientFieldKey",
+          "subjectTemplate"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.condition",
+      "name": "Form Condition",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "logic",
+      "description": "One declarative condition used by conditional form behavior.",
+      "purpose": "Allows safe field-driven visibility without arbitrary JavaScript expressions.",
+      "formsModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "sourceFieldKey",
+          "required": true,
+          "nullable": false,
+          "description": "Stable key of the field being evaluated.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "operator",
+          "required": true,
+          "nullable": false,
+          "description": "Comparison operator.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "equals",
+                "label": "equals"
+              },
+              {
+                "value": "notEquals",
+                "label": "notEquals"
+              },
+              {
+                "value": "contains",
+                "label": "contains"
+              },
+              {
+                "value": "notContains",
+                "label": "notContains"
+              },
+              {
+                "value": "greaterThan",
+                "label": "greaterThan"
+              },
+              {
+                "value": "greaterThanOrEqual",
+                "label": "greaterThanOrEqual"
+              },
+              {
+                "value": "lessThan",
+                "label": "lessThan"
+              },
+              {
+                "value": "lessThanOrEqual",
+                "label": "lessThanOrEqual"
+              },
+              {
+                "value": "isEmpty",
+                "label": "isEmpty"
+              },
+              {
+                "value": "isNotEmpty",
+                "label": "isNotEmpty"
+              },
+              {
+                "value": "in",
+                "label": "in"
+              },
+              {
+                "value": "notIn",
+                "label": "notIn"
+              }
+            ]
+          }
+        },
+        {
+          "key": "value",
+          "required": false,
+          "nullable": true,
+          "description": "Comparison value when the operator requires one.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "fieldMustExist",
+          "description": "sourceFieldKey must reference a field in the same Form."
+        },
+        {
+          "id": "operatorValueCompatibility",
+          "description": "Operators requiring no value must ignore value; all other operators require a compatible value."
+        },
+        {
+          "id": "noExecutableExpressions",
+          "description": "Conditions must not contain executable JavaScript or arbitrary expressions."
+        }
+      ],
+      "cms": {
+        "label": "Form Condition",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "sourceFieldKey",
+          "operator",
+          "value"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.conditionGroup",
+      "name": "Form Condition Group",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "logic",
+      "description": "A safe all/any group of form conditions.",
+      "purpose": "Supports deterministic conditional visibility and behavior while limiting complexity.",
+      "formsModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "logic",
+          "required": true,
+          "nullable": false,
+          "description": "How child conditions are combined.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "all",
+                "label": "All conditions"
+              },
+              {
+                "value": "any",
+                "label": "Any condition"
+              }
+            ]
+          }
+        },
+        {
+          "key": "conditions",
+          "required": true,
+          "nullable": false,
+          "description": "Conditions evaluated in this group.",
+          "itemsSchema": "forms.condition",
+          "config": {
+            "minItems": 1,
+            "maxItems": 20
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "contains",
+          "target": "forms.condition",
+          "description": "Contains safe declarative conditions."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "boundedConditions",
+          "description": "A single condition group is limited to a bounded number of conditions."
+        },
+        {
+          "id": "noRecursiveArbitraryTree",
+          "description": "Phase 8 condition groups do not recursively embed arbitrary nested groups."
+        }
+      ],
+      "cms": {
+        "label": "Form Condition Group",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "logic",
+          "conditions"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.confirmation",
+      "name": "Form Confirmation",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "automation",
+      "description": "Defines what the visitor sees after an accepted form submission.",
+      "purpose": "Standardizes success feedback and safe redirects.",
+      "formsModel": {
+        "kind": "configuration",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "mode",
+          "required": true,
+          "nullable": false,
+          "description": "Confirmation mode.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "inline",
+                "label": "Inline message"
+              },
+              {
+                "value": "redirect",
+                "label": "Redirect URL"
+              },
+              {
+                "value": "content",
+                "label": "Content entity"
+              }
+            ]
+          }
+        },
+        {
+          "key": "message",
+          "required": false,
+          "nullable": true,
+          "description": "Inline confirmation content.",
+          "primitive": "fields.richText"
+        },
+        {
+          "key": "redirectUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Safe HTTP(S) redirect destination when mode=redirect.",
+          "primitive": "fields.url"
+        },
+        {
+          "key": "content",
+          "required": false,
+          "nullable": true,
+          "description": "Published content target when mode=content.",
+          "schema": "core.entityReference"
+        },
+        {
+          "key": "preserveQueryString",
+          "required": true,
+          "nullable": false,
+          "description": "Whether explicitly allowlisted query parameters may be preserved.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "exactlyOneConfirmationTarget",
+          "description": "Only the target appropriate to mode may be populated."
+        },
+        {
+          "id": "safeRedirectScheme",
+          "description": "Redirects must use HTTP(S) and may be restricted by Site policy."
+        },
+        {
+          "id": "noSensitiveQueryPropagation",
+          "description": "Sensitive submitted values must never be placed in redirect query strings."
+        },
+        {
+          "id": "confirmationAfterAccepted",
+          "description": "Success confirmation is shown only after the server accepts the submission."
+        }
+      ],
+      "cms": {
+        "label": "Form Confirmation",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "mode",
+          "message",
+          "redirectUrl",
+          "content"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.consentFieldConfig",
+      "name": "Consent Field Configuration",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "consent-data",
+      "description": "Defines what a consent checkbox or acknowledgement means at capture time.",
+      "purpose": "Ensures consent capture includes a purpose and stable text/version snapshot rather than a generic untitled checkbox.",
+      "formsModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "purpose",
+          "required": true,
+          "nullable": false,
+          "description": "Declared purpose of the acknowledgement.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "terms",
+                "label": "terms"
+              },
+              {
+                "value": "privacy",
+                "label": "privacy"
+              },
+              {
+                "value": "marketing",
+                "label": "marketing"
+              },
+              {
+                "value": "contact",
+                "label": "contact"
+              },
+              {
+                "value": "ageConfirmation",
+                "label": "ageConfirmation"
+              },
+              {
+                "value": "other",
+                "label": "other"
+              }
+            ]
+          }
+        },
+        {
+          "key": "consentText",
+          "required": true,
+          "nullable": false,
+          "description": "Exact user-facing consent/acknowledgement text.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 3000,
+            "localizable": true
+          }
+        },
+        {
+          "key": "policyUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Optional related policy URL.",
+          "primitive": "fields.url"
+        },
+        {
+          "key": "policyVersion",
+          "required": false,
+          "nullable": true,
+          "description": "Optional customer policy/version identifier.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        },
+        {
+          "key": "required",
+          "required": true,
+          "nullable": false,
+          "description": "Whether acceptance is required to submit.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "noPrecheckedConsent",
+          "description": "Consent controls must not be prechecked when an affirmative action is required."
+        },
+        {
+          "id": "marketingConsentIndependent",
+          "description": "Marketing consent must not be silently bundled into an unrelated required acknowledgement."
+        },
+        {
+          "id": "notLegalSufficiency",
+          "description": "This configuration records product behavior and does not by itself establish legal sufficiency in any jurisdiction."
+        }
+      ],
+      "cms": {
+        "label": "Consent Field Configuration",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "purpose",
+          "consentText",
+          "policyUrl",
+          "policyVersion"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.consentRecord",
+      "name": "Consent Record",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "consent-data",
+      "description": "Snapshot of one consent/acknowledgement field at submission time.",
+      "purpose": "Preserves what the visitor accepted or declined instead of relying on a later-edited form label.",
+      "formsModel": {
+        "kind": "operational-record",
+        "customerManaged": true,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false
+      },
+      "fields": [
+        {
+          "key": "fieldKey",
+          "required": true,
+          "nullable": false,
+          "description": "Consent field key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "purpose",
+          "required": true,
+          "nullable": false,
+          "description": "Purpose key captured from field configuration.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        },
+        {
+          "key": "accepted",
+          "required": true,
+          "nullable": false,
+          "description": "Recorded affirmative/negative response.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "textSnapshot",
+          "required": true,
+          "nullable": false,
+          "description": "Exact consent text shown at submission time.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 3000
+          }
+        },
+        {
+          "key": "policyUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Policy URL shown at submission time.",
+          "primitive": "fields.url"
+        },
+        {
+          "key": "policyVersion",
+          "required": false,
+          "nullable": true,
+          "description": "Policy version shown at submission time.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        },
+        {
+          "key": "recordedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Consent capture timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "snapshotImmutable",
+          "description": "Consent text/version snapshots must not change when the Form is later edited."
+        },
+        {
+          "id": "recordResponseTruthfully",
+          "description": "accepted must reflect the submitted control state."
+        },
+        {
+          "id": "notLegalConclusion",
+          "description": "The record demonstrates captured system data only and does not itself determine legal validity."
+        }
+      ],
+      "cms": {
+        "label": "Consent Record",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "fieldKey",
+          "purpose",
+          "accepted",
+          "textSnapshot"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.conversionMapping",
+      "name": "Form Conversion Mapping",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "automation",
+      "description": "Declares that an accepted form outcome should map to a future registered marketing conversion key.",
+      "purpose": "Creates the stable bridge needed for Phase 9 conversions without directly embedding Google, Meta or other vendor tracking code in the Form.",
+      "formsModel": {
+        "kind": "configuration",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "formId",
+          "required": true,
+          "nullable": false,
+          "description": "Source Form.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.form",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether conversion mapping is active.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "outcome",
+          "required": true,
+          "nullable": false,
+          "description": "Form outcome eligible for conversion mapping.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "accepted",
+                "label": "Accepted"
+              },
+              {
+                "value": "leadCreated",
+                "label": "Lead created"
+              }
+            ]
+          }
+        },
+        {
+          "key": "conversionKey",
+          "required": true,
+          "nullable": false,
+          "description": "Future canonical Marketing conversion key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "valueMode",
+          "required": true,
+          "nullable": false,
+          "description": "How a future conversion value is determined.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "none",
+                "label": "No value"
+              },
+              {
+                "value": "fixed",
+                "label": "Fixed"
+              },
+              {
+                "value": "mappedField",
+                "label": "Mapped field"
+              }
+            ]
+          }
+        },
+        {
+          "key": "fixedValue",
+          "required": false,
+          "nullable": true,
+          "description": "Optional fixed monetary conversion value.",
+          "primitive": "fields.currency"
+        },
+        {
+          "key": "sourceFieldKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional field key used by a future validated conversion-value mapping.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "requiresMarketingConsent",
+          "required": true,
+          "nullable": false,
+          "description": "Whether dispatch to marketing destinations requires marketing consent.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "belongsTo",
+          "target": "forms.form",
+          "description": "Conversion mapping belongs to a Form."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "notCanonicalMarketingYet",
+          "description": "conversionKey is a forward reference; canonical conversion/event contracts are introduced in Phase 9 and Phase 13."
+        },
+        {
+          "id": "noVendorCode",
+          "description": "This mapping must not contain Google Ads, Meta Pixel or other vendor scripts."
+        },
+        {
+          "id": "valueModeExclusive",
+          "description": "fixedValue/sourceFieldKey usage must match valueMode."
+        },
+        {
+          "id": "consentEnforcedAtDispatch",
+          "description": "Future marketing dispatch must obey consent and destination rules, not merely this flag."
+        }
+      ],
+      "cms": {
+        "label": "Form Conversion Mapping",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "formId",
+          "enabled",
+          "outcome",
+          "conversionKey"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.dataHandling",
+      "name": "Form Data Handling",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "consent-data",
+      "description": "Controls storage and minimization behavior for form submission data.",
+      "purpose": "Makes retention and request-metadata choices explicit before the broader Privacy phase adds jurisdiction-specific policy metadata.",
+      "formsModel": {
+        "kind": "policy",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "storeSubmissions",
+          "required": true,
+          "nullable": false,
+          "description": "Whether accepted submission records are retained.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "retentionDays",
+          "required": false,
+          "nullable": true,
+          "description": "Optional retention period in days.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 3650
+          }
+        },
+        {
+          "key": "ipHandling",
+          "required": true,
+          "nullable": false,
+          "description": "How source IP information may be handled.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "none",
+                "label": "Do not retain"
+              },
+              {
+                "value": "transient",
+                "label": "Use transiently"
+              },
+              {
+                "value": "hashed",
+                "label": "Store protected derivative"
+              }
+            ],
+            "defaultValue": "none"
+          }
+        },
+        {
+          "key": "storeUserAgent",
+          "required": true,
+          "nullable": false,
+          "description": "Whether user-agent metadata is retained.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "storeReferrer",
+          "required": true,
+          "nullable": false,
+          "description": "Whether referrer URL is retained.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "storeLandingUrl",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the landing/source page URL is retained.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "allowCustomerExport",
+          "required": true,
+          "nullable": false,
+          "description": "Whether authorized customer roles may export submissions.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "dataMinimization",
+          "description": "Only metadata required for the configured business purpose should be retained."
+        },
+        {
+          "id": "retentionRequiredWhenStored",
+          "description": "When submissions are stored, retention behavior must be explicit at Site policy level even if retentionDays is inherited."
+        },
+        {
+          "id": "ipNotAuthorization",
+          "description": "IP metadata is not a reliable identity or authorization mechanism."
+        },
+        {
+          "id": "notLegalPolicy",
+          "description": "This contract expresses system behavior and does not replace a customer privacy policy or legal review."
+        }
+      ],
+      "cms": {
+        "label": "Form Data Handling",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "storeSubmissions",
+          "retentionDays",
+          "ipHandling",
+          "storeUserAgent"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.fieldMapping",
+      "name": "Form Field Mapping",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "automation",
+      "description": "Maps one submitted form field to a registered target field path.",
+      "purpose": "Supports predictable lead creation and future integration mapping without executable transformations.",
+      "formsModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "sourceFieldKey",
+          "required": true,
+          "nullable": false,
+          "description": "Source Form field key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "targetPath",
+          "required": true,
+          "nullable": false,
+          "description": "Registered target field path, such as lead.displayName.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240
+          }
+        },
+        {
+          "key": "transform",
+          "required": true,
+          "nullable": false,
+          "description": "Safe built-in transformation.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "trim",
+                "label": "Trim"
+              },
+              {
+                "value": "lowercase",
+                "label": "Lowercase"
+              },
+              {
+                "value": "uppercase",
+                "label": "Uppercase"
+              }
+            ],
+            "defaultValue": "none"
+          }
+        },
+        {
+          "key": "required",
+          "required": true,
+          "nullable": false,
+          "description": "Whether mapping failure blocks the mapped business action.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "fallbackValue",
+          "required": false,
+          "nullable": true,
+          "description": "Optional non-secret fallback value.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "sourceExists",
+          "description": "sourceFieldKey must exist in the mapped Form."
+        },
+        {
+          "id": "targetRegistered",
+          "description": "targetPath must be explicitly supported by the target mapping contract."
+        },
+        {
+          "id": "noArbitraryTransforms",
+          "description": "Transformations are limited to registered deterministic operations; arbitrary code is prohibited."
+        },
+        {
+          "id": "sensitiveMappingExplicit",
+          "description": "Sensitive source fields require explicit target support and permission-aware handling."
+        }
+      ],
+      "cms": {
+        "label": "Form Field Mapping",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "sourceFieldKey",
+          "targetPath",
+          "transform",
+          "required"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.fieldOption",
+      "name": "Form Field Option",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "builder",
+      "description": "One selectable option for select, radio or checkbox-style fields.",
+      "purpose": "Provides stable machine values separately from customer-facing labels.",
+      "formsModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "value",
+          "required": true,
+          "nullable": false,
+          "description": "Stable machine value submitted by the form.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "label",
+          "required": true,
+          "nullable": false,
+          "description": "Customer-facing localized option label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 200,
+            "localizable": true
+          }
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Optional explanatory text.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500,
+            "localizable": true
+          }
+        },
+        {
+          "key": "disabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the option remains visible but cannot be selected.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "sortOrder",
+          "required": true,
+          "nullable": false,
+          "description": "Deterministic display order.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "stableOptionValue",
+          "description": "Changing an option label must not silently change its stored machine value."
+        },
+        {
+          "id": "uniqueOptionValueByField",
+          "description": "Option values must be unique inside one field."
+        }
+      ],
+      "cms": {
+        "label": "Form Field Option",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "value",
+          "label",
+          "description",
+          "disabled"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.fieldValidationRule",
+      "name": "Form Field Validation Rule",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "builder",
+      "description": "Declarative validation applied to a form field.",
+      "purpose": "Keeps server and client validation intent synchronized without executable custom scripts.",
+      "formsModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "rule",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical validation rule.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "required",
+                "label": "required"
+              },
+              {
+                "value": "minLength",
+                "label": "minLength"
+              },
+              {
+                "value": "maxLength",
+                "label": "maxLength"
+              },
+              {
+                "value": "minimum",
+                "label": "minimum"
+              },
+              {
+                "value": "maximum",
+                "label": "maximum"
+              },
+              {
+                "value": "pattern",
+                "label": "pattern"
+              },
+              {
+                "value": "email",
+                "label": "email"
+              },
+              {
+                "value": "url",
+                "label": "url"
+              },
+              {
+                "value": "phone",
+                "label": "phone"
+              },
+              {
+                "value": "fileSize",
+                "label": "fileSize"
+              },
+              {
+                "value": "fileType",
+                "label": "fileType"
+              },
+              {
+                "value": "minItems",
+                "label": "minItems"
+              },
+              {
+                "value": "maxItems",
+                "label": "maxItems"
+              },
+              {
+                "value": "customRegistered",
+                "label": "customRegistered"
+              }
+            ]
+          }
+        },
+        {
+          "key": "parameters",
+          "required": false,
+          "nullable": true,
+          "description": "Rule parameters appropriate to the rule type.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "message",
+          "required": false,
+          "nullable": true,
+          "description": "Localized validation message shown to users.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500,
+            "localizable": true
+          }
+        },
+        {
+          "key": "registeredValidator",
+          "required": false,
+          "nullable": true,
+          "description": "Registered validator ID when rule=customRegistered; never inline code.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "serverValidationAuthoritative",
+          "description": "Every rule affecting acceptance must be enforced server-side; browser validation is UX only."
+        },
+        {
+          "id": "customValidatorMustBeRegistered",
+          "description": "customRegistered requires a registered server-side validator identifier and must not contain executable code."
+        },
+        {
+          "id": "parametersMatchRule",
+          "description": "parameters must match the selected rule semantics."
+        }
+      ],
+      "cms": {
+        "label": "Form Field Validation Rule",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "rule",
+          "parameters",
+          "message",
+          "registeredValidator"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.form",
+      "name": "Form",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "builder",
+      "description": "Complete structured website form definition managed through the Customer CMS.",
+      "purpose": "Provides one reusable, code-independent form contract for contact, quote, enquiry, application and lead-generation forms across NEXT F-built websites.",
+      "formsModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque Form ID.",
+          "primitive": "fields.text",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "siteId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "core.site",
+            "relationshipCardinality": "one",
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Internal/customer CMS form name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240,
+            "searchable": true
+          }
+        },
+        {
+          "key": "publicTitle",
+          "required": false,
+          "nullable": true,
+          "description": "Optional visitor-facing title.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240,
+            "localizable": true
+          }
+        },
+        {
+          "key": "slug",
+          "required": true,
+          "nullable": false,
+          "description": "Stable form slug/handle where a route/embed requires it.",
+          "primitive": "fields.slug"
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Optional visitor-facing description.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 2000,
+            "localizable": true
+          }
+        },
+        {
+          "key": "renderMode",
+          "required": true,
+          "nullable": false,
+          "description": "Form flow mode.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "singleStep",
+                "label": "Single step"
+              },
+              {
+                "value": "multiStep",
+                "label": "Multi-step"
+              }
+            ]
+          }
+        },
+        {
+          "key": "fieldIds",
+          "required": false,
+          "nullable": false,
+          "description": "Ordered directly placed field IDs for simple forms.",
+          "itemsPrimitive": "fields.text"
+        },
+        {
+          "key": "sectionIds",
+          "required": false,
+          "nullable": false,
+          "description": "Ordered Form Sections for structured single-step forms.",
+          "itemsPrimitive": "fields.text"
+        },
+        {
+          "key": "stepIds",
+          "required": false,
+          "nullable": false,
+          "description": "Ordered Form Steps for multi-step forms.",
+          "itemsPrimitive": "fields.text"
+        },
+        {
+          "key": "availability",
+          "required": false,
+          "nullable": true,
+          "description": "Submission availability.",
+          "schema": "forms.formAvailability"
+        },
+        {
+          "key": "confirmation",
+          "required": false,
+          "nullable": true,
+          "description": "Visitor success behavior.",
+          "schema": "forms.confirmation"
+        },
+        {
+          "key": "dataHandling",
+          "required": false,
+          "nullable": true,
+          "description": "Storage/minimization behavior.",
+          "schema": "forms.dataHandling"
+        },
+        {
+          "key": "spamPolicy",
+          "required": false,
+          "nullable": true,
+          "description": "Anti-spam configuration.",
+          "schema": "forms.spamPolicy"
+        },
+        {
+          "key": "rateLimitPolicy",
+          "required": false,
+          "nullable": true,
+          "description": "Submission throttling policy.",
+          "schema": "forms.rateLimitPolicy"
+        },
+        {
+          "key": "submitLabel",
+          "required": true,
+          "nullable": false,
+          "description": "Submit button label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120,
+            "localizable": true
+          }
+        },
+        {
+          "key": "formVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Current immutable revision/version identifier used in new Submission snapshots.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Creation timestamp.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "updatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Last modification timestamp.",
+          "primitive": "fields.dateTime",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "contains",
+          "target": "forms.formField",
+          "description": "Form contains reusable Field definitions."
+        },
+        {
+          "type": "contains",
+          "target": "forms.formSection",
+          "description": "May organize fields in Sections."
+        },
+        {
+          "type": "contains",
+          "target": "forms.formStep",
+          "description": "May organize multi-step flows."
+        },
+        {
+          "type": "uses",
+          "target": "forms.formAvailability",
+          "description": "Uses availability policy."
+        },
+        {
+          "type": "uses",
+          "target": "forms.confirmation",
+          "description": "Uses success behavior."
+        },
+        {
+          "type": "uses",
+          "target": "forms.dataHandling",
+          "description": "Uses data-handling policy."
+        },
+        {
+          "type": "uses",
+          "target": "forms.spamPolicy",
+          "description": "Uses anti-spam policy."
+        },
+        {
+          "type": "uses",
+          "target": "forms.rateLimitPolicy",
+          "description": "Uses rate limiting."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "siteScoped",
+          "description": "Form belongs to one Site."
+        },
+        {
+          "id": "layoutMatchesRenderMode",
+          "description": "multiStep requires stepIds; singleStep must use fields/sections and not multi-step-only configuration."
+        },
+        {
+          "id": "stableFieldKeysAfterUse",
+          "description": "Fields participating in stored submissions must preserve their machine keys or use explicit migration/versioning."
+        },
+        {
+          "id": "serverAcceptsOnlyCurrentCompatibleVersion",
+          "description": "Submission processing must validate the submitted formVersion against an allowed/current version policy."
+        },
+        {
+          "id": "noArbitraryHtmlOrScripts",
+          "description": "Form definitions must not contain arbitrary HTML, CSS, JavaScript, executable templates or vendor tracking scripts."
+        },
+        {
+          "id": "publicDefinitionSubsetOnly",
+          "description": "Public form rendering exposes only the fields/configuration needed to render and validate the visitor form."
+        },
+        {
+          "id": "submitRequiresServerValidation",
+          "description": "Client validation alone must never create an accepted Submission."
+        },
+        {
+          "id": "requiredConsentChecked",
+          "description": "Required consent controls must be positively accepted before acceptance."
+        },
+        {
+          "id": "availabilityServerEnforced",
+          "description": "Form availability must be checked at server acceptance time."
+        },
+        {
+          "id": "antiAbuseBeforeBusinessEffects",
+          "description": "Anti-abuse and duplicate protections occur before notifications, lead creation or future conversion dispatch."
+        }
+      ],
+      "cms": {
+        "label": "Form",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "id",
+          "siteId",
+          "name",
+          "publicTitle"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.formAvailability",
+      "name": "Form Availability",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "builder",
+      "description": "Controls whether a form is currently open for submissions.",
+      "purpose": "Separates form availability from content publishing and lets a site close or schedule a form without deleting its definition.",
+      "formsModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "state",
+          "required": true,
+          "nullable": false,
+          "description": "Current submission availability state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "open",
+                "label": "Open"
+              },
+              {
+                "value": "closed",
+                "label": "Closed"
+              },
+              {
+                "value": "scheduled",
+                "label": "Scheduled"
+              },
+              {
+                "value": "disabled",
+                "label": "Disabled"
+              }
+            ]
+          }
+        },
+        {
+          "key": "window",
+          "required": false,
+          "nullable": true,
+          "description": "Optional start/end availability window.",
+          "schema": "core.scheduleWindow"
+        },
+        {
+          "key": "closedMessage",
+          "required": false,
+          "nullable": true,
+          "description": "Message shown when submissions are unavailable.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1000,
+            "localizable": true
+          }
+        },
+        {
+          "key": "acceptExistingDraftSessions",
+          "required": true,
+          "nullable": false,
+          "description": "Whether already-started multi-step sessions may finish after the form closes.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "windowRequiredWhenScheduled",
+          "description": "Scheduled state requires a valid schedule window."
+        },
+        {
+          "id": "closedMeansNoNewSubmission",
+          "description": "Closed or disabled forms must reject new server-side submission attempts even if a stale frontend remains open."
+        },
+        {
+          "id": "availabilityNotAuthorization",
+          "description": "Form availability is not an authentication or authorization control."
+        }
+      ],
+      "cms": {
+        "label": "Form Availability",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "state",
+          "window",
+          "closedMessage",
+          "acceptExistingDraftSessions"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.formField",
+      "name": "Form Field",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "builder",
+      "description": "One structured input definition inside a form.",
+      "purpose": "Provides the reusable field configuration consumed by the form renderer and submission validator.",
+      "formsModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque form-field ID.",
+          "primitive": "fields.text",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "formId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Form ID.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.form",
+            "relationshipCardinality": "one",
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "key",
+          "required": true,
+          "nullable": false,
+          "description": "Stable machine key used in submission snapshots and mappings.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "label",
+          "required": true,
+          "nullable": false,
+          "description": "Customer-facing field label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240,
+            "localizable": true
+          }
+        },
+        {
+          "key": "primitiveId",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical NEXT F primitive field ID that defines the value shape.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "inputVariant",
+          "required": true,
+          "nullable": false,
+          "description": "Form-specific visual/input variant without changing stored value semantics.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "text",
+                "label": "text"
+              },
+              {
+                "value": "textarea",
+                "label": "textarea"
+              },
+              {
+                "value": "email",
+                "label": "email"
+              },
+              {
+                "value": "phone",
+                "label": "phone"
+              },
+              {
+                "value": "url",
+                "label": "url"
+              },
+              {
+                "value": "number",
+                "label": "number"
+              },
+              {
+                "value": "date",
+                "label": "date"
+              },
+              {
+                "value": "time",
+                "label": "time"
+              },
+              {
+                "value": "select",
+                "label": "select"
+              },
+              {
+                "value": "radio",
+                "label": "radio"
+              },
+              {
+                "value": "checkboxGroup",
+                "label": "checkboxGroup"
+              },
+              {
+                "value": "singleCheckbox",
+                "label": "singleCheckbox"
+              },
+              {
+                "value": "file",
+                "label": "file"
+              },
+              {
+                "value": "hidden",
+                "label": "hidden"
+              },
+              {
+                "value": "customRegistered",
+                "label": "customRegistered"
+              }
+            ]
+          }
+        },
+        {
+          "key": "placeholder",
+          "required": false,
+          "nullable": true,
+          "description": "Optional localized placeholder.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300,
+            "localizable": true
+          }
+        },
+        {
+          "key": "helpText",
+          "required": false,
+          "nullable": true,
+          "description": "Optional localized help text.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1200,
+            "localizable": true
+          }
+        },
+        {
+          "key": "required",
+          "required": true,
+          "nullable": false,
+          "description": "Whether a valid value is required.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "defaultValue",
+          "required": false,
+          "nullable": true,
+          "description": "Optional default value matching primitive semantics.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "autocomplete",
+          "required": false,
+          "nullable": true,
+          "description": "HTML/autofill hint when safe and appropriate.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        },
+        {
+          "key": "width",
+          "required": true,
+          "nullable": false,
+          "description": "Presentation hint for the form grid.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "full",
+                "label": "Full"
+              },
+              {
+                "value": "half",
+                "label": "Half"
+              },
+              {
+                "value": "third",
+                "label": "Third"
+              },
+              {
+                "value": "twoThirds",
+                "label": "Two thirds"
+              }
+            ],
+            "defaultValue": "full"
+          }
+        },
+        {
+          "key": "options",
+          "required": false,
+          "nullable": false,
+          "description": "Selectable options when applicable.",
+          "itemsSchema": "forms.fieldOption"
+        },
+        {
+          "key": "validationRules",
+          "required": false,
+          "nullable": false,
+          "description": "Additional declarative validation rules.",
+          "itemsSchema": "forms.fieldValidationRule"
+        },
+        {
+          "key": "visibleWhen",
+          "required": false,
+          "nullable": true,
+          "description": "Optional conditional visibility rule.",
+          "schema": "forms.conditionGroup"
+        },
+        {
+          "key": "consent",
+          "required": false,
+          "nullable": true,
+          "description": "Consent semantics when this field represents consent.",
+          "schema": "forms.consentFieldConfig"
+        },
+        {
+          "key": "uploadPolicy",
+          "required": false,
+          "nullable": true,
+          "description": "Upload restrictions when this is a file field.",
+          "schema": "forms.uploadPolicy"
+        },
+        {
+          "key": "sensitive",
+          "required": true,
+          "nullable": false,
+          "description": "Marks the value as requiring stricter operational handling.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "sortOrder",
+          "required": true,
+          "nullable": false,
+          "description": "Deterministic order inside a section/step.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        },
+        {
+          "key": "active",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the field participates in new submissions.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "belongsTo",
+          "target": "forms.form",
+          "description": "Field belongs to one Form."
+        },
+        {
+          "type": "contains",
+          "target": "forms.fieldOption",
+          "description": "May contain options."
+        },
+        {
+          "type": "contains",
+          "target": "forms.fieldValidationRule",
+          "description": "May contain validation."
+        },
+        {
+          "type": "uses",
+          "target": "forms.conditionGroup",
+          "description": "May use conditional visibility."
+        },
+        {
+          "type": "uses",
+          "target": "forms.consentFieldConfig",
+          "description": "May define consent behavior."
+        },
+        {
+          "type": "uses",
+          "target": "forms.uploadPolicy",
+          "description": "May define upload restrictions."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "uniqueFieldKey",
+          "description": "key must be unique within one Form and remain stable after submissions exist."
+        },
+        {
+          "id": "primitiveMustExist",
+          "description": "primitiveId must resolve to a registered NEXT F primitive field contract."
+        },
+        {
+          "id": "optionsOnlyWhenApplicable",
+          "description": "options are allowed only for compatible choice input variants."
+        },
+        {
+          "id": "consentOnlyForConsentControl",
+          "description": "consent configuration requires an affirmative checkbox/acknowledgement input."
+        },
+        {
+          "id": "uploadPolicyOnlyForFile",
+          "description": "uploadPolicy applies only to file inputs."
+        },
+        {
+          "id": "hiddenNotSecurity",
+          "description": "Hidden fields are not trusted merely because users cannot see them."
+        },
+        {
+          "id": "defaultMatchesPrimitive",
+          "description": "defaultValue must validate against primitiveId and must never pre-accept consent."
+        },
+        {
+          "id": "sensitiveValueProtection",
+          "description": "Sensitive values must not be copied into logs/events/notification subjects by default."
+        }
+      ],
+      "cms": {
+        "label": "Form Field",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "id",
+          "formId",
+          "key",
+          "label"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.formSection",
+      "name": "Form Section",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "builder",
+      "description": "A semantic grouping of fields within a form or step.",
+      "purpose": "Lets CMS authors organize large forms without granting layout-code control.",
+      "formsModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque section ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "formId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Form.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.form",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "title",
+          "required": false,
+          "nullable": true,
+          "description": "Optional section heading.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240,
+            "localizable": true
+          }
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Optional section description.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1500,
+            "localizable": true
+          }
+        },
+        {
+          "key": "fieldIds",
+          "required": true,
+          "nullable": false,
+          "description": "Ordered field IDs in the section.",
+          "itemsPrimitive": "fields.text",
+          "config": {
+            "minItems": 1
+          }
+        },
+        {
+          "key": "visibleWhen",
+          "required": false,
+          "nullable": true,
+          "description": "Optional conditional section visibility.",
+          "schema": "forms.conditionGroup"
+        },
+        {
+          "key": "sortOrder",
+          "required": true,
+          "nullable": false,
+          "description": "Section order.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "belongsTo",
+          "target": "forms.form",
+          "description": "Section belongs to one Form."
+        },
+        {
+          "type": "contains",
+          "target": "forms.formField",
+          "description": "Section orders Form Fields."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "fieldsBelongToSameForm",
+          "description": "Every fieldId must belong to the same Form."
+        },
+        {
+          "id": "fieldSinglePlacement",
+          "description": "A field must not be placed multiple times in one rendered form unless explicitly supported by a future contract."
+        }
+      ],
+      "cms": {
+        "label": "Form Section",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "id",
+          "formId",
+          "title",
+          "description"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.formStep",
+      "name": "Form Step",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "builder",
+      "description": "One ordered step in a multi-step form.",
+      "purpose": "Provides predictable multi-step navigation and validation boundaries.",
+      "formsModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque step ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "formId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Form.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.form",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "title",
+          "required": true,
+          "nullable": false,
+          "description": "Step title.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240,
+            "localizable": true
+          }
+        },
+        {
+          "key": "description",
+          "required": false,
+          "nullable": true,
+          "description": "Optional description.",
+          "primitive": "fields.textarea",
+          "config": {
+            "maxLength": 1500,
+            "localizable": true
+          }
+        },
+        {
+          "key": "sectionIds",
+          "required": false,
+          "nullable": false,
+          "description": "Ordered section IDs in this step.",
+          "itemsPrimitive": "fields.text"
+        },
+        {
+          "key": "fieldIds",
+          "required": false,
+          "nullable": false,
+          "description": "Ordered directly placed field IDs when no section is needed.",
+          "itemsPrimitive": "fields.text"
+        },
+        {
+          "key": "continueLabel",
+          "required": false,
+          "nullable": true,
+          "description": "Continue button label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120,
+            "localizable": true
+          }
+        },
+        {
+          "key": "backLabel",
+          "required": false,
+          "nullable": true,
+          "description": "Back button label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120,
+            "localizable": true
+          }
+        },
+        {
+          "key": "visibleWhen",
+          "required": false,
+          "nullable": true,
+          "description": "Optional conditional step visibility.",
+          "schema": "forms.conditionGroup"
+        },
+        {
+          "key": "sortOrder",
+          "required": true,
+          "nullable": false,
+          "description": "Step order.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "belongsTo",
+          "target": "forms.form",
+          "description": "Step belongs to one Form."
+        },
+        {
+          "type": "contains",
+          "target": "forms.formSection",
+          "description": "May contain Form Sections."
+        },
+        {
+          "type": "contains",
+          "target": "forms.formField",
+          "description": "May directly contain Form Fields."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "stepMustContainContent",
+          "description": "A step must contain at least one field or section."
+        },
+        {
+          "id": "referencesSameForm",
+          "description": "Referenced sections and fields must belong to the same Form."
+        },
+        {
+          "id": "validateBeforeAdvance",
+          "description": "Required fields in the current visible step must validate before advancing."
+        }
+      ],
+      "cms": {
+        "label": "Form Step",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "id",
+          "formId",
+          "title",
+          "description"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.lead",
+      "name": "Lead",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "leads",
+      "description": "Customer-business lead record created manually, from forms or from future integrations.",
+      "purpose": "Provides a lightweight website lead workflow without conflating anonymous submissions, commerce customers or platform organizations.",
+      "formsModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque Lead ID.",
+          "primitive": "fields.text",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "siteId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "core.site",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "displayName",
+          "required": true,
+          "nullable": false,
+          "description": "Lead/person display name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240
+          }
+        },
+        {
+          "key": "organizationName",
+          "required": false,
+          "nullable": true,
+          "description": "Optional business/company name.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240
+          }
+        },
+        {
+          "key": "contactPoints",
+          "required": false,
+          "nullable": false,
+          "description": "Private contact methods associated with the Lead.",
+          "itemsSchema": "shared.contactPoint"
+        },
+        {
+          "key": "source",
+          "required": false,
+          "nullable": true,
+          "description": "Lead source.",
+          "schema": "forms.leadSource"
+        },
+        {
+          "key": "statusKey",
+          "required": true,
+          "nullable": false,
+          "description": "Current Site-defined lead status key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        },
+        {
+          "key": "assignedTo",
+          "required": false,
+          "nullable": true,
+          "description": "Current assignee.",
+          "schema": "core.actorReference"
+        },
+        {
+          "key": "tags",
+          "required": false,
+          "nullable": false,
+          "description": "Customer-managed operational tags.",
+          "itemsPrimitive": "fields.tag"
+        },
+        {
+          "key": "submissionIds",
+          "required": false,
+          "nullable": false,
+          "description": "Source/related Form Submission IDs.",
+          "itemsPrimitive": "fields.text"
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Lead creation timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "updatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Last modification timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "lastActivityAt",
+          "required": false,
+          "nullable": true,
+          "description": "Last operational activity timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "forms.leadSource",
+          "description": "Lead stores source information."
+        },
+        {
+          "type": "references",
+          "target": "forms.submission",
+          "description": "Lead may reference source submissions."
+        },
+        {
+          "type": "uses",
+          "target": "forms.leadStatusDefinition",
+          "description": "Current status resolves against Site lead statuses."
+        },
+        {
+          "type": "uses",
+          "target": "core.actorReference",
+          "description": "Lead may be assigned to an actor."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "siteIsolation",
+          "description": "Lead belongs to one Site and cannot link submissions/users from another tenant without an explicit cross-site platform contract."
+        },
+        {
+          "id": "contactPointsPrivate",
+          "description": "Lead contact points are private operational data even though shared.contactPoint can be public in other contexts."
+        },
+        {
+          "id": "statusMustExist",
+          "description": "statusKey must resolve to an active or historical forms.leadStatusDefinition for the same Site."
+        },
+        {
+          "id": "leadNotCommerceCustomer",
+          "description": "A website Lead is not automatically a Commerce Customer."
+        },
+        {
+          "id": "leadNotOrganization",
+          "description": "A Lead is not the NEXT F customer Organization tenant."
+        },
+        {
+          "id": "duplicateHandlingExplicit",
+          "description": "Potential duplicate Leads must follow an explicit deduplication policy instead of silent arbitrary merging."
+        }
+      ],
+      "cms": {
+        "label": "Lead",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "id",
+          "siteId",
+          "displayName",
+          "organizationName"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.leadActivity",
+      "name": "Lead Activity",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "leads",
+      "description": "Immutable timeline entry describing an operational action on a Lead.",
+      "purpose": "Supports a readable lead timeline independently from the future global Event Registry.",
+      "formsModel": {
+        "kind": "operational-record",
+        "customerManaged": true,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false
+      },
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque activity ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "leadId",
+          "required": true,
+          "nullable": false,
+          "description": "Lead.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.lead",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Activity category.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "created",
+                "label": "created"
+              },
+              {
+                "value": "statusChanged",
+                "label": "statusChanged"
+              },
+              {
+                "value": "assigned",
+                "label": "assigned"
+              },
+              {
+                "value": "noteAdded",
+                "label": "noteAdded"
+              },
+              {
+                "value": "contactAttempt",
+                "label": "contactAttempt"
+              },
+              {
+                "value": "contactCompleted",
+                "label": "contactCompleted"
+              },
+              {
+                "value": "converted",
+                "label": "converted"
+              },
+              {
+                "value": "closed",
+                "label": "closed"
+              },
+              {
+                "value": "other",
+                "label": "other"
+              }
+            ]
+          }
+        },
+        {
+          "key": "occurredAt",
+          "required": true,
+          "nullable": false,
+          "description": "Activity timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "actor",
+          "required": false,
+          "nullable": true,
+          "description": "Actor when applicable.",
+          "schema": "core.actorReference"
+        },
+        {
+          "key": "summary",
+          "required": true,
+          "nullable": false,
+          "description": "Human-readable non-secret summary.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500
+          }
+        },
+        {
+          "key": "metadata",
+          "required": false,
+          "nullable": true,
+          "description": "Small non-secret activity metadata.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "belongsTo",
+          "target": "forms.lead",
+          "description": "Activity belongs to one Lead."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "appendOnly",
+          "description": "Lead Activity records are append-only operational history."
+        },
+        {
+          "id": "notGlobalEventContract",
+          "description": "This timeline model does not define canonical integration events; those are introduced in Phase 13."
+        },
+        {
+          "id": "metadataNoSecrets",
+          "description": "Activity metadata must not contain secrets and should minimize personal data."
+        }
+      ],
+      "cms": {
+        "label": "Lead Activity",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "id",
+          "leadId",
+          "type",
+          "occurredAt"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.leadAssignment",
+      "name": "Lead Assignment",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "leads",
+      "description": "Record of assigning a Lead to an authorized Organization user or team actor.",
+      "purpose": "Separates assignment history from the Lead record so ownership changes remain auditable.",
+      "formsModel": {
+        "kind": "operational-record",
+        "customerManaged": true,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false
+      },
+      "fields": [
+        {
+          "key": "leadId",
+          "required": true,
+          "nullable": false,
+          "description": "Assigned Lead.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.lead",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "assignee",
+          "required": false,
+          "nullable": true,
+          "description": "Assigned actor.",
+          "schema": "core.actorReference"
+        },
+        {
+          "key": "assignedBy",
+          "required": false,
+          "nullable": true,
+          "description": "Actor performing the assignment.",
+          "schema": "core.actorReference"
+        },
+        {
+          "key": "assignedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Assignment timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "reason",
+          "required": false,
+          "nullable": true,
+          "description": "Optional assignment reason.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "belongsTo",
+          "target": "forms.lead",
+          "description": "Assignment belongs to a Lead."
+        },
+        {
+          "type": "uses",
+          "target": "core.actorReference",
+          "description": "Assignment resolves platform actors."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "assigneeAuthorizedForSite",
+          "description": "Assignee must be authorized for the Lead Site when permission contracts are introduced."
+        },
+        {
+          "id": "assignmentAuditable",
+          "description": "Changes to assignment must remain auditable and must not rewrite history."
+        }
+      ],
+      "cms": {
+        "label": "Lead Assignment",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "leadId",
+          "assignee",
+          "assignedBy",
+          "assignedAt"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.leadDedupePolicy",
+      "name": "Lead Deduplication Policy",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "leads",
+      "description": "Defines how potential duplicate Leads are detected and handled.",
+      "purpose": "Prevents inconsistent ad-hoc merging when repeated form submissions use the same contact details.",
+      "formsModel": {
+        "kind": "policy",
+        "customerManaged": true,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "strategy",
+          "required": true,
+          "nullable": false,
+          "description": "Duplicate matching strategy.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "email",
+                "label": "Email"
+              },
+              {
+                "value": "phone",
+                "label": "Phone"
+              },
+              {
+                "value": "emailOrPhone",
+                "label": "Email or phone"
+              }
+            ]
+          }
+        },
+        {
+          "key": "lookbackDays",
+          "required": false,
+          "nullable": true,
+          "description": "Optional matching window in days.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 3650
+          }
+        },
+        {
+          "key": "onMatch",
+          "required": true,
+          "nullable": false,
+          "description": "Action when a candidate match is found.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "createNew",
+                "label": "Create new"
+              },
+              {
+                "value": "linkSubmission",
+                "label": "Link submission"
+              },
+              {
+                "value": "updateExisting",
+                "label": "Update existing"
+              },
+              {
+                "value": "manualReview",
+                "label": "Manual review"
+              }
+            ]
+          }
+        },
+        {
+          "key": "overwriteExistingValues",
+          "required": true,
+          "nullable": false,
+          "description": "Whether mapped non-empty lead fields may be overwritten.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "normalizedComparison",
+          "description": "Email/phone matching must use canonical normalized values."
+        },
+        {
+          "id": "noSilentDestructiveMerge",
+          "description": "Duplicate handling must not silently destroy historical lead information."
+        },
+        {
+          "id": "sensitiveComparisonProtected",
+          "description": "Deduplication indexes/derivatives must be protected and not exposed publicly."
+        }
+      ],
+      "cms": {
+        "label": "Lead Deduplication Policy",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "strategy",
+          "lookbackDays",
+          "onMatch",
+          "overwriteExistingValues"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.leadMapping",
+      "name": "Form to Lead Mapping",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "automation",
+      "description": "Defines whether and how accepted Form Submissions create or update Leads.",
+      "purpose": "Keeps lead-generation behavior declarative and reusable across NEXT F customer sites.",
+      "formsModel": {
+        "kind": "configuration",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "formId",
+          "required": true,
+          "nullable": false,
+          "description": "Source Form.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.form",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether accepted submissions may create/update Leads.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "mappings",
+          "required": true,
+          "nullable": false,
+          "description": "Field-to-Lead mappings.",
+          "itemsSchema": "forms.fieldMapping",
+          "config": {
+            "minItems": 1
+          }
+        },
+        {
+          "key": "defaultStatusKey",
+          "required": true,
+          "nullable": false,
+          "description": "Initial lead status key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        },
+        {
+          "key": "dedupePolicy",
+          "required": false,
+          "nullable": true,
+          "description": "Duplicate handling policy.",
+          "schema": "forms.leadDedupePolicy"
+        },
+        {
+          "key": "defaultAssignee",
+          "required": false,
+          "nullable": true,
+          "description": "Optional default assignee.",
+          "schema": "core.actorReference"
+        },
+        {
+          "key": "includeSubmissionReference",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the source submission is linked to the Lead.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "belongsTo",
+          "target": "forms.form",
+          "description": "Mapping belongs to one Form."
+        },
+        {
+          "type": "contains",
+          "target": "forms.fieldMapping",
+          "description": "Contains declarative field mappings."
+        },
+        {
+          "type": "uses",
+          "target": "forms.leadDedupePolicy",
+          "description": "Uses duplicate handling policy."
+        },
+        {
+          "type": "relatedTo",
+          "target": "forms.lead",
+          "description": "Creates or updates Leads after accepted submissions."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "acceptedOnly",
+          "description": "Lead mapping executes only for server-accepted submissions."
+        },
+        {
+          "id": "requiredLeadFieldsMapped",
+          "description": "Required Lead fields must have valid mappings or controlled defaults."
+        },
+        {
+          "id": "statusExists",
+          "description": "defaultStatusKey must resolve for the same Site."
+        },
+        {
+          "id": "noCrossTenantAssignment",
+          "description": "defaultAssignee must belong to the authorized Site/Organization scope."
+        }
+      ],
+      "cms": {
+        "label": "Form to Lead Mapping",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "formId",
+          "enabled",
+          "mappings",
+          "defaultStatusKey"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.leadNote",
+      "name": "Lead Note",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "leads",
+      "description": "Private note attached to a Lead.",
+      "purpose": "Provides a structured private customer-team note without mixing internal commentary into public content.",
+      "formsModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque note ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "leadId",
+          "required": true,
+          "nullable": false,
+          "description": "Lead.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.lead",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "body",
+          "required": true,
+          "nullable": false,
+          "description": "Private note content.",
+          "primitive": "fields.richText"
+        },
+        {
+          "key": "author",
+          "required": false,
+          "nullable": true,
+          "description": "Note author.",
+          "schema": "core.actorReference"
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Creation timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "updatedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Last update timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "pinned",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the note is highlighted for the team.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "belongsTo",
+          "target": "forms.lead",
+          "description": "Note belongs to one Lead."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "privateOnly",
+          "description": "Lead notes are operational/private and must never be exposed through public site APIs."
+        },
+        {
+          "id": "authorRequired",
+          "description": "A persisted note requires an attributable authorized actor."
+        },
+        {
+          "id": "noSecretsInNotes",
+          "description": "Users should not place passwords, API secrets or payment credentials in lead notes."
+        }
+      ],
+      "cms": {
+        "label": "Lead Note",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "id",
+          "leadId",
+          "body",
+          "author"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.leadSource",
+      "name": "Lead Source",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "leads",
+      "description": "Provider-neutral source information for a Lead.",
+      "purpose": "Records the immediate business source before richer campaign attribution is added by the Marketing phase.",
+      "formsModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Source category.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "form",
+                "label": "form"
+              },
+              {
+                "value": "manual",
+                "label": "manual"
+              },
+              {
+                "value": "import",
+                "label": "import"
+              },
+              {
+                "value": "integration",
+                "label": "integration"
+              },
+              {
+                "value": "referral",
+                "label": "referral"
+              },
+              {
+                "value": "phone",
+                "label": "phone"
+              },
+              {
+                "value": "email",
+                "label": "email"
+              },
+              {
+                "value": "other",
+                "label": "other"
+              }
+            ]
+          }
+        },
+        {
+          "key": "formId",
+          "required": false,
+          "nullable": true,
+          "description": "Source Form when type=form.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.form",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "submissionId",
+          "required": false,
+          "nullable": true,
+          "description": "Source Submission when applicable.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.submission",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "sourceUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Immediate source/landing URL when available.",
+          "primitive": "fields.url"
+        },
+        {
+          "key": "referrerUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Referrer when retained.",
+          "primitive": "fields.url"
+        },
+        {
+          "key": "label",
+          "required": false,
+          "nullable": true,
+          "description": "Human-readable source label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240
+          }
+        },
+        {
+          "key": "externalReference",
+          "required": false,
+          "nullable": true,
+          "description": "Non-secret external source reference.",
+          "schema": "shared.externalReference"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "formSourceNeedsForm",
+          "description": "type=form requires formId."
+        },
+        {
+          "id": "campaignAttributionLater",
+          "description": "UTM/ad-platform attribution is not redefined here; it will bind to Phase 9 Marketing contracts."
+        },
+        {
+          "id": "sourceMetadataUntrusted",
+          "description": "URLs and external labels must be treated as untrusted metadata."
+        }
+      ],
+      "cms": {
+        "label": "Lead Source",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "type",
+          "formId",
+          "submissionId",
+          "sourceUrl"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.leadStatusDefinition",
+      "name": "Lead Status Definition",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "leads",
+      "description": "Site-level configurable lead workflow status.",
+      "purpose": "Allows customer businesses to label and order their lead workflow while preserving stable status keys and lifecycle categories.",
+      "formsModel": {
+        "kind": "configuration",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "key",
+          "required": true,
+          "nullable": false,
+          "description": "Stable machine status key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 120
+          }
+        },
+        {
+          "key": "label",
+          "required": true,
+          "nullable": false,
+          "description": "Customer-facing status label.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160,
+            "localizable": true
+          }
+        },
+        {
+          "key": "category",
+          "required": true,
+          "nullable": false,
+          "description": "High-level lifecycle category.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "open",
+                "label": "Open"
+              },
+              {
+                "value": "qualified",
+                "label": "Qualified"
+              },
+              {
+                "value": "won",
+                "label": "Won"
+              },
+              {
+                "value": "lost",
+                "label": "Lost"
+              },
+              {
+                "value": "closed",
+                "label": "Closed"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sortOrder",
+          "required": true,
+          "nullable": false,
+          "description": "Workflow display order.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        },
+        {
+          "key": "isDefault",
+          "required": true,
+          "nullable": false,
+          "description": "Whether this is the default status for new leads.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "isClosed",
+          "required": true,
+          "nullable": false,
+          "description": "Whether this status closes normal active follow-up.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "active",
+          "required": true,
+          "nullable": false,
+          "description": "Whether new transitions may target this status.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "uniqueKeyPerSite",
+          "description": "Lead status key must be unique per Site."
+        },
+        {
+          "id": "singleDefault",
+          "description": "A Site has at most one active default lead status."
+        },
+        {
+          "id": "closedCategoryConsistency",
+          "description": "won/lost/closed categories should be configured as closed statuses."
+        }
+      ],
+      "cms": {
+        "label": "Lead Status Definition",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "key",
+          "label",
+          "category",
+          "sortOrder"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.notificationRecipient",
+      "name": "Notification Recipient",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "automation",
+      "description": "A safe recipient definition used by form notification rules.",
+      "purpose": "Avoids arbitrary recipient expressions and keeps static addresses separate from field- or user-derived recipients.",
+      "formsModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Recipient resolution mode.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "staticEmail",
+                "label": "Static email"
+              },
+              {
+                "value": "formEmailField",
+                "label": "Form email field"
+              },
+              {
+                "value": "organizationUser",
+                "label": "Organization user"
+              }
+            ]
+          }
+        },
+        {
+          "key": "email",
+          "required": false,
+          "nullable": true,
+          "description": "Static email when type=staticEmail.",
+          "primitive": "fields.email"
+        },
+        {
+          "key": "fieldKey",
+          "required": false,
+          "nullable": true,
+          "description": "Email field key when type=formEmailField.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "organizationUser",
+          "required": false,
+          "nullable": true,
+          "description": "Organization user recipient when type=organizationUser.",
+          "schema": "core.actorReference"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "recipientModeExclusive",
+          "description": "Populate only the recipient field required by type."
+        },
+        {
+          "id": "fieldMustBeEmail",
+          "description": "formEmailField must resolve to a compatible email field in the same Form."
+        },
+        {
+          "id": "noHeaderInjection",
+          "description": "Resolved email values must be validated and must not allow mail header injection."
+        }
+      ],
+      "cms": {
+        "label": "Notification Recipient",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "type",
+          "email",
+          "fieldKey",
+          "organizationUser"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.notificationRule",
+      "name": "Form Notification Rule",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "automation",
+      "description": "Defines an operational notification after a server-classified submission outcome.",
+      "purpose": "Lets customer teams receive submission notifications without embedding mail-provider implementation details in forms.",
+      "formsModel": {
+        "kind": "configuration",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque notification rule ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "formId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Form.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.form",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the rule is active.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "outcome",
+          "required": true,
+          "nullable": false,
+          "description": "Submission outcome that triggers this rule.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "accepted",
+                "label": "Accepted"
+              },
+              {
+                "value": "suspectedSpam",
+                "label": "Suspected spam"
+              },
+              {
+                "value": "rejected",
+                "label": "Rejected"
+              }
+            ]
+          }
+        },
+        {
+          "key": "recipients",
+          "required": true,
+          "nullable": false,
+          "description": "Resolved recipients.",
+          "itemsSchema": "forms.notificationRecipient",
+          "config": {
+            "minItems": 1,
+            "maxItems": 20
+          }
+        },
+        {
+          "key": "subjectTemplate",
+          "required": true,
+          "nullable": false,
+          "description": "Allowlisted-variable subject template.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 300
+          }
+        },
+        {
+          "key": "bodyTemplate",
+          "required": true,
+          "nullable": false,
+          "description": "Notification body template using allowlisted placeholders only.",
+          "primitive": "fields.richText"
+        },
+        {
+          "key": "includeFieldKeys",
+          "required": false,
+          "nullable": false,
+          "description": "Explicit submission fields allowed in the message.",
+          "itemsPrimitive": "fields.text"
+        },
+        {
+          "key": "includeSensitiveFields",
+          "required": true,
+          "nullable": false,
+          "description": "Whether fields marked sensitive may be included; default false and requires elevated authorization later.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "belongsTo",
+          "target": "forms.form",
+          "description": "Notification belongs to one Form."
+        },
+        {
+          "type": "contains",
+          "target": "forms.notificationRecipient",
+          "description": "Notification resolves configured recipients."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "templateAllowlist",
+          "description": "Templates may interpolate only registered placeholders; arbitrary code/expression execution is prohibited."
+        },
+        {
+          "id": "sensitiveDefaultExcluded",
+          "description": "Sensitive form values are excluded from notifications by default."
+        },
+        {
+          "id": "providerDecoupled",
+          "description": "Email/provider credentials and delivery mechanics belong to Integration/API implementation contracts."
+        },
+        {
+          "id": "recipientLimit",
+          "description": "A notification rule must enforce recipient-count limits."
+        }
+      ],
+      "cms": {
+        "label": "Form Notification Rule",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "id",
+          "formId",
+          "enabled",
+          "outcome"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.rateLimitPolicy",
+      "name": "Form Rate Limit Policy",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "anti-abuse",
+      "description": "Defines server-side submission throttling for one form.",
+      "purpose": "Reduces automated abuse and accidental duplicate submissions without treating rate limiting as authentication.",
+      "formsModel": {
+        "kind": "policy",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether throttling is enabled.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Primary throttling key strategy.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "formClient",
+                "label": "Form + client signal"
+              },
+              {
+                "value": "formSession",
+                "label": "Form + session"
+              },
+              {
+                "value": "siteClient",
+                "label": "Site + client signal"
+              }
+            ]
+          }
+        },
+        {
+          "key": "maxAttempts",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum attempts within the window.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1
+          }
+        },
+        {
+          "key": "windowSeconds",
+          "required": true,
+          "nullable": false,
+          "description": "Rolling/fixed policy window in seconds.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1
+          }
+        },
+        {
+          "key": "cooldownSeconds",
+          "required": false,
+          "nullable": true,
+          "description": "Optional cooldown after a limit is exceeded.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        },
+        {
+          "key": "responseMode",
+          "required": true,
+          "nullable": false,
+          "description": "Behavior after limit.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "reject",
+                "label": "Reject"
+              },
+              {
+                "value": "challenge",
+                "label": "Challenge"
+              }
+            ]
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "serverEnforced",
+          "description": "Rate limits must be enforced server-side."
+        },
+        {
+          "id": "notAuthentication",
+          "description": "Rate limiting is an anti-abuse mechanism, not an identity or permission control."
+        },
+        {
+          "id": "privacyAwareKeying",
+          "description": "Client-signal storage must respect the Site data-handling/privacy policy."
+        }
+      ],
+      "cms": {
+        "label": "Form Rate Limit Policy",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "enabled",
+          "scope",
+          "maxAttempts",
+          "windowSeconds"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.requestContext",
+      "name": "Submission Request Context",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "submission",
+      "description": "Minimal technical/context metadata captured with a form submission according to Site data-handling policy.",
+      "purpose": "Supports diagnostics and source understanding while keeping request metadata separate from business field values.",
+      "formsModel": {
+        "kind": "operational-record",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false
+      },
+      "fields": [
+        {
+          "key": "sourceUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Page URL from which the form was submitted.",
+          "primitive": "fields.url"
+        },
+        {
+          "key": "referrerUrl",
+          "required": false,
+          "nullable": true,
+          "description": "Referrer URL when retained and available.",
+          "primitive": "fields.url"
+        },
+        {
+          "key": "userAgent",
+          "required": false,
+          "nullable": true,
+          "description": "User-agent string only when configured for retention.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 1000
+          }
+        },
+        {
+          "key": "clientSignalHash",
+          "required": false,
+          "nullable": true,
+          "description": "Non-reversible or protected client signal derivative used for abuse control when configured.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 256
+          }
+        },
+        {
+          "key": "locale",
+          "required": false,
+          "nullable": true,
+          "description": "Visitor locale hint.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 40
+          }
+        },
+        {
+          "key": "requestId",
+          "required": false,
+          "nullable": true,
+          "description": "Server request correlation ID.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "obeyDataHandling",
+          "description": "Presence of request metadata must follow forms.dataHandling."
+        },
+        {
+          "id": "noRawSecrets",
+          "description": "Request context must not copy authorization headers, cookies, access tokens or secrets."
+        },
+        {
+          "id": "clientMetadataUntrusted",
+          "description": "Client-provided URLs, locale and user-agent data are untrusted metadata."
+        }
+      ],
+      "cms": {
+        "label": "Submission Request Context",
+        "icon": "fa-rectangle-list",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "sourceUrl",
+          "referrerUrl",
+          "userAgent",
+          "clientSignalHash"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.spamDecision",
+      "name": "Spam Decision",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "anti-abuse",
+      "description": "Server-side anti-spam classification for a submission.",
+      "purpose": "Keeps spam outcome, score and evidence auditable and separate from the original submitted data.",
+      "formsModel": {
+        "kind": "operational-record",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false
+      },
+      "fields": [
+        {
+          "key": "classification",
+          "required": true,
+          "nullable": false,
+          "description": "Final classification.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "clean",
+                "label": "Clean"
+              },
+              {
+                "value": "suspected",
+                "label": "Suspected"
+              },
+              {
+                "value": "spam",
+                "label": "Spam"
+              },
+              {
+                "value": "blocked",
+                "label": "Blocked"
+              }
+            ]
+          }
+        },
+        {
+          "key": "score",
+          "required": false,
+          "nullable": true,
+          "description": "Normalized overall suspicion score when available.",
+          "primitive": "fields.decimal",
+          "config": {
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        {
+          "key": "signals",
+          "required": false,
+          "nullable": false,
+          "description": "Signals used in the classification.",
+          "itemsSchema": "forms.spamSignal"
+        },
+        {
+          "key": "decidedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Decision timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "decisionMethod",
+          "required": true,
+          "nullable": false,
+          "description": "How the decision was made.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "rules",
+                "label": "Rules"
+              },
+              {
+                "value": "provider",
+                "label": "Provider"
+              },
+              {
+                "value": "combined",
+                "label": "Combined"
+              },
+              {
+                "value": "manual",
+                "label": "Manual review"
+              }
+            ]
+          }
+        },
+        {
+          "key": "reviewed",
+          "required": true,
+          "nullable": false,
+          "description": "Whether a human review has occurred.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "contains",
+          "target": "forms.spamSignal",
+          "description": "Decision contains anti-spam signals."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "decisionServerSide",
+          "description": "Authoritative spam decisions are made server-side."
+        },
+        {
+          "id": "retainReasoning",
+          "description": "Enough non-secret reasoning should be retained for support/audit review."
+        },
+        {
+          "id": "manualOverrideAudited",
+          "description": "Manual reclassification must generate an audit record later under the canonical audit/event system."
+        }
+      ],
+      "cms": {
+        "label": "Spam Decision",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "classification",
+          "score",
+          "signals",
+          "decidedAt"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.spamPolicy",
+      "name": "Spam Policy",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "anti-abuse",
+      "description": "Configures provider-neutral anti-spam controls for a form.",
+      "purpose": "Lets sites apply layered abuse controls without binding the Form contract to one CAPTCHA provider.",
+      "formsModel": {
+        "kind": "policy",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether anti-spam checks are active.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "honeypotEnabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether a hidden honeypot signal is used.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        },
+        {
+          "key": "minimumCompletionSeconds",
+          "required": false,
+          "nullable": true,
+          "description": "Optional minimum plausible completion time.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        },
+        {
+          "key": "maximumLinks",
+          "required": false,
+          "nullable": true,
+          "description": "Optional maximum link count in free-text fields.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        },
+        {
+          "key": "scoreThreshold",
+          "required": false,
+          "nullable": true,
+          "description": "Provider-neutral score threshold when scored signals are available.",
+          "primitive": "fields.decimal",
+          "config": {
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        {
+          "key": "challengeMode",
+          "required": true,
+          "nullable": false,
+          "description": "Whether an external challenge may be required.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "adaptive",
+                "label": "Adaptive"
+              },
+              {
+                "value": "always",
+                "label": "Always"
+              }
+            ],
+            "defaultValue": "adaptive"
+          }
+        },
+        {
+          "key": "blockedTerms",
+          "required": false,
+          "nullable": false,
+          "description": "Site-managed abusive terms used as one signal, not the sole security control.",
+          "itemsPrimitive": "fields.text",
+          "config": {
+            "maxItems": 200
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "layeredSignals",
+          "description": "Spam classification should use multiple signals when practical; honeypots or blocked terms alone are not authoritative."
+        },
+        {
+          "id": "challengeProviderLater",
+          "description": "External CAPTCHA/challenge provider credentials belong to the Integration phase, not this policy."
+        },
+        {
+          "id": "noSilentDataLoss",
+          "description": "Spam decisions must be auditable and must not silently delete accepted business records."
+        },
+        {
+          "id": "accessibilityConsidered",
+          "description": "Challenges must not unnecessarily block accessible form completion."
+        }
+      ],
+      "cms": {
+        "label": "Spam Policy",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "enabled",
+          "honeypotEnabled",
+          "minimumCompletionSeconds",
+          "maximumLinks"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.spamSignal",
+      "name": "Spam Signal",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "anti-abuse",
+      "description": "One anti-spam observation attached to a submission.",
+      "purpose": "Provides explainable evidence for a spam decision without exposing provider secrets.",
+      "formsModel": {
+        "kind": "operational-record",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false
+      },
+      "fields": [
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Signal category.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "honeypot",
+                "label": "honeypot"
+              },
+              {
+                "value": "completionTime",
+                "label": "completionTime"
+              },
+              {
+                "value": "linkCount",
+                "label": "linkCount"
+              },
+              {
+                "value": "blockedTerm",
+                "label": "blockedTerm"
+              },
+              {
+                "value": "rateLimit",
+                "label": "rateLimit"
+              },
+              {
+                "value": "challenge",
+                "label": "challenge"
+              },
+              {
+                "value": "providerScore",
+                "label": "providerScore"
+              },
+              {
+                "value": "duplicatePattern",
+                "label": "duplicatePattern"
+              },
+              {
+                "value": "other",
+                "label": "other"
+              }
+            ]
+          }
+        },
+        {
+          "key": "score",
+          "required": false,
+          "nullable": true,
+          "description": "Normalized suspicion score contribution where applicable.",
+          "primitive": "fields.decimal",
+          "config": {
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        {
+          "key": "reason",
+          "required": true,
+          "nullable": false,
+          "description": "Non-secret human-readable reason.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 500
+          }
+        },
+        {
+          "key": "providerReference",
+          "required": false,
+          "nullable": true,
+          "description": "Optional non-secret external provider reference.",
+          "schema": "shared.externalReference"
+        },
+        {
+          "key": "observedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Observation timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "noSecrets",
+          "description": "Signal reason/provider metadata must not contain challenge secrets, raw tokens or hidden provider credentials."
+        },
+        {
+          "id": "signalNotDecision",
+          "description": "One signal alone is not necessarily the final spam classification."
+        }
+      ],
+      "cms": {
+        "label": "Spam Signal",
+        "icon": "fa-rectangle-list",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "type",
+          "score",
+          "reason",
+          "providerReference"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.submission",
+      "name": "Form Submission",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "submission",
+      "description": "Authoritative server-side record of one form submission attempt/outcome.",
+      "purpose": "Preserves validated field snapshots, consent, anti-spam decision and source context independently from later Form edits.",
+      "formsModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false
+      },
+      "fields": [
+        {
+          "key": "id",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque submission ID.",
+          "primitive": "fields.text",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "siteId",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Site.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "core.site",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "formId",
+          "required": true,
+          "nullable": false,
+          "description": "Submitted Form.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.form",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "formVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Immutable Form/revision version identifier rendered to the visitor.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Submission processing/outcome state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "received",
+                "label": "Received"
+              },
+              {
+                "value": "accepted",
+                "label": "Accepted"
+              },
+              {
+                "value": "rejected",
+                "label": "Rejected"
+              },
+              {
+                "value": "suspectedSpam",
+                "label": "Suspected spam"
+              },
+              {
+                "value": "spam",
+                "label": "Spam"
+              },
+              {
+                "value": "processing",
+                "label": "Processing"
+              },
+              {
+                "value": "completed",
+                "label": "Completed"
+              }
+            ]
+          }
+        },
+        {
+          "key": "values",
+          "required": true,
+          "nullable": false,
+          "description": "Validated submitted values.",
+          "itemsSchema": "forms.submissionValue"
+        },
+        {
+          "key": "files",
+          "required": false,
+          "nullable": false,
+          "description": "Submitted file references.",
+          "itemsSchema": "forms.submissionFile"
+        },
+        {
+          "key": "consents",
+          "required": false,
+          "nullable": false,
+          "description": "Consent snapshots.",
+          "itemsSchema": "forms.consentRecord"
+        },
+        {
+          "key": "spamDecision",
+          "required": false,
+          "nullable": true,
+          "description": "Anti-spam decision.",
+          "schema": "forms.spamDecision"
+        },
+        {
+          "key": "requestContext",
+          "required": false,
+          "nullable": true,
+          "description": "Retained request context according to policy.",
+          "schema": "forms.requestContext"
+        },
+        {
+          "key": "submittedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Server receipt timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "acceptedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Server acceptance timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "completedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Operational completion timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "idempotencyKey",
+          "required": false,
+          "nullable": true,
+          "description": "Optional duplicate-prevention key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 200,
+            "customerEditable": false,
+            "adminEditable": false
+          }
+        },
+        {
+          "key": "leadId",
+          "required": false,
+          "nullable": true,
+          "description": "Lead generated/associated from this submission.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "forms.lead",
+            "relationshipCardinality": "one"
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "belongsTo",
+          "target": "forms.form",
+          "description": "Submission belongs to the Form definition used."
+        },
+        {
+          "type": "contains",
+          "target": "forms.submissionValue",
+          "description": "Contains value snapshots."
+        },
+        {
+          "type": "contains",
+          "target": "forms.consentRecord",
+          "description": "May contain consent snapshots."
+        },
+        {
+          "type": "uses",
+          "target": "forms.spamDecision",
+          "description": "May contain spam classification."
+        },
+        {
+          "type": "relatedTo",
+          "target": "forms.lead",
+          "description": "May create or associate a business Lead according to mapping rules."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "serverValidatedBeforeAccepted",
+          "description": "status may become accepted only after server-side schema/validation, anti-abuse and required-consent checks."
+        },
+        {
+          "id": "formVersionSnapshotRequired",
+          "description": "formVersion must identify the definition used when the visitor submitted."
+        },
+        {
+          "id": "immutableBusinessSnapshot",
+          "description": "Accepted submission values and consent snapshots are immutable except explicit redaction/retention operations."
+        },
+        {
+          "id": "idempotencyProtectsDuplicates",
+          "description": "When an idempotency key is used, replay must not create duplicate accepted business effects."
+        },
+        {
+          "id": "noPublicDelivery",
+          "description": "Submission records are never public content."
+        },
+        {
+          "id": "leadNotSubmissionAlias",
+          "description": "A Form Submission and a Lead are distinct records; one does not automatically imply the other."
+        }
+      ],
+      "cms": {
+        "label": "Form Submission",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "id",
+          "siteId",
+          "formId",
+          "formVersion"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.submissionFile",
+      "name": "Submission File Reference",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "submission",
+      "description": "Private reference and security state for a file uploaded through a form.",
+      "purpose": "Separates submitted file access from public media publishing.",
+      "formsModel": {
+        "kind": "operational-record",
+        "customerManaged": true,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false
+      },
+      "fields": [
+        {
+          "key": "fieldKey",
+          "required": true,
+          "nullable": false,
+          "description": "Upload field key.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "mediaId",
+          "required": true,
+          "nullable": false,
+          "description": "Stored media/file asset reference.",
+          "primitive": "fields.relation",
+          "config": {
+            "relationshipTarget": "shared.mediaAsset",
+            "relationshipCardinality": "one"
+          }
+        },
+        {
+          "key": "originalFileName",
+          "required": true,
+          "nullable": false,
+          "description": "Original display filename.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 255
+          }
+        },
+        {
+          "key": "mimeType",
+          "required": true,
+          "nullable": false,
+          "description": "Detected/canonical MIME type.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "sizeBytes",
+          "required": true,
+          "nullable": false,
+          "description": "File size.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 0
+          }
+        },
+        {
+          "key": "scanStatus",
+          "required": true,
+          "nullable": false,
+          "description": "Security scanning state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "pending",
+                "label": "Pending"
+              },
+              {
+                "value": "clean",
+                "label": "Clean"
+              },
+              {
+                "value": "blocked",
+                "label": "Blocked"
+              },
+              {
+                "value": "failed",
+                "label": "Failed"
+              },
+              {
+                "value": "notRequired",
+                "label": "Not required"
+              }
+            ]
+          }
+        },
+        {
+          "key": "access",
+          "required": true,
+          "nullable": false,
+          "description": "Operational file access class.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              {
+                "value": "private",
+                "label": "Private"
+              },
+              {
+                "value": "authorizedCustomer",
+                "label": "Authorized customer users"
+              }
+            ],
+            "defaultValue": "private"
+          }
+        },
+        {
+          "key": "uploadedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Upload timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "shared.mediaAsset",
+          "description": "Uses shared media metadata/storage abstraction without public delivery implication."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "neverPublicByDefault",
+          "description": "A submission upload must never become public merely because it uses shared.mediaAsset."
+        },
+        {
+          "id": "blockedFileInaccessible",
+          "description": "Blocked or failed-scan files must not be made available to customer download workflows."
+        },
+        {
+          "id": "filenameUntrusted",
+          "description": "Original filename is display metadata only."
+        }
+      ],
+      "cms": {
+        "label": "Submission File Reference",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "fieldKey",
+          "mediaId",
+          "originalFileName",
+          "mimeType"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.submissionValue",
+      "name": "Submission Field Value",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "submission",
+      "description": "Immutable snapshot of one submitted field value and its field metadata.",
+      "purpose": "Prevents historical submissions from changing meaning when a Form field is renamed or reconfigured.",
+      "formsModel": {
+        "kind": "value-object",
+        "customerManaged": true,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false
+      },
+      "fields": [
+        {
+          "key": "fieldKey",
+          "required": true,
+          "nullable": false,
+          "description": "Stable field key at submission time.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "labelSnapshot",
+          "required": true,
+          "nullable": false,
+          "description": "Field label at submission time.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 240
+          }
+        },
+        {
+          "key": "primitiveIdSnapshot",
+          "required": true,
+          "nullable": false,
+          "description": "Primitive field contract ID at submission time.",
+          "primitive": "fields.text",
+          "config": {
+            "maxLength": 160
+          }
+        },
+        {
+          "key": "value",
+          "required": false,
+          "nullable": true,
+          "description": "Validated canonical value.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "sensitive",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the field was marked sensitive.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        },
+        {
+          "key": "redacted",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the stored/displayed value is redacted.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": false
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "valueMatchesPrimitiveSnapshot",
+          "description": "value must conform to primitiveIdSnapshot unless it is intentionally redacted."
+        },
+        {
+          "id": "historicalSnapshotImmutable",
+          "description": "fieldKey, labelSnapshot and primitiveIdSnapshot are immutable after acceptance."
+        },
+        {
+          "id": "sensitiveDisplayRestricted",
+          "description": "Sensitive values require permission-aware rendering and must not be exposed through public APIs."
+        }
+      ],
+      "cms": {
+        "label": "Submission Field Value",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "fieldKey",
+          "labelSnapshot",
+          "primitiveIdSnapshot",
+          "value"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Operational/private by default. Public APIs must not expose this record."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "forms.uploadPolicy",
+      "name": "Form Upload Policy",
+      "version": "0.9.0",
+      "status": "stable",
+      "domain": "forms",
+      "category": "builder",
+      "description": "Controls files accepted by one form upload field.",
+      "purpose": "Makes file constraints explicit and server-enforceable.",
+      "formsModel": {
+        "kind": "policy",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true
+      },
+      "fields": [
+        {
+          "key": "allowedMimeTypes",
+          "required": false,
+          "nullable": false,
+          "description": "Allowed MIME types.",
+          "itemsPrimitive": "fields.text",
+          "config": {
+            "maxItems": 50
+          }
+        },
+        {
+          "key": "allowedExtensions",
+          "required": false,
+          "nullable": false,
+          "description": "Allowed lowercase file extensions.",
+          "itemsPrimitive": "fields.text",
+          "config": {
+            "maxItems": 50
+          }
+        },
+        {
+          "key": "maxFileSizeBytes",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum file size in bytes.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1
+          }
+        },
+        {
+          "key": "maxFiles",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum number of files accepted by the field.",
+          "primitive": "fields.integer",
+          "config": {
+            "minimum": 1,
+            "maximum": 20
+          }
+        },
+        {
+          "key": "requireSecurityScan",
+          "required": true,
+          "nullable": false,
+          "description": "Whether server-side security scanning must succeed before the file is usable.",
+          "primitive": "fields.boolean",
+          "config": {
+            "defaultValue": true
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "serverEnforcedUploadPolicy",
+          "description": "MIME type, extension and file size restrictions must be enforced server-side."
+        },
+        {
+          "id": "filenameNotTrusted",
+          "description": "Original filenames are display metadata and must never determine executable server paths."
+        },
+        {
+          "id": "scanBeforeUse",
+          "description": "When scanning is required, files must remain unavailable to downstream users until scan outcome is clean."
+        },
+        {
+          "id": "noPublicByDefault",
+          "description": "Form-uploaded files are private by default."
+        }
+      ],
+      "cms": {
+        "label": "Form Upload Policy",
+        "icon": "fa-rectangle-list",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "forms",
+        "summaryFields": [
+          "allowedMimeTypes",
+          "allowedExtensions",
+          "maxFileSizeBytes",
+          "maxFiles"
+        ],
+        "primaryActions": [
+          "view",
+          "edit"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Only the explicitly public rendering subset may be delivered to website visitors."
+      },
+      "futureBindings": {
+        "marketing": "phase-9",
+        "integrations": "phase-10",
+        "events": "phase-13",
+        "webhooks": "phase-14",
+        "permissions": "phase-15",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    }
+  ]
+};

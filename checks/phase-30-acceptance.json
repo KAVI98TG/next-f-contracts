@@ -1,0 +1,36 @@
+{
+  "phase": 30,
+  "version": "0.31.0",
+  "status": "PASS",
+  "stats": {
+    "version": "0.31.0",
+    "registrySha256": "8e29a0cb5fa5a5853555d935fd796842b25b73ef42bfd4b3942c68f571740b27",
+    "diffRegistrySha256": "8e29a0cb5fa5a5853555d935fd796842b25b73ef42bfd4b3942c68f571740b27",
+    "diffMatchesRegistry": true,
+    "registryItems": 2021,
+    "privacyFieldRules": 54,
+    "privacyRegistryItems": 82,
+    "primaryClasses": 5,
+    "highRiskCoverageAreas": 8,
+    "searchDocuments": 6915,
+    "relationshipNodes": 2021,
+    "relationshipEdges": 7124,
+    "jsonFiles": 1876,
+    "validationPasses": 5129,
+    "validationFailures": 0,
+    "smokePasses": 26,
+    "smokeFailures": 0,
+    "regressionPasses": 2247,
+    "regressionFailures": 0,
+    "changelogReleases": 31,
+    "changelogEntries": 544,
+    "exactDiffReleases": 26,
+    "privacyOperationCount": 7
+  },
+  "truthfulBoundaries": [
+    "Privacy operations are contract primitives/future capabilities; no full legal compliance engine is claimed.",
+    "No universal legal retention periods are fabricated.",
+    "Registry production stability remains reserved for Phase 37 / V1.0.0.",
+    "Phase 31 has not started."
+  ]
+}

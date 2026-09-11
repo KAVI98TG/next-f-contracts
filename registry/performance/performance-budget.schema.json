@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contract.nextf.lk/registry/performance/performance-budget.schema.json",
+  "title": "NEXT F Performance Budget",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "budgetId",
+    "name",
+    "category",
+    "scope",
+    "metric",
+    "target",
+    "warningThreshold",
+    "comparator",
+    "unit",
+    "applicability",
+    "measurementMethod",
+    "environment",
+    "notes",
+    "relatedRegistryIds",
+    "version",
+    "status",
+    "phase",
+    "sourceReference"
+  ],
+  "properties": {
+    "budgetId": {
+      "type": "string",
+      "pattern": "^PERF-BUDGET-[0-9]{3}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "metric": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target": {
+      "type": "number"
+    },
+    "warningThreshold": {
+      "type": "number"
+    },
+    "comparator": {
+      "enum": [
+        "lte",
+        "gte",
+        "eq"
+      ]
+    },
+    "unit": {
+      "enum": [
+        "bytes",
+        "count",
+        "milliseconds",
+        "ratio",
+        "percent"
+      ]
+    },
+    "applicability": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "measurementMethod": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "relatedRegistryIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "experimental",
+        "draft",
+        "stable",
+        "deprecated",
+        "removed"
+      ]
+    },
+    "phase": {
+      "const": 32
+    },
+    "sourceReference": {
+      "type": "string"
+    }
+  }
+}

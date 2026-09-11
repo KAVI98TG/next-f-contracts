@@ -1,0 +1,108 @@
+{
+  "$id": "webhooks.retryPolicy",
+  "name": "Webhook Retry Policy",
+  "version": "0.15.0",
+  "status": "stable",
+  "domain": "webhooks",
+  "category": "resilience",
+  "description": "Bounded automatic retry schedule for retryable webhook failures.",
+  "purpose": "Defines deterministic retry limits while allowing bounded jitter and Retry-After handling.",
+  "webhookModel": {
+    "kind": "schema",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "maxAttempts",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum total attempts including initial attempt.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "retryDelaysSeconds",
+      "required": true,
+      "nullable": false,
+      "description": "Base delay before attempts 2..N.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "jitterPercent",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum percentage jitter around base delay.",
+      "primitive": "fields.percentage"
+    },
+    {
+      "key": "honorRetryAfter",
+      "required": true,
+      "nullable": false,
+      "description": "Whether bounded Retry-After can influence scheduling.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "retryAfterMinimumSeconds",
+      "required": true,
+      "nullable": false,
+      "description": "Minimum accepted Retry-After value.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "retryAfterMaximumSeconds",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum accepted Retry-After value.",
+      "primitive": "fields.integer"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "defaultAttempts",
+      "description": "Default maximum is 8 total attempts including initial."
+    },
+    {
+      "id": "defaultSchedule",
+      "description": "Default delays are 60, 300, 900, 3600, 14400, 43200 and 86400 seconds."
+    },
+    {
+      "id": "defaultJitter",
+      "description": "Default jitter is 20 percent."
+    },
+    {
+      "id": "boundedRetryAfter",
+      "description": "Accepted Retry-After is bounded between 5 and 86400 seconds."
+    },
+    {
+      "id": "noInfiniteRetry",
+      "description": "Retries must terminate and transition to a terminal/dead-letter state."
+    }
+  ],
+  "cms": {
+    "label": "Webhook Retry Policy",
+    "icon": "fa-webhook",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "webhook-contract",
+    "defaultPlacement": "webhooks",
+    "summaryFields": [
+      "maxAttempts",
+      "retryDelaysSeconds",
+      "jitterPercent",
+      "honorRetryAfter"
+    ]
+  },
+  "delivery": {
+    "publicDelivery": false,
+    "customerCmsDelivery": false,
+    "adminDelivery": true,
+    "notes": [
+      "Webhook registry contracts are configuration/operations data and are never public website content."
+    ]
+  },
+  "futureBindings": []
+}

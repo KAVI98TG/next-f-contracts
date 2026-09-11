@@ -1,0 +1,13 @@
+{
+  "$id": "adminUi.adminContext",
+  "name": "Admin Context",
+  "version": "0.21.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "type": "admin-ui-schema",
+  "description": "Defines required platform/organization/site/resource context for a profile.",
+  "purpose": "Defines required platform/organization/site/resource context for a profile.",
+  "internalOnly": true,
+  "customerVisible": false,
+  "relationships": []
+}

@@ -1,0 +1,29 @@
+{
+  "$id": "modules.capability.analytics.reporting",
+  "capabilityId": "analytics.reporting",
+  "name": "Reporting",
+  "version": "0.18.0",
+  "status": "stable",
+  "moduleId": "analytics",
+  "mode": "default-on",
+  "selectable": true,
+  "defaultEnabled": true,
+  "description": "Reporting capability within the Analytics module.",
+  "contractBindings": [
+    "marketing.analyticsObservation",
+    "marketing.analyticsSnapshot"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [],
+  "requiresModules": [],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": false
+  },
+  "notes": []
+}

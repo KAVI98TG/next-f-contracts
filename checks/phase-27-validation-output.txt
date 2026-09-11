@@ -1,0 +1,20 @@
+
+> next-f-contracts@0.28.0 validate:phase27
+> node scripts/validate-phase-27.mjs
+
+NEXT F Contracts Phase 27 validation
+Version: 0.28.0
+Passes: 21437
+Failures: 0
+Changelog releases: 28
+Changelog entries: 522
+Changelog definitions: 11
+Exact-history releases: 23
+Incomplete releases: 5
+Registry items: 1862
+Search documents: 6659
+Relationship nodes: 1862
+Relationship edges: 6727
+JSON files checked: 1736
+
+PASS - Changelog System satisfies the Phase 27 acceptance model.

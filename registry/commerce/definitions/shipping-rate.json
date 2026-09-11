@@ -1,0 +1,185 @@
+{
+  "$id": "commerce.shippingRate",
+  "name": "Shipping Rate",
+  "version": "0.12.0",
+  "status": "stable",
+  "domain": "commerce",
+  "category": "fulfillment",
+  "description": "Configured Shipping Rate.",
+  "purpose": "Supports common pricing strategies while provider rating stays in Integration adapters.",
+  "commerceModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "transactional": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable identity.",
+      "schema": "core.entityIdentity"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "shippingMethodId",
+      "required": true,
+      "nullable": false,
+      "description": "Parent Shipping Method ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Rate label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "pricingType",
+      "required": true,
+      "nullable": false,
+      "description": "Pricing strategy.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "flat",
+          "free",
+          "price-based",
+          "weight-based",
+          "external"
+        ]
+      }
+    },
+    {
+      "key": "price",
+      "required": false,
+      "nullable": true,
+      "description": "Base/flat price.",
+      "schema": "commerce.moneySnapshot"
+    },
+    {
+      "key": "minimumOrderAmount",
+      "required": false,
+      "nullable": true,
+      "description": "Optional order threshold.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "maximumOrderAmount",
+      "required": false,
+      "nullable": true,
+      "description": "Optional order ceiling.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "minimumWeight",
+      "required": false,
+      "nullable": true,
+      "description": "Optional weight threshold.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "maximumWeight",
+      "required": false,
+      "nullable": true,
+      "description": "Optional weight ceiling.",
+      "primitive": "fields.decimal",
+      "config": {
+        "minimum": 0
+      }
+    },
+    {
+      "key": "externalRateKey",
+      "required": false,
+      "nullable": true,
+      "description": "External service/rate key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether rate is active.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "belongsTo",
+      "target": "commerce.shippingMethod",
+      "description": "References commerce.shippingMethod."
+    },
+    {
+      "type": "optionallyComposes",
+      "target": "commerce.moneySnapshot",
+      "description": "References commerce.moneySnapshot."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "fieldsMatchType",
+      "description": "Required amount/range fields depend on pricingType."
+    },
+    {
+      "id": "externalNeedsAdapter",
+      "description": "External rating requires a supported Integration."
+    }
+  ],
+  "cms": {
+    "label": "Shipping Rate",
+    "icon": "fa-cart-shopping",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "commerce-schema",
+    "defaultPlacement": "commerce",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "shippingMethodId",
+      "name"
+    ],
+    "primaryActions": [
+      "view",
+      "edit"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Private or operational commerce data; not eligible for unauthenticated public delivery."
+  },
+  "futureBindings": {
+    "commerceRules": "phase-12",
+    "events": "phase-13",
+    "webhooks": "phase-14",
+    "permissions": "phase-15",
+    "siteManifest": "phase-16",
+    "modules": "phase-17",
+    "api": "phase-18",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

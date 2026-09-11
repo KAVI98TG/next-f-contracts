@@ -1,0 +1,186 @@
+{
+  "$id": "shared.link",
+  "name": "Link",
+  "version": "0.5.0",
+  "status": "stable",
+  "domain": "shared",
+  "category": "action",
+  "description": "Canonical destination and behavior metadata for an interactive link.",
+  "purpose": "Keeps navigation, CTA, media and content links consistent while leaving visual styling to the frontend.",
+  "fields": [
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical destination/action type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          {
+            "value": "internal",
+            "label": "Internal page"
+          },
+          {
+            "value": "external",
+            "label": "External URL"
+          },
+          {
+            "value": "phone",
+            "label": "Phone"
+          },
+          {
+            "value": "email",
+            "label": "Email"
+          },
+          {
+            "value": "whatsapp",
+            "label": "WhatsApp"
+          },
+          {
+            "value": "download",
+            "label": "Download"
+          },
+          {
+            "value": "form",
+            "label": "Form"
+          },
+          {
+            "value": "modal",
+            "label": "Modal"
+          }
+        ]
+      }
+    },
+    {
+      "key": "destination",
+      "required": true,
+      "nullable": false,
+      "description": "Destination value interpreted according to type.",
+      "primitive": "fields.text",
+      "config": {
+        "minLength": 1,
+        "maxLength": 2048
+      }
+    },
+    {
+      "key": "newTab",
+      "required": true,
+      "nullable": false,
+      "description": "Request a new browsing context where appropriate.",
+      "primitive": "fields.boolean",
+      "config": {
+        "defaultValue": false
+      }
+    },
+    {
+      "key": "rel",
+      "required": false,
+      "nullable": true,
+      "description": "Controlled relationship tokens when applicable.",
+      "primitive": "fields.multiSelect",
+      "config": {
+        "options": [
+          {
+            "value": "nofollow",
+            "label": "nofollow"
+          },
+          {
+            "value": "sponsored",
+            "label": "sponsored"
+          },
+          {
+            "value": "ugc",
+            "label": "ugc"
+          },
+          {
+            "value": "noopener",
+            "label": "noopener"
+          },
+          {
+            "value": "noreferrer",
+            "label": "noreferrer"
+          }
+        ]
+      }
+    },
+    {
+      "key": "accessibilityLabel",
+      "required": false,
+      "nullable": true,
+      "description": "Accessible label override when visible context is insufficient.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 240,
+        "localizable": true
+      }
+    },
+    {
+      "key": "trackingEvent",
+      "required": false,
+      "nullable": true,
+      "description": "Canonical NEXT F event name emitted for the interaction when configured.",
+      "primitive": "fields.text",
+      "config": {
+        "maxLength": 160,
+        "customerEditable": false,
+        "adminEditable": true
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "destinationMatchesType",
+      "description": "destination must match the declared link type."
+    },
+    {
+      "id": "unsafeSchemesRejected",
+      "description": "Executable or unsafe URL schemes are prohibited."
+    },
+    {
+      "id": "newTabSafety",
+      "description": "External new-tab links should use appropriate rel protection where the renderer does not enforce it automatically."
+    }
+  ],
+  "cms": {
+    "label": "Link",
+    "icon": "fa-link",
+    "customerVisible": true,
+    "adminVisible": true,
+    "defaultPlacement": "inline",
+    "summaryFields": [
+      "type",
+      "destination"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public links are allowed after destination validation."
+  },
+  "examples": {
+    "valid": [
+      {
+        "type": "internal",
+        "destination": "/contact",
+        "newTab": false
+      },
+      {
+        "type": "external",
+        "destination": "https://example.com",
+        "newTab": true,
+        "rel": [
+          "noopener",
+          "noreferrer"
+        ]
+      }
+    ],
+    "invalid": [
+      {
+        "type": "external",
+        "destination": "javascript:alert(1)",
+        "newTab": false
+      }
+    ]
+  },
+  "notes": []
+}

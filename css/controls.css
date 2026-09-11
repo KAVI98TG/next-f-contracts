@@ -1,0 +1,99 @@
+/* Shared form controls used across every registry and standards explorer. */
+select:not([multiple]) {
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  appearance: none;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-paper);
+  /* Lucide chevron-down, kept in CSS so native select semantics remain intact. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23667085' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 13px center;
+  background-size: 16px;
+  padding: 9px 42px 9px 12px !important;
+  color: var(--text-default);
+  cursor: pointer;
+  outline: 0;
+  transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+}
+
+select:not([multiple]):hover {
+  border-color: var(--border-strong);
+  background-color: var(--surface-soft);
+}
+
+select:not([multiple]):focus,
+select:not([multiple]):focus-visible {
+  border-color: var(--border-focus);
+  background-color: var(--surface-paper);
+  box-shadow: 0 0 0 3px var(--nf-blue-50);
+}
+
+select:not([multiple]):disabled {
+  background-color: var(--surface-subtle);
+  color: var(--text-subtle);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+select option,
+select optgroup {
+  background: var(--surface-paper);
+  color: var(--text-default);
+  font: inherit;
+}
+
+select option {
+  padding: 9px 12px;
+}
+
+@supports (appearance: base-select) {
+  select:not([multiple]),
+  select:not([multiple])::picker(select) {
+    appearance: base-select;
+  }
+
+  select:not([multiple])::picker-icon {
+    display: none;
+  }
+
+  select:not([multiple])::picker(select) {
+    margin-top: 6px;
+    padding: 6px;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    background: var(--surface-paper);
+    box-shadow: var(--shadow-float);
+  }
+
+  select:not([multiple]) option {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    min-height: 38px;
+    padding: 9px 10px;
+    border-radius: var(--radius-xs);
+    text-align: left;
+  }
+
+  select:not([multiple]) option:hover,
+  select:not([multiple]) option:focus {
+    background: var(--surface-hover);
+    color: var(--text-strong);
+  }
+
+  select:not([multiple]) option:checked {
+    background: var(--surface-selected);
+    color: var(--nf-blue-700);
+    font-weight: 700;
+  }
+
+  select:not([multiple]) option::checkmark {
+    order: 1;
+    margin-left: auto;
+    color: var(--nf-blue-600);
+  }
+}

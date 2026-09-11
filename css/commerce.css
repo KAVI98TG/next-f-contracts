@@ -1,0 +1,33 @@
+
+/* Phase 11 Commerce Registry - light paper dashboard only */
+.commerce-hero{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.8fr);gap:var(--space-4);}
+.commerce-eyebrow,.commerce-kicker{font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);}
+.commerce-flow{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem;margin-top:1.15rem}
+.commerce-flow span{padding:.58rem .76rem;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--surface-subtle);font-weight:700;font-size:.82rem}
+.commerce-flow i{font-style:normal;color:var(--text-muted)}
+.commerce-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+.commerce-summary div,.commerce-detail-summary .paper-card__body{display:grid;gap:.25rem}
+.commerce-summary span,.commerce-detail-summary span{font-size:.78rem;color:var(--text-muted)}
+.commerce-summary strong,.commerce-detail-summary strong{font-size:1.35rem;color:var(--text-strong)}
+.commerce-boundary{border:1px solid var(--border-default);border-left:4px solid var(--primary);border-radius:var(--radius-lg);background:var(--surface-paper);padding:1rem 1.1rem}
+.commerce-boundary p{margin:.28rem 0 0;color:var(--text-muted)}
+.commerce-domain-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+.commerce-domain-tile{display:grid;grid-template-columns:auto 1fr auto;gap:.75rem;align-items:start;border:1px solid var(--border-default);border-radius:var(--radius-md);padding:.85rem;background:var(--surface-paper)}
+.commerce-domain-tile>span{width:2.25rem;height:2.25rem;border-radius:var(--radius-md);display:grid;place-items:center;background:var(--primary-soft);color:var(--primary)}
+.commerce-domain-tile p{margin:.22rem 0 0;color:var(--text-muted);font-size:.82rem;line-height:1.45}
+.commerce-domain-tile b{min-width:1.8rem;height:1.8rem;display:grid;place-items:center;border-radius:999px;background:var(--surface-subtle);border:1px solid var(--border-default);font-size:.75rem}
+.commerce-toolbar{grid-template-columns:minmax(260px,2fr) repeat(4,minmax(150px,1fr)) auto}
+.commerce-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
+.commerce-card{padding:1rem;display:flex;flex-direction:column;gap:.75rem;min-width:0}
+.commerce-card__top{display:flex;justify-content:space-between;gap:.75rem;align-items:flex-start}
+.commerce-card h3{margin:.18rem 0 .25rem;font-size:1rem}.commerce-card p{margin:0;color:var(--text-muted)}
+.commerce-card__facts,.commerce-card__flags{display:flex;flex-wrap:wrap;gap:.45rem;font-size:.75rem;color:var(--text-muted)}
+.commerce-card__facts span,.commerce-flag{display:inline-flex;align-items:center;gap:.32rem;padding:.34rem .48rem;border:1px solid var(--border-default);border-radius:999px;background:var(--surface-subtle)}
+.commerce-flag--yes{color:var(--success-700);background:var(--success-50);border-color:var(--success-500)}
+.commerce-card__open{margin-top:auto;font-size:.8rem;font-weight:800;display:inline-flex;align-items:center;gap:.4rem}
+.commerce-detail-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-4)}
+.commerce-rules{display:grid;gap:.7rem}.commerce-rule{padding:.75rem;border:1px solid var(--border-default);border-radius:var(--radius-md);background:var(--surface-subtle)}.commerce-rule p{margin:.3rem 0 0;color:var(--text-muted)}
+.future-binding-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.65rem}.future-binding-grid div{padding:.7rem;border:1px solid var(--border-default);border-radius:var(--radius-md);display:grid;gap:.2rem}.future-binding-grid span{color:var(--text-muted);font-size:.75rem}.future-binding-grid strong{font-size:.85rem}
+.commerce-field-table td:nth-child(1){white-space:nowrap}
+@media(max-width:1180px){.commerce-grid,.commerce-domain-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.commerce-toolbar{grid-template-columns:minmax(240px,2fr) repeat(2,minmax(150px,1fr))}.commerce-toolbar .field-filter-summary{grid-column:auto}.commerce-detail-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.future-binding-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.commerce-hero,.commerce-grid,.commerce-domain-grid,.commerce-detail-summary,.future-binding-grid{grid-template-columns:1fr}.commerce-toolbar{grid-template-columns:1fr}.commerce-flow i{display:none}.commerce-flow span{width:100%}}

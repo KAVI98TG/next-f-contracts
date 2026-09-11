@@ -1,0 +1,54 @@
+{
+  "registryVersion": "1.0.0",
+  "schemaVersion": "1.0.0",
+  "title": "Relationship Explorer Configuration",
+  "sourceRegistry": "registry/registry.json",
+  "index": "registry/relationships/relationship-index.json",
+  "generatedFallback": "js/generated-relationships.js",
+  "defaults": {
+    "direction": "both",
+    "depth": 1,
+    "maxRenderedNeighbors": 36,
+    "maxExpandedNodes": 220,
+    "pathDirection": "both",
+    "pathMaxDepth": 6
+  },
+  "limits": {
+    "maxDepth": 4,
+    "maxPathDepth": 8,
+    "maxRenderedNeighbors": 80,
+    "maxExpandedNodes": 500,
+    "maxEdgeTableRows": 200,
+    "maxHubNodes": 20
+  },
+  "edgeOrigins": [
+    "explicit",
+    "permissionAssociation",
+    "eventAssociation"
+  ],
+  "symbolicOrigins": [
+    "eventAssociation"
+  ],
+  "urlParameters": [
+    "node",
+    "direction",
+    "depth",
+    "family",
+    "type",
+    "origin",
+    "domain",
+    "from",
+    "to",
+    "pathDirection",
+    "pathDepth"
+  ],
+  "rules": {
+    "preserveParallelEdges": true,
+    "explicitTargetsMustResolve": true,
+    "permissionTargetsMustResolve": true,
+    "unresolvedEventNamesBecomeSymbolicAssociations": true,
+    "similarityNeverCreatesEdges": true,
+    "localBrowserTraversal": true,
+    "canvasRequired": false
+  }
+}

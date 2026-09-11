@@ -1,0 +1,20 @@
+{
+  "registryVersion": "0.17.0",
+  "contentDeliveryModes": [
+    {
+      "key": "runtime",
+      "label": "Runtime API",
+      "description": "Published content is resolved by trusted/public content APIs during request/runtime execution."
+    },
+    {
+      "key": "build-time",
+      "label": "Build Time",
+      "description": "Published content is materialized during a build or regeneration process."
+    },
+    {
+      "key": "hybrid",
+      "label": "Hybrid",
+      "description": "The implementation combines build-time and runtime delivery under explicit component/data rules."
+    }
+  ]
+}
