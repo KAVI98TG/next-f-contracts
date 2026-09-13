@@ -17,6 +17,7 @@ These instructions apply to Codex and any other AI development agent working wit
 9. Keep platform secrets out of browser bundles and public repositories.
 10. Validate the implementation against the selected contract version.
 11. Report any required contract extension instead of silently inventing a parallel model.
+12. For V1.1.0 Customer CMS behavior, resolve the canonical `customerAccessPolicyRef`; intersect it with capability, entitlement, permission, scope, resource, field, Security and Privacy gates; and fail closed when any required write policy is unresolved.
 
 ## Prohibited behavior
 
@@ -34,6 +35,7 @@ Do not:
 - bypass authentication, authorization, consent or audit rules
 - silently upgrade a site's pinned contract version
 - silently introduce a breaking change
+- treat Customer CMS visibility as authorization, broaden Customer Access through Site Manifest configuration, or turn `approval_required` into a direct authoritative write
 
 ## Extension rule
 

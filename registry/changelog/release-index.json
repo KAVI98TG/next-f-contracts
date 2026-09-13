@@ -1,11 +1,11 @@
 {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.1.0",
   "title": "NEXT F Changelog Release Index",
   "description": "All authoritative coordinated release notes in descending semantic-version order.",
-  "currentVersion": "1.0.0",
-  "releaseCount": 38,
-  "entryCount": 601,
+  "currentVersion": "1.1.0",
+  "releaseCount": 39,
+  "entryCount": 605,
   "phases": [
     0,
     1,
@@ -44,18 +44,23 @@
     34,
     35,
     36,
-    37
+    37,
+    38
   ],
   "domains": [
     "accessibility",
     "admin-ui",
+    "api",
     "blocks",
     "changelog",
     "cms-ui",
     "commerce",
+    "core",
+    "customer-access",
     "deprecations",
     "developer",
     "diff",
+    "events",
     "examples",
     "fields",
     "forms",
@@ -81,6 +86,73 @@
     "modules.pages"
   ],
   "releases": [
+    {
+      "version": "1.1.0",
+      "phase": 38,
+      "title": "Customer Capability Access Policy",
+      "releaseStatus": "stable",
+      "releaseDate": "2026-09-13",
+      "summary": "Adds the canonical customer visibility, mutation, approval, publishing, field and demo policy layer for every Customer CMS resource.",
+      "sourceVersion": "1.0.0",
+      "targetVersion": "1.1.0",
+      "recordCompleteness": "complete",
+      "incompletenessReason": null,
+      "entryCount": 4,
+      "categoryCounts": {
+        "added": 2,
+        "security": 1,
+        "migration": 1
+      },
+      "evidenceLevel": "authoritative-current",
+      "exactRegistrySnapshotAvailable": true,
+      "supportLevel": "stable",
+      "compatibilityStatus": "review-required",
+      "breakingChange": null,
+      "migrationRequired": true,
+      "affected": {
+        "domains": [
+          "api",
+          "core",
+          "customer-access",
+          "events",
+          "manifest",
+          "validation"
+        ],
+        "modules": [],
+        "contracts": [
+          "api.customer-cms.submit-change-request",
+          "api.nextf-admin.apply-change-request",
+          "compatibility.releaseCompatibility",
+          "core.changerequests.approve",
+          "core.changerequests.create",
+          "customer-change-request.applied",
+          "customer-change-request.submitted",
+          "customerAccess.changeRequest",
+          "customerAccess.customerAccessPolicyStandard",
+          "customerAccess.effectivePolicyResolution",
+          "customerAccess.policyRegistry",
+          "customerAccess.policySchema",
+          "customerAccess.policyVocabulary",
+          "manifest.cms",
+          "manifest.siteManifest",
+          "validation.index"
+        ],
+        "events": [
+          "customer-change-request.applied",
+          "customer-change-request.submitted"
+        ],
+        "permissions": [],
+        "webhooks": [],
+        "apis": [
+          "api.customer-cms.submit-change-request",
+          "api.nextf-admin.apply-change-request"
+        ],
+        "manifests": [],
+        "cmsMetadata": [],
+        "adminMetadata": []
+      },
+      "source": "registry/changelog/releases/1.1.0.json"
+    },
     {
       "version": "1.0.0",
       "phase": 37,

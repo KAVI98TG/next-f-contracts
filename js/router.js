@@ -1,4 +1,4 @@
-import { routeByPath } from "./routes.js?v=1.0.0-r1";
+import { routeByPath } from "./routes.js?v=1.1.0-r1";
 import {
   renderOverview,
   renderArchitecture,
@@ -586,8 +586,12 @@ export function renderCurrentRoute(registry, fieldRegistry, coreSchemas, content
     if (route.item?.domain === "webhooks") bindWebhookCopy(webhooks);
     hydrateRegistryChangeHistory(root, route.item);
     hydrateRegistryDeprecation(root, route.item);
+    hydrateRegistryCustomerAccess(root, route.item);
   } else if (route.path === "/registry/relationships") {
     const filters=parseRelationshipFilters(route.search);root.innerHTML=renderRelationshipExplorer(relationships,filters);bindRelationshipExplorer(relationships,registry,filters);bindCopyActions(registry);
+  } else if (route.path === "/platform/customer-access") {
+    root.innerHTML=`<section class="paper-card"><div class="paper-card__body"><div class="search-page-empty"><span class="search-page-empty__icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span><h2>Loading Customer Access</h2><p>Loading canonical customer policy, action, field, publishing and approval metadata.</p></div></div></section>`;
+    loadCustomerAccessRoute(root,registry,route.search);
   } else if (route.path === "/standards/security") {
     root.innerHTML=`<section class="paper-card"><div class="paper-card__body"><div class="search-page-empty"><span class="search-page-empty__icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span><h2>Loading Security Standards</h2><p>Loading canonical controls, verification metadata, secret classes and surface mappings.</p></div></div></section>`;
     loadSecurityRoute(root,registry,route.search);
@@ -781,6 +785,28 @@ function addDiffShortcut(item){
   const link=document.createElement("a");link.className="button button--secondary button--compact diff-shortcut";link.href=`#/lifecycle/diff?from=0.25.0&to=0.26.0&item=${encodeURIComponent(item.id)}`;link.innerHTML='<i class="fa-solid fa-code-compare" aria-hidden="true"></i> Version history';host.appendChild(link);
 }
 
+async function loadCustomerAccessRoute(root,registry,search){
+  try{
+    const [engineModule,pageModule]=await Promise.all([import('./customer-access-registry-engine.js?v=1.1.0-r1'),import('./customer-access-pages.js?v=1.1.0-r1')]);
+    const engine=await engineModule.loadCustomerAccessRegistry();
+    const current=parseHash();if(current.path!=='/platform/customer-access')return;
+    const filters=engineModule.parseCustomerAccessFilters(current.search);
+    root.innerHTML=pageModule.renderCustomerAccessPage(engine,filters);
+    document.documentElement.dataset.customerAccessSource=engine.source;
+    bindCustomerAccessPage(engine,filters,engineModule.buildCustomerAccessQuery,pageModule.renderCustomerAccessResults);
+    bindCopyActions(registry);
+  }catch(error){console.error(error);root.innerHTML=`<div class="fatal-state"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><h1>Customer Access failed to initialize</h1><p>The canonical policy registry or its generated fallback could not be loaded.</p></div>`;}
+}
+
+function bindCustomerAccessPage(engine,initialFilters,buildQuery,renderResults){
+  const controls={q:document.querySelector('[data-customer-access-q]'),mode:document.querySelector('[data-customer-access-mode]'),module:document.querySelector('[data-customer-access-module]'),publishing:document.querySelector('[data-customer-access-publishing]'),action:document.querySelector('[data-customer-access-action]')};
+  if(!Object.values(controls).some(Boolean))return;
+  const read=()=>({view:'policies',id:'',q:controls.q?.value.trim()??'',mode:controls.mode?.value??'',module:controls.module?.value??'',publishing:controls.publishing?.value??'',action:controls.action?.value??''});
+  const update=()=>{const filters=read();const results=document.querySelector('[data-customer-access-results]'),count=document.querySelector('[data-customer-access-count]');if(results)results.innerHTML=renderResults(engine,filters);if(count)count.textContent=String(engine.search(filters).length);history.replaceState(null,'',`#/platform/customer-access${buildQuery(filters)}`);};
+  let timer=null;controls.q?.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(update,90)});[controls.mode,controls.module,controls.publishing,controls.action].forEach(control=>control?.addEventListener('change',update));
+  document.querySelector('[data-customer-access-clear]')?.addEventListener('click',()=>{for(const control of Object.values(controls))if(control)control.value='';update();controls.q?.focus();});
+}
+
 async function loadDiffRoute(root,registry,search){
   try{
     const [engineModule,pageModule]=await Promise.all([import('./diff-registry-engine.js'),import('./diff-pages.js?v=1.0.0-r1')]);
@@ -904,6 +930,18 @@ async function hydrateRegistryDeprecation(root,item){
     if(currentId!==item.id||!root.isConnected||root.querySelector('[data-registry-deprecation]'))return;
     const html=pageModule.renderRegistryDeprecationCard(engine,item.id);if(html)root.insertAdjacentHTML('beforeend',html);
   }catch(error){console.info('Deprecation metadata unavailable for Registry detail:',error.message);}
+}
+
+async function hydrateRegistryCustomerAccess(root,item){
+  if(!root||!item?.id)return;
+  try{
+    const [engineModule,pageModule]=await Promise.all([import('./customer-access-registry-engine.js'),import('./customer-access-pages.js')]);
+    const engine=await engineModule.loadCustomerAccessRegistry();
+    const current=parseHash();if(!current.path.startsWith('/registry/item/'))return;
+    let currentId=current.path.slice('/registry/item/'.length);try{currentId=decodeURIComponent(currentId);}catch{}
+    if(currentId!==item.id||!root.isConnected||root.querySelector('[data-registry-customer-access]'))return;
+    const html=pageModule.renderRegistryCustomerAccessCard(engine,item);if(html)root.insertAdjacentHTML('beforeend',html);
+  }catch(error){console.info('Customer Access metadata unavailable for Registry detail:',error.message);}
 }
 
 async function loadDeprecationsRoute(root,registry,search){

@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.integrations.sync",
   "name": "Sync Runs",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -268,5 +268,42 @@
       "requiresPermission": "integrations.sync.manage",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.integrations.sync",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "read_only",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "deny",
+      "update": "deny",
+      "delete": "deny",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "integrations.sync.view"
+      ],
+      "create": [],
+      "update": [
+        "integrations.sync.manage"
+      ],
+      "delete": [],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "integrations.sync"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": "This resource is available for viewing only."
+  }
 }

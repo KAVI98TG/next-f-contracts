@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.forms.leads",
   "name": "Leads",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -434,5 +434,51 @@
       "requiresPermission": "forms.leads.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.forms.leads",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "forms.leads.export",
+        "forms.leads.view"
+      ],
+      "create": [
+        "forms.leads.create"
+      ],
+      "update": [
+        "forms.leads.edit",
+        "forms.leads.manage"
+      ],
+      "delete": [
+        "forms.leads.delete"
+      ],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "leads.activity",
+      "leads.export",
+      "leads.notes",
+      "leads.status"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

@@ -1,0 +1,131 @@
+{
+  "$id": "customerAccess.policy.webhooks.deliveries",
+  "name": "Webhook Deliveries Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "webhooks.deliveries",
+  "contractRefs": [
+    "webhooks.delivery",
+    "webhooks.deliveryAttempt"
+  ],
+  "moduleRef": "integrations",
+  "capabilityRefs": [
+    "integrations.health"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "webhooks.deliveries.export",
+      "webhooks.deliveries.view"
+    ],
+    "create": [],
+    "update": [
+      "webhooks.deliveries.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#identity",
+      "field": "identity",
+      "contractFieldRef": "webhooks.delivery.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#subscriptionId",
+      "field": "subscriptionId",
+      "contractFieldRef": "webhooks.delivery.subscriptionId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#endpointId",
+      "field": "endpointId",
+      "contractFieldRef": "webhooks.delivery.endpointId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#eventId",
+      "field": "eventId",
+      "contractFieldRef": "webhooks.delivery.eventId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#eventKey",
+      "field": "eventKey",
+      "contractFieldRef": "webhooks.delivery.eventKey",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#eventVersion",
+      "field": "eventVersion",
+      "contractFieldRef": "webhooks.delivery.eventVersion",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#environment",
+      "field": "environment",
+      "contractFieldRef": "webhooks.delivery.environment",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#status",
+      "field": "status",
+      "contractFieldRef": "webhooks.delivery.status",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#attemptCount",
+      "field": "attemptCount",
+      "contractFieldRef": "webhooks.delivery.attemptCount",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#createdAt",
+      "field": "createdAt",
+      "contractFieldRef": "webhooks.delivery.createdAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#terminalAt",
+      "field": "terminalAt",
+      "contractFieldRef": "webhooks.delivery.terminalAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deliveries#lastFailure",
+      "field": "lastFailure",
+      "contractFieldRef": "webhooks.delivery.lastFailure",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.webhooks.deliveries",
+    "adminProfileRef": "adminUi.profile.webhooks.deliveries",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

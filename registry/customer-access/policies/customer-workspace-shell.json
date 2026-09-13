@@ -1,0 +1,57 @@
+{
+  "$id": "customerAccess.policy.customerWorkspaceShell",
+  "name": "Customer Site Workspace Shell Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "core.workspace",
+  "contractRefs": [
+    "core.site",
+    "modules.core"
+  ],
+  "moduleRef": "core",
+  "capabilityRefs": [
+    "core.identity"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "core.workspace.view"
+    ],
+    "create": [],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.get-workspace"
+  ],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.customerWorkspaceShell",
+    "adminProfileRef": null,
+    "approvalContractRef": null
+  },
+  "notes": []
+}

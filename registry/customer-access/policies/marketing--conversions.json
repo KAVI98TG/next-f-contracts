@@ -1,0 +1,123 @@
+{
+  "$id": "customerAccess.policy.marketing.conversions",
+  "name": "Conversions Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "marketing.conversions",
+  "contractRefs": [
+    "marketing.conversionDefinition",
+    "marketing.conversionSummary"
+  ],
+  "moduleRef": "marketing",
+  "capabilityRefs": [
+    "marketing.conversions"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "marketing.conversions.view"
+    ],
+    "create": [
+      "marketing.conversions.create"
+    ],
+    "update": [
+      "marketing.conversions.edit",
+      "marketing.conversions.manage"
+    ],
+    "delete": [
+      "marketing.conversions.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.marketing.conversions#identity",
+      "field": "identity",
+      "contractFieldRef": "marketing.conversionDefinition.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.conversions#scope",
+      "field": "scope",
+      "contractFieldRef": "marketing.conversionDefinition.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.conversions#conversionKey",
+      "field": "conversionKey",
+      "contractFieldRef": "marketing.conversionDefinition.conversionKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.conversions#name",
+      "field": "name",
+      "contractFieldRef": "marketing.conversionDefinition.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.conversions#category",
+      "field": "category",
+      "contractFieldRef": "marketing.conversionDefinition.category",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.conversions#triggerEventKey",
+      "field": "triggerEventKey",
+      "contractFieldRef": "marketing.conversionDefinition.triggerEventKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.conversions#primary",
+      "field": "primary",
+      "contractFieldRef": "marketing.conversionDefinition.primary",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.conversions#value",
+      "field": "value",
+      "contractFieldRef": "marketing.conversionDefinition.value",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.conversions#requiredConsentCategoryKey",
+      "field": "requiredConsentCategoryKey",
+      "contractFieldRef": "marketing.conversionDefinition.requiredConsentCategoryKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.conversions#enabled",
+      "field": "enabled",
+      "contractFieldRef": "marketing.conversionDefinition.enabled",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.marketing.conversions",
+    "adminProfileRef": "adminUi.profile.marketing.conversions",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

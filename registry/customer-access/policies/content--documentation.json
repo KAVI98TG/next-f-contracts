@@ -1,0 +1,169 @@
+{
+  "$id": "customerAccess.policy.content.documentation",
+  "name": "Documentation Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.documentation",
+  "contractRefs": [
+    "content.documentationArticle",
+    "content.documentationCollection",
+    "content.documentationCategory"
+  ],
+  "moduleRef": "documentation",
+  "capabilityRefs": [
+    "documentation.attachments",
+    "documentation.categories",
+    "documentation.collections",
+    "documentation.related-articles",
+    "documentation.versioning",
+    "documentation.visibility"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "allow",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "direct"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.documentation.view"
+    ],
+    "create": [
+      "content.documentation.create"
+    ],
+    "update": [
+      "content.documentation.edit",
+      "content.documentation.publish"
+    ],
+    "delete": [
+      "content.documentation.delete"
+    ],
+    "submit_for_review": [
+      "content.documentation.approve"
+    ],
+    "publish": [
+      "content.documentation.publish"
+    ],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#identity",
+      "field": "identity",
+      "contractFieldRef": "content.documentationArticle.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#scope",
+      "field": "scope",
+      "contractFieldRef": "content.documentationArticle.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#title",
+      "field": "title",
+      "contractFieldRef": "content.documentationArticle.title",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#slug",
+      "field": "slug",
+      "contractFieldRef": "content.documentationArticle.slug",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#summary",
+      "field": "summary",
+      "contractFieldRef": "content.documentationArticle.summary",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#content",
+      "field": "content",
+      "contractFieldRef": "content.documentationArticle.content",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#collection",
+      "field": "collection",
+      "contractFieldRef": "content.documentationArticle.collection",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#category",
+      "field": "category",
+      "contractFieldRef": "content.documentationArticle.category",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#author",
+      "field": "author",
+      "contractFieldRef": "content.documentationArticle.author",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#versionLabel",
+      "field": "versionLabel",
+      "contractFieldRef": "content.documentationArticle.versionLabel",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#tableOfContents",
+      "field": "tableOfContents",
+      "contractFieldRef": "content.documentationArticle.tableOfContents",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#relatedArticles",
+      "field": "relatedArticles",
+      "contractFieldRef": "content.documentationArticle.relatedArticles",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#attachments",
+      "field": "attachments",
+      "contractFieldRef": "content.documentationArticle.attachments",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#publishing",
+      "field": "publishing",
+      "contractFieldRef": "content.documentationArticle.publishing",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.documentation#revision",
+      "field": "revision",
+      "contractFieldRef": "content.documentationArticle.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.create-documentation",
+    "api.customer-cms.get-documentation",
+    "api.customer-cms.list-documentations",
+    "api.customer-cms.publish-documentation",
+    "api.customer-cms.update-documentation"
+  ],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.documentation",
+    "adminProfileRef": "adminUi.profile.content.documentation",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

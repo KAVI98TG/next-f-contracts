@@ -1,9 +1,9 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source set: registry/security/*
 export const GENERATED_SECURITY = {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "index": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Security Control Registry",
     "description": "Machine-readable security standards for NEXT F platform surfaces.",
@@ -3661,7 +3661,7 @@ export const GENERATED_SECURITY = {
     }
   ],
   "categories": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "categories": [
       {
         "id": "authentication",
@@ -3756,7 +3756,7 @@ export const GENERATED_SECURITY = {
     ]
   },
   "severityLevels": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Security Violation Severity",
     "description": "Security impact severity only; this vocabulary is distinct from compatibility impact.",
     "levels": [
@@ -3788,7 +3788,7 @@ export const GENERATED_SECURITY = {
     ]
   },
   "obligations": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "values": [
       {
         "id": "mandatory",
@@ -3801,7 +3801,7 @@ export const GENERATED_SECURITY = {
     ]
   },
   "verificationMethods": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "methods": [
       {
         "id": "schema-validation",
@@ -3846,7 +3846,7 @@ export const GENERATED_SECURITY = {
     ]
   },
   "secretClasses": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Security Value Classes",
     "classes": [
       {
@@ -3900,7 +3900,7 @@ export const GENERATED_SECURITY = {
     ]
   },
   "surfaceMapping": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "surfaces": [
       {
         "surfaceId": "public-site",
@@ -4113,7 +4113,7 @@ export const GENERATED_SECURITY = {
     {
       "$id": "security.secretClass",
       "name": "Security Value Class",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 29,
       "description": "Classification of public identifiers, configuration, secrets, credentials, tokens, signing secrets and encryption keys.",
@@ -4127,7 +4127,7 @@ export const GENERATED_SECURITY = {
     {
       "$id": "security.securityControl",
       "name": "Security Control",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 29,
       "description": "Machine-readable security requirement with applicability, verification and cross-registry bindings.",
@@ -4141,7 +4141,7 @@ export const GENERATED_SECURITY = {
     {
       "$id": "security.surfaceMapping",
       "name": "Security Surface Mapping",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 29,
       "description": "Security-control applicability mapping for a platform surface.",
@@ -4155,7 +4155,7 @@ export const GENERATED_SECURITY = {
     {
       "$id": "security.verificationMethod",
       "name": "Security Verification Method",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 29,
       "description": "Controlled verification method for security evidence.",
@@ -4168,66 +4168,66 @@ export const GENERATED_SECURITY = {
     }
   ],
   "sourceHashes": {
-    "registry/security/index.json": "711e7de807245bb748926d343373207cb4eb407e9aebdd33aeae65ed595b4560",
-    "registry/security/categories.json": "0dc7230982b165bc35abd433fbc111302df7c2f6b5070cc2ab2d0b89fb1e2f4e",
-    "registry/security/severity-levels.json": "765170a25795783551c295c60157138322812c3a52699b39f3683a49726ec3ce",
-    "registry/security/obligations.json": "925f452ae48d5bf14242f26eb7fab0ffd99642923198564c9c75fdfab44cc1d4",
-    "registry/security/verification-methods.json": "21c9ee9eb9a46f8347aa329fd32520974fe1faf37799a09e9c11ff34b1ebcbac",
-    "registry/security/secret-classes.json": "650c1ecbf892271ff5b1021176eb02e5893cc964ada26d7328de88ca2781da70",
-    "registry/security/surface-mapping.json": "567c20caf3a24a8eba4ed416a401a76e9531ac12389ded6e600e626024b983de",
-    "registry/security/security-control.schema.json": "fa8bf139f2a722bdd2db7143fae50754d4c56ee6782fc398fcae18d8b90f2b1a",
-    "registry/security/controls/sec_abuse_001.json": "61c89d3c7bb7fd0a0483311009a64128ead3bc44f8c25992680419827053f067",
-    "registry/security/controls/sec_audit_001.json": "b96d897a14f69eb8e1539f7eba6f50dadf63a26b89c399ff8923d9d6c0c7051f",
-    "registry/security/controls/sec_auth_001.json": "d1c8ed21f1ce22c7ee6a97fa863dceea9296f3f2862aac3f4db837b87f2d77e1",
-    "registry/security/controls/sec_auth_002.json": "9386164879f1ba0c0e514616a1bca838549c5e124d030167855313e41610124c",
-    "registry/security/controls/sec_authz_001.json": "18bf76857df3842da51e6aa60bab5006504eb946423c35023350fa5cbae97413",
-    "registry/security/controls/sec_authz_002.json": "a7f3ccedf7c457f633e17c7a84a93c1d383da5389e705db3b4611d2e906e3fcb",
-    "registry/security/controls/sec_backup_001.json": "7b5a1daa470f89be60d907b515a4839b7394bb04320e8a0432f80a07c368fed1",
-    "registry/security/controls/sec_brute_001.json": "59153a837a82573bd3d034e0f04d3b8b65335dc0cb6b520b1e37a2df849d2659",
-    "registry/security/controls/sec_cors_001.json": "7c0d6b79c7806c2a4c780eea773893e209d3010a0f68d35cdf9f699c705813e8",
-    "registry/security/controls/sec_csp_001.json": "8866ae8abd022d43d6e81b4b00bf2944a5c061dd710b2566d45dcc086ea6bfca",
-    "registry/security/controls/sec_csrf_001.json": "f56c5ef479d146acfa2199e19add9f671b8ca53f80477e2e25c8ecf51eaac942",
-    "registry/security/controls/sec_dep_001.json": "d4717f1050f1c1906f55cf24e1ec06ef7d68f5e2f589444bb99e7dff77ea89c4",
-    "registry/security/controls/sec_env_001.json": "c8b140b6ecf2700931480077a28a0691b022194fd5d1f32f2258fe590effb2e7",
-    "registry/security/controls/sec_err_001.json": "17a9e6b05945f30fa70ebba66ed1dce4662342611b6d01c12956cc3fda07f991",
-    "registry/security/controls/sec_hdr_001.json": "c1ef578d5168a61b47c67b41443ae007d0066af30e5bc96f1026c6de2da3f44c",
-    "registry/security/controls/sec_idemp_001.json": "3b83e73a036eef877f2c72bc7f052e5c2d01e1794286257d4a0b4c91f017a077",
-    "registry/security/controls/sec_in_001.json": "8be0874aaacb180d127fd04636e245809df27c330d00b787ae1c539f47edc2b7",
-    "registry/security/controls/sec_int_001.json": "11041972d76b82c85a30b5f3e37eac2b78eefb44cd685f4b956f5d7c49614d55",
-    "registry/security/controls/sec_int_002.json": "92c1a2758f49148466a9f1d8dbef1bd18edbba5758fed2f8c4827397e9f1a62f",
-    "registry/security/controls/sec_key_001.json": "32c8ceead888e6fe147150bf814b9734ae4f6346e799d5c94456d854bd6c4cfc",
-    "registry/security/controls/sec_log_001.json": "667d2b3ae068a074839e3cd5a4f932cf4b8ce6fc3ab916b0acaa476cf19c352f",
-    "registry/security/controls/sec_oauth_001.json": "5a5d1bbbb6e2c9275b65c7e36f383b42142e742b2e8a87ea2a23e2c994766b56",
-    "registry/security/controls/sec_out_001.json": "9b01b372ef5db6523126b3c1f7004b533aa383aae121169cd58ce325003c79d2",
-    "registry/security/controls/sec_pay_001.json": "ba3f997f9990f451a849ae38105f81d8ea8250b400cedb5f7f9d56097dce2a5a",
-    "registry/security/controls/sec_pay_002.json": "22c79714a316172271012318c37a1259378fabb8e938e6451ffbc988c6010003",
-    "registry/security/controls/sec_pay_003.json": "526609f3962d783ca519c21842ebc6a6a0b8f9fd7de1619521cc2364a31a3c16",
-    "registry/security/controls/sec_pdata_001.json": "f5440e485d8e661c4b59106cbe341eaa4ad2e6a740649e2dbc4d162959258256",
-    "registry/security/controls/sec_prev_001.json": "6c0ca44c3a0be1b31f3e3df688a10617ec9a401b5e6e4ae06536844ae4d5ee53",
-    "registry/security/controls/sec_query_001.json": "27d495a99f235c8f0a3f6188370575a7cdab7c989c5fa53e076f0307b36ef756",
-    "registry/security/controls/sec_rate_001.json": "ddbf41436e58ed557c622f5cf4f6a8cdae13982eaab6f6a501d02434c44e41bd",
-    "registry/security/controls/sec_recovery_001.json": "76026c5bfe28a9176e360b9c628991703137918fab30166a8726636389645414",
-    "registry/security/controls/sec_redir_001.json": "d76c1defbd20e51f4c3a43ee72a484d9af709241fb627770f64811d515a90d9a",
-    "registry/security/controls/sec_s2s_001.json": "ee35445b8414cc241aa10e49633ab1216cf183473e6dd9645c8bbce78d70c29a",
-    "registry/security/controls/sec_san_001.json": "14203bef470430efcb210eef046f2d5e2ee7dfad42ffba3bc4d7e026d7099fce",
-    "registry/security/controls/sec_secret_001.json": "82ee17ac32cf76f2fa59edf07985032798950959009d5c01cf826e7ef6c22fa2",
-    "registry/security/controls/sec_secret_002.json": "28a2b88ad25a8c29b8bdd0ad9d07941f8b11169d04d96452954ba51973d1bc81",
-    "registry/security/controls/sec_sess_001.json": "ca9b5851ea9fe895fd82f819dd09bb2ea970401e85d60e159a6e3e68e640fc1e",
-    "registry/security/controls/sec_ssrf_001.json": "84f7f8f5c80c4cb88e091edcb99195c7af56591ee3dc5dc93714b17bed423f20",
-    "registry/security/controls/sec_supply_001.json": "6aaaa6f8dc2ca840b5c13fcf2dfa0129baae82f9da7e7a439dbfd9469834f7dd",
-    "registry/security/controls/sec_tenant_001.json": "f022b867457b7572180b5cee926ec718fb46471194edab0ef989ff71ababfad2",
-    "registry/security/controls/sec_tls_001.json": "612f0ce83321b359f3f2afdebd10a7c9cfabfd71f5f960b3aed08b88f4854869",
-    "registry/security/controls/sec_token_001.json": "574d23ce2bc6420884d163c606c7bacb3cc50942ca2c907ca777dfaec0b00fa5",
-    "registry/security/controls/sec_upl_001.json": "d41120f301791140833bcd428b2104e8b11338483e5b939613054202ac4c6073",
-    "registry/security/controls/sec_upl_002.json": "a8ccd30b87b095d66da501539230c248e388e0a38807e1a6d9fbe90b0af22527",
-    "registry/security/controls/sec_upl_003.json": "601ca2b1ee68346cebe6904d83d33acbddf8d4cfca7a289352f9ef01f654012b",
-    "registry/security/controls/sec_wh_001.json": "796b4cbfa0c82096295b8e0e48e3d53911e88352db2a6d9ed73e3c6d2762d2c8",
-    "registry/security/controls/sec_wh_002.json": "af6cff625d684bb6b1c646c948f5ee2310dc2983063b6e17597e54e9cf0566be",
-    "registry/security/controls/sec_wh_003.json": "6cf16575980e8ee02d41956a5fddc6e7b86f12f511d7b51af3859f4805ef6ce6",
-    "registry/security/controls/sec_xss_001.json": "d4c54ac9080b54b645a44dfdf13708fab102dd06bc2b8191e3f854882c977124",
-    "registry/security/definitions/secretClass.json": "c56db3bdca685b7efe885ae0f154eb8ed18c71b03655407a93084a6a3e65f885",
-    "registry/security/definitions/securityControl.json": "b435fe002cdf91e0bcbea634efbfa9865f6d7cc3bc1036c5bf19a7f3362f288c",
-    "registry/security/definitions/surfaceMapping.json": "9ebf30fa96c133d4fe93226ba8040b979d6ead7f3e6213c01024284b01d0b436",
-    "registry/security/definitions/verificationMethod.json": "19f6a5a39b94f4b739abeac3c44136b0e73fe7f625e95aab3b0af848f2821030"
+    "registry/security/index.json": "a966e1e7d3a7193794d7eaa202e5e967af77a2a20f6c9cb7e813e1a6fcfb97b2",
+    "registry/security/categories.json": "f194d918b7572cc394c732956e40724086e3499e3166623122c29b266725803f",
+    "registry/security/severity-levels.json": "563a024f388d4e40e445ccad70b6036920a8d4a11b1a53b494c1cf4bb1d35bf2",
+    "registry/security/obligations.json": "4af0d43189d19ad12ad43eb9f12e11e099316e571c58a8abe68541f1123a62b2",
+    "registry/security/verification-methods.json": "337d651e663d8d4f16925a16953536d28e1c4e95a384a98311d059584f4e134c",
+    "registry/security/secret-classes.json": "d91b9da40ed27747afb6ed02ff2708cc7da72ead4aea0c74b8747698a4be7b60",
+    "registry/security/surface-mapping.json": "47b37abe3de9846b5e49c5e4e96cd607c7ce0bbd992cf6ff909d16d73b45ca78",
+    "registry/security/security-control.schema.json": "965328e941a487920ffea9e41f88c8f648223d322b2bd957665028aae7f424f7",
+    "registry/security/controls/sec_abuse_001.json": "00fef16318292b032adf72e950779e077bbb189d0b5ba97927313d1d89c074c9",
+    "registry/security/controls/sec_audit_001.json": "43bed3679d0e66d8a16e9c1ef4e7ae88d858d96f3e9a8e23a15003b76e9189aa",
+    "registry/security/controls/sec_auth_001.json": "4f5034fa932216a146f21a4bb1f44765ac57159c1010651b6444861e879e57de",
+    "registry/security/controls/sec_auth_002.json": "639c0abb68338afd31ad5917994cd0e29b2da7a46598873e3ce26c49635841fb",
+    "registry/security/controls/sec_authz_001.json": "d03e981b9f0400a8f7199feebe25d0a3b5414dee028ef2ff94806e5c35d2c96c",
+    "registry/security/controls/sec_authz_002.json": "c57dabdcde562322e197785f0f6834ee3551ed3c4e477c0aaf3a6fd34a90cea5",
+    "registry/security/controls/sec_backup_001.json": "ddb5c80194e60288a97c01fc71a559961dd2e8ab2b8597f10d65974c1871402f",
+    "registry/security/controls/sec_brute_001.json": "666337a87bfb6b025f9ba31ca748410172fe2927bd68e1466071163c3ea66524",
+    "registry/security/controls/sec_cors_001.json": "5374399d0b843a19473621dc15a57e8c6caa6c766ac28b7faa74f58d86df0218",
+    "registry/security/controls/sec_csp_001.json": "f3257c0266c39648c2336597ea509174f75472f6db21b78b42530970feceb956",
+    "registry/security/controls/sec_csrf_001.json": "d5ed7fcbf80f21924011c4ed60452302e6c399ccceb5be27726433f249da1784",
+    "registry/security/controls/sec_dep_001.json": "7dab7399ebe0b7ab51dc162ce0b2124834420f056ab85686264c838e73ed22aa",
+    "registry/security/controls/sec_env_001.json": "871a8b979daaebf237c968ed281ce0ebc3676d3a1aaa4eb315a3130b974a2733",
+    "registry/security/controls/sec_err_001.json": "cf7cb1d8b65302d573f0d2202c214203097684b884691ce4ace122edebc815ea",
+    "registry/security/controls/sec_hdr_001.json": "2fd42330dffe4727e1401ab6c72db8d3188b5f6e15fdb6580da3a9f30b7c62c5",
+    "registry/security/controls/sec_idemp_001.json": "1fd0ceba6040c3047092f2f4ed6298375d2c6c346277f70092b29f7221130ae3",
+    "registry/security/controls/sec_in_001.json": "8c9af283b8fe5b9fd29d2c4602899a254d8576ce67dd1c7e4ba659f823496e1b",
+    "registry/security/controls/sec_int_001.json": "e0f14150694c88b301b6f19d4204e372917e9ec3bb5e9aec206127e11f7b3188",
+    "registry/security/controls/sec_int_002.json": "ac010ef589e150c8f6ea4228a351a4477f5140fef5733bd0a741fe2f7a97d500",
+    "registry/security/controls/sec_key_001.json": "676d15735b7e750c3d394a475ecd0b3b3dab265b5d75f51c1165692aa856edcc",
+    "registry/security/controls/sec_log_001.json": "30d08cb13de959f7035c0a8a2b75d39f63df16b3deb930e6ea0b8526325faf38",
+    "registry/security/controls/sec_oauth_001.json": "566fc3b04e3a8e5de87c5a6d8f0465379b60ea5aa87df70dfa2a1fe83f008846",
+    "registry/security/controls/sec_out_001.json": "f7004229942b790092d5cef568e574c7e6df1560cfb0d6993c4f288e67285ee4",
+    "registry/security/controls/sec_pay_001.json": "121b2d6cc8abc0cf828ca7eb98f175c789c3760a663c9e48cf00e678b8608d32",
+    "registry/security/controls/sec_pay_002.json": "aaf68cb84c47fdee371b6a7a794be243854ac46fb689dbdbd62e5998d06679e8",
+    "registry/security/controls/sec_pay_003.json": "460e14defe52628153e51cebdbfadd877acc277e0f38f48282a9964add2b5805",
+    "registry/security/controls/sec_pdata_001.json": "e1e7bc1eeb301bb574240e62268ee51cacc17904e116e72f17cf64162048999b",
+    "registry/security/controls/sec_prev_001.json": "69d6d7056dd2468d20bda2c732b193a03c4e3ab2f77651891815dda5aa5e06a8",
+    "registry/security/controls/sec_query_001.json": "913f17d722df06a10ab75b64349a23b3e4582da6f66603f6635c302390e94692",
+    "registry/security/controls/sec_rate_001.json": "8cb182fd832b58abfa1f4f717c2b292c0b06252305b3fda6046a8ee6a875aa21",
+    "registry/security/controls/sec_recovery_001.json": "efa6f1544088ec090d18344e930630dbaf49a16827973d034c8cb4bee944cb44",
+    "registry/security/controls/sec_redir_001.json": "58a7bb1f6c54935e6bfbf9b46582f4ef6aacef4a463c72b4872ed8d62043e012",
+    "registry/security/controls/sec_s2s_001.json": "7ebadb683792723d19fdbce986219bdd3e9d7e018349508e170103edbcf19e90",
+    "registry/security/controls/sec_san_001.json": "b089958eef62267fd8955d0989ca4e4695cbd84c83a9732c40500dd4652cff89",
+    "registry/security/controls/sec_secret_001.json": "48ecd926100b5f8efeb580489c30fba745ac48e09bc5da040c011119883a6106",
+    "registry/security/controls/sec_secret_002.json": "1c3aa84abfb69f67771d2d716ba6c4665935acd7889f7a50d3a1f94e01785288",
+    "registry/security/controls/sec_sess_001.json": "a93498d8567864d6db98e50178e997d06ff74ef0b622b14a15c1d8c1ef5c8e78",
+    "registry/security/controls/sec_ssrf_001.json": "b2c2d22147da8f5d79964f56f31927cb2ccecd3f6513de1e21efe686703805b9",
+    "registry/security/controls/sec_supply_001.json": "5c14e5f3df459d7f265256475091052ceb0039d2e137e1e8eb3d28525745379f",
+    "registry/security/controls/sec_tenant_001.json": "c0775b58ac1938aeea14705ace50bdba31621fe8703f361255d0fb164667489a",
+    "registry/security/controls/sec_tls_001.json": "ba65dbb5d50eb9d70a2e7893a805610071927a8d5ce9d094ca6a8f7d24615555",
+    "registry/security/controls/sec_token_001.json": "d9719e0e2aff1a808525ee9f6ba14495b5c6cfcff1b43a6bd624bdcdea0e22b6",
+    "registry/security/controls/sec_upl_001.json": "87c29f54a97e72067db7aa482995a21517da2a5cb40bba88c79706def2375219",
+    "registry/security/controls/sec_upl_002.json": "1db0c466a97689dddad519e14e44437cf62e2dae335a8798564e182e6a5f610e",
+    "registry/security/controls/sec_upl_003.json": "a15a184292640b7751f916e1148841c2b16057885efe3620697c89e0631eeb7d",
+    "registry/security/controls/sec_wh_001.json": "8321a38dc574f16f74e0197c1f56f1d090d39cc4210e1d85e7bc1697d9047aae",
+    "registry/security/controls/sec_wh_002.json": "3db97e53690e167179169de0af6cfc6fbe2a1a5db5eedc7ce8ec38bd05b33516",
+    "registry/security/controls/sec_wh_003.json": "2a6f603e9aa6b43f2ccf18223d388be64faed6a3b0b91c9a4be0ccc7e77db978",
+    "registry/security/controls/sec_xss_001.json": "11bd14df7cd51d9232aec06f91fcb943e7db7259c931867185f5d6defcb7415c",
+    "registry/security/definitions/secretClass.json": "81a95aadb0e88f131dfe701041be961c018d358d02937b2a258639730c3c44bc",
+    "registry/security/definitions/securityControl.json": "2139c4f67d3cce37422c7bdc35d498e4f0fa3f957eb256a2c73d821a8faebf70",
+    "registry/security/definitions/surfaceMapping.json": "af2e80efa05780df8605aee2f481380f7213e9ad9167cd9533325364d657c93f",
+    "registry/security/definitions/verificationMethod.json": "90dfc9df9a575f588b337db1affae1feabb1f08bdc094b18318dda8649cdbafd"
   }
 };

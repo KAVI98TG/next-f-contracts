@@ -1,0 +1,113 @@
+{
+  "$id": "customerAccess.policy.commerce.returns",
+  "name": "Returns Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.returns",
+  "contractRefs": [
+    "commerce.returnRequest",
+    "commerce.returnResolution"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.catalog"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.returns.view"
+    ],
+    "create": [],
+    "update": [
+      "commerce.returns.edit",
+      "commerce.returns.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.returns#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.returnRequest.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.returns#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.returnRequest.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.returns#orderId",
+      "field": "orderId",
+      "contractFieldRef": "commerce.returnRequest.orderId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.returns#customerId",
+      "field": "customerId",
+      "contractFieldRef": "commerce.returnRequest.customerId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.returns#lines",
+      "field": "lines",
+      "contractFieldRef": "commerce.returnRequest.lines",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.returns#status",
+      "field": "status",
+      "contractFieldRef": "commerce.returnRequest.status",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.returns#requestedAt",
+      "field": "requestedAt",
+      "contractFieldRef": "commerce.returnRequest.requestedAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.returns#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "commerce.returnRequest.updatedAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.returns#resolution",
+      "field": "resolution",
+      "contractFieldRef": "commerce.returnRequest.resolution",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.returns",
+    "adminProfileRef": "adminUi.profile.commerce.returns",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

@@ -1,0 +1,116 @@
+{
+  "$id": "customerAccess.policy.content.blogcategories",
+  "name": "Blog Categories Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.blogcategories",
+  "contractRefs": [
+    "content.blogCategory"
+  ],
+  "moduleRef": "blog",
+  "capabilityRefs": [
+    "blog.categories"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.blogcategories.view"
+    ],
+    "create": [
+      "content.blogcategories.create"
+    ],
+    "update": [
+      "content.blogcategories.edit",
+      "content.blogcategories.manage"
+    ],
+    "delete": [
+      "content.blogcategories.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.blogcategories#identity",
+      "field": "identity",
+      "contractFieldRef": "content.blogCategory.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogcategories#scope",
+      "field": "scope",
+      "contractFieldRef": "content.blogCategory.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogcategories#name",
+      "field": "name",
+      "contractFieldRef": "content.blogCategory.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogcategories#slug",
+      "field": "slug",
+      "contractFieldRef": "content.blogCategory.slug",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogcategories#description",
+      "field": "description",
+      "contractFieldRef": "content.blogCategory.description",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogcategories#parentCategory",
+      "field": "parentCategory",
+      "contractFieldRef": "content.blogCategory.parentCategory",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogcategories#featuredMedia",
+      "field": "featuredMedia",
+      "contractFieldRef": "content.blogCategory.featuredMedia",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogcategories#publishing",
+      "field": "publishing",
+      "contractFieldRef": "content.blogCategory.publishing",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogcategories#revision",
+      "field": "revision",
+      "contractFieldRef": "content.blogCategory.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.blogcategories",
+    "adminProfileRef": "adminUi.profile.content.blogcategories",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

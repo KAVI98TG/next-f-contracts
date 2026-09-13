@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.webhooks.tests",
   "name": "Tests Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -83,5 +83,29 @@
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate.",
     "Credential/secret values remain server-side; Admin displays state, fingerprints/metadata or rotation controls only."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.webhooks.tests",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "approvalRequired": false,
+    "capabilityRefs": [
+      "integrations.health"
+    ],
+    "editableFields": [],
+    "readOnlyFields": [
+      "requestedBy",
+      "requestedAt",
+      "syntheticEventKey",
+      "result"
+    ],
+    "hiddenFields": [
+      "testId",
+      "endpointId",
+      "subscriptionId"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

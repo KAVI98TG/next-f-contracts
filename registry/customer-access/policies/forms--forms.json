@@ -1,0 +1,186 @@
+{
+  "$id": "customerAccess.policy.forms.forms",
+  "name": "Forms Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "forms.forms",
+  "contractRefs": [
+    "forms.form",
+    "forms.formField",
+    "forms.formSection",
+    "forms.formStep"
+  ],
+  "moduleRef": "forms",
+  "capabilityRefs": [
+    "forms.notifications"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "allow",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "direct"
+  },
+  "permissionRefs": {
+    "read": [
+      "forms.forms.view"
+    ],
+    "create": [
+      "forms.forms.create"
+    ],
+    "update": [
+      "forms.forms.edit",
+      "forms.forms.manage"
+    ],
+    "delete": [
+      "forms.forms.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [
+      "forms.forms.publish"
+    ],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#id",
+      "field": "id",
+      "contractFieldRef": "forms.form.id",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#siteId",
+      "field": "siteId",
+      "contractFieldRef": "forms.form.siteId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#name",
+      "field": "name",
+      "contractFieldRef": "forms.form.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#publicTitle",
+      "field": "publicTitle",
+      "contractFieldRef": "forms.form.publicTitle",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#slug",
+      "field": "slug",
+      "contractFieldRef": "forms.form.slug",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#description",
+      "field": "description",
+      "contractFieldRef": "forms.form.description",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#renderMode",
+      "field": "renderMode",
+      "contractFieldRef": "forms.form.renderMode",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#fieldIds",
+      "field": "fieldIds",
+      "contractFieldRef": "forms.form.fieldIds",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#sectionIds",
+      "field": "sectionIds",
+      "contractFieldRef": "forms.form.sectionIds",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#stepIds",
+      "field": "stepIds",
+      "contractFieldRef": "forms.form.stepIds",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#availability",
+      "field": "availability",
+      "contractFieldRef": "forms.form.availability",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#confirmation",
+      "field": "confirmation",
+      "contractFieldRef": "forms.form.confirmation",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#dataHandling",
+      "field": "dataHandling",
+      "contractFieldRef": "forms.form.dataHandling",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#spamPolicy",
+      "field": "spamPolicy",
+      "contractFieldRef": "forms.form.spamPolicy",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#rateLimitPolicy",
+      "field": "rateLimitPolicy",
+      "contractFieldRef": "forms.form.rateLimitPolicy",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#submitLabel",
+      "field": "submitLabel",
+      "contractFieldRef": "forms.form.submitLabel",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#formVersion",
+      "field": "formVersion",
+      "contractFieldRef": "forms.form.formVersion",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#createdAt",
+      "field": "createdAt",
+      "contractFieldRef": "forms.form.createdAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.forms#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "forms.form.updatedAt",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.create-form",
+    "api.customer-cms.get-form",
+    "api.customer-cms.list-forms",
+    "api.customer-cms.update-form"
+  ],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.forms.forms",
+    "adminProfileRef": "adminUi.profile.forms.forms",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

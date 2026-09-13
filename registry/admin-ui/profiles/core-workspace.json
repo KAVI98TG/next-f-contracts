@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.core.workspace",
   "name": "Workspace Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -79,5 +79,28 @@
   },
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.core.workspace",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "approvalRequired": false,
+    "capabilityRefs": [
+      "core.identity"
+    ],
+    "editableFields": [
+      "name"
+    ],
+    "readOnlyFields": [
+      "primaryUrl",
+      "status"
+    ],
+    "hiddenFields": [
+      "identity",
+      "organizationId"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

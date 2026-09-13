@@ -1,0 +1,125 @@
+{
+  "$id": "customerAccess.policy.marketing.tracking",
+  "name": "Tracking Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "marketing.tracking",
+  "contractRefs": [
+    "marketing.trackingConfiguration",
+    "marketing.dataLayerConfiguration"
+  ],
+  "moduleRef": "marketing",
+  "capabilityRefs": [
+    "marketing.conversions"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "marketing.tracking.view"
+    ],
+    "create": [],
+    "update": [
+      "marketing.tracking.edit",
+      "marketing.tracking.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.marketing.tracking#identity",
+      "field": "identity",
+      "contractFieldRef": "marketing.trackingConfiguration.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.tracking#scope",
+      "field": "scope",
+      "contractFieldRef": "marketing.trackingConfiguration.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.tracking#enabled",
+      "field": "enabled",
+      "contractFieldRef": "marketing.trackingConfiguration.enabled",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.tracking#dataLayer",
+      "field": "dataLayer",
+      "contractFieldRef": "marketing.trackingConfiguration.dataLayer",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.tracking#dataPolicy",
+      "field": "dataPolicy",
+      "contractFieldRef": "marketing.trackingConfiguration.dataPolicy",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.tracking#consentPolicy",
+      "field": "consentPolicy",
+      "contractFieldRef": "marketing.trackingConfiguration.consentPolicy",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.tracking#analytics",
+      "field": "analytics",
+      "contractFieldRef": "marketing.trackingConfiguration.analytics",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.tracking#eventDefinitions",
+      "field": "eventDefinitions",
+      "contractFieldRef": "marketing.trackingConfiguration.eventDefinitions",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.tracking#destinations",
+      "field": "destinations",
+      "contractFieldRef": "marketing.trackingConfiguration.destinations",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.tracking#debugMode",
+      "field": "debugMode",
+      "contractFieldRef": "marketing.trackingConfiguration.debugMode",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.tracking#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "marketing.trackingConfiguration.updatedAt",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.marketing.tracking",
+    "adminProfileRef": "adminUi.profile.marketing.tracking",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

@@ -1,0 +1,147 @@
+{
+  "$id": "customerAccess.policy.seo.metadata",
+  "name": "Metadata Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "seo.metadata",
+  "contractRefs": [
+    "seo.metadata"
+  ],
+  "moduleRef": "seo",
+  "capabilityRefs": [
+    "seo.metadata"
+  ],
+  "customerMode": "approval_required",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "request",
+    "delete": "deny",
+    "submit_for_review": "allow",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "seo.metadata.view"
+    ],
+    "create": [],
+    "update": [
+      "seo.metadata.edit"
+    ],
+    "delete": [],
+    "submit_for_review": [
+      "core.changerequests.create"
+    ],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#identity",
+      "field": "identity",
+      "contractFieldRef": "seo.metadata.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#scope",
+      "field": "scope",
+      "contractFieldRef": "seo.metadata.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#target",
+      "field": "target",
+      "contractFieldRef": "seo.metadata.target",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#metaTitle",
+      "field": "metaTitle",
+      "contractFieldRef": "seo.metadata.metaTitle",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#metaDescription",
+      "field": "metaDescription",
+      "contractFieldRef": "seo.metadata.metaDescription",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#keywords",
+      "field": "keywords",
+      "contractFieldRef": "seo.metadata.keywords",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#canonicalUrl",
+      "field": "canonicalUrl",
+      "contractFieldRef": "seo.metadata.canonicalUrl",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#robots",
+      "field": "robots",
+      "contractFieldRef": "seo.metadata.robots",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#openGraph",
+      "field": "openGraph",
+      "contractFieldRef": "seo.metadata.openGraph",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#socialCard",
+      "field": "socialCard",
+      "contractFieldRef": "seo.metadata.socialCard",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#structuredData",
+      "field": "structuredData",
+      "contractFieldRef": "seo.metadata.structuredData",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#alternates",
+      "field": "alternates",
+      "contractFieldRef": "seo.metadata.alternates",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.metadata#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "seo.metadata.updatedAt",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.cancel-change-request",
+    "api.customer-cms.get-seo",
+    "api.customer-cms.submit-change-request",
+    "api.customer-cms.update-seo"
+  ],
+  "eventRefs": [
+    "customer-change-request.submitted",
+    "customer-change-request.cancelled",
+    "customer-change-request.approved",
+    "customer-change-request.applied"
+  ],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.seo.metadata",
+    "adminProfileRef": "adminUi.profile.seo.metadata",
+    "approvalContractRef": "customerAccess.changeRequest"
+  },
+  "notes": []
+}

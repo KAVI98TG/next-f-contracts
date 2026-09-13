@@ -1,0 +1,30 @@
+{
+  "$id": "core.changerequests.approve",
+  "name": "Approve Customer Change Requests",
+  "permissionId": "core.changerequests.approve",
+  "domain": "core",
+  "resource": "changerequests",
+  "action": "approve",
+  "scopeKind": "site",
+  "riskLevel": "privileged",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": true,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Approve Customer Change Requests within the authorized Site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [
+    "Approval never applies a stale proposal and never bypasses canonical publishing policy."
+  ],
+  "version": "1.1.0",
+  "status": "stable"
+}

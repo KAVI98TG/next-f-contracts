@@ -1,0 +1,38 @@
+{
+  "releaseVersion": "1.1.0",
+  "phase": 38,
+  "status": "STABLE",
+  "previousStableVersion": "1.0.0",
+  "releaseTimestamp": "2026-09-13T10:24:49.575Z",
+  "registrySha256": "22adebc6e25291e609af1a995093e35759989a7c5b7ae56f758dc151a4295fdf",
+  "counts": {
+    "registryItems": 2284,
+    "policies": 75,
+    "searchDocuments": 7436,
+    "relationshipNodes": 2284,
+    "relationshipEdges": 8759,
+    "exactDiffReleases": 34
+  },
+  "snapshots": {
+    "index": "registry/releases/1.1.0/snapshot-index.json",
+    "root": "registry/releases/1.1.0/snapshots"
+  },
+  "acceptance": {
+    "report": "registry/releases/1.1.0/acceptance-report.json",
+    "conclusion": {
+      "blockingFailures": 0,
+      "nonBlockingWarnings": 2,
+      "final": "PASS"
+    }
+  },
+  "compatibility": {
+    "status": "review-required",
+    "reason": "V1.0.0 sites remain pinned; consuming runtimes must explicitly implement V1.1.0 policy awareness."
+  },
+  "runtimeTruth": {
+    "registryMetadataAvailable": true,
+    "customerCmsRuntime": "not-declared",
+    "nextfAdminRuntime": "not-declared",
+    "apiRuntimes": "not-declared"
+  }
+}

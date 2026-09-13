@@ -1,0 +1,110 @@
+{
+  "$id": "customerAccess.policy.commerce.categories",
+  "name": "Categories Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.categories",
+  "contractRefs": [
+    "commerce.productCategory"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.categories"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.categories.view"
+    ],
+    "create": [
+      "commerce.categories.create"
+    ],
+    "update": [
+      "commerce.categories.edit",
+      "commerce.categories.manage"
+    ],
+    "delete": [
+      "commerce.categories.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.categories#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.productCategory.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.categories#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.productCategory.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.categories#name",
+      "field": "name",
+      "contractFieldRef": "commerce.productCategory.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.categories#slug",
+      "field": "slug",
+      "contractFieldRef": "commerce.productCategory.slug",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.categories#description",
+      "field": "description",
+      "contractFieldRef": "commerce.productCategory.description",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.categories#parentCategoryId",
+      "field": "parentCategoryId",
+      "contractFieldRef": "commerce.productCategory.parentCategoryId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.categories#featuredMedia",
+      "field": "featuredMedia",
+      "contractFieldRef": "commerce.productCategory.featuredMedia",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.categories#publishing",
+      "field": "publishing",
+      "contractFieldRef": "commerce.productCategory.publishing",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.categories",
+    "adminProfileRef": "adminUi.profile.commerce.categories",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

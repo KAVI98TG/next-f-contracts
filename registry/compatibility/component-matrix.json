@@ -1,14 +1,14 @@
 {
-  "registryVersion": "1.0.0",
-  "targetContractVersion": "1.0.0",
+  "registryVersion": "1.1.0",
+  "targetContractVersion": "1.1.0",
   "generatedAt": "2026-09-11T00:00:00Z",
   "components": [
     {
       "componentId": "contracts.registry",
       "componentType": "contract-registry",
       "name": "NEXT F Contract Registry",
-      "specificationVersion": "1.0.0",
-      "registryRelease": "1.0.0",
+      "specificationVersion": "1.1.0",
+      "registryRelease": "1.1.0",
       "runtimeImplemented": true,
       "runtimeEvidence": "static-authoritative-repository",
       "source": "registry/registry.json",
@@ -97,7 +97,7 @@
       "runtimeEvidence": "metadata-only",
       "source": "registry/cms-ui/index.json",
       "compatibilityStatus": "unknown",
-      "summary": "UI metadata exists; the final Customer CMS runtime has not been declared as a production runtime here."
+      "summary": "UI metadata exists; the final Customer CMS runtime has not been declared as a production runtime here. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
     },
     {
       "componentId": "nextf-admin-ui.metadata",
@@ -109,7 +109,7 @@
       "runtimeEvidence": "metadata-only",
       "source": "registry/admin-ui/index.json",
       "compatibilityStatus": "unknown",
-      "summary": "Admin UI metadata exists; the final NEXT F Admin runtime is outside this public static registry."
+      "summary": "Admin UI metadata exists; the final NEXT F Admin runtime is outside this public static registry. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
     },
     {
       "componentId": "site-runtime",
@@ -145,7 +145,7 @@
       "runtimeEvidence": "not-declared",
       "source": "registry/api/groups/customer-cms.json",
       "compatibilityStatus": "unknown",
-      "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk."
+      "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
     },
     {
       "componentId": "api.events",
@@ -169,7 +169,7 @@
       "runtimeEvidence": "not-declared",
       "source": "registry/api/groups/nextf-admin.json",
       "compatibilityStatus": "unknown",
-      "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk."
+      "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
     },
     {
       "componentId": "api.public-content",
@@ -206,6 +206,18 @@
       "source": "registry/api/groups/webhooks.json",
       "compatibilityStatus": "unknown",
       "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk."
+    },
+    {
+      "componentId": "customer-access.policy-registry",
+      "componentType": "customer-access-policy-registry",
+      "name": "Customer Capability Access Policy Registry",
+      "specificationVersion": "1.1.0",
+      "registryRelease": "1.1.0",
+      "runtimeImplemented": true,
+      "runtimeEvidence": "machine-registry",
+      "source": "registry/customer-access/index.json",
+      "compatibilityStatus": "compatible",
+      "summary": "Canonical policy metadata is available; consuming CMS, Admin and API runtimes must explicitly declare V1.1.0 policy awareness."
     }
   ]
 }

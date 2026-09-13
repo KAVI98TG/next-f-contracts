@@ -1,0 +1,114 @@
+{
+  "$id": "customerAccess.policy.forms.notifications",
+  "name": "Form Notifications Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "forms.notifications",
+  "contractRefs": [
+    "forms.notificationRule",
+    "forms.autoResponse"
+  ],
+  "moduleRef": "forms",
+  "capabilityRefs": [
+    "forms.auto-response",
+    "forms.notifications"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "forms.notifications.view"
+    ],
+    "create": [],
+    "update": [
+      "forms.notifications.edit",
+      "forms.notifications.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.forms.notifications#id",
+      "field": "id",
+      "contractFieldRef": "forms.notificationRule.id",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.notifications#formId",
+      "field": "formId",
+      "contractFieldRef": "forms.notificationRule.formId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.notifications#enabled",
+      "field": "enabled",
+      "contractFieldRef": "forms.notificationRule.enabled",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.notifications#outcome",
+      "field": "outcome",
+      "contractFieldRef": "forms.notificationRule.outcome",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.notifications#recipients",
+      "field": "recipients",
+      "contractFieldRef": "forms.notificationRule.recipients",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.notifications#subjectTemplate",
+      "field": "subjectTemplate",
+      "contractFieldRef": "forms.notificationRule.subjectTemplate",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.notifications#bodyTemplate",
+      "field": "bodyTemplate",
+      "contractFieldRef": "forms.notificationRule.bodyTemplate",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.notifications#includeFieldKeys",
+      "field": "includeFieldKeys",
+      "contractFieldRef": "forms.notificationRule.includeFieldKeys",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.notifications#includeSensitiveFields",
+      "field": "includeSensitiveFields",
+      "contractFieldRef": "forms.notificationRule.includeSensitiveFields",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.forms.notifications",
+    "adminProfileRef": "adminUi.profile.forms.notifications",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

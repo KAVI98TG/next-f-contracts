@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.content.locations",
   "name": "Locations",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -478,5 +478,51 @@
       "requiresPermission": "content.locations.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.locations",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "direct",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "allow",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "content.locations.view"
+      ],
+      "create": [
+        "content.locations.create"
+      ],
+      "update": [
+        "content.locations.edit",
+        "content.locations.publish"
+      ],
+      "delete": [
+        "content.locations.delete"
+      ],
+      "submit_for_review": [
+        "content.locations.approve"
+      ],
+      "publish": [
+        "content.locations.publish"
+      ],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "pages.sections"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

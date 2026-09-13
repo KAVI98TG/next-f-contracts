@@ -1,0 +1,110 @@
+{
+  "$id": "customerAccess.policy.permissions.assignments",
+  "name": "Role Assignments Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "permissions.assignments",
+  "contractRefs": [
+    "permissions.roleAssignment"
+  ],
+  "moduleRef": "core",
+  "capabilityRefs": [
+    "core.identity"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "permissions.assignments.view"
+    ],
+    "create": [
+      "permissions.assignments.create"
+    ],
+    "update": [
+      "permissions.assignments.edit",
+      "permissions.assignments.manage"
+    ],
+    "delete": [
+      "permissions.assignments.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.permissions.assignments#assignmentId",
+      "field": "assignmentId",
+      "contractFieldRef": "permissions.roleAssignment.assignmentId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.assignments#principal",
+      "field": "principal",
+      "contractFieldRef": "permissions.roleAssignment.principal",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.assignments#roleId",
+      "field": "roleId",
+      "contractFieldRef": "permissions.roleAssignment.roleId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.assignments#scope",
+      "field": "scope",
+      "contractFieldRef": "permissions.roleAssignment.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.assignments#status",
+      "field": "status",
+      "contractFieldRef": "permissions.roleAssignment.status",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.assignments#startsAt",
+      "field": "startsAt",
+      "contractFieldRef": "permissions.roleAssignment.startsAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.assignments#expiresAt",
+      "field": "expiresAt",
+      "contractFieldRef": "permissions.roleAssignment.expiresAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.assignments#assignedBy",
+      "field": "assignedBy",
+      "contractFieldRef": "permissions.roleAssignment.assignedBy",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.permissions.assignments",
+    "adminProfileRef": "adminUi.profile.permissions.assignments",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

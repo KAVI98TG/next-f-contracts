@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contracts.nextf.lk/registry/customer-access/customer-access-policy.schema.json",
+  "title": "NEXT F Customer Capability Access Policy",
+  "type": "object",
+  "required": [
+    "$id",
+    "version",
+    "status",
+    "resourceRef",
+    "moduleRef",
+    "customerMode",
+    "actions",
+    "publishingPolicy",
+    "permissionRefs",
+    "fieldRules",
+    "demoPolicy",
+    "relationships"
+  ],
+  "properties": {
+    "$id": {
+      "type": "string",
+      "pattern": "^customerAccess\\.policy\\."
+    },
+    "version": {
+      "const": "1.1.0"
+    },
+    "status": {
+      "enum": [
+        "stable",
+        "deprecated"
+      ]
+    },
+    "resourceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "moduleRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capabilityRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "customerMode": {
+      "enum": [
+        "hidden",
+        "read_only",
+        "direct_edit",
+        "approval_required"
+      ]
+    },
+    "actions": {
+      "type": "object",
+      "required": [
+        "read",
+        "create",
+        "update",
+        "delete",
+        "submit_for_review",
+        "publish",
+        "unpublish",
+        "restore_version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "read": {
+          "enum": [
+            "allow",
+            "request",
+            "deny"
+          ]
+        },
+        "create": {
+          "enum": [
+            "allow",
+            "request",
+            "deny"
+          ]
+        },
+        "update": {
+          "enum": [
+            "allow",
+            "request",
+            "deny"
+          ]
+        },
+        "delete": {
+          "enum": [
+            "allow",
+            "request",
+            "deny"
+          ]
+        },
+        "submit_for_review": {
+          "enum": [
+            "allow",
+            "request",
+            "deny"
+          ]
+        },
+        "publish": {
+          "enum": [
+            "allow",
+            "request",
+            "deny"
+          ]
+        },
+        "unpublish": {
+          "enum": [
+            "allow",
+            "request",
+            "deny"
+          ]
+        },
+        "restore_version": {
+          "enum": [
+            "allow",
+            "request",
+            "deny"
+          ]
+        }
+      }
+    },
+    "publishingPolicy": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "not_applicable",
+            "direct",
+            "approval_required",
+            "admin_only"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "permissionRefs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "uniqueItems": true
+      }
+    },
+    "fieldRules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "fieldRef",
+          "field",
+          "mode"
+        ],
+        "properties": {
+          "fieldRef": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "contractFieldRef": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "mode": {
+            "enum": [
+              "inherit",
+              "hidden",
+              "read_only",
+              "direct_edit",
+              "approval_required"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "demoPolicy": {
+      "type": "object",
+      "required": [
+        "mode",
+        "productionWrites"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "disabled",
+            "read_only_sample",
+            "simulated_write_sample"
+          ]
+        },
+        "productionWrites": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "relationships": {
+      "type": "object",
+      "required": [
+        "customerCmsProfileRef"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

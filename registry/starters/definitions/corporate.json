@@ -2,7 +2,7 @@
   "$id": "starters.corporate",
   "slug": "corporate",
   "name": "Corporate Site Starter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "stable",
   "siteType": "corporate",
   "sourceExampleId": "examples.corporate-site",

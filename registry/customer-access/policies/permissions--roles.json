@@ -1,0 +1,104 @@
+{
+  "$id": "customerAccess.policy.permissions.roles",
+  "name": "Roles Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "permissions.roles",
+  "contractRefs": [
+    "permissions.roleDefinition"
+  ],
+  "moduleRef": "core",
+  "capabilityRefs": [
+    "core.identity"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "permissions.roles.view"
+    ],
+    "create": [
+      "permissions.roles.create"
+    ],
+    "update": [
+      "permissions.roles.edit",
+      "permissions.roles.manage"
+    ],
+    "delete": [
+      "permissions.roles.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.permissions.roles#roleKey",
+      "field": "roleKey",
+      "contractFieldRef": "permissions.roleDefinition.roleKey",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.roles#displayName",
+      "field": "displayName",
+      "contractFieldRef": "permissions.roleDefinition.displayName",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.roles#roleType",
+      "field": "roleType",
+      "contractFieldRef": "permissions.roleDefinition.roleType",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.roles#scopeKind",
+      "field": "scopeKind",
+      "contractFieldRef": "permissions.roleDefinition.scopeKind",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.roles#permissionIds",
+      "field": "permissionIds",
+      "contractFieldRef": "permissions.roleDefinition.permissionIds",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.roles#assignableByCustomer",
+      "field": "assignableByCustomer",
+      "contractFieldRef": "permissions.roleDefinition.assignableByCustomer",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.roles#systemProtected",
+      "field": "systemProtected",
+      "contractFieldRef": "permissions.roleDefinition.systemProtected",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.permissions.roles",
+    "adminProfileRef": "adminUi.profile.permissions.roles",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

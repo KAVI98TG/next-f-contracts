@@ -1,0 +1,76 @@
+{
+  "$id": "customerAccess.policy.seo.indexing",
+  "name": "Indexing Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "seo.indexing",
+  "contractRefs": [
+    "seo.indexingStatus",
+    "seo.urlInspectionResult"
+  ],
+  "moduleRef": "seo",
+  "capabilityRefs": [
+    "seo.indexing"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "seo.indexing.view"
+    ],
+    "create": [],
+    "update": [
+      "seo.indexing.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.seo.indexing#state",
+      "field": "state",
+      "contractFieldRef": "seo.indexingStatus.state",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.indexing#reason",
+      "field": "reason",
+      "contractFieldRef": "seo.indexingStatus.reason",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.indexing#source",
+      "field": "source",
+      "contractFieldRef": "seo.indexingStatus.source",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.seo.indexing",
+    "adminProfileRef": "adminUi.profile.seo.indexing",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

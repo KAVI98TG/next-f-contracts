@@ -1,0 +1,27 @@
+{
+  "registryVersion": "1.1.0",
+  "$id": "customerAccess.effectivePolicyResolution",
+  "name": "Effective Customer Access Resolution",
+  "status": "stable",
+  "phase": 38,
+  "algorithm": [
+    "canonical-policy-maximum",
+    "site-manifest-enabled-module-and-capability",
+    "workspace-entitlement",
+    "principal-role-permission-and-scope",
+    "resource-state",
+    "field-policy",
+    "security-and-privacy-restrictions"
+  ],
+  "combination": "intersection",
+  "conflictRule": "most-restrictive-wins",
+  "missingWritePolicy": "deny",
+  "invariants": [
+    "A Site Manifest can restrict but never broaden canonical policy.",
+    "A role or entitlement can restrict but never broaden canonical policy.",
+    "UI visibility is never authorization.",
+    "Security and privacy restrictions override permissive policy.",
+    "Demo mode never writes production data.",
+    "V1.0.0 sites remain governed by their pinned release until explicit upgrade."
+  ]
+}

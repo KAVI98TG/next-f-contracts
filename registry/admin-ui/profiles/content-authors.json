@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.content.authors",
   "name": "Authors Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -108,5 +108,34 @@
   },
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.authors",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "approvalRequired": false,
+    "capabilityRefs": [
+      "pages.sections"
+    ],
+    "editableFields": [
+      "displayName",
+      "slug",
+      "position",
+      "photo",
+      "bio",
+      "contact",
+      "website",
+      "socialLinks",
+      "publishing"
+    ],
+    "readOnlyFields": [],
+    "hiddenFields": [
+      "identity",
+      "scope",
+      "revision"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

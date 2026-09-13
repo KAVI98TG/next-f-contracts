@@ -1,0 +1,144 @@
+{
+  "$id": "customerAccess.policy.content.locations",
+  "name": "Locations Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.locations",
+  "contractRefs": [
+    "content.location"
+  ],
+  "moduleRef": "pages",
+  "capabilityRefs": [
+    "pages.sections"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "allow",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "direct"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.locations.view"
+    ],
+    "create": [
+      "content.locations.create"
+    ],
+    "update": [
+      "content.locations.edit",
+      "content.locations.publish"
+    ],
+    "delete": [
+      "content.locations.delete"
+    ],
+    "submit_for_review": [
+      "content.locations.approve"
+    ],
+    "publish": [
+      "content.locations.publish"
+    ],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.locations#identity",
+      "field": "identity",
+      "contractFieldRef": "content.location.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#scope",
+      "field": "scope",
+      "contractFieldRef": "content.location.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#name",
+      "field": "name",
+      "contractFieldRef": "content.location.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#slug",
+      "field": "slug",
+      "contractFieldRef": "content.location.slug",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#address",
+      "field": "address",
+      "contractFieldRef": "content.location.address",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#coordinates",
+      "field": "coordinates",
+      "contractFieldRef": "content.location.coordinates",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#contact",
+      "field": "contact",
+      "contractFieldRef": "content.location.contact",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#businessHours",
+      "field": "businessHours",
+      "contractFieldRef": "content.location.businessHours",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#directionsUrl",
+      "field": "directionsUrl",
+      "contractFieldRef": "content.location.directionsUrl",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#featuredMedia",
+      "field": "featuredMedia",
+      "contractFieldRef": "content.location.featuredMedia",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#displayOrder",
+      "field": "displayOrder",
+      "contractFieldRef": "content.location.displayOrder",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#publishing",
+      "field": "publishing",
+      "contractFieldRef": "content.location.publishing",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.locations#revision",
+      "field": "revision",
+      "contractFieldRef": "content.location.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.locations",
+    "adminProfileRef": "adminUi.profile.content.locations",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

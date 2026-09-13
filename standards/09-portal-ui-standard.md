@@ -10,16 +10,15 @@ The portal is a technical reference application. Its design must prioritize clar
 
 ## Permanent visual direction
 
-- light theme only
+- shared light and dark themes with a persisted user preference
 - paper SaaS dashboard design
 - NEXT F blue as the primary action and information color
-- white primary surfaces
-- subtle neutral app background
+- high-contrast paper surfaces in both themes
+- subtle neutral app backgrounds
 - clear neutral borders
 - minimal low-elevation shadows
 - no glassmorphism
 - no backdrop blur
-- no dark mode
 - no decorative 3D background
 - no particle effects
 - no excessive gradients
@@ -157,9 +156,11 @@ Do not introduce a separate visual language for individual registry domains.
 
 Commerce, SEO, Content, Webhooks and other sections must remain part of the same portal design system.
 
-Do not add dark mode unless the permanent portal standard is explicitly changed in a future contract release.
+Theme differences must remain token-driven. Individual registry domains must not introduce independent palettes or theme behavior.
+
+The portal defaults to dark when no preference has been stored. The top-bar theme control must expose an accessible name, persist the selected light or dark theme, and apply the same theme to every route and shared component.
 
 
 ## Phase 2 registry extension
 
-Registry tables, filters, detail metadata, relationship lists and copy notifications must follow the same light-only paper dashboard system and accessibility baseline.
+Registry tables, filters, detail metadata, relationship lists and copy notifications must follow the same themed paper dashboard system and accessibility baseline.

@@ -1,0 +1,123 @@
+{
+  "$id": "customerAccess.policy.integrations.connections",
+  "name": "Integration Connections Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "integrations.connections",
+  "contractRefs": [
+    "integrations.integrationConnection",
+    "integrations.connectorDefinition"
+  ],
+  "moduleRef": "integrations",
+  "capabilityRefs": [
+    "integrations.health"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "integrations.connections.view"
+    ],
+    "create": [
+      "integrations.connections.create"
+    ],
+    "update": [
+      "integrations.connections.edit",
+      "integrations.connections.manage"
+    ],
+    "delete": [
+      "integrations.connections.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.integrations.connections#identity",
+      "field": "identity",
+      "contractFieldRef": "integrations.integrationConnection.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.connections#scope",
+      "field": "scope",
+      "contractFieldRef": "integrations.integrationConnection.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.connections#connectorKey",
+      "field": "connectorKey",
+      "contractFieldRef": "integrations.integrationConnection.connectorKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.connections#status",
+      "field": "status",
+      "contractFieldRef": "integrations.integrationConnection.status",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.connections#environmentBindings",
+      "field": "environmentBindings",
+      "contractFieldRef": "integrations.integrationConnection.environmentBindings",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.connections#capabilities",
+      "field": "capabilities",
+      "contractFieldRef": "integrations.integrationConnection.capabilities",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.connections#consent",
+      "field": "consent",
+      "contractFieldRef": "integrations.integrationConnection.consent",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.connections#dataPolicy",
+      "field": "dataPolicy",
+      "contractFieldRef": "integrations.integrationConnection.dataPolicy",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.connections#health",
+      "field": "health",
+      "contractFieldRef": "integrations.integrationConnection.health",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.connections#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "integrations.integrationConnection.updatedAt",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.integrations.connections",
+    "adminProfileRef": "adminUi.profile.integrations.connections",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

@@ -34,7 +34,7 @@
   "relatedRegistryIds": [],
   "manualReviewRequired": true,
   "subrequirements": [],
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "stable",
   "phase": 31,
   "sourceReference": "registry/accessibility/controls/acc_cms_001.json"

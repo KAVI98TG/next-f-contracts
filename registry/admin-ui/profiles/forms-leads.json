@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.forms.leads",
   "name": "Leads Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -121,5 +121,38 @@
   },
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.forms.leads",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "approvalRequired": false,
+    "capabilityRefs": [
+      "leads.activity",
+      "leads.export",
+      "leads.notes",
+      "leads.status"
+    ],
+    "editableFields": [
+      "displayName",
+      "organizationName",
+      "contactPoints",
+      "source",
+      "statusKey",
+      "assignedTo",
+      "tags",
+      "submissionIds",
+      "lastActivityAt"
+    ],
+    "readOnlyFields": [],
+    "hiddenFields": [
+      "id",
+      "siteId",
+      "createdAt",
+      "updatedAt"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

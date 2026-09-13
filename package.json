@@ -1,14 +1,17 @@
 {
   "name": "next-f-contracts",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "generate:registry": "node scripts/generate-registry-bootstrap.mjs",
     "validate:phase0": "node scripts/validate-phase-0.mjs",
     "validate:phase1": "node scripts/validate-phase-1.mjs",
     "validate:phase2": "node scripts/validate-phase-2.mjs",
-    "validate": "node scripts/validate-phase-37.mjs",
+    "validate": "node scripts/validate-phase-38.mjs",
+    "generate:customer-access": "node scripts/sync-customer-access-policy.mjs",
+    "validate:phase38": "node scripts/validate-phase-38.mjs",
+    "smoke:phase38": "node scripts/smoke-phase-38.mjs",
     "generate:fields": "node scripts/sync-field-registry.mjs",
     "validate:phase3": "node scripts/validate-phase-3.mjs",
     "generate:core": "node scripts/sync-core-schema-registry.mjs",
@@ -111,7 +114,7 @@
     "generate:health": "node scripts/sync-registry-health.mjs",
     "validate:phase36": "node scripts/validate-phase-36.mjs",
     "smoke:phase36": "node scripts/smoke-phase-36.mjs",
-    "generate:release": "node scripts/sync-production-acceptance.mjs",
+    "generate:release": "node scripts/sync-customer-access-release.mjs",
     "validate:phase37": "node scripts/validate-phase-37.mjs",
     "smoke:phase37": "node scripts/smoke-phase-37.mjs",
     "cloudflare:prepare": "node scripts/prepare-cloudflare-deploy.mjs",
@@ -120,7 +123,7 @@
     "cloudflare:deploy": "npm run validate && npm run validate:regression && npm run cloudflare:prepare && wrangler deploy"
   },
   "devDependencies": {
-    "wrangler": "^4.34.0"
+    "wrangler": "^4.131.1"
   },
   "bin": {
     "nextf-contract": "./bin/nextf-contract.mjs"

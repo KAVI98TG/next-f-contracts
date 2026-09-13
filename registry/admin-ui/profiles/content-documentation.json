@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.content.documentation",
   "name": "Documentation Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -119,5 +119,42 @@
   },
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.documentation",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "direct",
+    "approvalRequired": false,
+    "capabilityRefs": [
+      "documentation.attachments",
+      "documentation.categories",
+      "documentation.collections",
+      "documentation.related-articles",
+      "documentation.versioning",
+      "documentation.visibility"
+    ],
+    "editableFields": [
+      "title",
+      "slug",
+      "summary",
+      "content",
+      "collection",
+      "category",
+      "author",
+      "versionLabel",
+      "tableOfContents",
+      "relatedArticles",
+      "attachments",
+      "publishing"
+    ],
+    "readOnlyFields": [],
+    "hiddenFields": [
+      "identity",
+      "scope",
+      "revision"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

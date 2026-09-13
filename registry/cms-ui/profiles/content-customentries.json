@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.content.customentries",
   "name": "Custom Entries",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -368,5 +368,51 @@
       "requiresPermission": "content.customentries.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.customentries",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "direct",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "allow",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "content.customentries.view"
+      ],
+      "create": [
+        "content.customentries.create"
+      ],
+      "update": [
+        "content.customentries.edit",
+        "content.customentries.publish"
+      ],
+      "delete": [
+        "content.customentries.delete"
+      ],
+      "submit_for_review": [
+        "content.customentries.approve"
+      ],
+      "publish": [
+        "content.customentries.publish"
+      ],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "pages.custom-collections"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

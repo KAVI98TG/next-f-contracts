@@ -36,8 +36,8 @@
     transform: translateX(0);
   }
 
-  .sidebar__close,
-  .mobile-menu {
+  .icon-button.sidebar__close,
+  .icon-button.mobile-menu {
     display: inline-grid;
   }
 
@@ -130,6 +130,10 @@
 @media (max-width: 460px) {
   .topbar__right > .icon-button {
     display: none;
+  }
+
+  .topbar__right > [data-theme-toggle] {
+    display: inline-grid;
   }
 
   .paper-card__header,

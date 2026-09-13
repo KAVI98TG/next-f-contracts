@@ -1,0 +1,126 @@
+{
+  "$id": "customerAccess.policy.commerce.refunds",
+  "name": "Refunds Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.refunds",
+  "contractRefs": [
+    "commerce.refund"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.refunds"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.refunds.export",
+      "commerce.refunds.view"
+    ],
+    "create": [
+      "commerce.refunds.create"
+    ],
+    "update": [
+      "commerce.refunds.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.refunds#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.refund.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.refunds#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.refund.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.refunds#orderId",
+      "field": "orderId",
+      "contractFieldRef": "commerce.refund.orderId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.refunds#paymentId",
+      "field": "paymentId",
+      "contractFieldRef": "commerce.refund.paymentId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.refunds#amount",
+      "field": "amount",
+      "contractFieldRef": "commerce.refund.amount",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.refunds#reason",
+      "field": "reason",
+      "contractFieldRef": "commerce.refund.reason",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.refunds#status",
+      "field": "status",
+      "contractFieldRef": "commerce.refund.status",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.refunds#providerRefundId",
+      "field": "providerRefundId",
+      "contractFieldRef": "commerce.refund.providerRefundId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.refunds#createdAt",
+      "field": "createdAt",
+      "contractFieldRef": "commerce.refund.createdAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.refunds#completedAt",
+      "field": "completedAt",
+      "contractFieldRef": "commerce.refund.completedAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.refunds#lines",
+      "field": "lines",
+      "contractFieldRef": "commerce.refund.lines",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.refunds",
+    "adminProfileRef": "adminUi.profile.commerce.refunds",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

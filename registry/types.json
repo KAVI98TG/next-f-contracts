@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "types": [
     {
       "id": "acceptance-check",
@@ -92,6 +92,11 @@
       "description": "Provider or generic external-system adapter definition implementing canonical NEXT F Integration Contracts."
     },
     {
+      "id": "customer-access-policy",
+      "label": "Customer Access Policy",
+      "description": "Canonical maximum customer access for one Customer CMS resource profile."
+    },
+    {
       "id": "data-handling-record",
       "label": "Data Handling Record",
       "description": "Field-level privacy classification and handling metadata."
@@ -175,6 +180,11 @@
       "id": "permission",
       "label": "Permission",
       "description": "Canonical domain.resource.action authorization identifier."
+    },
+    {
+      "id": "policy",
+      "label": "Policy",
+      "description": "Machine-readable resolution or governance policy."
     },
     {
       "id": "portal-definition",

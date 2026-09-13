@@ -1,0 +1,156 @@
+{
+  "$id": "customerAccess.policy.commerce.payments",
+  "name": "Payments Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.payments",
+  "contractRefs": [
+    "commerce.payment",
+    "commerce.paymentCapture",
+    "commerce.paymentAuthorization"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.payments"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.payments.export",
+      "commerce.payments.view"
+    ],
+    "create": [],
+    "update": [
+      "commerce.payments.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.payment.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.payment.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#orderId",
+      "field": "orderId",
+      "contractFieldRef": "commerce.payment.orderId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#providerKey",
+      "field": "providerKey",
+      "contractFieldRef": "commerce.payment.providerKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#amount",
+      "field": "amount",
+      "contractFieldRef": "commerce.payment.amount",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#method",
+      "field": "method",
+      "contractFieldRef": "commerce.payment.method",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#status",
+      "field": "status",
+      "contractFieldRef": "commerce.payment.status",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#providerPaymentId",
+      "field": "providerPaymentId",
+      "contractFieldRef": "commerce.payment.providerPaymentId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#authorizedAt",
+      "field": "authorizedAt",
+      "contractFieldRef": "commerce.payment.authorizedAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#paidAt",
+      "field": "paidAt",
+      "contractFieldRef": "commerce.payment.paidAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#refundedAmount",
+      "field": "refundedAmount",
+      "contractFieldRef": "commerce.payment.refundedAmount",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#createdAt",
+      "field": "createdAt",
+      "contractFieldRef": "commerce.payment.createdAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "commerce.payment.updatedAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#authorizationIds",
+      "field": "authorizationIds",
+      "contractFieldRef": "commerce.payment.authorizationIds",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#captureIds",
+      "field": "captureIds",
+      "contractFieldRef": "commerce.payment.captureIds",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.payments#refundIds",
+      "field": "refundIds",
+      "contractFieldRef": "commerce.payment.refundIds",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.payments",
+    "adminProfileRef": "adminUi.profile.commerce.payments",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

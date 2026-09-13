@@ -1,0 +1,92 @@
+{
+  "$id": "customerAccess.policy.core.settings",
+  "name": "Website Settings Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "core.settings",
+  "contractRefs": [
+    "core.site",
+    "shared.contactPoint",
+    "shared.address"
+  ],
+  "moduleRef": "core",
+  "capabilityRefs": [
+    "core.identity"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "core.settings.view"
+    ],
+    "create": [],
+    "update": [
+      "core.settings.edit",
+      "core.settings.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.core.settings#identity",
+      "field": "identity",
+      "contractFieldRef": "core.site.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.settings#organizationId",
+      "field": "organizationId",
+      "contractFieldRef": "core.site.organizationId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.settings#name",
+      "field": "name",
+      "contractFieldRef": "core.site.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.settings#primaryUrl",
+      "field": "primaryUrl",
+      "contractFieldRef": "core.site.primaryUrl",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.settings#status",
+      "field": "status",
+      "contractFieldRef": "core.site.status",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.get-workspace"
+  ],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.core.settings",
+    "adminProfileRef": "adminUi.profile.core.settings",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

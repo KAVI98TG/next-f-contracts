@@ -1,0 +1,29 @@
+{
+  "$id": "core.changerequests.create",
+  "name": "Create Customer Change Requests",
+  "permissionId": "core.changerequests.create",
+  "domain": "core",
+  "resource": "changerequests",
+  "action": "create",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Create Customer Change Requests within the authorized Site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "1.1.0",
+  "status": "stable"
+}

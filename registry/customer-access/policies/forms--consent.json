@@ -1,0 +1,98 @@
+{
+  "$id": "customerAccess.policy.forms.consent",
+  "name": "Consent Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "forms.consent",
+  "contractRefs": [
+    "forms.consentRecord"
+  ],
+  "moduleRef": "forms",
+  "capabilityRefs": [
+    "forms.consent-fields"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "forms.consent.export",
+      "forms.consent.view"
+    ],
+    "create": [],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.forms.consent#fieldKey",
+      "field": "fieldKey",
+      "contractFieldRef": "forms.consentRecord.fieldKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.consent#purpose",
+      "field": "purpose",
+      "contractFieldRef": "forms.consentRecord.purpose",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.consent#accepted",
+      "field": "accepted",
+      "contractFieldRef": "forms.consentRecord.accepted",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.consent#textSnapshot",
+      "field": "textSnapshot",
+      "contractFieldRef": "forms.consentRecord.textSnapshot",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.consent#policyUrl",
+      "field": "policyUrl",
+      "contractFieldRef": "forms.consentRecord.policyUrl",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.consent#policyVersion",
+      "field": "policyVersion",
+      "contractFieldRef": "forms.consentRecord.policyVersion",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.consent#recordedAt",
+      "field": "recordedAt",
+      "contractFieldRef": "forms.consentRecord.recordedAt",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.forms.consent",
+    "adminProfileRef": "adminUi.profile.forms.consent",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

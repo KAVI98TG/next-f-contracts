@@ -1,9 +1,9 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source set: registry/performance/*
 export const GENERATED_PERFORMANCE = {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "index": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Performance Registry",
     "description": "Machine-readable performance rules, budgets and Contract Portal measurement evidence.",
@@ -140,7 +140,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_001.json"
@@ -161,7 +161,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_002.json"
@@ -182,7 +182,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_003.json"
@@ -203,7 +203,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_004.json"
@@ -224,7 +224,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_005.json"
@@ -245,7 +245,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_006.json"
@@ -266,7 +266,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_007.json"
@@ -287,7 +287,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_008.json"
@@ -307,7 +307,7 @@ export const GENERATED_PERFORMANCE = {
           "manual-review"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_009.json"
@@ -327,7 +327,7 @@ export const GENERATED_PERFORMANCE = {
           "manual-review"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_010.json"
@@ -347,7 +347,7 @@ export const GENERATED_PERFORMANCE = {
           "manual-review"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_011.json"
@@ -367,7 +367,7 @@ export const GENERATED_PERFORMANCE = {
           "manual-review"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_012.json"
@@ -387,7 +387,7 @@ export const GENERATED_PERFORMANCE = {
           "manual-review"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_013.json"
@@ -408,7 +408,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_014.json"
@@ -432,7 +432,7 @@ export const GENERATED_PERFORMANCE = {
           "marketing.consentState",
           "privacy.consentBoundaries"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_015.json"
@@ -453,7 +453,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_016.json"
@@ -477,7 +477,7 @@ export const GENERATED_PERFORMANCE = {
           "manifest.siteManifest",
           "integrations.connectorDefinition"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_017.json"
@@ -497,7 +497,7 @@ export const GENERATED_PERFORMANCE = {
           "manual-review"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_018.json"
@@ -518,7 +518,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_019.json"
@@ -541,7 +541,7 @@ export const GENERATED_PERFORMANCE = {
         "relatedRegistryIds": [
           "api.apiContractStandard"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_020.json"
@@ -564,7 +564,7 @@ export const GENERATED_PERFORMANCE = {
         "relatedRegistryIds": [
           "api.apiContractStandard"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_021.json"
@@ -588,7 +588,7 @@ export const GENERATED_PERFORMANCE = {
           "search.searchIndex",
           "search.searchConfiguration"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_022.json"
@@ -612,7 +612,7 @@ export const GENERATED_PERFORMANCE = {
           "relationships.relationshipIndex",
           "relationships.relationshipConfiguration"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_023.json"
@@ -635,7 +635,7 @@ export const GENERATED_PERFORMANCE = {
         "relatedRegistryIds": [
           "diff.releaseIndex"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_024.json"
@@ -656,7 +656,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_025.json"
@@ -677,7 +677,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_026.json"
@@ -698,7 +698,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_027.json"
@@ -718,7 +718,7 @@ export const GENERATED_PERFORMANCE = {
           "manual-review"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_028.json"
@@ -738,7 +738,7 @@ export const GENERATED_PERFORMANCE = {
           "manual-review"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_029.json"
@@ -761,7 +761,7 @@ export const GENERATED_PERFORMANCE = {
         "relatedRegistryIds": [
           "integrations.connectorDefinition"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_030.json"
@@ -782,7 +782,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_031.json"
@@ -803,7 +803,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_032.json"
@@ -823,7 +823,7 @@ export const GENERATED_PERFORMANCE = {
           "manual-review"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_033.json"
@@ -844,7 +844,7 @@ export const GENERATED_PERFORMANCE = {
           "browser-profile"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_034.json"
@@ -867,7 +867,7 @@ export const GENERATED_PERFORMANCE = {
         "relatedRegistryIds": [
           "api.cachePolicy"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_035.json"
@@ -887,7 +887,7 @@ export const GENERATED_PERFORMANCE = {
           "manual-review"
         ],
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/rules/perf_rule_036.json"
@@ -911,7 +911,7 @@ export const GENERATED_PERFORMANCE = {
         "environment": "Hosted and file review",
         "notes": "Keeps the shell small enough to parse quickly; generated data must not be embedded into HTML.",
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_001.json"
@@ -933,7 +933,7 @@ export const GENERATED_PERFORMANCE = {
         "environment": "Hosted and file review",
         "notes": "All portal CSS combined. Route-specific growth should be monitored even though styles remain static assets.",
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_002.json"
@@ -955,7 +955,7 @@ export const GENERATED_PERFORMANCE = {
         "environment": "Hosted and file review",
         "notes": "Excludes generated fallbacks so authored runtime complexity can be monitored independently.",
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_003.json"
@@ -981,7 +981,7 @@ export const GENERATED_PERFORMANCE = {
           "search.searchIndex",
           "relationships.relationshipIndex"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_004.json"
@@ -1003,7 +1003,7 @@ export const GENERATED_PERFORMANCE = {
         "environment": "Hosted runtime",
         "notes": "Normal hosted loading must not parse generated local fallbacks before authoritative JSON fails.",
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_005.json"
@@ -1025,7 +1025,7 @@ export const GENERATED_PERFORMANCE = {
         "environment": "Repository and hosted runtime",
         "notes": "Canonical Registry index size budget.",
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_006.json"
@@ -1049,7 +1049,7 @@ export const GENERATED_PERFORMANCE = {
         "relatedRegistryIds": [
           "search.searchIndex"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_007.json"
@@ -1073,7 +1073,7 @@ export const GENERATED_PERFORMANCE = {
         "relatedRegistryIds": [
           "relationships.relationshipIndex"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_008.json"
@@ -1097,7 +1097,7 @@ export const GENERATED_PERFORMANCE = {
         "relatedRegistryIds": [
           "diff.releaseIndex"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_009.json"
@@ -1119,7 +1119,7 @@ export const GENERATED_PERFORMANCE = {
         "environment": "Hosted and file review",
         "notes": "Avoid large inline scripts that bypass caching and content-policy boundaries.",
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_010.json"
@@ -1141,7 +1141,7 @@ export const GENERATED_PERFORMANCE = {
         "environment": "Hosted and file review",
         "notes": "Keep styling in cacheable CSS assets.",
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_011.json"
@@ -1163,7 +1163,7 @@ export const GENERATED_PERFORMANCE = {
         "environment": "Hosted runtime",
         "notes": "Contract Portal core operation must not depend on blocking external scripts.",
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_012.json"
@@ -1185,7 +1185,7 @@ export const GENERATED_PERFORMANCE = {
         "environment": "Hosted runtime",
         "notes": "The current Font Awesome stylesheet is the only intended external stylesheet dependency.",
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_013.json"
@@ -1209,7 +1209,7 @@ export const GENERATED_PERFORMANCE = {
         "relatedRegistryIds": [
           "diff.releaseIndex"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_014.json"
@@ -1233,7 +1233,7 @@ export const GENERATED_PERFORMANCE = {
         "relatedRegistryIds": [
           "relationships.relationshipConfiguration"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_015.json"
@@ -1257,7 +1257,7 @@ export const GENERATED_PERFORMANCE = {
         "relatedRegistryIds": [
           "search.searchConfiguration"
         ],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_016.json"
@@ -1279,7 +1279,7 @@ export const GENERATED_PERFORMANCE = {
         "environment": "Hosted runtime",
         "notes": "Counts authoritative data loaders invoked by the current app shell. Future work may route-lazy more domains.",
         "relatedRegistryIds": [],
-        "version": "0.37.0",
+        "version": "1.1.0",
         "status": "stable",
         "phase": 32,
         "sourceReference": "registry/performance/budgets/perf_budget_017.json"
@@ -1289,7 +1289,7 @@ export const GENERATED_PERFORMANCE = {
       {
         "$id": "performance.measurementMethod",
         "name": "Performance Measurement Method",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "status": "stable",
         "domain": "performance",
         "description": "Controlled method used to gather performance evidence."
@@ -1297,7 +1297,7 @@ export const GENERATED_PERFORMANCE = {
       {
         "$id": "performance.performanceAudit",
         "name": "Performance Audit",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "status": "stable",
         "domain": "performance",
         "description": "Measured Contract Portal performance evidence against Phase 32 budgets."
@@ -1305,7 +1305,7 @@ export const GENERATED_PERFORMANCE = {
       {
         "$id": "performance.performanceBudget",
         "name": "Performance Budget",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "status": "stable",
         "domain": "performance",
         "description": "Machine-readable target/warning threshold for one performance metric."
@@ -1313,7 +1313,7 @@ export const GENERATED_PERFORMANCE = {
       {
         "$id": "performance.performanceMetric",
         "name": "Performance Metric",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "status": "stable",
         "domain": "performance",
         "description": "Controlled measurable metric used by a Performance Budget."
@@ -1321,7 +1321,7 @@ export const GENERATED_PERFORMANCE = {
       {
         "$id": "performance.performanceRule",
         "name": "Performance Rule",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "status": "stable",
         "domain": "performance",
         "description": "Machine-readable implementation requirement for performance behavior."
@@ -1329,8 +1329,8 @@ export const GENERATED_PERFORMANCE = {
     ],
     "portalAuditSummary": {
       "budgetCount": 17,
-      "budgetPass": 15,
-      "budgetWarning": 2,
+      "budgetPass": 17,
+      "budgetWarning": 0,
       "budgetFail": 0,
       "checkCount": 18,
       "checkPass": 18,
@@ -1364,7 +1364,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_001.json"
@@ -1385,7 +1385,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_002.json"
@@ -1406,7 +1406,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_003.json"
@@ -1427,7 +1427,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_004.json"
@@ -1448,7 +1448,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_005.json"
@@ -1469,7 +1469,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_006.json"
@@ -1490,7 +1490,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_007.json"
@@ -1511,7 +1511,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_008.json"
@@ -1531,7 +1531,7 @@ export const GENERATED_PERFORMANCE = {
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_009.json"
@@ -1551,7 +1551,7 @@ export const GENERATED_PERFORMANCE = {
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_010.json"
@@ -1571,7 +1571,7 @@ export const GENERATED_PERFORMANCE = {
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_011.json"
@@ -1591,7 +1591,7 @@ export const GENERATED_PERFORMANCE = {
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_012.json"
@@ -1611,7 +1611,7 @@ export const GENERATED_PERFORMANCE = {
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_013.json"
@@ -1632,7 +1632,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_014.json"
@@ -1656,7 +1656,7 @@ export const GENERATED_PERFORMANCE = {
         "marketing.consentState",
         "privacy.consentBoundaries"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_015.json"
@@ -1677,7 +1677,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_016.json"
@@ -1701,7 +1701,7 @@ export const GENERATED_PERFORMANCE = {
         "manifest.siteManifest",
         "integrations.connectorDefinition"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_017.json"
@@ -1721,7 +1721,7 @@ export const GENERATED_PERFORMANCE = {
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_018.json"
@@ -1742,7 +1742,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_019.json"
@@ -1765,7 +1765,7 @@ export const GENERATED_PERFORMANCE = {
       "relatedRegistryIds": [
         "api.apiContractStandard"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_020.json"
@@ -1788,7 +1788,7 @@ export const GENERATED_PERFORMANCE = {
       "relatedRegistryIds": [
         "api.apiContractStandard"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_021.json"
@@ -1812,7 +1812,7 @@ export const GENERATED_PERFORMANCE = {
         "search.searchIndex",
         "search.searchConfiguration"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_022.json"
@@ -1836,7 +1836,7 @@ export const GENERATED_PERFORMANCE = {
         "relationships.relationshipIndex",
         "relationships.relationshipConfiguration"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_023.json"
@@ -1859,7 +1859,7 @@ export const GENERATED_PERFORMANCE = {
       "relatedRegistryIds": [
         "diff.releaseIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_024.json"
@@ -1880,7 +1880,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_025.json"
@@ -1901,7 +1901,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_026.json"
@@ -1922,7 +1922,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_027.json"
@@ -1942,7 +1942,7 @@ export const GENERATED_PERFORMANCE = {
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_028.json"
@@ -1962,7 +1962,7 @@ export const GENERATED_PERFORMANCE = {
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_029.json"
@@ -1985,7 +1985,7 @@ export const GENERATED_PERFORMANCE = {
       "relatedRegistryIds": [
         "integrations.connectorDefinition"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_030.json"
@@ -2006,7 +2006,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_031.json"
@@ -2027,7 +2027,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_032.json"
@@ -2047,7 +2047,7 @@ export const GENERATED_PERFORMANCE = {
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_033.json"
@@ -2068,7 +2068,7 @@ export const GENERATED_PERFORMANCE = {
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_034.json"
@@ -2091,7 +2091,7 @@ export const GENERATED_PERFORMANCE = {
       "relatedRegistryIds": [
         "api.cachePolicy"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_035.json"
@@ -2111,7 +2111,7 @@ export const GENERATED_PERFORMANCE = {
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_036.json"
@@ -2135,7 +2135,7 @@ export const GENERATED_PERFORMANCE = {
       "environment": "Hosted and file review",
       "notes": "Keeps the shell small enough to parse quickly; generated data must not be embedded into HTML.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_001.json"
@@ -2157,7 +2157,7 @@ export const GENERATED_PERFORMANCE = {
       "environment": "Hosted and file review",
       "notes": "All portal CSS combined. Route-specific growth should be monitored even though styles remain static assets.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_002.json"
@@ -2179,7 +2179,7 @@ export const GENERATED_PERFORMANCE = {
       "environment": "Hosted and file review",
       "notes": "Excludes generated fallbacks so authored runtime complexity can be monitored independently.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_003.json"
@@ -2205,7 +2205,7 @@ export const GENERATED_PERFORMANCE = {
         "search.searchIndex",
         "relationships.relationshipIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_004.json"
@@ -2227,7 +2227,7 @@ export const GENERATED_PERFORMANCE = {
       "environment": "Hosted runtime",
       "notes": "Normal hosted loading must not parse generated local fallbacks before authoritative JSON fails.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_005.json"
@@ -2249,7 +2249,7 @@ export const GENERATED_PERFORMANCE = {
       "environment": "Repository and hosted runtime",
       "notes": "Canonical Registry index size budget.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_006.json"
@@ -2273,7 +2273,7 @@ export const GENERATED_PERFORMANCE = {
       "relatedRegistryIds": [
         "search.searchIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_007.json"
@@ -2297,7 +2297,7 @@ export const GENERATED_PERFORMANCE = {
       "relatedRegistryIds": [
         "relationships.relationshipIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_008.json"
@@ -2321,7 +2321,7 @@ export const GENERATED_PERFORMANCE = {
       "relatedRegistryIds": [
         "diff.releaseIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_009.json"
@@ -2343,7 +2343,7 @@ export const GENERATED_PERFORMANCE = {
       "environment": "Hosted and file review",
       "notes": "Avoid large inline scripts that bypass caching and content-policy boundaries.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_010.json"
@@ -2365,7 +2365,7 @@ export const GENERATED_PERFORMANCE = {
       "environment": "Hosted and file review",
       "notes": "Keep styling in cacheable CSS assets.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_011.json"
@@ -2387,7 +2387,7 @@ export const GENERATED_PERFORMANCE = {
       "environment": "Hosted runtime",
       "notes": "Contract Portal core operation must not depend on blocking external scripts.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_012.json"
@@ -2409,7 +2409,7 @@ export const GENERATED_PERFORMANCE = {
       "environment": "Hosted runtime",
       "notes": "The current Font Awesome stylesheet is the only intended external stylesheet dependency.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_013.json"
@@ -2433,7 +2433,7 @@ export const GENERATED_PERFORMANCE = {
       "relatedRegistryIds": [
         "diff.releaseIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_014.json"
@@ -2457,7 +2457,7 @@ export const GENERATED_PERFORMANCE = {
       "relatedRegistryIds": [
         "relationships.relationshipConfiguration"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_015.json"
@@ -2481,7 +2481,7 @@ export const GENERATED_PERFORMANCE = {
       "relatedRegistryIds": [
         "search.searchConfiguration"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_016.json"
@@ -2503,14 +2503,14 @@ export const GENERATED_PERFORMANCE = {
       "environment": "Hosted runtime",
       "notes": "Counts authoritative data loaders invoked by the current app shell. Future work may route-lazy more domains.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_017.json"
     }
   ],
   "categories": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "categories": [
       {
@@ -2596,7 +2596,7 @@ export const GENERATED_PERFORMANCE = {
     ]
   },
   "metrics": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "metrics": [
       {
@@ -2687,7 +2687,7 @@ export const GENERATED_PERFORMANCE = {
     ]
   },
   "measurementMethods": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "methods": [
       {
@@ -2728,7 +2728,7 @@ export const GENERATED_PERFORMANCE = {
     ]
   },
   "thirdPartyRules": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "rules": [
       {
@@ -2758,21 +2758,21 @@ export const GENERATED_PERFORMANCE = {
     ]
   },
   "portalAudit": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "phase": 32,
-    "overallStatus": "warning",
+    "overallStatus": "pass",
     "measuredAt": null,
     "measurementEnvironment": "repository-static-audit",
     "measurements": {
-      "portal.indexHtmlBytes": 17058,
-      "portal.localCssBytes": 154713,
-      "portal.localJsSourceBytes": 761679,
-      "portal.generatedFallbackBytes": 119453924,
+      "portal.indexHtmlBytes": 19749,
+      "portal.localCssBytes": 184559,
+      "portal.localJsSourceBytes": 798900,
+      "portal.generatedFallbackBytes": 40801924,
       "portal.eagerGeneratedFallbackBytes": 0,
-      "registry.registryJsonBytes": 2371907,
-      "search.indexBytes": 10944932,
-      "relationships.indexBytes": 3214058,
-      "diff.snapshotsBytes": 497946516,
+      "registry.registryJsonBytes": 2617738,
+      "search.indexBytes": 11465010,
+      "relationships.indexBytes": 3679797,
+      "diff.snapshotsBytes": 61160141,
       "portal.inlineScriptBytes": 0,
       "portal.inlineStyleBytes": 0,
       "portal.externalScriptCount": 0,
@@ -2791,7 +2791,7 @@ export const GENERATED_PERFORMANCE = {
         "target": 65536,
         "warningThreshold": 98304,
         "comparator": "lte",
-        "actual": 17058,
+        "actual": 19749,
         "result": "pass",
         "measurementMethod": "static-file-size",
         "environment": "Hosted and file review"
@@ -2804,7 +2804,7 @@ export const GENERATED_PERFORMANCE = {
         "target": 196608,
         "warningThreshold": 262144,
         "comparator": "lte",
-        "actual": 154713,
+        "actual": 184559,
         "result": "pass",
         "measurementMethod": "static-file-size",
         "environment": "Hosted and file review"
@@ -2817,7 +2817,7 @@ export const GENERATED_PERFORMANCE = {
         "target": 921600,
         "warningThreshold": 1258291,
         "comparator": "lte",
-        "actual": 761679,
+        "actual": 798900,
         "result": "pass",
         "measurementMethod": "static-file-size",
         "environment": "Hosted and file review"
@@ -2830,8 +2830,8 @@ export const GENERATED_PERFORMANCE = {
         "target": 94371840,
         "warningThreshold": 134217728,
         "comparator": "lte",
-        "actual": 119453924,
-        "result": "warning",
+        "actual": 40801924,
+        "result": "pass",
         "measurementMethod": "static-file-size",
         "environment": "Repository/local review"
       },
@@ -2856,7 +2856,7 @@ export const GENERATED_PERFORMANCE = {
         "target": 3145728,
         "warningThreshold": 4194304,
         "comparator": "lte",
-        "actual": 2371907,
+        "actual": 2617738,
         "result": "pass",
         "measurementMethod": "static-file-size",
         "environment": "Repository and hosted runtime"
@@ -2869,7 +2869,7 @@ export const GENERATED_PERFORMANCE = {
         "target": 12582912,
         "warningThreshold": 16777216,
         "comparator": "lte",
-        "actual": 10944932,
+        "actual": 11465010,
         "result": "pass",
         "measurementMethod": "static-file-size",
         "environment": "Repository and hosted runtime"
@@ -2882,7 +2882,7 @@ export const GENERATED_PERFORMANCE = {
         "target": 4194304,
         "warningThreshold": 6291456,
         "comparator": "lte",
-        "actual": 3214058,
+        "actual": 3679797,
         "result": "pass",
         "measurementMethod": "static-file-size",
         "environment": "Repository and hosted runtime"
@@ -2895,8 +2895,8 @@ export const GENERATED_PERFORMANCE = {
         "target": 367001600,
         "warningThreshold": 536870912,
         "comparator": "lte",
-        "actual": 497946516,
-        "result": "warning",
+        "actual": 61160141,
+        "result": "pass",
         "measurementMethod": "static-file-size",
         "environment": "Repository storage"
       },
@@ -3127,16 +3127,16 @@ export const GENERATED_PERFORMANCE = {
       },
       {
         "checkId": "PORTAL-PERF-018",
-        "title": "No dark-mode performance override",
+        "title": "Theme styles remain token-driven",
         "result": "pass",
         "reviewType": "automated-static",
-        "evidence": "Performance UI preserves the light-only portal contract."
+        "evidence": "The shared local theme stylesheet provides token-driven dark styling without a route-specific media override."
       }
     ],
     "summary": {
       "budgetCount": 17,
-      "budgetPass": 15,
-      "budgetWarning": 2,
+      "budgetPass": 17,
+      "budgetWarning": 0,
       "budgetFail": 0,
       "checkCount": 18,
       "checkPass": 18,
@@ -3151,7 +3151,7 @@ export const GENERATED_PERFORMANCE = {
     {
       "$id": "performance.measurementMethod",
       "name": "Performance Measurement Method",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "performance",
       "description": "Controlled method used to gather performance evidence."
@@ -3159,7 +3159,7 @@ export const GENERATED_PERFORMANCE = {
     {
       "$id": "performance.performanceAudit",
       "name": "Performance Audit",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "performance",
       "description": "Measured Contract Portal performance evidence against Phase 32 budgets."
@@ -3167,7 +3167,7 @@ export const GENERATED_PERFORMANCE = {
     {
       "$id": "performance.performanceBudget",
       "name": "Performance Budget",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "performance",
       "description": "Machine-readable target/warning threshold for one performance metric."
@@ -3175,7 +3175,7 @@ export const GENERATED_PERFORMANCE = {
     {
       "$id": "performance.performanceMetric",
       "name": "Performance Metric",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "performance",
       "description": "Controlled measurable metric used by a Performance Budget."
@@ -3183,78 +3183,78 @@ export const GENERATED_PERFORMANCE = {
     {
       "$id": "performance.performanceRule",
       "name": "Performance Rule",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "performance",
       "description": "Machine-readable implementation requirement for performance behavior."
     }
   ],
   "sourceHashes": {
-    "registry/performance/index.json": "3ccca49631bd97cda79800c81bc964beb5c146331c18a4820ef2ec35c7bb7213",
-    "registry/performance/categories.json": "d7f5b00074793cd2692cbec5ab864fac4810fe7f1773a726432ba36389e94ad5",
-    "registry/performance/metrics.json": "8cb29aec8671ec4be0e1601f9982015f09c86d8ac2f3fb648e9b5fbd2df04971",
-    "registry/performance/measurement-methods.json": "69c75dee75be97bba4b3e6f524f04312f67860219bf782f50759f01499137436",
-    "registry/performance/third-party-rules.json": "b2283ee2eee3c4bd5184e772d95f9ff47405b201d293c78de73a186876e7ac26",
-    "registry/performance/performance-budget.schema.json": "334ce1fa1408f855349457f390cac93e68b21eec6546ee36a9ba0e70f3692a29",
-    "registry/performance/performance-rule.schema.json": "98e054d64135bce5901f1868f113938daaf0c4267188fbe68d6e5baa45200124",
-    "registry/performance/portal-audit.json": "b9c5d75e0d67064d0bb6c45c9b7b31fbd88917d410ec8c6e0f3e6490a57c4604",
-    "registry/performance/budgets/perf_budget_001.json": "333a3c35545f5d129f11525601048ce4538a6052c226906303a75bbac96abc11",
-    "registry/performance/budgets/perf_budget_002.json": "363c4b17687956c60679d0b283bbaf0f6d237f7b17e40e3b6f03b229b70bd571",
-    "registry/performance/budgets/perf_budget_003.json": "64bd44a2e8d1808801d137c7a5c91cc495d81bff3e22d23b8039e1ccf7039dbb",
-    "registry/performance/budgets/perf_budget_004.json": "25df688617ba08a020d6ee7e58f713f44afa00eb0ace94d773f4a50c156721a9",
-    "registry/performance/budgets/perf_budget_005.json": "e82cc29ac75bf8b8a6bccc392417e47e41982ecdfc41e5e001454dd37bdbf001",
-    "registry/performance/budgets/perf_budget_006.json": "6d664c27a0424e14b9a2f7c994f396e937ff8d69300e69f1db7dabf538fe8315",
-    "registry/performance/budgets/perf_budget_007.json": "653fa6a2cc59261635ae9626203bb3ea550cd7f4575f8f614d7f9231f99ca0ff",
-    "registry/performance/budgets/perf_budget_008.json": "9694a3fcb43eaf83dc1950958af65b65d45908e8e6d53f821d0e6c7909b0713b",
-    "registry/performance/budgets/perf_budget_009.json": "f19a5edff3ae443a93689bf89e8dba5520f7ec5ee46c7a3fd7c1b86f3f008ee7",
-    "registry/performance/budgets/perf_budget_010.json": "11ded06192d7546336e5f81f7717cc444b2d8aaa1c66bcf83be2c1c0d8a55832",
-    "registry/performance/budgets/perf_budget_011.json": "e6cfe6134e953f80deba9efc206885bb5a6879fe80c794e6667e3665ddf085a4",
-    "registry/performance/budgets/perf_budget_012.json": "1cdc9a370fcc67e46dd6607058fc86f62d1f72613983ef65ebcafe6efcd35fd5",
-    "registry/performance/budgets/perf_budget_013.json": "2b42db7a9b2c20e4047650741450601c2cebc3eb98b23f9c29e8bffeac32cccd",
-    "registry/performance/budgets/perf_budget_014.json": "8e40ba3e69e0b30c8b50fc345a3f8800b5421ba36d053c57209ce8bd7cf76400",
-    "registry/performance/budgets/perf_budget_015.json": "af6eca10dd6f558326c2f52337afc6e79d98b0fcb5b462c653fca77120d43259",
-    "registry/performance/budgets/perf_budget_016.json": "e0e48a846face1d2a8347f2c53bd9036ba02897dcf43381c2a5f2382d60ab234",
-    "registry/performance/budgets/perf_budget_017.json": "6a8986de19b130f0b09c0a8d523449b43def3949d3f7550f823ae228b555574a",
-    "registry/performance/rules/perf_rule_001.json": "6cd6325cb2fa0e80e1328b345fe98e9b63cf979cb49190b3af4db68748fa428d",
-    "registry/performance/rules/perf_rule_002.json": "f931b8cdb90bee8a9fc9ca6f3fa28fd0b33c427a8c338a2eefb5db396299ac07",
-    "registry/performance/rules/perf_rule_003.json": "d94a52c30151c4da71da9654d2e190782ed37d38615de604732f4a5aba244fcd",
-    "registry/performance/rules/perf_rule_004.json": "95782e97feeaf266b0cb477c912435713e52bc43093e7032f7901511f85bb247",
-    "registry/performance/rules/perf_rule_005.json": "01c98d6af8a1e62c4ec13e0a469b0f01217823e101de4f53fbd8efb2f2be7a2e",
-    "registry/performance/rules/perf_rule_006.json": "fc579fac277ac72e6f22b3a7c25bd9668faf44c7fdc7b7a2e4ee29b0b14c0e20",
-    "registry/performance/rules/perf_rule_007.json": "db4e48c36031661c2b5a6aeb99deaa8fecb53534daa38f2c02c741c09e7b963b",
-    "registry/performance/rules/perf_rule_008.json": "ec20294875e5de5d34fd3d26f7e5a0b41cbd54b877688a17aa66e2beb781f737",
-    "registry/performance/rules/perf_rule_009.json": "9e926dd73327fb63d3e15a6b1d511ee791e48eed29a60ea85449f66035305a73",
-    "registry/performance/rules/perf_rule_010.json": "26e1dc1d93e47f2dee3948df6e443ef08350e8969eac32e464fc1fb3d9a33cf5",
-    "registry/performance/rules/perf_rule_011.json": "d8997be475e83b9d1bb409697471f772ab49fbdabbdfa598a49e689b29d77bf3",
-    "registry/performance/rules/perf_rule_012.json": "465d6664270e6b60aeb7f8f6ce106fe1d5503f9387605e2643aa2a65485c7c2e",
-    "registry/performance/rules/perf_rule_013.json": "6e9769b203d45a29c6d11e9a02273fe27329496647f47a51f3c90b5f66be7557",
-    "registry/performance/rules/perf_rule_014.json": "5b21fe4d645fee69132feabe9cae58ba1d30de649a85833d663441401b235ea7",
-    "registry/performance/rules/perf_rule_015.json": "d20c57ee021ec12734d6c9c5d84a12fcade986d4d2b467a1575f341aaaee216a",
-    "registry/performance/rules/perf_rule_016.json": "41b0a4604fd3a2924c1b0ca9300d866e1b3e306df0edd9c5df72e511f7c106a0",
-    "registry/performance/rules/perf_rule_017.json": "92b02ad2d40bf29c8948e1aa4513b79ee7e150ba34adba21e20412da3ec531b1",
-    "registry/performance/rules/perf_rule_018.json": "44a59af6bdeb5451690154e48e296e304039657a281be779a98ab0aac438e8af",
-    "registry/performance/rules/perf_rule_019.json": "6d915f56f2163b0577d3340aab2794b55828b23a99d0a37cc4b81d560ebc036c",
-    "registry/performance/rules/perf_rule_020.json": "26fd2a80dcf845a26c4ed3db5b72ea62f77eba7775f7bb7896ee78876d167d05",
-    "registry/performance/rules/perf_rule_021.json": "b793c8ee36c6e8fe36a35247f1035d33bf44488900c05562d1e20841b4e09056",
-    "registry/performance/rules/perf_rule_022.json": "0740230b7163dbfdf9924f033dbcc18f5c28e5ffd63e26389ac26e4bfd4cf2e6",
-    "registry/performance/rules/perf_rule_023.json": "58e5f08d83cfd04c610367d53c4cf0bdf6fc18ac6d2826b388088b5b372955e5",
-    "registry/performance/rules/perf_rule_024.json": "b184236f10a40a133f54e04af67fb468434e10c6347708cd25a7cf90e1b577f1",
-    "registry/performance/rules/perf_rule_025.json": "ad24cc2bc334899589663d6596a5f0fb04640b4c6d355d964866280506dfda1a",
-    "registry/performance/rules/perf_rule_026.json": "2449ad0503c1b6734cd1e6cb62b74da6dfed389f333549125728d4fec26eb5f3",
-    "registry/performance/rules/perf_rule_027.json": "6afca76ab617d3e8e7f282f483c5016410b882c9bfb380b8d5d2011dfb802745",
-    "registry/performance/rules/perf_rule_028.json": "390e38d1e0910c33bcdb269f4115e675bde277939608480683e88b82a6f43ecd",
-    "registry/performance/rules/perf_rule_029.json": "842780f71f4a0e66c7f3ebf780cd4452e46b7856dcfdd9566c03256fba23e4c2",
-    "registry/performance/rules/perf_rule_030.json": "1a7d104b04bca82016ab0bb11d76e7b5d720051dfb39365476e244dabc6fb5fc",
-    "registry/performance/rules/perf_rule_031.json": "b461a16a3ff76430236bdf4c1b966d0cd3034a585de3542d6ea7522fe9d96f2b",
-    "registry/performance/rules/perf_rule_032.json": "c8151aa1df33bd7f32709445a7a263ef6a13a28685d04b62c5e3226ab2751ddd",
-    "registry/performance/rules/perf_rule_033.json": "f789e926c104cee6ff68e3dfa63dcc4c0a1e68fe61605b204580a7445821725a",
-    "registry/performance/rules/perf_rule_034.json": "b1f6a3991b3f4203e9cd0f5904bcf9e0f978a2eb0dc27701926b72b2b4164d13",
-    "registry/performance/rules/perf_rule_035.json": "830c8ee266016c515ed5cb382ba6891db41ca56dcd6f558fbe04030c2024ad87",
-    "registry/performance/rules/perf_rule_036.json": "7f4b509cfb84fbbad7b89ea969de7612a7ebfa1fed278c4ecee16e415e2f4fa7",
-    "registry/performance/definitions/measurementMethod.json": "0431e4c111e7ba272919b338f146c833fbd79d94f96997117b8baea52de35164",
-    "registry/performance/definitions/performanceAudit.json": "de86bab30d73057c0b6c6d1c44dff0d936cdf0ce12f2e987273ea211dda2398e",
-    "registry/performance/definitions/performanceBudget.json": "9357364e6b2c86debe6a863f45d0ff940ed82fef13eeca918c3a2ed3e016b909",
-    "registry/performance/definitions/performanceMetric.json": "d298cf21d32d16cadd2755eced55747ea4d51dffe26ffe13a960a8197348ccd7",
-    "registry/performance/definitions/performanceRule.json": "ef977c1f88184153007a76544e4ac39a7ae65262c2bf61fc2d5fba0d8dab0e1a"
+    "registry/performance/index.json": "ddefe6cfe57038fb8af5bc55279cf3c0643bbb2e25599d3c8d2efdbf976df36b",
+    "registry/performance/categories.json": "5afa01b739f735db53f1524683b8ceaa6c3f3b77a80472e9a58970245421c3ec",
+    "registry/performance/metrics.json": "897c6abf9aa4246aa261ff156652859650dc102cfc162e162ed8e3763bb373a8",
+    "registry/performance/measurement-methods.json": "36967a973700c8f96b00faed23d4bb023c78fc4af08e028865f7ab743df1f26b",
+    "registry/performance/third-party-rules.json": "6a9416dc9fd38b34cfdaef7b82ccfc64e004b7b34ef5711df16e9bc26cce3382",
+    "registry/performance/performance-budget.schema.json": "4f1d7e2ad0dbe87c81b4abda9ea953144edda4af399e817c4bbc211d3504730a",
+    "registry/performance/performance-rule.schema.json": "5dff7a25f7f9890472cfa25f63fc166e2de7f0f5a06569ce1090969e09e8c551",
+    "registry/performance/portal-audit.json": "dfc0974b735860855269cbaf437634c4edf3a9d4d7d10a918769bea0342e92b8",
+    "registry/performance/budgets/perf_budget_001.json": "7c56befc81ee084d37ea3853d46f9dfbfbaefadced41780eb9b286b276d5018f",
+    "registry/performance/budgets/perf_budget_002.json": "70e16681dbf9abb6ce28267ae430bed32f45018d2a4e9bca3d19c597ac56dc95",
+    "registry/performance/budgets/perf_budget_003.json": "82adae7e94bb14e725e833fa1d814ad0559a168f0bf5e63233e145517e768747",
+    "registry/performance/budgets/perf_budget_004.json": "374a26573c5ee320385c2f55021cc1c3838a214c086dc182e4cf4c7fb53ee75c",
+    "registry/performance/budgets/perf_budget_005.json": "77b45bb4a71d1a48fd14fcc9bd8298d4d46643418f34a714cfc4d77b6dc3fa57",
+    "registry/performance/budgets/perf_budget_006.json": "a3cfc49ee48f38609cf9a77a2ff5a1a05fd27d7bc984fc49e940e4d95dd89269",
+    "registry/performance/budgets/perf_budget_007.json": "74697504b1c91684d6fe10d71368cdf6c77e95c7b25b196ef39e1a071eb3f147",
+    "registry/performance/budgets/perf_budget_008.json": "523942c5d7ff5f10de6d0d313c36b9890a19bdf41aab7790e07d614a9b513d01",
+    "registry/performance/budgets/perf_budget_009.json": "5dc093b4bb6a4b773062c563266f952cfce3f03fcfbdb1a8492464d6aeed0e09",
+    "registry/performance/budgets/perf_budget_010.json": "2bc95900e35ee9d4ec55561b45f1abd180063cd697ba61514d8b13045b050561",
+    "registry/performance/budgets/perf_budget_011.json": "7332bd3b4e593785f5330818acf24bb4b2970cbca7a4a8a2fc570be252387c14",
+    "registry/performance/budgets/perf_budget_012.json": "1a209fd7c1d701c3fee2f7ecc28ae28272dd94d4676a21d95d76dd9ef27a74bb",
+    "registry/performance/budgets/perf_budget_013.json": "3a8ced1ecc3955f14129189619dde13c42afc6fdfc29a78902a901e74ef790f2",
+    "registry/performance/budgets/perf_budget_014.json": "3bdf27442f498f53fb0ff104904d68bd346dbedcf064c9c662f9c76fe5522e69",
+    "registry/performance/budgets/perf_budget_015.json": "f396bb71eefa656792eef4b8e7b2fc796a3fc282fa4503d26e18ed5f38572e45",
+    "registry/performance/budgets/perf_budget_016.json": "56958dbd49f995bc0c291c7c852423c10c37d0e380884eff888c54b28e3baae7",
+    "registry/performance/budgets/perf_budget_017.json": "5332eee22acc4a735c402b2ba543775082fd9bb9e907fac3ab5a7d8e9a9244d3",
+    "registry/performance/rules/perf_rule_001.json": "8387b49c2fab708d66b35146a991802090ec8c4557c6727679c9b7e988d0f1d7",
+    "registry/performance/rules/perf_rule_002.json": "41dd0009418b640e4abe28e119243ea668a908bb95a2583cd83fe09c9039cb00",
+    "registry/performance/rules/perf_rule_003.json": "3d16118c50264e70b0bba71ab3370d9ffc744c5e6b7c530ceec9ce07de60bb06",
+    "registry/performance/rules/perf_rule_004.json": "6a9e2609b5cd0b44ca6bad5410f6d3e7a52f5dcf4c9939ce1df3d1b3e31104af",
+    "registry/performance/rules/perf_rule_005.json": "a0761a28af8124e2c704bc5e50400c8f91bae57e10038e74d7b7792eb79a2dd9",
+    "registry/performance/rules/perf_rule_006.json": "46dfa3102b32b1faefd7936a492f932be0df8c69fae672ccfe647a5d854ba71f",
+    "registry/performance/rules/perf_rule_007.json": "b5ce4888d359dd378b6b7579c6b2d8275755be4a383932e34acb1f44aac02e89",
+    "registry/performance/rules/perf_rule_008.json": "b3318b48dbaebd3f988c446ed7a1eb5485bae5e4bb54e81b2bc73ad7ac0a4a2b",
+    "registry/performance/rules/perf_rule_009.json": "f8270a8c8a644c84de8881cf51de9abcc3b84ae48bfcadc981ad4e1710ca78e4",
+    "registry/performance/rules/perf_rule_010.json": "98d5db067d12597ac1631cbd0867b04b7b89b9423ea2cbbc64de912cca1498a2",
+    "registry/performance/rules/perf_rule_011.json": "72a75fb1353b53180ba804f63fd2d4f77be83f30ee84459311a7b0941a65a123",
+    "registry/performance/rules/perf_rule_012.json": "b7f8033c743535c8f68a0c523a5c31aa4aca39ccb36d3ad73985b7b407ac1c62",
+    "registry/performance/rules/perf_rule_013.json": "edebe0fdecb9fa880914e3d7b0a306a556b6974f72fde67c247757d09b4dd167",
+    "registry/performance/rules/perf_rule_014.json": "d5ed27bce3d9fe663d7fc464e331094e652c514bbc8ccac36ef9a4202fc4946c",
+    "registry/performance/rules/perf_rule_015.json": "28132d05b292a2c827d52625629a709661f04f90a33035f4df836b71ec4af6a3",
+    "registry/performance/rules/perf_rule_016.json": "ffbed896ccdc54ab06441faf562dc9ae6f37eaae0b69602a059c4fbea5ec6bab",
+    "registry/performance/rules/perf_rule_017.json": "67191f7924447c490a9d660b7e46c07ad6377220c741de5266cc6daba60d2e84",
+    "registry/performance/rules/perf_rule_018.json": "9c543655477ac746c68c2dc4b260202b40748e0588b2b2b99e2a5097ee1a8e0b",
+    "registry/performance/rules/perf_rule_019.json": "a07c96934fc921127ee491ed8ef8d88458092a6f64f04f969f9e3f720806ad8e",
+    "registry/performance/rules/perf_rule_020.json": "bee6baac1f05179cbe03d22b5d1cbaadf17bf8eb7557bf331edbac23293af395",
+    "registry/performance/rules/perf_rule_021.json": "f64785fb99b33b8ed4a110119b930fe341a0d6eb4374b489fdb0b35d6297b86d",
+    "registry/performance/rules/perf_rule_022.json": "1d4f5d6f187320fe73deeec3e480a55bf985cb37703eaf56c6ec69616bf38c82",
+    "registry/performance/rules/perf_rule_023.json": "1a8411fcd29abaf190342f516e816d2878c6db0534e0906a421fef2cdca1865e",
+    "registry/performance/rules/perf_rule_024.json": "fde92f0b479cd6dede107a41807207276ea89cdca5c6573404e787d5d298f816",
+    "registry/performance/rules/perf_rule_025.json": "67f6b64a435e24f925eaf2be6f2ff22d49a47d958c163f376783aeb73b672181",
+    "registry/performance/rules/perf_rule_026.json": "13d6dd035ca9e50ca05c0f92e2f2783420a09959849cbdc1f1cd904a021d1637",
+    "registry/performance/rules/perf_rule_027.json": "6e1b2c014477037380c8036c8bffcef68eb8f8570cc12af1694a44bfdca779a7",
+    "registry/performance/rules/perf_rule_028.json": "c4d9f896144784e9669729f6f8de4b55460838fc58626f3874c3c6c09788ca68",
+    "registry/performance/rules/perf_rule_029.json": "1f0cbb7b0d1eedec908b534dc682b70ce6bf4d295a59ef1ba8fe9d4b501fd9f8",
+    "registry/performance/rules/perf_rule_030.json": "373004e15a4e5f24436ccd80cc846949820b6f9af433a6dfb33db2b5b41e4a01",
+    "registry/performance/rules/perf_rule_031.json": "ce4bc3f6db0c519a9e6dd098459da5b86375e0dd84ba2e75682a9883b0d94eb3",
+    "registry/performance/rules/perf_rule_032.json": "3adfe8cd99329cb27a958e73aec49ead1652dfe3dda93efd96088c555a7202eb",
+    "registry/performance/rules/perf_rule_033.json": "5f053a19b2569ba84172ce344f44b33c60138e8558d7ae6b59b15c517e109496",
+    "registry/performance/rules/perf_rule_034.json": "76270cf050a4f5609741f822de690f4f0bcfdb4d5f5ec8569737779e9fb6947a",
+    "registry/performance/rules/perf_rule_035.json": "6f3f3c288cc295a7c24dcb658ba038760a7790b95dd68f519a36c7268cfe633e",
+    "registry/performance/rules/perf_rule_036.json": "165fb6450af88c0dda4e6ee6ed443ce7aedf1199162fac9c77786abe4a8b6e11",
+    "registry/performance/definitions/measurementMethod.json": "dc1b1edb99d6ec847f6ad1b53eab978df5ea49dad5567cfd6d824f3c9cd7b985",
+    "registry/performance/definitions/performanceAudit.json": "eff9a1c7aaeefa7cb920b3636e99dd042cb362b051e2b59db957d2031e90f962",
+    "registry/performance/definitions/performanceBudget.json": "554f0b25ed355b0cdce3dfdeea15c3ce1f75a3f8b9d6e9a28fa647fa4c05d644",
+    "registry/performance/definitions/performanceMetric.json": "dd8c8412050fd108a07334c859a0a725c3097b2b322b827481b6c740554fcd98",
+    "registry/performance/definitions/performanceRule.json": "94ab8129960c4e8970de200e591b5a4ee4a36ccbb8693c0f977cd9a5557f26b2"
   }
 };

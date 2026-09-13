@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.content.faqs",
   "name": "Faqs Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -117,5 +117,30 @@
   },
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.faqs",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "direct",
+    "approvalRequired": false,
+    "capabilityRefs": [
+      "pages.sections"
+    ],
+    "editableFields": [
+      "question",
+      "answer",
+      "group",
+      "order",
+      "publishing"
+    ],
+    "readOnlyFields": [],
+    "hiddenFields": [
+      "identity",
+      "scope",
+      "revision"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

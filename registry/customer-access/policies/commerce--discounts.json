@@ -1,0 +1,135 @@
+{
+  "$id": "customerAccess.policy.commerce.discounts",
+  "name": "Discounts Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.discounts",
+  "contractRefs": [
+    "commerce.discount",
+    "commerce.discountCode"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.discounts"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.discounts.view"
+    ],
+    "create": [
+      "commerce.discounts.create"
+    ],
+    "update": [
+      "commerce.discounts.edit",
+      "commerce.discounts.manage"
+    ],
+    "delete": [
+      "commerce.discounts.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.discount.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.discount.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#name",
+      "field": "name",
+      "contractFieldRef": "commerce.discount.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#conditions",
+      "field": "conditions",
+      "contractFieldRef": "commerce.discount.conditions",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#conditionMatch",
+      "field": "conditionMatch",
+      "contractFieldRef": "commerce.discount.conditionMatch",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#benefits",
+      "field": "benefits",
+      "contractFieldRef": "commerce.discount.benefits",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#usageLimit",
+      "field": "usageLimit",
+      "contractFieldRef": "commerce.discount.usageLimit",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#perCustomerLimit",
+      "field": "perCustomerLimit",
+      "contractFieldRef": "commerce.discount.perCustomerLimit",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#startsAt",
+      "field": "startsAt",
+      "contractFieldRef": "commerce.discount.startsAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#endsAt",
+      "field": "endsAt",
+      "contractFieldRef": "commerce.discount.endsAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#combinable",
+      "field": "combinable",
+      "contractFieldRef": "commerce.discount.combinable",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.discounts#status",
+      "field": "status",
+      "contractFieldRef": "commerce.discount.status",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.discounts",
+    "adminProfileRef": "adminUi.profile.commerce.discounts",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

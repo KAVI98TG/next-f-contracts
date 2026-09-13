@@ -1,0 +1,100 @@
+{
+  "$id": "customerAccess.policy.integrations.sync",
+  "name": "Sync Runs Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "integrations.sync",
+  "contractRefs": [
+    "integrations.syncRun",
+    "integrations.syncResult"
+  ],
+  "moduleRef": "integrations",
+  "capabilityRefs": [
+    "integrations.sync"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "integrations.sync.view"
+    ],
+    "create": [],
+    "update": [
+      "integrations.sync.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.integrations.sync#runId",
+      "field": "runId",
+      "contractFieldRef": "integrations.syncRun.runId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.sync#connectionRef",
+      "field": "connectionRef",
+      "contractFieldRef": "integrations.syncRun.connectionRef",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.sync#startedAt",
+      "field": "startedAt",
+      "contractFieldRef": "integrations.syncRun.startedAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.sync#completedAt",
+      "field": "completedAt",
+      "contractFieldRef": "integrations.syncRun.completedAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.sync#cursorBefore",
+      "field": "cursorBefore",
+      "contractFieldRef": "integrations.syncRun.cursorBefore",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.sync#cursorAfter",
+      "field": "cursorAfter",
+      "contractFieldRef": "integrations.syncRun.cursorAfter",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.sync#result",
+      "field": "result",
+      "contractFieldRef": "integrations.syncRun.result",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.integrations.sync",
+    "adminProfileRef": "adminUi.profile.integrations.sync",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

@@ -1,18 +1,22 @@
 {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.1.0",
   "title": "Changelog Entry Index",
-  "entryCount": 601,
+  "entryCount": 605,
   "domains": [
     "accessibility",
     "admin-ui",
+    "api",
     "blocks",
     "changelog",
     "cms-ui",
     "commerce",
+    "core",
+    "customer-access",
     "deprecations",
     "developer",
     "diff",
+    "events",
     "examples",
     "fields",
     "forms",
@@ -19269,6 +19273,166 @@
       "relatedMigrationGuide": null,
       "relatedDeprecationRecord": null,
       "sourceReference": "registry/changelog/releases/1.0.0.json",
+      "sourceCommitReference": null
+    },
+    {
+      "entryId": "chg_v1_1_customer_access_registry",
+      "releaseVersion": "1.1.0",
+      "category": "added",
+      "originalSection": "Added",
+      "summary": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+      "affectedRegistryIds": [
+        "customerAccess.customerAccessPolicyStandard",
+        "customerAccess.effectivePolicyResolution",
+        "customerAccess.policyRegistry",
+        "customerAccess.policySchema",
+        "customerAccess.policyVocabulary"
+      ],
+      "compatibilityImpact": "non-breaking",
+      "provenance": "authoritative-release-json",
+      "notes": null,
+      "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+      "description": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+      "changeType": "added",
+      "affectedDomains": [
+        "customer-access"
+      ],
+      "affectedModules": [],
+      "impact": {
+        "compatibilityClassification": "non-breaking",
+        "breakingChange": false,
+        "migrationRequired": false,
+        "customerSiteActionRequired": null,
+        "adminActionRequired": null,
+        "apiActionRequired": null,
+        "cmsActionRequired": null,
+        "securityRelevance": false
+      },
+      "relatedDiffEvidence": null,
+      "relatedMigrationGuide": null,
+      "relatedDeprecationRecord": null,
+      "sourceReference": "registry/changelog/releases/1.1.0.json",
+      "sourceCommitReference": null
+    },
+    {
+      "entryId": "chg_v1_1_change_request",
+      "releaseVersion": "1.1.0",
+      "category": "added",
+      "originalSection": "Added",
+      "summary": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+      "affectedRegistryIds": [
+        "api.customer-cms.submit-change-request",
+        "api.nextf-admin.apply-change-request",
+        "core.changerequests.approve",
+        "core.changerequests.create",
+        "customer-change-request.applied",
+        "customer-change-request.submitted",
+        "customerAccess.changeRequest"
+      ],
+      "compatibilityImpact": "non-breaking",
+      "provenance": "authoritative-release-json",
+      "notes": null,
+      "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+      "description": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+      "changeType": "added",
+      "affectedDomains": [
+        "api",
+        "core",
+        "customer-access",
+        "events"
+      ],
+      "affectedModules": [],
+      "impact": {
+        "compatibilityClassification": "non-breaking",
+        "breakingChange": false,
+        "migrationRequired": false,
+        "customerSiteActionRequired": null,
+        "adminActionRequired": null,
+        "apiActionRequired": null,
+        "cmsActionRequired": null,
+        "securityRelevance": false
+      },
+      "relatedDiffEvidence": null,
+      "relatedMigrationGuide": null,
+      "relatedDeprecationRecord": null,
+      "sourceReference": "registry/changelog/releases/1.1.0.json",
+      "sourceCommitReference": null
+    },
+    {
+      "entryId": "chg_v1_1_fail_closed_resolution",
+      "releaseVersion": "1.1.0",
+      "category": "security",
+      "originalSection": "Security",
+      "summary": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+      "affectedRegistryIds": [
+        "customerAccess.effectivePolicyResolution",
+        "manifest.cms",
+        "validation.index"
+      ],
+      "compatibilityImpact": "non-breaking",
+      "provenance": "authoritative-release-json",
+      "notes": "Consumers must not infer authorization from Customer CMS visibility.",
+      "title": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+      "description": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+      "changeType": "security",
+      "affectedDomains": [
+        "customer-access",
+        "manifest",
+        "validation"
+      ],
+      "affectedModules": [],
+      "impact": {
+        "compatibilityClassification": "non-breaking",
+        "breakingChange": false,
+        "migrationRequired": false,
+        "customerSiteActionRequired": null,
+        "adminActionRequired": null,
+        "apiActionRequired": null,
+        "cmsActionRequired": null,
+        "securityRelevance": true
+      },
+      "relatedDiffEvidence": null,
+      "relatedMigrationGuide": null,
+      "relatedDeprecationRecord": null,
+      "sourceReference": "registry/changelog/releases/1.1.0.json",
+      "sourceCommitReference": null
+    },
+    {
+      "entryId": "chg_v1_1_explicit_upgrade",
+      "releaseVersion": "1.1.0",
+      "category": "migration",
+      "originalSection": "Migration",
+      "summary": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+      "affectedRegistryIds": [
+        "compatibility.releaseCompatibility",
+        "customerAccess.policyRegistry",
+        "manifest.siteManifest"
+      ],
+      "compatibilityImpact": "review-required",
+      "provenance": "authoritative-release-json",
+      "notes": "The Site Manifest may restrict canonical policy but cannot broaden it.",
+      "title": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+      "description": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+      "changeType": "migration",
+      "affectedDomains": [
+        "customer-access",
+        "manifest"
+      ],
+      "affectedModules": [],
+      "impact": {
+        "compatibilityClassification": "review-required",
+        "breakingChange": null,
+        "migrationRequired": true,
+        "customerSiteActionRequired": null,
+        "adminActionRequired": null,
+        "apiActionRequired": null,
+        "cmsActionRequired": null,
+        "securityRelevance": false
+      },
+      "relatedDiffEvidence": null,
+      "relatedMigrationGuide": null,
+      "relatedDeprecationRecord": null,
+      "sourceReference": "registry/changelog/releases/1.1.0.json",
       "sourceCommitReference": null
     }
   ]

@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.content.navigation",
   "name": "Navigation Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -99,5 +99,31 @@
   },
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.navigation",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "approval_required",
+    "publishingMode": "approval_required",
+    "approvalRequired": true,
+    "capabilityRefs": [
+      "pages.navigation"
+    ],
+    "editableFields": [
+      "name",
+      "items",
+      "publishing"
+    ],
+    "readOnlyFields": [
+      "key",
+      "location"
+    ],
+    "hiddenFields": [
+      "identity",
+      "scope",
+      "revision"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

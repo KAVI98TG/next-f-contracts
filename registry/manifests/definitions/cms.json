@@ -108,6 +108,17 @@
         "customerEditable": false,
         "adminEditable": false
       }
+    },
+    {
+      "key": "customerAccess",
+      "required": false,
+      "nullable": true,
+      "description": "Optional Site-specific restrictions against the canonical V1.1.0 Customer Access Policy maximum.",
+      "primitive": "fields.json",
+      "config": {
+        "customerEditable": false,
+        "adminEditable": true
+      }
     }
   ],
   "relationships": [],
@@ -123,6 +134,10 @@
     {
       "id": "arbitraryCodeEditingProhibited",
       "description": "arbitraryCodeEditing must be false."
+    },
+    {
+      "id": "customerAccessRestrictiveOnly",
+      "description": "Site customerAccess settings may restrict canonical policy but must never broaden it."
     }
   ],
   "cms": {

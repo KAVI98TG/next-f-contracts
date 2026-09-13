@@ -1,0 +1,99 @@
+{
+  "$id": "customerAccess.policy.seo.robots",
+  "name": "Robots Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "seo.robots",
+  "contractRefs": [
+    "seo.robotsPolicy",
+    "seo.robotsRule"
+  ],
+  "moduleRef": "seo",
+  "capabilityRefs": [
+    "seo.robots"
+  ],
+  "customerMode": "approval_required",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "request",
+    "delete": "deny",
+    "submit_for_review": "allow",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "seo.robots.view"
+    ],
+    "create": [],
+    "update": [
+      "seo.robots.edit",
+      "seo.robots.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [
+      "core.changerequests.create"
+    ],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.seo.robots#identity",
+      "field": "identity",
+      "contractFieldRef": "seo.robotsPolicy.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.robots#scope",
+      "field": "scope",
+      "contractFieldRef": "seo.robotsPolicy.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.robots#rules",
+      "field": "rules",
+      "contractFieldRef": "seo.robotsPolicy.rules",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.robots#sitemapUrls",
+      "field": "sitemapUrls",
+      "contractFieldRef": "seo.robotsPolicy.sitemapUrls",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.robots#additionalComment",
+      "field": "additionalComment",
+      "contractFieldRef": "seo.robotsPolicy.additionalComment",
+      "mode": "approval_required"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.cancel-change-request",
+    "api.customer-cms.submit-change-request"
+  ],
+  "eventRefs": [
+    "customer-change-request.submitted",
+    "customer-change-request.cancelled",
+    "customer-change-request.approved",
+    "customer-change-request.applied"
+  ],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.seo.robots",
+    "adminProfileRef": "adminUi.profile.seo.robots",
+    "approvalContractRef": "customerAccess.changeRequest"
+  },
+  "notes": []
+}

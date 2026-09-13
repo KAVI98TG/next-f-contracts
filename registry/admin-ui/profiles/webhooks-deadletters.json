@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.webhooks.deadletters",
   "name": "Deadletters Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -84,5 +84,29 @@
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate.",
     "Credential/secret values remain server-side; Admin displays state, fingerprints/metadata or rotation controls only."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.webhooks.deadletters",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "read_only",
+    "publishingMode": "not_applicable",
+    "approvalRequired": false,
+    "capabilityRefs": [
+      "integrations.health"
+    ],
+    "editableFields": [],
+    "readOnlyFields": [
+      "reasonCode",
+      "lastFailure",
+      "deadLetteredAt",
+      "expiresAt",
+      "redeliveryEligibleUntil"
+    ],
+    "hiddenFields": [
+      "deadLetterId",
+      "deliveryId"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

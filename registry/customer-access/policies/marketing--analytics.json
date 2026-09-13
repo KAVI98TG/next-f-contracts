@@ -1,0 +1,105 @@
+{
+  "$id": "customerAccess.policy.marketing.analytics",
+  "name": "Analytics Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "marketing.analytics",
+  "contractRefs": [
+    "marketing.analyticsSnapshot",
+    "marketing.analyticsObservation"
+  ],
+  "moduleRef": "analytics",
+  "capabilityRefs": [
+    "analytics.reporting"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "marketing.analytics.export",
+      "marketing.analytics.view"
+    ],
+    "create": [],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.marketing.analytics#snapshotId",
+      "field": "snapshotId",
+      "contractFieldRef": "marketing.analyticsSnapshot.snapshotId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.analytics#scope",
+      "field": "scope",
+      "contractFieldRef": "marketing.analyticsSnapshot.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.analytics#periodStart",
+      "field": "periodStart",
+      "contractFieldRef": "marketing.analyticsSnapshot.periodStart",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.analytics#periodEnd",
+      "field": "periodEnd",
+      "contractFieldRef": "marketing.analyticsSnapshot.periodEnd",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.analytics#observations",
+      "field": "observations",
+      "contractFieldRef": "marketing.analyticsSnapshot.observations",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.analytics#generatedAt",
+      "field": "generatedAt",
+      "contractFieldRef": "marketing.analyticsSnapshot.generatedAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.analytics#sourceFreshThrough",
+      "field": "sourceFreshThrough",
+      "contractFieldRef": "marketing.analyticsSnapshot.sourceFreshThrough",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.analytics#attributionModelKey",
+      "field": "attributionModelKey",
+      "contractFieldRef": "marketing.analyticsSnapshot.attributionModelKey",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.marketing.analytics",
+    "adminProfileRef": "adminUi.profile.marketing.analytics",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

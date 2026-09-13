@@ -1,7 +1,7 @@
 {
   "manifestVersion": "1.0.0",
   "contracts": {
-    "contractVersion": "1.0.0",
+    "contractVersion": "1.1.0",
     "manifestSpecVersion": "1.0.0",
     "compatibilityMode": "strict-major"
   },

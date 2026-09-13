@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.permissions.roles",
   "name": "Roles",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -287,5 +287,47 @@
       "requiresPermission": "permissions.roles.edit",
       "purpose": "Primary Site-scoped Customer CMS surface."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.permissions.roles",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "permissions.roles.view"
+      ],
+      "create": [
+        "permissions.roles.create"
+      ],
+      "update": [
+        "permissions.roles.edit",
+        "permissions.roles.manage"
+      ],
+      "delete": [
+        "permissions.roles.delete"
+      ],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "core.identity"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

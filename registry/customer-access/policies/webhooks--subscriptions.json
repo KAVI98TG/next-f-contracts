@@ -1,0 +1,134 @@
+{
+  "$id": "customerAccess.policy.webhooks.subscriptions",
+  "name": "Webhook Subscriptions Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "webhooks.subscriptions",
+  "contractRefs": [
+    "webhooks.subscription"
+  ],
+  "moduleRef": "integrations",
+  "capabilityRefs": [
+    "integrations.health"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "webhooks.subscriptions.view"
+    ],
+    "create": [
+      "webhooks.subscriptions.create"
+    ],
+    "update": [
+      "webhooks.subscriptions.edit",
+      "webhooks.subscriptions.manage"
+    ],
+    "delete": [
+      "webhooks.subscriptions.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#identity",
+      "field": "identity",
+      "contractFieldRef": "webhooks.subscription.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#ownership",
+      "field": "ownership",
+      "contractFieldRef": "webhooks.subscription.ownership",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#name",
+      "field": "name",
+      "contractFieldRef": "webhooks.subscription.name",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#endpointId",
+      "field": "endpointId",
+      "contractFieldRef": "webhooks.subscription.endpointId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#environment",
+      "field": "environment",
+      "contractFieldRef": "webhooks.subscription.environment",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#selection",
+      "field": "selection",
+      "contractFieldRef": "webhooks.subscription.selection",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#filters",
+      "field": "filters",
+      "contractFieldRef": "webhooks.subscription.filters",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#dataAccess",
+      "field": "dataAccess",
+      "contractFieldRef": "webhooks.subscription.dataAccess",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#state",
+      "field": "state",
+      "contractFieldRef": "webhooks.subscription.state",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#pausePolicy",
+      "field": "pausePolicy",
+      "contractFieldRef": "webhooks.subscription.pausePolicy",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#createdAt",
+      "field": "createdAt",
+      "contractFieldRef": "webhooks.subscription.createdAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.subscriptions#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "webhooks.subscription.updatedAt",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.webhooks.subscriptions",
+    "adminProfileRef": "adminUi.profile.webhooks.subscriptions",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

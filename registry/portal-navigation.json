@@ -1,5 +1,5 @@
 {
-  "portalVersion": "1.0.0",
+  "portalVersion": "1.1.0",
   "theme": "light",
   "groups": [
     {
@@ -11,7 +11,7 @@
           "path": "/overview",
           "label": "Overview",
           "status": "current",
-          "phase": 37
+          "phase": 34
         },
         {
           "id": "global-search",
@@ -193,6 +193,13 @@
           "status": "available"
         },
         {
+          "id": "platform-customer-access",
+          "path": "/platform/customer-access",
+          "label": "Customer Access",
+          "phase": 38,
+          "status": "available"
+        },
+        {
           "id": "platform-integrations",
           "path": "/platform/integrations",
           "label": "Integrations",
@@ -332,5 +339,5 @@
       ]
     }
   ],
-  "registryVersion": "1.0.0"
+  "registryVersion": "1.1.0"
 }

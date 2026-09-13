@@ -1,0 +1,87 @@
+{
+  "$id": "customerAccess.policy.core.sitehealth",
+  "name": "Website Health Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "core.sitehealth",
+  "contractRefs": [
+    "core.site"
+  ],
+  "moduleRef": "core",
+  "capabilityRefs": [
+    "core.identity"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "core.sitehealth.view"
+    ],
+    "create": [],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.core.sitehealth#identity",
+      "field": "identity",
+      "contractFieldRef": "core.site.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.sitehealth#organizationId",
+      "field": "organizationId",
+      "contractFieldRef": "core.site.organizationId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.sitehealth#name",
+      "field": "name",
+      "contractFieldRef": "core.site.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.sitehealth#primaryUrl",
+      "field": "primaryUrl",
+      "contractFieldRef": "core.site.primaryUrl",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.sitehealth#status",
+      "field": "status",
+      "contractFieldRef": "core.site.status",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.get-workspace"
+  ],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.core.sitehealth",
+    "adminProfileRef": "adminUi.profile.core.sitehealth",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

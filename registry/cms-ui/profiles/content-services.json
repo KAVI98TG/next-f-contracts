@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.content.services",
   "name": "Services",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -510,5 +510,51 @@
       "requiresPermission": "content.services.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.services",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "direct",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "allow",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "content.services.view"
+      ],
+      "create": [
+        "content.services.create"
+      ],
+      "update": [
+        "content.services.edit",
+        "content.services.publish"
+      ],
+      "delete": [
+        "content.services.delete"
+      ],
+      "submit_for_review": [
+        "content.services.approve"
+      ],
+      "publish": [
+        "content.services.publish"
+      ],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "pages.sections"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

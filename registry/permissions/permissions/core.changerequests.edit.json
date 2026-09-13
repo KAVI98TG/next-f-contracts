@@ -1,0 +1,29 @@
+{
+  "$id": "core.changerequests.edit",
+  "name": "Edit Customer Change Requests",
+  "permissionId": "core.changerequests.edit",
+  "domain": "core",
+  "resource": "changerequests",
+  "action": "edit",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Edit Customer Change Requests within the authorized Site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "1.1.0",
+  "status": "stable"
+}

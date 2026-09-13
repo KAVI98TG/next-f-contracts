@@ -1,0 +1,120 @@
+{
+  "$id": "customerAccess.policy.content.customentries",
+  "name": "Custom Entries Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.customentries",
+  "contractRefs": [
+    "content.customCollectionEntry"
+  ],
+  "moduleRef": "pages",
+  "capabilityRefs": [
+    "pages.custom-collections"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "allow",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "direct"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.customentries.view"
+    ],
+    "create": [
+      "content.customentries.create"
+    ],
+    "update": [
+      "content.customentries.edit",
+      "content.customentries.publish"
+    ],
+    "delete": [
+      "content.customentries.delete"
+    ],
+    "submit_for_review": [
+      "content.customentries.approve"
+    ],
+    "publish": [
+      "content.customentries.publish"
+    ],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.customentries#identity",
+      "field": "identity",
+      "contractFieldRef": "content.customCollectionEntry.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customentries#scope",
+      "field": "scope",
+      "contractFieldRef": "content.customCollectionEntry.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customentries#collection",
+      "field": "collection",
+      "contractFieldRef": "content.customCollectionEntry.collection",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customentries#displayLabel",
+      "field": "displayLabel",
+      "contractFieldRef": "content.customCollectionEntry.displayLabel",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customentries#slug",
+      "field": "slug",
+      "contractFieldRef": "content.customCollectionEntry.slug",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customentries#data",
+      "field": "data",
+      "contractFieldRef": "content.customCollectionEntry.data",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customentries#publishing",
+      "field": "publishing",
+      "contractFieldRef": "content.customCollectionEntry.publishing",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customentries#revision",
+      "field": "revision",
+      "contractFieldRef": "content.customCollectionEntry.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.create-custom-entry",
+    "api.customer-cms.get-custom-entry",
+    "api.customer-cms.list-custom-entrys",
+    "api.customer-cms.publish-custom-entry",
+    "api.customer-cms.update-custom-entry"
+  ],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.customentries",
+    "adminProfileRef": "adminUi.profile.content.customentries",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

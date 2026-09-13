@@ -1,0 +1,133 @@
+{
+  "$id": "customerAccess.policy.commerce.customers",
+  "name": "Customers Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.customers",
+  "contractRefs": [
+    "commerce.commerceCustomer",
+    "commerce.customerAddress",
+    "commerce.customerNote"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.customers"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.customers.export",
+      "commerce.customers.view"
+    ],
+    "create": [],
+    "update": [
+      "commerce.customers.edit",
+      "commerce.customers.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.commerceCustomer.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.commerceCustomer.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#email",
+      "field": "email",
+      "contractFieldRef": "commerce.commerceCustomer.email",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#phone",
+      "field": "phone",
+      "contractFieldRef": "commerce.commerceCustomer.phone",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#firstName",
+      "field": "firstName",
+      "contractFieldRef": "commerce.commerceCustomer.firstName",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#lastName",
+      "field": "lastName",
+      "contractFieldRef": "commerce.commerceCustomer.lastName",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#accountStatus",
+      "field": "accountStatus",
+      "contractFieldRef": "commerce.commerceCustomer.accountStatus",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#addresses",
+      "field": "addresses",
+      "contractFieldRef": "commerce.commerceCustomer.addresses",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#marketingConsentStateId",
+      "field": "marketingConsentStateId",
+      "contractFieldRef": "commerce.commerceCustomer.marketingConsentStateId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#createdAt",
+      "field": "createdAt",
+      "contractFieldRef": "commerce.commerceCustomer.createdAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "commerce.commerceCustomer.updatedAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.customers#tagKeys",
+      "field": "tagKeys",
+      "contractFieldRef": "commerce.commerceCustomer.tagKeys",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.customers",
+    "adminProfileRef": "adminUi.profile.commerce.customers",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

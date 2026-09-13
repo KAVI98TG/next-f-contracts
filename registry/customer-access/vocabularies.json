@@ -1,0 +1,55 @@
+{
+  "registryVersion": "1.1.0",
+  "schemaVersion": "1.0.0",
+  "customerModes": [
+    "hidden",
+    "read_only",
+    "direct_edit",
+    "approval_required"
+  ],
+  "publishingModes": [
+    "not_applicable",
+    "direct",
+    "approval_required",
+    "admin_only"
+  ],
+  "actionBehaviors": [
+    "allow",
+    "request",
+    "deny"
+  ],
+  "fieldModes": [
+    "inherit",
+    "hidden",
+    "read_only",
+    "direct_edit",
+    "approval_required"
+  ],
+  "demoModes": [
+    "disabled",
+    "read_only_sample",
+    "simulated_write_sample"
+  ],
+  "semanticActions": [
+    "read",
+    "create",
+    "update",
+    "delete",
+    "submit_for_review",
+    "publish",
+    "unpublish",
+    "restore_version"
+  ],
+  "changeRequestStatuses": [
+    "draft",
+    "submitted",
+    "in_review",
+    "changes_requested",
+    "approved",
+    "rejected",
+    "applied",
+    "cancelled",
+    "expired"
+  ],
+  "rule": "Unknown values are invalid. Missing customer write policy fails closed."
+}

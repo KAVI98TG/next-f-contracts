@@ -1,0 +1,99 @@
+{
+  "$id": "customerAccess.policy.webhooks.deadletters",
+  "name": "Dead Letters Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "webhooks.deadletters",
+  "contractRefs": [
+    "webhooks.deadLetter"
+  ],
+  "moduleRef": "integrations",
+  "capabilityRefs": [
+    "integrations.health"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "webhooks.deadletters.view"
+    ],
+    "create": [],
+    "update": [
+      "webhooks.deadletters.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deadletters#deadLetterId",
+      "field": "deadLetterId",
+      "contractFieldRef": "webhooks.deadLetter.deadLetterId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deadletters#deliveryId",
+      "field": "deliveryId",
+      "contractFieldRef": "webhooks.deadLetter.deliveryId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deadletters#reasonCode",
+      "field": "reasonCode",
+      "contractFieldRef": "webhooks.deadLetter.reasonCode",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deadletters#lastFailure",
+      "field": "lastFailure",
+      "contractFieldRef": "webhooks.deadLetter.lastFailure",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deadletters#deadLetteredAt",
+      "field": "deadLetteredAt",
+      "contractFieldRef": "webhooks.deadLetter.deadLetteredAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deadletters#expiresAt",
+      "field": "expiresAt",
+      "contractFieldRef": "webhooks.deadLetter.expiresAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.deadletters#redeliveryEligibleUntil",
+      "field": "redeliveryEligibleUntil",
+      "contractFieldRef": "webhooks.deadLetter.redeliveryEligibleUntil",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.webhooks.deadletters",
+    "adminProfileRef": "adminUi.profile.webhooks.deadletters",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

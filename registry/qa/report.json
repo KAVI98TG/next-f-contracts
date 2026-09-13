@@ -1,18 +1,33 @@
 {
-  "registryVersion": "0.37.0",
-  "phase": 36,
-  "title": "NEXT F Registry Health - Release Candidate",
+  "registryVersion": "1.1.0",
+  "phase": 38,
+  "title": "NEXT F Registry Health - Customer Access Acceptance",
   "releaseStatus": "RELEASE_CANDIDATE",
-  "generatedAt": "2026-09-11T05:17:00.007Z",
+  "generatedAt": "2026-09-13T10:24:32.696Z",
   "summary": {
-    "total": 36,
-    "pass": 33,
+    "total": 41,
+    "pass": 38,
     "fail": 0,
     "warning": 1,
     "deferred": 1,
     "notApplicable": 1,
     "criticalFailures": 0,
     "blockingFailures": 0
+  },
+  "customerAccess": {
+    "policies": 75,
+    "modes": {
+      "hidden": 2,
+      "read_only": 13,
+      "direct_edit": 52,
+      "approval_required": 8
+    },
+    "classifiedProfiles": 75,
+    "unclassifiedProfiles": 0,
+    "brokenReferences": 0,
+    "uiMismatches": 0,
+    "approvalWorkflowGaps": 0,
+    "demoViolations": 0
   },
   "checks": [
     {
@@ -22,8 +37,8 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Registry items: 2176",
-        "Unique IDs: 2176"
+        "Registry items: 2284",
+        "Unique IDs: 2284"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -71,7 +86,7 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "JSON files checked: 2045"
+        "JSON files checked: 2168"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -83,7 +98,7 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Definition IDs: 1653",
+        "Definition IDs: 1749",
         "Duplicates: 0"
       ],
       "affectedDefinitions": [],
@@ -108,8 +123,8 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Graph nodes: 2176",
-        "Graph edges: 7519",
+        "Graph nodes: 2284",
+        "Graph edges: 8759",
         "Broken edges: 0"
       ],
       "affectedDefinitions": [],
@@ -134,7 +149,7 @@
       "result": "PASS",
       "severity": "high",
       "evidence": [
-        "Search documents: 7268",
+        "Search documents: 7436",
         "Broken sources: 0"
       ],
       "affectedDefinitions": [],
@@ -172,7 +187,7 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Permissions: 329"
+        "Permissions: 334"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -184,7 +199,7 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Events: 128"
+        "Events: 132"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -208,7 +223,7 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "API operations: 118"
+        "API operations: 125"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -245,7 +260,7 @@
       "result": "PASS",
       "severity": "high",
       "evidence": [
-        "Releases: 37",
+        "Releases: 39",
         "Unresolved affected IDs: 0"
       ],
       "affectedDefinitions": [],
@@ -258,7 +273,7 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Exact releases: 32"
+        "Exact releases: 34"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -371,7 +386,7 @@
       "result": "PASS",
       "severity": "high",
       "evidence": [
-        "Routes: 41"
+        "Routes: 42"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -383,7 +398,7 @@
       "result": "PASS",
       "severity": "high",
       "evidence": [
-        "Routes: 41"
+        "Routes: 42"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -463,6 +478,68 @@
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-applicable"
+    },
+    {
+      "checkId": "QA-ACCESS-001",
+      "category": "customer-access",
+      "description": "Every Customer CMS profile has one canonical Customer Access Policy",
+      "result": "PASS",
+      "severity": "critical",
+      "evidence": [
+        "Policies: 75",
+        "Customer CMS profiles: 75"
+      ],
+      "affectedDefinitions": [],
+      "remediationStatus": "not-required"
+    },
+    {
+      "checkId": "QA-ACCESS-002",
+      "category": "customer-access",
+      "description": "Customer Access permission, API, Event and Contract references resolve",
+      "result": "PASS",
+      "severity": "critical",
+      "evidence": [
+        "Broken references: 0"
+      ],
+      "affectedDefinitions": [],
+      "remediationStatus": "not-required"
+    },
+    {
+      "checkId": "QA-ACCESS-003",
+      "category": "customer-access",
+      "description": "Customer CMS and NEXT F Admin metadata agree with canonical policy",
+      "result": "PASS",
+      "severity": "high",
+      "evidence": [
+        "UI mismatches: 0"
+      ],
+      "affectedDefinitions": [],
+      "remediationStatus": "not-required"
+    },
+    {
+      "checkId": "QA-ACCESS-004",
+      "category": "customer-access",
+      "description": "Approval-required resources have proposal APIs, lifecycle Events and a change-request contract",
+      "result": "PASS",
+      "severity": "critical",
+      "evidence": [
+        "Approval policies: 8",
+        "Workflow gaps: 0"
+      ],
+      "affectedDefinitions": [],
+      "remediationStatus": "not-required"
+    },
+    {
+      "checkId": "QA-ACCESS-005",
+      "category": "customer-access",
+      "description": "Demo policy cannot authorize production mutation",
+      "result": "PASS",
+      "severity": "critical",
+      "evidence": [
+        "Demo write violations: 0"
+      ],
+      "affectedDefinitions": [],
+      "remediationStatus": "not-required"
     }
   ],
   "notes": [

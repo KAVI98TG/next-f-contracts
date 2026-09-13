@@ -1,0 +1,119 @@
+{
+  "eventKey": "customer-change-request.approved",
+  "name": "Customer Change Request Approved",
+  "category": "site",
+  "producerKey": "site-domain",
+  "subjectContracts": [
+    "customerAccess.changeRequest"
+  ],
+  "trigger": "An authorized reviewer approves a current customer proposal.",
+  "dataPolicy": {
+    "sensitivity": "internal",
+    "containsPersonalData": true,
+    "containsFinancialData": false,
+    "containsSecrets": false,
+    "redactionRequired": true
+  },
+  "webhookEligible": false,
+  "consumers": [
+    "audit",
+    "customer-cms",
+    "nextf-admin",
+    "notification"
+  ],
+  "payloadFields": [
+    {
+      "key": "requestId",
+      "required": true,
+      "description": "Customer Change Request ID.",
+      "type": "id"
+    },
+    {
+      "key": "siteId",
+      "required": true,
+      "description": "Authorized Site scope.",
+      "type": "id"
+    },
+    {
+      "key": "resourceType",
+      "required": true,
+      "description": "Canonical target resource type.",
+      "type": "string"
+    },
+    {
+      "key": "resourceId",
+      "required": true,
+      "description": "Target resource ID.",
+      "type": "id"
+    },
+    {
+      "key": "baseRevisionId",
+      "required": true,
+      "description": "Revision against which the proposal was made.",
+      "type": "id"
+    }
+  ],
+  "$id": "customer-change-request.approved",
+  "version": "1.1.0",
+  "eventVersion": "1.0.0",
+  "status": "stable",
+  "domain": "events",
+  "description": "An authorized reviewer approves a current customer proposal.",
+  "purpose": "Provides an auditable canonical fact for the Customer Change Request workflow.",
+  "semantics": {
+    "factOnly": true,
+    "authoritativeAfterCommit": true,
+    "immutableOccurrence": true,
+    "transportIndependent": true,
+    "marketingTrackingEquivalent": null
+  },
+  "productionPolicy": {
+    "durability": "durable",
+    "commitBoundary": "transactional-outbox",
+    "failureBehavior": "fail-domain-commit-or-durable-recovery"
+  },
+  "idempotency": {
+    "dedupeKey": "eventId",
+    "replayedIdempotentCommand": "no-new-semantic-event",
+    "consumerIdempotencyRequired": true
+  },
+  "orderingPolicy": {
+    "scope": "subject",
+    "strict": true
+  },
+  "retention": {
+    "class": "audit-history"
+  },
+  "relationships": [
+    {
+      "type": "references",
+      "target": "customerAccess.changeRequest",
+      "description": "Event subject is the canonical Customer Change Request."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "emitAfterAuthoritativeCommit",
+      "description": "Emit only after the corresponding request lifecycle transition commits."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Payload never contains proposed values, credentials or secret material."
+    },
+    {
+      "id": "tenantScope",
+      "description": "Organization and Site scope must match the request and target resource."
+    }
+  ],
+  "examples": {
+    "valid": [
+      {
+        "eventKey": "customer-change-request.approved",
+        "eventVersion": "1.0.0",
+        "eventId": "evt_example",
+        "occurredAt": "2026-09-13T00:00:00Z"
+      }
+    ],
+    "invalid": []
+  }
+}

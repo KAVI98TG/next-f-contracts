@@ -1,0 +1,179 @@
+{
+  "$id": "customerAccess.policy.content.media",
+  "name": "Media Library Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.media",
+  "contractRefs": [
+    "shared.mediaAsset"
+  ],
+  "moduleRef": "media",
+  "capabilityRefs": [
+    "media.audio",
+    "media.documents",
+    "media.images",
+    "media.library",
+    "media.video"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.media.view"
+    ],
+    "create": [
+      "content.media.create"
+    ],
+    "update": [
+      "content.media.edit",
+      "content.media.manage"
+    ],
+    "delete": [
+      "content.media.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.media#id",
+      "field": "id",
+      "contractFieldRef": "shared.mediaAsset.id",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#siteId",
+      "field": "siteId",
+      "contractFieldRef": "shared.mediaAsset.siteId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#kind",
+      "field": "kind",
+      "contractFieldRef": "shared.mediaAsset.kind",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#fileName",
+      "field": "fileName",
+      "contractFieldRef": "shared.mediaAsset.fileName",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#mimeType",
+      "field": "mimeType",
+      "contractFieldRef": "shared.mediaAsset.mimeType",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#sizeBytes",
+      "field": "sizeBytes",
+      "contractFieldRef": "shared.mediaAsset.sizeBytes",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#width",
+      "field": "width",
+      "contractFieldRef": "shared.mediaAsset.width",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#height",
+      "field": "height",
+      "contractFieldRef": "shared.mediaAsset.height",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#durationSeconds",
+      "field": "durationSeconds",
+      "contractFieldRef": "shared.mediaAsset.durationSeconds",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#checksum",
+      "field": "checksum",
+      "contractFieldRef": "shared.mediaAsset.checksum",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#title",
+      "field": "title",
+      "contractFieldRef": "shared.mediaAsset.title",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#altText",
+      "field": "altText",
+      "contractFieldRef": "shared.mediaAsset.altText",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#caption",
+      "field": "caption",
+      "contractFieldRef": "shared.mediaAsset.caption",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#credit",
+      "field": "credit",
+      "contractFieldRef": "shared.mediaAsset.credit",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#copyright",
+      "field": "copyright",
+      "contractFieldRef": "shared.mediaAsset.copyright",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#focalPoint",
+      "field": "focalPoint",
+      "contractFieldRef": "shared.mediaAsset.focalPoint",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#publicUrl",
+      "field": "publicUrl",
+      "contractFieldRef": "shared.mediaAsset.publicUrl",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.media#createdAt",
+      "field": "createdAt",
+      "contractFieldRef": "shared.mediaAsset.createdAt",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.begin-media-upload",
+    "api.customer-cms.complete-media-upload",
+    "api.customer-cms.delete-media",
+    "api.customer-cms.list-media"
+  ],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.media",
+    "adminProfileRef": "adminUi.profile.content.media",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

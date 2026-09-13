@@ -2,13 +2,13 @@
 // Source set: registry/compatibility/*
 export const GENERATED_COMPATIBILITY = {
   "index": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Compatibility Center",
     "description": "Operational release, Site Manifest and platform-surface compatibility metadata for contract.nextf.lk.",
     "standard": "standards/34-compatibility-center-standard.md",
     "baselinePolicy": "standards/07-compatibility-policy.md",
-    "targetContractVersion": "1.0.0",
+    "targetContractVersion": "1.1.0",
     "definitionCount": 16,
     "statusCount": 7,
     "supportLevelCount": 8,
@@ -25,14 +25,14 @@ export const GENERATED_COMPATIBILITY = {
       "referenceSites": "registry/compatibility/reference-site-assessments.json",
       "definitions": "registry/compatibility/definitions"
     },
-    "releaseCount": 38,
-    "exactReleaseCount": 33,
-    "componentCount": 17,
+    "releaseCount": 39,
+    "exactReleaseCount": 34,
+    "componentCount": 18,
     "referenceAssessmentCount": 6,
     "productionEligible": true
   },
   "statuses": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "statuses": [
       {
         "id": "compatible",
@@ -86,7 +86,7 @@ export const GENERATED_COMPATIBILITY = {
     ]
   },
   "supportlevels": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "levels": [
       {
         "id": "current-development",
@@ -147,7 +147,7 @@ export const GENERATED_COMPATIBILITY = {
     ]
   },
   "dimensions": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "dimensions": [
       {
         "id": "contract-release",
@@ -217,7 +217,7 @@ export const GENERATED_COMPATIBILITY = {
     ]
   },
   "componenttypes": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "types": [
       {
         "id": "contract-registry",
@@ -266,11 +266,15 @@ export const GENERATED_COMPATIBILITY = {
       {
         "id": "reference-site",
         "label": "Reference Site"
+      },
+      {
+        "id": "customer-access-policy-registry",
+        "label": "Customer Access Policy Registry"
       }
     ]
   },
   "findingcodes": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "codes": [
       {
         "id": "contract.current",
@@ -375,11 +379,11 @@ export const GENERATED_COMPATIBILITY = {
     ]
   },
   "policy": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "standard": "standards/34-compatibility-center-standard.md",
     "baselinePolicy": "standards/07-compatibility-policy.md",
-    "currentContractRelease": "1.0.0",
+    "currentContractRelease": "1.1.0",
     "productionAcceptanceVersion": "1.0.0",
     "preOneReleasePolicy": {
       "active": false,
@@ -422,8 +426,8 @@ export const GENERATED_COMPATIBILITY = {
     "noSideEffects": true
   },
   "releasecompatibility": {
-    "registryVersion": "1.0.0",
-    "targetVersion": "1.0.0",
+    "registryVersion": "1.1.0",
+    "targetVersion": "1.1.0",
     "generatedAt": "2026-09-11T00:00:00Z",
     "scope": "consumer-relevant canonical Registry changes; tooling-only search/relationship/diff/compatibility definitions excluded from upgrade severity",
     "releases": [
@@ -464,19 +468,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2123 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 2,
+          "review-required": 10,
           "deprecation": 0,
-          "non-breaking": 2113,
+          "non-breaking": 2215,
           "documentation": 0,
           "metadata": 8,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-2-V0.3.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.1.0"
       },
       {
         "version": "0.4.0",
@@ -487,19 +491,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2088 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 6,
+          "review-required": 15,
           "deprecation": 0,
-          "non-breaking": 2074,
-          "documentation": 0,
+          "non-breaking": 2176,
+          "documentation": 34,
           "metadata": 8,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-3-V0.4.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.1.0"
       },
       {
         "version": "0.5.0",
@@ -510,19 +514,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2069 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 7,
+          "review-required": 17,
           "deprecation": 0,
-          "non-breaking": 2054,
-          "documentation": 0,
+          "non-breaking": 2156,
+          "documentation": 52,
           "metadata": 8,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-4-V0.5.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.1.0"
       },
       {
         "version": "0.6.0",
@@ -533,19 +537,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2067 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 26,
+          "review-required": 37,
           "deprecation": 0,
-          "non-breaking": 2033,
-          "documentation": 0,
+          "non-breaking": 2135,
+          "documentation": 53,
           "metadata": 8,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-5-V0.6.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.1.0"
       },
       {
         "version": "0.7.0",
@@ -556,19 +560,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2034 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 24,
+          "review-required": 36,
           "deprecation": 0,
-          "non-breaking": 2002,
-          "documentation": 0,
+          "non-breaking": 2104,
+          "documentation": 85,
           "metadata": 8,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-6-V0.7.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.1.0"
       },
       {
         "version": "0.8.0",
@@ -579,19 +583,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2012 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 29,
+          "review-required": 42,
           "deprecation": 0,
-          "non-breaking": 1979,
-          "documentation": 0,
+          "non-breaking": 2081,
+          "documentation": 106,
           "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-7-V0.8.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.1.0"
       },
       {
         "version": "0.9.0",
@@ -602,19 +606,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1978 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 32,
+          "review-required": 46,
           "deprecation": 0,
-          "non-breaking": 1943,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 2045,
+          "documentation": 138,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-8-V0.9.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.1.0"
       },
       {
         "version": "0.10.0",
@@ -625,19 +629,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1941 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 40,
+          "review-required": 55,
           "deprecation": 0,
-          "non-breaking": 1898,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 2000,
+          "documentation": 174,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-9-V0.10.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.1.0"
       },
       {
         "version": "0.11.0",
@@ -648,19 +652,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1894 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 42,
+          "review-required": 58,
           "deprecation": 0,
-          "non-breaking": 1849,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 1951,
+          "documentation": 220,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-10-V0.11.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.1.0"
       },
       {
         "version": "0.12.0",
@@ -671,19 +675,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1835 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 56,
+          "review-required": 73,
           "deprecation": 0,
-          "non-breaking": 1776,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 1878,
+          "documentation": 278,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-11-V0.12.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.1.0"
       },
       {
         "version": "0.13.0",
@@ -708,19 +712,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1561 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 59,
+          "review-required": 78,
           "deprecation": 0,
-          "non-breaking": 1499,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 1601,
+          "documentation": 550,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-13-V0.14.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.1.0"
       },
       {
         "version": "0.15.0",
@@ -745,19 +749,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1084 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 25,
           "deprecation": 0,
-          "non-breaking": 1078,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 1180,
+          "documentation": 1024,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-15-V0.16.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.1.0"
       },
       {
         "version": "0.17.0",
@@ -768,19 +772,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1064 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 2,
-          "review-required": 3,
+          "review-required": 29,
           "deprecation": 0,
-          "non-breaking": 1055,
-          "documentation": 1,
-          "metadata": 3,
+          "non-breaking": 1157,
+          "documentation": 1041,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-16-V0.17.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.1.0"
       },
       {
         "version": "0.18.0",
@@ -791,19 +795,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "migration-required",
         "summary": "Breaking contract evidence requires migration before target adoption.",
-        "changeSummary": "1151 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2327 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 96,
           "potentially-breaking": 6,
-          "review-required": 5,
+          "review-required": 31,
           "deprecation": 0,
-          "non-breaking": 1040,
-          "documentation": 1,
-          "metadata": 3,
+          "non-breaking": 1142,
+          "documentation": 1048,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-17-V0.18.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.1.0"
       },
       {
         "version": "0.19.0",
@@ -828,19 +832,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "622 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 111,
           "deprecation": 0,
-          "non-breaking": 615,
-          "documentation": 1,
-          "metadata": 3,
+          "non-breaking": 717,
+          "documentation": 1401,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-19-V0.20.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.1.0"
       },
       {
         "version": "0.21.0",
@@ -851,19 +855,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "459 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 186,
           "deprecation": 0,
-          "non-breaking": 452,
-          "documentation": 1,
-          "metadata": 3,
+          "non-breaking": 554,
+          "documentation": 1473,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-20-V0.21.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.1.0"
       },
       {
         "version": "0.22.0",
@@ -874,19 +878,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "386 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 187,
           "deprecation": 0,
-          "non-breaking": 379,
-          "documentation": 1,
-          "metadata": 3,
+          "non-breaking": 481,
+          "documentation": 1545,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-21-V0.22.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.1.0"
       },
       {
         "version": "0.23.0",
@@ -897,19 +901,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "376 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 188,
           "deprecation": 0,
-          "non-breaking": 370,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 472,
+          "documentation": 1553,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-22-V0.23.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "version": "0.24.0",
@@ -920,19 +924,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "376 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 188,
           "deprecation": 0,
-          "non-breaking": 370,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 472,
+          "documentation": 1553,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-23-V0.24.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.1.0"
       },
       {
         "version": "0.25.0",
@@ -943,19 +947,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "375 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 2,
+          "review-required": 188,
           "deprecation": 0,
-          "non-breaking": 370,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 472,
+          "documentation": 1553,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-24-V0.25.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.1.0"
       },
       {
         "version": "0.26.0",
@@ -966,19 +970,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "375 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 2,
+          "review-required": 188,
           "deprecation": 0,
-          "non-breaking": 370,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 472,
+          "documentation": 1553,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.1.0"
       },
       {
         "version": "0.27.0",
@@ -989,19 +993,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "375 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 2,
+          "review-required": 188,
           "deprecation": 0,
-          "non-breaking": 370,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 472,
+          "documentation": 1553,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.1.0"
       },
       {
         "version": "0.28.0",
@@ -1012,19 +1016,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "347 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2189 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 9,
+          "review-required": 196,
           "deprecation": 0,
-          "non-breaking": 320,
-          "documentation": 0,
-          "metadata": 18,
+          "non-breaking": 422,
+          "documentation": 1556,
+          "metadata": 15,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.1.0"
       },
       {
         "version": "0.29.0",
@@ -1035,19 +1039,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "346 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2188 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 13,
+          "review-required": 201,
           "deprecation": 0,
-          "non-breaking": 307,
-          "documentation": 0,
-          "metadata": 26,
+          "non-breaking": 409,
+          "documentation": 1558,
+          "metadata": 20,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.1.0"
       },
       {
         "version": "0.30.0",
@@ -1058,19 +1062,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "344 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2187 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 19,
+          "review-required": 209,
           "deprecation": 0,
-          "non-breaking": 244,
-          "documentation": 0,
-          "metadata": 81,
+          "non-breaking": 346,
+          "documentation": 1608,
+          "metadata": 24,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.1.0"
       },
       {
         "version": "0.31.0",
@@ -1081,19 +1085,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "343 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2186 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 93,
+          "review-required": 284,
           "deprecation": 0,
-          "non-breaking": 161,
-          "documentation": 0,
-          "metadata": 89,
+          "non-breaking": 263,
+          "documentation": 1609,
+          "metadata": 30,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.1.0"
       },
       {
         "version": "0.32.0",
@@ -1104,19 +1108,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "342 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2185 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 100,
+          "review-required": 292,
           "deprecation": 0,
-          "non-breaking": 102,
-          "documentation": 0,
-          "metadata": 140,
+          "non-breaking": 204,
+          "documentation": 1610,
+          "metadata": 79,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.1.0"
       },
       {
         "version": "0.33.0",
@@ -1127,19 +1131,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "341 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2184 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 108,
+          "review-required": 301,
           "deprecation": 0,
-          "non-breaking": 34,
-          "documentation": 0,
-          "metadata": 199,
+          "non-breaking": 136,
+          "documentation": 1612,
+          "metadata": 135,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.1.0"
       },
       {
         "version": "0.34.0",
@@ -1150,19 +1154,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "340 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2183 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 109,
+          "review-required": 303,
           "deprecation": 0,
-          "non-breaking": 28,
-          "documentation": 0,
-          "metadata": 203,
+          "non-breaking": 130,
+          "documentation": 1615,
+          "metadata": 135,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.1.0"
       },
       {
         "version": "0.35.0",
@@ -1173,19 +1177,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "339 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2182 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 110,
+          "review-required": 305,
           "deprecation": 0,
-          "non-breaking": 22,
-          "documentation": 0,
-          "metadata": 207,
+          "non-breaking": 124,
+          "documentation": 1618,
+          "metadata": 135,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.1.0"
       },
       {
         "version": "0.36.0",
@@ -1196,19 +1200,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "338 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2181 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 111,
+          "review-required": 307,
           "deprecation": 0,
-          "non-breaking": 12,
-          "documentation": 0,
-          "metadata": 215,
+          "non-breaking": 114,
+          "documentation": 1619,
+          "metadata": 141,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.1.0"
       },
       {
         "version": "0.37.0",
@@ -1219,23 +1223,46 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "335 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2180 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 112,
+          "review-required": 309,
           "deprecation": 0,
-          "non-breaking": 6,
-          "documentation": 0,
-          "metadata": 217,
+          "non-breaking": 108,
+          "documentation": 1619,
+          "metadata": 144,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.1.0"
       },
       {
         "version": "1.0.0",
         "phase": 37,
+        "exactSnapshotAvailable": true,
+        "availability": "exact",
+        "supportLevel": "production-supported",
+        "productionEligible": true,
+        "compatibilityStatus": "review-required",
+        "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
+        "changeSummary": "2179 consumer-relevant changed/added/removed definitions",
+        "impactCounts": {
+          "breaking": 0,
+          "potentially-breaking": 0,
+          "review-required": 310,
+          "deprecation": 0,
+          "non-breaking": 102,
+          "documentation": 1623,
+          "metadata": 144,
+          "none": 0
+        },
+        "sourceReference": "registry/registry.json",
+        "diffRoute": "#/lifecycle/diff?from=1.0.0&to=1.1.0"
+      },
+      {
+        "version": "1.1.0",
+        "phase": 34,
         "exactSnapshotAvailable": true,
         "availability": "exact",
         "supportLevel": "production-current",
@@ -1259,16 +1286,16 @@ export const GENERATED_COMPATIBILITY = {
     ]
   },
   "componentmatrix": {
-    "registryVersion": "1.0.0",
-    "targetContractVersion": "1.0.0",
+    "registryVersion": "1.1.0",
+    "targetContractVersion": "1.1.0",
     "generatedAt": "2026-09-11T00:00:00Z",
     "components": [
       {
         "componentId": "contracts.registry",
         "componentType": "contract-registry",
         "name": "NEXT F Contract Registry",
-        "specificationVersion": "1.0.0",
-        "registryRelease": "1.0.0",
+        "specificationVersion": "1.1.0",
+        "registryRelease": "1.1.0",
         "runtimeImplemented": true,
         "runtimeEvidence": "static-authoritative-repository",
         "source": "registry/registry.json",
@@ -1357,7 +1384,7 @@ export const GENERATED_COMPATIBILITY = {
         "runtimeEvidence": "metadata-only",
         "source": "registry/cms-ui/index.json",
         "compatibilityStatus": "unknown",
-        "summary": "UI metadata exists; the final Customer CMS runtime has not been declared as a production runtime here."
+        "summary": "UI metadata exists; the final Customer CMS runtime has not been declared as a production runtime here. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
       },
       {
         "componentId": "nextf-admin-ui.metadata",
@@ -1369,7 +1396,7 @@ export const GENERATED_COMPATIBILITY = {
         "runtimeEvidence": "metadata-only",
         "source": "registry/admin-ui/index.json",
         "compatibilityStatus": "unknown",
-        "summary": "Admin UI metadata exists; the final NEXT F Admin runtime is outside this public static registry."
+        "summary": "Admin UI metadata exists; the final NEXT F Admin runtime is outside this public static registry. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
       },
       {
         "componentId": "site-runtime",
@@ -1405,7 +1432,7 @@ export const GENERATED_COMPATIBILITY = {
         "runtimeEvidence": "not-declared",
         "source": "registry/api/groups/customer-cms.json",
         "compatibilityStatus": "unknown",
-        "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk."
+        "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
       },
       {
         "componentId": "api.events",
@@ -1429,7 +1456,7 @@ export const GENERATED_COMPATIBILITY = {
         "runtimeEvidence": "not-declared",
         "source": "registry/api/groups/nextf-admin.json",
         "compatibilityStatus": "unknown",
-        "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk."
+        "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
       },
       {
         "componentId": "api.public-content",
@@ -1466,12 +1493,24 @@ export const GENERATED_COMPATIBILITY = {
         "source": "registry/api/groups/webhooks.json",
         "compatibilityStatus": "unknown",
         "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk."
+      },
+      {
+        "componentId": "customer-access.policy-registry",
+        "componentType": "customer-access-policy-registry",
+        "name": "Customer Capability Access Policy Registry",
+        "specificationVersion": "1.1.0",
+        "registryRelease": "1.1.0",
+        "runtimeImplemented": true,
+        "runtimeEvidence": "machine-registry",
+        "source": "registry/customer-access/index.json",
+        "compatibilityStatus": "compatible",
+        "summary": "Canonical policy metadata is available; consuming CMS, Admin and API runtimes must explicitly declare V1.1.0 policy awareness."
       }
     ]
   },
   "referencesiteassessments": {
-    "registryVersion": "1.0.0",
-    "targetVersion": "1.0.0",
+    "registryVersion": "1.1.0",
+    "targetVersion": "1.1.0",
     "generatedAt": "2026-09-11T00:00:00Z",
     "evidenceMode": "repository-reference-manifests",
     "productionData": false,
@@ -1483,10 +1522,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/corporate.json",
         "manifestRoute": "#/development/site-manifest?example=corporate",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -1568,7 +1607,7 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "id": "site_example_service",
@@ -1577,10 +1616,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/service.json",
         "manifestRoute": "#/development/site-manifest?example=service",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -1662,7 +1701,7 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "id": "site_example_leadgen",
@@ -1671,10 +1710,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/lead-generation.json",
         "manifestRoute": "#/development/site-manifest?example=lead-generation",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -1756,7 +1795,7 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "id": "site_example_commerce",
@@ -1765,10 +1804,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/commerce.json",
         "manifestRoute": "#/development/site-manifest?example=commerce",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -1850,7 +1889,7 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "id": "site_example_docs",
@@ -1859,10 +1898,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/documentation.json",
         "manifestRoute": "#/development/site-manifest?example=documentation",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -1944,7 +1983,7 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "id": "site_example_custom",
@@ -1953,10 +1992,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/custom.json",
         "manifestRoute": "#/development/site-manifest?example=custom",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -2038,12 +2077,12 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       }
     ]
   },
   "supportLevels": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "levels": [
       {
         "id": "current-development",
@@ -2104,7 +2143,7 @@ export const GENERATED_COMPATIBILITY = {
     ]
   },
   "componentTypes": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "types": [
       {
         "id": "contract-registry",
@@ -2153,11 +2192,15 @@ export const GENERATED_COMPATIBILITY = {
       {
         "id": "reference-site",
         "label": "Reference Site"
+      },
+      {
+        "id": "customer-access-policy-registry",
+        "label": "Customer Access Policy Registry"
       }
     ]
   },
   "findingCodes": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "codes": [
       {
         "id": "contract.current",
@@ -2262,8 +2305,8 @@ export const GENERATED_COMPATIBILITY = {
     ]
   },
   "releaseCompatibility": {
-    "registryVersion": "1.0.0",
-    "targetVersion": "1.0.0",
+    "registryVersion": "1.1.0",
+    "targetVersion": "1.1.0",
     "generatedAt": "2026-09-11T00:00:00Z",
     "scope": "consumer-relevant canonical Registry changes; tooling-only search/relationship/diff/compatibility definitions excluded from upgrade severity",
     "releases": [
@@ -2304,19 +2347,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2123 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 2,
+          "review-required": 10,
           "deprecation": 0,
-          "non-breaking": 2113,
+          "non-breaking": 2215,
           "documentation": 0,
           "metadata": 8,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-2-V0.3.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.1.0"
       },
       {
         "version": "0.4.0",
@@ -2327,19 +2370,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2088 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 6,
+          "review-required": 15,
           "deprecation": 0,
-          "non-breaking": 2074,
-          "documentation": 0,
+          "non-breaking": 2176,
+          "documentation": 34,
           "metadata": 8,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-3-V0.4.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.1.0"
       },
       {
         "version": "0.5.0",
@@ -2350,19 +2393,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2069 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 7,
+          "review-required": 17,
           "deprecation": 0,
-          "non-breaking": 2054,
-          "documentation": 0,
+          "non-breaking": 2156,
+          "documentation": 52,
           "metadata": 8,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-4-V0.5.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.1.0"
       },
       {
         "version": "0.6.0",
@@ -2373,19 +2416,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2067 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 26,
+          "review-required": 37,
           "deprecation": 0,
-          "non-breaking": 2033,
-          "documentation": 0,
+          "non-breaking": 2135,
+          "documentation": 53,
           "metadata": 8,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-5-V0.6.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.1.0"
       },
       {
         "version": "0.7.0",
@@ -2396,19 +2439,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2034 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 24,
+          "review-required": 36,
           "deprecation": 0,
-          "non-breaking": 2002,
-          "documentation": 0,
+          "non-breaking": 2104,
+          "documentation": 85,
           "metadata": 8,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-6-V0.7.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.1.0"
       },
       {
         "version": "0.8.0",
@@ -2419,19 +2462,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "2012 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 29,
+          "review-required": 42,
           "deprecation": 0,
-          "non-breaking": 1979,
-          "documentation": 0,
+          "non-breaking": 2081,
+          "documentation": 106,
           "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-7-V0.8.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.1.0"
       },
       {
         "version": "0.9.0",
@@ -2442,19 +2485,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1978 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 32,
+          "review-required": 46,
           "deprecation": 0,
-          "non-breaking": 1943,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 2045,
+          "documentation": 138,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-8-V0.9.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.1.0"
       },
       {
         "version": "0.10.0",
@@ -2465,19 +2508,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1941 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 40,
+          "review-required": 55,
           "deprecation": 0,
-          "non-breaking": 1898,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 2000,
+          "documentation": 174,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-9-V0.10.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.1.0"
       },
       {
         "version": "0.11.0",
@@ -2488,19 +2531,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1894 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 42,
+          "review-required": 58,
           "deprecation": 0,
-          "non-breaking": 1849,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 1951,
+          "documentation": 220,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-10-V0.11.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.1.0"
       },
       {
         "version": "0.12.0",
@@ -2511,19 +2554,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1835 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 56,
+          "review-required": 73,
           "deprecation": 0,
-          "non-breaking": 1776,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 1878,
+          "documentation": 278,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-11-V0.12.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.1.0"
       },
       {
         "version": "0.13.0",
@@ -2548,19 +2591,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1561 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 59,
+          "review-required": 78,
           "deprecation": 0,
-          "non-breaking": 1499,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 1601,
+          "documentation": 550,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-13-V0.14.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.1.0"
       },
       {
         "version": "0.15.0",
@@ -2585,19 +2628,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1084 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 25,
           "deprecation": 0,
-          "non-breaking": 1078,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 1180,
+          "documentation": 1024,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-15-V0.16.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.1.0"
       },
       {
         "version": "0.17.0",
@@ -2608,19 +2651,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "1064 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 2,
-          "review-required": 3,
+          "review-required": 29,
           "deprecation": 0,
-          "non-breaking": 1055,
-          "documentation": 1,
-          "metadata": 3,
+          "non-breaking": 1157,
+          "documentation": 1041,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-16-V0.17.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.1.0"
       },
       {
         "version": "0.18.0",
@@ -2631,19 +2674,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "migration-required",
         "summary": "Breaking contract evidence requires migration before target adoption.",
-        "changeSummary": "1151 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2327 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 96,
           "potentially-breaking": 6,
-          "review-required": 5,
+          "review-required": 31,
           "deprecation": 0,
-          "non-breaking": 1040,
-          "documentation": 1,
-          "metadata": 3,
+          "non-breaking": 1142,
+          "documentation": 1048,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-17-V0.18.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.1.0"
       },
       {
         "version": "0.19.0",
@@ -2668,19 +2711,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "622 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2233 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 111,
           "deprecation": 0,
-          "non-breaking": 615,
-          "documentation": 1,
-          "metadata": 3,
+          "non-breaking": 717,
+          "documentation": 1401,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-19-V0.20.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.1.0"
       },
       {
         "version": "0.21.0",
@@ -2691,19 +2734,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "459 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 186,
           "deprecation": 0,
-          "non-breaking": 452,
-          "documentation": 1,
-          "metadata": 3,
+          "non-breaking": 554,
+          "documentation": 1473,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-20-V0.21.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.1.0"
       },
       {
         "version": "0.22.0",
@@ -2714,19 +2757,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "386 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 187,
           "deprecation": 0,
-          "non-breaking": 379,
-          "documentation": 1,
-          "metadata": 3,
+          "non-breaking": 481,
+          "documentation": 1545,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-21-V0.22.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.1.0"
       },
       {
         "version": "0.23.0",
@@ -2737,19 +2780,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "376 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 188,
           "deprecation": 0,
-          "non-breaking": 370,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 472,
+          "documentation": 1553,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-22-V0.23.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "version": "0.24.0",
@@ -2760,19 +2803,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "376 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 3,
+          "review-required": 188,
           "deprecation": 0,
-          "non-breaking": 370,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 472,
+          "documentation": 1553,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-23-V0.24.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.1.0"
       },
       {
         "version": "0.25.0",
@@ -2783,19 +2826,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "375 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 2,
+          "review-required": 188,
           "deprecation": 0,
-          "non-breaking": 370,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 472,
+          "documentation": 1553,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "NEXT-F-CONTRACTS-PHASE-24-V0.25.0.zip",
-        "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.1.0"
       },
       {
         "version": "0.26.0",
@@ -2806,19 +2849,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "375 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 2,
+          "review-required": 188,
           "deprecation": 0,
-          "non-breaking": 370,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 472,
+          "documentation": 1553,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.1.0"
       },
       {
         "version": "0.27.0",
@@ -2829,19 +2872,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "375 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2217 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 2,
+          "review-required": 188,
           "deprecation": 0,
-          "non-breaking": 370,
-          "documentation": 0,
-          "metadata": 3,
+          "non-breaking": 472,
+          "documentation": 1553,
+          "metadata": 4,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.1.0"
       },
       {
         "version": "0.28.0",
@@ -2852,19 +2895,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "347 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2189 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 9,
+          "review-required": 196,
           "deprecation": 0,
-          "non-breaking": 320,
-          "documentation": 0,
-          "metadata": 18,
+          "non-breaking": 422,
+          "documentation": 1556,
+          "metadata": 15,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.1.0"
       },
       {
         "version": "0.29.0",
@@ -2875,19 +2918,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "346 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2188 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 13,
+          "review-required": 201,
           "deprecation": 0,
-          "non-breaking": 307,
-          "documentation": 0,
-          "metadata": 26,
+          "non-breaking": 409,
+          "documentation": 1558,
+          "metadata": 20,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.1.0"
       },
       {
         "version": "0.30.0",
@@ -2898,19 +2941,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "344 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2187 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 19,
+          "review-required": 209,
           "deprecation": 0,
-          "non-breaking": 244,
-          "documentation": 0,
-          "metadata": 81,
+          "non-breaking": 346,
+          "documentation": 1608,
+          "metadata": 24,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.1.0"
       },
       {
         "version": "0.31.0",
@@ -2921,19 +2964,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "343 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2186 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 93,
+          "review-required": 284,
           "deprecation": 0,
-          "non-breaking": 161,
-          "documentation": 0,
-          "metadata": 89,
+          "non-breaking": 263,
+          "documentation": 1609,
+          "metadata": 30,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.1.0"
       },
       {
         "version": "0.32.0",
@@ -2944,19 +2987,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "342 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2185 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 100,
+          "review-required": 292,
           "deprecation": 0,
-          "non-breaking": 102,
-          "documentation": 0,
-          "metadata": 140,
+          "non-breaking": 204,
+          "documentation": 1610,
+          "metadata": 79,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.1.0"
       },
       {
         "version": "0.33.0",
@@ -2967,19 +3010,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "341 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2184 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 108,
+          "review-required": 301,
           "deprecation": 0,
-          "non-breaking": 34,
-          "documentation": 0,
-          "metadata": 199,
+          "non-breaking": 136,
+          "documentation": 1612,
+          "metadata": 135,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.1.0"
       },
       {
         "version": "0.34.0",
@@ -2990,19 +3033,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "340 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2183 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 109,
+          "review-required": 303,
           "deprecation": 0,
-          "non-breaking": 28,
-          "documentation": 0,
-          "metadata": 203,
+          "non-breaking": 130,
+          "documentation": 1615,
+          "metadata": 135,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.1.0"
       },
       {
         "version": "0.35.0",
@@ -3013,19 +3056,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "339 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2182 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 110,
+          "review-required": 305,
           "deprecation": 0,
-          "non-breaking": 22,
-          "documentation": 0,
-          "metadata": 207,
+          "non-breaking": 124,
+          "documentation": 1618,
+          "metadata": 135,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.1.0"
       },
       {
         "version": "0.36.0",
@@ -3036,19 +3079,19 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "338 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2181 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 111,
+          "review-required": 307,
           "deprecation": 0,
-          "non-breaking": 12,
-          "documentation": 0,
-          "metadata": 215,
+          "non-breaking": 114,
+          "documentation": 1619,
+          "metadata": 141,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.1.0"
       },
       {
         "version": "0.37.0",
@@ -3059,23 +3102,46 @@ export const GENERATED_COMPATIBILITY = {
         "productionEligible": false,
         "compatibilityStatus": "review-required",
         "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-        "changeSummary": "335 consumer-relevant changed/added/removed definitions",
+        "changeSummary": "2180 consumer-relevant changed/added/removed definitions",
         "impactCounts": {
           "breaking": 0,
           "potentially-breaking": 0,
-          "review-required": 112,
+          "review-required": 309,
           "deprecation": 0,
-          "non-breaking": 6,
-          "documentation": 0,
-          "metadata": 217,
+          "non-breaking": 108,
+          "documentation": 1619,
+          "metadata": 144,
           "none": 0
         },
         "sourceReference": "registry/registry.json",
-        "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.1.0"
       },
       {
         "version": "1.0.0",
         "phase": 37,
+        "exactSnapshotAvailable": true,
+        "availability": "exact",
+        "supportLevel": "production-supported",
+        "productionEligible": true,
+        "compatibilityStatus": "review-required",
+        "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
+        "changeSummary": "2179 consumer-relevant changed/added/removed definitions",
+        "impactCounts": {
+          "breaking": 0,
+          "potentially-breaking": 0,
+          "review-required": 310,
+          "deprecation": 0,
+          "non-breaking": 102,
+          "documentation": 1623,
+          "metadata": 144,
+          "none": 0
+        },
+        "sourceReference": "registry/registry.json",
+        "diffRoute": "#/lifecycle/diff?from=1.0.0&to=1.1.0"
+      },
+      {
+        "version": "1.1.0",
+        "phase": 34,
         "exactSnapshotAvailable": true,
         "availability": "exact",
         "supportLevel": "production-current",
@@ -3099,16 +3165,16 @@ export const GENERATED_COMPATIBILITY = {
     ]
   },
   "componentMatrix": {
-    "registryVersion": "1.0.0",
-    "targetContractVersion": "1.0.0",
+    "registryVersion": "1.1.0",
+    "targetContractVersion": "1.1.0",
     "generatedAt": "2026-09-11T00:00:00Z",
     "components": [
       {
         "componentId": "contracts.registry",
         "componentType": "contract-registry",
         "name": "NEXT F Contract Registry",
-        "specificationVersion": "1.0.0",
-        "registryRelease": "1.0.0",
+        "specificationVersion": "1.1.0",
+        "registryRelease": "1.1.0",
         "runtimeImplemented": true,
         "runtimeEvidence": "static-authoritative-repository",
         "source": "registry/registry.json",
@@ -3197,7 +3263,7 @@ export const GENERATED_COMPATIBILITY = {
         "runtimeEvidence": "metadata-only",
         "source": "registry/cms-ui/index.json",
         "compatibilityStatus": "unknown",
-        "summary": "UI metadata exists; the final Customer CMS runtime has not been declared as a production runtime here."
+        "summary": "UI metadata exists; the final Customer CMS runtime has not been declared as a production runtime here. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
       },
       {
         "componentId": "nextf-admin-ui.metadata",
@@ -3209,7 +3275,7 @@ export const GENERATED_COMPATIBILITY = {
         "runtimeEvidence": "metadata-only",
         "source": "registry/admin-ui/index.json",
         "compatibilityStatus": "unknown",
-        "summary": "Admin UI metadata exists; the final NEXT F Admin runtime is outside this public static registry."
+        "summary": "Admin UI metadata exists; the final NEXT F Admin runtime is outside this public static registry. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
       },
       {
         "componentId": "site-runtime",
@@ -3245,7 +3311,7 @@ export const GENERATED_COMPATIBILITY = {
         "runtimeEvidence": "not-declared",
         "source": "registry/api/groups/customer-cms.json",
         "compatibilityStatus": "unknown",
-        "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk."
+        "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
       },
       {
         "componentId": "api.events",
@@ -3269,7 +3335,7 @@ export const GENERATED_COMPATIBILITY = {
         "runtimeEvidence": "not-declared",
         "source": "registry/api/groups/nextf-admin.json",
         "compatibilityStatus": "unknown",
-        "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk."
+        "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk. V1.1.0 Customer Access policy consumption remains a runtime integration responsibility."
       },
       {
         "componentId": "api.public-content",
@@ -3306,12 +3372,24 @@ export const GENERATED_COMPATIBILITY = {
         "source": "registry/api/groups/webhooks.json",
         "compatibilityStatus": "unknown",
         "summary": "Canonical API contract exists; no deployed runtime implementation is declared by contract.nextf.lk."
+      },
+      {
+        "componentId": "customer-access.policy-registry",
+        "componentType": "customer-access-policy-registry",
+        "name": "Customer Capability Access Policy Registry",
+        "specificationVersion": "1.1.0",
+        "registryRelease": "1.1.0",
+        "runtimeImplemented": true,
+        "runtimeEvidence": "machine-registry",
+        "source": "registry/customer-access/index.json",
+        "compatibilityStatus": "compatible",
+        "summary": "Canonical policy metadata is available; consuming CMS, Admin and API runtimes must explicitly declare V1.1.0 policy awareness."
       }
     ]
   },
   "referenceSites": {
-    "registryVersion": "1.0.0",
-    "targetVersion": "1.0.0",
+    "registryVersion": "1.1.0",
+    "targetVersion": "1.1.0",
     "generatedAt": "2026-09-11T00:00:00Z",
     "evidenceMode": "repository-reference-manifests",
     "productionData": false,
@@ -3323,10 +3401,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/corporate.json",
         "manifestRoute": "#/development/site-manifest?example=corporate",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -3408,7 +3486,7 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "id": "site_example_service",
@@ -3417,10 +3495,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/service.json",
         "manifestRoute": "#/development/site-manifest?example=service",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -3502,7 +3580,7 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "id": "site_example_leadgen",
@@ -3511,10 +3589,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/lead-generation.json",
         "manifestRoute": "#/development/site-manifest?example=lead-generation",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -3596,7 +3674,7 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "id": "site_example_commerce",
@@ -3605,10 +3683,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/commerce.json",
         "manifestRoute": "#/development/site-manifest?example=commerce",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -3690,7 +3768,7 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "id": "site_example_docs",
@@ -3699,10 +3777,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/documentation.json",
         "manifestRoute": "#/development/site-manifest?example=documentation",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -3784,7 +3862,7 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       },
       {
         "id": "site_example_custom",
@@ -3793,10 +3871,10 @@ export const GENERATED_COMPATIBILITY = {
         "manifestSource": "registry/manifests/examples/custom.json",
         "manifestRoute": "#/development/site-manifest?example=custom",
         "sourceContractVersion": "0.23.0",
-        "targetContractVersion": "1.0.0",
+        "targetContractVersion": "1.1.0",
         "overallStatus": "review-required",
         "productionDecision": "not-approved-runtime-evidence",
-        "summary": "Manifest structure resolves, but the 0.23.0 → 1.0.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+        "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
         "dimensions": [
           {
             "dimension": "contract-release",
@@ -3878,28 +3956,28 @@ export const GENERATED_COMPATIBILITY = {
           }
         ],
         "findings": [],
-        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+        "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
       }
     ]
   },
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "sourceHashes": {
-    "registry/compatibility/index.json": "8478a425e77cff48ebd54101fa1fbab169f020ea9b6532b8df7d15e5994ec430",
-    "registry/compatibility/statuses.json": "15d1f4d19767e73f611d79111dd605ec4a259c5b9d895576d91ec723ad00cee5",
-    "registry/compatibility/support-levels.json": "c7b823d9c58a55de2beb66c4d936dfaf3b3397445b67cd9a960e3381a9fab68d",
-    "registry/compatibility/dimensions.json": "e3be09041d11ca6b89111ace664598d62e1980c17732c3936ea0086ccba1185d",
-    "registry/compatibility/component-types.json": "eae4e43a01ecae3261326db9bdabb52a1c3489a9e270a5423ccd336e2f107b28",
-    "registry/compatibility/finding-codes.json": "d67e3ef3064341b51be3662c0d885bc253c3cb87e2d75b7bcacb23fe0bef6a68",
-    "registry/compatibility/policy.json": "7bbd934d1ae5e15321a217f42016fe6f7aa405b52c52e8c462d4f639412dcdfb",
-    "registry/compatibility/release-compatibility.json": "d520977a170478993b747ad16c302b76bc40a3ae41436edebadddec240670425",
-    "registry/compatibility/component-matrix.json": "92ed4ab3a69d1077f185d3bf42166598c1f9fc94ae799c39b9059b01a0b98ea8",
-    "registry/compatibility/reference-site-assessments.json": "87e17dc90a6e47fdfb2400cf35f8404a0f1e85fa862c1543e5a81d5e16ed6835"
+    "registry/compatibility/index.json": "cc32d2affd33aae2fbbf34286ca2bc384ddd4ad12f1b4df86bc96efadeecd145",
+    "registry/compatibility/statuses.json": "9a0cd11de5c1bf90304135473c1bb473b73f24493cec4ad2c075ffa06a433c26",
+    "registry/compatibility/support-levels.json": "36f8e72df374fd6aee0e44525667efc0edab4b1854d0343ebaf8a5d12cf88553",
+    "registry/compatibility/dimensions.json": "54c0c9da586cfcc1a0ed7c403980885862c5169f8d1d3904f3d18bbc84270c36",
+    "registry/compatibility/component-types.json": "4d873ed312aea99db83fe9957eabd8bda6db6b49073cd90e4fe4a1d0a25ee06f",
+    "registry/compatibility/finding-codes.json": "f8c8a4d6bacc243d9757e303da74b75b7e786281fc75c9d0018c064d274daa1f",
+    "registry/compatibility/policy.json": "8040258a2cc0de142d70a890133965f18bb6dfbea0f543f33d6060e29e5c6ee6",
+    "registry/compatibility/release-compatibility.json": "544394375850e86dae2656804b62fbf2aa7c0897c42ce79b310a58cad9bb6bd9",
+    "registry/compatibility/component-matrix.json": "0952044055cd390f9ca03133a9624a120320f1bcce1f6b21fd507f5d2eb9912c",
+    "registry/compatibility/reference-site-assessments.json": "b1318eef04bd256e5a7bd4423c18a4aa49108598e861b7842fa93f1a537a9f8f"
   },
   "definitions": [
     {
       "$id": "compatibility.apiBindingCheck",
       "name": "API Binding Compatibility Check",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -3983,7 +4061,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.assessment",
       "name": "Compatibility Assessment",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -4112,7 +4190,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.component",
       "name": "Compatibility Component",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -4213,7 +4291,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.componentConstraint",
       "name": "Component Compatibility Constraint",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -4312,7 +4390,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.dimension",
       "name": "Compatibility Dimension",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -4416,7 +4494,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.eventPermissionCheck",
       "name": "Event and Permission Compatibility Check",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -4498,7 +4576,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.finding",
       "name": "Compatibility Finding",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -4618,7 +4696,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.matrix",
       "name": "Compatibility Matrix",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -4719,7 +4797,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.matrixCell",
       "name": "Compatibility Matrix Cell",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -4815,7 +4893,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.moduleCapabilityCheck",
       "name": "Module and Capability Compatibility Check",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -4916,7 +4994,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.releaseSupport",
       "name": "Release Support Descriptor",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -5034,7 +5112,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.runtimeDeclaration",
       "name": "Runtime Compatibility Declaration",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -5140,7 +5218,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.siteSnapshot",
       "name": "Site Compatibility Snapshot",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -5262,7 +5340,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.supportWindow",
       "name": "Compatibility Support Window",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -5375,7 +5453,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.upgradePath",
       "name": "Compatibility Upgrade Path",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",
@@ -5495,7 +5573,7 @@ export const GENERATED_COMPATIBILITY = {
     {
       "$id": "compatibility.versionRange",
       "name": "Version Range",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "lifecycle",
       "type": "schema",

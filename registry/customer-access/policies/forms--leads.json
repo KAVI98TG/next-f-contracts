@@ -1,0 +1,150 @@
+{
+  "$id": "customerAccess.policy.forms.leads",
+  "name": "Leads Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "forms.leads",
+  "contractRefs": [
+    "forms.lead",
+    "forms.leadActivity",
+    "forms.leadNote"
+  ],
+  "moduleRef": "leads",
+  "capabilityRefs": [
+    "leads.activity",
+    "leads.export",
+    "leads.notes",
+    "leads.status"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "forms.leads.export",
+      "forms.leads.view"
+    ],
+    "create": [
+      "forms.leads.create"
+    ],
+    "update": [
+      "forms.leads.edit",
+      "forms.leads.manage"
+    ],
+    "delete": [
+      "forms.leads.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#id",
+      "field": "id",
+      "contractFieldRef": "forms.lead.id",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#siteId",
+      "field": "siteId",
+      "contractFieldRef": "forms.lead.siteId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#displayName",
+      "field": "displayName",
+      "contractFieldRef": "forms.lead.displayName",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#organizationName",
+      "field": "organizationName",
+      "contractFieldRef": "forms.lead.organizationName",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#contactPoints",
+      "field": "contactPoints",
+      "contractFieldRef": "forms.lead.contactPoints",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#source",
+      "field": "source",
+      "contractFieldRef": "forms.lead.source",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#statusKey",
+      "field": "statusKey",
+      "contractFieldRef": "forms.lead.statusKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#assignedTo",
+      "field": "assignedTo",
+      "contractFieldRef": "forms.lead.assignedTo",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#tags",
+      "field": "tags",
+      "contractFieldRef": "forms.lead.tags",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#submissionIds",
+      "field": "submissionIds",
+      "contractFieldRef": "forms.lead.submissionIds",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#createdAt",
+      "field": "createdAt",
+      "contractFieldRef": "forms.lead.createdAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "forms.lead.updatedAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.leads#lastActivityAt",
+      "field": "lastActivityAt",
+      "contractFieldRef": "forms.lead.lastActivityAt",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.get-lead",
+    "api.customer-cms.list-leads",
+    "api.customer-cms.update-lead"
+  ],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.forms.leads",
+    "adminProfileRef": "adminUi.profile.forms.leads",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

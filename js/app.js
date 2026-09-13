@@ -1,4 +1,4 @@
-import { startRouter } from "./router.js?v=1.0.0-r3";
+import { startRouter } from "./router.js?v=1.1.0-r1";
 import { createNavigationSearch } from "./search.js";
 import { loadRegistry } from "./registry-engine.js";
 import { loadFieldRegistry } from "./field-registry-engine.js";
@@ -23,6 +23,26 @@ import { loadCodexRegistry } from "./codex-registry-engine.js";
 import { loadExamplesRegistry } from "./examples-registry-engine.js";
 import { loadGlobalSearch } from "./global-search-engine.js";
 import { loadRelationshipExplorer } from "./relationship-explorer-engine.js";
+
+const themeStorageKey = "nextf-contracts-theme";
+const themeToggle = document.querySelector("[data-theme-toggle]");
+
+function setTheme(theme, persist = false) {
+  const activeTheme = theme === "light" ? "light" : "dark";
+  const nextTheme = activeTheme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = activeTheme;
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", activeTheme === "dark" ? "#0b0f17" : "#2563eb");
+  themeToggle?.setAttribute("aria-label", `Switch to ${nextTheme} theme`);
+  themeToggle?.setAttribute("title", `Switch to ${nextTheme} theme`);
+  const icon = themeToggle?.querySelector("i");
+  if (icon) icon.className = `fa-solid ${activeTheme === "dark" ? "fa-sun" : "fa-moon"}`;
+  if (persist) {
+    try { localStorage.setItem(themeStorageKey, activeTheme); } catch { /* Theme still applies for this page. */ }
+  }
+}
+
+setTheme(document.documentElement.dataset.theme);
+themeToggle?.addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true));
 
 const sidebar = document.querySelector("#portal-sidebar");
 const scrim = document.querySelector("[data-sidebar-scrim]");
