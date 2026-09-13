@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.marketing.campaigns",
   "name": "Campaigns",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -368,5 +368,47 @@
       "requiresPermission": "marketing.campaigns.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.marketing.campaigns",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "marketing.campaigns.view"
+      ],
+      "create": [
+        "marketing.campaigns.create"
+      ],
+      "update": [
+        "marketing.campaigns.edit",
+        "marketing.campaigns.manage"
+      ],
+      "delete": [
+        "marketing.campaigns.delete"
+      ],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "marketing.campaigns"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

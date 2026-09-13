@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Contract Changelog History",
   "description": "Derived navigation index from authoritative Registry introducedIn metadata and explicit Changelog affected Registry IDs. It does not reconstruct missing history.",
@@ -2471,6 +2471,15 @@
       "latestRelatedRelease": "0.19.0",
       "entries": []
     },
+    "api.customer-cms.cancel-change-request": {
+      "registryId": "api.customer-cms.cancel-change-request",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
     "api.customer-cms.complete-media-upload": {
       "registryId": "api.customer-cms.complete-media-upload",
       "introducedIn": "0.19.0",
@@ -2541,6 +2550,15 @@
       "deprecatedIn": [],
       "removedIn": [],
       "latestRelatedRelease": "0.19.0",
+      "entries": []
+    },
+    "api.customer-cms.get-change-request": {
+      "registryId": "api.customer-cms.get-change-request",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "api.customer-cms.get-custom-entry": {
@@ -2622,6 +2640,15 @@
       "deprecatedIn": [],
       "removedIn": [],
       "latestRelatedRelease": "0.19.0",
+      "entries": []
+    },
+    "api.customer-cms.list-change-requests": {
+      "registryId": "api.customer-cms.list-change-requests",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "api.customer-cms.list-custom-entrys": {
@@ -2731,6 +2758,22 @@
       "removedIn": [],
       "latestRelatedRelease": "0.19.0",
       "entries": []
+    },
+    "api.customer-cms.submit-change-request": {
+      "registryId": "api.customer-cms.submit-change-request",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_change_request",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+        }
+      ]
     },
     "api.customer-cms.update-blog-post": {
       "registryId": "api.customer-cms.update-blog-post",
@@ -2966,6 +3009,31 @@
       "latestRelatedRelease": "0.19.0",
       "entries": []
     },
+    "api.nextf-admin.apply-change-request": {
+      "registryId": "api.nextf-admin.apply-change-request",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_change_request",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+        }
+      ]
+    },
+    "api.nextf-admin.approve-change-request": {
+      "registryId": "api.nextf-admin.approve-change-request",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
     "api.nextf-admin.check-contract-compatibility": {
       "registryId": "api.nextf-admin.check-contract-compatibility",
       "introducedIn": "0.19.0",
@@ -3063,6 +3131,15 @@
       "deprecatedIn": [],
       "removedIn": [],
       "latestRelatedRelease": "0.19.0",
+      "entries": []
+    },
+    "api.nextf-admin.review-change-request": {
+      "registryId": "api.nextf-admin.review-change-request",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "api.nextf-admin.update-contract-binding": {
@@ -4514,6 +4591,15 @@
       "deprecatedIn": [],
       "removedIn": [],
       "latestRelatedRelease": "1.0.0",
+      "entries": []
+    },
+    "changelog.release.1.1.0": {
+      "registryId": "changelog.release.1.1.0",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "changelog.releaseCollection": {
@@ -10230,6 +10316,65 @@
       "latestRelatedRelease": "0.5.0",
       "entries": []
     },
+    "core.changerequests.approve": {
+      "registryId": "core.changerequests.approve",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_change_request",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+        }
+      ]
+    },
+    "core.changerequests.create": {
+      "registryId": "core.changerequests.create",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_change_request",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+        }
+      ]
+    },
+    "core.changerequests.edit": {
+      "registryId": "core.changerequests.edit",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "core.changerequests.manage": {
+      "registryId": "core.changerequests.manage",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "core.changerequests.view": {
+      "registryId": "core.changerequests.view",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
     "core.entityIdentity": {
       "registryId": "core.entityIdentity",
       "introducedIn": "0.5.0",
@@ -10428,6 +10573,56 @@
       "latestRelatedRelease": "0.16.0",
       "entries": []
     },
+    "customer-change-request.applied": {
+      "registryId": "customer-change-request.applied",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_change_request",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+        }
+      ]
+    },
+    "customer-change-request.approved": {
+      "registryId": "customer-change-request.approved",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customer-change-request.cancelled": {
+      "registryId": "customer-change-request.cancelled",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customer-change-request.submitted": {
+      "registryId": "customer-change-request.submitted",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_change_request",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+        }
+      ]
+    },
     "customer.archived": {
       "registryId": "customer.archived",
       "introducedIn": "0.14.0",
@@ -10454,6 +10649,789 @@
       "removedIn": [],
       "latestRelatedRelease": "0.14.0",
       "entries": []
+    },
+    "customerAccess.changeRequest": {
+      "registryId": "customerAccess.changeRequest",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_change_request",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+        }
+      ]
+    },
+    "customerAccess.customerAccessPolicyStandard": {
+      "registryId": "customerAccess.customerAccessPolicyStandard",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_customer_access_registry",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior."
+        }
+      ]
+    },
+    "customerAccess.effectivePolicyResolution": {
+      "registryId": "customerAccess.effectivePolicyResolution",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_customer_access_registry",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior."
+        },
+        {
+          "entryId": "chg_v1_1_fail_closed_resolution",
+          "releaseVersion": "1.1.0",
+          "category": "security",
+          "title": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed."
+        }
+      ]
+    },
+    "customerAccess.policy.commerce.carts": {
+      "registryId": "customerAccess.policy.commerce.carts",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.categories": {
+      "registryId": "customerAccess.policy.commerce.categories",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.checkouts": {
+      "registryId": "customerAccess.policy.commerce.checkouts",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.collections": {
+      "registryId": "customerAccess.policy.commerce.collections",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.customers": {
+      "registryId": "customerAccess.policy.commerce.customers",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.discounts": {
+      "registryId": "customerAccess.policy.commerce.discounts",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.fulfillments": {
+      "registryId": "customerAccess.policy.commerce.fulfillments",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.inventory": {
+      "registryId": "customerAccess.policy.commerce.inventory",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.orders": {
+      "registryId": "customerAccess.policy.commerce.orders",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.payments": {
+      "registryId": "customerAccess.policy.commerce.payments",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.products": {
+      "registryId": "customerAccess.policy.commerce.products",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.refunds": {
+      "registryId": "customerAccess.policy.commerce.refunds",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.returns": {
+      "registryId": "customerAccess.policy.commerce.returns",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.reviews": {
+      "registryId": "customerAccess.policy.commerce.reviews",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.settings": {
+      "registryId": "customerAccess.policy.commerce.settings",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.shipping": {
+      "registryId": "customerAccess.policy.commerce.shipping",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.commerce.taxes": {
+      "registryId": "customerAccess.policy.commerce.taxes",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.authors": {
+      "registryId": "customerAccess.policy.content.authors",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.blogcategories": {
+      "registryId": "customerAccess.policy.content.blogcategories",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.blogposts": {
+      "registryId": "customerAccess.policy.content.blogposts",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.blogtags": {
+      "registryId": "customerAccess.policy.content.blogtags",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.customcollections": {
+      "registryId": "customerAccess.policy.content.customcollections",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.customentries": {
+      "registryId": "customerAccess.policy.content.customentries",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.documentation": {
+      "registryId": "customerAccess.policy.content.documentation",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.faqs": {
+      "registryId": "customerAccess.policy.content.faqs",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.legal": {
+      "registryId": "customerAccess.policy.content.legal",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.locations": {
+      "registryId": "customerAccess.policy.content.locations",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.media": {
+      "registryId": "customerAccess.policy.content.media",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.navigation": {
+      "registryId": "customerAccess.policy.content.navigation",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.pages": {
+      "registryId": "customerAccess.policy.content.pages",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.reusablecontent": {
+      "registryId": "customerAccess.policy.content.reusablecontent",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.services": {
+      "registryId": "customerAccess.policy.content.services",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.team": {
+      "registryId": "customerAccess.policy.content.team",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.content.testimonials": {
+      "registryId": "customerAccess.policy.content.testimonials",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.core.audit": {
+      "registryId": "customerAccess.policy.core.audit",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.core.members": {
+      "registryId": "customerAccess.policy.core.members",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.core.settings": {
+      "registryId": "customerAccess.policy.core.settings",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.core.sitehealth": {
+      "registryId": "customerAccess.policy.core.sitehealth",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.core.workspace": {
+      "registryId": "customerAccess.policy.core.workspace",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.customerWorkspaceShell": {
+      "registryId": "customerAccess.policy.customerWorkspaceShell",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.forms.consent": {
+      "registryId": "customerAccess.policy.forms.consent",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.forms.forms": {
+      "registryId": "customerAccess.policy.forms.forms",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.forms.leads": {
+      "registryId": "customerAccess.policy.forms.leads",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.forms.notifications": {
+      "registryId": "customerAccess.policy.forms.notifications",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.forms.spam": {
+      "registryId": "customerAccess.policy.forms.spam",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.forms.submissions": {
+      "registryId": "customerAccess.policy.forms.submissions",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.integrations.connections": {
+      "registryId": "customerAccess.policy.integrations.connections",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.integrations.credentials": {
+      "registryId": "customerAccess.policy.integrations.credentials",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.integrations.health": {
+      "registryId": "customerAccess.policy.integrations.health",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.integrations.mappings": {
+      "registryId": "customerAccess.policy.integrations.mappings",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.integrations.sync": {
+      "registryId": "customerAccess.policy.integrations.sync",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.marketing.analytics": {
+      "registryId": "customerAccess.policy.marketing.analytics",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.marketing.attribution": {
+      "registryId": "customerAccess.policy.marketing.attribution",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.marketing.campaigns": {
+      "registryId": "customerAccess.policy.marketing.campaigns",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.marketing.consent": {
+      "registryId": "customerAccess.policy.marketing.consent",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.marketing.conversions": {
+      "registryId": "customerAccess.policy.marketing.conversions",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.marketing.destinations": {
+      "registryId": "customerAccess.policy.marketing.destinations",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.marketing.tracking": {
+      "registryId": "customerAccess.policy.marketing.tracking",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.permissions.assignments": {
+      "registryId": "customerAccess.policy.permissions.assignments",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.permissions.registry": {
+      "registryId": "customerAccess.policy.permissions.registry",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.permissions.roles": {
+      "registryId": "customerAccess.policy.permissions.roles",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.seo.audits": {
+      "registryId": "customerAccess.policy.seo.audits",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.seo.indexing": {
+      "registryId": "customerAccess.policy.seo.indexing",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.seo.metadata": {
+      "registryId": "customerAccess.policy.seo.metadata",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.seo.redirects": {
+      "registryId": "customerAccess.policy.seo.redirects",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.seo.robots": {
+      "registryId": "customerAccess.policy.seo.robots",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.seo.searchperformance": {
+      "registryId": "customerAccess.policy.seo.searchperformance",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.seo.sitemap": {
+      "registryId": "customerAccess.policy.seo.sitemap",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.seo.structureddata": {
+      "registryId": "customerAccess.policy.seo.structureddata",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.webhooks.deadletters": {
+      "registryId": "customerAccess.policy.webhooks.deadletters",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.webhooks.deliveries": {
+      "registryId": "customerAccess.policy.webhooks.deliveries",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.webhooks.endpoints": {
+      "registryId": "customerAccess.policy.webhooks.endpoints",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.webhooks.secrets": {
+      "registryId": "customerAccess.policy.webhooks.secrets",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.webhooks.subscriptions": {
+      "registryId": "customerAccess.policy.webhooks.subscriptions",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policy.webhooks.tests": {
+      "registryId": "customerAccess.policy.webhooks.tests",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "customerAccess.policyRegistry": {
+      "registryId": "customerAccess.policyRegistry",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_customer_access_registry",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior."
+        },
+        {
+          "entryId": "chg_v1_1_explicit_upgrade",
+          "releaseVersion": "1.1.0",
+          "category": "migration",
+          "title": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata."
+        }
+      ]
+    },
+    "customerAccess.policySchema": {
+      "registryId": "customerAccess.policySchema",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_customer_access_registry",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior."
+        }
+      ]
+    },
+    "customerAccess.policyVocabulary": {
+      "registryId": "customerAccess.policyVocabulary",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_customer_access_registry",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior."
+        }
+      ]
     },
     "deprecations.deprecationJsonSchema": {
       "registryId": "deprecations.deprecationJsonSchema",
@@ -11571,11 +12549,11 @@
     },
     "events.consumerVocabulary": {
       "registryId": "events.consumerVocabulary",
-      "introducedIn": "0.15.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.15.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "events.eventActor": {
@@ -11661,11 +12639,11 @@
     },
     "events.eventRegistry": {
       "registryId": "events.eventRegistry",
-      "introducedIn": "0.15.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.15.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "events.eventRegistryStandard": {
@@ -11724,11 +12702,11 @@
     },
     "events.producerVocabulary": {
       "registryId": "events.producerVocabulary",
-      "introducedIn": "0.15.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.15.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "events.productionPolicy": {
@@ -13659,195 +14637,208 @@
     },
     "manifest.apiBinding": {
       "registryId": "manifest.apiBinding",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.capabilitySelection": {
       "registryId": "manifest.capabilitySelection",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.cms": {
       "registryId": "manifest.cms",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
-      "entries": []
+      "latestRelatedRelease": "1.1.0",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_fail_closed_resolution",
+          "releaseVersion": "1.1.0",
+          "category": "security",
+          "title": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed."
+        }
+      ]
     },
     "manifest.configurationBinding": {
       "registryId": "manifest.configurationBinding",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.configurationExposureKinds": {
       "registryId": "manifest.configurationExposureKinds",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.contentDelivery": {
       "registryId": "manifest.contentDelivery",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.contentDeliveryModes": {
       "registryId": "manifest.contentDeliveryModes",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.contractBinding": {
       "registryId": "manifest.contractBinding",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.environment": {
       "registryId": "manifest.environment",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.environmentKinds": {
       "registryId": "manifest.environmentKinds",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.eventSupport": {
       "registryId": "manifest.eventSupport",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.extensionDeclaration": {
       "registryId": "manifest.extensionDeclaration",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.index": {
       "registryId": "manifest.index",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.integrationSupport": {
       "registryId": "manifest.integrationSupport",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.localization": {
       "registryId": "manifest.localization",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.moduleSelection": {
       "registryId": "manifest.moduleSelection",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.nextfSiteJsonSchema": {
       "registryId": "manifest.nextfSiteJsonSchema",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.runtime": {
       "registryId": "manifest.runtime",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.runtimeCapabilities": {
       "registryId": "manifest.runtimeCapabilities",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.siteDescriptor": {
       "registryId": "manifest.siteDescriptor",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.siteManifest": {
       "registryId": "manifest.siteManifest",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [
         "0.34.0",
         "1.0.0"
       ],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.0.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": [
+        {
+          "entryId": "chg_v1_1_explicit_upgrade",
+          "releaseVersion": "1.1.0",
+          "category": "migration",
+          "title": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata."
+        },
         {
           "entryId": "chg_v1_manifest_pin",
           "releaseVersion": "1.0.0",
@@ -13870,13 +14861,13 @@
     },
     "manifest.siteManifestStandard": {
       "registryId": "manifest.siteManifestStandard",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [
         "0.36.0"
       ],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.36.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": [
         {
           "entryId": "chg_eb5433226b1587",
@@ -13888,20 +14879,20 @@
     },
     "manifest.siteTypes": {
       "registryId": "manifest.siteTypes",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "manifest.trackingSupport": {
       "registryId": "manifest.trackingSupport",
-      "introducedIn": "0.17.0",
+      "introducedIn": "1.1.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.17.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": []
     },
     "marketing.adClickIdentifier": {
@@ -18622,6 +19613,42 @@
       "latestRelatedRelease": "0.25.0",
       "entries": []
     },
+    "release.1.1.0.acceptanceReport": {
+      "registryId": "release.1.1.0.acceptanceReport",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "release.1.1.0.integrityHashes": {
+      "registryId": "release.1.1.0.integrityHashes",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "release.1.1.0.manifest": {
+      "registryId": "release.1.1.0.manifest",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
+    "release.1.1.0.snapshotIndex": {
+      "registryId": "release.1.1.0.snapshotIndex",
+      "introducedIn": "1.1.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.1.0",
+      "entries": []
+    },
     "release.acceptanceReport": {
       "registryId": "release.acceptanceReport",
       "introducedIn": "1.0.0",
@@ -20565,12 +21592,19 @@
       "registryId": "validation.index",
       "introducedIn": "0.34.0",
       "changedIn": [
-        "0.35.0"
+        "0.35.0",
+        "1.1.0"
       ],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.35.0",
+      "latestRelatedRelease": "1.1.0",
       "entries": [
+        {
+          "entryId": "chg_v1_1_fail_closed_resolution",
+          "releaseVersion": "1.1.0",
+          "category": "security",
+          "title": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed."
+        },
         {
           "entryId": "chg_00d54bd049d798",
           "releaseVersion": "0.35.0",

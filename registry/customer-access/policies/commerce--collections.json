@@ -1,0 +1,128 @@
+{
+  "$id": "customerAccess.policy.commerce.collections",
+  "name": "Collections Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.collections",
+  "contractRefs": [
+    "commerce.productCollection"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.catalog"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.collections.view"
+    ],
+    "create": [
+      "commerce.collections.create"
+    ],
+    "update": [
+      "commerce.collections.edit",
+      "commerce.collections.manage"
+    ],
+    "delete": [
+      "commerce.collections.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.collections#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.productCollection.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.collections#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.productCollection.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.collections#name",
+      "field": "name",
+      "contractFieldRef": "commerce.productCollection.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.collections#slug",
+      "field": "slug",
+      "contractFieldRef": "commerce.productCollection.slug",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.collections#description",
+      "field": "description",
+      "contractFieldRef": "commerce.productCollection.description",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.collections#collectionType",
+      "field": "collectionType",
+      "contractFieldRef": "commerce.productCollection.collectionType",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.collections#productIds",
+      "field": "productIds",
+      "contractFieldRef": "commerce.productCollection.productIds",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.collections#rules",
+      "field": "rules",
+      "contractFieldRef": "commerce.productCollection.rules",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.collections#ruleMatch",
+      "field": "ruleMatch",
+      "contractFieldRef": "commerce.productCollection.ruleMatch",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.collections#featuredMedia",
+      "field": "featuredMedia",
+      "contractFieldRef": "commerce.productCollection.featuredMedia",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.collections#publishing",
+      "field": "publishing",
+      "contractFieldRef": "commerce.productCollection.publishing",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.collections",
+    "adminProfileRef": "adminUi.profile.commerce.collections",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

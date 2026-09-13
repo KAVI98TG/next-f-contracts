@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.commerce.fulfillments",
   "name": "Fulfillments Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -102,5 +102,20 @@
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate.",
     "Administrative permission never bypasses Phase 12 Commerce Rules or transaction invariants."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.commerce.fulfillments",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "approvalRequired": false,
+    "capabilityRefs": [
+      "commerce.fulfillment"
+    ],
+    "editableFields": [],
+    "readOnlyFields": [],
+    "hiddenFields": [],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

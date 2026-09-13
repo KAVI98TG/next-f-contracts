@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.forms.forms",
   "name": "Forms",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -571,5 +571,49 @@
       "requiresPermission": "forms.forms.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.forms.forms",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "direct",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "allow",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "forms.forms.view"
+      ],
+      "create": [
+        "forms.forms.create"
+      ],
+      "update": [
+        "forms.forms.edit",
+        "forms.forms.manage"
+      ],
+      "delete": [
+        "forms.forms.delete"
+      ],
+      "submit_for_review": [],
+      "publish": [
+        "forms.forms.publish"
+      ],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "forms.notifications"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

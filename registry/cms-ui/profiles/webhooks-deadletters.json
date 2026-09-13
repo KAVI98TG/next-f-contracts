@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.webhooks.deadletters",
   "name": "Dead Letters",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -266,5 +266,42 @@
       "requiresPermission": "webhooks.deadletters.manage",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.webhooks.deadletters",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "read_only",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "deny",
+      "update": "deny",
+      "delete": "deny",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "webhooks.deadletters.view"
+      ],
+      "create": [],
+      "update": [
+        "webhooks.deadletters.manage"
+      ],
+      "delete": [],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "integrations.health"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": "This resource is available for viewing only."
+  }
 }

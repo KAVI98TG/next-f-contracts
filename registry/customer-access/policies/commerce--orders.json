@@ -1,0 +1,145 @@
+{
+  "$id": "customerAccess.policy.commerce.orders",
+  "name": "Orders Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.orders",
+  "contractRefs": [
+    "commerce.order",
+    "commerce.orderLine",
+    "commerce.orderTotals"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.orders"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.orders.export",
+      "commerce.orders.view"
+    ],
+    "create": [],
+    "update": [
+      "commerce.orders.edit",
+      "commerce.orders.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.order.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.order.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#orderNumber",
+      "field": "orderNumber",
+      "contractFieldRef": "commerce.order.orderNumber",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#source",
+      "field": "source",
+      "contractFieldRef": "commerce.order.source",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#customerSnapshot",
+      "field": "customerSnapshot",
+      "contractFieldRef": "commerce.order.customerSnapshot",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#addresses",
+      "field": "addresses",
+      "contractFieldRef": "commerce.order.addresses",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#lines",
+      "field": "lines",
+      "contractFieldRef": "commerce.order.lines",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#totals",
+      "field": "totals",
+      "contractFieldRef": "commerce.order.totals",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#paymentStatus",
+      "field": "paymentStatus",
+      "contractFieldRef": "commerce.order.paymentStatus",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#fulfillmentStatus",
+      "field": "fulfillmentStatus",
+      "contractFieldRef": "commerce.order.fulfillmentStatus",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#orderStatus",
+      "field": "orderStatus",
+      "contractFieldRef": "commerce.order.orderStatus",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#placedAt",
+      "field": "placedAt",
+      "contractFieldRef": "commerce.order.placedAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#cancelledAt",
+      "field": "cancelledAt",
+      "contractFieldRef": "commerce.order.cancelledAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.orders#completedAt",
+      "field": "completedAt",
+      "contractFieldRef": "commerce.order.completedAt",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.orders",
+    "adminProfileRef": "adminUi.profile.commerce.orders",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

@@ -1,0 +1,123 @@
+{
+  "$id": "customerAccess.policy.commerce.carts",
+  "name": "Carts Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.carts",
+  "contractRefs": [
+    "commerce.cart"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.carts"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.carts.view"
+    ],
+    "create": [],
+    "update": [
+      "commerce.carts.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.carts#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.cart.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.carts#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.cart.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.carts#salesChannelId",
+      "field": "salesChannelId",
+      "contractFieldRef": "commerce.cart.salesChannelId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.carts#customerId",
+      "field": "customerId",
+      "contractFieldRef": "commerce.cart.customerId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.carts#sessionKey",
+      "field": "sessionKey",
+      "contractFieldRef": "commerce.cart.sessionKey",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.carts#currency",
+      "field": "currency",
+      "contractFieldRef": "commerce.cart.currency",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.carts#lines",
+      "field": "lines",
+      "contractFieldRef": "commerce.cart.lines",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.carts#totals",
+      "field": "totals",
+      "contractFieldRef": "commerce.cart.totals",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.carts#status",
+      "field": "status",
+      "contractFieldRef": "commerce.cart.status",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.carts#expiresAt",
+      "field": "expiresAt",
+      "contractFieldRef": "commerce.cart.expiresAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.carts#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "commerce.cart.updatedAt",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.carts",
+    "adminProfileRef": "adminUi.profile.commerce.carts",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

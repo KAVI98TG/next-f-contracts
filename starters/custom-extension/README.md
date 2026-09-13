@@ -1,6 +1,6 @@
 # Custom Extension Site Starter Contract Pack
 
-**NEXT F Contracts:** 1.0.0  
+**NEXT F Contracts:** 1.1.0
 **Source reference:** examples.custom-site  
 **Site type:** custom
 

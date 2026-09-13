@@ -1,8 +1,16 @@
 # NEXT F Contracts
 
-Current stable Contract Registry version: **V1.0.0**
+Current stable Contract Registry version: **V1.1.0**
 
 `contract.nextf.lk` is the technical source of truth for NEXT F-built websites, Customer CMS, NEXT F Admin, APIs, reusable schemas, Commerce rules, Events, Webhooks, Permissions, Site Manifests, Modules, Codex development standards, reference implementations, Global Search and cross-registry relationship discovery.
+
+## Phase 38 - Customer Capability Access Policy
+
+V1.1.0 adds one canonical, fail-closed Customer Access Policy for every Customer CMS resource profile. Policies define customer visibility, action behavior, field limits, publishing, demo behavior, approval workflow, and exact links to existing capabilities, permissions, APIs, Events, CMS/Admin metadata, Search, Relationships, Diff, Compatibility, and Registry Health.
+
+Existing V1.0.0 sites remain pinned and unchanged. A consuming CMS, Admin, or API runtime must explicitly implement the V1.1.0 policy layer before upgrading. See `developer/CUSTOMER-ACCESS-POLICY-GUIDE.md` and the portal route `#/platform/customer-access`.
+
+Run `npm run generate:customer-access`, regenerate dependent indexes, then run `npm run validate`, `npm run smoke:phase38`, and `npm run validate:regression`.
 
 ## Cloudflare deployment
 

@@ -1,0 +1,101 @@
+{
+  "$id": "customerAccess.policy.marketing.attribution",
+  "name": "Attribution Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "marketing.attribution",
+  "contractRefs": [
+    "marketing.attributionModel",
+    "marketing.attributionTouchpoint"
+  ],
+  "moduleRef": "analytics",
+  "capabilityRefs": [
+    "analytics.attribution"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "marketing.attribution.export",
+      "marketing.attribution.view"
+    ],
+    "create": [],
+    "update": [
+      "marketing.attribution.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.marketing.attribution#modelKey",
+      "field": "modelKey",
+      "contractFieldRef": "marketing.attributionModel.modelKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.attribution#name",
+      "field": "name",
+      "contractFieldRef": "marketing.attributionModel.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.attribution#type",
+      "field": "type",
+      "contractFieldRef": "marketing.attributionModel.type",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.attribution#lookbackWindowDays",
+      "field": "lookbackWindowDays",
+      "contractFieldRef": "marketing.attributionModel.lookbackWindowDays",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.attribution#positionFirstCredit",
+      "field": "positionFirstCredit",
+      "contractFieldRef": "marketing.attributionModel.positionFirstCredit",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.attribution#positionLastCredit",
+      "field": "positionLastCredit",
+      "contractFieldRef": "marketing.attributionModel.positionLastCredit",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.attribution#customRules",
+      "field": "customRules",
+      "contractFieldRef": "marketing.attributionModel.customRules",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.marketing.attribution",
+    "adminProfileRef": "adminUi.profile.marketing.attribution",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

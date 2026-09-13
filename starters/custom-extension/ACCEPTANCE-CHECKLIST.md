@@ -14,7 +14,7 @@
 - [ ] CMS navigation is derived from enabled Modules/Capabilities and filtered by canonical permissions.
 - [ ] NEXT F Admin retains internal diagnostics/configuration boundaries that are not exposed as customer privileges.
 - [ ] Every custom extension is namespaced, documented, conflict-free and represented by a Contract Extension Proposal when reusable canonical coverage is missing.
-- [ ] `nextf.site.json` remains pinned to 1.0.0.
+- [ ] `nextf.site.json` remains pinned to 1.1.0.
 - [ ] Required Module dependencies resolve.
 - [ ] No secret is present in the Site Manifest/browser bundle/committed environment example.
 - [ ] Customer CMS and NEXT F Admin mappings have been reviewed.

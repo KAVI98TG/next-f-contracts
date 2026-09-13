@@ -1,0 +1,104 @@
+{
+  "$id": "customerAccess.policy.content.blogtags",
+  "name": "Blog Tags Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.blogtags",
+  "contractRefs": [
+    "content.blogTag"
+  ],
+  "moduleRef": "blog",
+  "capabilityRefs": [
+    "blog.tags"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.blogtags.view"
+    ],
+    "create": [
+      "content.blogtags.create"
+    ],
+    "update": [
+      "content.blogtags.edit",
+      "content.blogtags.manage"
+    ],
+    "delete": [
+      "content.blogtags.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.blogtags#identity",
+      "field": "identity",
+      "contractFieldRef": "content.blogTag.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogtags#scope",
+      "field": "scope",
+      "contractFieldRef": "content.blogTag.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogtags#name",
+      "field": "name",
+      "contractFieldRef": "content.blogTag.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogtags#slug",
+      "field": "slug",
+      "contractFieldRef": "content.blogTag.slug",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogtags#description",
+      "field": "description",
+      "contractFieldRef": "content.blogTag.description",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogtags#publishing",
+      "field": "publishing",
+      "contractFieldRef": "content.blogTag.publishing",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogtags#revision",
+      "field": "revision",
+      "contractFieldRef": "content.blogTag.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.blogtags",
+    "adminProfileRef": "adminUi.profile.content.blogtags",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

@@ -2,7 +2,7 @@
   "$id": "api.nextf-admin",
   "apiId": "api.nextf-admin",
   "name": "NEXT F Admin API",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "stable",
   "basePath": "/api/v1/admin",
   "description": "Privileged NEXT F platform operations for Organizations, Sites, modules, compatibility, integrations, diagnostics and audit.",
@@ -29,12 +29,15 @@
     "api.nextf-admin.update-contract-binding",
     "api.nextf-admin.get-diagnostics",
     "api.nextf-admin.list-audit",
-    "api.nextf-admin.get-integration-health"
+    "api.nextf-admin.get-integration-health",
+    "api.nextf-admin.review-change-request",
+    "api.nextf-admin.approve-change-request",
+    "api.nextf-admin.apply-change-request"
   ],
   "publicDocumentation": true,
   "order": 40,
   "compatibility": {
-    "contractVersionRange": ">=0.19.0 <1.0.0",
+    "contractVersionRange": ">=1.1.0 <2.0.0",
     "manifestBindingRequired": true
   },
   "boundaries": [

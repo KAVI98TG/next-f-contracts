@@ -9,7 +9,7 @@ const foundationCards = [
 
 const roadmap = [
   [0, "Contract Constitution", "Terminology, naming, architecture, ownership, security and compatibility baseline.", "complete"],
-  [1, "Light SaaS Portal Foundation", "Light-only paper dashboard shell, navigation, responsive behavior and reusable portal components.", "complete"],
+  [1, "SaaS Portal Foundation", "Paper dashboard shell with accessible light and dark themes, navigation, responsive behavior and reusable portal components.", "complete"],
   [2, "Registry Engine", "Machine-readable registry index, loading, filtering, cross-references and raw contract access.", "complete"],
   [3, "Primitive Fields", "33 reusable field types, configuration vocabulary, validation rules and field explorer.", "complete"],
   [4, "Shared Core Schemas", "Identity, scope, publishing, audit, media, address, link and CTA contracts.", "complete"],
@@ -45,7 +45,8 @@ const roadmap = [
   [34, "Developer Validation CLI", "Offline validation, inspection, compatibility and Diff commands sharing browser validation semantics.", "complete"],
   [35, "Site Starter Contract Packs", "Six framework-neutral Site bootstraps with pinned manifests, contract maps and acceptance guidance.", "complete"],
   [36, "Registry Health Release Candidate", "Repository-wide QA, integrity evidence, findings and explicit environment-dependent deferrals.", "complete"],
-  [37, "V1.0.0 Production Acceptance", "Stable Registry release, frozen baselines, integrity hashes and formal production-acceptance evidence.", "current"]
+  [37, "V1.0.0 Production Acceptance", "Stable Registry release, frozen baselines, integrity hashes and formal production-acceptance evidence.", "complete"],
+  [38, "Customer Capability Access Policy", "Explicit customer visibility, actions, approvals, publishing, fields, demo behavior and effective policy resolution.", "current"]
 ];
 
 const architectureRules = [
@@ -87,10 +88,10 @@ export function renderOverview() {
             <a class="button button--secondary" href="#/standards/architecture">${icon("fa-sitemap")} Review foundation</a>
           </div>
           <div class="hero-panel__meta">
-            <span>${icon("fa-sun")} Light theme only</span>
+            <span>${icon("fa-circle-half-stroke")} Light + dark themes</span>
             <span>${icon("fa-file-code")} HTML + CSS + JavaScript</span>
             <span>${icon("fa-database")} Repository-first authority</span>
-            <span>${icon("fa-code-branch")} Current registry v1.0.0</span>
+            <span>${icon("fa-code-branch")} Current registry v1.1.0</span>
           </div>
         </div>
       </section>
@@ -108,13 +109,13 @@ export function renderOverview() {
         </article>
         <article class="paper-card metric-card">
           <div class="metric-card__top"><span class="metric-card__label">Registry entries</span><span class="metric-card__icon">${icon("fa-database")}</span></div>
-          <div class="metric-card__value">2,182</div>
-          <p class="metric-card__meta">Canonical definitions in the stable V1 Registry</p>
+          <div class="metric-card__value">2,284</div>
+          <p class="metric-card__meta">Canonical definitions in the stable V1.1 Registry</p>
         </article>
         <article class="paper-card metric-card">
           <div class="metric-card__top"><span class="metric-card__label">Current phase</span><span class="metric-card__icon">${icon("fa-layer-group")}</span></div>
-          <div class="metric-card__value">37</div>
-          <p class="metric-card__meta">V1.0.0 Production Acceptance</p>
+          <div class="metric-card__value">38</div>
+          <p class="metric-card__meta">V1.1.0 Customer Access</p>
         </article>
       </section>
 
@@ -135,7 +136,7 @@ export function renderOverview() {
 
       <section class="two-column">
         <article class="paper-card">
-          <div class="paper-card__header"><div><h2>Build roadmap</h2><p>The complete contract foundation through V1.0.0 Production Acceptance.</p></div>${phaseBadge(37)}</div>
+          <div class="paper-card__header"><div><h2>Build roadmap</h2><p>The complete contract foundation through V1.1.0 Customer Capability Access Policy.</p></div>${phaseBadge(38)}</div>
           <div class="paper-card__body">
             <ol class="roadmap-list">
               ${roadmap.map(([number, title, text, state]) => `
@@ -165,13 +166,13 @@ export function renderOverview() {
           </article>
 
           <article class="paper-card">
-            <div class="paper-card__header"><div><h2>V1.0.0 Production Acceptance</h2><p>The Contract Registry is stable with frozen baselines and verified release integrity. Consumer runtime deployment remains independently evidenced.</p></div><a class="button button--secondary button--compact" href="#/registry/health">${icon("fa-heart-pulse")} Open Registry Health</a></div>
+            <div class="paper-card__header"><div><h2>V1.1.0 Customer Capability Access Policy</h2><p>Every Customer CMS resource now has an explicit, machine-readable customer boundary backed by permissions, capabilities, APIs and approval contracts.</p></div><a class="button button--secondary button--compact" href="#/platform/customer-access">${icon("fa-shield-halved")} Open Customer Access</a></div>
             <div class="paper-card__body phase-summary">
-              <div class="phase-summary__row"><span>Acceptance categories</span><strong>31</strong></div>
-              <div class="phase-summary__row"><span>Passing categories</span><strong>30</strong></div>
+              <div class="phase-summary__row"><span>Customer policies</span><strong>75</strong></div>
+              <div class="phase-summary__row"><span>Policy coverage</span><strong>100%</strong></div>
               <div class="phase-summary__row"><span>Blocking failures</span><strong>0</strong></div>
-              <div class="phase-summary__row"><span>Explicitly deferred</span><strong>1</strong></div>
-              <div class="phase-summary__row"><span>Current release</span><strong>1.0.0</strong></div>
+              <div class="phase-summary__row"><span>Approval-required policies</span><strong>8</strong></div>
+              <div class="phase-summary__row"><span>Current release</span><strong>1.1.0</strong></div>
             </div>
           </article>
         </div>

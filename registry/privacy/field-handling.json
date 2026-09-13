@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.0.0",
   "title": "Field-level Privacy Handling",
   "description": "Explicit Phase 30 privacy metadata for high-risk fields. Coverage grows with future contracts; absence does not imply public eligibility.",
@@ -28,7 +28,7 @@
         "SEC-AUDIT-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-002",
@@ -54,7 +54,7 @@
         "SEC-TENANT-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-003",
@@ -80,7 +80,7 @@
         "SEC-AUDIT-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-004",
@@ -107,7 +107,7 @@
         "SEC-AUDIT-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-010",
@@ -131,7 +131,7 @@
         "SEC-LOG-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-011",
@@ -156,7 +156,7 @@
         "SEC-UPL-003"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-012",
@@ -181,7 +181,7 @@
         "SEC-PDATA-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-013",
@@ -207,7 +207,7 @@
         "SEC-LOG-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-014",
@@ -232,7 +232,7 @@
         "SEC-ABUSE-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-015",
@@ -255,7 +255,7 @@
         "SEC-PDATA-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-016",
@@ -279,7 +279,7 @@
         "SEC-LOG-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-017",
@@ -302,7 +302,7 @@
         "SEC-PDATA-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-018",
@@ -327,7 +327,7 @@
         "SEC-PDATA-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-019",
@@ -352,7 +352,7 @@
         "SEC-PDATA-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-020",
@@ -375,7 +375,7 @@
       "redactionBehavior": "none",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-021",
@@ -398,7 +398,7 @@
       "redactionBehavior": "none",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-030",
@@ -423,7 +423,7 @@
         "SEC-PDATA-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-031",
@@ -449,7 +449,7 @@
         "SEC-LOG-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-032",
@@ -472,7 +472,7 @@
       "redactionBehavior": "pseudonymize",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-033",
@@ -495,7 +495,7 @@
       "redactionBehavior": "pseudonymize",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-034",
@@ -518,7 +518,7 @@
       "redactionBehavior": "partial",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-035",
@@ -541,7 +541,7 @@
       "redactionBehavior": "pseudonymize",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-036",
@@ -566,7 +566,7 @@
         "SEC-QUERY-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-037",
@@ -589,7 +589,7 @@
       "redactionBehavior": "partial",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-040",
@@ -615,7 +615,7 @@
         "SEC-SECRET-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-041",
@@ -641,7 +641,7 @@
         "SEC-KEY-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-042",
@@ -666,7 +666,7 @@
         "SEC-SECRET-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-043",
@@ -691,7 +691,7 @@
         "SEC-KEY-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-044",
@@ -716,7 +716,7 @@
         "SEC-OAUTH-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-045",
@@ -742,7 +742,7 @@
         "SEC-SECRET-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-046",
@@ -768,7 +768,7 @@
         "SEC-TOKEN-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-047",
@@ -794,7 +794,7 @@
         "SEC-TOKEN-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-050",
@@ -820,7 +820,7 @@
         "SEC-PAY-002"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-051",
@@ -845,7 +845,7 @@
         "SEC-PAY-002"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-052",
@@ -870,7 +870,7 @@
         "SEC-PAY-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-053",
@@ -896,7 +896,7 @@
         "SEC-PAY-002"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-054",
@@ -921,7 +921,7 @@
         "SEC-PAY-003"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-055",
@@ -946,7 +946,7 @@
         "SEC-PAY-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-056",
@@ -971,7 +971,7 @@
         "SEC-PAY-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-060",
@@ -996,7 +996,7 @@
         "SEC-WH-003"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-061",
@@ -1021,7 +1021,7 @@
         "SEC-LOG-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-062",
@@ -1047,7 +1047,7 @@
         "SEC-LOG-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-063",
@@ -1072,7 +1072,7 @@
         "SEC-LOG-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-064",
@@ -1098,7 +1098,7 @@
         "SEC-SECRET-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-070",
@@ -1124,7 +1124,7 @@
         "SEC-AUDIT-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-071",
@@ -1150,7 +1150,7 @@
         "SEC-LOG-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-072",
@@ -1176,7 +1176,7 @@
         "SEC-LOG-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-073",
@@ -1201,7 +1201,7 @@
         "SEC-AUDIT-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-074",
@@ -1227,7 +1227,7 @@
         "SEC-LOG-001"
       ],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-080",
@@ -1250,7 +1250,7 @@
       "redactionBehavior": "none",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-081",
@@ -1273,7 +1273,7 @@
       "redactionBehavior": "none",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-082",
@@ -1296,7 +1296,7 @@
       "redactionBehavior": "none",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-083",
@@ -1319,7 +1319,7 @@
       "redactionBehavior": "none",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "handlingId": "PRIV-FLD-084",
@@ -1342,7 +1342,7 @@
       "redactionBehavior": "none",
       "relatedSecurityControls": [],
       "status": "stable",
-      "version": "1.0.0"
+      "version": "1.1.0"
     }
   ]
 }

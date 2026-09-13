@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.forms.notifications",
   "name": "Form Notifications",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -320,5 +320,44 @@
       "requiresPermission": "forms.notifications.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.forms.notifications",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "deny",
+      "update": "allow",
+      "delete": "deny",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "forms.notifications.view"
+      ],
+      "create": [],
+      "update": [
+        "forms.notifications.edit",
+        "forms.notifications.manage"
+      ],
+      "delete": [],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "forms.auto-response",
+      "forms.notifications"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

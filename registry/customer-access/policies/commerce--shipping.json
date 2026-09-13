@@ -1,0 +1,106 @@
+{
+  "$id": "customerAccess.policy.commerce.shipping",
+  "name": "Shipping Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.shipping",
+  "contractRefs": [
+    "commerce.shippingZone",
+    "commerce.shippingMethod",
+    "commerce.shippingRate"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.shipping"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.shipping.view"
+    ],
+    "create": [
+      "commerce.shipping.create"
+    ],
+    "update": [
+      "commerce.shipping.edit",
+      "commerce.shipping.manage"
+    ],
+    "delete": [
+      "commerce.shipping.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.shipping#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.shippingZone.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.shipping#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.shippingZone.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.shipping#name",
+      "field": "name",
+      "contractFieldRef": "commerce.shippingZone.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.shipping#countries",
+      "field": "countries",
+      "contractFieldRef": "commerce.shippingZone.countries",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.shipping#regions",
+      "field": "regions",
+      "contractFieldRef": "commerce.shippingZone.regions",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.shipping#postalCodes",
+      "field": "postalCodes",
+      "contractFieldRef": "commerce.shippingZone.postalCodes",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.shipping#enabled",
+      "field": "enabled",
+      "contractFieldRef": "commerce.shippingZone.enabled",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.shipping",
+    "adminProfileRef": "adminUi.profile.commerce.shipping",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

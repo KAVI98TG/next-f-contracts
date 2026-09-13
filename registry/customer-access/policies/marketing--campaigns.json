@@ -1,0 +1,123 @@
+{
+  "$id": "customerAccess.policy.marketing.campaigns",
+  "name": "Campaigns Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "marketing.campaigns",
+  "contractRefs": [
+    "marketing.campaignDefinition",
+    "marketing.campaignPerformanceSnapshot"
+  ],
+  "moduleRef": "marketing",
+  "capabilityRefs": [
+    "marketing.campaigns"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "marketing.campaigns.view"
+    ],
+    "create": [
+      "marketing.campaigns.create"
+    ],
+    "update": [
+      "marketing.campaigns.edit",
+      "marketing.campaigns.manage"
+    ],
+    "delete": [
+      "marketing.campaigns.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.marketing.campaigns#identity",
+      "field": "identity",
+      "contractFieldRef": "marketing.campaignDefinition.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.campaigns#scope",
+      "field": "scope",
+      "contractFieldRef": "marketing.campaignDefinition.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.campaigns#campaignKey",
+      "field": "campaignKey",
+      "contractFieldRef": "marketing.campaignDefinition.campaignKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.campaigns#name",
+      "field": "name",
+      "contractFieldRef": "marketing.campaignDefinition.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.campaigns#status",
+      "field": "status",
+      "contractFieldRef": "marketing.campaignDefinition.status",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.campaigns#objective",
+      "field": "objective",
+      "contractFieldRef": "marketing.campaignDefinition.objective",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.campaigns#startsAt",
+      "field": "startsAt",
+      "contractFieldRef": "marketing.campaignDefinition.startsAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.campaigns#endsAt",
+      "field": "endsAt",
+      "contractFieldRef": "marketing.campaignDefinition.endsAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.campaigns#externalReferences",
+      "field": "externalReferences",
+      "contractFieldRef": "marketing.campaignDefinition.externalReferences",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.campaigns#sourceOfTruth",
+      "field": "sourceOfTruth",
+      "contractFieldRef": "marketing.campaignDefinition.sourceOfTruth",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.marketing.campaigns",
+    "adminProfileRef": "adminUi.profile.marketing.campaigns",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

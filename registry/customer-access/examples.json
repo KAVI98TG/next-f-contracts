@@ -1,0 +1,55 @@
+{
+  "registryVersion": "1.1.0",
+  "examples": [
+    {
+      "id": "direct-edit-blog",
+      "policyRef": "customerAccess.policy.content.blogposts",
+      "outcome": "Customer may edit and publish only with exact permissions and Site scope."
+    },
+    {
+      "id": "approval-seo",
+      "policyRef": "customerAccess.policy.seo.metadata",
+      "outcome": "Customer proposes metadata changes; authoritative SEO remains unchanged until approval."
+    },
+    {
+      "id": "read-only-analytics",
+      "policyRef": "customerAccess.policy.marketing.analytics",
+      "outcome": "Customer may view/export permitted reporting but cannot mutate it."
+    },
+    {
+      "id": "hidden-secrets",
+      "policyRef": "customerAccess.policy.webhooks.secrets",
+      "outcome": "Customer discovery and APIs omit secret material."
+    },
+    {
+      "id": "mixed-fields",
+      "policyRef": "customerAccess.policy.content.pages",
+      "outcome": "Editable content is proposal-only while system fields remain hidden or read-only."
+    },
+    {
+      "id": "admin-publish",
+      "policyRef": "customerAccess.policy.content.pages",
+      "outcome": "Customer may propose a draft; only Admin can execute publish."
+    },
+    {
+      "id": "manifest-restriction",
+      "policyRef": "customerAccess.effectivePolicyResolution",
+      "outcome": "A disabled module removes access but cannot broaden another policy."
+    },
+    {
+      "id": "role-restriction",
+      "policyRef": "customerAccess.effectivePolicyResolution",
+      "outcome": "Missing update permission reduces direct edit to read-only."
+    },
+    {
+      "id": "demo-simulated-write",
+      "policyRef": "customerAccess.policy.content.blogposts",
+      "outcome": "Sample-only simulated write never reaches production data."
+    },
+    {
+      "id": "stale-approval",
+      "policyRef": "customerAccess.changeRequest",
+      "outcome": "A base revision mismatch creates conflict evidence and blocks application."
+    }
+  ]
+}

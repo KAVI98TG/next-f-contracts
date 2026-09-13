@@ -1,0 +1,138 @@
+{
+  "$id": "customerAccess.policy.content.team",
+  "name": "Team Members Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.team",
+  "contractRefs": [
+    "content.teamMember"
+  ],
+  "moduleRef": "pages",
+  "capabilityRefs": [
+    "pages.sections"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "allow",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "direct"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.team.view"
+    ],
+    "create": [
+      "content.team.create"
+    ],
+    "update": [
+      "content.team.edit",
+      "content.team.publish"
+    ],
+    "delete": [
+      "content.team.delete"
+    ],
+    "submit_for_review": [
+      "content.team.approve"
+    ],
+    "publish": [
+      "content.team.publish"
+    ],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.team#identity",
+      "field": "identity",
+      "contractFieldRef": "content.teamMember.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.team#scope",
+      "field": "scope",
+      "contractFieldRef": "content.teamMember.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.team#name",
+      "field": "name",
+      "contractFieldRef": "content.teamMember.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.team#slug",
+      "field": "slug",
+      "contractFieldRef": "content.teamMember.slug",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.team#role",
+      "field": "role",
+      "contractFieldRef": "content.teamMember.role",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.team#photo",
+      "field": "photo",
+      "contractFieldRef": "content.teamMember.photo",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.team#biography",
+      "field": "biography",
+      "contractFieldRef": "content.teamMember.biography",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.team#contact",
+      "field": "contact",
+      "contractFieldRef": "content.teamMember.contact",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.team#socialLinks",
+      "field": "socialLinks",
+      "contractFieldRef": "content.teamMember.socialLinks",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.team#displayOrder",
+      "field": "displayOrder",
+      "contractFieldRef": "content.teamMember.displayOrder",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.team#publishing",
+      "field": "publishing",
+      "contractFieldRef": "content.teamMember.publishing",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.team#revision",
+      "field": "revision",
+      "contractFieldRef": "content.teamMember.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.team",
+    "adminProfileRef": "adminUi.profile.content.team",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

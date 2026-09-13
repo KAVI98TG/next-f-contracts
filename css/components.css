@@ -6,16 +6,29 @@
 }
 
 .brand__mark {
-  display: grid;
+  display: inline-grid;
   width: 36px;
   height: 36px;
   place-items: center;
-  border-radius: 10px;
-  background: var(--nf-blue-600);
-  color: var(--text-inverse);
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+  flex: 0 0 auto;
+}
+
+.brand__icon {
+  width: 30px;
+  height: 32px;
+  overflow: visible;
+}
+
+.brand__icon-primary {
+  fill: var(--brand-icon-primary);
+}
+
+.brand__icon-secondary {
+  fill: var(--brand-icon-secondary);
+}
+
+.brand__icon-accent {
+  fill: var(--brand-icon-accent);
 }
 
 .brand__copy {
@@ -326,6 +339,7 @@ kbd {
 }
 
 .paper-card {
+  min-width: 0;
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
   background: var(--surface-paper);

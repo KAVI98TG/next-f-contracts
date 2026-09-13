@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.commerce.shipping",
   "name": "Shipping",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -282,5 +282,47 @@
       "requiresPermission": "commerce.shipping.edit",
       "purpose": "Primary Site-scoped Customer CMS surface."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.commerce.shipping",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "commerce.shipping.view"
+      ],
+      "create": [
+        "commerce.shipping.create"
+      ],
+      "update": [
+        "commerce.shipping.edit",
+        "commerce.shipping.manage"
+      ],
+      "delete": [
+        "commerce.shipping.delete"
+      ],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "commerce.shipping"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

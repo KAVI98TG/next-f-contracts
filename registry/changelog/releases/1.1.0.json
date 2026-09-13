@@ -1,0 +1,266 @@
+{
+  "$id": "changelog.release.1.1.0",
+  "version": "1.1.0",
+  "phase": 38,
+  "title": "Customer Capability Access Policy",
+  "releaseStatus": "stable",
+  "releaseDate": "2026-09-13",
+  "summary": "Adds the canonical customer visibility, mutation, approval, publishing, field and demo policy layer for every Customer CMS resource.",
+  "sections": [
+    {
+      "category": "added",
+      "label": "Added",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_customer_access_registry",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+          "affectedRegistryIds": [
+            "customerAccess.customerAccessPolicyStandard",
+            "customerAccess.effectivePolicyResolution",
+            "customerAccess.policyRegistry",
+            "customerAccess.policySchema",
+            "customerAccess.policyVocabulary"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+          "description": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+          "changeType": "added",
+          "affectedDomains": [
+            "customer-access"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.1.0.json",
+          "sourceCommitReference": null
+        },
+        {
+          "entryId": "chg_v1_1_change_request",
+          "releaseVersion": "1.1.0",
+          "category": "added",
+          "originalSection": "Added",
+          "summary": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+          "affectedRegistryIds": [
+            "api.customer-cms.submit-change-request",
+            "api.nextf-admin.apply-change-request",
+            "core.changerequests.approve",
+            "core.changerequests.create",
+            "customer-change-request.applied",
+            "customer-change-request.submitted",
+            "customerAccess.changeRequest"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": null,
+          "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+          "description": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+          "changeType": "added",
+          "affectedDomains": [
+            "api",
+            "core",
+            "customer-access",
+            "events"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.1.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "security",
+      "label": "Security",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_fail_closed_resolution",
+          "releaseVersion": "1.1.0",
+          "category": "security",
+          "originalSection": "Security",
+          "summary": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+          "affectedRegistryIds": [
+            "customerAccess.effectivePolicyResolution",
+            "manifest.cms",
+            "validation.index"
+          ],
+          "compatibilityImpact": "non-breaking",
+          "provenance": "authoritative-release-json",
+          "notes": "Consumers must not infer authorization from Customer CMS visibility.",
+          "title": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+          "description": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+          "changeType": "security",
+          "affectedDomains": [
+            "customer-access",
+            "manifest",
+            "validation"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "non-breaking",
+            "breakingChange": false,
+            "migrationRequired": false,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": true
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.1.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    },
+    {
+      "category": "migration",
+      "label": "Migration",
+      "entries": [
+        {
+          "entryId": "chg_v1_1_explicit_upgrade",
+          "releaseVersion": "1.1.0",
+          "category": "migration",
+          "originalSection": "Migration",
+          "summary": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+          "affectedRegistryIds": [
+            "compatibility.releaseCompatibility",
+            "customerAccess.policyRegistry",
+            "manifest.siteManifest"
+          ],
+          "compatibilityImpact": "review-required",
+          "provenance": "authoritative-release-json",
+          "notes": "The Site Manifest may restrict canonical policy but cannot broaden it.",
+          "title": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+          "description": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+          "changeType": "migration",
+          "affectedDomains": [
+            "customer-access",
+            "manifest"
+          ],
+          "affectedModules": [],
+          "impact": {
+            "compatibilityClassification": "review-required",
+            "breakingChange": null,
+            "migrationRequired": true,
+            "customerSiteActionRequired": null,
+            "adminActionRequired": null,
+            "apiActionRequired": null,
+            "cmsActionRequired": null,
+            "securityRelevance": false
+          },
+          "relatedDiffEvidence": null,
+          "relatedMigrationGuide": null,
+          "relatedDeprecationRecord": null,
+          "sourceReference": "registry/changelog/releases/1.1.0.json",
+          "sourceCommitReference": null
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sourceReference": "registry/changelog/releases/1.1.0.json",
+    "exactRegistrySnapshotAvailable": true
+  },
+  "evidence": {
+    "evidenceLevel": "authoritative-current",
+    "sources": [
+      "registry/customer-access/index.json",
+      "registry/customer-access/migration-report.json",
+      "standards/46-customer-capability-access-policy-standard.md"
+    ]
+  },
+  "support": {
+    "supportLevel": "stable",
+    "compatibilityStatus": "review-required",
+    "registryProductionStable": true
+  },
+  "migrationNotes": [
+    "Keep existing V1.0.0 sites pinned until the consuming CMS, Admin and API runtime understands V1.1.0 policy metadata.",
+    "Do not translate approval_required into a direct write path.",
+    "Site-specific customerAccess settings may only narrow canonical access."
+  ],
+  "recommendedAction": "Review the migration report, update the consumer runtime, validate its Site Manifest, then explicitly pin V1.1.0.",
+  "affected": {
+    "domains": [
+      "api",
+      "core",
+      "customer-access",
+      "events",
+      "manifest",
+      "validation"
+    ],
+    "modules": [],
+    "contracts": [
+      "api.customer-cms.submit-change-request",
+      "api.nextf-admin.apply-change-request",
+      "compatibility.releaseCompatibility",
+      "core.changerequests.approve",
+      "core.changerequests.create",
+      "customer-change-request.applied",
+      "customer-change-request.submitted",
+      "customerAccess.changeRequest",
+      "customerAccess.customerAccessPolicyStandard",
+      "customerAccess.effectivePolicyResolution",
+      "customerAccess.policyRegistry",
+      "customerAccess.policySchema",
+      "customerAccess.policyVocabulary",
+      "manifest.cms",
+      "manifest.siteManifest",
+      "validation.index"
+    ],
+    "events": [
+      "customer-change-request.applied",
+      "customer-change-request.submitted"
+    ],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [
+      "api.customer-cms.submit-change-request",
+      "api.nextf-admin.apply-change-request"
+    ],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  },
+  "breakingChange": null,
+  "migrationRequired": true,
+  "sourceVersion": "1.0.0",
+  "targetVersion": "1.1.0",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "entryCount": 4,
+  "categoryCounts": {
+    "added": 2,
+    "security": 1,
+    "migration": 1
+  }
+}

@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.seo.robots",
   "name": "Robots Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -91,5 +91,27 @@
   },
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.seo.robots",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "approval_required",
+    "publishingMode": "not_applicable",
+    "approvalRequired": true,
+    "capabilityRefs": [
+      "seo.robots"
+    ],
+    "editableFields": [
+      "rules",
+      "sitemapUrls",
+      "additionalComment"
+    ],
+    "readOnlyFields": [],
+    "hiddenFields": [
+      "identity",
+      "scope"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

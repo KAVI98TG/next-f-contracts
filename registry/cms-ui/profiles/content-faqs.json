@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.content.faqs",
   "name": "FAQs",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -380,5 +380,51 @@
       "requiresPermission": "content.faqs.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.faqs",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "direct",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "allow",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "content.faqs.view"
+      ],
+      "create": [
+        "content.faqs.create"
+      ],
+      "update": [
+        "content.faqs.edit",
+        "content.faqs.publish"
+      ],
+      "delete": [
+        "content.faqs.delete"
+      ],
+      "submit_for_review": [
+        "content.faqs.approve"
+      ],
+      "publish": [
+        "content.faqs.publish"
+      ],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "pages.sections"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

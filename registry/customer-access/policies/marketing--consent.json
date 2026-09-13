@@ -1,0 +1,102 @@
+{
+  "$id": "customerAccess.policy.marketing.consent",
+  "name": "Consent Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "marketing.consent",
+  "contractRefs": [
+    "marketing.consentPolicy",
+    "marketing.consentState"
+  ],
+  "moduleRef": "consent",
+  "capabilityRefs": [
+    "consent.integration-gating",
+    "consent.preferences"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "marketing.consent.view"
+    ],
+    "create": [],
+    "update": [
+      "marketing.consent.edit",
+      "marketing.consent.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.marketing.consent#identity",
+      "field": "identity",
+      "contractFieldRef": "marketing.consentPolicy.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.consent#scope",
+      "field": "scope",
+      "contractFieldRef": "marketing.consentPolicy.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.consent#policyVersion",
+      "field": "policyVersion",
+      "contractFieldRef": "marketing.consentPolicy.policyVersion",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.consent#categories",
+      "field": "categories",
+      "contractFieldRef": "marketing.consentPolicy.categories",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.consent#unknownOptionalBehavior",
+      "field": "unknownOptionalBehavior",
+      "contractFieldRef": "marketing.consentPolicy.unknownOptionalBehavior",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.consent#regionStrategy",
+      "field": "regionStrategy",
+      "contractFieldRef": "marketing.consentPolicy.regionStrategy",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.consent#effectiveAt",
+      "field": "effectiveAt",
+      "contractFieldRef": "marketing.consentPolicy.effectiveAt",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.marketing.consent",
+    "adminProfileRef": "adminUi.profile.marketing.consent",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

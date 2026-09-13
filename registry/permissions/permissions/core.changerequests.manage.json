@@ -1,0 +1,28 @@
+{
+  "$id": "core.changerequests.manage",
+  "name": "Manage Customer Change Requests",
+  "permissionId": "core.changerequests.manage",
+  "domain": "core",
+  "resource": "changerequests",
+  "action": "manage",
+  "scopeKind": "site",
+  "riskLevel": "privileged",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage Customer Change Requests within the authorized Site scope.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound"
+  ],
+  "notes": [],
+  "version": "1.1.0",
+  "status": "stable"
+}

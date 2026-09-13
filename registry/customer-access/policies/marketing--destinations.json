@@ -1,0 +1,117 @@
+{
+  "$id": "customerAccess.policy.marketing.destinations",
+  "name": "Destinations Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "marketing.destinations",
+  "contractRefs": [
+    "marketing.marketingDestination",
+    "marketing.eventDestination"
+  ],
+  "moduleRef": "marketing",
+  "capabilityRefs": [
+    "marketing.destinations"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "marketing.destinations.view"
+    ],
+    "create": [
+      "marketing.destinations.create"
+    ],
+    "update": [
+      "marketing.destinations.edit",
+      "marketing.destinations.manage"
+    ],
+    "delete": [
+      "marketing.destinations.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.marketing.destinations#identity",
+      "field": "identity",
+      "contractFieldRef": "marketing.marketingDestination.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.destinations#scope",
+      "field": "scope",
+      "contractFieldRef": "marketing.marketingDestination.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.destinations#destinationKey",
+      "field": "destinationKey",
+      "contractFieldRef": "marketing.marketingDestination.destinationKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.destinations#name",
+      "field": "name",
+      "contractFieldRef": "marketing.marketingDestination.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.destinations#type",
+      "field": "type",
+      "contractFieldRef": "marketing.marketingDestination.type",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.destinations#connectorKey",
+      "field": "connectorKey",
+      "contractFieldRef": "marketing.marketingDestination.connectorKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.destinations#enabled",
+      "field": "enabled",
+      "contractFieldRef": "marketing.marketingDestination.enabled",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.destinations#requiredConsentCategoryKey",
+      "field": "requiredConsentCategoryKey",
+      "contractFieldRef": "marketing.marketingDestination.requiredConsentCategoryKey",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.marketing.destinations#environment",
+      "field": "environment",
+      "contractFieldRef": "marketing.marketingDestination.environment",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.marketing.destinations",
+    "adminProfileRef": "adminUi.profile.marketing.destinations",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

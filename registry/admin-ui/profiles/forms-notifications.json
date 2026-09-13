@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.forms.notifications",
   "name": "Notifications Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -91,5 +91,32 @@
   },
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.forms.notifications",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "approvalRequired": false,
+    "capabilityRefs": [
+      "forms.auto-response",
+      "forms.notifications"
+    ],
+    "editableFields": [
+      "formId",
+      "enabled",
+      "outcome",
+      "recipients",
+      "subjectTemplate",
+      "bodyTemplate",
+      "includeFieldKeys",
+      "includeSensitiveFields"
+    ],
+    "readOnlyFields": [],
+    "hiddenFields": [
+      "id"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "registryVersion": "0.17.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Site Manifest Registry",
   "description": "Authoritative Site Manifest specification and reusable manifest declaration contracts.",
@@ -955,7 +955,7 @@
     {
       "$id": "manifest.cms",
       "name": "Customer CMS Declaration",
-      "version": "0.17.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "manifest",
       "category": "surfaces-bindings",
@@ -1062,6 +1062,17 @@
             "customerEditable": false,
             "adminEditable": false
           }
+        },
+        {
+          "key": "customerAccess",
+          "required": false,
+          "nullable": true,
+          "description": "Optional Site-specific restrictions against the canonical V1.1.0 Customer Access Policy maximum.",
+          "primitive": "fields.json",
+          "config": {
+            "customerEditable": false,
+            "adminEditable": true
+          }
         }
       ],
       "relationships": [],
@@ -1077,6 +1088,10 @@
         {
           "id": "arbitraryCodeEditingProhibited",
           "description": "arbitraryCodeEditing must be false."
+        },
+        {
+          "id": "customerAccessRestrictiveOnly",
+          "description": "Site customerAccess settings may restrict canonical policy but must never broaden it."
         }
       ],
       "cms": {

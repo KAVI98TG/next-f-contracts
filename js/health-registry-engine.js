@@ -3,15 +3,21 @@ const loadGeneratedReleaseFallback=()=>import('./generated-release.js');
 function valid(data){return data&&data.index&&data.report&&Array.isArray(data.report.checks);}
 async function loadAuthoritative(){
   if(location.protocol==='file:')throw new Error('file protocol uses generated health fallback');
-  const [i,r,a,m]=await Promise.all([
+  const [i,r,releases]=await Promise.all([
     fetch('./registry/qa/index.json',{cache:'no-store'}),
     fetch('./registry/qa/report.json',{cache:'no-store'}),
-    fetch('./registry/releases/1.0.0/acceptance-report.json',{cache:'no-store'}),
-    fetch('./registry/releases/1.0.0/release-manifest.json',{cache:'no-store'})
+    fetch('./registry/releases/index.json',{cache:'no-store'})
   ]);
   if(!i.ok||!r.ok)throw new Error('Registry Health source unavailable');
   const data={index:await i.json(),report:await r.json(),productionRelease:null};
-  if(a.ok&&m.ok)data.productionRelease={acceptance:await a.json(),manifest:await m.json()};
+  if(releases.ok){
+    const releaseIndex=await releases.json();
+    const [a,m]=await Promise.all([
+      fetch(`./${releaseIndex.productionAcceptance}`,{cache:'no-store'}),
+      fetch(`./${releaseIndex.releaseManifest}`,{cache:'no-store'})
+    ]);
+    if(a.ok&&m.ok)data.productionRelease={acceptance:await a.json(),manifest:await m.json()};
+  }
   if(!valid(data))throw new Error('Registry Health runtime validation failed');
   return data;
 }

@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.core.audit",
   "name": "Activity",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -336,5 +336,41 @@
       "requiresPermission": "core.audit.view",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.core.audit",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "read_only",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "deny",
+      "update": "deny",
+      "delete": "deny",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "core.audit.export",
+        "core.audit.view"
+      ],
+      "create": [],
+      "update": [],
+      "delete": [],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "core.audit"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": "This resource is available for viewing only."
+  }
 }

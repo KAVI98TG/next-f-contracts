@@ -1,18 +1,20 @@
 {
-  "registryVersion": "0.37.0",
-  "phase": 36,
+  "registryVersion": "1.1.0",
+  "phase": 38,
   "title": "Registry Health",
   "standard": "standards/44-registry-health-release-candidate-standard.md",
+  "customerAccessStandard": "standards/46-customer-capability-access-policy-standard.md",
   "report": "registry/qa/report.json",
   "csv": "registry/qa/report.csv",
   "checkSchema": "registry/qa/check.schema.json",
   "counts": {
-    "checks": 36,
+    "checks": 41,
     "findings": 3,
     "blockingFailures": 0,
-    "registryItems": 2176,
-    "searchDocuments": 7268,
-    "relationshipNodes": 2176,
-    "relationshipEdges": 7519
+    "registryItems": 2284,
+    "searchDocuments": 7436,
+    "relationshipNodes": 2284,
+    "relationshipEdges": 8759,
+    "customerAccessPolicies": 75
   }
 }

@@ -1,23 +1,23 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source: registry/relationships/relationship-index.json
-// SHA-256: 8a19d7c0e4ed29d9f2ed70473c87730f39021bad278c21102087c3aa00ee7362
-export const GENERATED_RELATIONSHIP_INDEX_SHA256 = "8a19d7c0e4ed29d9f2ed70473c87730f39021bad278c21102087c3aa00ee7362";
+// SHA-256: 4e9aad6be81790dbb46f847581b375d1af5fc09b4a466dcd4edc7a604cd64200
+export const GENERATED_RELATIONSHIP_INDEX_SHA256 = "4e9aad6be81790dbb46f847581b375d1af5fc09b4a466dcd4edc7a604cd64200";
 export const GENERATED_RELATIONSHIP_INDEX = {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Relationship Index",
   "description": "Generated bounded graph projection for Relationship Explorer discovery.",
   "source": "registry/registry.json",
-  "sourceSha256": "aa3fc131fb18eee497f04f790c20b3871ee73cc24f003e1b3f1bf02a2f4da022",
+  "sourceSha256": "2c9d133f373d7e495e37d8cbf2f6b3f2d689031b939b04e2dbc3ec134b2186fa",
   "stats": {
-    "nodes": 2182,
-    "edges": 7536,
-    "explicitEdges": 4714,
-    "permissionAssociations": 2603,
-    "eventAssociations": 219,
+    "nodes": 2284,
+    "edges": 8759,
+    "explicitEdges": 5602,
+    "permissionAssociations": 2902,
+    "eventAssociations": 255,
     "relationshipTypes": 26,
     "isolatedNodes": 86,
-    "parallelEdgeGroups": 1,
+    "parallelEdgeGroups": 13,
     "selfLoops": 5,
     "symbolicAssociations": 22,
     "unresolvedExplicitTargets": 0
@@ -2684,8 +2684,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "standards/26-api-contract-standard.md",
       "outgoing": 0,
-      "incoming": 166,
-      "degree": 166
+      "incoming": 172,
+      "degree": 172
     },
     {
       "id": "api.auth-modes",
@@ -3104,8 +3104,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/groups/customer-cms.json",
       "outgoing": 9,
-      "incoming": 37,
-      "degree": 46
+      "incoming": 41,
+      "degree": 50
     },
     {
       "id": "api.customer-cms.begin-media-upload",
@@ -3116,8 +3116,20 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/begin-media-upload.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
+    },
+    {
+      "id": "api.customer-cms.cancel-change-request",
+      "name": "Cancel Change Request",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/api/operations/customer-cms/cancel-change-request.json",
+      "outgoing": 5,
+      "incoming": 8,
+      "degree": 13
     },
     {
       "id": "api.customer-cms.complete-media-upload",
@@ -3128,8 +3140,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/complete-media-upload.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "api.customer-cms.create-blog-post",
@@ -3140,8 +3152,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/create-blog-post.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "api.customer-cms.create-custom-entry",
@@ -3152,8 +3164,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/create-custom-entry.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "api.customer-cms.create-documentation",
@@ -3164,8 +3176,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/create-documentation.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "api.customer-cms.create-form",
@@ -3176,8 +3188,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/create-form.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "api.customer-cms.create-page",
@@ -3188,8 +3200,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/create-page.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "api.customer-cms.delete-media",
@@ -3200,8 +3212,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/delete-media.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "api.customer-cms.get-blog-post",
@@ -3211,6 +3223,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 18,
       "source": "registry/api/operations/customer-cms/get-blog-post.json",
+      "outgoing": 4,
+      "incoming": 1,
+      "degree": 5
+    },
+    {
+      "id": "api.customer-cms.get-change-request",
+      "name": "Get Change Request",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/api/operations/customer-cms/get-change-request.json",
       "outgoing": 4,
       "incoming": 0,
       "degree": 4
@@ -3224,8 +3248,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/get-custom-entry.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.get-documentation",
@@ -3236,8 +3260,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/get-documentation.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.get-form",
@@ -3248,8 +3272,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/get-form.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.get-lead",
@@ -3260,8 +3284,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/get-lead.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.get-page",
@@ -3272,8 +3296,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/get-page.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.get-seo",
@@ -3284,8 +3308,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/get-seo.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.get-submission",
@@ -3296,8 +3320,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/get-submission.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.get-workspace",
@@ -3308,8 +3332,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/get-workspace.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 4,
+      "degree": 8
     },
     {
       "id": "api.customer-cms.list-blog-posts",
@@ -3319,6 +3343,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 18,
       "source": "registry/api/operations/customer-cms/list-blog-posts.json",
+      "outgoing": 4,
+      "incoming": 1,
+      "degree": 5
+    },
+    {
+      "id": "api.customer-cms.list-change-requests",
+      "name": "List Change Requests",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/api/operations/customer-cms/list-change-requests.json",
       "outgoing": 4,
       "incoming": 0,
       "degree": 4
@@ -3332,8 +3368,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/list-custom-entrys.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.list-documentations",
@@ -3344,8 +3380,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/list-documentations.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.list-forms",
@@ -3356,8 +3392,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/list-forms.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.list-leads",
@@ -3368,8 +3404,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/list-leads.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.list-media",
@@ -3380,8 +3416,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/list-media.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.list-pages",
@@ -3392,8 +3428,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/list-pages.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.list-submissions",
@@ -3404,8 +3440,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/list-submissions.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.customer-cms.publish-blog-post",
@@ -3416,8 +3452,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/publish-blog-post.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "api.customer-cms.publish-custom-entry",
@@ -3428,8 +3464,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/publish-custom-entry.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "api.customer-cms.publish-documentation",
@@ -3440,8 +3476,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/publish-documentation.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "api.customer-cms.publish-page",
@@ -3452,8 +3488,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/publish-page.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "api.customer-cms.restore-version",
@@ -3468,6 +3504,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 6
     },
     {
+      "id": "api.customer-cms.submit-change-request",
+      "name": "Submit Change Request",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/api/operations/customer-cms/submit-change-request.json",
+      "outgoing": 5,
+      "incoming": 9,
+      "degree": 14
+    },
+    {
       "id": "api.customer-cms.update-blog-post",
       "name": "Update Blog Post",
       "domain": "api",
@@ -3476,8 +3524,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/update-blog-post.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "api.customer-cms.update-custom-entry",
@@ -3488,8 +3536,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/update-custom-entry.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "api.customer-cms.update-documentation",
@@ -3500,8 +3548,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/update-documentation.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "api.customer-cms.update-form",
@@ -3512,8 +3560,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/update-form.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "api.customer-cms.update-lead",
@@ -3524,8 +3572,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/update-lead.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "api.customer-cms.update-page",
@@ -3536,8 +3584,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/update-page.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "api.customer-cms.update-seo",
@@ -3548,8 +3596,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/operations/customer-cms/update-seo.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "api.deletedResource",
@@ -3776,8 +3824,32 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/groups/nextf-admin.json",
       "outgoing": 3,
-      "incoming": 15,
-      "degree": 18
+      "incoming": 18,
+      "degree": 21
+    },
+    {
+      "id": "api.nextf-admin.apply-change-request",
+      "name": "Apply Change Request",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/api/operations/nextf-admin/apply-change-request.json",
+      "outgoing": 5,
+      "incoming": 1,
+      "degree": 6
+    },
+    {
+      "id": "api.nextf-admin.approve-change-request",
+      "name": "Approve Change Request",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/api/operations/nextf-admin/approve-change-request.json",
+      "outgoing": 5,
+      "incoming": 0,
+      "degree": 5
     },
     {
       "id": "api.nextf-admin.check-contract-compatibility",
@@ -3907,6 +3979,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 18,
       "source": "registry/api/operations/nextf-admin/list-sites.json",
+      "outgoing": 4,
+      "incoming": 0,
+      "degree": 4
+    },
+    {
+      "id": "api.nextf-admin.review-change-request",
+      "name": "Review Change Request",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/api/operations/nextf-admin/review-change-request.json",
       "outgoing": 4,
       "incoming": 0,
       "degree": 4
@@ -4328,8 +4412,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/index.json",
       "outgoing": 1,
-      "incoming": 1,
-      "degree": 2
+      "incoming": 0,
+      "degree": 1
     },
     {
       "id": "api.requestContext",
@@ -5108,8 +5192,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 27,
       "source": "standards/35-changelog-standard.md",
       "outgoing": 3,
-      "incoming": 61,
-      "degree": 64
+      "incoming": 62,
+      "degree": 65
     },
     {
       "id": "changelog.compatibilityReference",
@@ -5674,6 +5758,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 12,
       "incoming": 0,
       "degree": 12
+    },
+    {
+      "id": "changelog.release.1.1.0",
+      "name": "V1.1.0 - Customer Capability Access Policy",
+      "domain": "changelog",
+      "type": "release-note",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/changelog/releases/1.1.0.json",
+      "outgoing": 16,
+      "incoming": 0,
+      "degree": 16
     },
     {
       "id": "changelog.releaseCollection",
@@ -6752,8 +6848,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-carts.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.profile.commerce.categories",
@@ -6764,8 +6860,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-categories.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.commerce.checkouts",
@@ -6776,8 +6872,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-checkouts.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.profile.commerce.collections",
@@ -6788,8 +6884,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-collections.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.commerce.customers",
@@ -6800,8 +6896,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-customers.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.commerce.discounts",
@@ -6812,8 +6908,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-discounts.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.commerce.fulfillments",
@@ -6824,8 +6920,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-fulfillments.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.commerce.inventory",
@@ -6836,8 +6932,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-inventory.json",
       "outgoing": 10,
-      "incoming": 1,
-      "degree": 11
+      "incoming": 2,
+      "degree": 12
     },
     {
       "id": "cmsUi.profile.commerce.orders",
@@ -6848,8 +6944,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-orders.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.commerce.payments",
@@ -6860,8 +6956,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-payments.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.commerce.products",
@@ -6872,8 +6968,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-products.json",
       "outgoing": 11,
-      "incoming": 1,
-      "degree": 12
+      "incoming": 2,
+      "degree": 13
     },
     {
       "id": "cmsUi.profile.commerce.refunds",
@@ -6884,8 +6980,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-refunds.json",
       "outgoing": 7,
-      "incoming": 1,
-      "degree": 8
+      "incoming": 2,
+      "degree": 9
     },
     {
       "id": "cmsUi.profile.commerce.returns",
@@ -6896,8 +6992,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-returns.json",
       "outgoing": 7,
-      "incoming": 1,
-      "degree": 8
+      "incoming": 2,
+      "degree": 9
     },
     {
       "id": "cmsUi.profile.commerce.reviews",
@@ -6908,8 +7004,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-reviews.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.commerce.settings",
@@ -6920,8 +7016,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-settings.json",
       "outgoing": 6,
-      "incoming": 1,
-      "degree": 7
+      "incoming": 2,
+      "degree": 8
     },
     {
       "id": "cmsUi.profile.commerce.shipping",
@@ -6932,8 +7028,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-shipping.json",
       "outgoing": 10,
-      "incoming": 1,
-      "degree": 11
+      "incoming": 2,
+      "degree": 12
     },
     {
       "id": "cmsUi.profile.commerce.taxes",
@@ -6944,8 +7040,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/commerce-taxes.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.content.authors",
@@ -6956,8 +7052,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-authors.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.content.blogcategories",
@@ -6968,8 +7064,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-blogcategories.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.content.blogposts",
@@ -6980,8 +7076,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-blogposts.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.content.blogtags",
@@ -6992,8 +7088,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-blogtags.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.content.customcollections",
@@ -7004,8 +7100,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-customcollections.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.content.customentries",
@@ -7016,8 +7112,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-customentries.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.content.documentation",
@@ -7028,8 +7124,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-documentation.json",
       "outgoing": 11,
-      "incoming": 1,
-      "degree": 12
+      "incoming": 2,
+      "degree": 13
     },
     {
       "id": "cmsUi.profile.content.faqs",
@@ -7040,8 +7136,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-faqs.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.content.legal",
@@ -7052,8 +7148,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-legal.json",
       "outgoing": 7,
-      "incoming": 1,
-      "degree": 8
+      "incoming": 2,
+      "degree": 9
     },
     {
       "id": "cmsUi.profile.content.locations",
@@ -7064,8 +7160,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-locations.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.content.media",
@@ -7076,8 +7172,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-media.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.content.navigation",
@@ -7088,8 +7184,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-navigation.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.content.pages",
@@ -7100,8 +7196,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-pages.json",
       "outgoing": 10,
-      "incoming": 1,
-      "degree": 11
+      "incoming": 2,
+      "degree": 12
     },
     {
       "id": "cmsUi.profile.content.reusablecontent",
@@ -7112,8 +7208,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-reusablecontent.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.content.services",
@@ -7124,8 +7220,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-services.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.content.team",
@@ -7136,8 +7232,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-team.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.content.testimonials",
@@ -7148,8 +7244,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/content-testimonials.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.core.audit",
@@ -7160,8 +7256,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/core-audit.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.profile.core.members",
@@ -7172,8 +7268,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/core-members.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.core.settings",
@@ -7184,8 +7280,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/core-settings.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.core.sitehealth",
@@ -7196,8 +7292,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/core-sitehealth.json",
       "outgoing": 4,
-      "incoming": 1,
-      "degree": 5
+      "incoming": 2,
+      "degree": 6
     },
     {
       "id": "cmsUi.profile.core.workspace",
@@ -7208,8 +7304,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/core-workspace.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.profile.customerWorkspaceShell",
@@ -7220,8 +7316,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/customer-workspace-shell.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "cmsUi.profile.forms.consent",
@@ -7232,8 +7328,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/forms-consent.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.profile.forms.forms",
@@ -7244,8 +7340,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/forms-forms.json",
       "outgoing": 12,
-      "incoming": 1,
-      "degree": 13
+      "incoming": 2,
+      "degree": 14
     },
     {
       "id": "cmsUi.profile.forms.leads",
@@ -7256,8 +7352,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/forms-leads.json",
       "outgoing": 11,
-      "incoming": 1,
-      "degree": 12
+      "incoming": 2,
+      "degree": 13
     },
     {
       "id": "cmsUi.profile.forms.notifications",
@@ -7268,8 +7364,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/forms-notifications.json",
       "outgoing": 7,
-      "incoming": 1,
-      "degree": 8
+      "incoming": 2,
+      "degree": 9
     },
     {
       "id": "cmsUi.profile.forms.spam",
@@ -7280,8 +7376,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/forms-spam.json",
       "outgoing": 6,
-      "incoming": 1,
-      "degree": 7
+      "incoming": 2,
+      "degree": 8
     },
     {
       "id": "cmsUi.profile.forms.submissions",
@@ -7292,8 +7388,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/forms-submissions.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.integrations.connections",
@@ -7304,8 +7400,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/integrations-connections.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.integrations.credentials",
@@ -7316,8 +7412,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/integrations-credentials.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.profile.integrations.health",
@@ -7328,8 +7424,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/integrations-health.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.profile.integrations.mappings",
@@ -7340,8 +7436,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/integrations-mappings.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.integrations.sync",
@@ -7352,8 +7448,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/integrations-sync.json",
       "outgoing": 6,
-      "incoming": 1,
-      "degree": 7
+      "incoming": 2,
+      "degree": 8
     },
     {
       "id": "cmsUi.profile.marketing.analytics",
@@ -7364,8 +7460,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/marketing-analytics.json",
       "outgoing": 6,
-      "incoming": 1,
-      "degree": 7
+      "incoming": 2,
+      "degree": 8
     },
     {
       "id": "cmsUi.profile.marketing.attribution",
@@ -7376,8 +7472,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/marketing-attribution.json",
       "outgoing": 7,
-      "incoming": 1,
-      "degree": 8
+      "incoming": 2,
+      "degree": 9
     },
     {
       "id": "cmsUi.profile.marketing.campaigns",
@@ -7388,8 +7484,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/marketing-campaigns.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.marketing.consent",
@@ -7400,8 +7496,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/marketing-consent.json",
       "outgoing": 7,
-      "incoming": 1,
-      "degree": 8
+      "incoming": 2,
+      "degree": 9
     },
     {
       "id": "cmsUi.profile.marketing.conversions",
@@ -7412,8 +7508,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/marketing-conversions.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.marketing.destinations",
@@ -7424,8 +7520,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/marketing-destinations.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.marketing.tracking",
@@ -7436,8 +7532,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/marketing-tracking.json",
       "outgoing": 7,
-      "incoming": 1,
-      "degree": 8
+      "incoming": 2,
+      "degree": 9
     },
     {
       "id": "cmsUi.profile.permissions.assignments",
@@ -7448,8 +7544,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/permissions-assignments.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.permissions.registry",
@@ -7460,8 +7556,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/permissions-registry.json",
       "outgoing": 4,
-      "incoming": 1,
-      "degree": 5
+      "incoming": 2,
+      "degree": 6
     },
     {
       "id": "cmsUi.profile.permissions.roles",
@@ -7472,8 +7568,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/permissions-roles.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.seo.audits",
@@ -7484,8 +7580,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/seo-audits.json",
       "outgoing": 7,
-      "incoming": 1,
-      "degree": 8
+      "incoming": 2,
+      "degree": 9
     },
     {
       "id": "cmsUi.profile.seo.indexing",
@@ -7496,8 +7592,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/seo-indexing.json",
       "outgoing": 6,
-      "incoming": 1,
-      "degree": 7
+      "incoming": 2,
+      "degree": 8
     },
     {
       "id": "cmsUi.profile.seo.metadata",
@@ -7508,8 +7604,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/seo-metadata.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.profile.seo.redirects",
@@ -7520,8 +7616,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/seo-redirects.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.seo.robots",
@@ -7532,8 +7628,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/seo-robots.json",
       "outgoing": 7,
-      "incoming": 1,
-      "degree": 8
+      "incoming": 2,
+      "degree": 9
     },
     {
       "id": "cmsUi.profile.seo.searchperformance",
@@ -7544,8 +7640,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/seo-searchperformance.json",
       "outgoing": 6,
-      "incoming": 1,
-      "degree": 7
+      "incoming": 2,
+      "degree": 8
     },
     {
       "id": "cmsUi.profile.seo.sitemap",
@@ -7556,8 +7652,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/seo-sitemap.json",
       "outgoing": 6,
-      "incoming": 1,
-      "degree": 7
+      "incoming": 2,
+      "degree": 8
     },
     {
       "id": "cmsUi.profile.seo.structureddata",
@@ -7568,8 +7664,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/seo-structureddata.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.profile.webhooks.deadletters",
@@ -7580,8 +7676,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/webhooks-deadletters.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.profile.webhooks.deliveries",
@@ -7592,8 +7688,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/webhooks-deliveries.json",
       "outgoing": 7,
-      "incoming": 1,
-      "degree": 8
+      "incoming": 2,
+      "degree": 9
     },
     {
       "id": "cmsUi.profile.webhooks.endpoints",
@@ -7604,8 +7700,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/webhooks-endpoints.json",
       "outgoing": 9,
-      "incoming": 1,
-      "degree": 10
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "cmsUi.profile.webhooks.secrets",
@@ -7616,8 +7712,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/webhooks-secrets.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.profile.webhooks.subscriptions",
@@ -7628,8 +7724,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/webhooks-subscriptions.json",
       "outgoing": 8,
-      "incoming": 1,
-      "degree": 9
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "cmsUi.profile.webhooks.tests",
@@ -7640,8 +7736,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 19,
       "source": "registry/cms-ui/profiles/webhooks-tests.json",
       "outgoing": 5,
-      "incoming": 1,
-      "degree": 6
+      "incoming": 2,
+      "degree": 7
     },
     {
       "id": "cmsUi.relatedPanel",
@@ -7784,8 +7880,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/cart.json",
       "outgoing": 8,
-      "incoming": 22,
-      "degree": 30
+      "incoming": 23,
+      "degree": 31
     },
     {
       "id": "commerce.cartLine",
@@ -7808,8 +7904,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.carts.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.carts.view",
@@ -7820,8 +7916,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.carts.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.cartTotals",
@@ -7844,8 +7940,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.categories.create.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.categories.delete",
@@ -7856,8 +7952,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.categories.delete.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.categories.edit",
@@ -7868,8 +7964,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.categories.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.categories.manage",
@@ -7880,8 +7976,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.categories.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.categories.view",
@@ -7892,8 +7988,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.categories.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.checkout",
@@ -7904,8 +8000,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/checkout.json",
       "outgoing": 10,
-      "incoming": 32,
-      "degree": 42
+      "incoming": 33,
+      "degree": 43
     },
     {
       "id": "commerce.checkoutAddressSnapshot",
@@ -7964,8 +8060,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.checkouts.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.checkouts.view",
@@ -7976,8 +8072,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.checkouts.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.checkoutShippingSelection",
@@ -8012,8 +8108,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.collections.create.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.collections.delete",
@@ -8024,8 +8120,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.collections.delete.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.collections.edit",
@@ -8036,8 +8132,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.collections.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.collections.manage",
@@ -8048,8 +8144,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.collections.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.collections.view",
@@ -8060,8 +8156,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.collections.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.commerceCommandPolicies",
@@ -8096,8 +8192,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/commerce-customer.json",
       "outgoing": 9,
-      "incoming": 14,
-      "degree": 23
+      "incoming": 15,
+      "degree": 24
     },
     {
       "id": "commerce.commerceRegistry",
@@ -8168,8 +8264,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/customer-address.json",
       "outgoing": 2,
-      "incoming": 4,
-      "degree": 6
+      "incoming": 5,
+      "degree": 7
     },
     {
       "id": "commerce.customerNote",
@@ -8180,8 +8276,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/customer-note.json",
       "outgoing": 3,
-      "incoming": 2,
-      "degree": 5
+      "incoming": 3,
+      "degree": 6
     },
     {
       "id": "commerce.customers.edit",
@@ -8192,8 +8288,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.customers.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.customers.export",
@@ -8204,8 +8300,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.customers.export.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.customers.manage",
@@ -8216,8 +8312,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.customers.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.customers.view",
@@ -8228,8 +8324,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.customers.view.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 14,
+      "degree": 15
     },
     {
       "id": "commerce.customerSnapshot",
@@ -8276,8 +8372,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/discount.json",
       "outgoing": 9,
-      "incoming": 16,
-      "degree": 25
+      "incoming": 17,
+      "degree": 26
     },
     {
       "id": "commerce.discountAllocation",
@@ -8300,8 +8396,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/discount-code.json",
       "outgoing": 2,
-      "incoming": 9,
-      "degree": 11
+      "incoming": 10,
+      "degree": 12
     },
     {
       "id": "commerce.discounts.create",
@@ -8312,8 +8408,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.discounts.create.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.discounts.delete",
@@ -8324,8 +8420,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.discounts.delete.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.discounts.edit",
@@ -8336,8 +8432,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.discounts.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.discounts.manage",
@@ -8348,8 +8444,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.discounts.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.discounts.view",
@@ -8360,8 +8456,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.discounts.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.fulfillment",
@@ -8372,8 +8468,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/fulfillment.json",
       "outgoing": 9,
-      "incoming": 26,
-      "degree": 35
+      "incoming": 27,
+      "degree": 36
     },
     {
       "id": "commerce.fulfillmentLine",
@@ -8396,8 +8492,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.fulfillments.create.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.fulfillments.edit",
@@ -8408,8 +8504,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.fulfillments.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.fulfillments.manage",
@@ -8420,8 +8516,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.fulfillments.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.fulfillments.view",
@@ -8432,8 +8528,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.fulfillments.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.inventory.edit",
@@ -8444,8 +8540,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.inventory.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.inventory.export",
@@ -8456,8 +8552,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.inventory.export.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.inventory.manage",
@@ -8468,8 +8564,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.inventory.manage.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.inventory.view",
@@ -8480,8 +8576,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.inventory.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.inventoryAdjustment",
@@ -8492,8 +8588,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/inventory-adjustment.json",
       "outgoing": 4,
-      "incoming": 13,
-      "degree": 17
+      "incoming": 14,
+      "degree": 18
     },
     {
       "id": "commerce.inventoryItem",
@@ -8504,8 +8600,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/inventory-item.json",
       "outgoing": 2,
-      "incoming": 17,
-      "degree": 19
+      "incoming": 18,
+      "degree": 20
     },
     {
       "id": "commerce.inventoryLevel",
@@ -8516,8 +8612,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/inventory-level.json",
       "outgoing": 8,
-      "incoming": 26,
-      "degree": 34
+      "incoming": 27,
+      "degree": 35
     },
     {
       "id": "commerce.inventoryLocation",
@@ -8528,8 +8624,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/inventory-location.json",
       "outgoing": 2,
-      "incoming": 8,
-      "degree": 10
+      "incoming": 9,
+      "degree": 11
     },
     {
       "id": "commerce.inventoryReservation",
@@ -8588,8 +8684,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/order.json",
       "outgoing": 11,
-      "incoming": 77,
-      "degree": 88
+      "incoming": 78,
+      "degree": 89
     },
     {
       "id": "commerce.orderAddressSnapshot",
@@ -8612,8 +8708,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/order-line.json",
       "outgoing": 5,
-      "incoming": 17,
-      "degree": 22
+      "incoming": 18,
+      "degree": 23
     },
     {
       "id": "commerce.orders.edit",
@@ -8624,8 +8720,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.orders.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.orders.export",
@@ -8636,8 +8732,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.orders.export.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.orders.manage",
@@ -8648,8 +8744,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.orders.manage.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.orders.view",
@@ -8660,8 +8756,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.orders.view.json",
       "outgoing": 1,
-      "incoming": 14,
-      "degree": 15
+      "incoming": 16,
+      "degree": 17
     },
     {
       "id": "commerce.orderSource",
@@ -8684,8 +8780,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/order-totals.json",
       "outgoing": 2,
-      "incoming": 20,
-      "degree": 22
+      "incoming": 21,
+      "degree": 23
     },
     {
       "id": "commerce.package",
@@ -8708,8 +8804,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/payment.json",
       "outgoing": 12,
-      "incoming": 51,
-      "degree": 63
+      "incoming": 52,
+      "degree": 64
     },
     {
       "id": "commerce.paymentAttempt",
@@ -8732,8 +8828,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/payment-authorization.json",
       "outgoing": 3,
-      "incoming": 11,
-      "degree": 14
+      "incoming": 12,
+      "degree": 15
     },
     {
       "id": "commerce.paymentCapture",
@@ -8744,8 +8840,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/payment-capture.json",
       "outgoing": 4,
-      "incoming": 19,
-      "degree": 23
+      "incoming": 20,
+      "degree": 24
     },
     {
       "id": "commerce.paymentMethodReference",
@@ -8768,8 +8864,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.payments.export.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.payments.manage",
@@ -8780,8 +8876,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.payments.manage.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.payments.view",
@@ -8792,8 +8888,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.payments.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.product",
@@ -8804,8 +8900,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/product.json",
       "outgoing": 15,
-      "incoming": 29,
-      "degree": 44
+      "incoming": 30,
+      "degree": 45
     },
     {
       "id": "commerce.productAttributeDefinition",
@@ -8852,8 +8948,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/product-category.json",
       "outgoing": 3,
-      "incoming": 7,
-      "degree": 10
+      "incoming": 8,
+      "degree": 11
     },
     {
       "id": "commerce.productCollection",
@@ -8864,8 +8960,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/product-collection.json",
       "outgoing": 3,
-      "incoming": 7,
-      "degree": 10
+      "incoming": 8,
+      "degree": 11
     },
     {
       "id": "commerce.productOption",
@@ -8900,8 +8996,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/product-price.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.productReview",
@@ -8912,8 +9008,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/product-review.json",
       "outgoing": 10,
-      "incoming": 9,
-      "degree": 19
+      "incoming": 10,
+      "degree": 20
     },
     {
       "id": "commerce.products.approve",
@@ -8924,8 +9020,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.products.approve.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.products.create",
@@ -8936,8 +9032,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.products.create.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.products.delete",
@@ -8948,8 +9044,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.products.delete.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.products.edit",
@@ -8960,8 +9056,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.products.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.products.publish",
@@ -8972,8 +9068,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.products.publish.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.products.view",
@@ -8984,8 +9080,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.products.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.productVariant",
@@ -8996,8 +9092,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/product-variant.json",
       "outgoing": 3,
-      "incoming": 18,
-      "degree": 21
+      "incoming": 19,
+      "degree": 22
     },
     {
       "id": "commerce.promotionBenefit",
@@ -9044,8 +9140,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/refund.json",
       "outgoing": 10,
-      "incoming": 32,
-      "degree": 42
+      "incoming": 33,
+      "degree": 43
     },
     {
       "id": "commerce.refundLine",
@@ -9068,8 +9164,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.refunds.create.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 14,
+      "degree": 15
     },
     {
       "id": "commerce.refunds.export",
@@ -9080,8 +9176,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.refunds.export.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.refunds.manage",
@@ -9092,8 +9188,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.refunds.manage.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 14,
+      "degree": 15
     },
     {
       "id": "commerce.refunds.view",
@@ -9104,8 +9200,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.refunds.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.returnLine",
@@ -9128,8 +9224,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/return-request.json",
       "outgoing": 6,
-      "incoming": 19,
-      "degree": 25
+      "incoming": 20,
+      "degree": 26
     },
     {
       "id": "commerce.returnResolution",
@@ -9140,8 +9236,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/return-resolution.json",
       "outgoing": 4,
-      "incoming": 9,
-      "degree": 13
+      "incoming": 10,
+      "degree": 14
     },
     {
       "id": "commerce.returns.edit",
@@ -9152,8 +9248,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.returns.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.returns.manage",
@@ -9164,8 +9260,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.returns.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.returns.view",
@@ -9176,8 +9272,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.returns.view.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "commerce.reviewModeration",
@@ -9188,8 +9284,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/review-moderation.json",
       "outgoing": 2,
-      "incoming": 5,
-      "degree": 7
+      "incoming": 6,
+      "degree": 8
     },
     {
       "id": "commerce.reviews.delete",
@@ -9200,8 +9296,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.reviews.delete.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.reviews.edit",
@@ -9212,8 +9308,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.reviews.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.reviews.manage",
@@ -9224,8 +9320,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.reviews.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.reviews.view",
@@ -9236,8 +9332,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.reviews.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.rule.approvedReviewOnlyPublic",
@@ -10928,8 +11024,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.settings.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.settings.manage",
@@ -10940,8 +11036,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.settings.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "commerce.settings.view",
@@ -10952,8 +11048,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.settings.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.shipment",
@@ -10964,8 +11060,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/shipment.json",
       "outgoing": 4,
-      "incoming": 11,
-      "degree": 15
+      "incoming": 12,
+      "degree": 16
     },
     {
       "id": "commerce.shipping.create",
@@ -10976,8 +11072,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.shipping.create.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.shipping.delete",
@@ -10988,8 +11084,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.shipping.delete.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.shipping.edit",
@@ -11000,8 +11096,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.shipping.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.shipping.manage",
@@ -11012,8 +11108,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.shipping.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.shipping.view",
@@ -11024,8 +11120,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.shipping.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.shippingMethod",
@@ -11036,8 +11132,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/shipping-method.json",
       "outgoing": 10,
-      "incoming": 8,
-      "degree": 18
+      "incoming": 9,
+      "degree": 19
     },
     {
       "id": "commerce.shippingRate",
@@ -11048,8 +11144,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/shipping-rate.json",
       "outgoing": 3,
-      "incoming": 8,
-      "degree": 11
+      "incoming": 9,
+      "degree": 12
     },
     {
       "id": "commerce.shippingZone",
@@ -11060,8 +11156,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/shipping-zone.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 5,
+      "degree": 6
     },
     {
       "id": "commerce.storeSettings",
@@ -11072,8 +11168,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/store-settings.json",
       "outgoing": 5,
-      "incoming": 3,
-      "degree": 8
+      "incoming": 4,
+      "degree": 9
     },
     {
       "id": "commerce.taxClass",
@@ -11084,8 +11180,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/tax-class.json",
       "outgoing": 1,
-      "incoming": 3,
-      "degree": 4
+      "incoming": 4,
+      "degree": 5
     },
     {
       "id": "commerce.taxConfiguration",
@@ -11096,8 +11192,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/tax-configuration.json",
       "outgoing": 5,
-      "incoming": 9,
-      "degree": 14
+      "incoming": 10,
+      "degree": 15
     },
     {
       "id": "commerce.taxes.edit",
@@ -11108,8 +11204,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.taxes.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.taxes.manage",
@@ -11120,8 +11216,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.taxes.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "commerce.taxes.view",
@@ -11132,8 +11228,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/commerce.taxes.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "commerce.taxLine",
@@ -11156,8 +11252,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/tax-rate.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "commerce.trackingReference",
@@ -11540,8 +11636,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/author.json",
       "outgoing": 10,
-      "incoming": 6,
-      "degree": 16
+      "incoming": 7,
+      "degree": 17
     },
     {
       "id": "content.authors.create",
@@ -11552,8 +11648,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.authors.create.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.authors.delete",
@@ -11564,8 +11660,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.authors.delete.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "content.authors.edit",
@@ -11576,8 +11672,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.authors.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.authors.manage",
@@ -11588,8 +11684,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.authors.manage.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "content.authors.view",
@@ -11600,8 +11696,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.authors.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.blogcategories.create",
@@ -11612,8 +11708,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogcategories.create.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.blogcategories.delete",
@@ -11624,8 +11720,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogcategories.delete.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.blogcategories.edit",
@@ -11636,8 +11732,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogcategories.edit.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "content.blogcategories.manage",
@@ -11648,8 +11744,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogcategories.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.blogcategories.view",
@@ -11660,8 +11756,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogcategories.view.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 14,
+      "degree": 15
     },
     {
       "id": "content.blogCategory",
@@ -11672,8 +11768,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/blog-category.json",
       "outgoing": 8,
-      "incoming": 8,
-      "degree": 16
+      "incoming": 9,
+      "degree": 17
     },
     {
       "id": "content.blogPost",
@@ -11684,8 +11780,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/blog-post.json",
       "outgoing": 12,
-      "incoming": 26,
-      "degree": 38
+      "incoming": 27,
+      "degree": 39
     },
     {
       "id": "content.blogposts.approve",
@@ -11696,8 +11792,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogposts.approve.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.blogposts.create",
@@ -11708,8 +11804,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogposts.create.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.blogposts.delete",
@@ -11720,8 +11816,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogposts.delete.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.blogposts.edit",
@@ -11732,8 +11828,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogposts.edit.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "content.blogposts.publish",
@@ -11744,8 +11840,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogposts.publish.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.blogposts.view",
@@ -11756,8 +11852,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogposts.view.json",
       "outgoing": 1,
-      "incoming": 14,
-      "degree": 15
+      "incoming": 16,
+      "degree": 17
     },
     {
       "id": "content.blogTag",
@@ -11768,8 +11864,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/blog-tag.json",
       "outgoing": 7,
-      "incoming": 6,
-      "degree": 13
+      "incoming": 7,
+      "degree": 14
     },
     {
       "id": "content.blogtags.create",
@@ -11780,8 +11876,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogtags.create.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.blogtags.delete",
@@ -11792,8 +11888,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogtags.delete.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.blogtags.edit",
@@ -11804,8 +11900,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogtags.edit.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "content.blogtags.manage",
@@ -11816,8 +11912,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogtags.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.blogtags.view",
@@ -11828,8 +11924,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.blogtags.view.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 14,
+      "degree": 15
     },
     {
       "id": "content.contentContractStandard",
@@ -11864,8 +11960,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/custom-collection.json",
       "outgoing": 7,
-      "incoming": 6,
-      "degree": 13
+      "incoming": 7,
+      "degree": 14
     },
     {
       "id": "content.customCollectionEntry",
@@ -11876,8 +11972,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/custom-collection-entry.json",
       "outgoing": 9,
-      "incoming": 20,
-      "degree": 29
+      "incoming": 21,
+      "degree": 30
     },
     {
       "id": "content.customcollections.create",
@@ -11888,8 +11984,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.customcollections.create.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.customcollections.delete",
@@ -11900,8 +11996,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.customcollections.delete.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.customcollections.edit",
@@ -11912,8 +12008,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.customcollections.edit.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.customcollections.manage",
@@ -11924,8 +12020,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.customcollections.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.customcollections.view",
@@ -11936,8 +12032,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.customcollections.view.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "content.customentries.approve",
@@ -11948,8 +12044,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.customentries.approve.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.customentries.create",
@@ -11960,8 +12056,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.customentries.create.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.customentries.delete",
@@ -11972,8 +12068,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.customentries.delete.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "content.customentries.edit",
@@ -11984,8 +12080,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.customentries.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.customentries.publish",
@@ -11996,8 +12092,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.customentries.publish.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.customentries.view",
@@ -12008,8 +12104,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.customentries.view.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "content.deleted",
@@ -12032,8 +12128,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.documentation.approve.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.documentation.create",
@@ -12044,8 +12140,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.documentation.create.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "content.documentation.delete",
@@ -12056,8 +12152,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.documentation.delete.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.documentation.edit",
@@ -12068,8 +12164,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.documentation.edit.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 14,
+      "degree": 15
     },
     {
       "id": "content.documentation.publish",
@@ -12080,8 +12176,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.documentation.publish.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 14,
+      "degree": 15
     },
     {
       "id": "content.documentation.view",
@@ -12092,8 +12188,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.documentation.view.json",
       "outgoing": 1,
-      "incoming": 15,
-      "degree": 16
+      "incoming": 17,
+      "degree": 18
     },
     {
       "id": "content.documentationArticle",
@@ -12104,8 +12200,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/documentation-article.json",
       "outgoing": 11,
-      "incoming": 25,
-      "degree": 36
+      "incoming": 26,
+      "degree": 37
     },
     {
       "id": "content.documentationCategory",
@@ -12116,8 +12212,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/documentation-category.json",
       "outgoing": 10,
-      "incoming": 8,
-      "degree": 18
+      "incoming": 9,
+      "degree": 19
     },
     {
       "id": "content.documentationCollection",
@@ -12128,8 +12224,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/documentation-collection.json",
       "outgoing": 10,
-      "incoming": 7,
-      "degree": 17
+      "incoming": 8,
+      "degree": 18
     },
     {
       "id": "content.faq",
@@ -12140,8 +12236,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/faq.json",
       "outgoing": 8,
-      "incoming": 18,
-      "degree": 26
+      "incoming": 19,
+      "degree": 27
     },
     {
       "id": "content.faqs.approve",
@@ -12152,8 +12248,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.faqs.approve.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.faqs.create",
@@ -12164,8 +12260,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.faqs.create.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.faqs.delete",
@@ -12176,8 +12272,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.faqs.delete.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "content.faqs.edit",
@@ -12188,8 +12284,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.faqs.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.faqs.publish",
@@ -12200,8 +12296,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.faqs.publish.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.faqs.view",
@@ -12212,8 +12308,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.faqs.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.legal.approve",
@@ -12236,8 +12332,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.legal.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.legal.publish",
@@ -12248,8 +12344,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.legal.publish.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.legal.view",
@@ -12260,8 +12356,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.legal.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.legalPage",
@@ -12272,8 +12368,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/legal-page.json",
       "outgoing": 7,
-      "incoming": 16,
-      "degree": 23
+      "incoming": 17,
+      "degree": 24
     },
     {
       "id": "content.location",
@@ -12284,8 +12380,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/location.json",
       "outgoing": 4,
-      "incoming": 13,
-      "degree": 17
+      "incoming": 14,
+      "degree": 18
     },
     {
       "id": "content.locations.approve",
@@ -12296,8 +12392,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.locations.approve.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "content.locations.create",
@@ -12308,8 +12404,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.locations.create.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "content.locations.delete",
@@ -12320,8 +12416,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.locations.delete.json",
       "outgoing": 1,
-      "incoming": 5,
-      "degree": 6
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "content.locations.edit",
@@ -12332,8 +12428,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.locations.edit.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.locations.publish",
@@ -12344,8 +12440,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.locations.publish.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.locations.view",
@@ -12356,8 +12452,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.locations.view.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.media.create",
@@ -12368,8 +12464,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.media.create.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "content.media.delete",
@@ -12380,8 +12476,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.media.delete.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.media.edit",
@@ -12392,8 +12488,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.media.edit.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.media.manage",
@@ -12404,8 +12500,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.media.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.media.view",
@@ -12416,8 +12512,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.media.view.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 14,
+      "degree": 15
     },
     {
       "id": "content.navigation",
@@ -12428,8 +12524,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/navigation.json",
       "outgoing": 7,
-      "incoming": 8,
-      "degree": 15
+      "incoming": 9,
+      "degree": 16
     },
     {
       "id": "content.navigation.edit",
@@ -12440,8 +12536,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.navigation.edit.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.navigation.manage",
@@ -12452,8 +12548,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.navigation.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.navigation.publish",
@@ -12464,8 +12560,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.navigation.publish.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.navigation.view",
@@ -12476,8 +12572,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.navigation.view.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "content.navigationItem",
@@ -12488,8 +12584,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/navigation-item.json",
       "outgoing": 3,
-      "incoming": 6,
-      "degree": 9
+      "incoming": 7,
+      "degree": 10
     },
     {
       "id": "content.page",
@@ -12500,8 +12596,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/page.json",
       "outgoing": 11,
-      "incoming": 29,
-      "degree": 40
+      "incoming": 30,
+      "degree": 41
     },
     {
       "id": "content.pages.approve",
@@ -12524,8 +12620,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.pages.create.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.pages.delete",
@@ -12536,8 +12632,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.pages.delete.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.pages.edit",
@@ -12548,8 +12644,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.pages.edit.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "content.pages.publish",
@@ -12560,8 +12656,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.pages.publish.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.pages.view",
@@ -12572,8 +12668,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.pages.view.json",
       "outgoing": 1,
-      "incoming": 13,
-      "degree": 14
+      "incoming": 15,
+      "degree": 16
     },
     {
       "id": "content.pageSection",
@@ -12584,8 +12680,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/page-section.json",
       "outgoing": 2,
-      "incoming": 13,
-      "degree": 15
+      "incoming": 14,
+      "degree": 16
     },
     {
       "id": "content.published",
@@ -12620,8 +12716,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/reusable-content.json",
       "outgoing": 8,
-      "incoming": 15,
-      "degree": 23
+      "incoming": 16,
+      "degree": 24
     },
     {
       "id": "content.reusablecontent.approve",
@@ -12632,8 +12728,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.reusablecontent.approve.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.reusablecontent.create",
@@ -12644,8 +12740,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.reusablecontent.create.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.reusablecontent.delete",
@@ -12656,8 +12752,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.reusablecontent.delete.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.reusablecontent.edit",
@@ -12668,8 +12764,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.reusablecontent.edit.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.reusablecontent.publish",
@@ -12680,8 +12776,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.reusablecontent.publish.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "content.reusablecontent.view",
@@ -12692,8 +12788,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.reusablecontent.view.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "content.scheduled",
@@ -12716,8 +12812,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/service.json",
       "outgoing": 12,
-      "incoming": 17,
-      "degree": 29
+      "incoming": 18,
+      "degree": 30
     },
     {
       "id": "content.services.approve",
@@ -12728,8 +12824,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.services.approve.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.services.create",
@@ -12740,8 +12836,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.services.create.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.services.delete",
@@ -12752,8 +12848,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.services.delete.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "content.services.edit",
@@ -12764,8 +12860,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.services.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.services.publish",
@@ -12776,8 +12872,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.services.publish.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.services.view",
@@ -12788,8 +12884,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.services.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.team.approve",
@@ -12800,8 +12896,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.team.approve.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.team.create",
@@ -12812,8 +12908,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.team.create.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.team.delete",
@@ -12824,8 +12920,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.team.delete.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "content.team.edit",
@@ -12836,8 +12932,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.team.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.team.publish",
@@ -12848,8 +12944,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.team.publish.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.team.view",
@@ -12860,8 +12956,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.team.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.teamMember",
@@ -12872,8 +12968,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/team-member.json",
       "outgoing": 10,
-      "incoming": 13,
-      "degree": 23
+      "incoming": 14,
+      "degree": 24
     },
     {
       "id": "content.testimonial",
@@ -12884,8 +12980,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 5,
       "source": "registry/content/definitions/testimonial.json",
       "outgoing": 10,
-      "incoming": 16,
-      "degree": 26
+      "incoming": 17,
+      "degree": 27
     },
     {
       "id": "content.testimonials.approve",
@@ -12896,8 +12992,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.testimonials.approve.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.testimonials.create",
@@ -12908,8 +13004,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.testimonials.create.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "content.testimonials.delete",
@@ -12920,8 +13016,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.testimonials.delete.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "content.testimonials.edit",
@@ -12932,8 +13028,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.testimonials.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.testimonials.publish",
@@ -12944,8 +13040,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.testimonials.publish.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "content.testimonials.view",
@@ -12956,8 +13052,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/content.testimonials.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "content.unpublished",
@@ -13028,8 +13124,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.audit.export.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "core.audit.view",
@@ -13040,8 +13136,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.audit.view.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "core.auditRecord",
@@ -13052,8 +13148,68 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 4,
       "source": "registry/core/definitions/audit-record.json",
       "outgoing": 3,
-      "incoming": 15,
-      "degree": 18
+      "incoming": 16,
+      "degree": 19
+    },
+    {
+      "id": "core.changerequests.approve",
+      "name": "Approve Customer Change Requests",
+      "domain": "core",
+      "type": "permission",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/permissions/permissions/core.changerequests.approve.json",
+      "outgoing": 1,
+      "incoming": 2,
+      "degree": 3
+    },
+    {
+      "id": "core.changerequests.create",
+      "name": "Create Customer Change Requests",
+      "domain": "core",
+      "type": "permission",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/permissions/permissions/core.changerequests.create.json",
+      "outgoing": 1,
+      "incoming": 18,
+      "degree": 19
+    },
+    {
+      "id": "core.changerequests.edit",
+      "name": "Edit Customer Change Requests",
+      "domain": "core",
+      "type": "permission",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/permissions/permissions/core.changerequests.edit.json",
+      "outgoing": 1,
+      "incoming": 1,
+      "degree": 2
+    },
+    {
+      "id": "core.changerequests.manage",
+      "name": "Manage Customer Change Requests",
+      "domain": "core",
+      "type": "permission",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/permissions/permissions/core.changerequests.manage.json",
+      "outgoing": 1,
+      "incoming": 2,
+      "degree": 3
+    },
+    {
+      "id": "core.changerequests.view",
+      "name": "View Customer Change Requests",
+      "domain": "core",
+      "type": "permission",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/permissions/permissions/core.changerequests.view.json",
+      "outgoing": 1,
+      "incoming": 2,
+      "degree": 3
     },
     {
       "id": "core.entityIdentity",
@@ -13088,8 +13244,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.members.create.json",
       "outgoing": 1,
-      "incoming": 5,
-      "degree": 6
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "core.members.delete",
@@ -13100,8 +13256,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.members.delete.json",
       "outgoing": 1,
-      "incoming": 5,
-      "degree": 6
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "core.members.edit",
@@ -13112,8 +13268,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.members.edit.json",
       "outgoing": 1,
-      "incoming": 5,
-      "degree": 6
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "core.members.manage",
@@ -13124,8 +13280,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.members.manage.json",
       "outgoing": 1,
-      "incoming": 5,
-      "degree": 6
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "core.members.view",
@@ -13136,8 +13292,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.members.view.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "core.organization",
@@ -13196,8 +13352,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.settings.edit.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "core.settings.manage",
@@ -13208,8 +13364,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.settings.manage.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "core.settings.view",
@@ -13220,8 +13376,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.settings.view.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "core.sharedCoreStandard",
@@ -13244,8 +13400,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 4,
       "source": "registry/core/definitions/site.json",
       "outgoing": 3,
-      "incoming": 24,
-      "degree": 27
+      "incoming": 28,
+      "degree": 31
     },
     {
       "id": "core.sitehealth.view",
@@ -13256,8 +13412,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.sitehealth.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "core.tenantScope",
@@ -13304,8 +13460,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.workspace.manage.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "core.workspace.view",
@@ -13316,8 +13472,56 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/core.workspace.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 13,
+      "degree": 14
+    },
+    {
+      "id": "customer-change-request.applied",
+      "name": "Customer Change Request Applied",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/customer-change-request--applied.json",
+      "outgoing": 1,
+      "incoming": 18,
+      "degree": 19
+    },
+    {
+      "id": "customer-change-request.approved",
+      "name": "Customer Change Request Approved",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/customer-change-request--approved.json",
+      "outgoing": 1,
+      "incoming": 17,
+      "degree": 18
+    },
+    {
+      "id": "customer-change-request.cancelled",
+      "name": "Customer Change Request Cancelled",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/customer-change-request--cancelled.json",
+      "outgoing": 1,
+      "incoming": 17,
+      "degree": 18
+    },
+    {
+      "id": "customer-change-request.submitted",
+      "name": "Customer Change Request Submitted",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/customer-change-request--submitted.json",
+      "outgoing": 1,
+      "incoming": 18,
+      "degree": 19
     },
     {
       "id": "customer.archived",
@@ -13354,6 +13558,978 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 1,
       "incoming": 1,
       "degree": 2
+    },
+    {
+      "id": "customerAccess.changeRequest",
+      "name": "Customer Change Request",
+      "domain": "customer-access",
+      "type": "schema",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/definitions/change-request.json",
+      "outgoing": 0,
+      "incoming": 12,
+      "degree": 12
+    },
+    {
+      "id": "customerAccess.customerAccessPolicyStandard",
+      "name": "Customer Capability Access Policy Standard",
+      "domain": "customer-access",
+      "type": "standard",
+      "status": "stable",
+      "phase": 38,
+      "source": "standards/46-customer-capability-access-policy-standard.md",
+      "outgoing": 0,
+      "incoming": 77,
+      "degree": 77
+    },
+    {
+      "id": "customerAccess.effectivePolicyResolution",
+      "name": "Effective Customer Access Resolution",
+      "domain": "customer-access",
+      "type": "policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/effective-policy-resolution.json",
+      "outgoing": 0,
+      "incoming": 1,
+      "degree": 1
+    },
+    {
+      "id": "customerAccess.policy.commerce.carts",
+      "name": "Carts Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--carts.json",
+      "outgoing": 9,
+      "incoming": 0,
+      "degree": 9
+    },
+    {
+      "id": "customerAccess.policy.commerce.categories",
+      "name": "Categories Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--categories.json",
+      "outgoing": 15,
+      "incoming": 0,
+      "degree": 15
+    },
+    {
+      "id": "customerAccess.policy.commerce.checkouts",
+      "name": "Checkouts Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--checkouts.json",
+      "outgoing": 9,
+      "incoming": 0,
+      "degree": 9
+    },
+    {
+      "id": "customerAccess.policy.commerce.collections",
+      "name": "Collections Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--collections.json",
+      "outgoing": 15,
+      "incoming": 0,
+      "degree": 15
+    },
+    {
+      "id": "customerAccess.policy.commerce.customers",
+      "name": "Customers Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--customers.json",
+      "outgoing": 15,
+      "incoming": 0,
+      "degree": 15
+    },
+    {
+      "id": "customerAccess.policy.commerce.discounts",
+      "name": "Discounts Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--discounts.json",
+      "outgoing": 16,
+      "incoming": 0,
+      "degree": 16
+    },
+    {
+      "id": "customerAccess.policy.commerce.fulfillments",
+      "name": "Fulfillment Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--fulfillments.json",
+      "outgoing": 14,
+      "incoming": 0,
+      "degree": 14
+    },
+    {
+      "id": "customerAccess.policy.commerce.inventory",
+      "name": "Inventory Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--inventory.json",
+      "outgoing": 17,
+      "incoming": 0,
+      "degree": 17
+    },
+    {
+      "id": "customerAccess.policy.commerce.orders",
+      "name": "Orders Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--orders.json",
+      "outgoing": 15,
+      "incoming": 0,
+      "degree": 15
+    },
+    {
+      "id": "customerAccess.policy.commerce.payments",
+      "name": "Payments Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--payments.json",
+      "outgoing": 13,
+      "incoming": 0,
+      "degree": 13
+    },
+    {
+      "id": "customerAccess.policy.commerce.products",
+      "name": "Products Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--products.json",
+      "outgoing": 20,
+      "incoming": 0,
+      "degree": 20
+    },
+    {
+      "id": "customerAccess.policy.commerce.refunds",
+      "name": "Refunds Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--refunds.json",
+      "outgoing": 13,
+      "incoming": 0,
+      "degree": 13
+    },
+    {
+      "id": "customerAccess.policy.commerce.returns",
+      "name": "Returns Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--returns.json",
+      "outgoing": 12,
+      "incoming": 0,
+      "degree": 12
+    },
+    {
+      "id": "customerAccess.policy.commerce.reviews",
+      "name": "Reviews Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--reviews.json",
+      "outgoing": 14,
+      "incoming": 0,
+      "degree": 14
+    },
+    {
+      "id": "customerAccess.policy.commerce.settings",
+      "name": "Website Settings Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--settings.json",
+      "outgoing": 11,
+      "incoming": 0,
+      "degree": 11
+    },
+    {
+      "id": "customerAccess.policy.commerce.shipping",
+      "name": "Shipping Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--shipping.json",
+      "outgoing": 17,
+      "incoming": 0,
+      "degree": 17
+    },
+    {
+      "id": "customerAccess.policy.commerce.taxes",
+      "name": "Taxes Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/commerce--taxes.json",
+      "outgoing": 13,
+      "incoming": 0,
+      "degree": 13
+    },
+    {
+      "id": "customerAccess.policy.content.authors",
+      "name": "Authors Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--authors.json",
+      "outgoing": 15,
+      "incoming": 0,
+      "degree": 15
+    },
+    {
+      "id": "customerAccess.policy.content.blogcategories",
+      "name": "Blog Categories Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--blogcategories.json",
+      "outgoing": 15,
+      "incoming": 0,
+      "degree": 15
+    },
+    {
+      "id": "customerAccess.policy.content.blogposts",
+      "name": "Blog Posts Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--blogposts.json",
+      "outgoing": 25,
+      "incoming": 0,
+      "degree": 25
+    },
+    {
+      "id": "customerAccess.policy.content.blogtags",
+      "name": "Blog Tags Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--blogtags.json",
+      "outgoing": 15,
+      "incoming": 0,
+      "degree": 15
+    },
+    {
+      "id": "customerAccess.policy.content.customcollections",
+      "name": "Custom Collections Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--customcollections.json",
+      "outgoing": 15,
+      "incoming": 0,
+      "degree": 15
+    },
+    {
+      "id": "customerAccess.policy.content.customentries",
+      "name": "Custom Entries Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--customentries.json",
+      "outgoing": 23,
+      "incoming": 0,
+      "degree": 23
+    },
+    {
+      "id": "customerAccess.policy.content.documentation",
+      "name": "Documentation Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--documentation.json",
+      "outgoing": 30,
+      "incoming": 0,
+      "degree": 30
+    },
+    {
+      "id": "customerAccess.policy.content.faqs",
+      "name": "FAQs Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--faqs.json",
+      "outgoing": 18,
+      "incoming": 0,
+      "degree": 18
+    },
+    {
+      "id": "customerAccess.policy.content.legal",
+      "name": "Legal Pages Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--legal.json",
+      "outgoing": 24,
+      "incoming": 0,
+      "degree": 24
+    },
+    {
+      "id": "customerAccess.policy.content.locations",
+      "name": "Locations Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--locations.json",
+      "outgoing": 18,
+      "incoming": 0,
+      "degree": 18
+    },
+    {
+      "id": "customerAccess.policy.content.media",
+      "name": "Media Library Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--media.json",
+      "outgoing": 23,
+      "incoming": 0,
+      "degree": 23
+    },
+    {
+      "id": "customerAccess.policy.content.navigation",
+      "name": "Navigation Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--navigation.json",
+      "outgoing": 27,
+      "incoming": 0,
+      "degree": 27
+    },
+    {
+      "id": "customerAccess.policy.content.pages",
+      "name": "Pages Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--pages.json",
+      "outgoing": 34,
+      "incoming": 0,
+      "degree": 34
+    },
+    {
+      "id": "customerAccess.policy.content.reusablecontent",
+      "name": "Reusable Content Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--reusablecontent.json",
+      "outgoing": 18,
+      "incoming": 0,
+      "degree": 18
+    },
+    {
+      "id": "customerAccess.policy.content.services",
+      "name": "Services Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--services.json",
+      "outgoing": 18,
+      "incoming": 0,
+      "degree": 18
+    },
+    {
+      "id": "customerAccess.policy.content.team",
+      "name": "Team Members Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--team.json",
+      "outgoing": 18,
+      "incoming": 0,
+      "degree": 18
+    },
+    {
+      "id": "customerAccess.policy.content.testimonials",
+      "name": "Testimonials Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/content--testimonials.json",
+      "outgoing": 18,
+      "incoming": 0,
+      "degree": 18
+    },
+    {
+      "id": "customerAccess.policy.core.audit",
+      "name": "Activity Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/core--audit.json",
+      "outgoing": 9,
+      "incoming": 0,
+      "degree": 9
+    },
+    {
+      "id": "customerAccess.policy.core.members",
+      "name": "Users & Access Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/core--members.json",
+      "outgoing": 16,
+      "incoming": 0,
+      "degree": 16
+    },
+    {
+      "id": "customerAccess.policy.core.settings",
+      "name": "Website Settings Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/core--settings.json",
+      "outgoing": 14,
+      "incoming": 0,
+      "degree": 14
+    },
+    {
+      "id": "customerAccess.policy.core.sitehealth",
+      "name": "Website Health Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/core--sitehealth.json",
+      "outgoing": 8,
+      "incoming": 0,
+      "degree": 8
+    },
+    {
+      "id": "customerAccess.policy.core.workspace",
+      "name": "Overview Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/core--workspace.json",
+      "outgoing": 10,
+      "incoming": 0,
+      "degree": 10
+    },
+    {
+      "id": "customerAccess.policy.customerWorkspaceShell",
+      "name": "Customer Site Workspace Shell Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/customer-workspace-shell.json",
+      "outgoing": 9,
+      "incoming": 0,
+      "degree": 9
+    },
+    {
+      "id": "customerAccess.policy.forms.consent",
+      "name": "Consent Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/forms--consent.json",
+      "outgoing": 9,
+      "incoming": 0,
+      "degree": 9
+    },
+    {
+      "id": "customerAccess.policy.forms.forms",
+      "name": "Forms Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/forms--forms.json",
+      "outgoing": 24,
+      "incoming": 0,
+      "degree": 24
+    },
+    {
+      "id": "customerAccess.policy.forms.leads",
+      "name": "Leads Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/forms--leads.json",
+      "outgoing": 25,
+      "incoming": 0,
+      "degree": 25
+    },
+    {
+      "id": "customerAccess.policy.forms.notifications",
+      "name": "Form Notifications Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/forms--notifications.json",
+      "outgoing": 13,
+      "incoming": 0,
+      "degree": 13
+    },
+    {
+      "id": "customerAccess.policy.forms.spam",
+      "name": "Spam Review Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/forms--spam.json",
+      "outgoing": 10,
+      "incoming": 0,
+      "degree": 10
+    },
+    {
+      "id": "customerAccess.policy.forms.submissions",
+      "name": "Form Submissions Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/forms--submissions.json",
+      "outgoing": 17,
+      "incoming": 0,
+      "degree": 17
+    },
+    {
+      "id": "customerAccess.policy.integrations.connections",
+      "name": "Integration Connections Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/integrations--connections.json",
+      "outgoing": 16,
+      "incoming": 0,
+      "degree": 16
+    },
+    {
+      "id": "customerAccess.policy.integrations.credentials",
+      "name": "Credentials Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/integrations--credentials.json",
+      "outgoing": 9,
+      "incoming": 0,
+      "degree": 9
+    },
+    {
+      "id": "customerAccess.policy.integrations.health",
+      "name": "Integration Health Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/integrations--health.json",
+      "outgoing": 8,
+      "incoming": 0,
+      "degree": 8
+    },
+    {
+      "id": "customerAccess.policy.integrations.mappings",
+      "name": "Integration Mappings Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/integrations--mappings.json",
+      "outgoing": 13,
+      "incoming": 0,
+      "degree": 13
+    },
+    {
+      "id": "customerAccess.policy.integrations.sync",
+      "name": "Sync Runs Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/integrations--sync.json",
+      "outgoing": 10,
+      "incoming": 0,
+      "degree": 10
+    },
+    {
+      "id": "customerAccess.policy.marketing.analytics",
+      "name": "Analytics Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/marketing--analytics.json",
+      "outgoing": 10,
+      "incoming": 0,
+      "degree": 10
+    },
+    {
+      "id": "customerAccess.policy.marketing.attribution",
+      "name": "Attribution Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/marketing--attribution.json",
+      "outgoing": 12,
+      "incoming": 0,
+      "degree": 12
+    },
+    {
+      "id": "customerAccess.policy.marketing.campaigns",
+      "name": "Campaigns Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/marketing--campaigns.json",
+      "outgoing": 16,
+      "incoming": 0,
+      "degree": 16
+    },
+    {
+      "id": "customerAccess.policy.marketing.consent",
+      "name": "Consent Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/marketing--consent.json",
+      "outgoing": 13,
+      "incoming": 0,
+      "degree": 13
+    },
+    {
+      "id": "customerAccess.policy.marketing.conversions",
+      "name": "Conversions Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/marketing--conversions.json",
+      "outgoing": 16,
+      "incoming": 0,
+      "degree": 16
+    },
+    {
+      "id": "customerAccess.policy.marketing.destinations",
+      "name": "Destinations Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/marketing--destinations.json",
+      "outgoing": 16,
+      "incoming": 0,
+      "degree": 16
+    },
+    {
+      "id": "customerAccess.policy.marketing.tracking",
+      "name": "Tracking Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/marketing--tracking.json",
+      "outgoing": 12,
+      "incoming": 0,
+      "degree": 12
+    },
+    {
+      "id": "customerAccess.policy.permissions.assignments",
+      "name": "Role Assignments Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/permissions--assignments.json",
+      "outgoing": 15,
+      "incoming": 0,
+      "degree": 15
+    },
+    {
+      "id": "customerAccess.policy.permissions.registry",
+      "name": "Permission Registry Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/permissions--registry.json",
+      "outgoing": 7,
+      "incoming": 0,
+      "degree": 7
+    },
+    {
+      "id": "customerAccess.policy.permissions.roles",
+      "name": "Roles Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/permissions--roles.json",
+      "outgoing": 15,
+      "incoming": 0,
+      "degree": 15
+    },
+    {
+      "id": "customerAccess.policy.seo.audits",
+      "name": "Audits Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/seo--audits.json",
+      "outgoing": 12,
+      "incoming": 0,
+      "degree": 12
+    },
+    {
+      "id": "customerAccess.policy.seo.indexing",
+      "name": "Indexing Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/seo--indexing.json",
+      "outgoing": 10,
+      "incoming": 0,
+      "degree": 10
+    },
+    {
+      "id": "customerAccess.policy.seo.metadata",
+      "name": "Metadata Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/seo--metadata.json",
+      "outgoing": 23,
+      "incoming": 0,
+      "degree": 23
+    },
+    {
+      "id": "customerAccess.policy.seo.redirects",
+      "name": "Redirects Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/seo--redirects.json",
+      "outgoing": 27,
+      "incoming": 0,
+      "degree": 27
+    },
+    {
+      "id": "customerAccess.policy.seo.robots",
+      "name": "Robots Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/seo--robots.json",
+      "outgoing": 24,
+      "incoming": 0,
+      "degree": 24
+    },
+    {
+      "id": "customerAccess.policy.seo.searchperformance",
+      "name": "Search Performance Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/seo--searchperformance.json",
+      "outgoing": 10,
+      "incoming": 0,
+      "degree": 10
+    },
+    {
+      "id": "customerAccess.policy.seo.sitemap",
+      "name": "Sitemap Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/seo--sitemap.json",
+      "outgoing": 23,
+      "incoming": 0,
+      "degree": 23
+    },
+    {
+      "id": "customerAccess.policy.seo.structureddata",
+      "name": "Structured Data Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/seo--structureddata.json",
+      "outgoing": 21,
+      "incoming": 0,
+      "degree": 21
+    },
+    {
+      "id": "customerAccess.policy.webhooks.deadletters",
+      "name": "Dead Letters Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/webhooks--deadletters.json",
+      "outgoing": 9,
+      "incoming": 0,
+      "degree": 9
+    },
+    {
+      "id": "customerAccess.policy.webhooks.deliveries",
+      "name": "Webhook Deliveries Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/webhooks--deliveries.json",
+      "outgoing": 12,
+      "incoming": 0,
+      "degree": 12
+    },
+    {
+      "id": "customerAccess.policy.webhooks.endpoints",
+      "name": "Webhook Endpoints Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/webhooks--endpoints.json",
+      "outgoing": 16,
+      "incoming": 0,
+      "degree": 16
+    },
+    {
+      "id": "customerAccess.policy.webhooks.secrets",
+      "name": "Webhook Secrets Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/webhooks--secrets.json",
+      "outgoing": 8,
+      "incoming": 0,
+      "degree": 8
+    },
+    {
+      "id": "customerAccess.policy.webhooks.subscriptions",
+      "name": "Webhook Subscriptions Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/webhooks--subscriptions.json",
+      "outgoing": 15,
+      "incoming": 0,
+      "degree": 15
+    },
+    {
+      "id": "customerAccess.policy.webhooks.tests",
+      "name": "Webhook Tests Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/policies/webhooks--tests.json",
+      "outgoing": 9,
+      "incoming": 0,
+      "degree": 9
+    },
+    {
+      "id": "customerAccess.policyRegistry",
+      "name": "Customer Access Policy Registry",
+      "domain": "customer-access",
+      "type": "registry-index",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/index.json",
+      "outgoing": 1,
+      "incoming": 5,
+      "degree": 6
+    },
+    {
+      "id": "customerAccess.policySchema",
+      "name": "Customer Access Policy Schema",
+      "domain": "customer-access",
+      "type": "schema",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/customer-access-policy.schema.json",
+      "outgoing": 0,
+      "incoming": 1,
+      "degree": 1
+    },
+    {
+      "id": "customerAccess.policyVocabulary",
+      "name": "Customer Access Policy Vocabulary",
+      "domain": "customer-access",
+      "type": "vocabulary",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/customer-access/vocabularies.json",
+      "outgoing": 0,
+      "incoming": 1,
+      "degree": 1
     },
     {
       "id": "deprecations.deprecationJsonSchema",
@@ -15512,8 +16688,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/auto-response.json",
       "outgoing": 1,
-      "incoming": 3,
-      "degree": 4
+      "incoming": 4,
+      "degree": 5
     },
     {
       "id": "forms.condition",
@@ -15560,8 +16736,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.consent.export.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "forms.consent.view",
@@ -15572,8 +16748,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.consent.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "forms.consentFieldConfig",
@@ -15596,8 +16772,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/consent-record.json",
       "outgoing": 4,
-      "incoming": 10,
-      "degree": 14
+      "incoming": 11,
+      "degree": 15
     },
     {
       "id": "forms.conversionMapping",
@@ -15668,8 +16844,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/form.json",
       "outgoing": 16,
-      "incoming": 20,
-      "degree": 36
+      "incoming": 21,
+      "degree": 37
     },
     {
       "id": "forms.formAvailability",
@@ -15692,8 +16868,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/form-field.json",
       "outgoing": 7,
-      "incoming": 5,
-      "degree": 12
+      "incoming": 6,
+      "degree": 13
     },
     {
       "id": "forms.forms.create",
@@ -15704,8 +16880,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.forms.create.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "forms.forms.delete",
@@ -15716,8 +16892,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.forms.delete.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "forms.forms.edit",
@@ -15728,8 +16904,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.forms.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "forms.forms.manage",
@@ -15740,8 +16916,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.forms.manage.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "forms.forms.publish",
@@ -15752,8 +16928,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.forms.publish.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "forms.forms.view",
@@ -15764,8 +16940,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.forms.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "forms.formSection",
@@ -15776,8 +16952,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/form-section.json",
       "outgoing": 3,
-      "incoming": 4,
-      "degree": 7
+      "incoming": 5,
+      "degree": 8
     },
     {
       "id": "forms.formsLeadsContractStandard",
@@ -15800,8 +16976,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/form-step.json",
       "outgoing": 4,
-      "incoming": 3,
-      "degree": 7
+      "incoming": 4,
+      "degree": 8
     },
     {
       "id": "forms.lead",
@@ -15812,8 +16988,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/lead.json",
       "outgoing": 12,
-      "incoming": 21,
-      "degree": 33
+      "incoming": 22,
+      "degree": 34
     },
     {
       "id": "forms.leadActivity",
@@ -15824,8 +17000,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/lead-activity.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "forms.leadAssignment",
@@ -15872,8 +17048,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/lead-note.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "forms.leads.create",
@@ -15884,8 +17060,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.leads.create.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "forms.leads.delete",
@@ -15896,8 +17072,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.leads.delete.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "forms.leads.edit",
@@ -15908,8 +17084,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.leads.edit.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "forms.leads.export",
@@ -15920,8 +17096,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.leads.export.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "forms.leads.manage",
@@ -15932,8 +17108,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.leads.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "forms.leads.view",
@@ -15944,8 +17120,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.leads.view.json",
       "outgoing": 1,
-      "incoming": 14,
-      "degree": 15
+      "incoming": 16,
+      "degree": 17
     },
     {
       "id": "forms.leadSource",
@@ -15992,8 +17168,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/notification-rule.json",
       "outgoing": 7,
-      "incoming": 3,
-      "degree": 10
+      "incoming": 4,
+      "degree": 11
     },
     {
       "id": "forms.notifications.edit",
@@ -16004,8 +17180,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.notifications.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "forms.notifications.manage",
@@ -16016,8 +17192,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.notifications.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "forms.notifications.view",
@@ -16028,8 +17204,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.notifications.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "forms.rateLimitPolicy",
@@ -16064,8 +17240,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.spam.manage.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "forms.spam.view",
@@ -16076,8 +17252,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.spam.view.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "forms.spamDecision",
@@ -16088,8 +17264,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/spam-decision.json",
       "outgoing": 2,
-      "incoming": 4,
-      "degree": 6
+      "incoming": 5,
+      "degree": 7
     },
     {
       "id": "forms.spamPolicy",
@@ -16100,8 +17276,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/spam-policy.json",
       "outgoing": 4,
-      "incoming": 4,
-      "degree": 8
+      "incoming": 5,
+      "degree": 9
     },
     {
       "id": "forms.spamSignal",
@@ -16124,8 +17300,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/submission.json",
       "outgoing": 6,
-      "incoming": 12,
-      "degree": 18
+      "incoming": 13,
+      "degree": 19
     },
     {
       "id": "forms.submissionFile",
@@ -16136,8 +17312,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/submission-file.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "forms.submissions.delete",
@@ -16148,8 +17324,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.submissions.delete.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "forms.submissions.export",
@@ -16160,8 +17336,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.submissions.export.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "forms.submissions.manage",
@@ -16172,8 +17348,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.submissions.manage.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "forms.submissions.view",
@@ -16184,8 +17360,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/forms.submissions.view.json",
       "outgoing": 1,
-      "incoming": 13,
-      "degree": 14
+      "incoming": 15,
+      "degree": 16
     },
     {
       "id": "forms.submissionValue",
@@ -16196,8 +17372,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/submission-value.json",
       "outgoing": 1,
-      "incoming": 3,
-      "degree": 4
+      "incoming": 4,
+      "degree": 5
     },
     {
       "id": "forms.uploadPolicy",
@@ -16520,8 +17696,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.connections.create.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "integrations.connections.delete",
@@ -16532,8 +17708,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.connections.delete.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "integrations.connections.edit",
@@ -16544,8 +17720,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.connections.edit.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "integrations.connections.manage",
@@ -16556,8 +17732,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.connections.manage.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "integrations.connections.view",
@@ -16568,8 +17744,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.connections.view.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "integrations.connectionStatus",
@@ -16592,8 +17768,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/connection-test.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "integrations.connectorDefinition",
@@ -16604,8 +17780,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/connector-definition.json",
       "outgoing": 3,
-      "incoming": 19,
-      "degree": 22
+      "incoming": 20,
+      "degree": 23
     },
     {
       "id": "integrations.consentBinding",
@@ -16628,8 +17804,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/conversion-mapping.json",
       "outgoing": 3,
-      "incoming": 2,
-      "degree": 5
+      "incoming": 3,
+      "degree": 6
     },
     {
       "id": "integrations.credentialReference",
@@ -16640,8 +17816,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/credential-reference.json",
       "outgoing": 6,
-      "incoming": 10,
-      "degree": 16
+      "incoming": 11,
+      "degree": 17
     },
     {
       "id": "integrations.credentials.manage",
@@ -16652,8 +17828,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.credentials.manage.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "integrations.credentials.view",
@@ -16664,8 +17840,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.credentials.view.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "integrations.crm",
@@ -16700,8 +17876,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/data-mapping.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "integrations.dataMappingField",
@@ -16760,8 +17936,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/event-mapping.json",
       "outgoing": 8,
-      "incoming": 2,
-      "degree": 10
+      "incoming": 3,
+      "degree": 11
     },
     {
       "id": "integrations.googleAds",
@@ -16820,8 +17996,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.health.view.json",
       "outgoing": 1,
-      "incoming": 14,
-      "degree": 15
+      "incoming": 16,
+      "degree": 17
     },
     {
       "id": "integrations.healthCheck",
@@ -16844,8 +18020,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/health-snapshot.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "integrations.integrationConnection",
@@ -16856,8 +18032,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/integration-connection.json",
       "outgoing": 9,
-      "incoming": 10,
-      "degree": 19
+      "incoming": 11,
+      "degree": 20
     },
     {
       "id": "integrations.integrationContractStandard",
@@ -16904,8 +18080,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.mappings.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "integrations.mappings.manage",
@@ -16916,8 +18092,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.mappings.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "integrations.mappings.view",
@@ -16928,8 +18104,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.mappings.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "integrations.meta",
@@ -17072,8 +18248,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.sync.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "integrations.sync.view",
@@ -17084,8 +18260,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.sync.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "integrations.syncCursor",
@@ -17120,8 +18296,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/sync-result.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "integrations.syncRun",
@@ -17132,8 +18308,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/sync-run.json",
       "outgoing": 3,
-      "incoming": 3,
-      "degree": 6
+      "incoming": 4,
+      "degree": 7
     },
     {
       "id": "integrations.tiktok",
@@ -17347,9 +18523,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 16,
       "source": "registry/manifests/definitions/api-binding.json",
-      "outgoing": 3,
+      "outgoing": 1,
       "incoming": 1,
-      "degree": 4
+      "degree": 2
     },
     {
       "id": "manifest.capabilitySelection",
@@ -17372,8 +18548,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 16,
       "source": "registry/manifests/definitions/cms.json",
       "outgoing": 1,
-      "incoming": 1,
-      "degree": 2
+      "incoming": 2,
+      "degree": 3
     },
     {
       "id": "manifest.configurationBinding",
@@ -17588,8 +18764,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 16,
       "source": "registry/manifests/definitions/site-manifest.json",
       "outgoing": 15,
-      "incoming": 4,
-      "degree": 19
+      "incoming": 5,
+      "degree": 20
     },
     {
       "id": "manifest.siteManifestStandard",
@@ -17648,8 +18824,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.analytics.export.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.analytics.view",
@@ -17660,8 +18836,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.analytics.view.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "marketing.analyticsConfiguration",
@@ -17684,8 +18860,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/analytics-observation.json",
       "outgoing": 4,
-      "incoming": 4,
-      "degree": 8
+      "incoming": 5,
+      "degree": 9
     },
     {
       "id": "marketing.analyticsSnapshot",
@@ -17696,8 +18872,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/analytics-snapshot.json",
       "outgoing": 4,
-      "incoming": 3,
-      "degree": 7
+      "incoming": 4,
+      "degree": 8
     },
     {
       "id": "marketing.attribution.export",
@@ -17708,8 +18884,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.attribution.export.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "marketing.attribution.manage",
@@ -17720,8 +18896,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.attribution.manage.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "marketing.attribution.view",
@@ -17732,8 +18908,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.attribution.view.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 14,
+      "degree": 15
     },
     {
       "id": "marketing.attributionCredit",
@@ -17756,8 +18932,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/attribution-model.json",
       "outgoing": 5,
-      "incoming": 8,
-      "degree": 13
+      "incoming": 9,
+      "degree": 14
     },
     {
       "id": "marketing.attributionTouchpoint",
@@ -17768,8 +18944,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/attribution-touchpoint.json",
       "outgoing": 5,
-      "incoming": 4,
-      "degree": 9
+      "incoming": 5,
+      "degree": 10
     },
     {
       "id": "marketing.campaignAttribution",
@@ -17804,8 +18980,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/campaign-definition.json",
       "outgoing": 10,
-      "incoming": 4,
-      "degree": 14
+      "incoming": 5,
+      "degree": 15
     },
     {
       "id": "marketing.campaignPerformanceSnapshot",
@@ -17816,8 +18992,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/campaign-performance-snapshot.json",
       "outgoing": 3,
-      "incoming": 2,
-      "degree": 5
+      "incoming": 3,
+      "degree": 6
     },
     {
       "id": "marketing.campaigns.create",
@@ -17828,8 +19004,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.campaigns.create.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.campaigns.delete",
@@ -17840,8 +19016,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.campaigns.delete.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.campaigns.edit",
@@ -17852,8 +19028,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.campaigns.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.campaigns.manage",
@@ -17864,8 +19040,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.campaigns.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.campaigns.view",
@@ -17876,8 +19052,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.campaigns.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "marketing.consent.edit",
@@ -17888,8 +19064,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.consent.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.consent.manage",
@@ -17900,8 +19076,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.consent.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.consent.view",
@@ -17912,8 +19088,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.consent.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.consentCategory",
@@ -17936,8 +19112,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/consent-policy.json",
       "outgoing": 4,
-      "incoming": 5,
-      "degree": 9
+      "incoming": 6,
+      "degree": 10
     },
     {
       "id": "marketing.consentPreference",
@@ -17960,8 +19136,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/consent-state.json",
       "outgoing": 6,
-      "incoming": 10,
-      "degree": 16
+      "incoming": 11,
+      "degree": 17
     },
     {
       "id": "marketing.conversionAttribution",
@@ -17996,8 +19172,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/conversion-definition.json",
       "outgoing": 12,
-      "incoming": 7,
-      "degree": 19
+      "incoming": 8,
+      "degree": 20
     },
     {
       "id": "marketing.conversionOccurrence",
@@ -18020,8 +19196,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.conversions.create.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "marketing.conversions.delete",
@@ -18032,8 +19208,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.conversions.delete.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "marketing.conversions.edit",
@@ -18044,8 +19220,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.conversions.edit.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "marketing.conversions.manage",
@@ -18056,8 +19232,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.conversions.manage.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "marketing.conversions.view",
@@ -18068,8 +19244,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.conversions.view.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 14,
+      "degree": 15
     },
     {
       "id": "marketing.conversionSummary",
@@ -18080,8 +19256,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/conversion-summary.json",
       "outgoing": 4,
-      "incoming": 2,
-      "degree": 6
+      "incoming": 3,
+      "degree": 7
     },
     {
       "id": "marketing.conversionValue",
@@ -18104,8 +19280,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/data-layer-configuration.json",
       "outgoing": 1,
-      "incoming": 3,
-      "degree": 4
+      "incoming": 4,
+      "degree": 5
     },
     {
       "id": "marketing.destinationMapping",
@@ -18128,8 +19304,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.destinations.create.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.destinations.delete",
@@ -18140,8 +19316,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.destinations.delete.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.destinations.edit",
@@ -18152,8 +19328,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.destinations.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.destinations.manage",
@@ -18164,8 +19340,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.destinations.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.destinations.view",
@@ -18176,8 +19352,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.destinations.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "marketing.deviceContext",
@@ -18248,8 +19424,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/event-destination.json",
       "outgoing": 4,
-      "incoming": 2,
-      "degree": 6
+      "incoming": 3,
+      "degree": 7
     },
     {
       "id": "marketing.eventPropertyDefinition",
@@ -18272,8 +19448,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/marketing-destination.json",
       "outgoing": 10,
-      "incoming": 8,
-      "degree": 18
+      "incoming": 9,
+      "degree": 19
     },
     {
       "id": "marketing.marketingTrackingContractStandard",
@@ -18356,8 +19532,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.tracking.edit.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.tracking.manage",
@@ -18368,8 +19544,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.tracking.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.tracking.view",
@@ -18380,8 +19556,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.tracking.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.trackingConfiguration",
@@ -18392,8 +19568,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/tracking-configuration.json",
       "outgoing": 13,
-      "incoming": 2,
-      "degree": 15
+      "incoming": 3,
+      "degree": 16
     },
     {
       "id": "marketing.trackingConsentRecord",
@@ -18524,8 +19700,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/analytics.json",
       "outgoing": 11,
-      "incoming": 18,
-      "degree": 29
+      "incoming": 20,
+      "degree": 31
     },
     {
       "id": "modules.blog",
@@ -18536,8 +19712,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/blog.json",
       "outgoing": 29,
-      "incoming": 17,
-      "degree": 46
+      "incoming": 20,
+      "degree": 49
     },
     {
       "id": "modules.capability.analytics.attribution",
@@ -18548,8 +19724,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/analytics/attribution.json",
       "outgoing": 7,
-      "incoming": 0,
-      "degree": 7
+      "incoming": 1,
+      "degree": 8
     },
     {
       "id": "modules.capability.analytics.campaign-performance",
@@ -18584,8 +19760,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/analytics/reporting.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.blog.approvals",
@@ -18596,8 +19772,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/blog/approvals.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.blog.authors",
@@ -18620,8 +19796,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/blog/categories.json",
       "outgoing": 7,
-      "incoming": 0,
-      "degree": 7
+      "incoming": 1,
+      "degree": 8
     },
     {
       "id": "modules.capability.blog.related-posts",
@@ -18632,8 +19808,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/blog/related-posts.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "modules.capability.blog.scheduling",
@@ -18644,8 +19820,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/blog/scheduling.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.blog.tags",
@@ -18656,8 +19832,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/blog/tags.json",
       "outgoing": 7,
-      "incoming": 0,
-      "degree": 7
+      "incoming": 1,
+      "degree": 8
     },
     {
       "id": "modules.capability.commerce.attributes",
@@ -18680,8 +19856,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/carts.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "modules.capability.commerce.catalog",
@@ -18692,8 +19868,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/catalog.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "modules.capability.commerce.categories",
@@ -18704,8 +19880,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/categories.json",
       "outgoing": 7,
-      "incoming": 0,
-      "degree": 7
+      "incoming": 1,
+      "degree": 8
     },
     {
       "id": "modules.capability.commerce.checkout",
@@ -18716,8 +19892,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/checkout.json",
       "outgoing": 10,
-      "incoming": 0,
-      "degree": 10
+      "incoming": 1,
+      "degree": 11
     },
     {
       "id": "modules.capability.commerce.collections",
@@ -18740,8 +19916,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/customers.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "modules.capability.commerce.discounts",
@@ -18752,8 +19928,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/discounts.json",
       "outgoing": 7,
-      "incoming": 0,
-      "degree": 7
+      "incoming": 1,
+      "degree": 8
     },
     {
       "id": "modules.capability.commerce.fulfillment",
@@ -18764,8 +19940,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/fulfillment.json",
       "outgoing": 11,
-      "incoming": 0,
-      "degree": 11
+      "incoming": 1,
+      "degree": 12
     },
     {
       "id": "modules.capability.commerce.inventory",
@@ -18776,8 +19952,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/inventory.json",
       "outgoing": 17,
-      "incoming": 0,
-      "degree": 17
+      "incoming": 1,
+      "degree": 18
     },
     {
       "id": "modules.capability.commerce.multi-location-inventory",
@@ -18788,8 +19964,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/multi-location-inventory.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.commerce.orders",
@@ -18800,8 +19976,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/orders.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "modules.capability.commerce.payments",
@@ -18812,8 +19988,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/payments.json",
       "outgoing": 8,
-      "incoming": 0,
-      "degree": 8
+      "incoming": 1,
+      "degree": 9
     },
     {
       "id": "modules.capability.commerce.promotions",
@@ -18836,8 +20012,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/refunds.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "modules.capability.commerce.returns",
@@ -18860,8 +20036,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/reviews.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "modules.capability.commerce.shipping",
@@ -18872,8 +20048,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/shipping.json",
       "outgoing": 8,
-      "incoming": 0,
-      "degree": 8
+      "incoming": 1,
+      "degree": 9
     },
     {
       "id": "modules.capability.commerce.taxes",
@@ -18884,8 +20060,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/taxes.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "modules.capability.commerce.variants",
@@ -18896,8 +20072,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/commerce/variants.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.consent.categories",
@@ -18920,8 +20096,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/consent/integration-gating.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "modules.capability.consent.preferences",
@@ -18932,8 +20108,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/consent/preferences.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.consent.records",
@@ -18956,8 +20132,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/core/audit.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "modules.capability.core.identity",
@@ -18968,8 +20144,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/core/identity.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 8,
+      "degree": 13
     },
     {
       "id": "modules.capability.core.publishing",
@@ -19016,8 +20192,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/documentation/attachments.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.documentation.categories",
@@ -19028,8 +20204,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/documentation/categories.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "modules.capability.documentation.collections",
@@ -19040,8 +20216,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/documentation/collections.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "modules.capability.documentation.related-articles",
@@ -19052,8 +20228,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/documentation/related-articles.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "modules.capability.documentation.versioning",
@@ -19064,8 +20240,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/documentation/versioning.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.documentation.visibility",
@@ -19076,8 +20252,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/documentation/visibility.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.forms.auto-response",
@@ -19088,8 +20264,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/forms/auto-response.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "modules.capability.forms.conditional-logic",
@@ -19112,8 +20288,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/forms/consent-fields.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.forms.conversion-mapping",
@@ -19136,8 +20312,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/forms/file-uploads.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.forms.multi-step",
@@ -19160,8 +20336,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/forms/notifications.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 2,
+      "degree": 8
     },
     {
       "id": "modules.capability.forms.spam-protection",
@@ -19172,8 +20348,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/forms/spam-protection.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "modules.capability.integrations.clarity",
@@ -19268,8 +20444,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/integrations/health.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 10,
+      "degree": 15
     },
     {
       "id": "modules.capability.integrations.linkedin",
@@ -19328,8 +20504,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/integrations/sync.json",
       "outgoing": 7,
-      "incoming": 0,
-      "degree": 7
+      "incoming": 1,
+      "degree": 8
     },
     {
       "id": "modules.capability.integrations.tiktok",
@@ -19364,8 +20540,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/leads/activity.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "modules.capability.leads.assignment",
@@ -19400,8 +20576,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/leads/export.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.leads.notes",
@@ -19412,8 +20588,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/leads/notes.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "modules.capability.leads.status",
@@ -19424,8 +20600,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/leads/status.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.marketing.ad-click-identifiers",
@@ -19448,8 +20624,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/marketing/campaigns.json",
       "outgoing": 8,
-      "incoming": 0,
-      "degree": 8
+      "incoming": 1,
+      "degree": 9
     },
     {
       "id": "modules.capability.marketing.conversions",
@@ -19460,8 +20636,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/marketing/conversions.json",
       "outgoing": 9,
-      "incoming": 0,
-      "degree": 9
+      "incoming": 2,
+      "degree": 11
     },
     {
       "id": "modules.capability.marketing.destinations",
@@ -19472,8 +20648,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/marketing/destinations.json",
       "outgoing": 8,
-      "incoming": 0,
-      "degree": 8
+      "incoming": 1,
+      "degree": 9
     },
     {
       "id": "modules.capability.marketing.utm-attribution",
@@ -19496,8 +20672,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/media/audio.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.media.contextual-metadata",
@@ -19520,8 +20696,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/media/documents.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.media.images",
@@ -19532,8 +20708,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/media/images.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.media.library",
@@ -19544,8 +20720,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/media/library.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.media.video",
@@ -19556,8 +20732,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/media/video.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "modules.capability.pages.approvals",
@@ -19580,8 +20756,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/pages/custom-collections.json",
       "outgoing": 8,
-      "incoming": 0,
-      "degree": 8
+      "incoming": 2,
+      "degree": 10
     },
     {
       "id": "modules.capability.pages.legal-pages",
@@ -19592,8 +20768,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/pages/legal-pages.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "modules.capability.pages.navigation",
@@ -19604,8 +20780,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/pages/navigation.json",
       "outgoing": 8,
-      "incoming": 0,
-      "degree": 8
+      "incoming": 1,
+      "degree": 9
     },
     {
       "id": "modules.capability.pages.reusable-content",
@@ -19616,8 +20792,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/pages/reusable-content.json",
       "outgoing": 8,
-      "incoming": 0,
-      "degree": 8
+      "incoming": 1,
+      "degree": 9
     },
     {
       "id": "modules.capability.pages.scheduling",
@@ -19640,8 +20816,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/pages/sections.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 7,
+      "degree": 10
     },
     {
       "id": "modules.capability.seo.audits",
@@ -19652,8 +20828,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/seo/audits.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "modules.capability.seo.indexing",
@@ -19664,8 +20840,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/seo/indexing.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "modules.capability.seo.keywords",
@@ -19688,8 +20864,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/seo/metadata.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "modules.capability.seo.redirects",
@@ -19700,8 +20876,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/seo/redirects.json",
       "outgoing": 7,
-      "incoming": 0,
-      "degree": 7
+      "incoming": 1,
+      "degree": 8
     },
     {
       "id": "modules.capability.seo.robots",
@@ -19712,8 +20888,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/seo/robots.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "modules.capability.seo.search-performance",
@@ -19724,8 +20900,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/seo/search-performance.json",
       "outgoing": 5,
-      "incoming": 0,
-      "degree": 5
+      "incoming": 1,
+      "degree": 6
     },
     {
       "id": "modules.capability.seo.sitemap",
@@ -19736,8 +20912,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/seo/sitemap.json",
       "outgoing": 6,
-      "incoming": 0,
-      "degree": 6
+      "incoming": 1,
+      "degree": 7
     },
     {
       "id": "modules.capability.seo.social-sharing",
@@ -19760,8 +20936,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/capabilities/seo/structured-data.json",
       "outgoing": 4,
-      "incoming": 0,
-      "degree": 4
+      "incoming": 1,
+      "degree": 5
     },
     {
       "id": "modules.commerce",
@@ -19772,8 +20948,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/commerce.json",
       "outgoing": 143,
-      "incoming": 43,
-      "degree": 186
+      "incoming": 60,
+      "degree": 203
     },
     {
       "id": "modules.consent",
@@ -19784,8 +20960,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/consent.json",
       "outgoing": 9,
-      "incoming": 22,
-      "degree": 31
+      "incoming": 23,
+      "degree": 32
     },
     {
       "id": "modules.core",
@@ -19796,8 +20972,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/core.json",
       "outgoing": 26,
-      "incoming": 46,
-      "degree": 72
+      "incoming": 56,
+      "degree": 82
     },
     {
       "id": "modules.documentation",
@@ -19808,8 +20984,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/documentation.json",
       "outgoing": 19,
-      "incoming": 11,
-      "degree": 30
+      "incoming": 12,
+      "degree": 31
     },
     {
       "id": "modules.forms",
@@ -19820,8 +20996,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/forms.json",
       "outgoing": 26,
-      "incoming": 29,
-      "degree": 55
+      "incoming": 34,
+      "degree": 60
     },
     {
       "id": "modules.index",
@@ -19844,8 +21020,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/integrations.json",
       "outgoing": 53,
-      "incoming": 47,
-      "degree": 100
+      "incoming": 58,
+      "degree": 111
     },
     {
       "id": "modules.leads",
@@ -19856,8 +21032,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/leads.json",
       "outgoing": 14,
-      "incoming": 13,
-      "degree": 27
+      "incoming": 14,
+      "degree": 28
     },
     {
       "id": "modules.marketing",
@@ -19868,8 +21044,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/marketing.json",
       "outgoing": 27,
-      "incoming": 18,
-      "degree": 45
+      "incoming": 22,
+      "degree": 49
     },
     {
       "id": "modules.media",
@@ -19880,8 +21056,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/media.json",
       "outgoing": 10,
-      "incoming": 29,
-      "degree": 39
+      "incoming": 30,
+      "degree": 40
     },
     {
       "id": "modules.pages",
@@ -19892,8 +21068,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/pages.json",
       "outgoing": 35,
-      "incoming": 33,
-      "degree": 68
+      "incoming": 45,
+      "degree": 80
     },
     {
       "id": "modules.seo",
@@ -19904,8 +21080,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 17,
       "source": "registry/modules/definitions/seo.json",
       "outgoing": 30,
-      "incoming": 36,
-      "degree": 66
+      "incoming": 44,
+      "degree": 74
     },
     {
       "id": "modules.standard",
@@ -20960,8 +22136,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/permissions.assignments.create.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 6,
+      "degree": 7
     },
     {
       "id": "permissions.assignments.delete",
@@ -20972,8 +22148,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/permissions.assignments.delete.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 6,
+      "degree": 7
     },
     {
       "id": "permissions.assignments.edit",
@@ -20984,8 +22160,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/permissions.assignments.edit.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 6,
+      "degree": 7
     },
     {
       "id": "permissions.assignments.manage",
@@ -20996,8 +22172,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/permissions.assignments.manage.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 6,
+      "degree": 7
     },
     {
       "id": "permissions.assignments.view",
@@ -21008,8 +22184,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/permissions.assignments.view.json",
       "outgoing": 1,
-      "incoming": 5,
-      "degree": 6
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "permissions.authorizationContext",
@@ -21080,8 +22256,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/definitions/permission-definition.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 5,
+      "degree": 6
     },
     {
       "id": "permissions.permissionRegistry",
@@ -21104,8 +22280,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "standards/23-permission-registry-standard.md",
       "outgoing": 0,
-      "incoming": 419,
-      "degree": 419
+      "incoming": 424,
+      "degree": 424
     },
     {
       "id": "permissions.policyCondition",
@@ -21140,8 +22316,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/permissions.registry.view.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "permissions.riskLevels",
@@ -21332,8 +22508,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/definitions/role-assignment.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 6,
+      "degree": 7
     },
     {
       "id": "permissions.roleDefinition",
@@ -21344,8 +22520,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/definitions/role-definition.json",
       "outgoing": 1,
-      "incoming": 5,
-      "degree": 6
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "permissions.roles.create",
@@ -21356,8 +22532,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/permissions.roles.create.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 6,
+      "degree": 7
     },
     {
       "id": "permissions.roles.delete",
@@ -21368,8 +22544,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/permissions.roles.delete.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 6,
+      "degree": 7
     },
     {
       "id": "permissions.roles.edit",
@@ -21380,8 +22556,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/permissions.roles.edit.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 6,
+      "degree": 7
     },
     {
       "id": "permissions.roles.manage",
@@ -21392,8 +22568,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/permissions.roles.manage.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 6,
+      "degree": 7
     },
     {
       "id": "permissions.roles.view",
@@ -21404,8 +22580,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/permissions.roles.view.json",
       "outgoing": 1,
-      "incoming": 5,
-      "degree": 6
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "permissions.scopeBinding",
@@ -23244,6 +24420,54 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 1
     },
     {
+      "id": "release.1.1.0.acceptanceReport",
+      "name": "V1.1.0 Phase 38 Acceptance Report",
+      "domain": "validation",
+      "type": "acceptance-report",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/releases/1.1.0/acceptance-report.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "release.1.1.0.integrityHashes",
+      "name": "V1.1.0 Integrity Hashes",
+      "domain": "lifecycle",
+      "type": "machine-registry",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/releases/1.1.0/integrity-hashes.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "release.1.1.0.manifest",
+      "name": "V1.1.0 Release Manifest",
+      "domain": "lifecycle",
+      "type": "machine-registry",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/releases/1.1.0/release-manifest.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "release.1.1.0.snapshotIndex",
+      "name": "V1.1.0 Snapshot Index",
+      "domain": "lifecycle",
+      "type": "machine-registry",
+      "status": "stable",
+      "phase": 38,
+      "source": "registry/releases/1.1.0/snapshot-index.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
       "id": "release.acceptanceReport",
       "name": "V1.0.0 Production Acceptance Report",
       "domain": "validation",
@@ -24224,8 +25448,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/audit-issue.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 5,
+      "degree": 6
     },
     {
       "id": "seo.auditResult",
@@ -24236,8 +25460,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/audit-result.json",
       "outgoing": 3,
-      "incoming": 3,
-      "degree": 6
+      "incoming": 4,
+      "degree": 7
     },
     {
       "id": "seo.audits.export",
@@ -24248,8 +25472,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.audits.export.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "seo.audits.manage",
@@ -24260,8 +25484,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.audits.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "seo.audits.view",
@@ -24272,8 +25496,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.audits.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.brokenLink",
@@ -24296,8 +25520,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.indexing.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.indexing.view",
@@ -24308,8 +25532,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.indexing.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "seo.indexingStatus",
@@ -24320,8 +25544,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/indexing-status.json",
       "outgoing": 4,
-      "incoming": 4,
-      "degree": 8
+      "incoming": 5,
+      "degree": 9
     },
     {
       "id": "seo.internalLink",
@@ -24368,8 +25592,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/metadata.json",
       "outgoing": 13,
-      "incoming": 8,
-      "degree": 21
+      "incoming": 9,
+      "degree": 22
     },
     {
       "id": "seo.metadata.edit",
@@ -24380,8 +25604,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.metadata.edit.json",
       "outgoing": 1,
-      "incoming": 13,
-      "degree": 14
+      "incoming": 15,
+      "degree": 16
     },
     {
       "id": "seo.metadata.view",
@@ -24392,8 +25616,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.metadata.view.json",
       "outgoing": 1,
-      "incoming": 14,
-      "degree": 15
+      "incoming": 16,
+      "degree": 17
     },
     {
       "id": "seo.openGraph",
@@ -24416,8 +25640,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/redirect.json",
       "outgoing": 8,
-      "incoming": 6,
-      "degree": 14
+      "incoming": 7,
+      "degree": 15
     },
     {
       "id": "seo.redirects.create",
@@ -24428,8 +25652,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.redirects.create.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.redirects.delete",
@@ -24440,8 +25664,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.redirects.delete.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.redirects.edit",
@@ -24452,8 +25676,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.redirects.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.redirects.manage",
@@ -24464,8 +25688,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.redirects.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.redirects.view",
@@ -24476,8 +25700,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.redirects.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "seo.robots.edit",
@@ -24488,8 +25712,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.robots.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.robots.manage",
@@ -24500,8 +25724,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.robots.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.robots.view",
@@ -24512,8 +25736,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.robots.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "seo.robotsDirective",
@@ -24536,8 +25760,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/robots-policy.json",
       "outgoing": 6,
-      "incoming": 4,
-      "degree": 10
+      "incoming": 5,
+      "degree": 11
     },
     {
       "id": "seo.robotsRule",
@@ -24548,8 +25772,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/robots-rule.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 5,
+      "degree": 6
     },
     {
       "id": "seo.searchPerformance",
@@ -24560,8 +25784,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/search-performance.json",
       "outgoing": 5,
-      "incoming": 3,
-      "degree": 8
+      "incoming": 4,
+      "degree": 9
     },
     {
       "id": "seo.searchperformance.export",
@@ -24572,8 +25796,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.searchperformance.export.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.searchperformance.view",
@@ -24584,8 +25808,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.searchperformance.view.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "seo.searchPreview",
@@ -24608,8 +25832,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/search-query.json",
       "outgoing": 1,
-      "incoming": 4,
-      "degree": 5
+      "incoming": 5,
+      "degree": 6
     },
     {
       "id": "seo.seoContractStandard",
@@ -24644,8 +25868,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.sitemap.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.sitemap.manage",
@@ -24656,8 +25880,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.sitemap.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.sitemap.view",
@@ -24668,8 +25892,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.sitemap.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "seo.sitemapEntry",
@@ -24680,8 +25904,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/sitemap-entry.json",
       "outgoing": 6,
-      "incoming": 5,
-      "degree": 11
+      "incoming": 6,
+      "degree": 12
     },
     {
       "id": "seo.socialCard",
@@ -24704,8 +25928,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/structured-data.json",
       "outgoing": 4,
-      "incoming": 4,
-      "degree": 8
+      "incoming": 5,
+      "degree": 9
     },
     {
       "id": "seo.structureddata.edit",
@@ -24716,8 +25940,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.structureddata.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "seo.structureddata.view",
@@ -24728,8 +25952,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/seo.structureddata.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "seo.updated",
@@ -24752,8 +25976,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 7,
       "source": "registry/seo/definitions/url-inspection-result.json",
       "outgoing": 2,
-      "incoming": 2,
-      "degree": 4
+      "incoming": 3,
+      "degree": 5
     },
     {
       "id": "shared.address",
@@ -24764,8 +25988,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 4,
       "source": "registry/core/definitions/address.json",
       "outgoing": 2,
-      "incoming": 7,
-      "degree": 9
+      "incoming": 8,
+      "degree": 10
     },
     {
       "id": "shared.contactPoint",
@@ -24776,8 +26000,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 4,
       "source": "registry/core/definitions/contact-point.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "shared.cta",
@@ -24824,8 +26048,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 4,
       "source": "registry/core/definitions/media-asset.json",
       "outgoing": 8,
-      "incoming": 16,
-      "degree": 24
+      "incoming": 17,
+      "degree": 25
     },
     {
       "id": "shared.mediaReference",
@@ -25172,8 +26396,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 33,
       "source": "registry/validation/index.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "validation.result",
@@ -25388,8 +26612,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 14,
       "source": "registry/webhooks/definitions/dead-letter.json",
       "outgoing": 5,
-      "incoming": 2,
-      "degree": 7
+      "incoming": 3,
+      "degree": 8
     },
     {
       "id": "webhooks.deadletters.manage",
@@ -25400,8 +26624,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.deadletters.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "webhooks.deadletters.view",
@@ -25412,8 +26636,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.deadletters.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "webhooks.defaultPolicies",
@@ -25436,8 +26660,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.deliveries.export.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "webhooks.deliveries.manage",
@@ -25448,8 +26672,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.deliveries.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "webhooks.deliveries.view",
@@ -25460,8 +26684,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.deliveries.view.json",
       "outgoing": 1,
-      "incoming": 13,
-      "degree": 14
+      "incoming": 15,
+      "degree": 16
     },
     {
       "id": "webhooks.delivery",
@@ -25472,8 +26696,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 14,
       "source": "registry/webhooks/definitions/delivery.json",
       "outgoing": 9,
-      "incoming": 15,
-      "degree": 24
+      "incoming": 16,
+      "degree": 25
     },
     {
       "id": "webhooks.deliveryAttempt",
@@ -25484,8 +26708,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 14,
       "source": "registry/webhooks/definitions/delivery-attempt.json",
       "outgoing": 4,
-      "incoming": 6,
-      "degree": 10
+      "incoming": 7,
+      "degree": 11
     },
     {
       "id": "webhooks.deliveryFailure",
@@ -25580,8 +26804,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 14,
       "source": "registry/webhooks/definitions/endpoint.json",
       "outgoing": 13,
-      "incoming": 16,
-      "degree": 29
+      "incoming": 17,
+      "degree": 30
     },
     {
       "id": "webhooks.endpointAuthentication",
@@ -25604,8 +26828,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 14,
       "source": "registry/webhooks/definitions/endpoint-health.json",
       "outgoing": 0,
-      "incoming": 3,
-      "degree": 3
+      "incoming": 4,
+      "degree": 4
     },
     {
       "id": "webhooks.endpointNetworkPolicy",
@@ -25628,8 +26852,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.endpoints.create.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "webhooks.endpoints.delete",
@@ -25640,8 +26864,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.endpoints.delete.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "webhooks.endpoints.edit",
@@ -25652,8 +26876,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.endpoints.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "webhooks.endpoints.manage",
@@ -25664,8 +26888,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.endpoints.manage.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "webhooks.endpoints.view",
@@ -25676,8 +26900,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.endpoints.view.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "webhooks.endpointVerification",
@@ -25964,8 +27188,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 14,
       "source": "registry/webhooks/definitions/secret-rotation.json",
       "outgoing": 2,
-      "incoming": 4,
-      "degree": 6
+      "incoming": 5,
+      "degree": 7
     },
     {
       "id": "webhooks.secrets.manage",
@@ -25976,8 +27200,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.secrets.manage.json",
       "outgoing": 1,
-      "incoming": 7,
-      "degree": 8
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "webhooks.signaturePolicy",
@@ -26000,8 +27224,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 14,
       "source": "registry/webhooks/definitions/signing-key-reference.json",
       "outgoing": 3,
-      "incoming": 7,
-      "degree": 10
+      "incoming": 8,
+      "degree": 11
     },
     {
       "id": "webhooks.statusVocabulary",
@@ -26024,8 +27248,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 14,
       "source": "registry/webhooks/definitions/subscription.json",
       "outgoing": 15,
-      "incoming": 14,
-      "degree": 29
+      "incoming": 15,
+      "degree": 30
     },
     {
       "id": "webhooks.subscriptionFilter",
@@ -26060,8 +27284,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.subscriptions.create.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "webhooks.subscriptions.delete",
@@ -26072,8 +27296,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.subscriptions.delete.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "webhooks.subscriptions.edit",
@@ -26084,8 +27308,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.subscriptions.edit.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "webhooks.subscriptions.manage",
@@ -26096,8 +27320,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.subscriptions.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "webhooks.subscriptions.view",
@@ -26108,8 +27332,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.subscriptions.view.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "webhooks.subscriptionState",
@@ -26132,8 +27356,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 14,
       "source": "registry/webhooks/definitions/test-delivery.json",
       "outgoing": 7,
-      "incoming": 2,
-      "degree": 9
+      "incoming": 3,
+      "degree": 10
     },
     {
       "id": "webhooks.tests.create",
@@ -26144,8 +27368,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.tests.create.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "webhooks.tests.view",
@@ -26156,8 +27380,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/webhooks.tests.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "webhooks.timeoutPolicy",
@@ -34120,6 +35344,56 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_aae431158f0086a0f728",
+      "source": "api.customer-cms.cancel-change-request",
+      "target": "api.apiContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements API Contract Standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3f8821638f808be7c7fd",
+      "source": "api.customer-cms.cancel-change-request",
+      "target": "api.customer-cms",
+      "type": "belongsTo",
+      "family": "hierarchy",
+      "origin": "explicit",
+      "description": "Belongs to this API group.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_74d41fe574586b70160d",
+      "source": "api.customer-cms.cancel-change-request",
+      "target": "core.changerequests.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c887c091713193aeb75d",
+      "source": "api.customer-cms.cancel-change-request",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ab703f51d5ff2d426f24",
+      "source": "api.customer-cms.cancel-change-request",
+      "target": "customerAccess.changeRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Uses the canonical Customer Change Request contract.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_6fae7b0cdc3b8020061a",
       "source": "api.customer-cms.complete-media-upload",
       "target": "api.apiContractStandard",
@@ -34530,6 +35804,46 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_0f9f62c9f7b19b22d27b",
+      "source": "api.customer-cms.get-change-request",
+      "target": "api.apiContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements API Contract Standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0a2fba17efff8d464ec1",
+      "source": "api.customer-cms.get-change-request",
+      "target": "api.customer-cms",
+      "type": "belongsTo",
+      "family": "hierarchy",
+      "origin": "explicit",
+      "description": "Belongs to this API group.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8bea81ad105773c9cec7",
+      "source": "api.customer-cms.get-change-request",
+      "target": "core.changerequests.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_306a88d002d171fc7ee1",
+      "source": "api.customer-cms.get-change-request",
+      "target": "customerAccess.changeRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Uses the canonical Customer Change Request contract.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_7fd7b644b8af799a95e9",
       "source": "api.customer-cms.get-custom-entry",
       "target": "api.apiContractStandard",
@@ -34887,6 +36201,46 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "authorization",
       "origin": "permissionAssociation",
       "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_107c22815b9ed3dbe15c",
+      "source": "api.customer-cms.list-change-requests",
+      "target": "api.apiContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements API Contract Standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8792a7e61ff4d57c4cea",
+      "source": "api.customer-cms.list-change-requests",
+      "target": "api.customer-cms",
+      "type": "belongsTo",
+      "family": "hierarchy",
+      "origin": "explicit",
+      "description": "Belongs to this API group.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_44a9f168f5259382677d",
+      "source": "api.customer-cms.list-change-requests",
+      "target": "core.changerequests.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_40b4b8bfa773d15027d3",
+      "source": "api.customer-cms.list-change-requests",
+      "target": "customerAccess.changeRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Uses the canonical Customer Change Request contract.",
       "ordinal": 0
     },
     {
@@ -35467,6 +36821,56 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "reference",
       "origin": "explicit",
       "description": "Uses this canonical contract in request/response or operation semantics.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3c87fb1e26a56d2d6257",
+      "source": "api.customer-cms.submit-change-request",
+      "target": "api.apiContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements API Contract Standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3fc3277de138b3608006",
+      "source": "api.customer-cms.submit-change-request",
+      "target": "api.customer-cms",
+      "type": "belongsTo",
+      "family": "hierarchy",
+      "origin": "explicit",
+      "description": "Belongs to this API group.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4fef8f9b2f8b1fd55513",
+      "source": "api.customer-cms.submit-change-request",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a010fe376cfd061daedc",
+      "source": "api.customer-cms.submit-change-request",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_57ce1703a69048496f6a",
+      "source": "api.customer-cms.submit-change-request",
+      "target": "customerAccess.changeRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Uses the canonical Customer Change Request contract.",
       "ordinal": 0
     },
     {
@@ -36220,6 +37624,106 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_70cf83d93d4a81bd6a1c",
+      "source": "api.nextf-admin.apply-change-request",
+      "target": "api.apiContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements API Contract Standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_25c43b3cdbb609cb527d",
+      "source": "api.nextf-admin.apply-change-request",
+      "target": "api.nextf-admin",
+      "type": "belongsTo",
+      "family": "hierarchy",
+      "origin": "explicit",
+      "description": "Belongs to this API group.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e002b1b36cc07bb7d01e",
+      "source": "api.nextf-admin.apply-change-request",
+      "target": "core.changerequests.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_835ccf1e71e2d171180d",
+      "source": "api.nextf-admin.apply-change-request",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_83aa20a76b41b1a5841b",
+      "source": "api.nextf-admin.apply-change-request",
+      "target": "customerAccess.changeRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Uses the canonical Customer Change Request contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ded432a4482ad073a737",
+      "source": "api.nextf-admin.approve-change-request",
+      "target": "api.apiContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements API Contract Standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fb5a31e7ffda56ca15b0",
+      "source": "api.nextf-admin.approve-change-request",
+      "target": "api.nextf-admin",
+      "type": "belongsTo",
+      "family": "hierarchy",
+      "origin": "explicit",
+      "description": "Belongs to this API group.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_11fec4b92b1cda86a25a",
+      "source": "api.nextf-admin.approve-change-request",
+      "target": "core.changerequests.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_052e9ad2aed6f8fe4692",
+      "source": "api.nextf-admin.approve-change-request",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e6f58e9ddc622f77277d",
+      "source": "api.nextf-admin.approve-change-request",
+      "target": "customerAccess.changeRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Uses the canonical Customer Change Request contract.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_7cfa7fa5e2a90b5b482e",
       "source": "api.nextf-admin.check-contract-compatibility",
       "target": "api.apiContractStandard",
@@ -36667,6 +38171,46 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "authorization",
       "origin": "permissionAssociation",
       "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_96cea9f9ab9569016e94",
+      "source": "api.nextf-admin.review-change-request",
+      "target": "api.apiContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements API Contract Standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_90e2d54e37716c7ec419",
+      "source": "api.nextf-admin.review-change-request",
+      "target": "api.nextf-admin",
+      "type": "belongsTo",
+      "family": "hierarchy",
+      "origin": "explicit",
+      "description": "Belongs to this API group.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7b86a382a9318877bfa3",
+      "source": "api.nextf-admin.review-change-request",
+      "target": "core.changerequests.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dcf6b99c1793a577371f",
+      "source": "api.nextf-admin.review-change-request",
+      "target": "customerAccess.changeRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Uses the canonical Customer Change Request contract.",
       "ordinal": 0
     },
     {
@@ -42203,6 +43747,166 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "id": "rel_18121064d8e122116941",
       "source": "changelog.release.1.0.0",
       "target": "starters.index",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_009092ddf7857023c5d2",
+      "source": "changelog.release.1.1.0",
+      "target": "api.customer-cms.submit-change-request",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e003e91df793f190acb0",
+      "source": "changelog.release.1.1.0",
+      "target": "api.nextf-admin.apply-change-request",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5029b38ad555730eb99d",
+      "source": "changelog.release.1.1.0",
+      "target": "changelog.changelogStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Release note follows the NEXT F Changelog Standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b3d18e90f79ab8c4cc3e",
+      "source": "changelog.release.1.1.0",
+      "target": "core.changerequests.approve",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_60a6606cd61eaa2ea243",
+      "source": "changelog.release.1.1.0",
+      "target": "core.changerequests.create",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3e1f68cc4a0809807e2b",
+      "source": "changelog.release.1.1.0",
+      "target": "customer-change-request.applied",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c41a4388cdf536690c5b",
+      "source": "changelog.release.1.1.0",
+      "target": "customer-change-request.submitted",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_031335b2be04331e41f8",
+      "source": "changelog.release.1.1.0",
+      "target": "customerAccess.changeRequest",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d75c72395d6306f4ad20",
+      "source": "changelog.release.1.1.0",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_61a785a42f6118dbcab5",
+      "source": "changelog.release.1.1.0",
+      "target": "customerAccess.effectivePolicyResolution",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8fad2c21259fadaf9266",
+      "source": "changelog.release.1.1.0",
+      "target": "customerAccess.policyRegistry",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e72bbb62ccba84bb5931",
+      "source": "changelog.release.1.1.0",
+      "target": "customerAccess.policySchema",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5266030f1847ed15b563",
+      "source": "changelog.release.1.1.0",
+      "target": "customerAccess.policyVocabulary",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_42aec60f0cf2957762a6",
+      "source": "changelog.release.1.1.0",
+      "target": "manifest.cms",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_47ba6c05846d259bda46",
+      "source": "changelog.release.1.1.0",
+      "target": "manifest.siteManifest",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Explicitly affected by Changelog entries in this release.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_04b703fe42743470ca7b",
+      "source": "changelog.release.1.1.0",
+      "target": "validation.index",
       "type": "relatedTo",
       "family": "association",
       "origin": "explicit",
@@ -61890,6 +63594,56 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_5b3320ad457209f4410b",
+      "source": "core.changerequests.approve",
+      "target": "permissions.permissionRegistryStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Governed by the Permission Registry standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_291783665701a9f73576",
+      "source": "core.changerequests.create",
+      "target": "permissions.permissionRegistryStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Governed by the Permission Registry standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c23e6c0b9527b63e6868",
+      "source": "core.changerequests.edit",
+      "target": "permissions.permissionRegistryStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Governed by the Permission Registry standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0c31cb745cac7726d469",
+      "source": "core.changerequests.manage",
+      "target": "permissions.permissionRegistryStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Governed by the Permission Registry standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5ff368648fbc2ce38298",
+      "source": "core.changerequests.view",
+      "target": "permissions.permissionRegistryStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Governed by the Permission Registry standard.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_f75c450711ad9791f76b",
       "source": "core.entityIdentity",
       "target": "core.sharedCoreStandard",
@@ -62220,6 +63974,46 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_e823817e7dc41044b938",
+      "source": "customer-change-request.applied",
+      "target": "customerAccess.changeRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject is the canonical Customer Change Request.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3999bd4a029aed5bed61",
+      "source": "customer-change-request.approved",
+      "target": "customerAccess.changeRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject is the canonical Customer Change Request.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_186a1e1c6ec782ef3e41",
+      "source": "customer-change-request.cancelled",
+      "target": "customerAccess.changeRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject is the canonical Customer Change Request.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_544ddc5152b2936120c5",
+      "source": "customer-change-request.submitted",
+      "target": "customerAccess.changeRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject is the canonical Customer Change Request.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_8144f8c5f5c4b53335d1",
       "source": "customer.archived",
       "target": "commerce.commerceCustomer",
@@ -62247,6 +64041,11646 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "reference",
       "origin": "explicit",
       "description": "Event subject may be commerce.commerceCustomer.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ddd45baa288a83306ed1",
+      "source": "customerAccess.policy.commerce.carts",
+      "target": "cmsUi.profile.commerce.carts",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2d3f2ff5cc9bfe9d7117",
+      "source": "customerAccess.policy.commerce.carts",
+      "target": "commerce.cart",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_001fcbd636f7e8a498dd",
+      "source": "customerAccess.policy.commerce.carts",
+      "target": "commerce.carts.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4c0b95b8b3b7b4897af6",
+      "source": "customerAccess.policy.commerce.carts",
+      "target": "commerce.carts.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d500174225018a82dcd9",
+      "source": "customerAccess.policy.commerce.carts",
+      "target": "commerce.carts.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c4043de2a72d702d76a8",
+      "source": "customerAccess.policy.commerce.carts",
+      "target": "commerce.carts.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_901a2fc8eddd91b9744c",
+      "source": "customerAccess.policy.commerce.carts",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e0320d07376e92dba24c",
+      "source": "customerAccess.policy.commerce.carts",
+      "target": "modules.capability.commerce.carts",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5aabb72c6e0956f42a54",
+      "source": "customerAccess.policy.commerce.carts",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a12dd1f67cc3398f2816",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "cmsUi.profile.commerce.categories",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5574a20f4f0983743637",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "commerce.categories.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3a75f310b53fffd8fe60",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "commerce.categories.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f1919c04969920b19175",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "commerce.categories.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_04defa484127537dfb20",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "commerce.categories.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2f4c0ab43f016f9da690",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "commerce.categories.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_70f5d743c28e6e1ce253",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "commerce.categories.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_307eac2ea49cbc0c2185",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "commerce.categories.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9920a1a639edd464a2f3",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "commerce.categories.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3a5a1887b39485f86f51",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "commerce.categories.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0c41b4d2a7091a51eb41",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "commerce.categories.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2ca2160626874ac2fdae",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "commerce.productCategory",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bd40804ad190172bbdf2",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b2fd1fb116b52a9dcf78",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "modules.capability.commerce.categories",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2e9d313bcff92b24ea33",
+      "source": "customerAccess.policy.commerce.categories",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7dd76a14f9efb1a0dd1b",
+      "source": "customerAccess.policy.commerce.checkouts",
+      "target": "cmsUi.profile.commerce.checkouts",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0ddd2d7447107dd0734c",
+      "source": "customerAccess.policy.commerce.checkouts",
+      "target": "commerce.checkout",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fcd7b355d04dc14e64f4",
+      "source": "customerAccess.policy.commerce.checkouts",
+      "target": "commerce.checkouts.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0d20a983e426a8563e67",
+      "source": "customerAccess.policy.commerce.checkouts",
+      "target": "commerce.checkouts.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0bda61f93bb399b9f152",
+      "source": "customerAccess.policy.commerce.checkouts",
+      "target": "commerce.checkouts.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b0fc9e0211caef430ba9",
+      "source": "customerAccess.policy.commerce.checkouts",
+      "target": "commerce.checkouts.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4dc6343957e056e3ab28",
+      "source": "customerAccess.policy.commerce.checkouts",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fe774d6fe92f13883e38",
+      "source": "customerAccess.policy.commerce.checkouts",
+      "target": "modules.capability.commerce.checkout",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0f515d647d7e8da1931b",
+      "source": "customerAccess.policy.commerce.checkouts",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_85b995118f4de33d5f2c",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "cmsUi.profile.commerce.collections",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_551b13535b5bdf6ee046",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "commerce.collections.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fd6a3fefb5d3b010a37b",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "commerce.collections.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_46e24ed21e7a12d918fb",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "commerce.collections.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d11beffcf38d5b1c01f2",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "commerce.collections.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_82447defc658a6056cc7",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "commerce.collections.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1854f21811e00c74fc74",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "commerce.collections.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9cee0dfa8b01e408cd45",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "commerce.collections.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7db67e08fe8381add41a",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "commerce.collections.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2d11a3edbd89f7c2530e",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "commerce.collections.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d2985d5fd278c3dcf0d1",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "commerce.collections.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6768369c8a9b37c61d74",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "commerce.productCollection",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b32ceb10af01bd83b179",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c91d3daac7040582427d",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "modules.capability.commerce.catalog",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_14ade11809d6874f0798",
+      "source": "customerAccess.policy.commerce.collections",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7a14a14d0516ea0a0106",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "cmsUi.profile.commerce.customers",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_008c087e33b85b7e47ed",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "commerce.commerceCustomer",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ff7dce67b36940bc0705",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "commerce.customerAddress",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4a7117e812f6aff802cc",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "commerce.customerNote",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_614d8e90b99ebcac409f",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "commerce.customers.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8aff0ecea093a287c859",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "commerce.customers.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_696157e502865d6d4ea9",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "commerce.customers.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b5bf0a1811a599e314c4",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "commerce.customers.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cf1033b6989758239e07",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "commerce.customers.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5709d6f4253f23699b54",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "commerce.customers.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_26b0f4ad61c05aa94434",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "commerce.customers.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f5fce148fbe25ffdd547",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "commerce.customers.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_229c8cac1659ea962f9f",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_081ceaa4668aafd97957",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "modules.capability.commerce.customers",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a77cacc54312a38ac760",
+      "source": "customerAccess.policy.commerce.customers",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bb4f3fdd484404e429ad",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "cmsUi.profile.commerce.discounts",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_befcf4b0c974254b12a6",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discount",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_231cb96f1ac9b52b6d86",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discountCode",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cec24492e304b0fa844d",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discounts.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_254915af7561138fb70d",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discounts.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a951c59bf016b5420e9b",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discounts.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_72c5a7261ea2cc16551d",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discounts.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1510085af1fd25c13c42",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discounts.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0d22e131f3ee19207b61",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discounts.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f4c84ed163e19f841910",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discounts.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0ad3076aa756a54981de",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discounts.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_39d985a0074776291a27",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discounts.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bae24069cfa28f888740",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "commerce.discounts.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0865d42b36477f3a3ae4",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_477f7755f4c0507eff98",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "modules.capability.commerce.discounts",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cca624fca6df974e44c6",
+      "source": "customerAccess.policy.commerce.discounts",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d81d169d2b407c2148a4",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "cmsUi.profile.commerce.fulfillments",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fed115db85a7d40c5576",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "commerce.fulfillment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b0a966995546a3c49f03",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "commerce.fulfillments.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f63e2df7067f602dcad2",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "commerce.fulfillments.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0a4afe81ef4ff2c6b432",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "commerce.fulfillments.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9be303ac6d411c71eda7",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "commerce.fulfillments.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8f48b3f16476f8fc7bf2",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "commerce.fulfillments.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e6b4bfb93ec690ce558f",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "commerce.fulfillments.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4362dfdc77ccb1c2cb9b",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "commerce.fulfillments.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_657475f0a794af19402b",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "commerce.fulfillments.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6ddff4a1db17008d2d88",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "commerce.shipment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2ce22552045367501782",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_69260d545d5505c9e45f",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "modules.capability.commerce.fulfillment",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_47923f838256dedd83f2",
+      "source": "customerAccess.policy.commerce.fulfillments",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ccf9ff160275f2f648f3",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "cmsUi.profile.commerce.inventory",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5730f699b3f61f3252d2",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventory.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9cc0aed50e0d19c7267c",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventory.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6033231c2a8734d67f1e",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventory.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e2493bfb49d647e7c24c",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventory.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7919af031d3199ac8382",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventory.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ce1f194496ec828a7f88",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventory.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a72e6967e615ca18c245",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventory.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a85be2f50b21668b2854",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventory.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_504efd67ee66417614bc",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventoryAdjustment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e824a4e3748e035b15b7",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventoryItem",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_644313f0579df85687c7",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventoryLevel",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ffd6254a3d046cda0dc1",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "commerce.inventoryLocation",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_38c3737bcbdf1fdd6531",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3adfd95eea6010390315",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "modules.capability.commerce.inventory",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_847e29210392b47085fa",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "modules.capability.commerce.multi-location-inventory",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9d9d127ab346d9d6c0a1",
+      "source": "customerAccess.policy.commerce.inventory",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f2c677ac0c02e454385b",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "cmsUi.profile.commerce.orders",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_57081e60ab17809ccb83",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "commerce.order",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4a9452ed9dcfd8f231f8",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "commerce.orderLine",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9ede97924a5f98d4ba15",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "commerce.orders.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c540699c6be3e9be5c99",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "commerce.orders.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7ffa9f8e18528c6c18d7",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "commerce.orders.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_effa6648645b3be8424f",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "commerce.orders.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ead9fe083ad2cfff0e68",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "commerce.orders.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6e070dc7773aacc29f97",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "commerce.orders.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_eeceb41a14ce89a4b2d4",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "commerce.orders.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a0bc19ae0010de43979a",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "commerce.orders.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_40a59f138264fe74774b",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "commerce.orderTotals",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f652da852f49d588747c",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0121f9d1c4872a83918c",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "modules.capability.commerce.orders",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_21cb9916ce2f2fa30379",
+      "source": "customerAccess.policy.commerce.orders",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7d6bbd3051df1f3dd3cf",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "cmsUi.profile.commerce.payments",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0d077a438917f0132fe6",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "commerce.payment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e33e150582afa265eb12",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "commerce.paymentAuthorization",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4d266d2914e704e15b2d",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "commerce.paymentCapture",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_749af5bdd0fb6bb94efc",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "commerce.payments.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_53d410d7eb5fe2ba7f80",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "commerce.payments.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_39023cc1b465a7542ce6",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "commerce.payments.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_31fba3394e2ce49a3dbd",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "commerce.payments.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1b05b0a8fe45f92f806d",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "commerce.payments.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5ee84e6d7642d877a07a",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "commerce.payments.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d0e91b540a04efb5b459",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1b588c167c255908fc78",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "modules.capability.commerce.payments",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_00f43df9f31b6be2a804",
+      "source": "customerAccess.policy.commerce.payments",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3c488d052128ef1183c3",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "cmsUi.profile.commerce.products",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e7c9e8fca6908e589350",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.product",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fa5467ba1a5109a7ecc5",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.productPrice",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6234501d792add941df4",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a06cdd6731fd13bed1f6",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_889886a536164eafda35",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6443991c0fc05cf8ff8a",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_63c4d8c65203a1960c36",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_03db4f4a5448a41aa325",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_41bd6fd4a72ff49aa625",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cce1232c89c9f89bd62d",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dd4a46c0b73ee84efbbc",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e9aef6eaf1961f90cd12",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_091fdb16f3d968196e32",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e9a93f466808ad86683c",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.products.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_94d356b5972b54b57d62",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "commerce.productVariant",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_86ead6b57b4868299782",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bfa8766913d97506c71d",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "modules.capability.commerce.catalog",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8d32bb32a203e4d85b1f",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "modules.capability.commerce.variants",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d2e18eec0b6d35774e50",
+      "source": "customerAccess.policy.commerce.products",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bbe1a2cbb477f3726492",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "cmsUi.profile.commerce.refunds",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_66e3480669034ded7869",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "commerce.refund",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c1e670950f23bc64bc66",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "commerce.refunds.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0e0f103dcaf941aaf23b",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "commerce.refunds.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_024e66e908777b731c47",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "commerce.refunds.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b79b2c109558cafe30b2",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "commerce.refunds.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e6d20d9dec0f8a61d387",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "commerce.refunds.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e3649b9f59fb2c8dd5e1",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "commerce.refunds.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aefb1ddcd333d7a7ad15",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "commerce.refunds.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4f931b863095dc367b6d",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "commerce.refunds.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2376ccf79a7c55f46a0d",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ddc1b9df242e82e9396c",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "modules.capability.commerce.refunds",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_175fa40560f80ca8596e",
+      "source": "customerAccess.policy.commerce.refunds",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_de9ed6ba5b7b50a84fa3",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "cmsUi.profile.commerce.returns",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0f3f8736d9c06ccb705f",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "commerce.returnRequest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6c37942239c31272302f",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "commerce.returnResolution",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_79ca878bf43caad159bd",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "commerce.returns.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_961621e155ff6f2b8b58",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "commerce.returns.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_29ec0ad880e6647ca680",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "commerce.returns.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_164a789c31a54b5554fa",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "commerce.returns.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_feb537da770c3152fa79",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "commerce.returns.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_616026625b586ee0c6f3",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "commerce.returns.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_31e7be9238818137b6fa",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9d62629a34df0fa02cd5",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "modules.capability.commerce.catalog",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7193e7f0265a5ecec5d5",
+      "source": "customerAccess.policy.commerce.returns",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_140ffc24759d90309456",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "cmsUi.profile.commerce.reviews",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7faf7b09dd852c2a3411",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "commerce.productReview",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8f63f4e3058de13e9028",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "commerce.reviewModeration",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9ce42908cea43b8fda69",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "commerce.reviews.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bc3341e38fda6c1bbc67",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "commerce.reviews.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ecda7ab0dd2314513848",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "commerce.reviews.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fd2b8623997d778fa5f1",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "commerce.reviews.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1cb46506519fbd01b48f",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "commerce.reviews.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_661cff0d7daf353b8ca7",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "commerce.reviews.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_49bdad385c8d16a3846b",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "commerce.reviews.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_166e3d66adad0ea7c9cb",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "commerce.reviews.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_29ddaf99952985651b4c",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8d7cfd10baa253daaa6c",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "modules.capability.commerce.reviews",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_26e6fb4c9d6516debbe2",
+      "source": "customerAccess.policy.commerce.reviews",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e8fa754c73b949e51719",
+      "source": "customerAccess.policy.commerce.settings",
+      "target": "cmsUi.profile.commerce.settings",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_76682a76dd13763306d6",
+      "source": "customerAccess.policy.commerce.settings",
+      "target": "commerce.settings.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_efa5a7139e51f4ee0a62",
+      "source": "customerAccess.policy.commerce.settings",
+      "target": "commerce.settings.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_59f61a138691064769b3",
+      "source": "customerAccess.policy.commerce.settings",
+      "target": "commerce.settings.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a695a1ab9a1edc204f53",
+      "source": "customerAccess.policy.commerce.settings",
+      "target": "commerce.settings.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_eb4126ea13fff9a9fe74",
+      "source": "customerAccess.policy.commerce.settings",
+      "target": "commerce.settings.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5c18e5cfdc489cf15b7b",
+      "source": "customerAccess.policy.commerce.settings",
+      "target": "commerce.settings.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_61e61ecde4465bd7513e",
+      "source": "customerAccess.policy.commerce.settings",
+      "target": "commerce.storeSettings",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_51b02e007ad3088a33b6",
+      "source": "customerAccess.policy.commerce.settings",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c15d2b1083d4084093f1",
+      "source": "customerAccess.policy.commerce.settings",
+      "target": "modules.capability.commerce.catalog",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7be65e8d833867811a0c",
+      "source": "customerAccess.policy.commerce.settings",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_55c343f3c7da6c9c0de6",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "cmsUi.profile.commerce.shipping",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_839da48cce0dbfd70ed1",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shipping.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b45c724c9d667a9ecfe2",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shipping.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_21ecf38ed99571b5149d",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shipping.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1c8da5d9431715f3cbe2",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shipping.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_28f6faf29025d6866dc5",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shipping.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c9bc6a5958c204ddfd8f",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shipping.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cc321d04f40743edbbde",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shipping.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e3cb4af99b0e97a9bbe0",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shipping.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4a32e8ba743b416457b3",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shipping.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_05b0291b1953b8c0c889",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shipping.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_314543813ee98edf64d3",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shippingMethod",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f650682028359d826a63",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shippingRate",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_640eec448cfee6173c32",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "commerce.shippingZone",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e8719bcc19cb531e0b81",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_11d4f13e65ecc3142968",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "modules.capability.commerce.shipping",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e01d0b5c824f69abbedc",
+      "source": "customerAccess.policy.commerce.shipping",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c3326d20c82e64b8c93b",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "cmsUi.profile.commerce.taxes",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2f8820bebdc3d840fda9",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "commerce.taxClass",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6747793a40bce6e229e7",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "commerce.taxConfiguration",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d13e7ada276ae4e93c83",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "commerce.taxes.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_89397493216e2dcf11fe",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "commerce.taxes.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1cb9e28d8a36f80d9afe",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "commerce.taxes.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8125e0d51d6213f02919",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "commerce.taxes.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_57a2a836eb937b150ed4",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "commerce.taxes.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0aac15edb08ffadb6f6c",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "commerce.taxes.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b8cde6f60bf603e905ef",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "commerce.taxRate",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4e82a70a67b896658c4f",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cd3f881563cde475caf3",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "modules.capability.commerce.taxes",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1da866de7761573473d5",
+      "source": "customerAccess.policy.commerce.taxes",
+      "target": "modules.commerce",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_392ef74bcbde41564762",
+      "source": "customerAccess.policy.content.authors",
+      "target": "cmsUi.profile.content.authors",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c67c6374f13129e23e11",
+      "source": "customerAccess.policy.content.authors",
+      "target": "content.author",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0078e281e8bf5f131d7c",
+      "source": "customerAccess.policy.content.authors",
+      "target": "content.authors.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1a6054726bb574e9d440",
+      "source": "customerAccess.policy.content.authors",
+      "target": "content.authors.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2e1fb87ec1b021b8c36b",
+      "source": "customerAccess.policy.content.authors",
+      "target": "content.authors.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_43723d35875ef8cd1c8d",
+      "source": "customerAccess.policy.content.authors",
+      "target": "content.authors.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5d9a017eae65d725f758",
+      "source": "customerAccess.policy.content.authors",
+      "target": "content.authors.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c535fe86a70a2e906a95",
+      "source": "customerAccess.policy.content.authors",
+      "target": "content.authors.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e98a296b1e04d292dae6",
+      "source": "customerAccess.policy.content.authors",
+      "target": "content.authors.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_095e301e5bee8ca9c985",
+      "source": "customerAccess.policy.content.authors",
+      "target": "content.authors.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ef2537fb1e03e9cddbd6",
+      "source": "customerAccess.policy.content.authors",
+      "target": "content.authors.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5776350838ee78944c4d",
+      "source": "customerAccess.policy.content.authors",
+      "target": "content.authors.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7a6212236ab457d8505c",
+      "source": "customerAccess.policy.content.authors",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e77fd3357a08de5a7a37",
+      "source": "customerAccess.policy.content.authors",
+      "target": "modules.capability.pages.sections",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f16becb657bd7243ebd0",
+      "source": "customerAccess.policy.content.authors",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f02d6db8431144070438",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "cmsUi.profile.content.blogcategories",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a477c14c170435a67db5",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "content.blogcategories.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_736eb4789a409f929712",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "content.blogcategories.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cc07a19bdaa688f0e726",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "content.blogcategories.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b982866ceb42fc422bb0",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "content.blogcategories.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_063a27ba690072ee6128",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "content.blogcategories.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4e3204a548874d21f154",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "content.blogcategories.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f728bd45ee2e92c914b9",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "content.blogcategories.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ead1308e3c7070cb0349",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "content.blogcategories.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_524bd8e0acfcb1be0d41",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "content.blogcategories.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6d3146dcda71af6e159a",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "content.blogcategories.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e5a7881e4d7424e912b3",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "content.blogCategory",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a2ebe95bcec93f745c15",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_723381a97591d51436e8",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "modules.blog",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1796575d4021dc304a70",
+      "source": "customerAccess.policy.content.blogcategories",
+      "target": "modules.capability.blog.categories",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_25849a1820210731ebe0",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "api.customer-cms.create-blog-post",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_71f86e549ab3a6ef22b2",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "api.customer-cms.get-blog-post",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_eb4414e939276dd7d74c",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "api.customer-cms.list-blog-posts",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_739161061b101f4d5583",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "api.customer-cms.publish-blog-post",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8f022f5b7448ef765ed1",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "api.customer-cms.update-blog-post",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8579d48195f745ba6ee0",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "cmsUi.profile.content.blogposts",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ce905a1b07028d660f3e",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogPost",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_35f85c8ef7cbccca5fc6",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_80ff7e5fe079faa66339",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6f6539873d094afc5597",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_efd25dad13d939a84c8e",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_eb655634815f1575644f",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_25a3f81349bc961d3aae",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7fb2b5e828ac7e9a0cd9",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_570f24ed361dd494a5b6",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cab6703fcd3d0bb819dc",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a7e3c62e9fc5c15f2871",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_93b27ad46af4f0d54fa4",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_113097bfc80f3eb79023",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aaca9ab1e40a1306eb34",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "content.blogposts.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_eaa5845e1d79c28b042f",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d2fd5c4d374c77f53439",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "modules.blog",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_10620847cbf14545bf23",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "modules.capability.blog.approvals",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_85f1feeb4a0a960bb703",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "modules.capability.blog.related-posts",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_06b751b9497ac73e2c1b",
+      "source": "customerAccess.policy.content.blogposts",
+      "target": "modules.capability.blog.scheduling",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f4e6b0ceb9c5d3864a2b",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "cmsUi.profile.content.blogtags",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f153ea5c3db5d98541b2",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "content.blogTag",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3ede1edb3464c8f8d9c1",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "content.blogtags.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_df0356d669ede7515347",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "content.blogtags.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ced6a04215d78799701b",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "content.blogtags.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ba26adc713efaada5deb",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "content.blogtags.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dee7eeeb709f5305ca9d",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "content.blogtags.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1c5ca9410483ee5e1b9d",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "content.blogtags.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fc2a5bf165857fded9ac",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "content.blogtags.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b1bf511d216ead423c68",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "content.blogtags.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_84d7e7df5475303aaf1b",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "content.blogtags.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bbc6fb20aa8262e5c449",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "content.blogtags.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_21a62a5ebfcfd4ed391b",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_288a7589f2de8a5eab3a",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "modules.blog",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6bb028276018c2395ffd",
+      "source": "customerAccess.policy.content.blogtags",
+      "target": "modules.capability.blog.tags",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f782d960398e3ec85b3c",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "cmsUi.profile.content.customcollections",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_12c39980e24918e6d64e",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "content.customCollection",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9b13e3105b7cfe4092be",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "content.customcollections.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_df808073597336fe3bd4",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "content.customcollections.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_019691a087af94cc4623",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "content.customcollections.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6e76617c17cc823c795c",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "content.customcollections.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7d8e98e757e799dc376a",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "content.customcollections.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_71a4664b3448d938dd40",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "content.customcollections.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1a0f90c42e9b2a9adc45",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "content.customcollections.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9bf5a851539d7587a8ff",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "content.customcollections.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5350a1dc4aab31469331",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "content.customcollections.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9e555a2776904654073d",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "content.customcollections.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ab3a9bccda85cdcb3ead",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c4fe7473c890b17cb361",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "modules.capability.pages.custom-collections",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_eb042777aca02053b60f",
+      "source": "customerAccess.policy.content.customcollections",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3c328ccd7bf39811b0c3",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "api.customer-cms.create-custom-entry",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4e0e980323ef15237271",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "api.customer-cms.get-custom-entry",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ab2720c2939c4a886564",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "api.customer-cms.list-custom-entrys",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_83be19287282c91e0b98",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "api.customer-cms.publish-custom-entry",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8d094a9a90dafc57921a",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "api.customer-cms.update-custom-entry",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f71d34d1ef78d978d87e",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "cmsUi.profile.content.customentries",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_da41379a3be77570aa2b",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customCollectionEntry",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2745ad4e85e1e802ddea",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_33e350595605821b37d5",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_209f5ca398ff160e49f4",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d5a01332d580c6c9a5e9",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5b16d0ecde5c2363604a",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c3fe35b1c4bd5cf0544c",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e4e67582be0858919984",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a999203523c87a3d155d",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a21dbad08766654e5024",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_81f7b63d594560325688",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b40397d38acab60f1591",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_ea80a6d9f7273b9dffae",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_06ccaa22eed69f122be9",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "content.customentries.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3cded16d961bd30e1d24",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_038c23f89c7d876f4006",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "modules.capability.pages.custom-collections",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_785954269d56ae38a5b4",
+      "source": "customerAccess.policy.content.customentries",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_10afa5fe1cbe22d397c8",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "api.customer-cms.create-documentation",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2ff0e3d843a3ef399106",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "api.customer-cms.get-documentation",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d3687364660d76674b4e",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "api.customer-cms.list-documentations",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3d299069b5c1d501b5ba",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "api.customer-cms.publish-documentation",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_80b71d02c55e5a62d8e7",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "api.customer-cms.update-documentation",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c02a054e876744f7c652",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "cmsUi.profile.content.documentation",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e5219734a18d3aee08e1",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9df03c11254369a2113b",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_da2a9288798314e15573",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b75d1c869f2a34e46ecd",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c2d34e123e53542de39e",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_61ee23c83aa223a5c7f3",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2607edc676637966a3ca",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_120373feea69130f270c",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f3e0c61d4ba281ae17f4",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_291d44cab7507716b2b6",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_472fca79a7ba7aa96747",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_3fa188553e89979b75f9",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_be2dc5f2e025e9248b21",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentation.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_28ad833e959a93bc3005",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentationArticle",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aa333f57a7251ebf5a7c",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentationCategory",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fbba4e90de34ea50e761",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "content.documentationCollection",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c65b6f7b2a05b86d573e",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_eb458d392a803f41e74b",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "modules.capability.documentation.attachments",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4e15b8cc1b99f64b300e",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "modules.capability.documentation.categories",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b376905f2ee094f752b3",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "modules.capability.documentation.collections",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dc3067bfa1b3d6a4c442",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "modules.capability.documentation.related-articles",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4cb198094035b7847f8e",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "modules.capability.documentation.versioning",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6fbe6a12106f8433e628",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "modules.capability.documentation.visibility",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_529ae99e860f37126d7d",
+      "source": "customerAccess.policy.content.documentation",
+      "target": "modules.documentation",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_159a1d9af7c3f0f70823",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "cmsUi.profile.content.faqs",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a09dd6cd4f5d218a87a1",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faq",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b3beb3bde03193552744",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5128a3fa527c131854a5",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_41bc4761b9762b1441a3",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_098376b568a527cc08ce",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ccfed4375e5f759cf2ca",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_274070cf46cfe31dd0f9",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ece1a574d35346bb887a",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4e82db1f49ee4a14c13c",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_54ad4b5cfc134fff3558",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5fcc40699d49c9d5bfdf",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_68decc0589161dcb6aa1",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_65551de84792320fb1d6",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9cbd3738d77ceeaefd5d",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "content.faqs.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_661c37eb4caaf5a3cc51",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a94805c3b08b016e6dea",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "modules.capability.pages.sections",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_883dedfd54e6d3fb2b69",
+      "source": "customerAccess.policy.content.faqs",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d4333303ad1a2018b175",
+      "source": "customerAccess.policy.content.legal",
+      "target": "api.customer-cms.cancel-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_77581ff04bec402775ea",
+      "source": "customerAccess.policy.content.legal",
+      "target": "api.customer-cms.submit-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_948956dcb9bedb2144a1",
+      "source": "customerAccess.policy.content.legal",
+      "target": "cmsUi.profile.content.legal",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_45392fda8b35ba1e7e38",
+      "source": "customerAccess.policy.content.legal",
+      "target": "content.legal.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b3cb6b225a5e188d2741",
+      "source": "customerAccess.policy.content.legal",
+      "target": "content.legal.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fffc5f17fa7d6206898a",
+      "source": "customerAccess.policy.content.legal",
+      "target": "content.legal.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_383c3b52846f3195b9e0",
+      "source": "customerAccess.policy.content.legal",
+      "target": "content.legal.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3bce87fd10ae17ef8a0e",
+      "source": "customerAccess.policy.content.legal",
+      "target": "content.legal.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_c10ca01c439e383b603f",
+      "source": "customerAccess.policy.content.legal",
+      "target": "content.legal.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aca686f036a54c42cc6a",
+      "source": "customerAccess.policy.content.legal",
+      "target": "content.legal.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ef6a1ab5d7995c68e6f8",
+      "source": "customerAccess.policy.content.legal",
+      "target": "content.legalPage",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b0b5d12a5e7fc3a468bc",
+      "source": "customerAccess.policy.content.legal",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8225251b8c8636de83d5",
+      "source": "customerAccess.policy.content.legal",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d77c961be87e47925d24",
+      "source": "customerAccess.policy.content.legal",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a893884880115916fb7f",
+      "source": "customerAccess.policy.content.legal",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_84a243e234d149bb5d24",
+      "source": "customerAccess.policy.content.legal",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f1ed9b41010632eeb8eb",
+      "source": "customerAccess.policy.content.legal",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_800b7a01223498fb6a4b",
+      "source": "customerAccess.policy.content.legal",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4a8b786fed7c35107752",
+      "source": "customerAccess.policy.content.legal",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f22f6dd03df45a2f0b74",
+      "source": "customerAccess.policy.content.legal",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c22d8b1bdf6047dae2f7",
+      "source": "customerAccess.policy.content.legal",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f4b57437fb759e1c2eac",
+      "source": "customerAccess.policy.content.legal",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aae17a532f583fe57331",
+      "source": "customerAccess.policy.content.legal",
+      "target": "modules.capability.pages.legal-pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ef8bcbc8019e13d0634c",
+      "source": "customerAccess.policy.content.legal",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f5be959d9ddf0f504b6c",
+      "source": "customerAccess.policy.content.locations",
+      "target": "cmsUi.profile.content.locations",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7954f22421601b0cac86",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.location",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0d27db71e2f47b9581db",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aaf4f0e9d965fff0d888",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_20943300f503d43bffd0",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a9916c83cd529d06f2ef",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b5aab5ea8b948c57ba13",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0dbc251abe84bd1a8bf9",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3f8621d3f941f833ad2b",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1bcd9b0db84a2bffae1a",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_882512a2b2240b969c52",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2360797cc4a2a4e4d0b4",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2cc7a6a9a81a3a73a7df",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_7b9939ff0c9b41107716",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8fb8a75f26c00bc952bd",
+      "source": "customerAccess.policy.content.locations",
+      "target": "content.locations.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f861f18dbf45e3b1948f",
+      "source": "customerAccess.policy.content.locations",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b85c2daff3647e6ea02f",
+      "source": "customerAccess.policy.content.locations",
+      "target": "modules.capability.pages.sections",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2e03705321289267f255",
+      "source": "customerAccess.policy.content.locations",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_14e0dc373114ac6a4c3f",
+      "source": "customerAccess.policy.content.media",
+      "target": "api.customer-cms.begin-media-upload",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2a828eca80caf8b444a6",
+      "source": "customerAccess.policy.content.media",
+      "target": "api.customer-cms.complete-media-upload",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2880c80be55b5c5a8344",
+      "source": "customerAccess.policy.content.media",
+      "target": "api.customer-cms.delete-media",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_920f0812ec4b4e88e832",
+      "source": "customerAccess.policy.content.media",
+      "target": "api.customer-cms.list-media",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d560b93ce40837ca6991",
+      "source": "customerAccess.policy.content.media",
+      "target": "cmsUi.profile.content.media",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0325c0751d3486fc5afe",
+      "source": "customerAccess.policy.content.media",
+      "target": "content.media.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_461adbd2901a7892048e",
+      "source": "customerAccess.policy.content.media",
+      "target": "content.media.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dd39fb5e80551100849d",
+      "source": "customerAccess.policy.content.media",
+      "target": "content.media.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_049b63b6cabd9f9dfb69",
+      "source": "customerAccess.policy.content.media",
+      "target": "content.media.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_245961681f4a8801f2a9",
+      "source": "customerAccess.policy.content.media",
+      "target": "content.media.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e5215b05700d80331fd6",
+      "source": "customerAccess.policy.content.media",
+      "target": "content.media.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8504ec5132bcb2426ee6",
+      "source": "customerAccess.policy.content.media",
+      "target": "content.media.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_82cd2a62849724956cc1",
+      "source": "customerAccess.policy.content.media",
+      "target": "content.media.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ddcceff31d3411f4b3bb",
+      "source": "customerAccess.policy.content.media",
+      "target": "content.media.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7bc1040cb1b417f8405f",
+      "source": "customerAccess.policy.content.media",
+      "target": "content.media.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ce41e7e1b769973dddb5",
+      "source": "customerAccess.policy.content.media",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6617488f8cc41025282b",
+      "source": "customerAccess.policy.content.media",
+      "target": "modules.capability.media.audio",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bd3410f17662d5cff17d",
+      "source": "customerAccess.policy.content.media",
+      "target": "modules.capability.media.documents",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_795f44a259f4c1bfa450",
+      "source": "customerAccess.policy.content.media",
+      "target": "modules.capability.media.images",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d92a5f2ddf02472a35e3",
+      "source": "customerAccess.policy.content.media",
+      "target": "modules.capability.media.library",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e9ae1eea651a8e483d06",
+      "source": "customerAccess.policy.content.media",
+      "target": "modules.capability.media.video",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2639d60a81a6f6a041ae",
+      "source": "customerAccess.policy.content.media",
+      "target": "modules.media",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cfc2c7bc3d0bb6e26393",
+      "source": "customerAccess.policy.content.media",
+      "target": "shared.mediaAsset",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b0513b3288c8b6e75e65",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "api.customer-cms.cancel-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d3bbff903ce375f7feb3",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "api.customer-cms.submit-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_493a6107942099971808",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "cmsUi.profile.content.navigation",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_94c9e3810e1b73902f79",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "content.navigation",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a2affd219139853a1c5c",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "content.navigation.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_782c2f8a288fae232e2a",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "content.navigation.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_baf6dc6acb57d57cfc2a",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "content.navigation.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9a8b3cd1b38829ede172",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "content.navigation.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ce8192d1319fc0ba602b",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "content.navigation.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0f1e8947e708851b2691",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "content.navigation.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_59c65fc7402ec1e24fb3",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "content.navigation.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_14a9a2e5fa57cdf08be6",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "content.navigation.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2441bc35cd9d463c5640",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "content.navigation.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_483b204eb63728492047",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "content.navigationItem",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f6d457be287af313e5b0",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9e91dad8a58b8427caf7",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5fa963a4153de964d13b",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_758fe84ecf04172afb13",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9fcaf942792fd1ddd61c",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aa2353624b0fa6ac406c",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4c60ae03528df8bb9cb4",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5f5cd4104175a5339885",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_69baef7e7e969ff6a4fb",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f6d4c1e7c67ddf4c41d5",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_692fcc82594482aee394",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8cf7ccf74ee62b4a7f49",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "modules.capability.pages.navigation",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2f16b8ea67159c83c8fe",
+      "source": "customerAccess.policy.content.navigation",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6968d1973a4088c76953",
+      "source": "customerAccess.policy.content.pages",
+      "target": "api.customer-cms.cancel-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4ed84904b6620c1354a5",
+      "source": "customerAccess.policy.content.pages",
+      "target": "api.customer-cms.create-page",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4c405c4005446a368f4f",
+      "source": "customerAccess.policy.content.pages",
+      "target": "api.customer-cms.get-page",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4887807ce3fa5cd1b224",
+      "source": "customerAccess.policy.content.pages",
+      "target": "api.customer-cms.list-pages",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_af94a402b87f5aafb9ca",
+      "source": "customerAccess.policy.content.pages",
+      "target": "api.customer-cms.publish-page",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_42f189243481ba0179d6",
+      "source": "customerAccess.policy.content.pages",
+      "target": "api.customer-cms.submit-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1d38fb6b8fadb280ca46",
+      "source": "customerAccess.policy.content.pages",
+      "target": "api.customer-cms.update-page",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6f0cc4118e60a94ae330",
+      "source": "customerAccess.policy.content.pages",
+      "target": "cmsUi.profile.content.pages",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_77f2ec305198f122ca66",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.page",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a53702c775d923f50783",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pages.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cf253ba4b2a18193f437",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pages.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6f9ce060060c9d1e1dd8",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pages.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ee668581ba3653bb3324",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pages.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2f4abdc52371eaa8bdcc",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pages.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_03bd769d18927ba37e71",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pages.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c4652be22379b3311e60",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pages.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a8dc9adf0f6995540aa6",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pages.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b922d3e60f0078b3f181",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pages.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_f56e14e1d4f13ab46615",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pages.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3fc7b5d7b47190ab3d6e",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pages.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d4f8f641cab60875cc9a",
+      "source": "customerAccess.policy.content.pages",
+      "target": "content.pageSection",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b8f213da01d0c2bb4601",
+      "source": "customerAccess.policy.content.pages",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_117a28ae6ccdce02898c",
+      "source": "customerAccess.policy.content.pages",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7e7dfbdd81f18ef43232",
+      "source": "customerAccess.policy.content.pages",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3bc1160aab17721a7cdb",
+      "source": "customerAccess.policy.content.pages",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3cb5d756bc8a43324eb7",
+      "source": "customerAccess.policy.content.pages",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4602d0c34ad1d2bba3e2",
+      "source": "customerAccess.policy.content.pages",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_885d0e6d0c92e8a61333",
+      "source": "customerAccess.policy.content.pages",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3d3751ac146195c122a0",
+      "source": "customerAccess.policy.content.pages",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1256cd5b08772112170d",
+      "source": "customerAccess.policy.content.pages",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2a740d066b0bdf200acc",
+      "source": "customerAccess.policy.content.pages",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0b30c1134b503f2fb1ae",
+      "source": "customerAccess.policy.content.pages",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4b7190be6d092ef1b2f9",
+      "source": "customerAccess.policy.content.pages",
+      "target": "modules.capability.pages.sections",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9eafd3d50430a54cf3ac",
+      "source": "customerAccess.policy.content.pages",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b116729ef15a2c017397",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "cmsUi.profile.content.reusablecontent",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d821b383cbdef5c4cee5",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusableContent",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_44b8a48f093d2413caa4",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dbdc9edc2ba83710f166",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5dd3a1801a4dd52313e5",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_deef573cf0743854c527",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_71070da481ba4323ac89",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_93ade9ac9fbe1eb927c2",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2c7bd6d3d0abef5a36d0",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f7f03c96ab69beb98ed3",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6797b1bfe727e2b3d584",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e9b184f56ca8f1bf5cd7",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7cfd0cd46137d4784075",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_768eed6213557c4af5a2",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e5a97d9fa9482b096242",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "content.reusablecontent.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9d691e54e17c24c25717",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b421bfa771143c00cbb0",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "modules.capability.pages.reusable-content",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8d6a517a2fdea66335b1",
+      "source": "customerAccess.policy.content.reusablecontent",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cbdd1209ef7728778249",
+      "source": "customerAccess.policy.content.services",
+      "target": "cmsUi.profile.content.services",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3ac71b1d9948410181cd",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.service",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b6eb27943a994d5011d9",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dcc60074797c5c922352",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_402686d1083de8fed32e",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_77ca37ce9fe2177a8271",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2c15673fe26008073710",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ce900defe73f2c72f3e0",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2e2875d0ccb80fa35ffa",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_05af5d15347b5ff83d9c",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_936328c44007ec0dcb70",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_57a5c83dde2b09c7bb92",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2da23c0644acad3a9834",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_8fedd2c955e72de48d1e",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f2482c50ecb398954b84",
+      "source": "customerAccess.policy.content.services",
+      "target": "content.services.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b75d7746c6c4889c0156",
+      "source": "customerAccess.policy.content.services",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9946c3f9a40a97b0120c",
+      "source": "customerAccess.policy.content.services",
+      "target": "modules.capability.pages.sections",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8814a7289df6ce89be98",
+      "source": "customerAccess.policy.content.services",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_df6da47e529ab933e001",
+      "source": "customerAccess.policy.content.team",
+      "target": "cmsUi.profile.content.team",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_69a002e8e1d7a0f81837",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_385ac959d8b4ad04243c",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_94f35174337f318c81cf",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9d10b31998e66bd3c8e1",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0e8a617e5ee39b032917",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_285ebd5bf02a2e73beea",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_48394c1057aec30c2477",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fa24cb76d2e800d509c3",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_95ad45564aaf48a17ffd",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dc55bb7e26fccbd54690",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a1c4b20f8d41a7cc3ec0",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_022726a93ab296783752",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6e9f3056ba911c71eeea",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.team.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0450683b22a82db972ca",
+      "source": "customerAccess.policy.content.team",
+      "target": "content.teamMember",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_66658246f5f75b5580e6",
+      "source": "customerAccess.policy.content.team",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_56b872eb7c5d9b1949c8",
+      "source": "customerAccess.policy.content.team",
+      "target": "modules.capability.pages.sections",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1b9769c252400a345159",
+      "source": "customerAccess.policy.content.team",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fcce395d12c7495ad11e",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "cmsUi.profile.content.testimonials",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_21ce5a48bd7e71633e3d",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonial",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7bbae8857945fb55b3e0",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_31b92fb42cecfee5cfe6",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3b183e2916679cf8ecab",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_68bcfc34e99920639267",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_04ed4337af37e4925a85",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_26015402cb8cca996cb1",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4bfa2e9e9e241fe5f34a",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4721c52de537a3230bdd",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_73c666fc5b794931e421",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3a0889792e7c272cfefe",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a45f99694636e5a257e7",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_573246b3f39c93f5d321",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_eab48241870cdaff2f54",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "content.testimonials.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ec3a9cf29f07c42b96fc",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7cea094424081388b28e",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "modules.capability.pages.sections",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_afe214fb8b0c362a89e8",
+      "source": "customerAccess.policy.content.testimonials",
+      "target": "modules.pages",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d81f8ede5eb07e520213",
+      "source": "customerAccess.policy.core.audit",
+      "target": "cmsUi.profile.core.audit",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_33b7504bb74b48e12161",
+      "source": "customerAccess.policy.core.audit",
+      "target": "core.audit.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4ed7f97b289590a8ed73",
+      "source": "customerAccess.policy.core.audit",
+      "target": "core.audit.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2766842e9ce862144826",
+      "source": "customerAccess.policy.core.audit",
+      "target": "core.audit.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0ac6335fe447943a7b08",
+      "source": "customerAccess.policy.core.audit",
+      "target": "core.audit.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_221642dcfe2be51432cf",
+      "source": "customerAccess.policy.core.audit",
+      "target": "core.auditRecord",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7c4b4ee0a86cf257967c",
+      "source": "customerAccess.policy.core.audit",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3bc7919a370ad94de83b",
+      "source": "customerAccess.policy.core.audit",
+      "target": "modules.capability.core.audit",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_823c2d76c8803ca200d4",
+      "source": "customerAccess.policy.core.audit",
+      "target": "modules.core",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_36da08fb1541c1c3288b",
+      "source": "customerAccess.policy.core.members",
+      "target": "cmsUi.profile.core.members",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_850301c4abdfb79ad18d",
+      "source": "customerAccess.policy.core.members",
+      "target": "core.members.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e831c69e533f5c879b75",
+      "source": "customerAccess.policy.core.members",
+      "target": "core.members.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b1fe8457d2276418910a",
+      "source": "customerAccess.policy.core.members",
+      "target": "core.members.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fa78789dd5f40851753e",
+      "source": "customerAccess.policy.core.members",
+      "target": "core.members.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1b81ba992e4e88328cec",
+      "source": "customerAccess.policy.core.members",
+      "target": "core.members.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6c0aed9f6fa9ec19183c",
+      "source": "customerAccess.policy.core.members",
+      "target": "core.members.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5c801421c4838325f608",
+      "source": "customerAccess.policy.core.members",
+      "target": "core.members.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e73c8d7fdc7c44288dfa",
+      "source": "customerAccess.policy.core.members",
+      "target": "core.members.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ef2cf1a78fdf5a509b86",
+      "source": "customerAccess.policy.core.members",
+      "target": "core.members.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_86ebff0b3e20db9f2775",
+      "source": "customerAccess.policy.core.members",
+      "target": "core.members.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bca4ec2aaa8c98328a93",
+      "source": "customerAccess.policy.core.members",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dc8c4bb6ff348be6ed0c",
+      "source": "customerAccess.policy.core.members",
+      "target": "modules.capability.core.identity",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f9b52a9486fea1adb800",
+      "source": "customerAccess.policy.core.members",
+      "target": "modules.core",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4e006744c80956633ee0",
+      "source": "customerAccess.policy.core.members",
+      "target": "permissions.roleAssignment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9a47272986e0dc846526",
+      "source": "customerAccess.policy.core.members",
+      "target": "permissions.roleDefinition",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bfae0691ee59298776fe",
+      "source": "customerAccess.policy.core.settings",
+      "target": "api.customer-cms.get-workspace",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a9b7fc2de2cdd211fee5",
+      "source": "customerAccess.policy.core.settings",
+      "target": "cmsUi.profile.core.settings",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e5d370866fa7ee849599",
+      "source": "customerAccess.policy.core.settings",
+      "target": "core.settings.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b23788b100c528dcde27",
+      "source": "customerAccess.policy.core.settings",
+      "target": "core.settings.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_889257c11a119e084e64",
+      "source": "customerAccess.policy.core.settings",
+      "target": "core.settings.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5b39ef42059a1ce76a4a",
+      "source": "customerAccess.policy.core.settings",
+      "target": "core.settings.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_02a6d0bc8dddc95565b3",
+      "source": "customerAccess.policy.core.settings",
+      "target": "core.settings.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c3ef30ab5d153e920216",
+      "source": "customerAccess.policy.core.settings",
+      "target": "core.settings.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_95cf3ba1809f6634d879",
+      "source": "customerAccess.policy.core.settings",
+      "target": "core.site",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d681cb9895b3ea04d76a",
+      "source": "customerAccess.policy.core.settings",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_95324416521d8ea452fd",
+      "source": "customerAccess.policy.core.settings",
+      "target": "modules.capability.core.identity",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_580654c19a6fe89e2462",
+      "source": "customerAccess.policy.core.settings",
+      "target": "modules.core",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a611c0bef521a8a5819c",
+      "source": "customerAccess.policy.core.settings",
+      "target": "shared.address",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c0f865587b9bb1fd274f",
+      "source": "customerAccess.policy.core.settings",
+      "target": "shared.contactPoint",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4759e26973cc08cec47b",
+      "source": "customerAccess.policy.core.sitehealth",
+      "target": "api.customer-cms.get-workspace",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c204e44e634c1c4ce93a",
+      "source": "customerAccess.policy.core.sitehealth",
+      "target": "cmsUi.profile.core.sitehealth",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_97d53ca8c7e057f45773",
+      "source": "customerAccess.policy.core.sitehealth",
+      "target": "core.site",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9719e41d01e4221210c2",
+      "source": "customerAccess.policy.core.sitehealth",
+      "target": "core.sitehealth.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d21e52f42c510a5f1b5f",
+      "source": "customerAccess.policy.core.sitehealth",
+      "target": "core.sitehealth.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_687520a68e266ad3bba9",
+      "source": "customerAccess.policy.core.sitehealth",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0c1b5f6f960c1c9ab8c2",
+      "source": "customerAccess.policy.core.sitehealth",
+      "target": "modules.capability.core.identity",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9d02e44b224f3bd0164e",
+      "source": "customerAccess.policy.core.sitehealth",
+      "target": "modules.core",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_34ff467e5bf033f093ef",
+      "source": "customerAccess.policy.core.workspace",
+      "target": "api.customer-cms.get-workspace",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4d2cfb1522cbe265e7f5",
+      "source": "customerAccess.policy.core.workspace",
+      "target": "cmsUi.profile.core.workspace",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_28790132309cef7e58b9",
+      "source": "customerAccess.policy.core.workspace",
+      "target": "core.site",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0e8dc237111529f7e802",
+      "source": "customerAccess.policy.core.workspace",
+      "target": "core.workspace.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b4ae8228d15c07882524",
+      "source": "customerAccess.policy.core.workspace",
+      "target": "core.workspace.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f3f8e6be79dbb88128c4",
+      "source": "customerAccess.policy.core.workspace",
+      "target": "core.workspace.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e5c542df1f627244bf26",
+      "source": "customerAccess.policy.core.workspace",
+      "target": "core.workspace.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8b780acad03d31ec99e8",
+      "source": "customerAccess.policy.core.workspace",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0500082ab21bd1f9fc96",
+      "source": "customerAccess.policy.core.workspace",
+      "target": "modules.capability.core.identity",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f8df8cb1917fbb65cb98",
+      "source": "customerAccess.policy.core.workspace",
+      "target": "modules.core",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_746dcd7fd1d4f3f63972",
+      "source": "customerAccess.policy.customerWorkspaceShell",
+      "target": "api.customer-cms.get-workspace",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6ea77169ec75c72e9fc8",
+      "source": "customerAccess.policy.customerWorkspaceShell",
+      "target": "cmsUi.profile.customerWorkspaceShell",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ccc126f1bbb40c79d158",
+      "source": "customerAccess.policy.customerWorkspaceShell",
+      "target": "core.site",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f34307a027553dc904ef",
+      "source": "customerAccess.policy.customerWorkspaceShell",
+      "target": "core.workspace.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_da658fc962be78c5ffd7",
+      "source": "customerAccess.policy.customerWorkspaceShell",
+      "target": "core.workspace.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4617e53fd0f7e8eece27",
+      "source": "customerAccess.policy.customerWorkspaceShell",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6338dce877eb17f7cb64",
+      "source": "customerAccess.policy.customerWorkspaceShell",
+      "target": "modules.capability.core.identity",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2abd795d437d370cfcc6",
+      "source": "customerAccess.policy.customerWorkspaceShell",
+      "target": "modules.core",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8d131e441d15e06b2fec",
+      "source": "customerAccess.policy.customerWorkspaceShell",
+      "target": "modules.core",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cb8a30bdaa99730c160a",
+      "source": "customerAccess.policy.forms.consent",
+      "target": "cmsUi.profile.forms.consent",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6086a4bcfd4fbb4fbf65",
+      "source": "customerAccess.policy.forms.consent",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_91a4f478562f8f262d41",
+      "source": "customerAccess.policy.forms.consent",
+      "target": "forms.consent.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_988b313adead55d213d1",
+      "source": "customerAccess.policy.forms.consent",
+      "target": "forms.consent.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_76a3ac534c807e4ffddb",
+      "source": "customerAccess.policy.forms.consent",
+      "target": "forms.consent.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4943a9ee7baf3c4f1f86",
+      "source": "customerAccess.policy.forms.consent",
+      "target": "forms.consent.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aa3c8682f1237bec0678",
+      "source": "customerAccess.policy.forms.consent",
+      "target": "forms.consentRecord",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fff4e72640525534c460",
+      "source": "customerAccess.policy.forms.consent",
+      "target": "modules.capability.forms.consent-fields",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b021e8520514629f518d",
+      "source": "customerAccess.policy.forms.consent",
+      "target": "modules.forms",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5a15b763d3d2cd5b35ad",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "api.customer-cms.create-form",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1a7ef0baf8e3aff64e1c",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "api.customer-cms.get-form",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_45456cdf2c7de9376fdb",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "api.customer-cms.list-forms",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e823f3ae6aa736201eb0",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "api.customer-cms.update-form",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_771e68a8616f887663f6",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "cmsUi.profile.forms.forms",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cb8f6fedbe12e9f85a6e",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ab82de5d44073b0031b8",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.form",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a865633be20f4d288bd9",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.formField",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d9b2f0e81572ff4dc518",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ce7a245fbf0d25674c48",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b94fffba011326bcc9b7",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_983a5f61bde88bc9fc90",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4f73b17e0a82ef642379",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a2774657b8e384ea21ee",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ef492d0b7e9fdc99493d",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_05960cdad2fa0afd9998",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2e5e2fb37ed725158e86",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a52a970919dacae5099f",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_13b70fe0fd7978195586",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ef92d87edc018574d968",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.forms.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a2db22b5b03db31840df",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.formSection",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_077eb3db750c4571e76f",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "forms.formStep",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d7c955bd6b7d87898467",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "modules.capability.forms.notifications",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_78fd316de2e3f16bf961",
+      "source": "customerAccess.policy.forms.forms",
+      "target": "modules.forms",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d23abd3082c120603645",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "api.customer-cms.get-lead",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_987479de23938117e7e2",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "api.customer-cms.list-leads",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_393dd00efc7c7a579c9c",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "api.customer-cms.update-lead",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fd26c9bb02cb4e2e20c8",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "cmsUi.profile.forms.leads",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d547e7f860de2a7667ef",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9f58f2a338ab3a6707ce",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.lead",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ff1cc01a6fd544a581ce",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leadActivity",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_de04b8221230af71d648",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leadNote",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2d51a53eb0b20338b1bf",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c376f779ff2bd6665a8d",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_896dfcce6237ed4ed33a",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9f8a2f284bcf66a5215e",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_266878a2cfb4fa7fa884",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9a8251d1118afb1f09e8",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_18037c6b44c15f7964d6",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6cc9dd9a40f710e7fa13",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6550602ab6a717aaf202",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bc176a856256106c5eb7",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c64efe2d2b6fdd8b20ac",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_44cbb7f911584638e1ff",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "forms.leads.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f01c73c1897d8ad5b8ac",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "modules.capability.leads.activity",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8a545a87f335b256a542",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "modules.capability.leads.export",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_508372be04e1f9725d77",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "modules.capability.leads.notes",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_619ee321d960d813b017",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "modules.capability.leads.status",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_71d28c91e3ce1f7bbf1e",
+      "source": "customerAccess.policy.forms.leads",
+      "target": "modules.leads",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9bd5fa93947a2861fb7c",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "cmsUi.profile.forms.notifications",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b72a156cfc27d672b2f1",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6a537112f2bc72fc0c5b",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "forms.autoResponse",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_005cc011ef72ff00488f",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "forms.notificationRule",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8199b7a4eba5f92d883e",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "forms.notifications.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8c6550df1308eb87711e",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "forms.notifications.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a5fce215d21a1897919c",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "forms.notifications.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_28ef7464765e25c4cc23",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "forms.notifications.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0bcf951ba245da05b2cc",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "forms.notifications.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_98115aa1551d2ef141d7",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "forms.notifications.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e2f06c34096f43514679",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "modules.capability.forms.auto-response",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7dc644a13d8bc5d1c0db",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "modules.capability.forms.notifications",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4d3ead65bbfa4e8c8c76",
+      "source": "customerAccess.policy.forms.notifications",
+      "target": "modules.forms",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aff9a219fda8782faa12",
+      "source": "customerAccess.policy.forms.spam",
+      "target": "cmsUi.profile.forms.spam",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e1213a861a5980420d64",
+      "source": "customerAccess.policy.forms.spam",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7cb5462fdcfb22a90d19",
+      "source": "customerAccess.policy.forms.spam",
+      "target": "forms.spam.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5bbe2e0d80c97967f3e1",
+      "source": "customerAccess.policy.forms.spam",
+      "target": "forms.spam.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f8b0a627126701d172e6",
+      "source": "customerAccess.policy.forms.spam",
+      "target": "forms.spam.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f226f0cc81517c9dec06",
+      "source": "customerAccess.policy.forms.spam",
+      "target": "forms.spam.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_93f117141ce1c026178d",
+      "source": "customerAccess.policy.forms.spam",
+      "target": "forms.spamDecision",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_002857d576420700c9b5",
+      "source": "customerAccess.policy.forms.spam",
+      "target": "forms.spamPolicy",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_944bbeaf513b3fd260e6",
+      "source": "customerAccess.policy.forms.spam",
+      "target": "modules.capability.forms.spam-protection",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3b3a92beb6198be710ef",
+      "source": "customerAccess.policy.forms.spam",
+      "target": "modules.forms",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_be2b99322defc9e1dde0",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "api.customer-cms.get-submission",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c412a06712052fb4eb94",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "api.customer-cms.list-submissions",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f784da306201f7ff8b86",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "cmsUi.profile.forms.submissions",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2c99f7eb81ce9e5c45bd",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5ae17527c1ab1d716466",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "forms.submission",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d4f0ac45ca2955c75f50",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "forms.submissionFile",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cde5c66cccf683809e29",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "forms.submissions.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ac968daa7ef537c7dae2",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "forms.submissions.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_93595529b596a8e83db0",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "forms.submissions.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7c3e2c9dd9cf28145586",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "forms.submissions.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2389218dc1c4e953baa1",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "forms.submissions.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_49f71ceeec16b151b05a",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "forms.submissions.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_45cc32db922b2afffd63",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "forms.submissions.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3e71e7a63211cb761d8b",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "forms.submissions.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f5e32e6caefe0820e812",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "forms.submissionValue",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3f7a934c3aa311c501f6",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "modules.capability.forms.file-uploads",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6d53287d139eef0bc211",
+      "source": "customerAccess.policy.forms.submissions",
+      "target": "modules.forms",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_966aa0dea1cf616f4526",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "cmsUi.profile.integrations.connections",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b44cb25e29766cac9896",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_504150ad8893a472da32",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.connections.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_744ea488f5f40dafa2b2",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.connections.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7e67c3e244ec4f902aa2",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.connections.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2ef3c0e2e99bf0f70447",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.connections.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d2eb9e1744d8bc7f6ff4",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.connections.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_51c71984bbb1a5dfa7ba",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.connections.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b9222e9f7bc37a0281fb",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.connections.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_27700d03b5681fe1977b",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.connections.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b390715f8a769891dc0e",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.connections.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1ee4a67b1ab3b69a49a7",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.connections.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9820cdbcddb4f39bef5e",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.connectorDefinition",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5b0e8a4f1243574bdd2e",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "integrations.integrationConnection",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ed51a593230d862d0d1f",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "modules.capability.integrations.health",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c72c44f74a5bc015de13",
+      "source": "customerAccess.policy.integrations.connections",
+      "target": "modules.integrations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d802925fbe8a15bf6b51",
+      "source": "customerAccess.policy.integrations.credentials",
+      "target": "cmsUi.profile.integrations.credentials",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1e0c5b6b9b0052bb4c45",
+      "source": "customerAccess.policy.integrations.credentials",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8a26255474b8df9197e9",
+      "source": "customerAccess.policy.integrations.credentials",
+      "target": "integrations.credentialReference",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_79cd41666803b2648c07",
+      "source": "customerAccess.policy.integrations.credentials",
+      "target": "integrations.credentials.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_edff279752155e1829dd",
+      "source": "customerAccess.policy.integrations.credentials",
+      "target": "integrations.credentials.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8580f38309072278feec",
+      "source": "customerAccess.policy.integrations.credentials",
+      "target": "integrations.credentials.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ea841fc02c8f15e76186",
+      "source": "customerAccess.policy.integrations.credentials",
+      "target": "integrations.credentials.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_454669bea9c3900ef9ea",
+      "source": "customerAccess.policy.integrations.credentials",
+      "target": "modules.capability.integrations.health",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_258b13cc916c8d2f0347",
+      "source": "customerAccess.policy.integrations.credentials",
+      "target": "modules.integrations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a5850ae3af1d6f8bebda",
+      "source": "customerAccess.policy.integrations.health",
+      "target": "cmsUi.profile.integrations.health",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9e6d1218fbe176bad137",
+      "source": "customerAccess.policy.integrations.health",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_917646c24931bbf661ae",
+      "source": "customerAccess.policy.integrations.health",
+      "target": "integrations.connectionTest",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1bc22f7174949d4adf49",
+      "source": "customerAccess.policy.integrations.health",
+      "target": "integrations.health.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9f747699e7a0c71fcc22",
+      "source": "customerAccess.policy.integrations.health",
+      "target": "integrations.health.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_884c148fc5f909ec1160",
+      "source": "customerAccess.policy.integrations.health",
+      "target": "integrations.healthSnapshot",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_87ee5aa861c9a3fe7aaf",
+      "source": "customerAccess.policy.integrations.health",
+      "target": "modules.capability.integrations.health",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bade82b0e06b75d80a88",
+      "source": "customerAccess.policy.integrations.health",
+      "target": "modules.integrations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_07b723fece6c79efdb10",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "cmsUi.profile.integrations.mappings",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_abb55020b2647b23094e",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3f1883d7a9b21de322a1",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "integrations.conversionMapping",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_744acb8ad2edd124cca1",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "integrations.dataMapping",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b228cf6064cbc18d3f44",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "integrations.eventMapping",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ee37561f6539ccf3f016",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "integrations.mappings.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5dc6c8fd1b30b86b2615",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "integrations.mappings.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_11a894005b3809bbfe96",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "integrations.mappings.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2a6341a3a078c93e783a",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "integrations.mappings.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d921b5c7c4c21f86dde3",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "integrations.mappings.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_80b204e5dbeeffdedaab",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "integrations.mappings.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_09d1438769191a4633c2",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "modules.capability.integrations.health",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f1dbfd2317cfd96bea23",
+      "source": "customerAccess.policy.integrations.mappings",
+      "target": "modules.integrations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bf5420c4e3f7103f4362",
+      "source": "customerAccess.policy.integrations.sync",
+      "target": "cmsUi.profile.integrations.sync",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_808c1433537f89bf4f2a",
+      "source": "customerAccess.policy.integrations.sync",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_af7a8670bee96a42a805",
+      "source": "customerAccess.policy.integrations.sync",
+      "target": "integrations.sync.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_deb15ce0c33b8c337db8",
+      "source": "customerAccess.policy.integrations.sync",
+      "target": "integrations.sync.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7afd6f21c14bd5bbdfd3",
+      "source": "customerAccess.policy.integrations.sync",
+      "target": "integrations.sync.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c61b02de0eaa88fb1248",
+      "source": "customerAccess.policy.integrations.sync",
+      "target": "integrations.sync.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2205ccae73686208e800",
+      "source": "customerAccess.policy.integrations.sync",
+      "target": "integrations.syncResult",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ddd695f246919a478510",
+      "source": "customerAccess.policy.integrations.sync",
+      "target": "integrations.syncRun",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_69acd26dcf068d836695",
+      "source": "customerAccess.policy.integrations.sync",
+      "target": "modules.capability.integrations.sync",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3419f5fe37112ae49871",
+      "source": "customerAccess.policy.integrations.sync",
+      "target": "modules.integrations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_469f45defa9da0378fd4",
+      "source": "customerAccess.policy.marketing.analytics",
+      "target": "cmsUi.profile.marketing.analytics",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8ff988878c38ce2bdf73",
+      "source": "customerAccess.policy.marketing.analytics",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b9f90bf3c6fe33e0484a",
+      "source": "customerAccess.policy.marketing.analytics",
+      "target": "marketing.analytics.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a34857ad926df3ce3eb6",
+      "source": "customerAccess.policy.marketing.analytics",
+      "target": "marketing.analytics.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b238b2e451e7ab81d10e",
+      "source": "customerAccess.policy.marketing.analytics",
+      "target": "marketing.analytics.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c00c32a76dc40c5b5cbf",
+      "source": "customerAccess.policy.marketing.analytics",
+      "target": "marketing.analytics.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b6df9caf82c77f462f65",
+      "source": "customerAccess.policy.marketing.analytics",
+      "target": "marketing.analyticsObservation",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c9ddde71f7b7f9bd8764",
+      "source": "customerAccess.policy.marketing.analytics",
+      "target": "marketing.analyticsSnapshot",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_032bd1c651f1942d76a4",
+      "source": "customerAccess.policy.marketing.analytics",
+      "target": "modules.analytics",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9c07c594f4ccc909e0af",
+      "source": "customerAccess.policy.marketing.analytics",
+      "target": "modules.capability.analytics.reporting",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c5b57d985e98662192ea",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "cmsUi.profile.marketing.attribution",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dfd92b31d4edff3059e3",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cb8f4635a97e7d06832b",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "marketing.attribution.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f85405814ad4d08367da",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "marketing.attribution.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6223562b9ffbb86ff40d",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "marketing.attribution.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_81b4570bc178868bd515",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "marketing.attribution.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_75f46d9194da37092fe4",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "marketing.attribution.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4b193e72d91dd323c66d",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "marketing.attribution.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c34216f386f04134c7ef",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "marketing.attributionModel",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_04815385fa1ace9431da",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "marketing.attributionTouchpoint",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_008e5334d7895913cbc3",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "modules.analytics",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bd6515c97dc29d6025cc",
+      "source": "customerAccess.policy.marketing.attribution",
+      "target": "modules.capability.analytics.attribution",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_75a99ae8d1eb3ed1f69a",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "cmsUi.profile.marketing.campaigns",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_592f4a5e4f7196563f48",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bb0cea5aee183927ec30",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaignDefinition",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3b120adf4408bba58349",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaignPerformanceSnapshot",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ed85054c51582d2c1866",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaigns.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d90c52232a4f0d05f304",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaigns.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_743c27db707507f09dfb",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaigns.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_eb7f3c452d9e7f94627f",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaigns.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_42c5be9682de48f3d3be",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaigns.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_27381e199cfbbc977877",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaigns.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a3150aa2c09202244044",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaigns.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bc1d32486b4ed0923c6c",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaigns.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_033988c8d23ad3cf29b8",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaigns.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d3489bd96ade49bfc19e",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "marketing.campaigns.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_652bfb06e1954e363a30",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "modules.capability.marketing.campaigns",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8b1a1c654566b454bcbe",
+      "source": "customerAccess.policy.marketing.campaigns",
+      "target": "modules.marketing",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_24f003c0edc2c010aa55",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "cmsUi.profile.marketing.consent",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3fd05b6c6408408e381f",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5eb45defa90f00642279",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "marketing.consent.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_57046c99709226536c61",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "marketing.consent.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2ac891bcf135618a66a4",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "marketing.consent.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4c9c774c8722ab2205b5",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "marketing.consent.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8885bb36300dedbb2666",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "marketing.consent.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e08e10cb2960301a1f29",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "marketing.consent.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_66e8e32dc8a213f0028f",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "marketing.consentPolicy",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fb86c21e629162a2b190",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "marketing.consentState",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b40f3153dcc18f75379f",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "modules.capability.consent.integration-gating",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_be92a60dfea627f662f3",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "modules.capability.consent.preferences",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_66c0866fde3c8de08cc4",
+      "source": "customerAccess.policy.marketing.consent",
+      "target": "modules.consent",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_535cbc7a7f7be5069e55",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "cmsUi.profile.marketing.conversions",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a691f997295c59e47029",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_521dae1e5f14fb01d743",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversionDefinition",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e2a4d0e0521551b8cb85",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversions.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_100d8644af931e945d0a",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversions.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4b6bef31f7f9aabf4c72",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversions.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2e144be6e3da655614a8",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversions.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a8770bc87334a646aab0",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversions.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0dda7262962305d5caf4",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversions.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_354ea32c98b68160f540",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversions.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ab3d49573ae854147244",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversions.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_32c3c7afd44b075625ee",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversions.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2ce311f75707a283a404",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversions.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_879891e39ab89760dc71",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "marketing.conversionSummary",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bd3f0c653072db4d40ca",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "modules.capability.marketing.conversions",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d9a4aaa313896be9eee8",
+      "source": "customerAccess.policy.marketing.conversions",
+      "target": "modules.marketing",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_baab22a6147a1a05f70e",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "cmsUi.profile.marketing.destinations",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_40c66d89f072b43d3694",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ce70d8213289f7316a41",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.destinations.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_470b8123212890807874",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.destinations.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9febe5ef70f94adc04dd",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.destinations.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e0cb39a3ce95265b3581",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.destinations.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7a1a36e040fed9da36cc",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.destinations.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_966044202675ae249f21",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.destinations.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b5ee974505ec39ed86c2",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.destinations.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c0f2a2110a58dbfe2f78",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.destinations.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_63f8ac2fa3c122f56bbd",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.destinations.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b74a4b46bb7086a7973e",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.destinations.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ce87cbb80d46ecc6af0f",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.eventDestination",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_07994d1d579df503229c",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "marketing.marketingDestination",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_17961b4f1f2fe8fc38af",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "modules.capability.marketing.destinations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e4472b1f8dd57ea1c9b7",
+      "source": "customerAccess.policy.marketing.destinations",
+      "target": "modules.marketing",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2d061a3e8d191620cf65",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "cmsUi.profile.marketing.tracking",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0b168346537db0f9c5a0",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_95edfedbefdc9151413b",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "marketing.dataLayerConfiguration",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1d0dd9ac158bb0b97ee6",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "marketing.tracking.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2cf9de5b847cbe1a9042",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "marketing.tracking.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8779d863d2620a7bf5c7",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "marketing.tracking.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1407670d6e491f484a69",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "marketing.tracking.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_03642e3dceea96bd7be4",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "marketing.tracking.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9cb529a0570e3c278f84",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "marketing.tracking.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7ef133e26c0fb135db3d",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "marketing.trackingConfiguration",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_822fa5eccc22eda592ec",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "modules.capability.marketing.conversions",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6cac968637ed46884813",
+      "source": "customerAccess.policy.marketing.tracking",
+      "target": "modules.marketing",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9da94f6f26665bd3d55c",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "cmsUi.profile.permissions.assignments",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6ab315e8298ffb3d8c24",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4a50dbda70b2451e2779",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "modules.capability.core.identity",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7fbd0d6d60697e2d3977",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "modules.core",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_817dd9b1a0b4ae096918",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "permissions.assignments.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9e96c2a34c482dfebbd3",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "permissions.assignments.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d8d4a8980ca019dadc71",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "permissions.assignments.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_530eadd67ba4b5210a74",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "permissions.assignments.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_571e92c32b3b7a63c6dc",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "permissions.assignments.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_46de21e0d43855316105",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "permissions.assignments.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9d0953223ea4a24530e2",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "permissions.assignments.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d3fc0bdc88f27ff044ac",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "permissions.assignments.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7580a9297fa654930822",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "permissions.assignments.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4beff188b1552df1f48d",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "permissions.assignments.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5536f405fbf7ca2cec14",
+      "source": "customerAccess.policy.permissions.assignments",
+      "target": "permissions.roleAssignment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_93e0ebcd53be25fa029e",
+      "source": "customerAccess.policy.permissions.registry",
+      "target": "cmsUi.profile.permissions.registry",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a40f833183c76bbf6ff1",
+      "source": "customerAccess.policy.permissions.registry",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5415e75bb0dfc579c745",
+      "source": "customerAccess.policy.permissions.registry",
+      "target": "modules.capability.core.identity",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a02f4c2ae801b4a2c7e6",
+      "source": "customerAccess.policy.permissions.registry",
+      "target": "modules.core",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dc62a8584b5afd2c9136",
+      "source": "customerAccess.policy.permissions.registry",
+      "target": "permissions.permissionDefinition",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5bbbf346878c0e535767",
+      "source": "customerAccess.policy.permissions.registry",
+      "target": "permissions.registry.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b27f7ea8f26e5130081c",
+      "source": "customerAccess.policy.permissions.registry",
+      "target": "permissions.registry.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_41a27ae7c3ef09aca4d7",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "cmsUi.profile.permissions.roles",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ca8717f0f26d2330528f",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e22a63b673a516278785",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "modules.capability.core.identity",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b4d0e57e55fc96906ac0",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "modules.core",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9c68845ae9b1a91c960a",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "permissions.roleDefinition",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_286a80e11ca7d0d5a7d0",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "permissions.roles.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_97cb537f6ab37a00c3f9",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "permissions.roles.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9c00b0c5d55386a4d72a",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "permissions.roles.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_584d8052ee6d10ff5c3d",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "permissions.roles.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e80f6d27e04352f7497c",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "permissions.roles.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f75c17673299c7bd6dd5",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "permissions.roles.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_303c82d06e5ca84f95e3",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "permissions.roles.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6aa67e294f6ddf3e41e9",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "permissions.roles.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_466cb8cdde7ca6ba0db9",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "permissions.roles.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e9a9253eb3445d3671f2",
+      "source": "customerAccess.policy.permissions.roles",
+      "target": "permissions.roles.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ee3725aead86ac52f7d3",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "cmsUi.profile.seo.audits",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d0b8a13d298b23d2327b",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_90221d8be2474a41ac3a",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "modules.capability.seo.audits",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0bb6a36e1e32b98eb8e5",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "modules.seo",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ec086a429cb9d8fbd799",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "seo.auditIssue",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_de21d3476af9edbd7fca",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "seo.auditResult",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3298bf33eccb4fab8c84",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "seo.audits.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4c3c060153e44e82f345",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "seo.audits.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8ced0d125e5fde1057df",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "seo.audits.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b7f32c2a022caa640272",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "seo.audits.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c9296f31c4b95b032548",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "seo.audits.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5d05c1ddcefc3486626e",
+      "source": "customerAccess.policy.seo.audits",
+      "target": "seo.audits.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0cccb411d04f79d5acc5",
+      "source": "customerAccess.policy.seo.indexing",
+      "target": "cmsUi.profile.seo.indexing",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e6b61a3b20a058474fe4",
+      "source": "customerAccess.policy.seo.indexing",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ece391ea34742b198a83",
+      "source": "customerAccess.policy.seo.indexing",
+      "target": "modules.capability.seo.indexing",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1e17ce8fd331b1930018",
+      "source": "customerAccess.policy.seo.indexing",
+      "target": "modules.seo",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_00d8fa28980e28a70de1",
+      "source": "customerAccess.policy.seo.indexing",
+      "target": "seo.indexing.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e4208398c06819febe5a",
+      "source": "customerAccess.policy.seo.indexing",
+      "target": "seo.indexing.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_af695f4f4b61d6ac9aba",
+      "source": "customerAccess.policy.seo.indexing",
+      "target": "seo.indexing.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ab92e59d64d5b2c42528",
+      "source": "customerAccess.policy.seo.indexing",
+      "target": "seo.indexing.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2b512ce69124ad8da458",
+      "source": "customerAccess.policy.seo.indexing",
+      "target": "seo.indexingStatus",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8660bc794d86b2931c65",
+      "source": "customerAccess.policy.seo.indexing",
+      "target": "seo.urlInspectionResult",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cdc76a01bb9cdf0c442e",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "api.customer-cms.cancel-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d91f2ffefa656e591586",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "api.customer-cms.get-seo",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ca36fb722221134c1b5f",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "api.customer-cms.submit-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aae95510ac059b055147",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "api.customer-cms.update-seo",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_12e9a71d9872427df9cb",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "cmsUi.profile.seo.metadata",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_db721db85be8ab08c430",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b3d9f9df2757d9970170",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f51738646eee5ab38889",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_015c1af30b7262ca9d3c",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a2db55b0e6d16a373176",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d43f056bd81271c2f75f",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1bad714284d6ff42f190",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5eafa15542dec80abda5",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_985c2df6a44a60f68a99",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_68cbd44666732d227725",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_21e872c637dff750ac7f",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b0420b11e117d231367e",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "modules.capability.seo.metadata",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_231b761627579f99d7a9",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "modules.seo",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d11822de3582d7ee9efd",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "seo.metadata",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f27fcb358d5c1e43d5fb",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "seo.metadata.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d6a9fd51d3b06ef091be",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "seo.metadata.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_83ca816d5b5ba4442137",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "seo.metadata.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fb7cf6ddc88bec07d0cb",
+      "source": "customerAccess.policy.seo.metadata",
+      "target": "seo.metadata.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3857b42adb99d9a07fec",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "api.customer-cms.cancel-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ece5050b8d9ec64bb637",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "api.customer-cms.submit-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e8588d36cd646c7a84c1",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "cmsUi.profile.seo.redirects",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2ffddacdc2b5c0b3164a",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b69099bf3c288f92a24c",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4495ce3c68286669b54c",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f074ef78bf037730737b",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bf2a411745d02adff50e",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_416e469373feaf1de8cd",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2ac151b822a45883a867",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_583fa73821cac0a4ac6f",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4e5475e36dcb96088e02",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_803ebe0cbf4082b9d2fe",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_85769b69cf64bf1242df",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_347bf78d893c4eeef029",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "modules.capability.seo.redirects",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8ad9adbda76805d3266d",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "modules.seo",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a9f188d01e240305ce1d",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "seo.redirect",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_da7b5af87b563a0c4844",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "seo.redirects.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7a25030b41f974738b47",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "seo.redirects.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_21fe9797f1038981ed2c",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "seo.redirects.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_708c6b30433968f93cdc",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "seo.redirects.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5720216880c7587c64ec",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "seo.redirects.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_09008790b1d508cd022d",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "seo.redirects.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_66a4d9247e2f6f48abf7",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "seo.redirects.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_65e66eff8927f768aa25",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "seo.redirects.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d10dd6883c6c61625749",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "seo.redirects.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d921d510cab0fa056d56",
+      "source": "customerAccess.policy.seo.redirects",
+      "target": "seo.redirects.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e740c8475343797e324b",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "api.customer-cms.cancel-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5a39652e2c5fc3fe2e66",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "api.customer-cms.submit-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8a81cc67dbe63dd38e40",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "cmsUi.profile.seo.robots",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_45aab224644691c89df9",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_be0db3bca8610c380900",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6ad0e8a52ab99e0eea73",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7778b7690ead022347be",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_adc70cb5d29e0a407643",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a9f4ed3b44e42ff9532a",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ce1d59978dd27122b013",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_892e2e029c5ff5885446",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_05c2468fb9646116b905",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_594f4f73b03dbc2fd546",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8bb4ae3724030269f186",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_26b89d50374aa1a8a012",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "modules.capability.seo.robots",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b4a2213eb605dbc778e8",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "modules.seo",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b5c5c7b970f571478ce9",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "seo.robots.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8fbf99576fa4d86be616",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "seo.robots.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_29c64b0599f467e5473d",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "seo.robots.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b001ecb3fb5f0f0fe7c9",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "seo.robots.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_20d38583336a11f4dbbe",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "seo.robots.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_be0dc29aa7aa4ed94476",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "seo.robots.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_92357cea6072d5869202",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "seo.robotsPolicy",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ef8a1c8d0a5dec0a5acc",
+      "source": "customerAccess.policy.seo.robots",
+      "target": "seo.robotsRule",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_efca90929b1cbde7b985",
+      "source": "customerAccess.policy.seo.searchperformance",
+      "target": "cmsUi.profile.seo.searchperformance",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7e884f877210905db06d",
+      "source": "customerAccess.policy.seo.searchperformance",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b11ffe77a59cdd2bc501",
+      "source": "customerAccess.policy.seo.searchperformance",
+      "target": "modules.capability.seo.search-performance",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_21d770a89725e84f5ca0",
+      "source": "customerAccess.policy.seo.searchperformance",
+      "target": "modules.seo",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4c690088638cdd2f0cf3",
+      "source": "customerAccess.policy.seo.searchperformance",
+      "target": "seo.searchPerformance",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f45efa14704f7577e05e",
+      "source": "customerAccess.policy.seo.searchperformance",
+      "target": "seo.searchperformance.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_eac5adf9094c8a2fd0e3",
+      "source": "customerAccess.policy.seo.searchperformance",
+      "target": "seo.searchperformance.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2969c28e718f3684c6a5",
+      "source": "customerAccess.policy.seo.searchperformance",
+      "target": "seo.searchperformance.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bb10dc3cea0d2788cb7a",
+      "source": "customerAccess.policy.seo.searchperformance",
+      "target": "seo.searchperformance.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4ffbfe740ec339444071",
+      "source": "customerAccess.policy.seo.searchperformance",
+      "target": "seo.searchQuery",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c83bd6f605dd9ca87494",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "api.customer-cms.cancel-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3b8d1a5b16f2dd948057",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "api.customer-cms.submit-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b867af78fd6583cf4da5",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "cmsUi.profile.seo.sitemap",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_617e2aece34ed598bcf1",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5f9a74a4b6c655046882",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e09c7323e9e2176851d3",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_576e0e06ee263e1dfd0b",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7fa56dddeb7454a18a0e",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_584a105e8f97c2bfaf50",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2cd96cb233d79ef4c2ff",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3b53058a4d8f6957dd42",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ee5422e888fda4f00598",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2683038e5d8715dc2315",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d9d54aa0452e7306f6bf",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ed48e8ac1516964596bb",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "modules.capability.seo.sitemap",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_39a90fc44bfb734547ec",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "modules.seo",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8fb872f426c381645530",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "seo.sitemap.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ba01fb296910efe7b417",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "seo.sitemap.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f94eb39ab5f3cd9740dc",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "seo.sitemap.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_38fb1f186b5601a2411c",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "seo.sitemap.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_953857d0be0eeec1b154",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "seo.sitemap.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ceaee9f3c2b07a4b98f8",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "seo.sitemap.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4b8b8c3d15dd2e54c0d0",
+      "source": "customerAccess.policy.seo.sitemap",
+      "target": "seo.sitemapEntry",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7ddfdcb01f77b9f29e61",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "api.customer-cms.cancel-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1c4cdb9c62f78bded53b",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "api.customer-cms.submit-change-request",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Customer behavior is exposed by this API operation when authorized.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_73552ac96d9a17995064",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "cmsUi.profile.seo.structureddata",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_527c8e26c680cdfe3d8d",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f0743ecb4f301652c4c7",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "core.changerequests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_69db872100b4bbe0ecbc",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f84685ff298cde31a3a8",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "customer-change-request.applied",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_85865e1c28904416351a",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_20351afe81e949847b51",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "customer-change-request.approved",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4c6c90818e8dd0c1c333",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3f7d2523c1db363838d7",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "customer-change-request.cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dc3bc8e2cf60451e16ac",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "explicit",
+      "description": "Approval lifecycle emits this internal event.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8ae174f5329d1420f6c1",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "customer-change-request.submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c45bde80b4ae7b784fc9",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e82ac921b8b263d9e0a4",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "modules.capability.seo.structured-data",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_53a3078b3599f921954a",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "modules.seo",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_94bc31afcda38275f3cf",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "seo.structuredData",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e079c088f218416e5749",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "seo.structureddata.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_daa99b0dc30aab19fa65",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "seo.structureddata.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_88720cf13c453e319bfe",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "seo.structureddata.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_76cf61fa57f2de3f859d",
+      "source": "customerAccess.policy.seo.structureddata",
+      "target": "seo.structureddata.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_793590dd114027f4444b",
+      "source": "customerAccess.policy.webhooks.deadletters",
+      "target": "cmsUi.profile.webhooks.deadletters",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_59f249f7f1d97dba6472",
+      "source": "customerAccess.policy.webhooks.deadletters",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bc412ebd35bfd884fab7",
+      "source": "customerAccess.policy.webhooks.deadletters",
+      "target": "modules.capability.integrations.health",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d245a1120bbec9041e1e",
+      "source": "customerAccess.policy.webhooks.deadletters",
+      "target": "modules.integrations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ffca020272531cf8d6d4",
+      "source": "customerAccess.policy.webhooks.deadletters",
+      "target": "webhooks.deadLetter",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e76000b1971e19b73eef",
+      "source": "customerAccess.policy.webhooks.deadletters",
+      "target": "webhooks.deadletters.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6fb7177c8f4e67198dfc",
+      "source": "customerAccess.policy.webhooks.deadletters",
+      "target": "webhooks.deadletters.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f07426b8bac160af60ef",
+      "source": "customerAccess.policy.webhooks.deadletters",
+      "target": "webhooks.deadletters.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dcfa1c38e406474fbd90",
+      "source": "customerAccess.policy.webhooks.deadletters",
+      "target": "webhooks.deadletters.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f4d74f69dbf9d062ebaa",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "cmsUi.profile.webhooks.deliveries",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5d401d1b073524f7f7f8",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8f7d45500fd71ce9322f",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "modules.capability.integrations.health",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a336a93fc3cdad9a090a",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "modules.integrations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_684387c418042adbc31f",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "webhooks.deliveries.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bc620da1e669fa6c73d2",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "webhooks.deliveries.export",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_90be458f7f20f066bbfc",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "webhooks.deliveries.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6088100a5c36a1ded09f",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "webhooks.deliveries.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4a85bc426f55775c3f31",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "webhooks.deliveries.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ae0d5d3b45c97eac2484",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "webhooks.deliveries.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6ac6a8a7e3cb6956260e",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "webhooks.delivery",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e980c77c0adf672ec0af",
+      "source": "customerAccess.policy.webhooks.deliveries",
+      "target": "webhooks.deliveryAttempt",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aa7dd2a9c7855709f311",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "cmsUi.profile.webhooks.endpoints",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_04906a18c29972a7f7df",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_602b16718b85a5086f95",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "modules.capability.integrations.health",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_127ce29192116d2ab920",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "modules.integrations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4cb7f44d5c79d5bbdfd7",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpoint",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fa3cef1339dfd5eb2ca8",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpointHealth",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_45fdbba7c369392ba3e4",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpoints.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4ef41aacf71945399357",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpoints.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8fbe63ccdfb9d5747554",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpoints.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_278f3ec3976caa8de48d",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpoints.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7a2a550c7eea0ef6d63c",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpoints.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_88952373a7b436484344",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpoints.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_09f5b9f643969d141a23",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpoints.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0e7cfb78e3c97ad642bf",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpoints.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8fb9e5bef3f262d11a19",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpoints.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9ae4e6022cc1e063464c",
+      "source": "customerAccess.policy.webhooks.endpoints",
+      "target": "webhooks.endpoints.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ad2fa6ca4ed0eec678f2",
+      "source": "customerAccess.policy.webhooks.secrets",
+      "target": "cmsUi.profile.webhooks.secrets",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_542006a4df3586b0ec5f",
+      "source": "customerAccess.policy.webhooks.secrets",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0eeb7dc77deb4f4c74de",
+      "source": "customerAccess.policy.webhooks.secrets",
+      "target": "modules.capability.integrations.health",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_36a58f7330a2fd9a72c6",
+      "source": "customerAccess.policy.webhooks.secrets",
+      "target": "modules.integrations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a9b063b620a18b089da8",
+      "source": "customerAccess.policy.webhooks.secrets",
+      "target": "webhooks.secretRotation",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_13d0f3da00081954c0ab",
+      "source": "customerAccess.policy.webhooks.secrets",
+      "target": "webhooks.secrets.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a6340798ae453670e121",
+      "source": "customerAccess.policy.webhooks.secrets",
+      "target": "webhooks.secrets.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3b21fe8cc8dc0b29147d",
+      "source": "customerAccess.policy.webhooks.secrets",
+      "target": "webhooks.signingKeyReference",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_36c2c82f4d36d60ee5e1",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "cmsUi.profile.webhooks.subscriptions",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_48a3f0119a3af0716a78",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_246b291afc84a64a2c65",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "modules.capability.integrations.health",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a63a74781880c52a5a95",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "modules.integrations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e51c3bf81cab0adaa231",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "webhooks.subscription",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d060d1a605a0689539e2",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "webhooks.subscriptions.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_884f16f226df368d0193",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "webhooks.subscriptions.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8a80314e1e653cc7e8ef",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "webhooks.subscriptions.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6e254694a9e7098255c4",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "webhooks.subscriptions.delete",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d08f2bea7e560e1e684c",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "webhooks.subscriptions.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b5665cd8a00aed86b4af",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "webhooks.subscriptions.edit",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ef86133606b7c7ffaf18",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "webhooks.subscriptions.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5743c18602f81625a8d2",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "webhooks.subscriptions.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_24abaffb91c8403a0576",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "webhooks.subscriptions.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cd93ba1c060e455d36e2",
+      "source": "customerAccess.policy.webhooks.subscriptions",
+      "target": "webhooks.subscriptions.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e4bf347397eba0c77edf",
+      "source": "customerAccess.policy.webhooks.tests",
+      "target": "cmsUi.profile.webhooks.tests",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy governs this Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9098fc99b6c269e79f35",
+      "source": "customerAccess.policy.webhooks.tests",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policy follows the Phase 38 standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_44ff94d0850ccebd3c6e",
+      "source": "customerAccess.policy.webhooks.tests",
+      "target": "modules.capability.integrations.health",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The Site Manifest capability must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_deeac814c18532398954",
+      "source": "customerAccess.policy.webhooks.tests",
+      "target": "modules.integrations",
+      "type": "dependsOn",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "The owning Site module must be enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7df1ad3cccfe029ad22a",
+      "source": "customerAccess.policy.webhooks.tests",
+      "target": "webhooks.testDelivery",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Policy classifies this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_25d3c7247263a4c47b5e",
+      "source": "customerAccess.policy.webhooks.tests",
+      "target": "webhooks.tests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7cd35b075141dbff42c9",
+      "source": "customerAccess.policy.webhooks.tests",
+      "target": "webhooks.tests.create",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5bbd667fb8dfbc46aacd",
+      "source": "customerAccess.policy.webhooks.tests",
+      "target": "webhooks.tests.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "explicit",
+      "description": "Action requires this canonical permission.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f5a4b226988b18fafba2",
+      "source": "customerAccess.policy.webhooks.tests",
+      "target": "webhooks.tests.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2d1b62be5b4e7f667595",
+      "source": "customerAccess.policyRegistry",
+      "target": "customerAccess.customerAccessPolicyStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Policies follow the Phase 38 standard.",
       "ordinal": 0
     },
     {
@@ -68757,26 +82191,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "association",
       "origin": "explicit",
       "description": "Lifecycle changes are constrained by compatibility rules.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_4a6daa4868fa9d886d40",
-      "source": "manifest.apiBinding",
-      "target": "api.apiContractStandard",
-      "type": "implements",
-      "family": "governance",
-      "origin": "explicit",
-      "description": "Exact API version binding follows the API Contract Standard.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_90def637447d3736924e",
-      "source": "manifest.apiBinding",
-      "target": "api.registry",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "apiId resolves against the Phase 18 API Contract Registry.",
       "ordinal": 0
     },
     {
@@ -96720,6 +110134,46 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_930f53e69e75810db98c",
+      "source": "release.1.1.0.acceptanceReport",
+      "target": "customerAccess.policyRegistry",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Release evidence includes the V1.1.0 Customer Access Policy layer.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c8df675ca63341a21970",
+      "source": "release.1.1.0.integrityHashes",
+      "target": "customerAccess.policyRegistry",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Release evidence includes the V1.1.0 Customer Access Policy layer.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e9b820411afc87d82529",
+      "source": "release.1.1.0.manifest",
+      "target": "customerAccess.policyRegistry",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Release evidence includes the V1.1.0 Customer Access Policy layer.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_efb5941148e2566f018f",
+      "source": "release.1.1.0.snapshotIndex",
+      "target": "customerAccess.policyRegistry",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Release evidence includes the V1.1.0 Customer Access Policy layer.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_198672af2779b879848a",
       "source": "release.acceptanceReport",
       "target": "qa.acceptanceReport",
@@ -101728,7 +115182,7 @@ export const GENERATED_RELATIONSHIP_INDEX = {
   ]
 };
 export const GENERATED_RELATIONSHIP_TYPES = {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.0.0",
   "title": "Relationship Type Vocabulary",
   "description": "Controlled semantic metadata for explicit Contract Registry relationship types and graph-only derived associations.",
@@ -102033,7 +115487,7 @@ export const GENERATED_RELATIONSHIP_TYPES = {
   ]
 };
 export const GENERATED_RELATIONSHIP_CONFIG = {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.0.0",
   "title": "Relationship Explorer Configuration",
   "sourceRegistry": "registry/registry.json",

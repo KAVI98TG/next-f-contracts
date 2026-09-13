@@ -1,0 +1,152 @@
+{
+  "$id": "customerAccess.policy.content.customcollections",
+  "name": "Custom Collections Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.customcollections",
+  "contractRefs": [
+    "content.customCollection"
+  ],
+  "moduleRef": "pages",
+  "capabilityRefs": [
+    "pages.custom-collections"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.customcollections.view"
+    ],
+    "create": [
+      "content.customcollections.create"
+    ],
+    "update": [
+      "content.customcollections.edit",
+      "content.customcollections.manage"
+    ],
+    "delete": [
+      "content.customcollections.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#identity",
+      "field": "identity",
+      "contractFieldRef": "content.customCollection.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#scope",
+      "field": "scope",
+      "contractFieldRef": "content.customCollection.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#name",
+      "field": "name",
+      "contractFieldRef": "content.customCollection.name",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#key",
+      "field": "key",
+      "contractFieldRef": "content.customCollection.key",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#singularLabel",
+      "field": "singularLabel",
+      "contractFieldRef": "content.customCollection.singularLabel",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#pluralLabel",
+      "field": "pluralLabel",
+      "contractFieldRef": "content.customCollection.pluralLabel",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#description",
+      "field": "description",
+      "contractFieldRef": "content.customCollection.description",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#fieldDefinitions",
+      "field": "fieldDefinitions",
+      "contractFieldRef": "content.customCollection.fieldDefinitions",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#displayField",
+      "field": "displayField",
+      "contractFieldRef": "content.customCollection.displayField",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#slugField",
+      "field": "slugField",
+      "contractFieldRef": "content.customCollection.slugField",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#routing",
+      "field": "routing",
+      "contractFieldRef": "content.customCollection.routing",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#customerCanCreateEntries",
+      "field": "customerCanCreateEntries",
+      "contractFieldRef": "content.customCollection.customerCanCreateEntries",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#customerCanDeleteEntries",
+      "field": "customerCanDeleteEntries",
+      "contractFieldRef": "content.customCollection.customerCanDeleteEntries",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#enabled",
+      "field": "enabled",
+      "contractFieldRef": "content.customCollection.enabled",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.customcollections#revision",
+      "field": "revision",
+      "contractFieldRef": "content.customCollection.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.customcollections",
+    "adminProfileRef": "adminUi.profile.content.customcollections",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

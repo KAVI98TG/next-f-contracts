@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "title": "Retention Classes",
   "description": "Policy-oriented retention classes. They do not invent legal durations.",
   "classes": [

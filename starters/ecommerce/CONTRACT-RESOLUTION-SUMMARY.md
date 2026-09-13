@@ -1,7 +1,7 @@
 # Contract Resolution Summary
 
 - Starter: Ecommerce
-- Contract Version: 1.0.0
+- Contract Version: 1.1.0
 - Site Manifest: `nextf.site.json`
 - Implementation framework: _fill in_
 - Validation command/version: _fill in_

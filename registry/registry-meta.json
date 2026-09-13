@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.0.0",
   "status": "stable",
   "title": "NEXT F Contract Registry",
@@ -218,5 +218,10 @@
   "productionAcceptanceReport": "registry/releases/1.0.0/acceptance-report.json",
   "productionSnapshotIndex": "registry/releases/1.0.0/snapshot-index.json",
   "productionIntegrityHashes": "registry/releases/1.0.0/integrity-hashes.json",
-  "stableRelease": "1.0.0"
+  "stableRelease": "1.0.0",
+  "customerAccessPolicyIndex": "registry/customer-access/index.json",
+  "customerAccessPolicySchema": "registry/customer-access/customer-access-policy.schema.json",
+  "customerAccessVocabularies": "registry/customer-access/vocabularies.json",
+  "customerAccessResolution": "registry/customer-access/effective-policy-resolution.json",
+  "customerAccessExplorerRoute": "#/platform/customer-access"
 }

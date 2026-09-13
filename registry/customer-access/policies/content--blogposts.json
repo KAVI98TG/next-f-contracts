@@ -1,0 +1,164 @@
+{
+  "$id": "customerAccess.policy.content.blogposts",
+  "name": "Blog Posts Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.blogposts",
+  "contractRefs": [
+    "content.blogPost"
+  ],
+  "moduleRef": "blog",
+  "capabilityRefs": [
+    "blog.approvals",
+    "blog.related-posts",
+    "blog.scheduling"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "allow",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "direct"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.blogposts.view"
+    ],
+    "create": [
+      "content.blogposts.create"
+    ],
+    "update": [
+      "content.blogposts.edit",
+      "content.blogposts.publish"
+    ],
+    "delete": [
+      "content.blogposts.delete"
+    ],
+    "submit_for_review": [
+      "content.blogposts.approve"
+    ],
+    "publish": [
+      "content.blogposts.publish"
+    ],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#identity",
+      "field": "identity",
+      "contractFieldRef": "content.blogPost.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#scope",
+      "field": "scope",
+      "contractFieldRef": "content.blogPost.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#title",
+      "field": "title",
+      "contractFieldRef": "content.blogPost.title",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#slug",
+      "field": "slug",
+      "contractFieldRef": "content.blogPost.slug",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#excerpt",
+      "field": "excerpt",
+      "contractFieldRef": "content.blogPost.excerpt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#content",
+      "field": "content",
+      "contractFieldRef": "content.blogPost.content",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#featuredMedia",
+      "field": "featuredMedia",
+      "contractFieldRef": "content.blogPost.featuredMedia",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#author",
+      "field": "author",
+      "contractFieldRef": "content.blogPost.author",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#categories",
+      "field": "categories",
+      "contractFieldRef": "content.blogPost.categories",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#tags",
+      "field": "tags",
+      "contractFieldRef": "content.blogPost.tags",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#relatedPosts",
+      "field": "relatedPosts",
+      "contractFieldRef": "content.blogPost.relatedPosts",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#isFeatured",
+      "field": "isFeatured",
+      "contractFieldRef": "content.blogPost.isFeatured",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#readingTimeMinutes",
+      "field": "readingTimeMinutes",
+      "contractFieldRef": "content.blogPost.readingTimeMinutes",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#publishing",
+      "field": "publishing",
+      "contractFieldRef": "content.blogPost.publishing",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.blogposts#revision",
+      "field": "revision",
+      "contractFieldRef": "content.blogPost.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "simulated_write_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.create-blog-post",
+    "api.customer-cms.get-blog-post",
+    "api.customer-cms.list-blog-posts",
+    "api.customer-cms.publish-blog-post",
+    "api.customer-cms.update-blog-post"
+  ],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.blogposts",
+    "adminProfileRef": "adminUi.profile.content.blogposts",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

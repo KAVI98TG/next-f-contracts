@@ -1,0 +1,127 @@
+{
+  "$id": "customerAccess.policy.commerce.reviews",
+  "name": "Reviews Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.reviews",
+  "contractRefs": [
+    "commerce.productReview",
+    "commerce.reviewModeration"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.reviews"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.reviews.view"
+    ],
+    "create": [],
+    "update": [
+      "commerce.reviews.edit",
+      "commerce.reviews.manage"
+    ],
+    "delete": [
+      "commerce.reviews.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.reviews#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.productReview.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.reviews#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.productReview.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.reviews#productId",
+      "field": "productId",
+      "contractFieldRef": "commerce.productReview.productId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.reviews#customerId",
+      "field": "customerId",
+      "contractFieldRef": "commerce.productReview.customerId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.reviews#orderId",
+      "field": "orderId",
+      "contractFieldRef": "commerce.productReview.orderId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.reviews#rating",
+      "field": "rating",
+      "contractFieldRef": "commerce.productReview.rating",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.reviews#title",
+      "field": "title",
+      "contractFieldRef": "commerce.productReview.title",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.reviews#body",
+      "field": "body",
+      "contractFieldRef": "commerce.productReview.body",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.reviews#verifiedPurchase",
+      "field": "verifiedPurchase",
+      "contractFieldRef": "commerce.productReview.verifiedPurchase",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.reviews#moderation",
+      "field": "moderation",
+      "contractFieldRef": "commerce.productReview.moderation",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.reviews#submittedAt",
+      "field": "submittedAt",
+      "contractFieldRef": "commerce.productReview.submittedAt",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.reviews",
+    "adminProfileRef": "adminUi.profile.commerce.reviews",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

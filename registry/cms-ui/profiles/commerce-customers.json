@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.commerce.customers",
   "name": "Customers",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -384,5 +384,44 @@
       "requiresPermission": "commerce.customers.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.commerce.customers",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "deny",
+      "update": "allow",
+      "delete": "deny",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "commerce.customers.export",
+        "commerce.customers.view"
+      ],
+      "create": [],
+      "update": [
+        "commerce.customers.edit",
+        "commerce.customers.manage"
+      ],
+      "delete": [],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "commerce.customers"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

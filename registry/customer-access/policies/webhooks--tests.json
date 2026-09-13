@@ -1,0 +1,99 @@
+{
+  "$id": "customerAccess.policy.webhooks.tests",
+  "name": "Webhook Tests Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "webhooks.tests",
+  "contractRefs": [
+    "webhooks.testDelivery"
+  ],
+  "moduleRef": "integrations",
+  "capabilityRefs": [
+    "integrations.health"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "webhooks.tests.view"
+    ],
+    "create": [
+      "webhooks.tests.create"
+    ],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.webhooks.tests#testId",
+      "field": "testId",
+      "contractFieldRef": "webhooks.testDelivery.testId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.tests#endpointId",
+      "field": "endpointId",
+      "contractFieldRef": "webhooks.testDelivery.endpointId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.tests#subscriptionId",
+      "field": "subscriptionId",
+      "contractFieldRef": "webhooks.testDelivery.subscriptionId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.tests#requestedBy",
+      "field": "requestedBy",
+      "contractFieldRef": "webhooks.testDelivery.requestedBy",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.tests#requestedAt",
+      "field": "requestedAt",
+      "contractFieldRef": "webhooks.testDelivery.requestedAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.tests#syntheticEventKey",
+      "field": "syntheticEventKey",
+      "contractFieldRef": "webhooks.testDelivery.syntheticEventKey",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.webhooks.tests#result",
+      "field": "result",
+      "contractFieldRef": "webhooks.testDelivery.result",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.webhooks.tests",
+    "adminProfileRef": "adminUi.profile.webhooks.tests",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

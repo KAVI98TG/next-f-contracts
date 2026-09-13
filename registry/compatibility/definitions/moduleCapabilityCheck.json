@@ -1,7 +1,7 @@
 {
   "$id": "compatibility.moduleCapabilityCheck",
   "name": "Module and Capability Compatibility Check",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "lifecycle",
   "type": "schema",

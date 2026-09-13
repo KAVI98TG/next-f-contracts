@@ -70,7 +70,7 @@ const checks=[
  check('PORTAL-PERF-015','Diff storage growth is measured',Number.isFinite(measurements['diff.snapshotsBytes']),'Diff snapshot storage bytes are included separately from initial-route budgets.'),
  check('PORTAL-PERF-016','Bootstrap loader count is bounded',bootstrapRegistryLoaderCount<=30,`${bootstrapRegistryLoaderCount} authoritative data loaders are invoked by app bootstrap.`),
  check('PORTAL-PERF-017','Performance stylesheet is local',html.includes('./css/performance.css'),'Performance UI styles load from a local cacheable stylesheet.'),
- check('PORTAL-PERF-018','No dark-mode performance override',!fs.readFileSync(path.join(root,'css/performance.css'),'utf8').includes('prefers-color-scheme: dark'),'Performance UI preserves the light-only portal contract.')
+ check('PORTAL-PERF-018','Theme styles remain token-driven',html.includes('./css/themes.css')&&fs.readFileSync(path.join(root,'css/themes.css'),'utf8').includes(':root[data-theme="dark"]'),'The shared local theme stylesheet provides token-driven dark styling without a route-specific media override.')
 ];
 const failures=budgetResults.filter(x=>x.result==='fail').length+checks.filter(x=>x.result==='fail').length;
 const warnings=budgetResults.filter(x=>x.result==='warning').length;

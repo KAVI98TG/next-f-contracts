@@ -1,10 +1,10 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 export const GENERATED_VALIDATION = {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Browser Contract Validation",
   "description": "Local-only deterministic nextf.site.json validation data shared with future developer tooling.",
-  "currentContractVersion": "1.0.0",
+  "currentContractVersion": "1.1.0",
   "manifestSchema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://contract.nextf.lk/registry/manifests/nextf-site-manifest.schema.json",
@@ -343,6 +343,63 @@ export const GENERATED_VALIDATION = {
           },
           "arbitraryCodeEditing": {
             "const": false
+          },
+          "customerAccess": {
+            "$ref": "#/$defs/customerAccessRestriction"
+          }
+        }
+      },
+      "customerAccessRestriction": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "policyVersion",
+          "restrictions"
+        ],
+        "properties": {
+          "policyVersion": {
+            "const": "1.1.0"
+          },
+          "restrictions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "policyRef"
+              ],
+              "properties": {
+                "policyRef": {
+                  "type": "string",
+                  "pattern": "^customerAccess\\.policy\\."
+                },
+                "mode": {
+                  "enum": [
+                    "hidden",
+                    "read_only",
+                    "approval_required"
+                  ]
+                },
+                "disabledActions": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "enum": [
+                      "read",
+                      "create",
+                      "update",
+                      "delete",
+                      "submit_for_review",
+                      "publish",
+                      "unpublish",
+                      "restore_version"
+                    ]
+                  },
+                  "default": []
+                }
+              }
+            },
+            "default": []
           }
         }
       },
@@ -5727,6 +5784,8886 @@ export const GENERATED_VALIDATION = {
       "reason": "Requires preorder authorization, inventory and fulfillment rules before use."
     }
   ],
+  "customerAccessPolicies": [
+    {
+      "$id": "customerAccess.policy.commerce.carts",
+      "name": "Carts Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.carts",
+      "contractRefs": [
+        "commerce.cart"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.carts"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.carts.view"
+        ],
+        "create": [],
+        "update": [
+          "commerce.carts.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.carts#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.cart.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.carts#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.cart.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.carts#salesChannelId",
+          "field": "salesChannelId",
+          "contractFieldRef": "commerce.cart.salesChannelId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.carts#customerId",
+          "field": "customerId",
+          "contractFieldRef": "commerce.cart.customerId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.carts#sessionKey",
+          "field": "sessionKey",
+          "contractFieldRef": "commerce.cart.sessionKey",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.carts#currency",
+          "field": "currency",
+          "contractFieldRef": "commerce.cart.currency",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.carts#lines",
+          "field": "lines",
+          "contractFieldRef": "commerce.cart.lines",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.carts#totals",
+          "field": "totals",
+          "contractFieldRef": "commerce.cart.totals",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.carts#status",
+          "field": "status",
+          "contractFieldRef": "commerce.cart.status",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.carts#expiresAt",
+          "field": "expiresAt",
+          "contractFieldRef": "commerce.cart.expiresAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.carts#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "commerce.cart.updatedAt",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.carts",
+        "adminProfileRef": "adminUi.profile.commerce.carts",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.categories",
+      "name": "Categories Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.categories",
+      "contractRefs": [
+        "commerce.productCategory"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.categories"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.categories.view"
+        ],
+        "create": [
+          "commerce.categories.create"
+        ],
+        "update": [
+          "commerce.categories.edit",
+          "commerce.categories.manage"
+        ],
+        "delete": [
+          "commerce.categories.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.categories#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.productCategory.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.categories#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.productCategory.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.categories#name",
+          "field": "name",
+          "contractFieldRef": "commerce.productCategory.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.categories#slug",
+          "field": "slug",
+          "contractFieldRef": "commerce.productCategory.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.categories#description",
+          "field": "description",
+          "contractFieldRef": "commerce.productCategory.description",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.categories#parentCategoryId",
+          "field": "parentCategoryId",
+          "contractFieldRef": "commerce.productCategory.parentCategoryId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.categories#featuredMedia",
+          "field": "featuredMedia",
+          "contractFieldRef": "commerce.productCategory.featuredMedia",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.categories#publishing",
+          "field": "publishing",
+          "contractFieldRef": "commerce.productCategory.publishing",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.categories",
+        "adminProfileRef": "adminUi.profile.commerce.categories",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.checkouts",
+      "name": "Checkouts Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.checkouts",
+      "contractRefs": [
+        "commerce.checkout"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.checkout"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.checkouts.view"
+        ],
+        "create": [],
+        "update": [
+          "commerce.checkouts.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.checkouts",
+        "adminProfileRef": "adminUi.profile.commerce.checkouts",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.collections",
+      "name": "Collections Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.collections",
+      "contractRefs": [
+        "commerce.productCollection"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.catalog"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.collections.view"
+        ],
+        "create": [
+          "commerce.collections.create"
+        ],
+        "update": [
+          "commerce.collections.edit",
+          "commerce.collections.manage"
+        ],
+        "delete": [
+          "commerce.collections.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.collections#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.productCollection.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.collections#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.productCollection.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.collections#name",
+          "field": "name",
+          "contractFieldRef": "commerce.productCollection.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.collections#slug",
+          "field": "slug",
+          "contractFieldRef": "commerce.productCollection.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.collections#description",
+          "field": "description",
+          "contractFieldRef": "commerce.productCollection.description",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.collections#collectionType",
+          "field": "collectionType",
+          "contractFieldRef": "commerce.productCollection.collectionType",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.collections#productIds",
+          "field": "productIds",
+          "contractFieldRef": "commerce.productCollection.productIds",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.collections#rules",
+          "field": "rules",
+          "contractFieldRef": "commerce.productCollection.rules",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.collections#ruleMatch",
+          "field": "ruleMatch",
+          "contractFieldRef": "commerce.productCollection.ruleMatch",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.collections#featuredMedia",
+          "field": "featuredMedia",
+          "contractFieldRef": "commerce.productCollection.featuredMedia",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.collections#publishing",
+          "field": "publishing",
+          "contractFieldRef": "commerce.productCollection.publishing",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.collections",
+        "adminProfileRef": "adminUi.profile.commerce.collections",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.customers",
+      "name": "Customers Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.customers",
+      "contractRefs": [
+        "commerce.commerceCustomer",
+        "commerce.customerAddress",
+        "commerce.customerNote"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.customers"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.customers.export",
+          "commerce.customers.view"
+        ],
+        "create": [],
+        "update": [
+          "commerce.customers.edit",
+          "commerce.customers.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.commerceCustomer.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.commerceCustomer.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#email",
+          "field": "email",
+          "contractFieldRef": "commerce.commerceCustomer.email",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#phone",
+          "field": "phone",
+          "contractFieldRef": "commerce.commerceCustomer.phone",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#firstName",
+          "field": "firstName",
+          "contractFieldRef": "commerce.commerceCustomer.firstName",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#lastName",
+          "field": "lastName",
+          "contractFieldRef": "commerce.commerceCustomer.lastName",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#accountStatus",
+          "field": "accountStatus",
+          "contractFieldRef": "commerce.commerceCustomer.accountStatus",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#addresses",
+          "field": "addresses",
+          "contractFieldRef": "commerce.commerceCustomer.addresses",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#marketingConsentStateId",
+          "field": "marketingConsentStateId",
+          "contractFieldRef": "commerce.commerceCustomer.marketingConsentStateId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#createdAt",
+          "field": "createdAt",
+          "contractFieldRef": "commerce.commerceCustomer.createdAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "commerce.commerceCustomer.updatedAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.customers#tagKeys",
+          "field": "tagKeys",
+          "contractFieldRef": "commerce.commerceCustomer.tagKeys",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.customers",
+        "adminProfileRef": "adminUi.profile.commerce.customers",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.discounts",
+      "name": "Discounts Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.discounts",
+      "contractRefs": [
+        "commerce.discount",
+        "commerce.discountCode"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.discounts"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.discounts.view"
+        ],
+        "create": [
+          "commerce.discounts.create"
+        ],
+        "update": [
+          "commerce.discounts.edit",
+          "commerce.discounts.manage"
+        ],
+        "delete": [
+          "commerce.discounts.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.discount.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.discount.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#name",
+          "field": "name",
+          "contractFieldRef": "commerce.discount.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#conditions",
+          "field": "conditions",
+          "contractFieldRef": "commerce.discount.conditions",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#conditionMatch",
+          "field": "conditionMatch",
+          "contractFieldRef": "commerce.discount.conditionMatch",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#benefits",
+          "field": "benefits",
+          "contractFieldRef": "commerce.discount.benefits",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#usageLimit",
+          "field": "usageLimit",
+          "contractFieldRef": "commerce.discount.usageLimit",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#perCustomerLimit",
+          "field": "perCustomerLimit",
+          "contractFieldRef": "commerce.discount.perCustomerLimit",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#startsAt",
+          "field": "startsAt",
+          "contractFieldRef": "commerce.discount.startsAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#endsAt",
+          "field": "endsAt",
+          "contractFieldRef": "commerce.discount.endsAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#combinable",
+          "field": "combinable",
+          "contractFieldRef": "commerce.discount.combinable",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.discounts#status",
+          "field": "status",
+          "contractFieldRef": "commerce.discount.status",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.discounts",
+        "adminProfileRef": "adminUi.profile.commerce.discounts",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.fulfillments",
+      "name": "Fulfillment Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.fulfillments",
+      "contractRefs": [
+        "commerce.fulfillment",
+        "commerce.shipment"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.fulfillment"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.fulfillments.view"
+        ],
+        "create": [
+          "commerce.fulfillments.create"
+        ],
+        "update": [
+          "commerce.fulfillments.edit",
+          "commerce.fulfillments.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.fulfillments",
+        "adminProfileRef": "adminUi.profile.commerce.fulfillments",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.inventory",
+      "name": "Inventory Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.inventory",
+      "contractRefs": [
+        "commerce.inventoryLevel",
+        "commerce.inventoryItem",
+        "commerce.inventoryLocation",
+        "commerce.inventoryAdjustment"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.inventory",
+        "commerce.multi-location-inventory"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.inventory.export",
+          "commerce.inventory.view"
+        ],
+        "create": [],
+        "update": [
+          "commerce.inventory.edit",
+          "commerce.inventory.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.inventory#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.inventoryLevel.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.inventory#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.inventoryLevel.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.inventory#inventoryItemId",
+          "field": "inventoryItemId",
+          "contractFieldRef": "commerce.inventoryLevel.inventoryItemId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.inventory#locationId",
+          "field": "locationId",
+          "contractFieldRef": "commerce.inventoryLevel.locationId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.inventory#onHand",
+          "field": "onHand",
+          "contractFieldRef": "commerce.inventoryLevel.onHand",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.inventory#reserved",
+          "field": "reserved",
+          "contractFieldRef": "commerce.inventoryLevel.reserved",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.inventory#incoming",
+          "field": "incoming",
+          "contractFieldRef": "commerce.inventoryLevel.incoming",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.inventory#available",
+          "field": "available",
+          "contractFieldRef": "commerce.inventoryLevel.available",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.inventory#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "commerce.inventoryLevel.updatedAt",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.inventory",
+        "adminProfileRef": "adminUi.profile.commerce.inventory",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.orders",
+      "name": "Orders Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.orders",
+      "contractRefs": [
+        "commerce.order",
+        "commerce.orderLine",
+        "commerce.orderTotals"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.orders"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.orders.export",
+          "commerce.orders.view"
+        ],
+        "create": [],
+        "update": [
+          "commerce.orders.edit",
+          "commerce.orders.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.order.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.order.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#orderNumber",
+          "field": "orderNumber",
+          "contractFieldRef": "commerce.order.orderNumber",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#source",
+          "field": "source",
+          "contractFieldRef": "commerce.order.source",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#customerSnapshot",
+          "field": "customerSnapshot",
+          "contractFieldRef": "commerce.order.customerSnapshot",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#addresses",
+          "field": "addresses",
+          "contractFieldRef": "commerce.order.addresses",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#lines",
+          "field": "lines",
+          "contractFieldRef": "commerce.order.lines",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#totals",
+          "field": "totals",
+          "contractFieldRef": "commerce.order.totals",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#paymentStatus",
+          "field": "paymentStatus",
+          "contractFieldRef": "commerce.order.paymentStatus",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#fulfillmentStatus",
+          "field": "fulfillmentStatus",
+          "contractFieldRef": "commerce.order.fulfillmentStatus",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#orderStatus",
+          "field": "orderStatus",
+          "contractFieldRef": "commerce.order.orderStatus",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#placedAt",
+          "field": "placedAt",
+          "contractFieldRef": "commerce.order.placedAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#cancelledAt",
+          "field": "cancelledAt",
+          "contractFieldRef": "commerce.order.cancelledAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.orders#completedAt",
+          "field": "completedAt",
+          "contractFieldRef": "commerce.order.completedAt",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.orders",
+        "adminProfileRef": "adminUi.profile.commerce.orders",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.payments",
+      "name": "Payments Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.payments",
+      "contractRefs": [
+        "commerce.payment",
+        "commerce.paymentCapture",
+        "commerce.paymentAuthorization"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.payments"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.payments.export",
+          "commerce.payments.view"
+        ],
+        "create": [],
+        "update": [
+          "commerce.payments.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.payment.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.payment.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#orderId",
+          "field": "orderId",
+          "contractFieldRef": "commerce.payment.orderId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#providerKey",
+          "field": "providerKey",
+          "contractFieldRef": "commerce.payment.providerKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#amount",
+          "field": "amount",
+          "contractFieldRef": "commerce.payment.amount",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#method",
+          "field": "method",
+          "contractFieldRef": "commerce.payment.method",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#status",
+          "field": "status",
+          "contractFieldRef": "commerce.payment.status",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#providerPaymentId",
+          "field": "providerPaymentId",
+          "contractFieldRef": "commerce.payment.providerPaymentId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#authorizedAt",
+          "field": "authorizedAt",
+          "contractFieldRef": "commerce.payment.authorizedAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#paidAt",
+          "field": "paidAt",
+          "contractFieldRef": "commerce.payment.paidAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#refundedAmount",
+          "field": "refundedAmount",
+          "contractFieldRef": "commerce.payment.refundedAmount",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#createdAt",
+          "field": "createdAt",
+          "contractFieldRef": "commerce.payment.createdAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "commerce.payment.updatedAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#authorizationIds",
+          "field": "authorizationIds",
+          "contractFieldRef": "commerce.payment.authorizationIds",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#captureIds",
+          "field": "captureIds",
+          "contractFieldRef": "commerce.payment.captureIds",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.payments#refundIds",
+          "field": "refundIds",
+          "contractFieldRef": "commerce.payment.refundIds",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.payments",
+        "adminProfileRef": "adminUi.profile.commerce.payments",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.products",
+      "name": "Products Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.products",
+      "contractRefs": [
+        "commerce.product",
+        "commerce.productVariant",
+        "commerce.productPrice"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.catalog",
+        "commerce.variants"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "allow",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "direct"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.products.view"
+        ],
+        "create": [
+          "commerce.products.create"
+        ],
+        "update": [
+          "commerce.products.edit"
+        ],
+        "delete": [
+          "commerce.products.delete"
+        ],
+        "submit_for_review": [
+          "commerce.products.approve"
+        ],
+        "publish": [
+          "commerce.products.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.product.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.product.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#name",
+          "field": "name",
+          "contractFieldRef": "commerce.product.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#slug",
+          "field": "slug",
+          "contractFieldRef": "commerce.product.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#productType",
+          "field": "productType",
+          "contractFieldRef": "commerce.product.productType",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#shortDescription",
+          "field": "shortDescription",
+          "contractFieldRef": "commerce.product.shortDescription",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#description",
+          "field": "description",
+          "contractFieldRef": "commerce.product.description",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#vendor",
+          "field": "vendor",
+          "contractFieldRef": "commerce.product.vendor",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#options",
+          "field": "options",
+          "contractFieldRef": "commerce.product.options",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#attributes",
+          "field": "attributes",
+          "contractFieldRef": "commerce.product.attributes",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#basePrice",
+          "field": "basePrice",
+          "contractFieldRef": "commerce.product.basePrice",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#categoryIds",
+          "field": "categoryIds",
+          "contractFieldRef": "commerce.product.categoryIds",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#collectionIds",
+          "field": "collectionIds",
+          "contractFieldRef": "commerce.product.collectionIds",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#mediaIds",
+          "field": "mediaIds",
+          "contractFieldRef": "commerce.product.mediaIds",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#status",
+          "field": "status",
+          "contractFieldRef": "commerce.product.status",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#publishing",
+          "field": "publishing",
+          "contractFieldRef": "commerce.product.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#revision",
+          "field": "revision",
+          "contractFieldRef": "commerce.product.revision",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.products#taxClassKey",
+          "field": "taxClassKey",
+          "contractFieldRef": "commerce.product.taxClassKey",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.products",
+        "adminProfileRef": "adminUi.profile.commerce.products",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.refunds",
+      "name": "Refunds Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.refunds",
+      "contractRefs": [
+        "commerce.refund"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.refunds"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.refunds.export",
+          "commerce.refunds.view"
+        ],
+        "create": [
+          "commerce.refunds.create"
+        ],
+        "update": [
+          "commerce.refunds.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.refunds#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.refund.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.refunds#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.refund.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.refunds#orderId",
+          "field": "orderId",
+          "contractFieldRef": "commerce.refund.orderId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.refunds#paymentId",
+          "field": "paymentId",
+          "contractFieldRef": "commerce.refund.paymentId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.refunds#amount",
+          "field": "amount",
+          "contractFieldRef": "commerce.refund.amount",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.refunds#reason",
+          "field": "reason",
+          "contractFieldRef": "commerce.refund.reason",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.refunds#status",
+          "field": "status",
+          "contractFieldRef": "commerce.refund.status",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.refunds#providerRefundId",
+          "field": "providerRefundId",
+          "contractFieldRef": "commerce.refund.providerRefundId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.refunds#createdAt",
+          "field": "createdAt",
+          "contractFieldRef": "commerce.refund.createdAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.refunds#completedAt",
+          "field": "completedAt",
+          "contractFieldRef": "commerce.refund.completedAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.refunds#lines",
+          "field": "lines",
+          "contractFieldRef": "commerce.refund.lines",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.refunds",
+        "adminProfileRef": "adminUi.profile.commerce.refunds",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.returns",
+      "name": "Returns Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.returns",
+      "contractRefs": [
+        "commerce.returnRequest",
+        "commerce.returnResolution"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.catalog"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.returns.view"
+        ],
+        "create": [],
+        "update": [
+          "commerce.returns.edit",
+          "commerce.returns.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.returns#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.returnRequest.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.returns#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.returnRequest.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.returns#orderId",
+          "field": "orderId",
+          "contractFieldRef": "commerce.returnRequest.orderId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.returns#customerId",
+          "field": "customerId",
+          "contractFieldRef": "commerce.returnRequest.customerId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.returns#lines",
+          "field": "lines",
+          "contractFieldRef": "commerce.returnRequest.lines",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.returns#status",
+          "field": "status",
+          "contractFieldRef": "commerce.returnRequest.status",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.returns#requestedAt",
+          "field": "requestedAt",
+          "contractFieldRef": "commerce.returnRequest.requestedAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.returns#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "commerce.returnRequest.updatedAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.returns#resolution",
+          "field": "resolution",
+          "contractFieldRef": "commerce.returnRequest.resolution",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.returns",
+        "adminProfileRef": "adminUi.profile.commerce.returns",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.reviews",
+      "name": "Reviews Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.reviews",
+      "contractRefs": [
+        "commerce.productReview",
+        "commerce.reviewModeration"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.reviews"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.reviews.view"
+        ],
+        "create": [],
+        "update": [
+          "commerce.reviews.edit",
+          "commerce.reviews.manage"
+        ],
+        "delete": [
+          "commerce.reviews.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.reviews#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.productReview.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.reviews#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.productReview.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.reviews#productId",
+          "field": "productId",
+          "contractFieldRef": "commerce.productReview.productId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.reviews#customerId",
+          "field": "customerId",
+          "contractFieldRef": "commerce.productReview.customerId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.reviews#orderId",
+          "field": "orderId",
+          "contractFieldRef": "commerce.productReview.orderId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.reviews#rating",
+          "field": "rating",
+          "contractFieldRef": "commerce.productReview.rating",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.reviews#title",
+          "field": "title",
+          "contractFieldRef": "commerce.productReview.title",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.reviews#body",
+          "field": "body",
+          "contractFieldRef": "commerce.productReview.body",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.reviews#verifiedPurchase",
+          "field": "verifiedPurchase",
+          "contractFieldRef": "commerce.productReview.verifiedPurchase",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.reviews#moderation",
+          "field": "moderation",
+          "contractFieldRef": "commerce.productReview.moderation",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.reviews#submittedAt",
+          "field": "submittedAt",
+          "contractFieldRef": "commerce.productReview.submittedAt",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.reviews",
+        "adminProfileRef": "adminUi.profile.commerce.reviews",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.settings",
+      "name": "Website Settings Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.settings",
+      "contractRefs": [
+        "commerce.storeSettings"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.catalog"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.settings.view"
+        ],
+        "create": [],
+        "update": [
+          "commerce.settings.edit",
+          "commerce.settings.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.settings#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.storeSettings.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.settings#storeName",
+          "field": "storeName",
+          "contractFieldRef": "commerce.storeSettings.storeName",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.settings#defaultCurrency",
+          "field": "defaultCurrency",
+          "contractFieldRef": "commerce.storeSettings.defaultCurrency",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.settings#country",
+          "field": "country",
+          "contractFieldRef": "commerce.storeSettings.country",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.settings#timeZone",
+          "field": "timeZone",
+          "contractFieldRef": "commerce.storeSettings.timeZone",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.settings#weightUnit",
+          "field": "weightUnit",
+          "contractFieldRef": "commerce.storeSettings.weightUnit",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.settings#customerAccounts",
+          "field": "customerAccounts",
+          "contractFieldRef": "commerce.storeSettings.customerAccounts",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.settings#inventoryTrackingEnabled",
+          "field": "inventoryTrackingEnabled",
+          "contractFieldRef": "commerce.storeSettings.inventoryTrackingEnabled",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.settings",
+        "adminProfileRef": "adminUi.profile.commerce.settings",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.shipping",
+      "name": "Shipping Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.shipping",
+      "contractRefs": [
+        "commerce.shippingZone",
+        "commerce.shippingMethod",
+        "commerce.shippingRate"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.shipping"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.shipping.view"
+        ],
+        "create": [
+          "commerce.shipping.create"
+        ],
+        "update": [
+          "commerce.shipping.edit",
+          "commerce.shipping.manage"
+        ],
+        "delete": [
+          "commerce.shipping.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.shipping#identity",
+          "field": "identity",
+          "contractFieldRef": "commerce.shippingZone.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.shipping#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.shippingZone.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.shipping#name",
+          "field": "name",
+          "contractFieldRef": "commerce.shippingZone.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.shipping#countries",
+          "field": "countries",
+          "contractFieldRef": "commerce.shippingZone.countries",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.shipping#regions",
+          "field": "regions",
+          "contractFieldRef": "commerce.shippingZone.regions",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.shipping#postalCodes",
+          "field": "postalCodes",
+          "contractFieldRef": "commerce.shippingZone.postalCodes",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.shipping#enabled",
+          "field": "enabled",
+          "contractFieldRef": "commerce.shippingZone.enabled",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.shipping",
+        "adminProfileRef": "adminUi.profile.commerce.shipping",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.commerce.taxes",
+      "name": "Taxes Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "commerce.taxes",
+      "contractRefs": [
+        "commerce.taxConfiguration",
+        "commerce.taxRate",
+        "commerce.taxClass"
+      ],
+      "moduleRef": "commerce",
+      "capabilityRefs": [
+        "commerce.taxes"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "commerce.taxes.view"
+        ],
+        "create": [],
+        "update": [
+          "commerce.taxes.edit",
+          "commerce.taxes.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.commerce.taxes#scope",
+          "field": "scope",
+          "contractFieldRef": "commerce.taxConfiguration.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.taxes#enabled",
+          "field": "enabled",
+          "contractFieldRef": "commerce.taxConfiguration.enabled",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.taxes#pricesIncludeTax",
+          "field": "pricesIncludeTax",
+          "contractFieldRef": "commerce.taxConfiguration.pricesIncludeTax",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.taxes#taxShipping",
+          "field": "taxShipping",
+          "contractFieldRef": "commerce.taxConfiguration.taxShipping",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.taxes#roundingMode",
+          "field": "roundingMode",
+          "contractFieldRef": "commerce.taxConfiguration.roundingMode",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.commerce.taxes#calculationProvider",
+          "field": "calculationProvider",
+          "contractFieldRef": "commerce.taxConfiguration.calculationProvider",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.commerce.taxes",
+        "adminProfileRef": "adminUi.profile.commerce.taxes",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.authors",
+      "name": "Authors Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.authors",
+      "contractRefs": [
+        "content.author"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.sections"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.authors.view"
+        ],
+        "create": [
+          "content.authors.create"
+        ],
+        "update": [
+          "content.authors.edit",
+          "content.authors.manage"
+        ],
+        "delete": [
+          "content.authors.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.authors#identity",
+          "field": "identity",
+          "contractFieldRef": "content.author.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.authors#scope",
+          "field": "scope",
+          "contractFieldRef": "content.author.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.authors#displayName",
+          "field": "displayName",
+          "contractFieldRef": "content.author.displayName",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.authors#slug",
+          "field": "slug",
+          "contractFieldRef": "content.author.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.authors#position",
+          "field": "position",
+          "contractFieldRef": "content.author.position",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.authors#photo",
+          "field": "photo",
+          "contractFieldRef": "content.author.photo",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.authors#bio",
+          "field": "bio",
+          "contractFieldRef": "content.author.bio",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.authors#contact",
+          "field": "contact",
+          "contractFieldRef": "content.author.contact",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.authors#website",
+          "field": "website",
+          "contractFieldRef": "content.author.website",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.authors#socialLinks",
+          "field": "socialLinks",
+          "contractFieldRef": "content.author.socialLinks",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.authors#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.author.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.authors#revision",
+          "field": "revision",
+          "contractFieldRef": "content.author.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.authors",
+        "adminProfileRef": "adminUi.profile.content.authors",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.blogcategories",
+      "name": "Blog Categories Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.blogcategories",
+      "contractRefs": [
+        "content.blogCategory"
+      ],
+      "moduleRef": "blog",
+      "capabilityRefs": [
+        "blog.categories"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.blogcategories.view"
+        ],
+        "create": [
+          "content.blogcategories.create"
+        ],
+        "update": [
+          "content.blogcategories.edit",
+          "content.blogcategories.manage"
+        ],
+        "delete": [
+          "content.blogcategories.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.blogcategories#identity",
+          "field": "identity",
+          "contractFieldRef": "content.blogCategory.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogcategories#scope",
+          "field": "scope",
+          "contractFieldRef": "content.blogCategory.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogcategories#name",
+          "field": "name",
+          "contractFieldRef": "content.blogCategory.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogcategories#slug",
+          "field": "slug",
+          "contractFieldRef": "content.blogCategory.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogcategories#description",
+          "field": "description",
+          "contractFieldRef": "content.blogCategory.description",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogcategories#parentCategory",
+          "field": "parentCategory",
+          "contractFieldRef": "content.blogCategory.parentCategory",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogcategories#featuredMedia",
+          "field": "featuredMedia",
+          "contractFieldRef": "content.blogCategory.featuredMedia",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogcategories#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.blogCategory.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogcategories#revision",
+          "field": "revision",
+          "contractFieldRef": "content.blogCategory.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.blogcategories",
+        "adminProfileRef": "adminUi.profile.content.blogcategories",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.blogposts",
+      "name": "Blog Posts Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.blogposts",
+      "contractRefs": [
+        "content.blogPost"
+      ],
+      "moduleRef": "blog",
+      "capabilityRefs": [
+        "blog.approvals",
+        "blog.related-posts",
+        "blog.scheduling"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "allow",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "direct"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.blogposts.view"
+        ],
+        "create": [
+          "content.blogposts.create"
+        ],
+        "update": [
+          "content.blogposts.edit",
+          "content.blogposts.publish"
+        ],
+        "delete": [
+          "content.blogposts.delete"
+        ],
+        "submit_for_review": [
+          "content.blogposts.approve"
+        ],
+        "publish": [
+          "content.blogposts.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#identity",
+          "field": "identity",
+          "contractFieldRef": "content.blogPost.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#scope",
+          "field": "scope",
+          "contractFieldRef": "content.blogPost.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#title",
+          "field": "title",
+          "contractFieldRef": "content.blogPost.title",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#slug",
+          "field": "slug",
+          "contractFieldRef": "content.blogPost.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#excerpt",
+          "field": "excerpt",
+          "contractFieldRef": "content.blogPost.excerpt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#content",
+          "field": "content",
+          "contractFieldRef": "content.blogPost.content",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#featuredMedia",
+          "field": "featuredMedia",
+          "contractFieldRef": "content.blogPost.featuredMedia",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#author",
+          "field": "author",
+          "contractFieldRef": "content.blogPost.author",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#categories",
+          "field": "categories",
+          "contractFieldRef": "content.blogPost.categories",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#tags",
+          "field": "tags",
+          "contractFieldRef": "content.blogPost.tags",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#relatedPosts",
+          "field": "relatedPosts",
+          "contractFieldRef": "content.blogPost.relatedPosts",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#isFeatured",
+          "field": "isFeatured",
+          "contractFieldRef": "content.blogPost.isFeatured",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#readingTimeMinutes",
+          "field": "readingTimeMinutes",
+          "contractFieldRef": "content.blogPost.readingTimeMinutes",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.blogPost.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogposts#revision",
+          "field": "revision",
+          "contractFieldRef": "content.blogPost.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "simulated_write_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.create-blog-post",
+        "api.customer-cms.get-blog-post",
+        "api.customer-cms.list-blog-posts",
+        "api.customer-cms.publish-blog-post",
+        "api.customer-cms.update-blog-post"
+      ],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.blogposts",
+        "adminProfileRef": "adminUi.profile.content.blogposts",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.blogtags",
+      "name": "Blog Tags Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.blogtags",
+      "contractRefs": [
+        "content.blogTag"
+      ],
+      "moduleRef": "blog",
+      "capabilityRefs": [
+        "blog.tags"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.blogtags.view"
+        ],
+        "create": [
+          "content.blogtags.create"
+        ],
+        "update": [
+          "content.blogtags.edit",
+          "content.blogtags.manage"
+        ],
+        "delete": [
+          "content.blogtags.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.blogtags#identity",
+          "field": "identity",
+          "contractFieldRef": "content.blogTag.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogtags#scope",
+          "field": "scope",
+          "contractFieldRef": "content.blogTag.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogtags#name",
+          "field": "name",
+          "contractFieldRef": "content.blogTag.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogtags#slug",
+          "field": "slug",
+          "contractFieldRef": "content.blogTag.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogtags#description",
+          "field": "description",
+          "contractFieldRef": "content.blogTag.description",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogtags#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.blogTag.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.blogtags#revision",
+          "field": "revision",
+          "contractFieldRef": "content.blogTag.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.blogtags",
+        "adminProfileRef": "adminUi.profile.content.blogtags",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.customcollections",
+      "name": "Custom Collections Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.customcollections",
+      "contractRefs": [
+        "content.customCollection"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.custom-collections"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.customcollections.view"
+        ],
+        "create": [
+          "content.customcollections.create"
+        ],
+        "update": [
+          "content.customcollections.edit",
+          "content.customcollections.manage"
+        ],
+        "delete": [
+          "content.customcollections.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#identity",
+          "field": "identity",
+          "contractFieldRef": "content.customCollection.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#scope",
+          "field": "scope",
+          "contractFieldRef": "content.customCollection.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#name",
+          "field": "name",
+          "contractFieldRef": "content.customCollection.name",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#key",
+          "field": "key",
+          "contractFieldRef": "content.customCollection.key",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#singularLabel",
+          "field": "singularLabel",
+          "contractFieldRef": "content.customCollection.singularLabel",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#pluralLabel",
+          "field": "pluralLabel",
+          "contractFieldRef": "content.customCollection.pluralLabel",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#description",
+          "field": "description",
+          "contractFieldRef": "content.customCollection.description",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#fieldDefinitions",
+          "field": "fieldDefinitions",
+          "contractFieldRef": "content.customCollection.fieldDefinitions",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#displayField",
+          "field": "displayField",
+          "contractFieldRef": "content.customCollection.displayField",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#slugField",
+          "field": "slugField",
+          "contractFieldRef": "content.customCollection.slugField",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#routing",
+          "field": "routing",
+          "contractFieldRef": "content.customCollection.routing",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#customerCanCreateEntries",
+          "field": "customerCanCreateEntries",
+          "contractFieldRef": "content.customCollection.customerCanCreateEntries",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#customerCanDeleteEntries",
+          "field": "customerCanDeleteEntries",
+          "contractFieldRef": "content.customCollection.customerCanDeleteEntries",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#enabled",
+          "field": "enabled",
+          "contractFieldRef": "content.customCollection.enabled",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customcollections#revision",
+          "field": "revision",
+          "contractFieldRef": "content.customCollection.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.customcollections",
+        "adminProfileRef": "adminUi.profile.content.customcollections",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.customentries",
+      "name": "Custom Entries Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.customentries",
+      "contractRefs": [
+        "content.customCollectionEntry"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.custom-collections"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "allow",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "direct"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.customentries.view"
+        ],
+        "create": [
+          "content.customentries.create"
+        ],
+        "update": [
+          "content.customentries.edit",
+          "content.customentries.publish"
+        ],
+        "delete": [
+          "content.customentries.delete"
+        ],
+        "submit_for_review": [
+          "content.customentries.approve"
+        ],
+        "publish": [
+          "content.customentries.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.customentries#identity",
+          "field": "identity",
+          "contractFieldRef": "content.customCollectionEntry.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customentries#scope",
+          "field": "scope",
+          "contractFieldRef": "content.customCollectionEntry.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customentries#collection",
+          "field": "collection",
+          "contractFieldRef": "content.customCollectionEntry.collection",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customentries#displayLabel",
+          "field": "displayLabel",
+          "contractFieldRef": "content.customCollectionEntry.displayLabel",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customentries#slug",
+          "field": "slug",
+          "contractFieldRef": "content.customCollectionEntry.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customentries#data",
+          "field": "data",
+          "contractFieldRef": "content.customCollectionEntry.data",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customentries#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.customCollectionEntry.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.customentries#revision",
+          "field": "revision",
+          "contractFieldRef": "content.customCollectionEntry.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.create-custom-entry",
+        "api.customer-cms.get-custom-entry",
+        "api.customer-cms.list-custom-entrys",
+        "api.customer-cms.publish-custom-entry",
+        "api.customer-cms.update-custom-entry"
+      ],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.customentries",
+        "adminProfileRef": "adminUi.profile.content.customentries",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.documentation",
+      "name": "Documentation Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.documentation",
+      "contractRefs": [
+        "content.documentationArticle",
+        "content.documentationCollection",
+        "content.documentationCategory"
+      ],
+      "moduleRef": "documentation",
+      "capabilityRefs": [
+        "documentation.attachments",
+        "documentation.categories",
+        "documentation.collections",
+        "documentation.related-articles",
+        "documentation.versioning",
+        "documentation.visibility"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "allow",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "direct"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.documentation.view"
+        ],
+        "create": [
+          "content.documentation.create"
+        ],
+        "update": [
+          "content.documentation.edit",
+          "content.documentation.publish"
+        ],
+        "delete": [
+          "content.documentation.delete"
+        ],
+        "submit_for_review": [
+          "content.documentation.approve"
+        ],
+        "publish": [
+          "content.documentation.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#identity",
+          "field": "identity",
+          "contractFieldRef": "content.documentationArticle.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#scope",
+          "field": "scope",
+          "contractFieldRef": "content.documentationArticle.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#title",
+          "field": "title",
+          "contractFieldRef": "content.documentationArticle.title",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#slug",
+          "field": "slug",
+          "contractFieldRef": "content.documentationArticle.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#summary",
+          "field": "summary",
+          "contractFieldRef": "content.documentationArticle.summary",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#content",
+          "field": "content",
+          "contractFieldRef": "content.documentationArticle.content",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#collection",
+          "field": "collection",
+          "contractFieldRef": "content.documentationArticle.collection",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#category",
+          "field": "category",
+          "contractFieldRef": "content.documentationArticle.category",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#author",
+          "field": "author",
+          "contractFieldRef": "content.documentationArticle.author",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#versionLabel",
+          "field": "versionLabel",
+          "contractFieldRef": "content.documentationArticle.versionLabel",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#tableOfContents",
+          "field": "tableOfContents",
+          "contractFieldRef": "content.documentationArticle.tableOfContents",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#relatedArticles",
+          "field": "relatedArticles",
+          "contractFieldRef": "content.documentationArticle.relatedArticles",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#attachments",
+          "field": "attachments",
+          "contractFieldRef": "content.documentationArticle.attachments",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.documentationArticle.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.documentation#revision",
+          "field": "revision",
+          "contractFieldRef": "content.documentationArticle.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.create-documentation",
+        "api.customer-cms.get-documentation",
+        "api.customer-cms.list-documentations",
+        "api.customer-cms.publish-documentation",
+        "api.customer-cms.update-documentation"
+      ],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.documentation",
+        "adminProfileRef": "adminUi.profile.content.documentation",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.faqs",
+      "name": "FAQs Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.faqs",
+      "contractRefs": [
+        "content.faq"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.sections"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "allow",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "direct"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.faqs.view"
+        ],
+        "create": [
+          "content.faqs.create"
+        ],
+        "update": [
+          "content.faqs.edit",
+          "content.faqs.publish"
+        ],
+        "delete": [
+          "content.faqs.delete"
+        ],
+        "submit_for_review": [
+          "content.faqs.approve"
+        ],
+        "publish": [
+          "content.faqs.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.faqs#identity",
+          "field": "identity",
+          "contractFieldRef": "content.faq.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.faqs#scope",
+          "field": "scope",
+          "contractFieldRef": "content.faq.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.faqs#question",
+          "field": "question",
+          "contractFieldRef": "content.faq.question",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.faqs#answer",
+          "field": "answer",
+          "contractFieldRef": "content.faq.answer",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.faqs#group",
+          "field": "group",
+          "contractFieldRef": "content.faq.group",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.faqs#order",
+          "field": "order",
+          "contractFieldRef": "content.faq.order",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.faqs#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.faq.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.faqs#revision",
+          "field": "revision",
+          "contractFieldRef": "content.faq.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.faqs",
+        "adminProfileRef": "adminUi.profile.content.faqs",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.legal",
+      "name": "Legal Pages Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.legal",
+      "contractRefs": [
+        "content.legalPage"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.legal-pages"
+      ],
+      "customerMode": "approval_required",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "request",
+        "delete": "deny",
+        "submit_for_review": "allow",
+        "publish": "request",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "approval_required"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.legal.view"
+        ],
+        "create": [],
+        "update": [
+          "content.legal.edit",
+          "content.legal.publish"
+        ],
+        "delete": [],
+        "submit_for_review": [
+          "core.changerequests.create"
+        ],
+        "publish": [
+          "content.legal.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.legal#identity",
+          "field": "identity",
+          "contractFieldRef": "content.legalPage.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.legal#scope",
+          "field": "scope",
+          "contractFieldRef": "content.legalPage.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.legal#title",
+          "field": "title",
+          "contractFieldRef": "content.legalPage.title",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.legal#slug",
+          "field": "slug",
+          "contractFieldRef": "content.legalPage.slug",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.legal#legalType",
+          "field": "legalType",
+          "contractFieldRef": "content.legalPage.legalType",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.legal#content",
+          "field": "content",
+          "contractFieldRef": "content.legalPage.content",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.legal#effectiveDate",
+          "field": "effectiveDate",
+          "contractFieldRef": "content.legalPage.effectiveDate",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.legal#lastReviewedDate",
+          "field": "lastReviewedDate",
+          "contractFieldRef": "content.legalPage.lastReviewedDate",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.legal#jurisdiction",
+          "field": "jurisdiction",
+          "contractFieldRef": "content.legalPage.jurisdiction",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.legal#contact",
+          "field": "contact",
+          "contractFieldRef": "content.legalPage.contact",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.legal#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.legalPage.publishing",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.legal#revision",
+          "field": "revision",
+          "contractFieldRef": "content.legalPage.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.cancel-change-request",
+        "api.customer-cms.submit-change-request"
+      ],
+      "eventRefs": [
+        "customer-change-request.submitted",
+        "customer-change-request.cancelled",
+        "customer-change-request.approved",
+        "customer-change-request.applied"
+      ],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.legal",
+        "adminProfileRef": "adminUi.profile.content.legal",
+        "approvalContractRef": "customerAccess.changeRequest"
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.locations",
+      "name": "Locations Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.locations",
+      "contractRefs": [
+        "content.location"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.sections"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "allow",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "direct"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.locations.view"
+        ],
+        "create": [
+          "content.locations.create"
+        ],
+        "update": [
+          "content.locations.edit",
+          "content.locations.publish"
+        ],
+        "delete": [
+          "content.locations.delete"
+        ],
+        "submit_for_review": [
+          "content.locations.approve"
+        ],
+        "publish": [
+          "content.locations.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.locations#identity",
+          "field": "identity",
+          "contractFieldRef": "content.location.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#scope",
+          "field": "scope",
+          "contractFieldRef": "content.location.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#name",
+          "field": "name",
+          "contractFieldRef": "content.location.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#slug",
+          "field": "slug",
+          "contractFieldRef": "content.location.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#address",
+          "field": "address",
+          "contractFieldRef": "content.location.address",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#coordinates",
+          "field": "coordinates",
+          "contractFieldRef": "content.location.coordinates",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#contact",
+          "field": "contact",
+          "contractFieldRef": "content.location.contact",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#businessHours",
+          "field": "businessHours",
+          "contractFieldRef": "content.location.businessHours",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#directionsUrl",
+          "field": "directionsUrl",
+          "contractFieldRef": "content.location.directionsUrl",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#featuredMedia",
+          "field": "featuredMedia",
+          "contractFieldRef": "content.location.featuredMedia",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#displayOrder",
+          "field": "displayOrder",
+          "contractFieldRef": "content.location.displayOrder",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.location.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.locations#revision",
+          "field": "revision",
+          "contractFieldRef": "content.location.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.locations",
+        "adminProfileRef": "adminUi.profile.content.locations",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.media",
+      "name": "Media Library Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.media",
+      "contractRefs": [
+        "shared.mediaAsset"
+      ],
+      "moduleRef": "media",
+      "capabilityRefs": [
+        "media.audio",
+        "media.documents",
+        "media.images",
+        "media.library",
+        "media.video"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.media.view"
+        ],
+        "create": [
+          "content.media.create"
+        ],
+        "update": [
+          "content.media.edit",
+          "content.media.manage"
+        ],
+        "delete": [
+          "content.media.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.media#id",
+          "field": "id",
+          "contractFieldRef": "shared.mediaAsset.id",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#siteId",
+          "field": "siteId",
+          "contractFieldRef": "shared.mediaAsset.siteId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#kind",
+          "field": "kind",
+          "contractFieldRef": "shared.mediaAsset.kind",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#fileName",
+          "field": "fileName",
+          "contractFieldRef": "shared.mediaAsset.fileName",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#mimeType",
+          "field": "mimeType",
+          "contractFieldRef": "shared.mediaAsset.mimeType",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#sizeBytes",
+          "field": "sizeBytes",
+          "contractFieldRef": "shared.mediaAsset.sizeBytes",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#width",
+          "field": "width",
+          "contractFieldRef": "shared.mediaAsset.width",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#height",
+          "field": "height",
+          "contractFieldRef": "shared.mediaAsset.height",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#durationSeconds",
+          "field": "durationSeconds",
+          "contractFieldRef": "shared.mediaAsset.durationSeconds",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#checksum",
+          "field": "checksum",
+          "contractFieldRef": "shared.mediaAsset.checksum",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#title",
+          "field": "title",
+          "contractFieldRef": "shared.mediaAsset.title",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#altText",
+          "field": "altText",
+          "contractFieldRef": "shared.mediaAsset.altText",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#caption",
+          "field": "caption",
+          "contractFieldRef": "shared.mediaAsset.caption",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#credit",
+          "field": "credit",
+          "contractFieldRef": "shared.mediaAsset.credit",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#copyright",
+          "field": "copyright",
+          "contractFieldRef": "shared.mediaAsset.copyright",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#focalPoint",
+          "field": "focalPoint",
+          "contractFieldRef": "shared.mediaAsset.focalPoint",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#publicUrl",
+          "field": "publicUrl",
+          "contractFieldRef": "shared.mediaAsset.publicUrl",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.media#createdAt",
+          "field": "createdAt",
+          "contractFieldRef": "shared.mediaAsset.createdAt",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.begin-media-upload",
+        "api.customer-cms.complete-media-upload",
+        "api.customer-cms.delete-media",
+        "api.customer-cms.list-media"
+      ],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.media",
+        "adminProfileRef": "adminUi.profile.content.media",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.navigation",
+      "name": "Navigation Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.navigation",
+      "contractRefs": [
+        "content.navigation",
+        "content.navigationItem"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.navigation"
+      ],
+      "customerMode": "approval_required",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "request",
+        "delete": "deny",
+        "submit_for_review": "allow",
+        "publish": "request",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "approval_required"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.navigation.view"
+        ],
+        "create": [],
+        "update": [
+          "content.navigation.edit",
+          "content.navigation.manage",
+          "content.navigation.publish"
+        ],
+        "delete": [],
+        "submit_for_review": [
+          "core.changerequests.create"
+        ],
+        "publish": [
+          "content.navigation.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.navigation#identity",
+          "field": "identity",
+          "contractFieldRef": "content.navigation.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.navigation#scope",
+          "field": "scope",
+          "contractFieldRef": "content.navigation.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.navigation#name",
+          "field": "name",
+          "contractFieldRef": "content.navigation.name",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.navigation#key",
+          "field": "key",
+          "contractFieldRef": "content.navigation.key",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.navigation#location",
+          "field": "location",
+          "contractFieldRef": "content.navigation.location",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.navigation#items",
+          "field": "items",
+          "contractFieldRef": "content.navigation.items",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.navigation#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.navigation.publishing",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.navigation#revision",
+          "field": "revision",
+          "contractFieldRef": "content.navigation.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.cancel-change-request",
+        "api.customer-cms.submit-change-request"
+      ],
+      "eventRefs": [
+        "customer-change-request.submitted",
+        "customer-change-request.cancelled",
+        "customer-change-request.approved",
+        "customer-change-request.applied"
+      ],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.navigation",
+        "adminProfileRef": "adminUi.profile.content.navigation",
+        "approvalContractRef": "customerAccess.changeRequest"
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.pages",
+      "name": "Pages Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.pages",
+      "contractRefs": [
+        "content.page",
+        "content.pageSection"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.sections"
+      ],
+      "customerMode": "approval_required",
+      "actions": {
+        "read": "allow",
+        "create": "request",
+        "update": "request",
+        "delete": "request",
+        "submit_for_review": "allow",
+        "publish": "request",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "admin_only"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.pages.view"
+        ],
+        "create": [
+          "content.pages.create"
+        ],
+        "update": [
+          "content.pages.edit",
+          "content.pages.publish"
+        ],
+        "delete": [
+          "content.pages.delete"
+        ],
+        "submit_for_review": [
+          "core.changerequests.create"
+        ],
+        "publish": [
+          "content.pages.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.pages#identity",
+          "field": "identity",
+          "contractFieldRef": "content.page.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.pages#scope",
+          "field": "scope",
+          "contractFieldRef": "content.page.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.pages#title",
+          "field": "title",
+          "contractFieldRef": "content.page.title",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.pages#internalName",
+          "field": "internalName",
+          "contractFieldRef": "content.page.internalName",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.pages#slug",
+          "field": "slug",
+          "contractFieldRef": "content.page.slug",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.pages#pageKind",
+          "field": "pageKind",
+          "contractFieldRef": "content.page.pageKind",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.pages#templateKey",
+          "field": "templateKey",
+          "contractFieldRef": "content.page.templateKey",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.pages#summary",
+          "field": "summary",
+          "contractFieldRef": "content.page.summary",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.pages#sections",
+          "field": "sections",
+          "contractFieldRef": "content.page.sections",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.pages#featuredMedia",
+          "field": "featuredMedia",
+          "contractFieldRef": "content.page.featuredMedia",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.pages#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.page.publishing",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.pages#revision",
+          "field": "revision",
+          "contractFieldRef": "content.page.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.cancel-change-request",
+        "api.customer-cms.create-page",
+        "api.customer-cms.get-page",
+        "api.customer-cms.list-pages",
+        "api.customer-cms.publish-page",
+        "api.customer-cms.submit-change-request",
+        "api.customer-cms.update-page"
+      ],
+      "eventRefs": [
+        "customer-change-request.submitted",
+        "customer-change-request.cancelled",
+        "customer-change-request.approved",
+        "customer-change-request.applied"
+      ],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.pages",
+        "adminProfileRef": "adminUi.profile.content.pages",
+        "approvalContractRef": "customerAccess.changeRequest"
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.reusablecontent",
+      "name": "Reusable Content Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.reusablecontent",
+      "contractRefs": [
+        "content.reusableContent"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.reusable-content"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "allow",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "direct"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.reusablecontent.view"
+        ],
+        "create": [
+          "content.reusablecontent.create"
+        ],
+        "update": [
+          "content.reusablecontent.edit",
+          "content.reusablecontent.publish"
+        ],
+        "delete": [
+          "content.reusablecontent.delete"
+        ],
+        "submit_for_review": [
+          "content.reusablecontent.approve"
+        ],
+        "publish": [
+          "content.reusablecontent.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.reusablecontent#identity",
+          "field": "identity",
+          "contractFieldRef": "content.reusableContent.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.reusablecontent#scope",
+          "field": "scope",
+          "contractFieldRef": "content.reusableContent.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.reusablecontent#key",
+          "field": "key",
+          "contractFieldRef": "content.reusableContent.key",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.reusablecontent#name",
+          "field": "name",
+          "contractFieldRef": "content.reusableContent.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.reusablecontent#description",
+          "field": "description",
+          "contractFieldRef": "content.reusableContent.description",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.reusablecontent#valueContract",
+          "field": "valueContract",
+          "contractFieldRef": "content.reusableContent.valueContract",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.reusablecontent#value",
+          "field": "value",
+          "contractFieldRef": "content.reusableContent.value",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.reusablecontent#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.reusableContent.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.reusablecontent#revision",
+          "field": "revision",
+          "contractFieldRef": "content.reusableContent.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.reusablecontent",
+        "adminProfileRef": "adminUi.profile.content.reusablecontent",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.services",
+      "name": "Services Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.services",
+      "contractRefs": [
+        "content.service"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.sections"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "allow",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "direct"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.services.view"
+        ],
+        "create": [
+          "content.services.create"
+        ],
+        "update": [
+          "content.services.edit",
+          "content.services.publish"
+        ],
+        "delete": [
+          "content.services.delete"
+        ],
+        "submit_for_review": [
+          "content.services.approve"
+        ],
+        "publish": [
+          "content.services.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.services#identity",
+          "field": "identity",
+          "contractFieldRef": "content.service.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#scope",
+          "field": "scope",
+          "contractFieldRef": "content.service.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#name",
+          "field": "name",
+          "contractFieldRef": "content.service.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#slug",
+          "field": "slug",
+          "contractFieldRef": "content.service.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#shortDescription",
+          "field": "shortDescription",
+          "contractFieldRef": "content.service.shortDescription",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#overview",
+          "field": "overview",
+          "contractFieldRef": "content.service.overview",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#featuredMedia",
+          "field": "featuredMedia",
+          "contractFieldRef": "content.service.featuredMedia",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#sections",
+          "field": "sections",
+          "contractFieldRef": "content.service.sections",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#faqs",
+          "field": "faqs",
+          "contractFieldRef": "content.service.faqs",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#testimonials",
+          "field": "testimonials",
+          "contractFieldRef": "content.service.testimonials",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#primaryCta",
+          "field": "primaryCta",
+          "contractFieldRef": "content.service.primaryCta",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#isFeatured",
+          "field": "isFeatured",
+          "contractFieldRef": "content.service.isFeatured",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.service.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.services#revision",
+          "field": "revision",
+          "contractFieldRef": "content.service.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.services",
+        "adminProfileRef": "adminUi.profile.content.services",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.team",
+      "name": "Team Members Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.team",
+      "contractRefs": [
+        "content.teamMember"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.sections"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "allow",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "direct"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.team.view"
+        ],
+        "create": [
+          "content.team.create"
+        ],
+        "update": [
+          "content.team.edit",
+          "content.team.publish"
+        ],
+        "delete": [
+          "content.team.delete"
+        ],
+        "submit_for_review": [
+          "content.team.approve"
+        ],
+        "publish": [
+          "content.team.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.team#identity",
+          "field": "identity",
+          "contractFieldRef": "content.teamMember.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.team#scope",
+          "field": "scope",
+          "contractFieldRef": "content.teamMember.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.team#name",
+          "field": "name",
+          "contractFieldRef": "content.teamMember.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.team#slug",
+          "field": "slug",
+          "contractFieldRef": "content.teamMember.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.team#role",
+          "field": "role",
+          "contractFieldRef": "content.teamMember.role",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.team#photo",
+          "field": "photo",
+          "contractFieldRef": "content.teamMember.photo",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.team#biography",
+          "field": "biography",
+          "contractFieldRef": "content.teamMember.biography",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.team#contact",
+          "field": "contact",
+          "contractFieldRef": "content.teamMember.contact",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.team#socialLinks",
+          "field": "socialLinks",
+          "contractFieldRef": "content.teamMember.socialLinks",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.team#displayOrder",
+          "field": "displayOrder",
+          "contractFieldRef": "content.teamMember.displayOrder",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.team#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.teamMember.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.team#revision",
+          "field": "revision",
+          "contractFieldRef": "content.teamMember.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.team",
+        "adminProfileRef": "adminUi.profile.content.team",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.content.testimonials",
+      "name": "Testimonials Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "content.testimonials",
+      "contractRefs": [
+        "content.testimonial"
+      ],
+      "moduleRef": "pages",
+      "capabilityRefs": [
+        "pages.sections"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "allow",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "direct"
+      },
+      "permissionRefs": {
+        "read": [
+          "content.testimonials.view"
+        ],
+        "create": [
+          "content.testimonials.create"
+        ],
+        "update": [
+          "content.testimonials.edit",
+          "content.testimonials.publish"
+        ],
+        "delete": [
+          "content.testimonials.delete"
+        ],
+        "submit_for_review": [
+          "content.testimonials.approve"
+        ],
+        "publish": [
+          "content.testimonials.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#identity",
+          "field": "identity",
+          "contractFieldRef": "content.testimonial.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#scope",
+          "field": "scope",
+          "contractFieldRef": "content.testimonial.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#quote",
+          "field": "quote",
+          "contractFieldRef": "content.testimonial.quote",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#personName",
+          "field": "personName",
+          "contractFieldRef": "content.testimonial.personName",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#position",
+          "field": "position",
+          "contractFieldRef": "content.testimonial.position",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#company",
+          "field": "company",
+          "contractFieldRef": "content.testimonial.company",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#photo",
+          "field": "photo",
+          "contractFieldRef": "content.testimonial.photo",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#rating",
+          "field": "rating",
+          "contractFieldRef": "content.testimonial.rating",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#relatedService",
+          "field": "relatedService",
+          "contractFieldRef": "content.testimonial.relatedService",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#sourceUrl",
+          "field": "sourceUrl",
+          "contractFieldRef": "content.testimonial.sourceUrl",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#isFeatured",
+          "field": "isFeatured",
+          "contractFieldRef": "content.testimonial.isFeatured",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#publishing",
+          "field": "publishing",
+          "contractFieldRef": "content.testimonial.publishing",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.content.testimonials#revision",
+          "field": "revision",
+          "contractFieldRef": "content.testimonial.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.content.testimonials",
+        "adminProfileRef": "adminUi.profile.content.testimonials",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.core.audit",
+      "name": "Activity Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "core.audit",
+      "contractRefs": [
+        "core.auditRecord"
+      ],
+      "moduleRef": "core",
+      "capabilityRefs": [
+        "core.audit"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "core.audit.export",
+          "core.audit.view"
+        ],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.core.audit#id",
+          "field": "id",
+          "contractFieldRef": "core.auditRecord.id",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.audit#occurredAt",
+          "field": "occurredAt",
+          "contractFieldRef": "core.auditRecord.occurredAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.audit#actor",
+          "field": "actor",
+          "contractFieldRef": "core.auditRecord.actor",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.audit#action",
+          "field": "action",
+          "contractFieldRef": "core.auditRecord.action",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.audit#entity",
+          "field": "entity",
+          "contractFieldRef": "core.auditRecord.entity",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.audit#summary",
+          "field": "summary",
+          "contractFieldRef": "core.auditRecord.summary",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.audit#before",
+          "field": "before",
+          "contractFieldRef": "core.auditRecord.before",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.audit#after",
+          "field": "after",
+          "contractFieldRef": "core.auditRecord.after",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.audit#requestId",
+          "field": "requestId",
+          "contractFieldRef": "core.auditRecord.requestId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.audit#metadata",
+          "field": "metadata",
+          "contractFieldRef": "core.auditRecord.metadata",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.core.audit",
+        "adminProfileRef": "adminUi.profile.core.audit",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.core.members",
+      "name": "Users & Access Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "core.members",
+      "contractRefs": [
+        "permissions.roleAssignment",
+        "permissions.roleDefinition"
+      ],
+      "moduleRef": "core",
+      "capabilityRefs": [
+        "core.identity"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "core.members.view"
+        ],
+        "create": [
+          "core.members.create"
+        ],
+        "update": [
+          "core.members.edit",
+          "core.members.manage"
+        ],
+        "delete": [
+          "core.members.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.core.members#assignmentId",
+          "field": "assignmentId",
+          "contractFieldRef": "permissions.roleAssignment.assignmentId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.members#principal",
+          "field": "principal",
+          "contractFieldRef": "permissions.roleAssignment.principal",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.members#roleId",
+          "field": "roleId",
+          "contractFieldRef": "permissions.roleAssignment.roleId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.members#scope",
+          "field": "scope",
+          "contractFieldRef": "permissions.roleAssignment.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.members#status",
+          "field": "status",
+          "contractFieldRef": "permissions.roleAssignment.status",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.members#startsAt",
+          "field": "startsAt",
+          "contractFieldRef": "permissions.roleAssignment.startsAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.members#expiresAt",
+          "field": "expiresAt",
+          "contractFieldRef": "permissions.roleAssignment.expiresAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.members#assignedBy",
+          "field": "assignedBy",
+          "contractFieldRef": "permissions.roleAssignment.assignedBy",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.core.members",
+        "adminProfileRef": "adminUi.profile.core.members",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.core.settings",
+      "name": "Website Settings Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "core.settings",
+      "contractRefs": [
+        "core.site",
+        "shared.contactPoint",
+        "shared.address"
+      ],
+      "moduleRef": "core",
+      "capabilityRefs": [
+        "core.identity"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "core.settings.view"
+        ],
+        "create": [],
+        "update": [
+          "core.settings.edit",
+          "core.settings.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.core.settings#identity",
+          "field": "identity",
+          "contractFieldRef": "core.site.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.settings#organizationId",
+          "field": "organizationId",
+          "contractFieldRef": "core.site.organizationId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.settings#name",
+          "field": "name",
+          "contractFieldRef": "core.site.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.settings#primaryUrl",
+          "field": "primaryUrl",
+          "contractFieldRef": "core.site.primaryUrl",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.settings#status",
+          "field": "status",
+          "contractFieldRef": "core.site.status",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.get-workspace"
+      ],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.core.settings",
+        "adminProfileRef": "adminUi.profile.core.settings",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.core.sitehealth",
+      "name": "Website Health Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "core.sitehealth",
+      "contractRefs": [
+        "core.site"
+      ],
+      "moduleRef": "core",
+      "capabilityRefs": [
+        "core.identity"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "core.sitehealth.view"
+        ],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.core.sitehealth#identity",
+          "field": "identity",
+          "contractFieldRef": "core.site.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.sitehealth#organizationId",
+          "field": "organizationId",
+          "contractFieldRef": "core.site.organizationId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.sitehealth#name",
+          "field": "name",
+          "contractFieldRef": "core.site.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.sitehealth#primaryUrl",
+          "field": "primaryUrl",
+          "contractFieldRef": "core.site.primaryUrl",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.sitehealth#status",
+          "field": "status",
+          "contractFieldRef": "core.site.status",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.get-workspace"
+      ],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.core.sitehealth",
+        "adminProfileRef": "adminUi.profile.core.sitehealth",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.core.workspace",
+      "name": "Overview Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "core.workspace",
+      "contractRefs": [
+        "core.site"
+      ],
+      "moduleRef": "core",
+      "capabilityRefs": [
+        "core.identity"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "core.workspace.view"
+        ],
+        "create": [],
+        "update": [
+          "core.workspace.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.core.workspace#identity",
+          "field": "identity",
+          "contractFieldRef": "core.site.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.workspace#organizationId",
+          "field": "organizationId",
+          "contractFieldRef": "core.site.organizationId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.workspace#name",
+          "field": "name",
+          "contractFieldRef": "core.site.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.workspace#primaryUrl",
+          "field": "primaryUrl",
+          "contractFieldRef": "core.site.primaryUrl",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.core.workspace#status",
+          "field": "status",
+          "contractFieldRef": "core.site.status",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.get-workspace"
+      ],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.core.workspace",
+        "adminProfileRef": "adminUi.profile.core.workspace",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.customerWorkspaceShell",
+      "name": "Customer Site Workspace Shell Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "core.workspace",
+      "contractRefs": [
+        "core.site",
+        "modules.core"
+      ],
+      "moduleRef": "core",
+      "capabilityRefs": [
+        "core.identity"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "core.workspace.view"
+        ],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.get-workspace"
+      ],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.customerWorkspaceShell",
+        "adminProfileRef": null,
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.forms.consent",
+      "name": "Consent Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "forms.consent",
+      "contractRefs": [
+        "forms.consentRecord"
+      ],
+      "moduleRef": "forms",
+      "capabilityRefs": [
+        "forms.consent-fields"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "forms.consent.export",
+          "forms.consent.view"
+        ],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.forms.consent#fieldKey",
+          "field": "fieldKey",
+          "contractFieldRef": "forms.consentRecord.fieldKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.consent#purpose",
+          "field": "purpose",
+          "contractFieldRef": "forms.consentRecord.purpose",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.consent#accepted",
+          "field": "accepted",
+          "contractFieldRef": "forms.consentRecord.accepted",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.consent#textSnapshot",
+          "field": "textSnapshot",
+          "contractFieldRef": "forms.consentRecord.textSnapshot",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.consent#policyUrl",
+          "field": "policyUrl",
+          "contractFieldRef": "forms.consentRecord.policyUrl",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.consent#policyVersion",
+          "field": "policyVersion",
+          "contractFieldRef": "forms.consentRecord.policyVersion",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.consent#recordedAt",
+          "field": "recordedAt",
+          "contractFieldRef": "forms.consentRecord.recordedAt",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.forms.consent",
+        "adminProfileRef": "adminUi.profile.forms.consent",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.forms.forms",
+      "name": "Forms Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "forms.forms",
+      "contractRefs": [
+        "forms.form",
+        "forms.formField",
+        "forms.formSection",
+        "forms.formStep"
+      ],
+      "moduleRef": "forms",
+      "capabilityRefs": [
+        "forms.notifications"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "allow",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "direct"
+      },
+      "permissionRefs": {
+        "read": [
+          "forms.forms.view"
+        ],
+        "create": [
+          "forms.forms.create"
+        ],
+        "update": [
+          "forms.forms.edit",
+          "forms.forms.manage"
+        ],
+        "delete": [
+          "forms.forms.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [
+          "forms.forms.publish"
+        ],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#id",
+          "field": "id",
+          "contractFieldRef": "forms.form.id",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#siteId",
+          "field": "siteId",
+          "contractFieldRef": "forms.form.siteId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#name",
+          "field": "name",
+          "contractFieldRef": "forms.form.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#publicTitle",
+          "field": "publicTitle",
+          "contractFieldRef": "forms.form.publicTitle",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#slug",
+          "field": "slug",
+          "contractFieldRef": "forms.form.slug",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#description",
+          "field": "description",
+          "contractFieldRef": "forms.form.description",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#renderMode",
+          "field": "renderMode",
+          "contractFieldRef": "forms.form.renderMode",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#fieldIds",
+          "field": "fieldIds",
+          "contractFieldRef": "forms.form.fieldIds",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#sectionIds",
+          "field": "sectionIds",
+          "contractFieldRef": "forms.form.sectionIds",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#stepIds",
+          "field": "stepIds",
+          "contractFieldRef": "forms.form.stepIds",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#availability",
+          "field": "availability",
+          "contractFieldRef": "forms.form.availability",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#confirmation",
+          "field": "confirmation",
+          "contractFieldRef": "forms.form.confirmation",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#dataHandling",
+          "field": "dataHandling",
+          "contractFieldRef": "forms.form.dataHandling",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#spamPolicy",
+          "field": "spamPolicy",
+          "contractFieldRef": "forms.form.spamPolicy",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#rateLimitPolicy",
+          "field": "rateLimitPolicy",
+          "contractFieldRef": "forms.form.rateLimitPolicy",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#submitLabel",
+          "field": "submitLabel",
+          "contractFieldRef": "forms.form.submitLabel",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#formVersion",
+          "field": "formVersion",
+          "contractFieldRef": "forms.form.formVersion",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#createdAt",
+          "field": "createdAt",
+          "contractFieldRef": "forms.form.createdAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.forms#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "forms.form.updatedAt",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.create-form",
+        "api.customer-cms.get-form",
+        "api.customer-cms.list-forms",
+        "api.customer-cms.update-form"
+      ],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.forms.forms",
+        "adminProfileRef": "adminUi.profile.forms.forms",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.forms.leads",
+      "name": "Leads Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "forms.leads",
+      "contractRefs": [
+        "forms.lead",
+        "forms.leadActivity",
+        "forms.leadNote"
+      ],
+      "moduleRef": "leads",
+      "capabilityRefs": [
+        "leads.activity",
+        "leads.export",
+        "leads.notes",
+        "leads.status"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "forms.leads.export",
+          "forms.leads.view"
+        ],
+        "create": [
+          "forms.leads.create"
+        ],
+        "update": [
+          "forms.leads.edit",
+          "forms.leads.manage"
+        ],
+        "delete": [
+          "forms.leads.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#id",
+          "field": "id",
+          "contractFieldRef": "forms.lead.id",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#siteId",
+          "field": "siteId",
+          "contractFieldRef": "forms.lead.siteId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#displayName",
+          "field": "displayName",
+          "contractFieldRef": "forms.lead.displayName",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#organizationName",
+          "field": "organizationName",
+          "contractFieldRef": "forms.lead.organizationName",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#contactPoints",
+          "field": "contactPoints",
+          "contractFieldRef": "forms.lead.contactPoints",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#source",
+          "field": "source",
+          "contractFieldRef": "forms.lead.source",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#statusKey",
+          "field": "statusKey",
+          "contractFieldRef": "forms.lead.statusKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#assignedTo",
+          "field": "assignedTo",
+          "contractFieldRef": "forms.lead.assignedTo",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#tags",
+          "field": "tags",
+          "contractFieldRef": "forms.lead.tags",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#submissionIds",
+          "field": "submissionIds",
+          "contractFieldRef": "forms.lead.submissionIds",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#createdAt",
+          "field": "createdAt",
+          "contractFieldRef": "forms.lead.createdAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "forms.lead.updatedAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.leads#lastActivityAt",
+          "field": "lastActivityAt",
+          "contractFieldRef": "forms.lead.lastActivityAt",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.get-lead",
+        "api.customer-cms.list-leads",
+        "api.customer-cms.update-lead"
+      ],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.forms.leads",
+        "adminProfileRef": "adminUi.profile.forms.leads",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.forms.notifications",
+      "name": "Form Notifications Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "forms.notifications",
+      "contractRefs": [
+        "forms.notificationRule",
+        "forms.autoResponse"
+      ],
+      "moduleRef": "forms",
+      "capabilityRefs": [
+        "forms.auto-response",
+        "forms.notifications"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "forms.notifications.view"
+        ],
+        "create": [],
+        "update": [
+          "forms.notifications.edit",
+          "forms.notifications.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.forms.notifications#id",
+          "field": "id",
+          "contractFieldRef": "forms.notificationRule.id",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.notifications#formId",
+          "field": "formId",
+          "contractFieldRef": "forms.notificationRule.formId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.notifications#enabled",
+          "field": "enabled",
+          "contractFieldRef": "forms.notificationRule.enabled",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.notifications#outcome",
+          "field": "outcome",
+          "contractFieldRef": "forms.notificationRule.outcome",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.notifications#recipients",
+          "field": "recipients",
+          "contractFieldRef": "forms.notificationRule.recipients",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.notifications#subjectTemplate",
+          "field": "subjectTemplate",
+          "contractFieldRef": "forms.notificationRule.subjectTemplate",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.notifications#bodyTemplate",
+          "field": "bodyTemplate",
+          "contractFieldRef": "forms.notificationRule.bodyTemplate",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.notifications#includeFieldKeys",
+          "field": "includeFieldKeys",
+          "contractFieldRef": "forms.notificationRule.includeFieldKeys",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.notifications#includeSensitiveFields",
+          "field": "includeSensitiveFields",
+          "contractFieldRef": "forms.notificationRule.includeSensitiveFields",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.forms.notifications",
+        "adminProfileRef": "adminUi.profile.forms.notifications",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.forms.spam",
+      "name": "Spam Review Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "forms.spam",
+      "contractRefs": [
+        "forms.spamDecision",
+        "forms.spamPolicy"
+      ],
+      "moduleRef": "forms",
+      "capabilityRefs": [
+        "forms.spam-protection"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "forms.spam.view"
+        ],
+        "create": [],
+        "update": [
+          "forms.spam.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.forms.spam#classification",
+          "field": "classification",
+          "contractFieldRef": "forms.spamDecision.classification",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.spam#score",
+          "field": "score",
+          "contractFieldRef": "forms.spamDecision.score",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.spam#signals",
+          "field": "signals",
+          "contractFieldRef": "forms.spamDecision.signals",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.spam#decidedAt",
+          "field": "decidedAt",
+          "contractFieldRef": "forms.spamDecision.decidedAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.spam#decisionMethod",
+          "field": "decisionMethod",
+          "contractFieldRef": "forms.spamDecision.decisionMethod",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.spam#reviewed",
+          "field": "reviewed",
+          "contractFieldRef": "forms.spamDecision.reviewed",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.forms.spam",
+        "adminProfileRef": "adminUi.profile.forms.spam",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.forms.submissions",
+      "name": "Form Submissions Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "forms.submissions",
+      "contractRefs": [
+        "forms.submission",
+        "forms.submissionValue",
+        "forms.submissionFile"
+      ],
+      "moduleRef": "forms",
+      "capabilityRefs": [
+        "forms.file-uploads"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "forms.submissions.export",
+          "forms.submissions.view"
+        ],
+        "create": [],
+        "update": [
+          "forms.submissions.manage"
+        ],
+        "delete": [
+          "forms.submissions.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#id",
+          "field": "id",
+          "contractFieldRef": "forms.submission.id",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#siteId",
+          "field": "siteId",
+          "contractFieldRef": "forms.submission.siteId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#formId",
+          "field": "formId",
+          "contractFieldRef": "forms.submission.formId",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#formVersion",
+          "field": "formVersion",
+          "contractFieldRef": "forms.submission.formVersion",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#status",
+          "field": "status",
+          "contractFieldRef": "forms.submission.status",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#values",
+          "field": "values",
+          "contractFieldRef": "forms.submission.values",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#files",
+          "field": "files",
+          "contractFieldRef": "forms.submission.files",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#consents",
+          "field": "consents",
+          "contractFieldRef": "forms.submission.consents",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#spamDecision",
+          "field": "spamDecision",
+          "contractFieldRef": "forms.submission.spamDecision",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#requestContext",
+          "field": "requestContext",
+          "contractFieldRef": "forms.submission.requestContext",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#submittedAt",
+          "field": "submittedAt",
+          "contractFieldRef": "forms.submission.submittedAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#acceptedAt",
+          "field": "acceptedAt",
+          "contractFieldRef": "forms.submission.acceptedAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#completedAt",
+          "field": "completedAt",
+          "contractFieldRef": "forms.submission.completedAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#idempotencyKey",
+          "field": "idempotencyKey",
+          "contractFieldRef": "forms.submission.idempotencyKey",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.forms.submissions#leadId",
+          "field": "leadId",
+          "contractFieldRef": "forms.submission.leadId",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.get-submission",
+        "api.customer-cms.list-submissions"
+      ],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.forms.submissions",
+        "adminProfileRef": "adminUi.profile.forms.submissions",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.integrations.connections",
+      "name": "Integration Connections Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "integrations.connections",
+      "contractRefs": [
+        "integrations.integrationConnection",
+        "integrations.connectorDefinition"
+      ],
+      "moduleRef": "integrations",
+      "capabilityRefs": [
+        "integrations.health"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "integrations.connections.view"
+        ],
+        "create": [
+          "integrations.connections.create"
+        ],
+        "update": [
+          "integrations.connections.edit",
+          "integrations.connections.manage"
+        ],
+        "delete": [
+          "integrations.connections.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.integrations.connections#identity",
+          "field": "identity",
+          "contractFieldRef": "integrations.integrationConnection.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.connections#scope",
+          "field": "scope",
+          "contractFieldRef": "integrations.integrationConnection.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.connections#connectorKey",
+          "field": "connectorKey",
+          "contractFieldRef": "integrations.integrationConnection.connectorKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.connections#status",
+          "field": "status",
+          "contractFieldRef": "integrations.integrationConnection.status",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.connections#environmentBindings",
+          "field": "environmentBindings",
+          "contractFieldRef": "integrations.integrationConnection.environmentBindings",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.connections#capabilities",
+          "field": "capabilities",
+          "contractFieldRef": "integrations.integrationConnection.capabilities",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.connections#consent",
+          "field": "consent",
+          "contractFieldRef": "integrations.integrationConnection.consent",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.connections#dataPolicy",
+          "field": "dataPolicy",
+          "contractFieldRef": "integrations.integrationConnection.dataPolicy",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.connections#health",
+          "field": "health",
+          "contractFieldRef": "integrations.integrationConnection.health",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.connections#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "integrations.integrationConnection.updatedAt",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.integrations.connections",
+        "adminProfileRef": "adminUi.profile.integrations.connections",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.integrations.credentials",
+      "name": "Credentials Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "integrations.credentials",
+      "contractRefs": [
+        "integrations.credentialReference"
+      ],
+      "moduleRef": "integrations",
+      "capabilityRefs": [
+        "integrations.health"
+      ],
+      "customerMode": "hidden",
+      "actions": {
+        "read": "deny",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "integrations.credentials.view"
+        ],
+        "create": [],
+        "update": [
+          "integrations.credentials.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.integrations.credentials#credentialId",
+          "field": "credentialId",
+          "contractFieldRef": "integrations.credentialReference.credentialId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.credentials#authType",
+          "field": "authType",
+          "contractFieldRef": "integrations.credentialReference.authType",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.credentials#secretRefs",
+          "field": "secretRefs",
+          "contractFieldRef": "integrations.credentialReference.secretRefs",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.credentials#account",
+          "field": "account",
+          "contractFieldRef": "integrations.credentialReference.account",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.credentials#expiresAt",
+          "field": "expiresAt",
+          "contractFieldRef": "integrations.credentialReference.expiresAt",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "disabled",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.integrations.credentials",
+        "adminProfileRef": "adminUi.profile.integrations.credentials",
+        "approvalContractRef": null
+      },
+      "notes": [
+        "The source profile is retained for historical metadata, but effective Customer CMS discovery and navigation must omit this resource."
+      ]
+    },
+    {
+      "$id": "customerAccess.policy.integrations.health",
+      "name": "Integration Health Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "integrations.health",
+      "contractRefs": [
+        "integrations.healthSnapshot",
+        "integrations.connectionTest"
+      ],
+      "moduleRef": "integrations",
+      "capabilityRefs": [
+        "integrations.health"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "integrations.health.view"
+        ],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.integrations.health#state",
+          "field": "state",
+          "contractFieldRef": "integrations.healthSnapshot.state",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.health#checkedAt",
+          "field": "checkedAt",
+          "contractFieldRef": "integrations.healthSnapshot.checkedAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.health#checks",
+          "field": "checks",
+          "contractFieldRef": "integrations.healthSnapshot.checks",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.health#summary",
+          "field": "summary",
+          "contractFieldRef": "integrations.healthSnapshot.summary",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.health#nextCheckAt",
+          "field": "nextCheckAt",
+          "contractFieldRef": "integrations.healthSnapshot.nextCheckAt",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.integrations.health",
+        "adminProfileRef": "adminUi.profile.integrations.health",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.integrations.mappings",
+      "name": "Integration Mappings Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "integrations.mappings",
+      "contractRefs": [
+        "integrations.dataMapping",
+        "integrations.eventMapping",
+        "integrations.conversionMapping"
+      ],
+      "moduleRef": "integrations",
+      "capabilityRefs": [
+        "integrations.health"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "integrations.mappings.view"
+        ],
+        "create": [],
+        "update": [
+          "integrations.mappings.edit",
+          "integrations.mappings.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.integrations.mappings#mappingKey",
+          "field": "mappingKey",
+          "contractFieldRef": "integrations.dataMapping.mappingKey",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.mappings#sourceContract",
+          "field": "sourceContract",
+          "contractFieldRef": "integrations.dataMapping.sourceContract",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.mappings#targetObject",
+          "field": "targetObject",
+          "contractFieldRef": "integrations.dataMapping.targetObject",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.mappings#direction",
+          "field": "direction",
+          "contractFieldRef": "integrations.dataMapping.direction",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.mappings#fields",
+          "field": "fields",
+          "contractFieldRef": "integrations.dataMapping.fields",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.mappings#enabled",
+          "field": "enabled",
+          "contractFieldRef": "integrations.dataMapping.enabled",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.integrations.mappings",
+        "adminProfileRef": "adminUi.profile.integrations.mappings",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.integrations.sync",
+      "name": "Sync Runs Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "integrations.sync",
+      "contractRefs": [
+        "integrations.syncRun",
+        "integrations.syncResult"
+      ],
+      "moduleRef": "integrations",
+      "capabilityRefs": [
+        "integrations.sync"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "integrations.sync.view"
+        ],
+        "create": [],
+        "update": [
+          "integrations.sync.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.integrations.sync#runId",
+          "field": "runId",
+          "contractFieldRef": "integrations.syncRun.runId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.sync#connectionRef",
+          "field": "connectionRef",
+          "contractFieldRef": "integrations.syncRun.connectionRef",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.sync#startedAt",
+          "field": "startedAt",
+          "contractFieldRef": "integrations.syncRun.startedAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.sync#completedAt",
+          "field": "completedAt",
+          "contractFieldRef": "integrations.syncRun.completedAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.sync#cursorBefore",
+          "field": "cursorBefore",
+          "contractFieldRef": "integrations.syncRun.cursorBefore",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.sync#cursorAfter",
+          "field": "cursorAfter",
+          "contractFieldRef": "integrations.syncRun.cursorAfter",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.integrations.sync#result",
+          "field": "result",
+          "contractFieldRef": "integrations.syncRun.result",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.integrations.sync",
+        "adminProfileRef": "adminUi.profile.integrations.sync",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.marketing.analytics",
+      "name": "Analytics Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "marketing.analytics",
+      "contractRefs": [
+        "marketing.analyticsSnapshot",
+        "marketing.analyticsObservation"
+      ],
+      "moduleRef": "analytics",
+      "capabilityRefs": [
+        "analytics.reporting"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "marketing.analytics.export",
+          "marketing.analytics.view"
+        ],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.marketing.analytics#snapshotId",
+          "field": "snapshotId",
+          "contractFieldRef": "marketing.analyticsSnapshot.snapshotId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.analytics#scope",
+          "field": "scope",
+          "contractFieldRef": "marketing.analyticsSnapshot.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.analytics#periodStart",
+          "field": "periodStart",
+          "contractFieldRef": "marketing.analyticsSnapshot.periodStart",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.analytics#periodEnd",
+          "field": "periodEnd",
+          "contractFieldRef": "marketing.analyticsSnapshot.periodEnd",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.analytics#observations",
+          "field": "observations",
+          "contractFieldRef": "marketing.analyticsSnapshot.observations",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.analytics#generatedAt",
+          "field": "generatedAt",
+          "contractFieldRef": "marketing.analyticsSnapshot.generatedAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.analytics#sourceFreshThrough",
+          "field": "sourceFreshThrough",
+          "contractFieldRef": "marketing.analyticsSnapshot.sourceFreshThrough",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.analytics#attributionModelKey",
+          "field": "attributionModelKey",
+          "contractFieldRef": "marketing.analyticsSnapshot.attributionModelKey",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.marketing.analytics",
+        "adminProfileRef": "adminUi.profile.marketing.analytics",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.marketing.attribution",
+      "name": "Attribution Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "marketing.attribution",
+      "contractRefs": [
+        "marketing.attributionModel",
+        "marketing.attributionTouchpoint"
+      ],
+      "moduleRef": "analytics",
+      "capabilityRefs": [
+        "analytics.attribution"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "marketing.attribution.export",
+          "marketing.attribution.view"
+        ],
+        "create": [],
+        "update": [
+          "marketing.attribution.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.marketing.attribution#modelKey",
+          "field": "modelKey",
+          "contractFieldRef": "marketing.attributionModel.modelKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.attribution#name",
+          "field": "name",
+          "contractFieldRef": "marketing.attributionModel.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.attribution#type",
+          "field": "type",
+          "contractFieldRef": "marketing.attributionModel.type",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.attribution#lookbackWindowDays",
+          "field": "lookbackWindowDays",
+          "contractFieldRef": "marketing.attributionModel.lookbackWindowDays",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.attribution#positionFirstCredit",
+          "field": "positionFirstCredit",
+          "contractFieldRef": "marketing.attributionModel.positionFirstCredit",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.attribution#positionLastCredit",
+          "field": "positionLastCredit",
+          "contractFieldRef": "marketing.attributionModel.positionLastCredit",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.attribution#customRules",
+          "field": "customRules",
+          "contractFieldRef": "marketing.attributionModel.customRules",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.marketing.attribution",
+        "adminProfileRef": "adminUi.profile.marketing.attribution",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.marketing.campaigns",
+      "name": "Campaigns Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "marketing.campaigns",
+      "contractRefs": [
+        "marketing.campaignDefinition",
+        "marketing.campaignPerformanceSnapshot"
+      ],
+      "moduleRef": "marketing",
+      "capabilityRefs": [
+        "marketing.campaigns"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "marketing.campaigns.view"
+        ],
+        "create": [
+          "marketing.campaigns.create"
+        ],
+        "update": [
+          "marketing.campaigns.edit",
+          "marketing.campaigns.manage"
+        ],
+        "delete": [
+          "marketing.campaigns.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.marketing.campaigns#identity",
+          "field": "identity",
+          "contractFieldRef": "marketing.campaignDefinition.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.campaigns#scope",
+          "field": "scope",
+          "contractFieldRef": "marketing.campaignDefinition.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.campaigns#campaignKey",
+          "field": "campaignKey",
+          "contractFieldRef": "marketing.campaignDefinition.campaignKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.campaigns#name",
+          "field": "name",
+          "contractFieldRef": "marketing.campaignDefinition.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.campaigns#status",
+          "field": "status",
+          "contractFieldRef": "marketing.campaignDefinition.status",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.campaigns#objective",
+          "field": "objective",
+          "contractFieldRef": "marketing.campaignDefinition.objective",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.campaigns#startsAt",
+          "field": "startsAt",
+          "contractFieldRef": "marketing.campaignDefinition.startsAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.campaigns#endsAt",
+          "field": "endsAt",
+          "contractFieldRef": "marketing.campaignDefinition.endsAt",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.campaigns#externalReferences",
+          "field": "externalReferences",
+          "contractFieldRef": "marketing.campaignDefinition.externalReferences",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.campaigns#sourceOfTruth",
+          "field": "sourceOfTruth",
+          "contractFieldRef": "marketing.campaignDefinition.sourceOfTruth",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.marketing.campaigns",
+        "adminProfileRef": "adminUi.profile.marketing.campaigns",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.marketing.consent",
+      "name": "Consent Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "marketing.consent",
+      "contractRefs": [
+        "marketing.consentPolicy",
+        "marketing.consentState"
+      ],
+      "moduleRef": "consent",
+      "capabilityRefs": [
+        "consent.integration-gating",
+        "consent.preferences"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "marketing.consent.view"
+        ],
+        "create": [],
+        "update": [
+          "marketing.consent.edit",
+          "marketing.consent.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.marketing.consent#identity",
+          "field": "identity",
+          "contractFieldRef": "marketing.consentPolicy.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.consent#scope",
+          "field": "scope",
+          "contractFieldRef": "marketing.consentPolicy.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.consent#policyVersion",
+          "field": "policyVersion",
+          "contractFieldRef": "marketing.consentPolicy.policyVersion",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.consent#categories",
+          "field": "categories",
+          "contractFieldRef": "marketing.consentPolicy.categories",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.consent#unknownOptionalBehavior",
+          "field": "unknownOptionalBehavior",
+          "contractFieldRef": "marketing.consentPolicy.unknownOptionalBehavior",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.consent#regionStrategy",
+          "field": "regionStrategy",
+          "contractFieldRef": "marketing.consentPolicy.regionStrategy",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.consent#effectiveAt",
+          "field": "effectiveAt",
+          "contractFieldRef": "marketing.consentPolicy.effectiveAt",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.marketing.consent",
+        "adminProfileRef": "adminUi.profile.marketing.consent",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.marketing.conversions",
+      "name": "Conversions Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "marketing.conversions",
+      "contractRefs": [
+        "marketing.conversionDefinition",
+        "marketing.conversionSummary"
+      ],
+      "moduleRef": "marketing",
+      "capabilityRefs": [
+        "marketing.conversions"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "marketing.conversions.view"
+        ],
+        "create": [
+          "marketing.conversions.create"
+        ],
+        "update": [
+          "marketing.conversions.edit",
+          "marketing.conversions.manage"
+        ],
+        "delete": [
+          "marketing.conversions.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.marketing.conversions#identity",
+          "field": "identity",
+          "contractFieldRef": "marketing.conversionDefinition.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.conversions#scope",
+          "field": "scope",
+          "contractFieldRef": "marketing.conversionDefinition.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.conversions#conversionKey",
+          "field": "conversionKey",
+          "contractFieldRef": "marketing.conversionDefinition.conversionKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.conversions#name",
+          "field": "name",
+          "contractFieldRef": "marketing.conversionDefinition.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.conversions#category",
+          "field": "category",
+          "contractFieldRef": "marketing.conversionDefinition.category",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.conversions#triggerEventKey",
+          "field": "triggerEventKey",
+          "contractFieldRef": "marketing.conversionDefinition.triggerEventKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.conversions#primary",
+          "field": "primary",
+          "contractFieldRef": "marketing.conversionDefinition.primary",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.conversions#value",
+          "field": "value",
+          "contractFieldRef": "marketing.conversionDefinition.value",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.conversions#requiredConsentCategoryKey",
+          "field": "requiredConsentCategoryKey",
+          "contractFieldRef": "marketing.conversionDefinition.requiredConsentCategoryKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.conversions#enabled",
+          "field": "enabled",
+          "contractFieldRef": "marketing.conversionDefinition.enabled",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.marketing.conversions",
+        "adminProfileRef": "adminUi.profile.marketing.conversions",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.marketing.destinations",
+      "name": "Destinations Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "marketing.destinations",
+      "contractRefs": [
+        "marketing.marketingDestination",
+        "marketing.eventDestination"
+      ],
+      "moduleRef": "marketing",
+      "capabilityRefs": [
+        "marketing.destinations"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "marketing.destinations.view"
+        ],
+        "create": [
+          "marketing.destinations.create"
+        ],
+        "update": [
+          "marketing.destinations.edit",
+          "marketing.destinations.manage"
+        ],
+        "delete": [
+          "marketing.destinations.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.marketing.destinations#identity",
+          "field": "identity",
+          "contractFieldRef": "marketing.marketingDestination.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.destinations#scope",
+          "field": "scope",
+          "contractFieldRef": "marketing.marketingDestination.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.destinations#destinationKey",
+          "field": "destinationKey",
+          "contractFieldRef": "marketing.marketingDestination.destinationKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.destinations#name",
+          "field": "name",
+          "contractFieldRef": "marketing.marketingDestination.name",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.destinations#type",
+          "field": "type",
+          "contractFieldRef": "marketing.marketingDestination.type",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.destinations#connectorKey",
+          "field": "connectorKey",
+          "contractFieldRef": "marketing.marketingDestination.connectorKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.destinations#enabled",
+          "field": "enabled",
+          "contractFieldRef": "marketing.marketingDestination.enabled",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.destinations#requiredConsentCategoryKey",
+          "field": "requiredConsentCategoryKey",
+          "contractFieldRef": "marketing.marketingDestination.requiredConsentCategoryKey",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.destinations#environment",
+          "field": "environment",
+          "contractFieldRef": "marketing.marketingDestination.environment",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.marketing.destinations",
+        "adminProfileRef": "adminUi.profile.marketing.destinations",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.marketing.tracking",
+      "name": "Tracking Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "marketing.tracking",
+      "contractRefs": [
+        "marketing.trackingConfiguration",
+        "marketing.dataLayerConfiguration"
+      ],
+      "moduleRef": "marketing",
+      "capabilityRefs": [
+        "marketing.conversions"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "allow",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "marketing.tracking.view"
+        ],
+        "create": [],
+        "update": [
+          "marketing.tracking.edit",
+          "marketing.tracking.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.marketing.tracking#identity",
+          "field": "identity",
+          "contractFieldRef": "marketing.trackingConfiguration.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.tracking#scope",
+          "field": "scope",
+          "contractFieldRef": "marketing.trackingConfiguration.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.tracking#enabled",
+          "field": "enabled",
+          "contractFieldRef": "marketing.trackingConfiguration.enabled",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.tracking#dataLayer",
+          "field": "dataLayer",
+          "contractFieldRef": "marketing.trackingConfiguration.dataLayer",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.tracking#dataPolicy",
+          "field": "dataPolicy",
+          "contractFieldRef": "marketing.trackingConfiguration.dataPolicy",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.tracking#consentPolicy",
+          "field": "consentPolicy",
+          "contractFieldRef": "marketing.trackingConfiguration.consentPolicy",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.tracking#analytics",
+          "field": "analytics",
+          "contractFieldRef": "marketing.trackingConfiguration.analytics",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.tracking#eventDefinitions",
+          "field": "eventDefinitions",
+          "contractFieldRef": "marketing.trackingConfiguration.eventDefinitions",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.tracking#destinations",
+          "field": "destinations",
+          "contractFieldRef": "marketing.trackingConfiguration.destinations",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.tracking#debugMode",
+          "field": "debugMode",
+          "contractFieldRef": "marketing.trackingConfiguration.debugMode",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.marketing.tracking#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "marketing.trackingConfiguration.updatedAt",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.marketing.tracking",
+        "adminProfileRef": "adminUi.profile.marketing.tracking",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.permissions.assignments",
+      "name": "Role Assignments Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "permissions.assignments",
+      "contractRefs": [
+        "permissions.roleAssignment"
+      ],
+      "moduleRef": "core",
+      "capabilityRefs": [
+        "core.identity"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "permissions.assignments.view"
+        ],
+        "create": [
+          "permissions.assignments.create"
+        ],
+        "update": [
+          "permissions.assignments.edit",
+          "permissions.assignments.manage"
+        ],
+        "delete": [
+          "permissions.assignments.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.permissions.assignments#assignmentId",
+          "field": "assignmentId",
+          "contractFieldRef": "permissions.roleAssignment.assignmentId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.assignments#principal",
+          "field": "principal",
+          "contractFieldRef": "permissions.roleAssignment.principal",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.assignments#roleId",
+          "field": "roleId",
+          "contractFieldRef": "permissions.roleAssignment.roleId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.assignments#scope",
+          "field": "scope",
+          "contractFieldRef": "permissions.roleAssignment.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.assignments#status",
+          "field": "status",
+          "contractFieldRef": "permissions.roleAssignment.status",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.assignments#startsAt",
+          "field": "startsAt",
+          "contractFieldRef": "permissions.roleAssignment.startsAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.assignments#expiresAt",
+          "field": "expiresAt",
+          "contractFieldRef": "permissions.roleAssignment.expiresAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.assignments#assignedBy",
+          "field": "assignedBy",
+          "contractFieldRef": "permissions.roleAssignment.assignedBy",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.permissions.assignments",
+        "adminProfileRef": "adminUi.profile.permissions.assignments",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.permissions.registry",
+      "name": "Permission Registry Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "permissions.registry",
+      "contractRefs": [
+        "permissions.permissionDefinition"
+      ],
+      "moduleRef": "core",
+      "capabilityRefs": [
+        "core.identity"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "permissions.registry.view"
+        ],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.permissions.registry#permissionId",
+          "field": "permissionId",
+          "contractFieldRef": "permissions.permissionDefinition.permissionId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.registry#domain",
+          "field": "domain",
+          "contractFieldRef": "permissions.permissionDefinition.domain",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.registry#resource",
+          "field": "resource",
+          "contractFieldRef": "permissions.permissionDefinition.resource",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.registry#action",
+          "field": "action",
+          "contractFieldRef": "permissions.permissionDefinition.action",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.registry#scopeKind",
+          "field": "scopeKind",
+          "contractFieldRef": "permissions.permissionDefinition.scopeKind",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.registry#riskLevel",
+          "field": "riskLevel",
+          "contractFieldRef": "permissions.permissionDefinition.riskLevel",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.registry#customerEligible",
+          "field": "customerEligible",
+          "contractFieldRef": "permissions.permissionDefinition.customerEligible",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.registry#adminEligible",
+          "field": "adminEligible",
+          "contractFieldRef": "permissions.permissionDefinition.adminEligible",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.registry#grantable",
+          "field": "grantable",
+          "contractFieldRef": "permissions.permissionDefinition.grantable",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.permissions.registry",
+        "adminProfileRef": "adminUi.profile.permissions.registry",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.permissions.roles",
+      "name": "Roles Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "permissions.roles",
+      "contractRefs": [
+        "permissions.roleDefinition"
+      ],
+      "moduleRef": "core",
+      "capabilityRefs": [
+        "core.identity"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "permissions.roles.view"
+        ],
+        "create": [
+          "permissions.roles.create"
+        ],
+        "update": [
+          "permissions.roles.edit",
+          "permissions.roles.manage"
+        ],
+        "delete": [
+          "permissions.roles.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.permissions.roles#roleKey",
+          "field": "roleKey",
+          "contractFieldRef": "permissions.roleDefinition.roleKey",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.roles#displayName",
+          "field": "displayName",
+          "contractFieldRef": "permissions.roleDefinition.displayName",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.roles#roleType",
+          "field": "roleType",
+          "contractFieldRef": "permissions.roleDefinition.roleType",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.roles#scopeKind",
+          "field": "scopeKind",
+          "contractFieldRef": "permissions.roleDefinition.scopeKind",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.roles#permissionIds",
+          "field": "permissionIds",
+          "contractFieldRef": "permissions.roleDefinition.permissionIds",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.roles#assignableByCustomer",
+          "field": "assignableByCustomer",
+          "contractFieldRef": "permissions.roleDefinition.assignableByCustomer",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.permissions.roles#systemProtected",
+          "field": "systemProtected",
+          "contractFieldRef": "permissions.roleDefinition.systemProtected",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.permissions.roles",
+        "adminProfileRef": "adminUi.profile.permissions.roles",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.seo.audits",
+      "name": "Audits Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "seo.audits",
+      "contractRefs": [
+        "seo.auditResult",
+        "seo.auditIssue"
+      ],
+      "moduleRef": "seo",
+      "capabilityRefs": [
+        "seo.audits"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "seo.audits.export",
+          "seo.audits.view"
+        ],
+        "create": [],
+        "update": [
+          "seo.audits.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.seo.audits#identity",
+          "field": "identity",
+          "contractFieldRef": "seo.auditResult.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.audits#scope",
+          "field": "scope",
+          "contractFieldRef": "seo.auditResult.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.audits#target",
+          "field": "target",
+          "contractFieldRef": "seo.auditResult.target",
+          "mode": "inherit"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.audits#url",
+          "field": "url",
+          "contractFieldRef": "seo.auditResult.url",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.audits#checkedAt",
+          "field": "checkedAt",
+          "contractFieldRef": "seo.auditResult.checkedAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.audits#score",
+          "field": "score",
+          "contractFieldRef": "seo.auditResult.score",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.audits#status",
+          "field": "status",
+          "contractFieldRef": "seo.auditResult.status",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.audits#checksPassed",
+          "field": "checksPassed",
+          "contractFieldRef": "seo.auditResult.checksPassed",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.audits#checksFailed",
+          "field": "checksFailed",
+          "contractFieldRef": "seo.auditResult.checksFailed",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.audits#issues",
+          "field": "issues",
+          "contractFieldRef": "seo.auditResult.issues",
+          "mode": "inherit"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.seo.audits",
+        "adminProfileRef": "adminUi.profile.seo.audits",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.seo.indexing",
+      "name": "Indexing Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "seo.indexing",
+      "contractRefs": [
+        "seo.indexingStatus",
+        "seo.urlInspectionResult"
+      ],
+      "moduleRef": "seo",
+      "capabilityRefs": [
+        "seo.indexing"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "seo.indexing.view"
+        ],
+        "create": [],
+        "update": [
+          "seo.indexing.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.seo.indexing#state",
+          "field": "state",
+          "contractFieldRef": "seo.indexingStatus.state",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.indexing#reason",
+          "field": "reason",
+          "contractFieldRef": "seo.indexingStatus.reason",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.indexing#source",
+          "field": "source",
+          "contractFieldRef": "seo.indexingStatus.source",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.seo.indexing",
+        "adminProfileRef": "adminUi.profile.seo.indexing",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.seo.metadata",
+      "name": "Metadata Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "seo.metadata",
+      "contractRefs": [
+        "seo.metadata"
+      ],
+      "moduleRef": "seo",
+      "capabilityRefs": [
+        "seo.metadata"
+      ],
+      "customerMode": "approval_required",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "request",
+        "delete": "deny",
+        "submit_for_review": "allow",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "seo.metadata.view"
+        ],
+        "create": [],
+        "update": [
+          "seo.metadata.edit"
+        ],
+        "delete": [],
+        "submit_for_review": [
+          "core.changerequests.create"
+        ],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#identity",
+          "field": "identity",
+          "contractFieldRef": "seo.metadata.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#scope",
+          "field": "scope",
+          "contractFieldRef": "seo.metadata.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#target",
+          "field": "target",
+          "contractFieldRef": "seo.metadata.target",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#metaTitle",
+          "field": "metaTitle",
+          "contractFieldRef": "seo.metadata.metaTitle",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#metaDescription",
+          "field": "metaDescription",
+          "contractFieldRef": "seo.metadata.metaDescription",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#keywords",
+          "field": "keywords",
+          "contractFieldRef": "seo.metadata.keywords",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#canonicalUrl",
+          "field": "canonicalUrl",
+          "contractFieldRef": "seo.metadata.canonicalUrl",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#robots",
+          "field": "robots",
+          "contractFieldRef": "seo.metadata.robots",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#openGraph",
+          "field": "openGraph",
+          "contractFieldRef": "seo.metadata.openGraph",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#socialCard",
+          "field": "socialCard",
+          "contractFieldRef": "seo.metadata.socialCard",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#structuredData",
+          "field": "structuredData",
+          "contractFieldRef": "seo.metadata.structuredData",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#alternates",
+          "field": "alternates",
+          "contractFieldRef": "seo.metadata.alternates",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.metadata#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "seo.metadata.updatedAt",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.cancel-change-request",
+        "api.customer-cms.get-seo",
+        "api.customer-cms.submit-change-request",
+        "api.customer-cms.update-seo"
+      ],
+      "eventRefs": [
+        "customer-change-request.submitted",
+        "customer-change-request.cancelled",
+        "customer-change-request.approved",
+        "customer-change-request.applied"
+      ],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.seo.metadata",
+        "adminProfileRef": "adminUi.profile.seo.metadata",
+        "approvalContractRef": "customerAccess.changeRequest"
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.seo.redirects",
+      "name": "Redirects Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "seo.redirects",
+      "contractRefs": [
+        "seo.redirect"
+      ],
+      "moduleRef": "seo",
+      "capabilityRefs": [
+        "seo.redirects"
+      ],
+      "customerMode": "approval_required",
+      "actions": {
+        "read": "allow",
+        "create": "request",
+        "update": "request",
+        "delete": "request",
+        "submit_for_review": "allow",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "seo.redirects.view"
+        ],
+        "create": [
+          "seo.redirects.create"
+        ],
+        "update": [
+          "seo.redirects.edit",
+          "seo.redirects.manage"
+        ],
+        "delete": [
+          "seo.redirects.delete"
+        ],
+        "submit_for_review": [
+          "core.changerequests.create"
+        ],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.seo.redirects#identity",
+          "field": "identity",
+          "contractFieldRef": "seo.redirect.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.redirects#scope",
+          "field": "scope",
+          "contractFieldRef": "seo.redirect.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.redirects#sourcePath",
+          "field": "sourcePath",
+          "contractFieldRef": "seo.redirect.sourcePath",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.redirects#destinationUrl",
+          "field": "destinationUrl",
+          "contractFieldRef": "seo.redirect.destinationUrl",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.redirects#statusCode",
+          "field": "statusCode",
+          "contractFieldRef": "seo.redirect.statusCode",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.redirects#preserveQuery",
+          "field": "preserveQuery",
+          "contractFieldRef": "seo.redirect.preserveQuery",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.redirects#enabled",
+          "field": "enabled",
+          "contractFieldRef": "seo.redirect.enabled",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.redirects#note",
+          "field": "note",
+          "contractFieldRef": "seo.redirect.note",
+          "mode": "approval_required"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.cancel-change-request",
+        "api.customer-cms.submit-change-request"
+      ],
+      "eventRefs": [
+        "customer-change-request.submitted",
+        "customer-change-request.cancelled",
+        "customer-change-request.approved",
+        "customer-change-request.applied"
+      ],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.seo.redirects",
+        "adminProfileRef": "adminUi.profile.seo.redirects",
+        "approvalContractRef": "customerAccess.changeRequest"
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.seo.robots",
+      "name": "Robots Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "seo.robots",
+      "contractRefs": [
+        "seo.robotsPolicy",
+        "seo.robotsRule"
+      ],
+      "moduleRef": "seo",
+      "capabilityRefs": [
+        "seo.robots"
+      ],
+      "customerMode": "approval_required",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "request",
+        "delete": "deny",
+        "submit_for_review": "allow",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "seo.robots.view"
+        ],
+        "create": [],
+        "update": [
+          "seo.robots.edit",
+          "seo.robots.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [
+          "core.changerequests.create"
+        ],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.seo.robots#identity",
+          "field": "identity",
+          "contractFieldRef": "seo.robotsPolicy.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.robots#scope",
+          "field": "scope",
+          "contractFieldRef": "seo.robotsPolicy.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.robots#rules",
+          "field": "rules",
+          "contractFieldRef": "seo.robotsPolicy.rules",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.robots#sitemapUrls",
+          "field": "sitemapUrls",
+          "contractFieldRef": "seo.robotsPolicy.sitemapUrls",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.robots#additionalComment",
+          "field": "additionalComment",
+          "contractFieldRef": "seo.robotsPolicy.additionalComment",
+          "mode": "approval_required"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.cancel-change-request",
+        "api.customer-cms.submit-change-request"
+      ],
+      "eventRefs": [
+        "customer-change-request.submitted",
+        "customer-change-request.cancelled",
+        "customer-change-request.approved",
+        "customer-change-request.applied"
+      ],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.seo.robots",
+        "adminProfileRef": "adminUi.profile.seo.robots",
+        "approvalContractRef": "customerAccess.changeRequest"
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.seo.searchperformance",
+      "name": "Search Performance Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "seo.searchperformance",
+      "contractRefs": [
+        "seo.searchPerformance",
+        "seo.searchQuery"
+      ],
+      "moduleRef": "seo",
+      "capabilityRefs": [
+        "seo.search-performance"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "seo.searchperformance.export",
+          "seo.searchperformance.view"
+        ],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.seo.searchperformance#scope",
+          "field": "scope",
+          "contractFieldRef": "seo.searchPerformance.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.searchperformance#query",
+          "field": "query",
+          "contractFieldRef": "seo.searchPerformance.query",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.searchperformance#pageUrl",
+          "field": "pageUrl",
+          "contractFieldRef": "seo.searchPerformance.pageUrl",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.searchperformance#startDate",
+          "field": "startDate",
+          "contractFieldRef": "seo.searchPerformance.startDate",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.searchperformance#endDate",
+          "field": "endDate",
+          "contractFieldRef": "seo.searchPerformance.endDate",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.searchperformance#clicks",
+          "field": "clicks",
+          "contractFieldRef": "seo.searchPerformance.clicks",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.searchperformance#impressions",
+          "field": "impressions",
+          "contractFieldRef": "seo.searchPerformance.impressions",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.searchperformance#ctr",
+          "field": "ctr",
+          "contractFieldRef": "seo.searchPerformance.ctr",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.searchperformance#averagePosition",
+          "field": "averagePosition",
+          "contractFieldRef": "seo.searchPerformance.averagePosition",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.searchperformance#sourceProvider",
+          "field": "sourceProvider",
+          "contractFieldRef": "seo.searchPerformance.sourceProvider",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.searchperformance#importedAt",
+          "field": "importedAt",
+          "contractFieldRef": "seo.searchPerformance.importedAt",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.seo.searchperformance",
+        "adminProfileRef": "adminUi.profile.seo.searchperformance",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.seo.sitemap",
+      "name": "Sitemap Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "seo.sitemap",
+      "contractRefs": [
+        "seo.sitemapEntry"
+      ],
+      "moduleRef": "seo",
+      "capabilityRefs": [
+        "seo.sitemap"
+      ],
+      "customerMode": "approval_required",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "request",
+        "delete": "deny",
+        "submit_for_review": "allow",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "seo.sitemap.view"
+        ],
+        "create": [],
+        "update": [
+          "seo.sitemap.edit",
+          "seo.sitemap.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [
+          "core.changerequests.create"
+        ],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.seo.sitemap#url",
+          "field": "url",
+          "contractFieldRef": "seo.sitemapEntry.url",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.sitemap#lastModifiedAt",
+          "field": "lastModifiedAt",
+          "contractFieldRef": "seo.sitemapEntry.lastModifiedAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.sitemap#alternates",
+          "field": "alternates",
+          "contractFieldRef": "seo.sitemapEntry.alternates",
+          "mode": "approval_required"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.cancel-change-request",
+        "api.customer-cms.submit-change-request"
+      ],
+      "eventRefs": [
+        "customer-change-request.submitted",
+        "customer-change-request.cancelled",
+        "customer-change-request.approved",
+        "customer-change-request.applied"
+      ],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.seo.sitemap",
+        "adminProfileRef": "adminUi.profile.seo.sitemap",
+        "approvalContractRef": "customerAccess.changeRequest"
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.seo.structureddata",
+      "name": "Structured Data Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "seo.structureddata",
+      "contractRefs": [
+        "seo.structuredData"
+      ],
+      "moduleRef": "seo",
+      "capabilityRefs": [
+        "seo.structured-data"
+      ],
+      "customerMode": "approval_required",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "request",
+        "delete": "deny",
+        "submit_for_review": "allow",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "seo.structureddata.view"
+        ],
+        "create": [],
+        "update": [
+          "seo.structureddata.edit"
+        ],
+        "delete": [],
+        "submit_for_review": [
+          "core.changerequests.create"
+        ],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.seo.structureddata#schemaType",
+          "field": "schemaType",
+          "contractFieldRef": "seo.structuredData.schemaType",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.structureddata#payload",
+          "field": "payload",
+          "contractFieldRef": "seo.structuredData.payload",
+          "mode": "approval_required"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.structureddata#source",
+          "field": "source",
+          "contractFieldRef": "seo.structuredData.source",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.seo.structureddata#validationStatus",
+          "field": "validationStatus",
+          "contractFieldRef": "seo.structuredData.validationStatus",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [
+        "api.customer-cms.cancel-change-request",
+        "api.customer-cms.submit-change-request"
+      ],
+      "eventRefs": [
+        "customer-change-request.submitted",
+        "customer-change-request.cancelled",
+        "customer-change-request.approved",
+        "customer-change-request.applied"
+      ],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.seo.structureddata",
+        "adminProfileRef": "adminUi.profile.seo.structureddata",
+        "approvalContractRef": "customerAccess.changeRequest"
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.webhooks.deadletters",
+      "name": "Dead Letters Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "webhooks.deadletters",
+      "contractRefs": [
+        "webhooks.deadLetter"
+      ],
+      "moduleRef": "integrations",
+      "capabilityRefs": [
+        "integrations.health"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "webhooks.deadletters.view"
+        ],
+        "create": [],
+        "update": [
+          "webhooks.deadletters.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deadletters#deadLetterId",
+          "field": "deadLetterId",
+          "contractFieldRef": "webhooks.deadLetter.deadLetterId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deadletters#deliveryId",
+          "field": "deliveryId",
+          "contractFieldRef": "webhooks.deadLetter.deliveryId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deadletters#reasonCode",
+          "field": "reasonCode",
+          "contractFieldRef": "webhooks.deadLetter.reasonCode",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deadletters#lastFailure",
+          "field": "lastFailure",
+          "contractFieldRef": "webhooks.deadLetter.lastFailure",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deadletters#deadLetteredAt",
+          "field": "deadLetteredAt",
+          "contractFieldRef": "webhooks.deadLetter.deadLetteredAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deadletters#expiresAt",
+          "field": "expiresAt",
+          "contractFieldRef": "webhooks.deadLetter.expiresAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deadletters#redeliveryEligibleUntil",
+          "field": "redeliveryEligibleUntil",
+          "contractFieldRef": "webhooks.deadLetter.redeliveryEligibleUntil",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.webhooks.deadletters",
+        "adminProfileRef": "adminUi.profile.webhooks.deadletters",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.webhooks.deliveries",
+      "name": "Webhook Deliveries Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "webhooks.deliveries",
+      "contractRefs": [
+        "webhooks.delivery",
+        "webhooks.deliveryAttempt"
+      ],
+      "moduleRef": "integrations",
+      "capabilityRefs": [
+        "integrations.health"
+      ],
+      "customerMode": "read_only",
+      "actions": {
+        "read": "allow",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "webhooks.deliveries.export",
+          "webhooks.deliveries.view"
+        ],
+        "create": [],
+        "update": [
+          "webhooks.deliveries.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#identity",
+          "field": "identity",
+          "contractFieldRef": "webhooks.delivery.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#subscriptionId",
+          "field": "subscriptionId",
+          "contractFieldRef": "webhooks.delivery.subscriptionId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#endpointId",
+          "field": "endpointId",
+          "contractFieldRef": "webhooks.delivery.endpointId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#eventId",
+          "field": "eventId",
+          "contractFieldRef": "webhooks.delivery.eventId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#eventKey",
+          "field": "eventKey",
+          "contractFieldRef": "webhooks.delivery.eventKey",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#eventVersion",
+          "field": "eventVersion",
+          "contractFieldRef": "webhooks.delivery.eventVersion",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#environment",
+          "field": "environment",
+          "contractFieldRef": "webhooks.delivery.environment",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#status",
+          "field": "status",
+          "contractFieldRef": "webhooks.delivery.status",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#attemptCount",
+          "field": "attemptCount",
+          "contractFieldRef": "webhooks.delivery.attemptCount",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#createdAt",
+          "field": "createdAt",
+          "contractFieldRef": "webhooks.delivery.createdAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#terminalAt",
+          "field": "terminalAt",
+          "contractFieldRef": "webhooks.delivery.terminalAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.deliveries#lastFailure",
+          "field": "lastFailure",
+          "contractFieldRef": "webhooks.delivery.lastFailure",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.webhooks.deliveries",
+        "adminProfileRef": "adminUi.profile.webhooks.deliveries",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.webhooks.endpoints",
+      "name": "Webhook Endpoints Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "webhooks.endpoints",
+      "contractRefs": [
+        "webhooks.endpoint",
+        "webhooks.endpointHealth"
+      ],
+      "moduleRef": "integrations",
+      "capabilityRefs": [
+        "integrations.health"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "webhooks.endpoints.view"
+        ],
+        "create": [
+          "webhooks.endpoints.create"
+        ],
+        "update": [
+          "webhooks.endpoints.edit",
+          "webhooks.endpoints.manage"
+        ],
+        "delete": [
+          "webhooks.endpoints.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.webhooks.endpoints#identity",
+          "field": "identity",
+          "contractFieldRef": "webhooks.endpoint.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.endpoints#scope",
+          "field": "scope",
+          "contractFieldRef": "webhooks.endpoint.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.endpoints#name",
+          "field": "name",
+          "contractFieldRef": "webhooks.endpoint.name",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.endpoints#url",
+          "field": "url",
+          "contractFieldRef": "webhooks.endpoint.url",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.endpoints#environment",
+          "field": "environment",
+          "contractFieldRef": "webhooks.endpoint.environment",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.endpoints#status",
+          "field": "status",
+          "contractFieldRef": "webhooks.endpoint.status",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.endpoints#verification",
+          "field": "verification",
+          "contractFieldRef": "webhooks.endpoint.verification",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.endpoints#health",
+          "field": "health",
+          "contractFieldRef": "webhooks.endpoint.health",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.endpoints#networkPolicy",
+          "field": "networkPolicy",
+          "contractFieldRef": "webhooks.endpoint.networkPolicy",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.endpoints#authentication",
+          "field": "authentication",
+          "contractFieldRef": "webhooks.endpoint.authentication",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.endpoints#customHeaders",
+          "field": "customHeaders",
+          "contractFieldRef": "webhooks.endpoint.customHeaders",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.webhooks.endpoints",
+        "adminProfileRef": "adminUi.profile.webhooks.endpoints",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.webhooks.secrets",
+      "name": "Webhook Secrets Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "webhooks.secrets",
+      "contractRefs": [
+        "webhooks.signingKeyReference",
+        "webhooks.secretRotation"
+      ],
+      "moduleRef": "integrations",
+      "capabilityRefs": [
+        "integrations.health"
+      ],
+      "customerMode": "hidden",
+      "actions": {
+        "read": "deny",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [],
+        "create": [],
+        "update": [
+          "webhooks.secrets.manage"
+        ],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.webhooks.secrets#secretReference",
+          "field": "secretReference",
+          "contractFieldRef": "webhooks.signingKeyReference.secretReference",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.secrets#keyVersion",
+          "field": "keyVersion",
+          "contractFieldRef": "webhooks.signingKeyReference.keyVersion",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.secrets#createdAt",
+          "field": "createdAt",
+          "contractFieldRef": "webhooks.signingKeyReference.createdAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.secrets#activeFrom",
+          "field": "activeFrom",
+          "contractFieldRef": "webhooks.signingKeyReference.activeFrom",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.secrets#retireAfter",
+          "field": "retireAfter",
+          "contractFieldRef": "webhooks.signingKeyReference.retireAfter",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "disabled",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.webhooks.secrets",
+        "adminProfileRef": "adminUi.profile.webhooks.secrets",
+        "approvalContractRef": null
+      },
+      "notes": [
+        "The source profile is retained for historical metadata, but effective Customer CMS discovery and navigation must omit this resource."
+      ]
+    },
+    {
+      "$id": "customerAccess.policy.webhooks.subscriptions",
+      "name": "Webhook Subscriptions Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "webhooks.subscriptions",
+      "contractRefs": [
+        "webhooks.subscription"
+      ],
+      "moduleRef": "integrations",
+      "capabilityRefs": [
+        "integrations.health"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "allow",
+        "delete": "allow",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "webhooks.subscriptions.view"
+        ],
+        "create": [
+          "webhooks.subscriptions.create"
+        ],
+        "update": [
+          "webhooks.subscriptions.edit",
+          "webhooks.subscriptions.manage"
+        ],
+        "delete": [
+          "webhooks.subscriptions.delete"
+        ],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#identity",
+          "field": "identity",
+          "contractFieldRef": "webhooks.subscription.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#ownership",
+          "field": "ownership",
+          "contractFieldRef": "webhooks.subscription.ownership",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#name",
+          "field": "name",
+          "contractFieldRef": "webhooks.subscription.name",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#endpointId",
+          "field": "endpointId",
+          "contractFieldRef": "webhooks.subscription.endpointId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#environment",
+          "field": "environment",
+          "contractFieldRef": "webhooks.subscription.environment",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#selection",
+          "field": "selection",
+          "contractFieldRef": "webhooks.subscription.selection",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#filters",
+          "field": "filters",
+          "contractFieldRef": "webhooks.subscription.filters",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#dataAccess",
+          "field": "dataAccess",
+          "contractFieldRef": "webhooks.subscription.dataAccess",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#state",
+          "field": "state",
+          "contractFieldRef": "webhooks.subscription.state",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#pausePolicy",
+          "field": "pausePolicy",
+          "contractFieldRef": "webhooks.subscription.pausePolicy",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#createdAt",
+          "field": "createdAt",
+          "contractFieldRef": "webhooks.subscription.createdAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.subscriptions#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "webhooks.subscription.updatedAt",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.webhooks.subscriptions",
+        "adminProfileRef": "adminUi.profile.webhooks.subscriptions",
+        "approvalContractRef": null
+      },
+      "notes": []
+    },
+    {
+      "$id": "customerAccess.policy.webhooks.tests",
+      "name": "Webhook Tests Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "webhooks.tests",
+      "contractRefs": [
+        "webhooks.testDelivery"
+      ],
+      "moduleRef": "integrations",
+      "capabilityRefs": [
+        "integrations.health"
+      ],
+      "customerMode": "direct_edit",
+      "actions": {
+        "read": "allow",
+        "create": "allow",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [
+          "webhooks.tests.view"
+        ],
+        "create": [
+          "webhooks.tests.create"
+        ],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.webhooks.tests#testId",
+          "field": "testId",
+          "contractFieldRef": "webhooks.testDelivery.testId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.tests#endpointId",
+          "field": "endpointId",
+          "contractFieldRef": "webhooks.testDelivery.endpointId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.tests#subscriptionId",
+          "field": "subscriptionId",
+          "contractFieldRef": "webhooks.testDelivery.subscriptionId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.tests#requestedBy",
+          "field": "requestedBy",
+          "contractFieldRef": "webhooks.testDelivery.requestedBy",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.tests#requestedAt",
+          "field": "requestedAt",
+          "contractFieldRef": "webhooks.testDelivery.requestedAt",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.tests#syntheticEventKey",
+          "field": "syntheticEventKey",
+          "contractFieldRef": "webhooks.testDelivery.syntheticEventKey",
+          "mode": "read_only"
+        },
+        {
+          "fieldRef": "cmsUi.profile.webhooks.tests#result",
+          "field": "result",
+          "contractFieldRef": "webhooks.testDelivery.result",
+          "mode": "read_only"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "read_only_sample",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.webhooks.tests",
+        "adminProfileRef": "adminUi.profile.webhooks.tests",
+        "approvalContractRef": null
+      },
+      "notes": []
+    }
+  ],
   "apiGroups": [
     {
       "apiId": "api.public-content",
@@ -5738,11 +14675,11 @@ export const GENERATED_VALIDATION = {
     },
     {
       "apiId": "api.customer-cms",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "apiId": "api.nextf-admin",
-      "version": "1.0.0"
+      "version": "1.1.0"
     },
     {
       "apiId": "api.commerce",
@@ -5782,6 +14719,10 @@ export const GENERATED_VALIDATION = {
     "content.updated",
     "content.version-created",
     "conversion.recorded",
+    "customer-change-request.applied",
+    "customer-change-request.approved",
+    "customer-change-request.cancelled",
+    "customer-change-request.submitted",
     "customer.archived",
     "customer.created",
     "customer.updated",
@@ -5955,19 +14896,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2123 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 2,
+        "review-required": 10,
         "deprecation": 0,
-        "non-breaking": 2113,
+        "non-breaking": 2211,
         "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-2-V0.3.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.1.0"
     },
     {
       "version": "0.4.0",
@@ -5978,19 +14919,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2088 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 6,
+        "review-required": 15,
         "deprecation": 0,
-        "non-breaking": 2074,
-        "documentation": 0,
+        "non-breaking": 2172,
+        "documentation": 34,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-3-V0.4.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.1.0"
     },
     {
       "version": "0.5.0",
@@ -6001,19 +14942,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2069 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 7,
+        "review-required": 17,
         "deprecation": 0,
-        "non-breaking": 2054,
-        "documentation": 0,
+        "non-breaking": 2152,
+        "documentation": 52,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-4-V0.5.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.1.0"
     },
     {
       "version": "0.6.0",
@@ -6024,19 +14965,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2067 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 26,
+        "review-required": 37,
         "deprecation": 0,
-        "non-breaking": 2033,
-        "documentation": 0,
+        "non-breaking": 2131,
+        "documentation": 53,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-5-V0.6.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.1.0"
     },
     {
       "version": "0.7.0",
@@ -6047,19 +14988,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2034 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 24,
+        "review-required": 36,
         "deprecation": 0,
-        "non-breaking": 2002,
-        "documentation": 0,
+        "non-breaking": 2100,
+        "documentation": 85,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-6-V0.7.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.1.0"
     },
     {
       "version": "0.8.0",
@@ -6070,19 +15011,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2012 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 29,
+        "review-required": 42,
         "deprecation": 0,
-        "non-breaking": 1979,
-        "documentation": 0,
+        "non-breaking": 2077,
+        "documentation": 106,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-7-V0.8.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.1.0"
     },
     {
       "version": "0.9.0",
@@ -6093,19 +15034,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "1978 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 32,
+        "review-required": 46,
         "deprecation": 0,
-        "non-breaking": 1943,
-        "documentation": 0,
-        "metadata": 3,
+        "non-breaking": 2041,
+        "documentation": 138,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-8-V0.9.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.1.0"
     },
     {
       "version": "0.10.0",
@@ -6116,19 +15057,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "1941 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 40,
+        "review-required": 55,
         "deprecation": 0,
-        "non-breaking": 1898,
-        "documentation": 0,
-        "metadata": 3,
+        "non-breaking": 1996,
+        "documentation": 174,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-9-V0.10.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.1.0"
     },
     {
       "version": "0.11.0",
@@ -6139,19 +15080,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "1894 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 42,
+        "review-required": 58,
         "deprecation": 0,
-        "non-breaking": 1849,
-        "documentation": 0,
-        "metadata": 3,
+        "non-breaking": 1947,
+        "documentation": 220,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-10-V0.11.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.1.0"
     },
     {
       "version": "0.12.0",
@@ -6162,19 +15103,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "1835 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 56,
+        "review-required": 73,
         "deprecation": 0,
-        "non-breaking": 1776,
-        "documentation": 0,
-        "metadata": 3,
+        "non-breaking": 1874,
+        "documentation": 278,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-11-V0.12.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.1.0"
     },
     {
       "version": "0.13.0",
@@ -6199,19 +15140,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "1561 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 59,
+        "review-required": 78,
         "deprecation": 0,
-        "non-breaking": 1499,
-        "documentation": 0,
-        "metadata": 3,
+        "non-breaking": 1597,
+        "documentation": 550,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-13-V0.14.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.1.0"
     },
     {
       "version": "0.15.0",
@@ -6236,19 +15177,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "1084 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 3,
+        "review-required": 25,
         "deprecation": 0,
-        "non-breaking": 1078,
-        "documentation": 0,
-        "metadata": 3,
+        "non-breaking": 1176,
+        "documentation": 1024,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-15-V0.16.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.1.0"
     },
     {
       "version": "0.17.0",
@@ -6259,19 +15200,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "1064 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 2,
-        "review-required": 3,
+        "review-required": 29,
         "deprecation": 0,
-        "non-breaking": 1055,
-        "documentation": 1,
-        "metadata": 3,
+        "non-breaking": 1153,
+        "documentation": 1041,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-16-V0.17.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.1.0"
     },
     {
       "version": "0.18.0",
@@ -6282,19 +15223,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "1151 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2323 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 96,
         "potentially-breaking": 6,
-        "review-required": 5,
+        "review-required": 31,
         "deprecation": 0,
-        "non-breaking": 1040,
-        "documentation": 1,
-        "metadata": 3,
+        "non-breaking": 1138,
+        "documentation": 1048,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-17-V0.18.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.1.0"
     },
     {
       "version": "0.19.0",
@@ -6319,19 +15260,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "622 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 3,
+        "review-required": 111,
         "deprecation": 0,
-        "non-breaking": 615,
-        "documentation": 1,
-        "metadata": 3,
+        "non-breaking": 713,
+        "documentation": 1401,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-19-V0.20.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.1.0"
     },
     {
       "version": "0.21.0",
@@ -6342,19 +15283,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "459 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 3,
+        "review-required": 186,
         "deprecation": 0,
-        "non-breaking": 452,
-        "documentation": 1,
-        "metadata": 3,
+        "non-breaking": 550,
+        "documentation": 1473,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-20-V0.21.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.1.0"
     },
     {
       "version": "0.22.0",
@@ -6365,19 +15306,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "386 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 3,
+        "review-required": 187,
         "deprecation": 0,
-        "non-breaking": 379,
-        "documentation": 1,
-        "metadata": 3,
+        "non-breaking": 477,
+        "documentation": 1545,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-21-V0.22.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.1.0"
     },
     {
       "version": "0.23.0",
@@ -6388,19 +15329,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "376 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 3,
+        "review-required": 188,
         "deprecation": 0,
-        "non-breaking": 370,
-        "documentation": 0,
-        "metadata": 3,
+        "non-breaking": 468,
+        "documentation": 1553,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-22-V0.23.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
     },
     {
       "version": "0.24.0",
@@ -6411,19 +15352,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "376 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 3,
+        "review-required": 188,
         "deprecation": 0,
-        "non-breaking": 370,
-        "documentation": 0,
-        "metadata": 3,
+        "non-breaking": 468,
+        "documentation": 1553,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-23-V0.24.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.1.0"
     },
     {
       "version": "0.25.0",
@@ -6434,19 +15375,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "375 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 2,
+        "review-required": 188,
         "deprecation": 0,
-        "non-breaking": 370,
-        "documentation": 0,
-        "metadata": 3,
+        "non-breaking": 468,
+        "documentation": 1553,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-24-V0.25.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.1.0"
     },
     {
       "version": "0.26.0",
@@ -6457,19 +15398,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "375 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 2,
+        "review-required": 188,
         "deprecation": 0,
-        "non-breaking": 370,
-        "documentation": 0,
-        "metadata": 3,
+        "non-breaking": 468,
+        "documentation": 1553,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.1.0"
     },
     {
       "version": "0.27.0",
@@ -6480,19 +15421,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "375 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 2,
+        "review-required": 188,
         "deprecation": 0,
-        "non-breaking": 370,
-        "documentation": 0,
-        "metadata": 3,
+        "non-breaking": 468,
+        "documentation": 1553,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.1.0"
     },
     {
       "version": "0.28.0",
@@ -6503,19 +15444,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "347 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2185 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 9,
+        "review-required": 196,
         "deprecation": 0,
-        "non-breaking": 320,
-        "documentation": 0,
-        "metadata": 18,
+        "non-breaking": 418,
+        "documentation": 1556,
+        "metadata": 15,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.1.0"
     },
     {
       "version": "0.29.0",
@@ -6526,19 +15467,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "346 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2184 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 13,
+        "review-required": 201,
         "deprecation": 0,
-        "non-breaking": 307,
-        "documentation": 0,
-        "metadata": 26,
+        "non-breaking": 405,
+        "documentation": 1558,
+        "metadata": 20,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.1.0"
     },
     {
       "version": "0.30.0",
@@ -6549,19 +15490,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "344 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2183 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 19,
+        "review-required": 209,
         "deprecation": 0,
-        "non-breaking": 244,
-        "documentation": 0,
-        "metadata": 81,
+        "non-breaking": 342,
+        "documentation": 1608,
+        "metadata": 24,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.1.0"
     },
     {
       "version": "0.31.0",
@@ -6572,19 +15513,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "343 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2182 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 93,
+        "review-required": 284,
         "deprecation": 0,
-        "non-breaking": 161,
-        "documentation": 0,
-        "metadata": 89,
+        "non-breaking": 259,
+        "documentation": 1609,
+        "metadata": 30,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.1.0"
     },
     {
       "version": "0.32.0",
@@ -6595,19 +15536,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "342 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2181 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 100,
+        "review-required": 292,
         "deprecation": 0,
-        "non-breaking": 102,
-        "documentation": 0,
-        "metadata": 140,
+        "non-breaking": 200,
+        "documentation": 1610,
+        "metadata": 79,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.1.0"
     },
     {
       "version": "0.33.0",
@@ -6618,19 +15559,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "341 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2180 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 108,
+        "review-required": 301,
         "deprecation": 0,
-        "non-breaking": 34,
-        "documentation": 0,
-        "metadata": 199,
+        "non-breaking": 132,
+        "documentation": 1612,
+        "metadata": 135,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.1.0"
     },
     {
       "version": "0.34.0",
@@ -6641,19 +15582,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "340 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2179 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 109,
+        "review-required": 303,
         "deprecation": 0,
-        "non-breaking": 28,
-        "documentation": 0,
-        "metadata": 203,
+        "non-breaking": 126,
+        "documentation": 1615,
+        "metadata": 135,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.1.0"
     },
     {
       "version": "0.35.0",
@@ -6664,19 +15605,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "339 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2178 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 110,
+        "review-required": 305,
         "deprecation": 0,
-        "non-breaking": 22,
-        "documentation": 0,
-        "metadata": 207,
+        "non-breaking": 120,
+        "documentation": 1618,
+        "metadata": 135,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.1.0"
     },
     {
       "version": "0.36.0",
@@ -6687,19 +15628,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "338 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2177 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 111,
+        "review-required": 307,
         "deprecation": 0,
-        "non-breaking": 12,
-        "documentation": 0,
-        "metadata": 215,
+        "non-breaking": 110,
+        "documentation": 1619,
+        "metadata": 141,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.1.0"
     },
     {
       "version": "0.37.0",
@@ -6710,23 +15651,46 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "335 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2176 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 112,
+        "review-required": 309,
         "deprecation": 0,
-        "non-breaking": 6,
-        "documentation": 0,
-        "metadata": 217,
+        "non-breaking": 104,
+        "documentation": 1620,
+        "metadata": 143,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.0.0"
+      "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.1.0"
     },
     {
       "version": "1.0.0",
-      "phase": 34,
+      "phase": 37,
+      "exactSnapshotAvailable": true,
+      "availability": "exact",
+      "supportLevel": "production-supported",
+      "productionEligible": true,
+      "compatibilityStatus": "review-required",
+      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
+      "changeSummary": "2175 consumer-relevant changed/added/removed definitions",
+      "impactCounts": {
+        "breaking": 0,
+        "potentially-breaking": 0,
+        "review-required": 206,
+        "deprecation": 0,
+        "non-breaking": 98,
+        "documentation": 1856,
+        "metadata": 15,
+        "none": 0
+      },
+      "sourceReference": "registry/registry.json",
+      "diffRoute": "#/lifecycle/diff?from=1.0.0&to=1.1.0"
+    },
+    {
+      "version": "1.1.0",
+      "phase": 38,
       "exactSnapshotAvailable": true,
       "availability": "exact",
       "supportLevel": "production-current",
@@ -8189,6 +17153,7 @@ export const GENERATED_VALIDATION = {
     "module-existence",
     "module-dependencies",
     "capabilities",
+    "customer-access",
     "api-bindings",
     "events",
     "tracking-events",
@@ -8210,6 +17175,7 @@ export const GENERATED_VALIDATION = {
     "standard": "standards/41-browser-contract-validation-standard.md",
     "manifestSchema": "registry/manifests/nextf-site-manifest.schema.json",
     "modules": "registry/modules/index.json",
+    "customerAccess": "registry/customer-access/index.json",
     "api": "registry/api/index.json",
     "events": "registry/events/index.json",
     "tracking": "registry/marketing/index.json",
@@ -8218,14 +17184,15 @@ export const GENERATED_VALIDATION = {
     "deprecations": "registry/deprecations/index.json"
   },
   "sourceHashes": {
-    "standards/41-browser-contract-validation-standard.md": "f710c83512a9f7b305e507d8482a2456b92fd12e9380a78b82d87d673af5c611",
-    "registry/manifests/nextf-site-manifest.schema.json": "a9961b8d90fec7924a92d9901b5a46053966b0199aa0d7fc3e195a17544e07dd",
-    "registry/modules/index.json": "6e64301ae23a1c53cf543d36a54747e3c912177f2edd0cc39b2acf36bcd29ac8",
-    "registry/api/index.json": "5d5ef8adc0ff3865dce6550028fa296dbf881afb36d1aa2ff8ac99ea5cd7e25c",
-    "registry/events/index.json": "1338e6f14c201f95a9ca13bff41ab261c51dbb55d5fe5a8193a9598197d4a62c",
-    "registry/marketing/index.json": "27f88077b8255c2b76176f281d4a7056cc4b8167d6fcc038b286827c4d7e6e0a",
-    "registry/integrations/index.json": "169d27c1dda2ffc92ae04e3c5fd9d0b5569dfbcf9c6c42bf11790cab94254ca0",
-    "registry/compatibility/release-compatibility.json": "beda80376b07f99e27d77c451209af7573fd7f81b43b893ee7c83b93204e5569",
-    "registry/deprecations/index.json": "dd3e2e83ca2107f2bb6fc802ad95c2f4c21d196c85aeeadbe29c13e864e3c8ae"
+    "standards/41-browser-contract-validation-standard.md": "115a888aa49d660e7279ec04b0d6ea9349fa3a2dae85bba3e9c6a3ac99037377",
+    "registry/manifests/nextf-site-manifest.schema.json": "c4386da9484aff9d2ac39e08fbff779e819263b3f5f0a75a7a0bd07142dc5abb",
+    "registry/modules/index.json": "fd4d93fa6632608450f61deb8cf8d8077debe058ccb9197ee4efda48047f1849",
+    "registry/customer-access/index.json": "fde3ee868ef1fdd9033d9eed056d82d42879b32bbbfa4753b197e8ed944caa4b",
+    "registry/api/index.json": "54152f7b37a021627515a36a1590fa186f55b3559acf614ee6ef7b63a212f402",
+    "registry/events/index.json": "0b24bc5d950a903dc6b56a23c891aaec93795fb3478960cfd672494e1960ec80",
+    "registry/marketing/index.json": "7b0003565e80e631c0331660fd1ceea51113a3503f85b17b53c58ad34c58e2d3",
+    "registry/integrations/index.json": "01dbdf2ecdada943bf594d6a63e38fc0bf33a40050edb43512b6a77434a9b327",
+    "registry/compatibility/release-compatibility.json": "9ec2f115e7d6a725df079ef2d813cb3b8187834bb0a387c0c6bc01a550071b2a",
+    "registry/deprecations/index.json": "e71bbb784937ef8ba5e5f8d7ce77f4069bb9e8f04df8a1a2ef5a5a05fafff3b6"
   }
 };

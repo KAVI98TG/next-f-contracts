@@ -1,5 +1,5 @@
 export const routes = [
-  { id: "overview", path: "/overview", title: "Overview", group: "Overview", icon: "fa-house", phase: 37, status: "current", description: "Contract portal foundation, authority model and completed V1 Registry roadmap." },
+  { id: "overview", path: "/overview", title: "Overview", group: "Overview", icon: "fa-house", phase: 38, status: "current", description: "Contract portal foundation, authority model and current V1.1 Registry roadmap." },
   { id: "global-search", path: "/search", title: "Global Search", group: "Overview", icon: "fa-magnifying-glass", phase: 23, status: "available", description: "Search canonical contracts, fields, Events, Webhooks, Permissions, Modules, APIs, examples, routes and documentation from one local index." },
   { id: "registry-health", path: "/registry/health", title: "Registry Health", group: "Overview", icon: "fa-heart-pulse", phase: 36, status: "available", description: "Repository-wide release-candidate QA, integrity evidence, findings and acceptance status." },
 
@@ -25,6 +25,7 @@ export const routes = [
   { id: "registry-marketing", path: "/registry/marketing", title: "Marketing", group: "Registry", icon: "fa-bullseye", phase: 9, status: "available", description: "Provider-neutral tracking, analytics, conversions, campaign attribution, consent, event destinations and reporting." },
 
   { id: "platform-modules", path: "/platform/modules", title: "Modules", group: "Platform", icon: "fa-table-cells-large", phase: 17, status: "available", description: "Module dependencies, capabilities and CMS/Admin navigation metadata." },
+  { id: "platform-customer-access", path: "/platform/customer-access", title: "Customer Access", group: "Platform", icon: "fa-shield-halved", phase: 38, status: "available", description: "Canonical customer visibility, mutation, approval, publishing, field and demo policy." },
   { id: "platform-permissions", path: "/platform/permissions", title: "Permissions", group: "Platform", icon: "fa-key", phase: 15, status: "available", description: "Canonical domain.resource.action permission identifiers, roles, scope binding and deny-by-default authorization rules." },
   { id: "platform-integrations", path: "/platform/integrations", title: "Integrations", group: "Platform", icon: "fa-plug", phase: 10, status: "available", description: "Provider-neutral connector contracts and third-party integration metadata." },
   { id: "platform-api", path: "/platform/api", title: "API", group: "Platform", icon: "fa-code-branch", phase: 18, status: "available", description: "Public Content, Public Interaction, Customer CMS, NEXT F Admin, Commerce, Event and Webhook API contracts." },

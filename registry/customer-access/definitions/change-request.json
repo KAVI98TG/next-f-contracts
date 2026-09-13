@@ -1,0 +1,165 @@
+{
+  "$id": "customerAccess.changeRequest",
+  "name": "Customer Change Request",
+  "version": "1.1.0",
+  "status": "stable",
+  "domain": "customer-access",
+  "description": "Non-authoritative customer proposal for an approval-gated resource or field change.",
+  "fields": [
+    {
+      "key": "requestId",
+      "primitive": "fields.text",
+      "required": true,
+      "customerEditable": false
+    },
+    {
+      "key": "organizationId",
+      "primitive": "fields.text",
+      "required": true,
+      "customerEditable": false
+    },
+    {
+      "key": "siteId",
+      "primitive": "fields.text",
+      "required": true,
+      "customerEditable": false
+    },
+    {
+      "key": "resourceType",
+      "primitive": "fields.text",
+      "required": true,
+      "customerEditable": false
+    },
+    {
+      "key": "resourceId",
+      "primitive": "fields.text",
+      "required": true,
+      "customerEditable": false
+    },
+    {
+      "key": "baseRevisionId",
+      "primitive": "fields.text",
+      "required": true,
+      "customerEditable": false
+    },
+    {
+      "key": "requestedOperation",
+      "primitive": "fields.text",
+      "required": true,
+      "customerEditable": true
+    },
+    {
+      "key": "proposedChanges",
+      "primitive": "fields.json",
+      "required": true,
+      "customerEditable": true
+    },
+    {
+      "key": "requesterId",
+      "primitive": "fields.text",
+      "required": true,
+      "customerEditable": false
+    },
+    {
+      "key": "requestedAt",
+      "primitive": "fields.dateTime",
+      "required": true,
+      "customerEditable": false
+    },
+    {
+      "key": "status",
+      "primitive": "fields.select",
+      "required": true,
+      "customerEditable": false
+    },
+    {
+      "key": "assignedReviewerId",
+      "primitive": "fields.text",
+      "required": false,
+      "customerEditable": false
+    },
+    {
+      "key": "reviewerId",
+      "primitive": "fields.text",
+      "required": false,
+      "customerEditable": false
+    },
+    {
+      "key": "decidedAt",
+      "primitive": "fields.dateTime",
+      "required": false,
+      "customerEditable": false
+    },
+    {
+      "key": "decisionNote",
+      "primitive": "fields.textarea",
+      "required": false,
+      "customerEditable": false
+    },
+    {
+      "key": "resultingRevisionId",
+      "primitive": "fields.text",
+      "required": false,
+      "customerEditable": false
+    },
+    {
+      "key": "auditCorrelationId",
+      "primitive": "fields.text",
+      "required": true,
+      "customerEditable": false
+    },
+    {
+      "key": "conflict",
+      "primitive": "fields.boolean",
+      "required": true,
+      "customerEditable": false
+    },
+    {
+      "key": "currentRevisionId",
+      "primitive": "fields.text",
+      "required": false,
+      "customerEditable": false
+    },
+    {
+      "key": "expiresAt",
+      "primitive": "fields.dateTime",
+      "required": false,
+      "customerEditable": false
+    },
+    {
+      "key": "cancelledAt",
+      "primitive": "fields.dateTime",
+      "required": false,
+      "customerEditable": false
+    }
+  ],
+  "lifecycle": [
+    "draft",
+    "submitted",
+    "in_review",
+    "changes_requested",
+    "approved",
+    "rejected",
+    "applied",
+    "cancelled",
+    "expired"
+  ],
+  "invariants": [
+    "A submitted proposal is stored separately and never mutates authoritative state before approval.",
+    "Application requires baseRevisionId to match the current authoritative revision.",
+    "A stale proposal becomes conflict evidence and is never silently applied.",
+    "Approval, rejection and application decisions are audited with requester and reviewer identity."
+  ],
+  "relationships": [
+    {
+      "type": "uses",
+      "target": "core.versionRecord",
+      "description": "Base and resulting revisions use canonical version evidence."
+    },
+    {
+      "type": "uses",
+      "target": "core.auditRecord",
+      "description": "Every request and decision is auditable."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.commerce.refunds",
   "name": "Refunds",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -379,5 +379,45 @@
       "requiresPermission": "commerce.refunds.manage",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.commerce.refunds",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "deny",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "commerce.refunds.export",
+        "commerce.refunds.view"
+      ],
+      "create": [
+        "commerce.refunds.create"
+      ],
+      "update": [
+        "commerce.refunds.manage"
+      ],
+      "delete": [],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "commerce.refunds"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

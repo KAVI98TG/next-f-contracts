@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.core.audit",
   "name": "Audit Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -79,5 +79,33 @@
   },
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.core.audit",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "read_only",
+    "publishingMode": "not_applicable",
+    "approvalRequired": false,
+    "capabilityRefs": [
+      "core.audit"
+    ],
+    "editableFields": [
+      "entity"
+    ],
+    "readOnlyFields": [
+      "occurredAt",
+      "action",
+      "summary",
+      "before",
+      "after",
+      "metadata"
+    ],
+    "hiddenFields": [
+      "id",
+      "actor",
+      "requestId"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

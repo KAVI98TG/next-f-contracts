@@ -1,0 +1,117 @@
+{
+  "$id": "customerAccess.policy.commerce.inventory",
+  "name": "Inventory Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.inventory",
+  "contractRefs": [
+    "commerce.inventoryLevel",
+    "commerce.inventoryItem",
+    "commerce.inventoryLocation",
+    "commerce.inventoryAdjustment"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.inventory",
+    "commerce.multi-location-inventory"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.inventory.export",
+      "commerce.inventory.view"
+    ],
+    "create": [],
+    "update": [
+      "commerce.inventory.edit",
+      "commerce.inventory.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.inventory#identity",
+      "field": "identity",
+      "contractFieldRef": "commerce.inventoryLevel.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.inventory#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.inventoryLevel.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.inventory#inventoryItemId",
+      "field": "inventoryItemId",
+      "contractFieldRef": "commerce.inventoryLevel.inventoryItemId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.inventory#locationId",
+      "field": "locationId",
+      "contractFieldRef": "commerce.inventoryLevel.locationId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.inventory#onHand",
+      "field": "onHand",
+      "contractFieldRef": "commerce.inventoryLevel.onHand",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.inventory#reserved",
+      "field": "reserved",
+      "contractFieldRef": "commerce.inventoryLevel.reserved",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.inventory#incoming",
+      "field": "incoming",
+      "contractFieldRef": "commerce.inventoryLevel.incoming",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.inventory#available",
+      "field": "available",
+      "contractFieldRef": "commerce.inventoryLevel.available",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.inventory#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "commerce.inventoryLevel.updatedAt",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.inventory",
+    "adminProfileRef": "adminUi.profile.commerce.inventory",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

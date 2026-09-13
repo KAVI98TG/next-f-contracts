@@ -1,0 +1,34 @@
+{
+  "registryVersion": "1.1.0",
+  "phase": 38,
+  "sourceVersion": "1.0.0",
+  "targetVersion": "1.1.0",
+  "classificationBasis": "Every stable Customer CMS source profile is explicitly represented by one generated policy source record and validated by exact profile ID.",
+  "profileCount": 75,
+  "classifiedPolicies": 75,
+  "unclassifiedProfiles": [],
+  "modeCounts": {
+    "hidden": 2,
+    "read_only": 13,
+    "direct_edit": 52,
+    "approval_required": 8
+  },
+  "reused": [
+    "Customer CMS profiles",
+    "Admin profile references",
+    "Permission IDs and scope model",
+    "API groups",
+    "core.versionRecord",
+    "core.auditRecord",
+    "Site Manifest module/capability gates"
+  ],
+  "added": [
+    "Canonical customer access policy",
+    "Customer Change Request",
+    "effective policy resolution",
+    "approval API operations",
+    "change-request permissions",
+    "internal lifecycle Events"
+  ],
+  "compatibility": "Additive feature release. V1.0.0 sites remain pinned and unchanged; V1.1.0 consumption requires explicit upgrade and policy-aware runtime support."
+}

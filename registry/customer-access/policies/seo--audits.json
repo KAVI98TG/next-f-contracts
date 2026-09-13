@@ -1,0 +1,119 @@
+{
+  "$id": "customerAccess.policy.seo.audits",
+  "name": "Audits Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "seo.audits",
+  "contractRefs": [
+    "seo.auditResult",
+    "seo.auditIssue"
+  ],
+  "moduleRef": "seo",
+  "capabilityRefs": [
+    "seo.audits"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "seo.audits.export",
+      "seo.audits.view"
+    ],
+    "create": [],
+    "update": [
+      "seo.audits.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.seo.audits#identity",
+      "field": "identity",
+      "contractFieldRef": "seo.auditResult.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.audits#scope",
+      "field": "scope",
+      "contractFieldRef": "seo.auditResult.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.audits#target",
+      "field": "target",
+      "contractFieldRef": "seo.auditResult.target",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.audits#url",
+      "field": "url",
+      "contractFieldRef": "seo.auditResult.url",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.audits#checkedAt",
+      "field": "checkedAt",
+      "contractFieldRef": "seo.auditResult.checkedAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.audits#score",
+      "field": "score",
+      "contractFieldRef": "seo.auditResult.score",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.audits#status",
+      "field": "status",
+      "contractFieldRef": "seo.auditResult.status",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.audits#checksPassed",
+      "field": "checksPassed",
+      "contractFieldRef": "seo.auditResult.checksPassed",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.audits#checksFailed",
+      "field": "checksFailed",
+      "contractFieldRef": "seo.auditResult.checksFailed",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.audits#issues",
+      "field": "issues",
+      "contractFieldRef": "seo.auditResult.issues",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.seo.audits",
+    "adminProfileRef": "adminUi.profile.seo.audits",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

@@ -1,0 +1,123 @@
+{
+  "$id": "customerAccess.policy.seo.searchperformance",
+  "name": "Search Performance Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "seo.searchperformance",
+  "contractRefs": [
+    "seo.searchPerformance",
+    "seo.searchQuery"
+  ],
+  "moduleRef": "seo",
+  "capabilityRefs": [
+    "seo.search-performance"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "seo.searchperformance.export",
+      "seo.searchperformance.view"
+    ],
+    "create": [],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.seo.searchperformance#scope",
+      "field": "scope",
+      "contractFieldRef": "seo.searchPerformance.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.searchperformance#query",
+      "field": "query",
+      "contractFieldRef": "seo.searchPerformance.query",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.searchperformance#pageUrl",
+      "field": "pageUrl",
+      "contractFieldRef": "seo.searchPerformance.pageUrl",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.searchperformance#startDate",
+      "field": "startDate",
+      "contractFieldRef": "seo.searchPerformance.startDate",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.searchperformance#endDate",
+      "field": "endDate",
+      "contractFieldRef": "seo.searchPerformance.endDate",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.searchperformance#clicks",
+      "field": "clicks",
+      "contractFieldRef": "seo.searchPerformance.clicks",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.searchperformance#impressions",
+      "field": "impressions",
+      "contractFieldRef": "seo.searchPerformance.impressions",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.searchperformance#ctr",
+      "field": "ctr",
+      "contractFieldRef": "seo.searchPerformance.ctr",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.searchperformance#averagePosition",
+      "field": "averagePosition",
+      "contractFieldRef": "seo.searchPerformance.averagePosition",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.searchperformance#sourceProvider",
+      "field": "sourceProvider",
+      "contractFieldRef": "seo.searchPerformance.sourceProvider",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.seo.searchperformance#importedAt",
+      "field": "importedAt",
+      "contractFieldRef": "seo.searchPerformance.importedAt",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.seo.searchperformance",
+    "adminProfileRef": "adminUi.profile.seo.searchperformance",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

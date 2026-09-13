@@ -1,0 +1,116 @@
+{
+  "$id": "customerAccess.policy.core.audit",
+  "name": "Activity Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "core.audit",
+  "contractRefs": [
+    "core.auditRecord"
+  ],
+  "moduleRef": "core",
+  "capabilityRefs": [
+    "core.audit"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "core.audit.export",
+      "core.audit.view"
+    ],
+    "create": [],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.core.audit#id",
+      "field": "id",
+      "contractFieldRef": "core.auditRecord.id",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.audit#occurredAt",
+      "field": "occurredAt",
+      "contractFieldRef": "core.auditRecord.occurredAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.audit#actor",
+      "field": "actor",
+      "contractFieldRef": "core.auditRecord.actor",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.audit#action",
+      "field": "action",
+      "contractFieldRef": "core.auditRecord.action",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.audit#entity",
+      "field": "entity",
+      "contractFieldRef": "core.auditRecord.entity",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.audit#summary",
+      "field": "summary",
+      "contractFieldRef": "core.auditRecord.summary",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.audit#before",
+      "field": "before",
+      "contractFieldRef": "core.auditRecord.before",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.audit#after",
+      "field": "after",
+      "contractFieldRef": "core.auditRecord.after",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.audit#requestId",
+      "field": "requestId",
+      "contractFieldRef": "core.auditRecord.requestId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.core.audit#metadata",
+      "field": "metadata",
+      "contractFieldRef": "core.auditRecord.metadata",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.core.audit",
+    "adminProfileRef": "adminUi.profile.core.audit",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.content.documentation",
   "name": "Documentation",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -524,5 +524,56 @@
       "requiresPermission": "content.documentation.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.documentation",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "direct",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "allow",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "content.documentation.view"
+      ],
+      "create": [
+        "content.documentation.create"
+      ],
+      "update": [
+        "content.documentation.edit",
+        "content.documentation.publish"
+      ],
+      "delete": [
+        "content.documentation.delete"
+      ],
+      "submit_for_review": [
+        "content.documentation.approve"
+      ],
+      "publish": [
+        "content.documentation.publish"
+      ],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "documentation.attachments",
+      "documentation.categories",
+      "documentation.collections",
+      "documentation.related-articles",
+      "documentation.versioning",
+      "documentation.visibility"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

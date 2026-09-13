@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Developer Validation CLI",
   "description": "Offline Node CLI adapter over the shared NEXT F manifest validation core.",

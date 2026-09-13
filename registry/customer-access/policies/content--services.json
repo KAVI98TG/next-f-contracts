@@ -1,0 +1,150 @@
+{
+  "$id": "customerAccess.policy.content.services",
+  "name": "Services Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.services",
+  "contractRefs": [
+    "content.service"
+  ],
+  "moduleRef": "pages",
+  "capabilityRefs": [
+    "pages.sections"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "allow",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "direct"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.services.view"
+    ],
+    "create": [
+      "content.services.create"
+    ],
+    "update": [
+      "content.services.edit",
+      "content.services.publish"
+    ],
+    "delete": [
+      "content.services.delete"
+    ],
+    "submit_for_review": [
+      "content.services.approve"
+    ],
+    "publish": [
+      "content.services.publish"
+    ],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.services#identity",
+      "field": "identity",
+      "contractFieldRef": "content.service.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#scope",
+      "field": "scope",
+      "contractFieldRef": "content.service.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#name",
+      "field": "name",
+      "contractFieldRef": "content.service.name",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#slug",
+      "field": "slug",
+      "contractFieldRef": "content.service.slug",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#shortDescription",
+      "field": "shortDescription",
+      "contractFieldRef": "content.service.shortDescription",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#overview",
+      "field": "overview",
+      "contractFieldRef": "content.service.overview",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#featuredMedia",
+      "field": "featuredMedia",
+      "contractFieldRef": "content.service.featuredMedia",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#sections",
+      "field": "sections",
+      "contractFieldRef": "content.service.sections",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#faqs",
+      "field": "faqs",
+      "contractFieldRef": "content.service.faqs",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#testimonials",
+      "field": "testimonials",
+      "contractFieldRef": "content.service.testimonials",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#primaryCta",
+      "field": "primaryCta",
+      "contractFieldRef": "content.service.primaryCta",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#isFeatured",
+      "field": "isFeatured",
+      "contractFieldRef": "content.service.isFeatured",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#publishing",
+      "field": "publishing",
+      "contractFieldRef": "content.service.publishing",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.services#revision",
+      "field": "revision",
+      "contractFieldRef": "content.service.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.services",
+    "adminProfileRef": "adminUi.profile.content.services",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

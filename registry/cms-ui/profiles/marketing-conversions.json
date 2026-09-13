@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.marketing.conversions",
   "name": "Conversions",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -369,5 +369,47 @@
       "requiresPermission": "marketing.conversions.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.marketing.conversions",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "marketing.conversions.view"
+      ],
+      "create": [
+        "marketing.conversions.create"
+      ],
+      "update": [
+        "marketing.conversions.edit",
+        "marketing.conversions.manage"
+      ],
+      "delete": [
+        "marketing.conversions.delete"
+      ],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "marketing.conversions"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

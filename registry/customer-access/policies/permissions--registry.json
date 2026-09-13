@@ -1,0 +1,109 @@
+{
+  "$id": "customerAccess.policy.permissions.registry",
+  "name": "Permission Registry Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "permissions.registry",
+  "contractRefs": [
+    "permissions.permissionDefinition"
+  ],
+  "moduleRef": "core",
+  "capabilityRefs": [
+    "core.identity"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "permissions.registry.view"
+    ],
+    "create": [],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.permissions.registry#permissionId",
+      "field": "permissionId",
+      "contractFieldRef": "permissions.permissionDefinition.permissionId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.registry#domain",
+      "field": "domain",
+      "contractFieldRef": "permissions.permissionDefinition.domain",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.registry#resource",
+      "field": "resource",
+      "contractFieldRef": "permissions.permissionDefinition.resource",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.registry#action",
+      "field": "action",
+      "contractFieldRef": "permissions.permissionDefinition.action",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.registry#scopeKind",
+      "field": "scopeKind",
+      "contractFieldRef": "permissions.permissionDefinition.scopeKind",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.registry#riskLevel",
+      "field": "riskLevel",
+      "contractFieldRef": "permissions.permissionDefinition.riskLevel",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.registry#customerEligible",
+      "field": "customerEligible",
+      "contractFieldRef": "permissions.permissionDefinition.customerEligible",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.registry#adminEligible",
+      "field": "adminEligible",
+      "contractFieldRef": "permissions.permissionDefinition.adminEligible",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.permissions.registry#grantable",
+      "field": "grantable",
+      "contractFieldRef": "permissions.permissionDefinition.grantable",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.permissions.registry",
+    "adminProfileRef": "adminUi.profile.permissions.registry",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

@@ -244,13 +244,13 @@ Keyboard users must be able to:
 
 Color must not be the only signal for relationship family, origin or direction.
 
-## Light SaaS presentation
+## Portal presentation
 
-The Relationship Explorer follows the permanent light-only paper-dashboard portal standard.
+The Relationship Explorer follows the shared light and dark paper-dashboard portal standard and uses the global theme preference.
 
 Do not introduce:
 
-- dark mode
+- explorer-specific theme palettes
 - glass effects
 - backdrop blur
 - 3D scenes

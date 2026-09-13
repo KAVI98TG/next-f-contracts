@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#2563eb">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0b0f17">
   <meta name="description" content="NEXT F Contracts is the technical source of truth for NEXT F-built websites, CMS, APIs, integrations, events, webhooks and reusable schemas.">
   <title>NEXT F Contracts</title>
+  <script src="./js/theme-init.js?v=1.1.0-r2"></script>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/tokens.css?v=1.1.0-r3">
   <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/layout.css">
-  <link rel="stylesheet" href="./css/components.css?v=1.0.0-r2">
+  <link rel="stylesheet" href="./css/layout.css?v=1.1.0-r3">
+  <link rel="stylesheet" href="./css/components.css?v=1.1.0-r3">
   <link rel="stylesheet" href="./css/portal.css">
   <link rel="stylesheet" href="./css/registry.css?v=1.0.0-r3">
   <link rel="stylesheet" href="./css/fields.css">
@@ -47,7 +48,9 @@
   <link rel="stylesheet" href="./css/health.css?v=1.0.0-r5">
   <link rel="stylesheet" href="./css/validation.css">
   <link rel="stylesheet" href="./css/controls.css?v=1.0.0-r1">
-  <link rel="stylesheet" href="./css/responsive.css">
+  <link rel="stylesheet" href="./css/customer-access.css?v=1.1.0-r1">
+  <link rel="stylesheet" href="./css/responsive.css?v=1.1.0-r3">
+  <link rel="stylesheet" href="./css/themes.css?v=1.1.0-r3">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -56,7 +59,16 @@
     <aside class="sidebar" id="portal-sidebar" aria-label="Primary navigation">
       <div class="sidebar__top">
         <a class="brand" href="#/overview" aria-label="NEXT F Contracts home">
-          <span class="brand__mark" aria-hidden="true">NF</span>
+          <span class="brand__mark" aria-hidden="true">
+            <svg class="brand__icon" viewBox="0 0 248.16 253.89" focusable="false">
+              <path class="brand__icon-primary" d="M56.41,75.98v177.91h-10.21c-25.51,0-46.2-20.76-46.2-46.39V75.98c0-15.65,12.62-28.33,28.2-28.33,6.82,0,13.06,2.43,17.94,6.47l1.02.9c.33.3.65.62.97.93,1.2,1.18,2.26,2.47,3.21,3.86,3.19,4.58,5.06,10.15,5.06,16.16Z"/>
+              <path class="brand__icon-primary" d="M228.38,94.01v131.52c0,15.65-12.62,28.33-28.2,28.33-7.28,0-13.91-2.77-18.9-7.3l-.02-.02c-3-2.73-5.43-6.1-7.03-9.91-1.46-3.4-2.26-7.14-2.26-11.11V47.62h10.21c25.52,0,46.2,20.78,46.2,46.39Z"/>
+              <rect class="brand__icon-accent" x="206.32" y="18.18" width="22.03" height="22.03"/>
+              <rect class="brand__icon-secondary" x="234.19" width="13.97" height="13.97"/>
+              <rect class="brand__icon-secondary" x="231.06" y="43.83" width="13.97" height="13.97"/>
+              <path class="brand__icon-secondary" d="M56.41,137.83v-61.85c0-6.01-1.87-11.58-5.06-16.16-.95-1.39-2.01-2.68-3.21-3.86-.32-.32-.63-.63-.97-.93l124.8,108.65v61.85c0,3.97.79,7.7,2.26,11.11,1.6,3.81,4.04,7.17,7.03,9.91l-124.85-108.71Z"/>
+            </svg>
+          </span>
           <span class="brand__copy">
             <strong>NEXT F</strong>
             <span>Contracts</span>
@@ -70,7 +82,7 @@
       <div class="sidebar__meta" aria-label="Current contract release">
         <span class="status-dot status-dot--stable" aria-hidden="true"></span>
         <span>Production</span>
-        <strong>v1.0.0</strong>
+        <strong>v1.1.0</strong>
       </div>
 
       <nav class="nav-tree" data-nav-tree>
@@ -117,6 +129,7 @@
         <section class="nav-group" aria-labelledby="nav-platform-title">
           <div class="nav-group__label" id="nav-platform-title">Platform</div>
           <a class="nav-item" href="#/platform/modules" data-route-link="platform-modules"><span class="nav-item__icon"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i></span><span>Modules</span></a>
+          <a class="nav-item" href="#/platform/customer-access" data-route-link="platform-customer-access"><span class="nav-item__icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span><span>Customer Access</span></a>
           <a class="nav-item" href="#/platform/permissions" data-route-link="platform-permissions"><span class="nav-item__icon"><i class="fa-solid fa-key" aria-hidden="true"></i></span><span>Permissions</span></a>
           <a class="nav-item" href="#/platform/integrations" data-route-link="platform-integrations"><span class="nav-item__icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></span><span>Integrations</span></a>
           <a class="nav-item" href="#/platform/api" data-route-link="platform-api"><span class="nav-item__icon"><i class="fa-solid fa-code-branch" aria-hidden="true"></i></span><span>API</span></a>
@@ -153,7 +166,7 @@
       <div class="sidebar__footer">
         <div class="sidebar-card">
           <span class="sidebar-card__icon"><i class="fa-solid fa-certificate" aria-hidden="true"></i></span>
-          <div><strong>Phase 37</strong><p>V1.0.0 Production Acceptance.</p></div>
+          <div><strong>Phase 38</strong><p>Customer Capability Access Policy.</p></div>
         </div>
       </div>
     </aside>
@@ -177,8 +190,11 @@
           </button>
           <span class="release-chip" title="Current portal foundation version">
             <span class="status-dot status-dot--stable" aria-hidden="true"></span>
-            v1.0.0
+            v1.1.0
           </span>
+          <button class="icon-button" type="button" aria-label="Switch to light theme" title="Switch to light theme" data-theme-toggle>
+            <i class="fa-solid fa-sun" aria-hidden="true"></i>
+          </button>
           <a class="icon-button" href="./README.md" aria-label="Open developer documentation" title="Developer documentation">
             <i class="fa-solid fa-book-open" aria-hidden="true"></i>
           </a>
@@ -223,6 +239,6 @@
 
   <div class="toast-region" data-toast-region aria-live="polite" aria-atomic="false"></div>
 
-  <script type="module" src="./js/app.js?v=1.0.0-r3"></script>
+  <script type="module" src="./js/app.js?v=1.1.0-r2"></script>
 </body>
 </html>

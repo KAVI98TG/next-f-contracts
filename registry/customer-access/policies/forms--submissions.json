@@ -1,0 +1,155 @@
+{
+  "$id": "customerAccess.policy.forms.submissions",
+  "name": "Form Submissions Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "forms.submissions",
+  "contractRefs": [
+    "forms.submission",
+    "forms.submissionValue",
+    "forms.submissionFile"
+  ],
+  "moduleRef": "forms",
+  "capabilityRefs": [
+    "forms.file-uploads"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "forms.submissions.export",
+      "forms.submissions.view"
+    ],
+    "create": [],
+    "update": [
+      "forms.submissions.manage"
+    ],
+    "delete": [
+      "forms.submissions.delete"
+    ],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#id",
+      "field": "id",
+      "contractFieldRef": "forms.submission.id",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#siteId",
+      "field": "siteId",
+      "contractFieldRef": "forms.submission.siteId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#formId",
+      "field": "formId",
+      "contractFieldRef": "forms.submission.formId",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#formVersion",
+      "field": "formVersion",
+      "contractFieldRef": "forms.submission.formVersion",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#status",
+      "field": "status",
+      "contractFieldRef": "forms.submission.status",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#values",
+      "field": "values",
+      "contractFieldRef": "forms.submission.values",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#files",
+      "field": "files",
+      "contractFieldRef": "forms.submission.files",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#consents",
+      "field": "consents",
+      "contractFieldRef": "forms.submission.consents",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#spamDecision",
+      "field": "spamDecision",
+      "contractFieldRef": "forms.submission.spamDecision",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#requestContext",
+      "field": "requestContext",
+      "contractFieldRef": "forms.submission.requestContext",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#submittedAt",
+      "field": "submittedAt",
+      "contractFieldRef": "forms.submission.submittedAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#acceptedAt",
+      "field": "acceptedAt",
+      "contractFieldRef": "forms.submission.acceptedAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#completedAt",
+      "field": "completedAt",
+      "contractFieldRef": "forms.submission.completedAt",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#idempotencyKey",
+      "field": "idempotencyKey",
+      "contractFieldRef": "forms.submission.idempotencyKey",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.forms.submissions#leadId",
+      "field": "leadId",
+      "contractFieldRef": "forms.submission.leadId",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.get-submission",
+    "api.customer-cms.list-submissions"
+  ],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.forms.submissions",
+    "adminProfileRef": "adminUi.profile.forms.submissions",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

@@ -1,9 +1,9 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source set: registry/privacy/*
 export const GENERATED_PRIVACY = {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "index": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Privacy & Data Registry",
     "description": "Machine-readable data classification, field handling, retention, consent and privacy-operation metadata.",
@@ -281,7 +281,7 @@ export const GENERATED_PRIVACY = {
           "SEC-AUDIT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-002",
@@ -307,7 +307,7 @@ export const GENERATED_PRIVACY = {
           "SEC-TENANT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-003",
@@ -333,7 +333,7 @@ export const GENERATED_PRIVACY = {
           "SEC-AUDIT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-004",
@@ -360,7 +360,7 @@ export const GENERATED_PRIVACY = {
           "SEC-AUDIT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-010",
@@ -384,7 +384,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-011",
@@ -409,7 +409,7 @@ export const GENERATED_PRIVACY = {
           "SEC-UPL-003"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-012",
@@ -434,7 +434,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-013",
@@ -460,7 +460,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-014",
@@ -485,7 +485,7 @@ export const GENERATED_PRIVACY = {
           "SEC-ABUSE-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-015",
@@ -508,7 +508,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-016",
@@ -532,7 +532,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-017",
@@ -555,7 +555,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-018",
@@ -580,7 +580,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-019",
@@ -605,7 +605,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-020",
@@ -628,7 +628,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-021",
@@ -651,7 +651,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-030",
@@ -676,7 +676,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-031",
@@ -702,7 +702,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-032",
@@ -725,7 +725,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "pseudonymize",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-033",
@@ -748,7 +748,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "pseudonymize",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-034",
@@ -771,7 +771,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "partial",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-035",
@@ -794,7 +794,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "pseudonymize",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-036",
@@ -819,7 +819,7 @@ export const GENERATED_PRIVACY = {
           "SEC-QUERY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-037",
@@ -842,7 +842,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "partial",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-040",
@@ -868,7 +868,7 @@ export const GENERATED_PRIVACY = {
           "SEC-SECRET-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-041",
@@ -894,7 +894,7 @@ export const GENERATED_PRIVACY = {
           "SEC-KEY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-042",
@@ -919,7 +919,7 @@ export const GENERATED_PRIVACY = {
           "SEC-SECRET-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-043",
@@ -944,7 +944,7 @@ export const GENERATED_PRIVACY = {
           "SEC-KEY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-044",
@@ -969,7 +969,7 @@ export const GENERATED_PRIVACY = {
           "SEC-OAUTH-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-045",
@@ -995,7 +995,7 @@ export const GENERATED_PRIVACY = {
           "SEC-SECRET-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-046",
@@ -1021,7 +1021,7 @@ export const GENERATED_PRIVACY = {
           "SEC-TOKEN-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-047",
@@ -1047,7 +1047,7 @@ export const GENERATED_PRIVACY = {
           "SEC-TOKEN-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-050",
@@ -1073,7 +1073,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-002"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-051",
@@ -1098,7 +1098,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-002"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-052",
@@ -1123,7 +1123,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-053",
@@ -1149,7 +1149,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-002"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-054",
@@ -1174,7 +1174,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-003"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-055",
@@ -1199,7 +1199,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-056",
@@ -1224,7 +1224,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-060",
@@ -1249,7 +1249,7 @@ export const GENERATED_PRIVACY = {
           "SEC-WH-003"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-061",
@@ -1274,7 +1274,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-062",
@@ -1300,7 +1300,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-063",
@@ -1325,7 +1325,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-064",
@@ -1351,7 +1351,7 @@ export const GENERATED_PRIVACY = {
           "SEC-SECRET-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-070",
@@ -1377,7 +1377,7 @@ export const GENERATED_PRIVACY = {
           "SEC-AUDIT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-071",
@@ -1403,7 +1403,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-072",
@@ -1429,7 +1429,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-073",
@@ -1454,7 +1454,7 @@ export const GENERATED_PRIVACY = {
           "SEC-AUDIT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-074",
@@ -1480,7 +1480,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-080",
@@ -1503,7 +1503,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-081",
@@ -1526,7 +1526,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-082",
@@ -1549,7 +1549,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-083",
@@ -1572,7 +1572,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-084",
@@ -1595,7 +1595,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       }
     ],
     "coverage": [
@@ -1842,7 +1842,7 @@ export const GENERATED_PRIVACY = {
     }
   },
   "classifications": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Primary Data Classifications",
     "description": "Single primary sensitivity classification used by NEXT F privacy metadata.",
     "classes": [
@@ -1889,7 +1889,7 @@ export const GENERATED_PRIVACY = {
     ]
   },
   "qualifiers": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Data Qualifiers",
     "description": "Operational purpose/context qualifiers that do not replace the primary sensitivity class.",
     "qualifiers": [
@@ -1921,7 +1921,7 @@ export const GENERATED_PRIVACY = {
     ]
   },
   "eligibility": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Data Flow Eligibility",
     "values": [
       {
@@ -1947,7 +1947,7 @@ export const GENERATED_PRIVACY = {
     ]
   },
   "retention": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Retention Classes",
     "description": "Policy-oriented retention classes. They do not invent legal durations.",
     "classes": [
@@ -1999,7 +1999,7 @@ export const GENERATED_PRIVACY = {
     ]
   },
   "redaction": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Redaction Behaviors",
     "values": [
       {
@@ -2030,7 +2030,7 @@ export const GENERATED_PRIVACY = {
     ]
   },
   "deletion": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Deletion / Anonymization Behaviors",
     "values": [
       {
@@ -2061,7 +2061,7 @@ export const GENERATED_PRIVACY = {
     ]
   },
   "consentRelevance": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Consent Relevance",
     "values": [
       {
@@ -2097,7 +2097,7 @@ export const GENERATED_PRIVACY = {
     ]
   },
   "exportSensitivity": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Export Sensitivity",
     "values": [
       {
@@ -2118,7 +2118,7 @@ export const GENERATED_PRIVACY = {
     ]
   },
   "operations": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Data Subject / Customer Privacy Operations",
     "description": "Future-safe operation primitives. Phase 30 does not claim a complete legal-compliance workflow engine.",
     "operations": [
@@ -2174,7 +2174,7 @@ export const GENERATED_PRIVACY = {
     ]
   },
   "consentBoundaries": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "Consent Boundaries",
     "rules": [
       {
@@ -2204,7 +2204,7 @@ export const GENERATED_PRIVACY = {
     ]
   },
   "fieldHandling": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "schemaVersion": "1.0.0",
     "title": "Field-level Privacy Handling",
     "description": "Explicit Phase 30 privacy metadata for high-risk fields. Coverage grows with future contracts; absence does not imply public eligibility.",
@@ -2233,7 +2233,7 @@ export const GENERATED_PRIVACY = {
           "SEC-AUDIT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-002",
@@ -2259,7 +2259,7 @@ export const GENERATED_PRIVACY = {
           "SEC-TENANT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-003",
@@ -2285,7 +2285,7 @@ export const GENERATED_PRIVACY = {
           "SEC-AUDIT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-004",
@@ -2312,7 +2312,7 @@ export const GENERATED_PRIVACY = {
           "SEC-AUDIT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-010",
@@ -2336,7 +2336,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-011",
@@ -2361,7 +2361,7 @@ export const GENERATED_PRIVACY = {
           "SEC-UPL-003"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-012",
@@ -2386,7 +2386,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-013",
@@ -2412,7 +2412,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-014",
@@ -2437,7 +2437,7 @@ export const GENERATED_PRIVACY = {
           "SEC-ABUSE-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-015",
@@ -2460,7 +2460,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-016",
@@ -2484,7 +2484,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-017",
@@ -2507,7 +2507,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-018",
@@ -2532,7 +2532,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-019",
@@ -2557,7 +2557,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-020",
@@ -2580,7 +2580,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-021",
@@ -2603,7 +2603,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-030",
@@ -2628,7 +2628,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PDATA-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-031",
@@ -2654,7 +2654,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-032",
@@ -2677,7 +2677,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "pseudonymize",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-033",
@@ -2700,7 +2700,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "pseudonymize",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-034",
@@ -2723,7 +2723,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "partial",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-035",
@@ -2746,7 +2746,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "pseudonymize",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-036",
@@ -2771,7 +2771,7 @@ export const GENERATED_PRIVACY = {
           "SEC-QUERY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-037",
@@ -2794,7 +2794,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "partial",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-040",
@@ -2820,7 +2820,7 @@ export const GENERATED_PRIVACY = {
           "SEC-SECRET-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-041",
@@ -2846,7 +2846,7 @@ export const GENERATED_PRIVACY = {
           "SEC-KEY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-042",
@@ -2871,7 +2871,7 @@ export const GENERATED_PRIVACY = {
           "SEC-SECRET-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-043",
@@ -2896,7 +2896,7 @@ export const GENERATED_PRIVACY = {
           "SEC-KEY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-044",
@@ -2921,7 +2921,7 @@ export const GENERATED_PRIVACY = {
           "SEC-OAUTH-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-045",
@@ -2947,7 +2947,7 @@ export const GENERATED_PRIVACY = {
           "SEC-SECRET-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-046",
@@ -2973,7 +2973,7 @@ export const GENERATED_PRIVACY = {
           "SEC-TOKEN-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-047",
@@ -2999,7 +2999,7 @@ export const GENERATED_PRIVACY = {
           "SEC-TOKEN-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-050",
@@ -3025,7 +3025,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-002"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-051",
@@ -3050,7 +3050,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-002"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-052",
@@ -3075,7 +3075,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-053",
@@ -3101,7 +3101,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-002"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-054",
@@ -3126,7 +3126,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-003"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-055",
@@ -3151,7 +3151,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-056",
@@ -3176,7 +3176,7 @@ export const GENERATED_PRIVACY = {
           "SEC-PAY-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-060",
@@ -3201,7 +3201,7 @@ export const GENERATED_PRIVACY = {
           "SEC-WH-003"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-061",
@@ -3226,7 +3226,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-062",
@@ -3252,7 +3252,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-063",
@@ -3277,7 +3277,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-064",
@@ -3303,7 +3303,7 @@ export const GENERATED_PRIVACY = {
           "SEC-SECRET-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-070",
@@ -3329,7 +3329,7 @@ export const GENERATED_PRIVACY = {
           "SEC-AUDIT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-071",
@@ -3355,7 +3355,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-072",
@@ -3381,7 +3381,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-073",
@@ -3406,7 +3406,7 @@ export const GENERATED_PRIVACY = {
           "SEC-AUDIT-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-074",
@@ -3432,7 +3432,7 @@ export const GENERATED_PRIVACY = {
           "SEC-LOG-001"
         ],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-080",
@@ -3455,7 +3455,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-081",
@@ -3478,7 +3478,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-082",
@@ -3501,7 +3501,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-083",
@@ -3524,7 +3524,7 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       },
       {
         "handlingId": "PRIV-FLD-084",
@@ -3547,12 +3547,12 @@ export const GENERATED_PRIVACY = {
         "redactionBehavior": "none",
         "relatedSecurityControls": [],
         "status": "stable",
-        "version": "0.37.0"
+        "version": "1.0.0"
       }
     ]
   },
   "coverage": {
-    "registryVersion": "0.37.0",
+    "registryVersion": "1.0.0",
     "title": "High-risk Privacy Coverage",
     "areas": [
       {
@@ -3716,7 +3716,7 @@ export const GENERATED_PRIVACY = {
     {
       "$id": "privacy.consentBoundary",
       "name": "Consent Boundary",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 30,
       "description": "Rule distinguishing business-purpose consent/acknowledgement from analytics and marketing consent.",
@@ -3730,7 +3730,7 @@ export const GENERATED_PRIVACY = {
     {
       "$id": "privacy.dataClassification",
       "name": "Data Classification",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 30,
       "description": "Primary public/internal/personal/sensitive/secret classification.",
@@ -3744,7 +3744,7 @@ export const GENERATED_PRIVACY = {
     {
       "$id": "privacy.dataQualifier",
       "name": "Data Qualifier",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 30,
       "description": "Operational qualifier such as financial, authentication, tracking, content or system metadata.",
@@ -3758,7 +3758,7 @@ export const GENERATED_PRIVACY = {
     {
       "$id": "privacy.fieldHandling",
       "name": "Field Privacy Handling",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 30,
       "description": "Field-level classification, purpose, flow eligibility, retention, consent, deletion and redaction metadata.",
@@ -3772,7 +3772,7 @@ export const GENERATED_PRIVACY = {
     {
       "$id": "privacy.privacyOperation",
       "name": "Privacy Operation",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 30,
       "description": "Future-safe export/deletion/anonymization/retention/legal-hold/consent-history operation primitive.",
@@ -3786,7 +3786,7 @@ export const GENERATED_PRIVACY = {
     {
       "$id": "privacy.retentionClass",
       "name": "Retention Class",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 30,
       "description": "Policy-oriented retention class without fabricated legal duration.",
@@ -3799,25 +3799,25 @@ export const GENERATED_PRIVACY = {
     }
   ],
   "sourceHashes": {
-    "registry/privacy/index.json": "be7a04942f3aa9c794241d9cd5b5697c3dcd59d9022ef54996516be7855b69f6",
-    "registry/privacy/classifications.json": "54de294b73c58f1ec1e01c12c9f8398760c6534b307651f7b2af5d8c668a5734",
-    "registry/privacy/qualifiers.json": "ff2f5ec9c7278757569ff5df53b9f4c2624a5f0a290ea7cd748b78034c1bec0a",
-    "registry/privacy/eligibility-values.json": "70c396c085e99a81c59d9e9422b2b0052dd8eef509f4c7e534fddba006bf2f1b",
-    "registry/privacy/retention-classes.json": "e0e1e98953ee3f4e85fbe979aa56d857735f0dfcd8dfba8e1a5ec6d9eafa45b4",
-    "registry/privacy/redaction-behaviors.json": "bdefcdaf35f09c3ac1c0982e5f3c9c5784be8887f052b8717295c15c40b2b44f",
-    "registry/privacy/deletion-behaviors.json": "c79a8beed31e14c06e682696085b276458fddeab5e806878c2065ae5a37bd256",
-    "registry/privacy/consent-relevance.json": "7b140627fc960c2eaeac20870c5149ecc2818426c6a3215399e8b727c8a24d78",
-    "registry/privacy/export-sensitivity.json": "f56ffca57d430f44e020ea5461a7b14a4510f16fd5b70f67c0ee024c5f8c0a17",
-    "registry/privacy/operations.json": "d85d9e99fe0bd8a64d69f884f8e31aea6ba44338c9c3dba501489a0c95f2538c",
-    "registry/privacy/consent-boundaries.json": "b1cb063044a61f9894a7fde1bf965615c69d1f88dece6a5b30ce5171e914c095",
-    "registry/privacy/field-handling.json": "68f86439508cccffa8a152a90fcb2f74ab14fef78192ba7bf07c367a96415b12",
-    "registry/privacy/coverage.json": "235c0340d4e147f6086e6b2d8e5cadd136e056b16a4949bf1ef30da2867d758d",
-    "registry/privacy/data-handling.schema.json": "e0fd62ec369c184491abb3b7d2b3b4ca1a927a80dd0d9ebf2c9f5b5466a2a1ff",
-    "registry/privacy/definitions/consentBoundary.json": "e83756a21aa7ad747c247bf6684b32e7ae98403fe658cda5dd316793cae14dfb",
-    "registry/privacy/definitions/dataClassification.json": "38e1c65af3946e56f6fd941769f184e97199da2ce15b1420697882ce07ff517b",
-    "registry/privacy/definitions/dataQualifier.json": "e0959d7831099a3e472ea819729563bc8c6aa5b0bc7ee55fc5a34ea86ab7b3e8",
-    "registry/privacy/definitions/fieldHandling.json": "7517a8b27795a8f255760f3979c8e5c4ba50510dbd4f45672a180d724df1a0d8",
-    "registry/privacy/definitions/privacyOperation.json": "0c0cb874b94f039003dc84d160bfa1d42db9741b08befaf0d838668ae1ed189f",
-    "registry/privacy/definitions/retentionClass.json": "19cd48ac53359341e555afa2d4991fc4c5791799570974836b345439e2f099fe"
+    "registry/privacy/index.json": "ac7bcb4d6f929aab930ed7a56f93cf3b30b35fce74750002f04eb10406b50bdb",
+    "registry/privacy/classifications.json": "9ba2e27cce43461f14ea648873084017afbaec9e2d822e742a63bb65c830d11d",
+    "registry/privacy/qualifiers.json": "807b72b97b9b6e5dbdf60960c5817051368b29eae4ee802df1e6423f3a5e82ee",
+    "registry/privacy/eligibility-values.json": "09e47b93c24c77f94a9ad72f83cc17301a199b1e17da12487f05e8c410373afe",
+    "registry/privacy/retention-classes.json": "10e95086a6d5f1fc1fc06993418b73817ddb97ba7f135b6f46cafbb4d474e9c5",
+    "registry/privacy/redaction-behaviors.json": "e504305e8a0f97188a5a0480122b0c8d5dca9d5be64d3de5dc62118440d2c478",
+    "registry/privacy/deletion-behaviors.json": "dfb78f97717215b4b7150fbf2ede9e97872bb3283efd09d8d6fbd7659a23620f",
+    "registry/privacy/consent-relevance.json": "cf24df60e829c59c4cf7703b12a7746a0eed274a94fbc130f3fa49c8a6f87856",
+    "registry/privacy/export-sensitivity.json": "cc0b9f02cbeecedf7969870e15f113b36c73cbf6f488a265b5cebdbdb545e56f",
+    "registry/privacy/operations.json": "48bfa92e72b547fc5db430d510f3ba5ff159f25f1d2116bf1ca53e8de6d0c45f",
+    "registry/privacy/consent-boundaries.json": "cc3ba5aad031b24091d223a2095ec694530e2e6c582c82c1573b119bb833f245",
+    "registry/privacy/field-handling.json": "ea3c7807ee6df7bba0ced869fe87f7e888340c0b3864d014629fc4ac2f5c7b11",
+    "registry/privacy/coverage.json": "02e96a3be266097c1cefb5f94b84427e953bf6ccbffd7b8d9a26ac5bef123171",
+    "registry/privacy/data-handling.schema.json": "ff1a5d31e54d15796442d2d857d99afa39a94b135833483f1a424bcdf3b87cff",
+    "registry/privacy/definitions/consentBoundary.json": "64dc1e2bda3b2148c3f7fb715176d2314247593e2e8e9d9118b11af179b6978e",
+    "registry/privacy/definitions/dataClassification.json": "1a163aef1f426031e90e52a107c2f4cc5768ef0b26246e3f385b2de385902917",
+    "registry/privacy/definitions/dataQualifier.json": "d9247c93afd3556cab9397b7be788f96a165e694a125ca1218e1e61f2487a905",
+    "registry/privacy/definitions/fieldHandling.json": "d9248cb703dd50e104d99180ae22174c9a723b7703fea5d7a89f16eaf3c1cad8",
+    "registry/privacy/definitions/privacyOperation.json": "cb52f2f85ac80f1dffb2ca51720d336ad7bf25c4192badd48789e90f6024b2f8",
+    "registry/privacy/definitions/retentionClass.json": "76413258207d9ad12f7705f857d5023bc5c2045bc48576d9d7a08710df364f4f"
   }
 };

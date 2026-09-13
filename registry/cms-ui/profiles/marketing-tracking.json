@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.marketing.tracking",
   "name": "Tracking",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -349,5 +349,43 @@
       "requiresPermission": "marketing.tracking.edit",
       "purpose": "Primary Site-scoped Customer CMS surface."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.marketing.tracking",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "deny",
+      "update": "allow",
+      "delete": "deny",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "marketing.tracking.view"
+      ],
+      "create": [],
+      "update": [
+        "marketing.tracking.edit",
+        "marketing.tracking.manage"
+      ],
+      "delete": [],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "marketing.conversions"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

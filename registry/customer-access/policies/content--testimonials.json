@@ -1,0 +1,144 @@
+{
+  "$id": "customerAccess.policy.content.testimonials",
+  "name": "Testimonials Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.testimonials",
+  "contractRefs": [
+    "content.testimonial"
+  ],
+  "moduleRef": "pages",
+  "capabilityRefs": [
+    "pages.sections"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "allow",
+    "update": "allow",
+    "delete": "allow",
+    "submit_for_review": "deny",
+    "publish": "allow",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "direct"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.testimonials.view"
+    ],
+    "create": [
+      "content.testimonials.create"
+    ],
+    "update": [
+      "content.testimonials.edit",
+      "content.testimonials.publish"
+    ],
+    "delete": [
+      "content.testimonials.delete"
+    ],
+    "submit_for_review": [
+      "content.testimonials.approve"
+    ],
+    "publish": [
+      "content.testimonials.publish"
+    ],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#identity",
+      "field": "identity",
+      "contractFieldRef": "content.testimonial.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#scope",
+      "field": "scope",
+      "contractFieldRef": "content.testimonial.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#quote",
+      "field": "quote",
+      "contractFieldRef": "content.testimonial.quote",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#personName",
+      "field": "personName",
+      "contractFieldRef": "content.testimonial.personName",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#position",
+      "field": "position",
+      "contractFieldRef": "content.testimonial.position",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#company",
+      "field": "company",
+      "contractFieldRef": "content.testimonial.company",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#photo",
+      "field": "photo",
+      "contractFieldRef": "content.testimonial.photo",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#rating",
+      "field": "rating",
+      "contractFieldRef": "content.testimonial.rating",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#relatedService",
+      "field": "relatedService",
+      "contractFieldRef": "content.testimonial.relatedService",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#sourceUrl",
+      "field": "sourceUrl",
+      "contractFieldRef": "content.testimonial.sourceUrl",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#isFeatured",
+      "field": "isFeatured",
+      "contractFieldRef": "content.testimonial.isFeatured",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#publishing",
+      "field": "publishing",
+      "contractFieldRef": "content.testimonial.publishing",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.testimonials#revision",
+      "field": "revision",
+      "contractFieldRef": "content.testimonial.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.testimonials",
+    "adminProfileRef": "adminUi.profile.content.testimonials",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

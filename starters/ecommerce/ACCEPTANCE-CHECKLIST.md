@@ -15,7 +15,7 @@
 - [ ] NEXT F Admin retains internal diagnostics/configuration boundaries that are not exposed as customer privileges.
 - [ ] All money, inventory, checkout, payment, refund and fulfillment mutations enforce Phase 12 Commerce Rules on trusted server boundaries.
 - [ ] Order/Payment/Fulfillment historical facts are snapshot-safe and cannot be rewritten by later catalog edits.
-- [ ] `nextf.site.json` remains pinned to 1.0.0.
+- [ ] `nextf.site.json` remains pinned to 1.1.0.
 - [ ] Required Module dependencies resolve.
 - [ ] No secret is present in the Site Manifest/browser bundle/committed environment example.
 - [ ] Customer CMS and NEXT F Admin mappings have been reviewed.

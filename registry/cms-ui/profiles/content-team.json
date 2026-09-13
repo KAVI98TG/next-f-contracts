@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.content.team",
   "name": "Team Members",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -461,5 +461,51 @@
       "requiresPermission": "content.team.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.team",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "direct",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "allow",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "content.team.view"
+      ],
+      "create": [
+        "content.team.create"
+      ],
+      "update": [
+        "content.team.edit",
+        "content.team.publish"
+      ],
+      "delete": [
+        "content.team.delete"
+      ],
+      "submit_for_review": [
+        "content.team.approve"
+      ],
+      "publish": [
+        "content.team.publish"
+      ],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "pages.sections"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

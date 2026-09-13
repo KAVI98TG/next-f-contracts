@@ -2,7 +2,7 @@
   "$id": "api.customer-cms",
   "apiId": "api.customer-cms",
   "name": "Customer CMS API",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "stable",
   "basePath": "/api/v1/cms/sites/{siteId}",
   "description": "Authenticated customer Site Workspace API for structured content, SEO, media, forms, leads and publishing.",
@@ -57,12 +57,16 @@
     "api.customer-cms.get-submission",
     "api.customer-cms.list-leads",
     "api.customer-cms.get-lead",
-    "api.customer-cms.update-lead"
+    "api.customer-cms.update-lead",
+    "api.customer-cms.submit-change-request",
+    "api.customer-cms.list-change-requests",
+    "api.customer-cms.get-change-request",
+    "api.customer-cms.cancel-change-request"
   ],
   "publicDocumentation": true,
   "order": 30,
   "compatibility": {
-    "contractVersionRange": ">=0.19.0 <1.0.0",
+    "contractVersionRange": ">=1.1.0 <2.0.0",
     "manifestBindingRequired": true
   },
   "boundaries": [

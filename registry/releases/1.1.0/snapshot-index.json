@@ -1,0 +1,75 @@
+{
+  "registryVersion": "1.1.0",
+  "releaseVersion": "1.1.0",
+  "phase": 38,
+  "title": "NEXT F Contracts V1.1.0 Snapshot Index",
+  "frozenAt": "2026-09-13T10:24:49.548Z",
+  "previousStableVersion": "1.0.0",
+  "snapshots": [
+    {
+      "path": "registry/releases/1.1.0/snapshots/admin-metadata.json",
+      "sha256": "4a37b229b8c97c479a3d4dd0c3842afffd3e5c8ede8829db0376f0a90f41b181",
+      "bytes": 378764
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/api-contracts.json",
+      "sha256": "54152f7b37a021627515a36a1590fa186f55b3559acf614ee6ef7b63a212f402",
+      "bytes": 337827
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/compatibility.json",
+      "sha256": "cc32d2affd33aae2fbbf34286ca2bc384ddd4ad12f1b4df86bc96efadeecd145",
+      "bytes": 1292
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/customer-access.json",
+      "sha256": "fde3ee868ef1fdd9033d9eed056d82d42879b32bbbfa4753b197e8ed944caa4b",
+      "bytes": 274459
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/customer-cms-metadata.json",
+      "sha256": "0fc02cdc612e32f9101904c6f58af389c779c0334805f5b575a8fdcdac8c6de1",
+      "bytes": 939865
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/diff.json",
+      "sha256": "8a9f2ca494752f07657eb078f98dbf29748147752f2a4da2472ff1bd7deb6333",
+      "bytes": 16533
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/events.json",
+      "sha256": "0b24bc5d950a903dc6b56a23c891aaec93795fb3478960cfd672494e1960ec80",
+      "bytes": 709306
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/modules.json",
+      "sha256": "6e64301ae23a1c53cf543d36a54747e3c912177f2edd0cc39b2acf36bcd29ac8",
+      "bytes": 155017
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/permissions.json",
+      "sha256": "ec8693f21b5f8b9acf867818284f17df4d3fd63aa3bf80227bb16dad104ed75e",
+      "bytes": 354084
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/registry.json",
+      "sha256": "22adebc6e25291e609af1a995093e35759989a7c5b7ae56f758dc151a4295fdf",
+      "bytes": 2617711
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/relationships.json",
+      "sha256": "7b9d39646b83b2418477978437a49238b3d7670746ec5d069eb2201e23cb79c2",
+      "bytes": 3679797
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/search.json",
+      "sha256": "5936703aaa8f4974d4080e40122cec35eced28b8be3f3aee560985c76ab3086a",
+      "bytes": 11459083
+    },
+    {
+      "path": "registry/releases/1.1.0/snapshots/site-manifest.schema.json",
+      "sha256": "05843be3c7f5763c5d9eec98173a9177a856758ed4dd22e736a9071efa601343",
+      "bytes": 12603
+    }
+  ]
+}

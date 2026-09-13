@@ -16,7 +16,7 @@
   "relatedRegistryIds": [
     "api.apiContractStandard"
   ],
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "stable",
   "phase": 32,
   "sourceReference": "registry/performance/rules/perf_rule_020.json"

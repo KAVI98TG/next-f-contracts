@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.content.blogcategories",
   "name": "Blog Categories",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -379,5 +379,47 @@
       "requiresPermission": "content.blogcategories.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.blogcategories",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "content.blogcategories.view"
+      ],
+      "create": [
+        "content.blogcategories.create"
+      ],
+      "update": [
+        "content.blogcategories.edit",
+        "content.blogcategories.manage"
+      ],
+      "delete": [
+        "content.blogcategories.delete"
+      ],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "blog.categories"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

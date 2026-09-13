@@ -1,0 +1,142 @@
+{
+  "$id": "customerAccess.policy.content.legal",
+  "name": "Legal Pages Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.legal",
+  "contractRefs": [
+    "content.legalPage"
+  ],
+  "moduleRef": "pages",
+  "capabilityRefs": [
+    "pages.legal-pages"
+  ],
+  "customerMode": "approval_required",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "request",
+    "delete": "deny",
+    "submit_for_review": "allow",
+    "publish": "request",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "approval_required"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.legal.view"
+    ],
+    "create": [],
+    "update": [
+      "content.legal.edit",
+      "content.legal.publish"
+    ],
+    "delete": [],
+    "submit_for_review": [
+      "core.changerequests.create"
+    ],
+    "publish": [
+      "content.legal.publish"
+    ],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.legal#identity",
+      "field": "identity",
+      "contractFieldRef": "content.legalPage.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.legal#scope",
+      "field": "scope",
+      "contractFieldRef": "content.legalPage.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.legal#title",
+      "field": "title",
+      "contractFieldRef": "content.legalPage.title",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.legal#slug",
+      "field": "slug",
+      "contractFieldRef": "content.legalPage.slug",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.legal#legalType",
+      "field": "legalType",
+      "contractFieldRef": "content.legalPage.legalType",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.legal#content",
+      "field": "content",
+      "contractFieldRef": "content.legalPage.content",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.legal#effectiveDate",
+      "field": "effectiveDate",
+      "contractFieldRef": "content.legalPage.effectiveDate",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.legal#lastReviewedDate",
+      "field": "lastReviewedDate",
+      "contractFieldRef": "content.legalPage.lastReviewedDate",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.legal#jurisdiction",
+      "field": "jurisdiction",
+      "contractFieldRef": "content.legalPage.jurisdiction",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.legal#contact",
+      "field": "contact",
+      "contractFieldRef": "content.legalPage.contact",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.legal#publishing",
+      "field": "publishing",
+      "contractFieldRef": "content.legalPage.publishing",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.legal#revision",
+      "field": "revision",
+      "contractFieldRef": "content.legalPage.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.cancel-change-request",
+    "api.customer-cms.submit-change-request"
+  ],
+  "eventRefs": [
+    "customer-change-request.submitted",
+    "customer-change-request.cancelled",
+    "customer-change-request.approved",
+    "customer-change-request.applied"
+  ],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.legal",
+    "adminProfileRef": "adminUi.profile.content.legal",
+    "approvalContractRef": "customerAccess.changeRequest"
+  },
+  "notes": []
+}

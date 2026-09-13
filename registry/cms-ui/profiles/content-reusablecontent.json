@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.content.reusablecontent",
   "name": "Reusable Content",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -399,5 +399,51 @@
       "requiresPermission": "content.reusablecontent.edit",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.content.reusablecontent",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "direct",
+    "actions": {
+      "read": "allow",
+      "create": "allow",
+      "update": "allow",
+      "delete": "allow",
+      "submit_for_review": "deny",
+      "publish": "allow",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "content.reusablecontent.view"
+      ],
+      "create": [
+        "content.reusablecontent.create"
+      ],
+      "update": [
+        "content.reusablecontent.edit",
+        "content.reusablecontent.publish"
+      ],
+      "delete": [
+        "content.reusablecontent.delete"
+      ],
+      "submit_for_review": [
+        "content.reusablecontent.approve"
+      ],
+      "publish": [
+        "content.reusablecontent.publish"
+      ],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "pages.reusable-content"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": null
+  }
 }

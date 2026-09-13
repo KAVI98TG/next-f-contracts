@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Performance Registry",
   "description": "Machine-readable performance rules, budgets and Contract Portal measurement evidence.",
@@ -136,7 +136,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_001.json"
@@ -157,7 +157,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_002.json"
@@ -178,7 +178,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_003.json"
@@ -199,7 +199,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_004.json"
@@ -220,7 +220,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_005.json"
@@ -241,7 +241,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_006.json"
@@ -262,7 +262,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_007.json"
@@ -283,7 +283,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_008.json"
@@ -303,7 +303,7 @@
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_009.json"
@@ -323,7 +323,7 @@
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_010.json"
@@ -343,7 +343,7 @@
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_011.json"
@@ -363,7 +363,7 @@
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_012.json"
@@ -383,7 +383,7 @@
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_013.json"
@@ -404,7 +404,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_014.json"
@@ -428,7 +428,7 @@
         "marketing.consentState",
         "privacy.consentBoundaries"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_015.json"
@@ -449,7 +449,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_016.json"
@@ -473,7 +473,7 @@
         "manifest.siteManifest",
         "integrations.connectorDefinition"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_017.json"
@@ -493,7 +493,7 @@
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_018.json"
@@ -514,7 +514,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_019.json"
@@ -537,7 +537,7 @@
       "relatedRegistryIds": [
         "api.apiContractStandard"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_020.json"
@@ -560,7 +560,7 @@
       "relatedRegistryIds": [
         "api.apiContractStandard"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_021.json"
@@ -584,7 +584,7 @@
         "search.searchIndex",
         "search.searchConfiguration"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_022.json"
@@ -608,7 +608,7 @@
         "relationships.relationshipIndex",
         "relationships.relationshipConfiguration"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_023.json"
@@ -631,7 +631,7 @@
       "relatedRegistryIds": [
         "diff.releaseIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_024.json"
@@ -652,7 +652,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_025.json"
@@ -673,7 +673,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_026.json"
@@ -694,7 +694,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_027.json"
@@ -714,7 +714,7 @@
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_028.json"
@@ -734,7 +734,7 @@
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_029.json"
@@ -757,7 +757,7 @@
       "relatedRegistryIds": [
         "integrations.connectorDefinition"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_030.json"
@@ -778,7 +778,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_031.json"
@@ -799,7 +799,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_032.json"
@@ -819,7 +819,7 @@
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_033.json"
@@ -840,7 +840,7 @@
         "browser-profile"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_034.json"
@@ -863,7 +863,7 @@
       "relatedRegistryIds": [
         "api.cachePolicy"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_035.json"
@@ -883,7 +883,7 @@
         "manual-review"
       ],
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/rules/perf_rule_036.json"
@@ -907,7 +907,7 @@
       "environment": "Hosted and file review",
       "notes": "Keeps the shell small enough to parse quickly; generated data must not be embedded into HTML.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_001.json"
@@ -929,7 +929,7 @@
       "environment": "Hosted and file review",
       "notes": "All portal CSS combined. Route-specific growth should be monitored even though styles remain static assets.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_002.json"
@@ -951,7 +951,7 @@
       "environment": "Hosted and file review",
       "notes": "Excludes generated fallbacks so authored runtime complexity can be monitored independently.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_003.json"
@@ -977,7 +977,7 @@
         "search.searchIndex",
         "relationships.relationshipIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_004.json"
@@ -999,7 +999,7 @@
       "environment": "Hosted runtime",
       "notes": "Normal hosted loading must not parse generated local fallbacks before authoritative JSON fails.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_005.json"
@@ -1021,7 +1021,7 @@
       "environment": "Repository and hosted runtime",
       "notes": "Canonical Registry index size budget.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_006.json"
@@ -1045,7 +1045,7 @@
       "relatedRegistryIds": [
         "search.searchIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_007.json"
@@ -1069,7 +1069,7 @@
       "relatedRegistryIds": [
         "relationships.relationshipIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_008.json"
@@ -1093,7 +1093,7 @@
       "relatedRegistryIds": [
         "diff.releaseIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_009.json"
@@ -1115,7 +1115,7 @@
       "environment": "Hosted and file review",
       "notes": "Avoid large inline scripts that bypass caching and content-policy boundaries.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_010.json"
@@ -1137,7 +1137,7 @@
       "environment": "Hosted and file review",
       "notes": "Keep styling in cacheable CSS assets.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_011.json"
@@ -1159,7 +1159,7 @@
       "environment": "Hosted runtime",
       "notes": "Contract Portal core operation must not depend on blocking external scripts.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_012.json"
@@ -1181,7 +1181,7 @@
       "environment": "Hosted runtime",
       "notes": "The current Font Awesome stylesheet is the only intended external stylesheet dependency.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_013.json"
@@ -1205,7 +1205,7 @@
       "relatedRegistryIds": [
         "diff.releaseIndex"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_014.json"
@@ -1229,7 +1229,7 @@
       "relatedRegistryIds": [
         "relationships.relationshipConfiguration"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_015.json"
@@ -1253,7 +1253,7 @@
       "relatedRegistryIds": [
         "search.searchConfiguration"
       ],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_016.json"
@@ -1275,7 +1275,7 @@
       "environment": "Hosted runtime",
       "notes": "Counts authoritative data loaders invoked by the current app shell. Future work may route-lazy more domains.",
       "relatedRegistryIds": [],
-      "version": "0.37.0",
+      "version": "1.1.0",
       "status": "stable",
       "phase": 32,
       "sourceReference": "registry/performance/budgets/perf_budget_017.json"
@@ -1285,7 +1285,7 @@
     {
       "$id": "performance.measurementMethod",
       "name": "Performance Measurement Method",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "performance",
       "description": "Controlled method used to gather performance evidence."
@@ -1293,7 +1293,7 @@
     {
       "$id": "performance.performanceAudit",
       "name": "Performance Audit",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "performance",
       "description": "Measured Contract Portal performance evidence against Phase 32 budgets."
@@ -1301,7 +1301,7 @@
     {
       "$id": "performance.performanceBudget",
       "name": "Performance Budget",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "performance",
       "description": "Machine-readable target/warning threshold for one performance metric."
@@ -1309,7 +1309,7 @@
     {
       "$id": "performance.performanceMetric",
       "name": "Performance Metric",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "performance",
       "description": "Controlled measurable metric used by a Performance Budget."
@@ -1317,7 +1317,7 @@
     {
       "$id": "performance.performanceRule",
       "name": "Performance Rule",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "performance",
       "description": "Machine-readable implementation requirement for performance behavior."
@@ -1325,8 +1325,8 @@
   ],
   "portalAuditSummary": {
     "budgetCount": 17,
-    "budgetPass": 15,
-    "budgetWarning": 2,
+    "budgetPass": 17,
+    "budgetWarning": 0,
     "budgetFail": 0,
     "checkCount": 18,
     "checkPass": 18,

@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.commerce.products",
   "name": "Products Admin",
-  "version": "0.21.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -121,5 +121,41 @@
   "notes": [
     "Reuses the matching Customer CMS profile as a presentation reference; Admin-only context and controls remain separate.",
     "Administrative permission never bypasses Phase 12 Commerce Rules or transaction invariants."
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.commerce.products",
+  "customerBoundary": {
+    "policyVersion": "1.1.0",
+    "mode": "direct_edit",
+    "publishingMode": "direct",
+    "approvalRequired": false,
+    "capabilityRefs": [
+      "commerce.catalog",
+      "commerce.variants"
+    ],
+    "editableFields": [
+      "name",
+      "slug",
+      "productType",
+      "shortDescription",
+      "description",
+      "vendor",
+      "options",
+      "attributes",
+      "basePrice",
+      "categoryIds",
+      "collectionIds",
+      "mediaIds",
+      "status",
+      "publishing",
+      "taxClassKey"
+    ],
+    "readOnlyFields": [],
+    "hiddenFields": [
+      "identity",
+      "scope",
+      "revision"
+    ],
+    "restrictiveWorkspaceOverridesAllowed": true,
+    "customerAccessMayBeBroadened": false
+  }
 }

@@ -1,0 +1,86 @@
+{
+  "$id": "customerAccess.policy.integrations.health",
+  "name": "Integration Health Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "integrations.health",
+  "contractRefs": [
+    "integrations.healthSnapshot",
+    "integrations.connectionTest"
+  ],
+  "moduleRef": "integrations",
+  "capabilityRefs": [
+    "integrations.health"
+  ],
+  "customerMode": "read_only",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "integrations.health.view"
+    ],
+    "create": [],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.integrations.health#state",
+      "field": "state",
+      "contractFieldRef": "integrations.healthSnapshot.state",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.health#checkedAt",
+      "field": "checkedAt",
+      "contractFieldRef": "integrations.healthSnapshot.checkedAt",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.health#checks",
+      "field": "checks",
+      "contractFieldRef": "integrations.healthSnapshot.checks",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.health#summary",
+      "field": "summary",
+      "contractFieldRef": "integrations.healthSnapshot.summary",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.integrations.health#nextCheckAt",
+      "field": "nextCheckAt",
+      "contractFieldRef": "integrations.healthSnapshot.nextCheckAt",
+      "mode": "read_only"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.integrations.health",
+    "adminProfileRef": "adminUi.profile.integrations.health",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.integrations.health",
   "name": "Integration Health",
-  "version": "0.20.0",
+  "version": "1.1.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -220,5 +220,40 @@
       "requiresPermission": "integrations.health.view",
       "purpose": "Inspect and, where authorized, operate or edit one resource."
     }
-  ]
+  ],
+  "customerAccessPolicyRef": "customerAccess.policy.integrations.health",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "read_only",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "allow",
+      "create": "deny",
+      "update": "deny",
+      "delete": "deny",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [
+        "integrations.health.view"
+      ],
+      "create": [],
+      "update": [],
+      "delete": [],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "integrations.health"
+    ],
+    "demoMode": "read_only_sample",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": false,
+    "unavailableReason": "This resource is available for viewing only."
+  }
 }

@@ -1,0 +1,96 @@
+{
+  "$id": "customerAccess.policy.commerce.taxes",
+  "name": "Taxes Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "commerce.taxes",
+  "contractRefs": [
+    "commerce.taxConfiguration",
+    "commerce.taxRate",
+    "commerce.taxClass"
+  ],
+  "moduleRef": "commerce",
+  "capabilityRefs": [
+    "commerce.taxes"
+  ],
+  "customerMode": "direct_edit",
+  "actions": {
+    "read": "allow",
+    "create": "deny",
+    "update": "allow",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [
+      "commerce.taxes.view"
+    ],
+    "create": [],
+    "update": [
+      "commerce.taxes.edit",
+      "commerce.taxes.manage"
+    ],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.commerce.taxes#scope",
+      "field": "scope",
+      "contractFieldRef": "commerce.taxConfiguration.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.taxes#enabled",
+      "field": "enabled",
+      "contractFieldRef": "commerce.taxConfiguration.enabled",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.taxes#pricesIncludeTax",
+      "field": "pricesIncludeTax",
+      "contractFieldRef": "commerce.taxConfiguration.pricesIncludeTax",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.taxes#taxShipping",
+      "field": "taxShipping",
+      "contractFieldRef": "commerce.taxConfiguration.taxShipping",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.taxes#roundingMode",
+      "field": "roundingMode",
+      "contractFieldRef": "commerce.taxConfiguration.roundingMode",
+      "mode": "inherit"
+    },
+    {
+      "fieldRef": "cmsUi.profile.commerce.taxes#calculationProvider",
+      "field": "calculationProvider",
+      "contractFieldRef": "commerce.taxConfiguration.calculationProvider",
+      "mode": "inherit"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.commerce.taxes",
+    "adminProfileRef": "adminUi.profile.commerce.taxes",
+    "approvalContractRef": null
+  },
+  "notes": []
+}

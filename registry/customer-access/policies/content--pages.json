@@ -1,0 +1,152 @@
+{
+  "$id": "customerAccess.policy.content.pages",
+  "name": "Pages Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "content.pages",
+  "contractRefs": [
+    "content.page",
+    "content.pageSection"
+  ],
+  "moduleRef": "pages",
+  "capabilityRefs": [
+    "pages.sections"
+  ],
+  "customerMode": "approval_required",
+  "actions": {
+    "read": "allow",
+    "create": "request",
+    "update": "request",
+    "delete": "request",
+    "submit_for_review": "allow",
+    "publish": "request",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "admin_only"
+  },
+  "permissionRefs": {
+    "read": [
+      "content.pages.view"
+    ],
+    "create": [
+      "content.pages.create"
+    ],
+    "update": [
+      "content.pages.edit",
+      "content.pages.publish"
+    ],
+    "delete": [
+      "content.pages.delete"
+    ],
+    "submit_for_review": [
+      "core.changerequests.create"
+    ],
+    "publish": [
+      "content.pages.publish"
+    ],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.content.pages#identity",
+      "field": "identity",
+      "contractFieldRef": "content.page.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.pages#scope",
+      "field": "scope",
+      "contractFieldRef": "content.page.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.pages#title",
+      "field": "title",
+      "contractFieldRef": "content.page.title",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.pages#internalName",
+      "field": "internalName",
+      "contractFieldRef": "content.page.internalName",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.pages#slug",
+      "field": "slug",
+      "contractFieldRef": "content.page.slug",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.pages#pageKind",
+      "field": "pageKind",
+      "contractFieldRef": "content.page.pageKind",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.pages#templateKey",
+      "field": "templateKey",
+      "contractFieldRef": "content.page.templateKey",
+      "mode": "read_only"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.pages#summary",
+      "field": "summary",
+      "contractFieldRef": "content.page.summary",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.pages#sections",
+      "field": "sections",
+      "contractFieldRef": "content.page.sections",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.pages#featuredMedia",
+      "field": "featuredMedia",
+      "contractFieldRef": "content.page.featuredMedia",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.pages#publishing",
+      "field": "publishing",
+      "contractFieldRef": "content.page.publishing",
+      "mode": "approval_required"
+    },
+    {
+      "fieldRef": "cmsUi.profile.content.pages#revision",
+      "field": "revision",
+      "contractFieldRef": "content.page.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "read_only_sample",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [
+    "api.customer-cms.cancel-change-request",
+    "api.customer-cms.create-page",
+    "api.customer-cms.get-page",
+    "api.customer-cms.list-pages",
+    "api.customer-cms.publish-page",
+    "api.customer-cms.submit-change-request",
+    "api.customer-cms.update-page"
+  ],
+  "eventRefs": [
+    "customer-change-request.submitted",
+    "customer-change-request.cancelled",
+    "customer-change-request.approved",
+    "customer-change-request.applied"
+  ],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.content.pages",
+    "adminProfileRef": "adminUi.profile.content.pages",
+    "approvalContractRef": "customerAccess.changeRequest"
+  },
+  "notes": []
+}

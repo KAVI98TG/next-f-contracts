@@ -4,6 +4,21 @@
 > V0.x releases are development foundation releases and do not by themselves declare production support.
 > V1.0.0 and later production support claims require formal Production Acceptance evidence.
 
+## V1.1.0 - Phase 38 Customer Capability Access Policy
+
+### Added
+
+- A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.
+- Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.
+
+### Security
+
+- Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.
+
+### Migration
+
+- V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.
+
 ## V1.0.0 - Phase 37 Production Acceptance
 
 ### Added

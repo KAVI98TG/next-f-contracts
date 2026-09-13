@@ -1,17 +1,17 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source set: registry/changelog/*
 export const GENERATED_CHANGELOG = {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "index": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Changelog",
     "description": "Authoritative release-note registry for the coordinated NEXT F Contract Registry development train.",
     "standard": "standards/35-changelog-standard.md",
     "route": "#/lifecycle/changelog",
-    "currentVersion": "1.0.0",
-    "releaseCount": 38,
-    "entryCount": 601,
+    "currentVersion": "1.1.0",
+    "releaseCount": 39,
+    "entryCount": 605,
     "schemaCount": 11,
     "categoryCount": 12,
     "evidenceLevelCount": 4,
@@ -37,13 +37,13 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "releaseIndex": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.1.0",
     "title": "NEXT F Changelog Release Index",
     "description": "All authoritative coordinated release notes in descending semantic-version order.",
-    "currentVersion": "1.0.0",
-    "releaseCount": 38,
-    "entryCount": 601,
+    "currentVersion": "1.1.0",
+    "releaseCount": 39,
+    "entryCount": 605,
     "phases": [
       0,
       1,
@@ -82,18 +82,23 @@ export const GENERATED_CHANGELOG = {
       34,
       35,
       36,
-      37
+      37,
+      38
     ],
     "domains": [
       "accessibility",
       "admin-ui",
+      "api",
       "blocks",
       "changelog",
       "cms-ui",
       "commerce",
+      "core",
+      "customer-access",
       "deprecations",
       "developer",
       "diff",
+      "events",
       "examples",
       "fields",
       "forms",
@@ -119,6 +124,73 @@ export const GENERATED_CHANGELOG = {
       "modules.pages"
     ],
     "releases": [
+      {
+        "version": "1.1.0",
+        "phase": 38,
+        "title": "Customer Capability Access Policy",
+        "releaseStatus": "stable",
+        "releaseDate": "2026-09-13",
+        "summary": "Adds the canonical customer visibility, mutation, approval, publishing, field and demo policy layer for every Customer CMS resource.",
+        "sourceVersion": "1.0.0",
+        "targetVersion": "1.1.0",
+        "recordCompleteness": "complete",
+        "incompletenessReason": null,
+        "entryCount": 4,
+        "categoryCounts": {
+          "added": 2,
+          "security": 1,
+          "migration": 1
+        },
+        "evidenceLevel": "authoritative-current",
+        "exactRegistrySnapshotAvailable": true,
+        "supportLevel": "stable",
+        "compatibilityStatus": "review-required",
+        "breakingChange": null,
+        "migrationRequired": true,
+        "affected": {
+          "domains": [
+            "api",
+            "core",
+            "customer-access",
+            "events",
+            "manifest",
+            "validation"
+          ],
+          "modules": [],
+          "contracts": [
+            "api.customer-cms.submit-change-request",
+            "api.nextf-admin.apply-change-request",
+            "compatibility.releaseCompatibility",
+            "core.changerequests.approve",
+            "core.changerequests.create",
+            "customer-change-request.applied",
+            "customer-change-request.submitted",
+            "customerAccess.changeRequest",
+            "customerAccess.customerAccessPolicyStandard",
+            "customerAccess.effectivePolicyResolution",
+            "customerAccess.policyRegistry",
+            "customerAccess.policySchema",
+            "customerAccess.policyVocabulary",
+            "manifest.cms",
+            "manifest.siteManifest",
+            "validation.index"
+          ],
+          "events": [
+            "customer-change-request.applied",
+            "customer-change-request.submitted"
+          ],
+          "permissions": [],
+          "webhooks": [],
+          "apis": [
+            "api.customer-cms.submit-change-request",
+            "api.nextf-admin.apply-change-request"
+          ],
+          "manifests": [],
+          "cmsMetadata": [],
+          "adminMetadata": []
+        },
+        "source": "registry/changelog/releases/1.1.0.json"
+      },
       {
         "version": "1.0.0",
         "phase": 37,
@@ -1798,20 +1870,24 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "entryIndex": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.1.0",
     "title": "Changelog Entry Index",
-    "entryCount": 601,
+    "entryCount": 605,
     "domains": [
       "accessibility",
       "admin-ui",
+      "api",
       "blocks",
       "changelog",
       "cms-ui",
       "commerce",
+      "core",
+      "customer-access",
       "deprecations",
       "developer",
       "diff",
+      "events",
       "examples",
       "fields",
       "forms",
@@ -21069,11 +21145,171 @@ export const GENERATED_CHANGELOG = {
         "relatedDeprecationRecord": null,
         "sourceReference": "registry/changelog/releases/1.0.0.json",
         "sourceCommitReference": null
+      },
+      {
+        "entryId": "chg_v1_1_customer_access_registry",
+        "releaseVersion": "1.1.0",
+        "category": "added",
+        "originalSection": "Added",
+        "summary": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+        "affectedRegistryIds": [
+          "customerAccess.customerAccessPolicyStandard",
+          "customerAccess.effectivePolicyResolution",
+          "customerAccess.policyRegistry",
+          "customerAccess.policySchema",
+          "customerAccess.policyVocabulary"
+        ],
+        "compatibilityImpact": "non-breaking",
+        "provenance": "authoritative-release-json",
+        "notes": null,
+        "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+        "description": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+        "changeType": "added",
+        "affectedDomains": [
+          "customer-access"
+        ],
+        "affectedModules": [],
+        "impact": {
+          "compatibilityClassification": "non-breaking",
+          "breakingChange": false,
+          "migrationRequired": false,
+          "customerSiteActionRequired": null,
+          "adminActionRequired": null,
+          "apiActionRequired": null,
+          "cmsActionRequired": null,
+          "securityRelevance": false
+        },
+        "relatedDiffEvidence": null,
+        "relatedMigrationGuide": null,
+        "relatedDeprecationRecord": null,
+        "sourceReference": "registry/changelog/releases/1.1.0.json",
+        "sourceCommitReference": null
+      },
+      {
+        "entryId": "chg_v1_1_change_request",
+        "releaseVersion": "1.1.0",
+        "category": "added",
+        "originalSection": "Added",
+        "summary": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+        "affectedRegistryIds": [
+          "api.customer-cms.submit-change-request",
+          "api.nextf-admin.apply-change-request",
+          "core.changerequests.approve",
+          "core.changerequests.create",
+          "customer-change-request.applied",
+          "customer-change-request.submitted",
+          "customerAccess.changeRequest"
+        ],
+        "compatibilityImpact": "non-breaking",
+        "provenance": "authoritative-release-json",
+        "notes": null,
+        "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+        "description": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+        "changeType": "added",
+        "affectedDomains": [
+          "api",
+          "core",
+          "customer-access",
+          "events"
+        ],
+        "affectedModules": [],
+        "impact": {
+          "compatibilityClassification": "non-breaking",
+          "breakingChange": false,
+          "migrationRequired": false,
+          "customerSiteActionRequired": null,
+          "adminActionRequired": null,
+          "apiActionRequired": null,
+          "cmsActionRequired": null,
+          "securityRelevance": false
+        },
+        "relatedDiffEvidence": null,
+        "relatedMigrationGuide": null,
+        "relatedDeprecationRecord": null,
+        "sourceReference": "registry/changelog/releases/1.1.0.json",
+        "sourceCommitReference": null
+      },
+      {
+        "entryId": "chg_v1_1_fail_closed_resolution",
+        "releaseVersion": "1.1.0",
+        "category": "security",
+        "originalSection": "Security",
+        "summary": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+        "affectedRegistryIds": [
+          "customerAccess.effectivePolicyResolution",
+          "manifest.cms",
+          "validation.index"
+        ],
+        "compatibilityImpact": "non-breaking",
+        "provenance": "authoritative-release-json",
+        "notes": "Consumers must not infer authorization from Customer CMS visibility.",
+        "title": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+        "description": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+        "changeType": "security",
+        "affectedDomains": [
+          "customer-access",
+          "manifest",
+          "validation"
+        ],
+        "affectedModules": [],
+        "impact": {
+          "compatibilityClassification": "non-breaking",
+          "breakingChange": false,
+          "migrationRequired": false,
+          "customerSiteActionRequired": null,
+          "adminActionRequired": null,
+          "apiActionRequired": null,
+          "cmsActionRequired": null,
+          "securityRelevance": true
+        },
+        "relatedDiffEvidence": null,
+        "relatedMigrationGuide": null,
+        "relatedDeprecationRecord": null,
+        "sourceReference": "registry/changelog/releases/1.1.0.json",
+        "sourceCommitReference": null
+      },
+      {
+        "entryId": "chg_v1_1_explicit_upgrade",
+        "releaseVersion": "1.1.0",
+        "category": "migration",
+        "originalSection": "Migration",
+        "summary": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+        "affectedRegistryIds": [
+          "compatibility.releaseCompatibility",
+          "customerAccess.policyRegistry",
+          "manifest.siteManifest"
+        ],
+        "compatibilityImpact": "review-required",
+        "provenance": "authoritative-release-json",
+        "notes": "The Site Manifest may restrict canonical policy but cannot broaden it.",
+        "title": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+        "description": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+        "changeType": "migration",
+        "affectedDomains": [
+          "customer-access",
+          "manifest"
+        ],
+        "affectedModules": [],
+        "impact": {
+          "compatibilityClassification": "review-required",
+          "breakingChange": null,
+          "migrationRequired": true,
+          "customerSiteActionRequired": null,
+          "adminActionRequired": null,
+          "apiActionRequired": null,
+          "cmsActionRequired": null,
+          "securityRelevance": false
+        },
+        "relatedDiffEvidence": null,
+        "relatedMigrationGuide": null,
+        "relatedDeprecationRecord": null,
+        "sourceReference": "registry/changelog/releases/1.1.0.json",
+        "sourceCommitReference": null
       }
     ]
   },
   "contractHistory": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Contract Changelog History",
     "description": "Derived navigation index from authoritative Registry introducedIn metadata and explicit Changelog affected Registry IDs. It does not reconstruct missing history.",
@@ -23545,6 +23781,15 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.19.0",
         "entries": []
       },
+      "api.customer-cms.cancel-change-request": {
+        "registryId": "api.customer-cms.cancel-change-request",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
       "api.customer-cms.complete-media-upload": {
         "registryId": "api.customer-cms.complete-media-upload",
         "introducedIn": "0.19.0",
@@ -23615,6 +23860,15 @@ export const GENERATED_CHANGELOG = {
         "deprecatedIn": [],
         "removedIn": [],
         "latestRelatedRelease": "0.19.0",
+        "entries": []
+      },
+      "api.customer-cms.get-change-request": {
+        "registryId": "api.customer-cms.get-change-request",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "api.customer-cms.get-custom-entry": {
@@ -23696,6 +23950,15 @@ export const GENERATED_CHANGELOG = {
         "deprecatedIn": [],
         "removedIn": [],
         "latestRelatedRelease": "0.19.0",
+        "entries": []
+      },
+      "api.customer-cms.list-change-requests": {
+        "registryId": "api.customer-cms.list-change-requests",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "api.customer-cms.list-custom-entrys": {
@@ -23805,6 +24068,22 @@ export const GENERATED_CHANGELOG = {
         "removedIn": [],
         "latestRelatedRelease": "0.19.0",
         "entries": []
+      },
+      "api.customer-cms.submit-change-request": {
+        "registryId": "api.customer-cms.submit-change-request",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_change_request",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+          }
+        ]
       },
       "api.customer-cms.update-blog-post": {
         "registryId": "api.customer-cms.update-blog-post",
@@ -24040,6 +24319,31 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.19.0",
         "entries": []
       },
+      "api.nextf-admin.apply-change-request": {
+        "registryId": "api.nextf-admin.apply-change-request",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_change_request",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+          }
+        ]
+      },
+      "api.nextf-admin.approve-change-request": {
+        "registryId": "api.nextf-admin.approve-change-request",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
       "api.nextf-admin.check-contract-compatibility": {
         "registryId": "api.nextf-admin.check-contract-compatibility",
         "introducedIn": "0.19.0",
@@ -24137,6 +24441,15 @@ export const GENERATED_CHANGELOG = {
         "deprecatedIn": [],
         "removedIn": [],
         "latestRelatedRelease": "0.19.0",
+        "entries": []
+      },
+      "api.nextf-admin.review-change-request": {
+        "registryId": "api.nextf-admin.review-change-request",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "api.nextf-admin.update-contract-binding": {
@@ -25588,6 +25901,15 @@ export const GENERATED_CHANGELOG = {
         "deprecatedIn": [],
         "removedIn": [],
         "latestRelatedRelease": "1.0.0",
+        "entries": []
+      },
+      "changelog.release.1.1.0": {
+        "registryId": "changelog.release.1.1.0",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "changelog.releaseCollection": {
@@ -31304,6 +31626,65 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.5.0",
         "entries": []
       },
+      "core.changerequests.approve": {
+        "registryId": "core.changerequests.approve",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_change_request",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+          }
+        ]
+      },
+      "core.changerequests.create": {
+        "registryId": "core.changerequests.create",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_change_request",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+          }
+        ]
+      },
+      "core.changerequests.edit": {
+        "registryId": "core.changerequests.edit",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "core.changerequests.manage": {
+        "registryId": "core.changerequests.manage",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "core.changerequests.view": {
+        "registryId": "core.changerequests.view",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
       "core.entityIdentity": {
         "registryId": "core.entityIdentity",
         "introducedIn": "0.5.0",
@@ -31502,6 +31883,56 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.16.0",
         "entries": []
       },
+      "customer-change-request.applied": {
+        "registryId": "customer-change-request.applied",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_change_request",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+          }
+        ]
+      },
+      "customer-change-request.approved": {
+        "registryId": "customer-change-request.approved",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customer-change-request.cancelled": {
+        "registryId": "customer-change-request.cancelled",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customer-change-request.submitted": {
+        "registryId": "customer-change-request.submitted",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_change_request",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+          }
+        ]
+      },
       "customer.archived": {
         "registryId": "customer.archived",
         "introducedIn": "0.14.0",
@@ -31528,6 +31959,789 @@ export const GENERATED_CHANGELOG = {
         "removedIn": [],
         "latestRelatedRelease": "0.14.0",
         "entries": []
+      },
+      "customerAccess.changeRequest": {
+        "registryId": "customerAccess.changeRequest",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_change_request",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency."
+          }
+        ]
+      },
+      "customerAccess.customerAccessPolicyStandard": {
+        "registryId": "customerAccess.customerAccessPolicyStandard",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_customer_access_registry",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior."
+          }
+        ]
+      },
+      "customerAccess.effectivePolicyResolution": {
+        "registryId": "customerAccess.effectivePolicyResolution",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_customer_access_registry",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior."
+          },
+          {
+            "entryId": "chg_v1_1_fail_closed_resolution",
+            "releaseVersion": "1.1.0",
+            "category": "security",
+            "title": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed."
+          }
+        ]
+      },
+      "customerAccess.policy.commerce.carts": {
+        "registryId": "customerAccess.policy.commerce.carts",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.categories": {
+        "registryId": "customerAccess.policy.commerce.categories",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.checkouts": {
+        "registryId": "customerAccess.policy.commerce.checkouts",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.collections": {
+        "registryId": "customerAccess.policy.commerce.collections",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.customers": {
+        "registryId": "customerAccess.policy.commerce.customers",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.discounts": {
+        "registryId": "customerAccess.policy.commerce.discounts",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.fulfillments": {
+        "registryId": "customerAccess.policy.commerce.fulfillments",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.inventory": {
+        "registryId": "customerAccess.policy.commerce.inventory",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.orders": {
+        "registryId": "customerAccess.policy.commerce.orders",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.payments": {
+        "registryId": "customerAccess.policy.commerce.payments",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.products": {
+        "registryId": "customerAccess.policy.commerce.products",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.refunds": {
+        "registryId": "customerAccess.policy.commerce.refunds",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.returns": {
+        "registryId": "customerAccess.policy.commerce.returns",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.reviews": {
+        "registryId": "customerAccess.policy.commerce.reviews",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.settings": {
+        "registryId": "customerAccess.policy.commerce.settings",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.shipping": {
+        "registryId": "customerAccess.policy.commerce.shipping",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.commerce.taxes": {
+        "registryId": "customerAccess.policy.commerce.taxes",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.authors": {
+        "registryId": "customerAccess.policy.content.authors",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.blogcategories": {
+        "registryId": "customerAccess.policy.content.blogcategories",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.blogposts": {
+        "registryId": "customerAccess.policy.content.blogposts",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.blogtags": {
+        "registryId": "customerAccess.policy.content.blogtags",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.customcollections": {
+        "registryId": "customerAccess.policy.content.customcollections",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.customentries": {
+        "registryId": "customerAccess.policy.content.customentries",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.documentation": {
+        "registryId": "customerAccess.policy.content.documentation",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.faqs": {
+        "registryId": "customerAccess.policy.content.faqs",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.legal": {
+        "registryId": "customerAccess.policy.content.legal",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.locations": {
+        "registryId": "customerAccess.policy.content.locations",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.media": {
+        "registryId": "customerAccess.policy.content.media",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.navigation": {
+        "registryId": "customerAccess.policy.content.navigation",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.pages": {
+        "registryId": "customerAccess.policy.content.pages",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.reusablecontent": {
+        "registryId": "customerAccess.policy.content.reusablecontent",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.services": {
+        "registryId": "customerAccess.policy.content.services",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.team": {
+        "registryId": "customerAccess.policy.content.team",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.content.testimonials": {
+        "registryId": "customerAccess.policy.content.testimonials",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.core.audit": {
+        "registryId": "customerAccess.policy.core.audit",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.core.members": {
+        "registryId": "customerAccess.policy.core.members",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.core.settings": {
+        "registryId": "customerAccess.policy.core.settings",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.core.sitehealth": {
+        "registryId": "customerAccess.policy.core.sitehealth",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.core.workspace": {
+        "registryId": "customerAccess.policy.core.workspace",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.customerWorkspaceShell": {
+        "registryId": "customerAccess.policy.customerWorkspaceShell",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.forms.consent": {
+        "registryId": "customerAccess.policy.forms.consent",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.forms.forms": {
+        "registryId": "customerAccess.policy.forms.forms",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.forms.leads": {
+        "registryId": "customerAccess.policy.forms.leads",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.forms.notifications": {
+        "registryId": "customerAccess.policy.forms.notifications",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.forms.spam": {
+        "registryId": "customerAccess.policy.forms.spam",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.forms.submissions": {
+        "registryId": "customerAccess.policy.forms.submissions",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.integrations.connections": {
+        "registryId": "customerAccess.policy.integrations.connections",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.integrations.credentials": {
+        "registryId": "customerAccess.policy.integrations.credentials",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.integrations.health": {
+        "registryId": "customerAccess.policy.integrations.health",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.integrations.mappings": {
+        "registryId": "customerAccess.policy.integrations.mappings",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.integrations.sync": {
+        "registryId": "customerAccess.policy.integrations.sync",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.marketing.analytics": {
+        "registryId": "customerAccess.policy.marketing.analytics",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.marketing.attribution": {
+        "registryId": "customerAccess.policy.marketing.attribution",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.marketing.campaigns": {
+        "registryId": "customerAccess.policy.marketing.campaigns",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.marketing.consent": {
+        "registryId": "customerAccess.policy.marketing.consent",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.marketing.conversions": {
+        "registryId": "customerAccess.policy.marketing.conversions",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.marketing.destinations": {
+        "registryId": "customerAccess.policy.marketing.destinations",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.marketing.tracking": {
+        "registryId": "customerAccess.policy.marketing.tracking",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.permissions.assignments": {
+        "registryId": "customerAccess.policy.permissions.assignments",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.permissions.registry": {
+        "registryId": "customerAccess.policy.permissions.registry",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.permissions.roles": {
+        "registryId": "customerAccess.policy.permissions.roles",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.seo.audits": {
+        "registryId": "customerAccess.policy.seo.audits",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.seo.indexing": {
+        "registryId": "customerAccess.policy.seo.indexing",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.seo.metadata": {
+        "registryId": "customerAccess.policy.seo.metadata",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.seo.redirects": {
+        "registryId": "customerAccess.policy.seo.redirects",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.seo.robots": {
+        "registryId": "customerAccess.policy.seo.robots",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.seo.searchperformance": {
+        "registryId": "customerAccess.policy.seo.searchperformance",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.seo.sitemap": {
+        "registryId": "customerAccess.policy.seo.sitemap",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.seo.structureddata": {
+        "registryId": "customerAccess.policy.seo.structureddata",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.webhooks.deadletters": {
+        "registryId": "customerAccess.policy.webhooks.deadletters",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.webhooks.deliveries": {
+        "registryId": "customerAccess.policy.webhooks.deliveries",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.webhooks.endpoints": {
+        "registryId": "customerAccess.policy.webhooks.endpoints",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.webhooks.secrets": {
+        "registryId": "customerAccess.policy.webhooks.secrets",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.webhooks.subscriptions": {
+        "registryId": "customerAccess.policy.webhooks.subscriptions",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policy.webhooks.tests": {
+        "registryId": "customerAccess.policy.webhooks.tests",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "customerAccess.policyRegistry": {
+        "registryId": "customerAccess.policyRegistry",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_customer_access_registry",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior."
+          },
+          {
+            "entryId": "chg_v1_1_explicit_upgrade",
+            "releaseVersion": "1.1.0",
+            "category": "migration",
+            "title": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata."
+          }
+        ]
+      },
+      "customerAccess.policySchema": {
+        "registryId": "customerAccess.policySchema",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_customer_access_registry",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior."
+          }
+        ]
+      },
+      "customerAccess.policyVocabulary": {
+        "registryId": "customerAccess.policyVocabulary",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_customer_access_registry",
+            "releaseVersion": "1.1.0",
+            "category": "added",
+            "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior."
+          }
+        ]
       },
       "deprecations.deprecationJsonSchema": {
         "registryId": "deprecations.deprecationJsonSchema",
@@ -32645,11 +33859,11 @@ export const GENERATED_CHANGELOG = {
       },
       "events.consumerVocabulary": {
         "registryId": "events.consumerVocabulary",
-        "introducedIn": "0.15.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.15.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "events.eventActor": {
@@ -32735,11 +33949,11 @@ export const GENERATED_CHANGELOG = {
       },
       "events.eventRegistry": {
         "registryId": "events.eventRegistry",
-        "introducedIn": "0.15.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.15.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "events.eventRegistryStandard": {
@@ -32798,11 +34012,11 @@ export const GENERATED_CHANGELOG = {
       },
       "events.producerVocabulary": {
         "registryId": "events.producerVocabulary",
-        "introducedIn": "0.15.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.15.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "events.productionPolicy": {
@@ -34733,195 +35947,208 @@ export const GENERATED_CHANGELOG = {
       },
       "manifest.apiBinding": {
         "registryId": "manifest.apiBinding",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.capabilitySelection": {
         "registryId": "manifest.capabilitySelection",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.cms": {
         "registryId": "manifest.cms",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
-        "entries": []
+        "latestRelatedRelease": "1.1.0",
+        "entries": [
+          {
+            "entryId": "chg_v1_1_fail_closed_resolution",
+            "releaseVersion": "1.1.0",
+            "category": "security",
+            "title": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed."
+          }
+        ]
       },
       "manifest.configurationBinding": {
         "registryId": "manifest.configurationBinding",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.configurationExposureKinds": {
         "registryId": "manifest.configurationExposureKinds",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.contentDelivery": {
         "registryId": "manifest.contentDelivery",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.contentDeliveryModes": {
         "registryId": "manifest.contentDeliveryModes",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.contractBinding": {
         "registryId": "manifest.contractBinding",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.environment": {
         "registryId": "manifest.environment",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.environmentKinds": {
         "registryId": "manifest.environmentKinds",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.eventSupport": {
         "registryId": "manifest.eventSupport",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.extensionDeclaration": {
         "registryId": "manifest.extensionDeclaration",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.index": {
         "registryId": "manifest.index",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.integrationSupport": {
         "registryId": "manifest.integrationSupport",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.localization": {
         "registryId": "manifest.localization",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.moduleSelection": {
         "registryId": "manifest.moduleSelection",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.nextfSiteJsonSchema": {
         "registryId": "manifest.nextfSiteJsonSchema",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.runtime": {
         "registryId": "manifest.runtime",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.runtimeCapabilities": {
         "registryId": "manifest.runtimeCapabilities",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.siteDescriptor": {
         "registryId": "manifest.siteDescriptor",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.siteManifest": {
         "registryId": "manifest.siteManifest",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [
           "0.34.0",
           "1.0.0"
         ],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.0.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": [
+          {
+            "entryId": "chg_v1_1_explicit_upgrade",
+            "releaseVersion": "1.1.0",
+            "category": "migration",
+            "title": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata."
+          },
           {
             "entryId": "chg_v1_manifest_pin",
             "releaseVersion": "1.0.0",
@@ -34944,13 +36171,13 @@ export const GENERATED_CHANGELOG = {
       },
       "manifest.siteManifestStandard": {
         "registryId": "manifest.siteManifestStandard",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [
           "0.36.0"
         ],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.36.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": [
           {
             "entryId": "chg_eb5433226b1587",
@@ -34962,20 +36189,20 @@ export const GENERATED_CHANGELOG = {
       },
       "manifest.siteTypes": {
         "registryId": "manifest.siteTypes",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "manifest.trackingSupport": {
         "registryId": "manifest.trackingSupport",
-        "introducedIn": "0.17.0",
+        "introducedIn": "1.1.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.17.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": []
       },
       "marketing.adClickIdentifier": {
@@ -39696,6 +40923,42 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.25.0",
         "entries": []
       },
+      "release.1.1.0.acceptanceReport": {
+        "registryId": "release.1.1.0.acceptanceReport",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "release.1.1.0.integrityHashes": {
+        "registryId": "release.1.1.0.integrityHashes",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "release.1.1.0.manifest": {
+        "registryId": "release.1.1.0.manifest",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
+      "release.1.1.0.snapshotIndex": {
+        "registryId": "release.1.1.0.snapshotIndex",
+        "introducedIn": "1.1.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.1.0",
+        "entries": []
+      },
       "release.acceptanceReport": {
         "registryId": "release.acceptanceReport",
         "introducedIn": "1.0.0",
@@ -41639,12 +42902,19 @@ export const GENERATED_CHANGELOG = {
         "registryId": "validation.index",
         "introducedIn": "0.34.0",
         "changedIn": [
-          "0.35.0"
+          "0.35.0",
+          "1.1.0"
         ],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.35.0",
+        "latestRelatedRelease": "1.1.0",
         "entries": [
+          {
+            "entryId": "chg_v1_1_fail_closed_resolution",
+            "releaseVersion": "1.1.0",
+            "category": "security",
+            "title": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed."
+          },
           {
             "entryId": "chg_00d54bd049d798",
             "releaseVersion": "0.35.0",
@@ -42516,7 +43786,7 @@ export const GENERATED_CHANGELOG = {
     }
   },
   "sections": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "title": "Changelog Change Categories",
     "description": "Canonical release-note categories and aliases used by NEXT F Changelog records.",
@@ -42641,7 +43911,7 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "evidenceLevels": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "title": "Changelog Evidence Levels",
     "levels": [
@@ -42672,13 +43942,13 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "policy": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.1.0",
     "schemaVersion": "1.0.0",
     "title": "Changelog Operational Policy",
     "authoritativeReleaseDirectory": "registry/changelog/releases/",
     "generatedMarkdown": "CHANGELOG.md",
     "standard": "standards/35-changelog-standard.md",
-    "currentRelease": "1.0.0",
+    "currentRelease": "1.1.0",
     "preOneReleaseTrain": true,
     "productionSupportDeclared": false,
     "releaseOrdering": "descending-semver",
@@ -42695,6 +43965,272 @@ export const GENERATED_CHANGELOG = {
     "omittedHistoricalEvidence": "not-authoritative"
   },
   "releases": [
+    {
+      "$id": "changelog.release.1.1.0",
+      "version": "1.1.0",
+      "phase": 38,
+      "title": "Customer Capability Access Policy",
+      "releaseStatus": "stable",
+      "releaseDate": "2026-09-13",
+      "summary": "Adds the canonical customer visibility, mutation, approval, publishing, field and demo policy layer for every Customer CMS resource.",
+      "sections": [
+        {
+          "category": "added",
+          "label": "Added",
+          "entries": [
+            {
+              "entryId": "chg_v1_1_customer_access_registry",
+              "releaseVersion": "1.1.0",
+              "category": "added",
+              "originalSection": "Added",
+              "summary": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+              "affectedRegistryIds": [
+                "customerAccess.customerAccessPolicyStandard",
+                "customerAccess.effectivePolicyResolution",
+                "customerAccess.policyRegistry",
+                "customerAccess.policySchema",
+                "customerAccess.policyVocabulary"
+              ],
+              "compatibilityImpact": "non-breaking",
+              "provenance": "authoritative-release-json",
+              "notes": null,
+              "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+              "description": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+              "changeType": "added",
+              "affectedDomains": [
+                "customer-access"
+              ],
+              "affectedModules": [],
+              "impact": {
+                "compatibilityClassification": "non-breaking",
+                "breakingChange": false,
+                "migrationRequired": false,
+                "customerSiteActionRequired": null,
+                "adminActionRequired": null,
+                "apiActionRequired": null,
+                "cmsActionRequired": null,
+                "securityRelevance": false
+              },
+              "relatedDiffEvidence": null,
+              "relatedMigrationGuide": null,
+              "relatedDeprecationRecord": null,
+              "sourceReference": "registry/changelog/releases/1.1.0.json",
+              "sourceCommitReference": null
+            },
+            {
+              "entryId": "chg_v1_1_change_request",
+              "releaseVersion": "1.1.0",
+              "category": "added",
+              "originalSection": "Added",
+              "summary": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+              "affectedRegistryIds": [
+                "api.customer-cms.submit-change-request",
+                "api.nextf-admin.apply-change-request",
+                "core.changerequests.approve",
+                "core.changerequests.create",
+                "customer-change-request.applied",
+                "customer-change-request.submitted",
+                "customerAccess.changeRequest"
+              ],
+              "compatibilityImpact": "non-breaking",
+              "provenance": "authoritative-release-json",
+              "notes": null,
+              "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+              "description": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+              "changeType": "added",
+              "affectedDomains": [
+                "api",
+                "core",
+                "customer-access",
+                "events"
+              ],
+              "affectedModules": [],
+              "impact": {
+                "compatibilityClassification": "non-breaking",
+                "breakingChange": false,
+                "migrationRequired": false,
+                "customerSiteActionRequired": null,
+                "adminActionRequired": null,
+                "apiActionRequired": null,
+                "cmsActionRequired": null,
+                "securityRelevance": false
+              },
+              "relatedDiffEvidence": null,
+              "relatedMigrationGuide": null,
+              "relatedDeprecationRecord": null,
+              "sourceReference": "registry/changelog/releases/1.1.0.json",
+              "sourceCommitReference": null
+            }
+          ]
+        },
+        {
+          "category": "security",
+          "label": "Security",
+          "entries": [
+            {
+              "entryId": "chg_v1_1_fail_closed_resolution",
+              "releaseVersion": "1.1.0",
+              "category": "security",
+              "originalSection": "Security",
+              "summary": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+              "affectedRegistryIds": [
+                "customerAccess.effectivePolicyResolution",
+                "manifest.cms",
+                "validation.index"
+              ],
+              "compatibilityImpact": "non-breaking",
+              "provenance": "authoritative-release-json",
+              "notes": "Consumers must not infer authorization from Customer CMS visibility.",
+              "title": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+              "description": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+              "changeType": "security",
+              "affectedDomains": [
+                "customer-access",
+                "manifest",
+                "validation"
+              ],
+              "affectedModules": [],
+              "impact": {
+                "compatibilityClassification": "non-breaking",
+                "breakingChange": false,
+                "migrationRequired": false,
+                "customerSiteActionRequired": null,
+                "adminActionRequired": null,
+                "apiActionRequired": null,
+                "cmsActionRequired": null,
+                "securityRelevance": true
+              },
+              "relatedDiffEvidence": null,
+              "relatedMigrationGuide": null,
+              "relatedDeprecationRecord": null,
+              "sourceReference": "registry/changelog/releases/1.1.0.json",
+              "sourceCommitReference": null
+            }
+          ]
+        },
+        {
+          "category": "migration",
+          "label": "Migration",
+          "entries": [
+            {
+              "entryId": "chg_v1_1_explicit_upgrade",
+              "releaseVersion": "1.1.0",
+              "category": "migration",
+              "originalSection": "Migration",
+              "summary": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+              "affectedRegistryIds": [
+                "compatibility.releaseCompatibility",
+                "customerAccess.policyRegistry",
+                "manifest.siteManifest"
+              ],
+              "compatibilityImpact": "review-required",
+              "provenance": "authoritative-release-json",
+              "notes": "The Site Manifest may restrict canonical policy but cannot broaden it.",
+              "title": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+              "description": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+              "changeType": "migration",
+              "affectedDomains": [
+                "customer-access",
+                "manifest"
+              ],
+              "affectedModules": [],
+              "impact": {
+                "compatibilityClassification": "review-required",
+                "breakingChange": null,
+                "migrationRequired": true,
+                "customerSiteActionRequired": null,
+                "adminActionRequired": null,
+                "apiActionRequired": null,
+                "cmsActionRequired": null,
+                "securityRelevance": false
+              },
+              "relatedDiffEvidence": null,
+              "relatedMigrationGuide": null,
+              "relatedDeprecationRecord": null,
+              "sourceReference": "registry/changelog/releases/1.1.0.json",
+              "sourceCommitReference": null
+            }
+          ]
+        }
+      ],
+      "provenance": {
+        "sourceReference": "registry/changelog/releases/1.1.0.json",
+        "exactRegistrySnapshotAvailable": true
+      },
+      "evidence": {
+        "evidenceLevel": "authoritative-current",
+        "sources": [
+          "registry/customer-access/index.json",
+          "registry/customer-access/migration-report.json",
+          "standards/46-customer-capability-access-policy-standard.md"
+        ]
+      },
+      "support": {
+        "supportLevel": "stable",
+        "compatibilityStatus": "review-required",
+        "registryProductionStable": true
+      },
+      "migrationNotes": [
+        "Keep existing V1.0.0 sites pinned until the consuming CMS, Admin and API runtime understands V1.1.0 policy metadata.",
+        "Do not translate approval_required into a direct write path.",
+        "Site-specific customerAccess settings may only narrow canonical access."
+      ],
+      "recommendedAction": "Review the migration report, update the consumer runtime, validate its Site Manifest, then explicitly pin V1.1.0.",
+      "affected": {
+        "domains": [
+          "api",
+          "core",
+          "customer-access",
+          "events",
+          "manifest",
+          "validation"
+        ],
+        "modules": [],
+        "contracts": [
+          "api.customer-cms.submit-change-request",
+          "api.nextf-admin.apply-change-request",
+          "compatibility.releaseCompatibility",
+          "core.changerequests.approve",
+          "core.changerequests.create",
+          "customer-change-request.applied",
+          "customer-change-request.submitted",
+          "customerAccess.changeRequest",
+          "customerAccess.customerAccessPolicyStandard",
+          "customerAccess.effectivePolicyResolution",
+          "customerAccess.policyRegistry",
+          "customerAccess.policySchema",
+          "customerAccess.policyVocabulary",
+          "manifest.cms",
+          "manifest.siteManifest",
+          "validation.index"
+        ],
+        "events": [
+          "customer-change-request.applied",
+          "customer-change-request.submitted"
+        ],
+        "permissions": [],
+        "webhooks": [],
+        "apis": [
+          "api.customer-cms.submit-change-request",
+          "api.nextf-admin.apply-change-request"
+        ],
+        "manifests": [],
+        "cmsMetadata": [],
+        "adminMetadata": []
+      },
+      "breakingChange": null,
+      "migrationRequired": true,
+      "sourceVersion": "1.0.0",
+      "targetVersion": "1.1.0",
+      "recordCompleteness": "complete",
+      "incompletenessReason": null,
+      "entryCount": 4,
+      "categoryCounts": {
+        "added": 2,
+        "security": 1,
+        "migration": 1
+      }
+    },
     {
       "$id": "changelog.release.1.0.0",
       "version": "1.0.0",
@@ -84281,13 +85817,173 @@ export const GENERATED_CHANGELOG = {
       "relatedDeprecationRecord": null,
       "sourceReference": "registry/changelog/releases/1.0.0.json",
       "sourceCommitReference": null
+    },
+    {
+      "entryId": "chg_v1_1_customer_access_registry",
+      "releaseVersion": "1.1.0",
+      "category": "added",
+      "originalSection": "Added",
+      "summary": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+      "affectedRegistryIds": [
+        "customerAccess.customerAccessPolicyStandard",
+        "customerAccess.effectivePolicyResolution",
+        "customerAccess.policyRegistry",
+        "customerAccess.policySchema",
+        "customerAccess.policyVocabulary"
+      ],
+      "compatibilityImpact": "non-breaking",
+      "provenance": "authoritative-release-json",
+      "notes": null,
+      "title": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+      "description": "A canonical Customer Access Policy Registry classifies every stable Customer CMS profile with explicit resource, action, publishing, field, permission, capability, API, Event and demo behavior.",
+      "changeType": "added",
+      "affectedDomains": [
+        "customer-access"
+      ],
+      "affectedModules": [],
+      "impact": {
+        "compatibilityClassification": "non-breaking",
+        "breakingChange": false,
+        "migrationRequired": false,
+        "customerSiteActionRequired": null,
+        "adminActionRequired": null,
+        "apiActionRequired": null,
+        "cmsActionRequired": null,
+        "securityRelevance": false
+      },
+      "relatedDiffEvidence": null,
+      "relatedMigrationGuide": null,
+      "relatedDeprecationRecord": null,
+      "sourceReference": "registry/changelog/releases/1.1.0.json",
+      "sourceCommitReference": null
+    },
+    {
+      "entryId": "chg_v1_1_change_request",
+      "releaseVersion": "1.1.0",
+      "category": "added",
+      "originalSection": "Added",
+      "summary": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+      "affectedRegistryIds": [
+        "api.customer-cms.submit-change-request",
+        "api.nextf-admin.apply-change-request",
+        "core.changerequests.approve",
+        "core.changerequests.create",
+        "customer-change-request.applied",
+        "customer-change-request.submitted",
+        "customerAccess.changeRequest"
+      ],
+      "compatibilityImpact": "non-breaking",
+      "provenance": "authoritative-release-json",
+      "notes": null,
+      "title": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+      "description": "Customer Change Request contracts, exact permissions, APIs and internal lifecycle Events provide a non-authoritative approval path with optimistic concurrency.",
+      "changeType": "added",
+      "affectedDomains": [
+        "api",
+        "core",
+        "customer-access",
+        "events"
+      ],
+      "affectedModules": [],
+      "impact": {
+        "compatibilityClassification": "non-breaking",
+        "breakingChange": false,
+        "migrationRequired": false,
+        "customerSiteActionRequired": null,
+        "adminActionRequired": null,
+        "apiActionRequired": null,
+        "cmsActionRequired": null,
+        "securityRelevance": false
+      },
+      "relatedDiffEvidence": null,
+      "relatedMigrationGuide": null,
+      "relatedDeprecationRecord": null,
+      "sourceReference": "registry/changelog/releases/1.1.0.json",
+      "sourceCommitReference": null
+    },
+    {
+      "entryId": "chg_v1_1_fail_closed_resolution",
+      "releaseVersion": "1.1.0",
+      "category": "security",
+      "originalSection": "Security",
+      "summary": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+      "affectedRegistryIds": [
+        "customerAccess.effectivePolicyResolution",
+        "manifest.cms",
+        "validation.index"
+      ],
+      "compatibilityImpact": "non-breaking",
+      "provenance": "authoritative-release-json",
+      "notes": "Consumers must not infer authorization from Customer CMS visibility.",
+      "title": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+      "description": "Effective customer access is the most-restrictive intersection of canonical policy, Site capability, entitlement, permission and scope, resource state, field policy, security and privacy; unresolved writes fail closed.",
+      "changeType": "security",
+      "affectedDomains": [
+        "customer-access",
+        "manifest",
+        "validation"
+      ],
+      "affectedModules": [],
+      "impact": {
+        "compatibilityClassification": "non-breaking",
+        "breakingChange": false,
+        "migrationRequired": false,
+        "customerSiteActionRequired": null,
+        "adminActionRequired": null,
+        "apiActionRequired": null,
+        "cmsActionRequired": null,
+        "securityRelevance": true
+      },
+      "relatedDiffEvidence": null,
+      "relatedMigrationGuide": null,
+      "relatedDeprecationRecord": null,
+      "sourceReference": "registry/changelog/releases/1.1.0.json",
+      "sourceCommitReference": null
+    },
+    {
+      "entryId": "chg_v1_1_explicit_upgrade",
+      "releaseVersion": "1.1.0",
+      "category": "migration",
+      "originalSection": "Migration",
+      "summary": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+      "affectedRegistryIds": [
+        "compatibility.releaseCompatibility",
+        "customerAccess.policyRegistry",
+        "manifest.siteManifest"
+      ],
+      "compatibilityImpact": "review-required",
+      "provenance": "authoritative-release-json",
+      "notes": "The Site Manifest may restrict canonical policy but cannot broaden it.",
+      "title": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+      "description": "V1.0.0 Site Manifests remain pinned and unaffected. Consumers must explicitly upgrade to V1.1.0 and implement policy-aware runtime authorization before relying on the new metadata.",
+      "changeType": "migration",
+      "affectedDomains": [
+        "customer-access",
+        "manifest"
+      ],
+      "affectedModules": [],
+      "impact": {
+        "compatibilityClassification": "review-required",
+        "breakingChange": null,
+        "migrationRequired": true,
+        "customerSiteActionRequired": null,
+        "adminActionRequired": null,
+        "apiActionRequired": null,
+        "cmsActionRequired": null,
+        "securityRelevance": false
+      },
+      "relatedDiffEvidence": null,
+      "relatedMigrationGuide": null,
+      "relatedDeprecationRecord": null,
+      "sourceReference": "registry/changelog/releases/1.1.0.json",
+      "sourceCommitReference": null
     }
   ],
   "definitions": [
     {
       "$id": "changelog.affectedContractReference",
       "name": "Affected Contract Reference",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -84340,7 +86036,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.changeEntry",
       "name": "Changelog Change Entry",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -84530,7 +86226,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.compatibilityReference",
       "name": "Changelog Compatibility Reference",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -84597,7 +86293,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.evidenceDescriptor",
       "name": "Changelog Evidence Descriptor",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -84671,7 +86367,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.impactClassification",
       "name": "Changelog Impact Classification",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -84768,7 +86464,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseCollection",
       "name": "Changelog Release Collection",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -84828,7 +86524,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseCorrection",
       "name": "Changelog Release Correction",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -84916,7 +86612,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseNote",
       "name": "Changelog Release Note",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -85112,7 +86808,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseProvenance",
       "name": "Changelog Release Provenance",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -85179,7 +86875,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseSection",
       "name": "Changelog Release Section",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -85232,7 +86928,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseSummary",
       "name": "Changelog Release Summary",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -85312,17 +87008,17 @@ export const GENERATED_CHANGELOG = {
     }
   ],
   "sourceHashes": {
-    "registry/changelog/index.json": "0821cb1a157e99f77cffea7d4ccb6e7b280e643ce6f76d92db209ba7c5f76615",
-    "registry/changelog/release-index.json": "21448cb9ebe9d4b5655ff83cead9aa5cc922edd9cf9b60b9969ad5f8d5c46660",
-    "registry/changelog/entry-index.json": "3f8a9aa481368e3b89a17403528d62f451a981ce3f2169fd06c2c3ebac4d458c",
-    "registry/changelog/contract-history.json": "425c83e202cd030b11ee6c834e96debe95a34ee44378c42587b3fb7d2747e7e5",
-    "registry/changelog/sections.json": "a68fb01488cb41f79199aee1eac7473ff7ab3d3d703a202e074badb917bba24c",
-    "registry/changelog/evidence-levels.json": "de42ab5e2e78443f4537b38a1455c6b631ae7f1b4820fe88449d2e83e6a6ed51",
-    "registry/changelog/policy.json": "b5c86255e8e765b5ce87b1b204dd48656a115d95728e02e336fe1e20697c08d5",
-    "registry/changelog/release.schema.json": "505db9d69b8d8e3e42534c62d14915db9b94101e6d131677cbf7a68608540be5",
-    "registry/changelog/change-entry.schema.json": "29b9ca5ada3afad8518f6f067f3a6d31d467ec270546c90f877951bc43741e25",
-    "registry/changelog/impact.schema.json": "b84fe0dcd093a93e0a3be704d516bff0971e8b3c25425e87bb588447f4e85415",
-    "registry/changelog/changelog-release-note.schema.json": "bbb3d24cb532b8ac656cd4f06068897edf8b724770c0568a2529612c3b5cf163",
+    "registry/changelog/index.json": "ba7d86f22a0e84bfc454d157969f16e12cc95ffdb34ff031b363cb8f60b24b92",
+    "registry/changelog/release-index.json": "56c1006d768817595ce076f102c4ee731129095390cc48c4ba2de3c65de65626",
+    "registry/changelog/entry-index.json": "8a7923b92bbebe5e1b9647cc85eb6f158c0339b20d03a07d57c5977f1a9b0a33",
+    "registry/changelog/contract-history.json": "c26d54c47b43bbdfea14663e127715c49c9db84ed0ed4e7042713cff4a17c0bd",
+    "registry/changelog/sections.json": "2042aed10ee5c6b01499835719cb43609062eea1ba0e0bad400a8d7e9f9f8e81",
+    "registry/changelog/evidence-levels.json": "943b87cf5f8f48800b57f506451ca6cf63c6a07e6e4b056da80941f6fb19b825",
+    "registry/changelog/policy.json": "2d62ee7c102198fbed8f22922fd602fd287060f8a7dd85e13210c6d7b6e4558b",
+    "registry/changelog/release.schema.json": "90a2a8535b1538176560bb9b2a092a2e71f21a4163c2c439f39eaf2c86e4a1e0",
+    "registry/changelog/change-entry.schema.json": "1a4e34d72ae84af48aa4e2147a35bd4cd417dec67c0795a081d7af0214f27f7c",
+    "registry/changelog/impact.schema.json": "f73059440b82a6cf3b2882bbb16739163e44d5e2000641514389a79c4109bf53",
+    "registry/changelog/changelog-release-note.schema.json": "6d29bd2d1d5b98e6a4e7b8ce17b26dd39f2d92cadad07d53b6792dc18ff4bf56",
     "registry/changelog/releases/0.1.0.json": "d555558122dee0e0b3280d2081406eb1202f1c4cb4a78ea1851218f3a9812614",
     "registry/changelog/releases/0.2.0.json": "72b6a22002d76227c751374e5838452dcdd371ebc648074b50af9ff13f000397",
     "registry/changelog/releases/0.3.0.json": "218badabefbf4bd5092478d5933d8da8a31db418611c842076df26abc8be4139",
@@ -85361,16 +87057,17 @@ export const GENERATED_CHANGELOG = {
     "registry/changelog/releases/0.36.0.json": "1a0d266ae568e940b8ddc2f21e3c4df77ac5110e49d91f2ec2bdbaff714d2a7a",
     "registry/changelog/releases/0.37.0.json": "d9b839229bc75b09de03d5b9e66abeae46bb298d19b666716738f39d567f7a1e",
     "registry/changelog/releases/1.0.0.json": "7a3ba7d09b90037f18629a3b21eb29bde0c82d0f442fbbe2ea5d3ff07f374ec6",
-    "registry/changelog/definitions/affectedContractReference.json": "0f470de023928a9be28efdf0a11891d3e35080bbc11ea98adb54556b965c21f8",
-    "registry/changelog/definitions/changeEntry.json": "2f87a72bf969db624e337c07619ef32e7b22d50aee34ccdaf957a591927a4c61",
-    "registry/changelog/definitions/compatibilityReference.json": "fba8a67108dfd19dc9cdc71abd8bf8c7ea3f6148bf3164e90c1bebe3a08a7d12",
-    "registry/changelog/definitions/evidenceDescriptor.json": "cbf15962c8e4826153fd6e46880caa0d1dd03083fee0732e0122ee513a7a473c",
-    "registry/changelog/definitions/impactClassification.json": "a832cdf1bca05d8c746ef40ae34d744e8df9c2d67fa86d5a2021729e0d65d660",
-    "registry/changelog/definitions/releaseCollection.json": "7cce8772453d861178db298a9dede12fe1dc1f5d282d93dab9e70ce92255cbea",
-    "registry/changelog/definitions/releaseCorrection.json": "45a9f8d6f1e4c9b99be56ae34df647f7dc5f5d22725e70531a233b4dac96e998",
-    "registry/changelog/definitions/releaseNote.json": "9e1c7720045f08c5b9279bdc0b6a985feb2b0327e25aecd468a1394114bef821",
-    "registry/changelog/definitions/releaseProvenance.json": "ae21bec26f132af54267e6e274d1a2ca699690fd66a7fd0524dbdac306913f13",
-    "registry/changelog/definitions/releaseSection.json": "bb0e085c8a956b56aa8c1e29db3d3153697e788aa240b400c3be1526b493b8f3",
-    "registry/changelog/definitions/releaseSummary.json": "74162dbb035fd1faddba8b14b5373155c3658fbe144a119c8e4e15bfc08d5040"
+    "registry/changelog/releases/1.1.0.json": "80bb8cb018f4bbc3717b0d544f951c6e43391031142d5c3cf3fdefed1c2df742",
+    "registry/changelog/definitions/affectedContractReference.json": "8ab37d485aa741dac64eca60628b4ea0085c4d5ea8136989e23f584a19eb58b2",
+    "registry/changelog/definitions/changeEntry.json": "e9291bbd14c51964367bf9f7b73f1693af827e80398f16b0b5b236132dc5cbde",
+    "registry/changelog/definitions/compatibilityReference.json": "0bbd86b6451030082b41a6424977bbf56899c7e0ad3940f2e4e7c551f9c339d6",
+    "registry/changelog/definitions/evidenceDescriptor.json": "608d991e9f021f56b6a32d7e6800f1b8ce6cf31b24ddae80b96abb4474010916",
+    "registry/changelog/definitions/impactClassification.json": "4d5fa7d4e5072d7fb69b4a0a11f72cfc76c3cadec68c582cd6f6b949ac42dbe3",
+    "registry/changelog/definitions/releaseCollection.json": "bd7aac563cc3bf3eeaf3be5be6fb1e47b226cf5b5b5b1f448411da073990ddf4",
+    "registry/changelog/definitions/releaseCorrection.json": "e35cb905c2da5e61f825e94a8f4510628b2e95570ffadf5353f37f148c5de190",
+    "registry/changelog/definitions/releaseNote.json": "282e7d01036c681a51c7650542acda46cf8a1bd9c4b84ed138ba6981f330c5d3",
+    "registry/changelog/definitions/releaseProvenance.json": "7f1feebc909d83cc88495040041374787639a00ea3a4e216393443a3bdd68409",
+    "registry/changelog/definitions/releaseSection.json": "56f4c3174e625389a81d15ef01de906516d16976bdbd6399ccfd2a5d9bcd75d0",
+    "registry/changelog/definitions/releaseSummary.json": "0e3b8b927154874a22ef72d8bcc36bc2e0980bd5fd31a3ea27f99c50828aca93"
   }
 };

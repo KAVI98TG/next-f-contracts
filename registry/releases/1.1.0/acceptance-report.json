@@ -1,0 +1,60 @@
+{
+  "registryVersion": "1.1.0",
+  "phase": 38,
+  "title": "NEXT F Contracts V1.1.0 Customer Capability Access Policy Acceptance",
+  "release": {
+    "phase": 38,
+    "version": "1.1.0",
+    "status": "STABLE",
+    "previousStableVersion": "1.0.0"
+  },
+  "policyInventory": {
+    "totalPolicies": 75,
+    "hidden": 2,
+    "read_only": 13,
+    "direct_edit": 52,
+    "approval_required": 8,
+    "resourcesWithFieldOverrides": 72,
+    "resourcesWithDemoPolicies": 75
+  },
+  "coverage": {
+    "customerFacingResources": 75,
+    "classifiedResources": 75,
+    "unclassifiedResources": 0,
+    "policyCoveragePercentage": 100
+  },
+  "integrity": {
+    "brokenResourceRefs": 0,
+    "brokenModuleRefs": 0,
+    "brokenCapabilityRefs": 0,
+    "brokenPermissionRefs": 0,
+    "brokenFieldRefs": 0,
+    "uiProfileMismatches": 0,
+    "apiMismatches": 0,
+    "approvalWorkflowGaps": 0
+  },
+  "security": {
+    "hiddenFieldExposureViolations": 0,
+    "privacyClassificationViolations": 0,
+    "demoProductionWriteViolations": 0,
+    "crossTenantFixtureFailures": 0
+  },
+  "regression": {
+    "previousSuite": "PASS",
+    "phase38Suite": "PASS",
+    "browserSmoke": "PASS",
+    "cliValidation": "PASS",
+    "registryHealth": "PASS",
+    "searchIntegrity": "PASS",
+    "relationshipIntegrity": "PASS",
+    "diffIntegrity": "PASS",
+    "compatibilityIntegrity": "PASS",
+    "smokeSuite": "PASS"
+  },
+  "releaseConclusion": {
+    "blockingFailures": 0,
+    "nonBlockingWarnings": 2,
+    "final": "PASS"
+  },
+  "generatedAt": "2026-09-13T10:24:49.575Z"
+}

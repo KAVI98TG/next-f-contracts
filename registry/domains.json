@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.0.0",
+  "registryVersion": "1.1.0",
   "domains": [
     {
       "id": "accessibility",
@@ -45,6 +45,11 @@
       "id": "core",
       "label": "Core",
       "description": "Shared identity, scope, publishing, versioning and audit contracts."
+    },
+    {
+      "id": "customer-access",
+      "label": "Customer Access",
+      "description": "Canonical customer visibility, mutation, approval, publishing, field and demo policy."
     },
     {
       "id": "deprecations",
