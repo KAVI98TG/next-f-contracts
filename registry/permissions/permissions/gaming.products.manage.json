@@ -1,0 +1,30 @@
+{
+  "$id": "gaming.products.manage",
+  "name": "Manage Gaming Products",
+  "permissionId": "gaming.products.manage",
+  "domain": "gaming",
+  "resource": "products",
+  "action": "manage",
+  "scopeKind": "site",
+  "riskLevel": "elevated",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage NEXT F Gaming Products, Offers, merchandising and current pricing controls.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound",
+    "supplier-secrets-hidden"
+  ],
+  "notes": [],
+  "version": "1.2.0",
+  "status": "stable"
+}

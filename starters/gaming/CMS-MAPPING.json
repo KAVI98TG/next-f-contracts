@@ -1,0 +1,36 @@
+{
+  "contractVersion": "1.2.0",
+  "surface": "customer-cms",
+  "navigation": [
+    {
+      "label": "Gaming Store",
+      "path": "/gaming-store",
+      "icon": "fa-gamepad",
+      "order": 110
+    },
+    {
+      "label": "Gaming Products",
+      "path": "/gaming-store/products",
+      "icon": "fa-gamepad",
+      "order": 111
+    },
+    {
+      "label": "Gaming Orders",
+      "path": "/gaming-store/orders",
+      "icon": "fa-receipt",
+      "order": 112
+    },
+    {
+      "label": "Gaming Suppliers",
+      "path": "/gaming-store/suppliers",
+      "icon": "fa-plug",
+      "order": 113
+    },
+    {
+      "label": "Gaming Finance",
+      "path": "/gaming-store/finance",
+      "icon": "fa-scale-balanced",
+      "order": 114
+    }
+  ]
+}

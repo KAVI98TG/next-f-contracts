@@ -1,0 +1,41 @@
+{
+  "$id": "adminUi.profile.gaming.suppliers",
+  "name": "Gaming Suppliers Admin",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "profileType": "resource",
+  "resource": "gaming.suppliers",
+  "moduleId": "gaming",
+  "description": "NEXT F Admin metadata for Gaming Suppliers Admin.",
+  "targetContracts": [
+    "gaming.supplierOfferMapping"
+  ],
+  "primaryTargetContract": "gaming.supplierOfferMapping",
+  "route": "/sites/:siteId/gaming/suppliers",
+  "screenKind": "admin-editor",
+  "layoutTemplate": "admin-operations",
+  "permissions": [
+    "gaming.suppliers.manage"
+  ],
+  "actions": [
+    {
+      "actionId": "manage",
+      "permissionId": "gaming.suppliers.manage",
+      "riskLevel": "privileged",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": true
+    }
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "authorization-denied",
+    "network-error",
+    "success"
+  ],
+  "notes": [
+    "Admin profile metadata does not expose supplier secrets."
+  ]
+}

@@ -1,13 +1,13 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source set: registry/deprecations/*
 export const GENERATED_DEPRECATIONS = {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "index": {
-    "registryVersion": "1.1.0",
+    "registryVersion": "1.2.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Deprecation Registry",
     "description": "Authoritative lifecycle-management records for deprecated and removed NEXT F Registry definitions.",
-    "currentVersion": "1.1.0",
+    "currentVersion": "1.2.0",
     "recordCount": 0,
     "activeDeprecationCount": 0,
     "removedCount": 0,
@@ -27,7 +27,7 @@ export const GENERATED_DEPRECATIONS = {
     }
   },
   "policy": {
-    "registryVersion": "1.1.0",
+    "registryVersion": "1.2.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Deprecation Policy",
     "authoritativeRecordDirectory": "registry/deprecations/records/",
@@ -55,7 +55,7 @@ export const GENERATED_DEPRECATIONS = {
     "productionSupportDeclared": false
   },
   "lifecycleStates": {
-    "registryVersion": "1.1.0",
+    "registryVersion": "1.2.0",
     "schemaVersion": "1.0.0",
     "title": "Canonical Lifecycle States Projection",
     "description": "Generated projection of registry/statuses.json for Deprecation lifecycle tooling; registry/statuses.json remains the canonical vocabulary source.",
@@ -89,7 +89,7 @@ export const GENERATED_DEPRECATIONS = {
     ]
   },
   "severityLevels": {
-    "registryVersion": "1.1.0",
+    "registryVersion": "1.2.0",
     "schemaVersion": "1.0.0",
     "title": "Deprecation Severity Levels",
     "levels": [
@@ -125,7 +125,7 @@ export const GENERATED_DEPRECATIONS = {
     {
       "$id": "deprecations.deprecationRecord",
       "name": "Deprecation Record",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "status": "stable",
       "phase": 28,
       "description": "Canonical lifecycle record for one deprecated or removed Registry definition.",
@@ -140,7 +140,7 @@ export const GENERATED_DEPRECATIONS = {
     {
       "$id": "deprecations.impactScope",
       "name": "Deprecation Impact Scope",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "status": "stable",
       "phase": 28,
       "description": "Affected Site/module/API and migration dimensions for lifecycle impact.",
@@ -155,7 +155,7 @@ export const GENERATED_DEPRECATIONS = {
     {
       "$id": "deprecations.lifecycleState",
       "name": "Lifecycle State",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "status": "stable",
       "phase": 28,
       "description": "Canonical experimental, draft, stable, deprecated and removed state vocabulary.",
@@ -170,7 +170,7 @@ export const GENERATED_DEPRECATIONS = {
     {
       "$id": "deprecations.replacementReference",
       "name": "Replacement Reference",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "status": "stable",
       "phase": 28,
       "description": "Explicit replacement, no-replacement, or unknown replacement disposition for a deprecation.",
@@ -185,7 +185,7 @@ export const GENERATED_DEPRECATIONS = {
     {
       "$id": "deprecations.supportWindow",
       "name": "Deprecation Support Window",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "status": "stable",
       "phase": 28,
       "description": "Optional authoritative support boundary; unknown remains explicit when not established.",
@@ -199,16 +199,16 @@ export const GENERATED_DEPRECATIONS = {
     }
   ],
   "sourceHashes": {
-    "registry/deprecations/index.json": "e71bbb784937ef8ba5e5f8d7ce77f4069bb9e8f04df8a1a2ef5a5a05fafff3b6",
-    "registry/deprecations/policy.json": "cabbd0db1d47bb360b79da9eb5ad11daca33a1126c37d1773d45902eb4c4bcdb",
-    "registry/deprecations/lifecycle-states.json": "4743d7eb79504305adf7e219d75077e6967b77a083931ff23108f0bc7503d1e5",
-    "registry/deprecations/severity-levels.json": "e0eab31c3c2385903e683c3314c13b43664515b9c7e5462402ceb06740d3aee0",
+    "registry/deprecations/index.json": "3ab2495261394e1706796b4589e75a332306c7b388ce16b0dd11c5ba56c670ee",
+    "registry/deprecations/policy.json": "cb8eeb3cf3e8eb6e70bad25c2d24336ebc0f762247f2ada2af51c37c08a3d47e",
+    "registry/deprecations/lifecycle-states.json": "e58f9d7b8a82f96aa04ba4ff04b79c5d7b10808a9412cf0c02d11295647865c5",
+    "registry/deprecations/severity-levels.json": "f269f33cb6d0e85370342505ada920dea05b1b57e637319b22ec6b6d79e81637",
     "registry/deprecations/deprecation.schema.json": "5b86aebb5e58afa0eef0a19a1ba2bc051153c1995cb0c06cf8ef80f20baee71e",
     "registry/deprecations/replacement.schema.json": "7f8c4b4c76322a38c8b4899dc5d15283c8ea384622dccd6482a459822c9c6b81",
-    "registry/deprecations/definitions/deprecationRecord.json": "1b84a49ad3bb586169ef28ac69c3c5ae2d21ebeac8ed06622e8f4ece340549f2",
-    "registry/deprecations/definitions/impactScope.json": "4bff275ca4ec86cabc03567d51142f3bab3dea15d65b2243c319e9db96d3a576",
-    "registry/deprecations/definitions/lifecycleState.json": "3b6509451f8f2b94e2fe23a41ab3aabbaf1b4e18fb377c4f7a81cd7696ebcb0b",
-    "registry/deprecations/definitions/replacementReference.json": "6c97b1cc78ca368f10c74b7475fcadfc0d5c764952cf643201840858e9112fc5",
-    "registry/deprecations/definitions/supportWindow.json": "c9b431ffbe09c3dfeef7088fc28c1504eb7b073284eaf213732c8aadcfb81fab"
+    "registry/deprecations/definitions/deprecationRecord.json": "034f1d15c470fc390c007d8b9ff7da01317af8a0bc9a894ced9a810939eafd03",
+    "registry/deprecations/definitions/impactScope.json": "5d28085eb98cb65d82827b28b398d1b98348a4d131068cb7545845fb2b755931",
+    "registry/deprecations/definitions/lifecycleState.json": "b1890629353cea5a01dfeace9e21683f2db3b6abebe0e5c5e3b2d3e6a66a9f25",
+    "registry/deprecations/definitions/replacementReference.json": "c7e2897c44cb8616d0565d8ab9e210b90435845ead1cae5acae8d16b7b7aab4e",
+    "registry/deprecations/definitions/supportWindow.json": "e0ef7bf89b67f2f5c7e9894895022d452ba80e4345f3519a42e143b73559ce89"
   }
 };

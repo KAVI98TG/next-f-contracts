@@ -1,0 +1,5 @@
+- `gaming.read` - Read Gaming dashboard, catalog and order summaries.
+- `gaming.orders.manage` - Operate Gaming orders, supported retries and order-support actions.
+- `gaming.products.manage` - Manage NEXT F Gaming Products, Offers, merchandising and current pricing controls.
+- `gaming.suppliers.manage` - Manage supplier mappings, connection metadata and configuration references without exposing secret values.
+- `gaming.finance.manage` - Read and manage Gaming reconciliation, supplier-cost reporting and financial controls.

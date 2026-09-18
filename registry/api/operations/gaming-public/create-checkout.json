@@ -1,0 +1,80 @@
+{
+  "$id": "api.gaming-public.create-checkout",
+  "operationId": "api.gaming-public.create-checkout",
+  "name": "Create Gaming Checkout Intent",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.gaming-public",
+  "method": "POST",
+  "path": "/checkout",
+  "description": "Create Gaming Checkout Intent",
+  "authentication": {
+    "mode": "anonymous-or-commerce-customer",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "gaming.publicQuote",
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "gaming.publicOrder",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled",
+      "capability_disabled",
+      "not_found"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "commerce-checkout",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "gaming"
+  ],
+  "contractBindings": [
+    "gaming.publicOrder"
+  ],
+  "eventBindings": [
+    "gaming.order-created"
+  ],
+  "publicSurface": true,
+  "privacy": "sensitive",
+  "notes": [
+    "This operation creates/requests checkout; it cannot self-assert payment success."
+  ]
+}

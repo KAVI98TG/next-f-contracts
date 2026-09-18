@@ -1,9 +1,9 @@
 {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.0.0",
   "standard": "standards/34-compatibility-center-standard.md",
   "baselinePolicy": "standards/07-compatibility-policy.md",
-  "currentContractRelease": "1.1.0",
+  "currentContractRelease": "1.2.0",
   "productionAcceptanceVersion": "1.0.0",
   "preOneReleasePolicy": {
     "active": false,

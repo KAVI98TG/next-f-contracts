@@ -1,11 +1,11 @@
 {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.0.0",
   "title": "Changelog Operational Policy",
   "authoritativeReleaseDirectory": "registry/changelog/releases/",
   "generatedMarkdown": "CHANGELOG.md",
   "standard": "standards/35-changelog-standard.md",
-  "currentRelease": "1.1.0",
+  "currentRelease": "1.2.0",
   "preOneReleaseTrain": true,
   "productionSupportDeclared": false,
   "releaseOrdering": "descending-semver",

@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Contract Changelog History",
   "description": "Derived navigation index from authoritative Registry introducedIn metadata and explicit Changelog affected Registry IDs. It does not reconstruct missing history.",
@@ -1706,6 +1706,42 @@
       "latestRelatedRelease": "0.21.0",
       "entries": []
     },
+    "adminUi.profile.gaming.catalog": {
+      "registryId": "adminUi.profile.gaming.catalog",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "adminUi.profile.gaming.finance": {
+      "registryId": "adminUi.profile.gaming.finance",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "adminUi.profile.gaming.orders": {
+      "registryId": "adminUi.profile.gaming.orders",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "adminUi.profile.gaming.suppliers": {
+      "registryId": "adminUi.profile.gaming.suppliers",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
     "adminUi.profile.integrations.connections": {
       "registryId": "adminUi.profile.integrations.connections",
       "introducedIn": "0.21.0",
@@ -2944,6 +2980,231 @@
       "deprecatedIn": [],
       "removedIn": [],
       "latestRelatedRelease": "0.19.0",
+      "entries": []
+    },
+    "api.gaming-admin": {
+      "registryId": "api.gaming-admin",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-admin.order-action": {
+      "registryId": "api.gaming-admin.order-action",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-admin.read-catalog": {
+      "registryId": "api.gaming-admin.read-catalog",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-admin.read-finance": {
+      "registryId": "api.gaming-admin.read-finance",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-admin.read-orders": {
+      "registryId": "api.gaming-admin.read-orders",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-admin.read-supplier-mappings": {
+      "registryId": "api.gaming-admin.read-supplier-mappings",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-admin.read-supplier-status": {
+      "registryId": "api.gaming-admin.read-supplier-status",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-admin.update-supplier-mapping": {
+      "registryId": "api.gaming-admin.update-supplier-mapping",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-admin.upsert-offer": {
+      "registryId": "api.gaming-admin.upsert-offer",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-admin.upsert-product": {
+      "registryId": "api.gaming-admin.upsert-product",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-public": {
+      "registryId": "api.gaming-public",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-public.create-checkout": {
+      "registryId": "api.gaming-public.create-checkout",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-public.create-quote": {
+      "registryId": "api.gaming-public.create-quote",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-public.get-order": {
+      "registryId": "api.gaming-public.get-order",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-public.get-order-delivery": {
+      "registryId": "api.gaming-public.get-order-delivery",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-public.get-product": {
+      "registryId": "api.gaming-public.get-product",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-public.list-products": {
+      "registryId": "api.gaming-public.list-products",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-public.store-bootstrap": {
+      "registryId": "api.gaming-public.store-bootstrap",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-public.validate-account": {
+      "registryId": "api.gaming-public.validate-account",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-service": {
+      "registryId": "api.gaming-service",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-service.receive-supplier-webhook": {
+      "registryId": "api.gaming-service.receive-supplier-webhook",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-service.refresh-fulfillment": {
+      "registryId": "api.gaming-service.refresh-fulfillment",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-service.submit-fulfillment": {
+      "registryId": "api.gaming-service.submit-fulfillment",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-service.sync-availability": {
+      "registryId": "api.gaming-service.sync-availability",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "api.gaming-service.sync-catalog": {
+      "registryId": "api.gaming-service.sync-catalog",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "api.health": {
@@ -4602,6 +4863,15 @@
       "latestRelatedRelease": "1.1.0",
       "entries": []
     },
+    "changelog.release.1.2.0": {
+      "registryId": "changelog.release.1.2.0",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
     "changelog.releaseCollection": {
       "registryId": "changelog.releaseCollection",
       "introducedIn": "0.28.0",
@@ -5896,6 +6166,42 @@
       "deprecatedIn": [],
       "removedIn": [],
       "latestRelatedRelease": "0.20.0",
+      "entries": []
+    },
+    "cmsUi.profile.gaming.catalog": {
+      "registryId": "cmsUi.profile.gaming.catalog",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "cmsUi.profile.gaming.finance": {
+      "registryId": "cmsUi.profile.gaming.finance",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "cmsUi.profile.gaming.orders": {
+      "registryId": "cmsUi.profile.gaming.orders",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "cmsUi.profile.gaming.suppliers": {
+      "registryId": "cmsUi.profile.gaming.suppliers",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "cmsUi.profile.integrations.connections": {
@@ -12549,11 +12855,11 @@
     },
     "events.consumerVocabulary": {
       "registryId": "events.consumerVocabulary",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "events.eventActor": {
@@ -12639,11 +12945,11 @@
     },
     "events.eventRegistry": {
       "registryId": "events.eventRegistry",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "events.eventRegistryStandard": {
@@ -12702,11 +13008,11 @@
     },
     "events.producerVocabulary": {
       "registryId": "events.producerVocabulary",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "events.productionPolicy": {
@@ -13870,6 +14176,321 @@
       "latestRelatedRelease": "0.14.0",
       "entries": []
     },
+    "gaming.account-validated": {
+      "registryId": "gaming.account-validated",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.accountValidationPolicy": {
+      "registryId": "gaming.accountValidationPolicy",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.availability": {
+      "registryId": "gaming.availability",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.catalog-sync-completed": {
+      "registryId": "gaming.catalog-sync-completed",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.catalog-sync-failed": {
+      "registryId": "gaming.catalog-sync-failed",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.digitalDeliverable": {
+      "registryId": "gaming.digitalDeliverable",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.finance.manage": {
+      "registryId": "gaming.finance.manage",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.fulfillment": {
+      "registryId": "gaming.fulfillment",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.fulfillment-completed": {
+      "registryId": "gaming.fulfillment-completed",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.fulfillment-failed": {
+      "registryId": "gaming.fulfillment-failed",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.fulfillment-processing": {
+      "registryId": "gaming.fulfillment-processing",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.fulfillment-submitted": {
+      "registryId": "gaming.fulfillment-submitted",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.gamingStoreContractStandard": {
+      "registryId": "gaming.gamingStoreContractStandard",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.internalOrder": {
+      "registryId": "gaming.internalOrder",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.internalQuote": {
+      "registryId": "gaming.internalQuote",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.offer": {
+      "registryId": "gaming.offer",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.order-created": {
+      "registryId": "gaming.order-created",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.orders.manage": {
+      "registryId": "gaming.orders.manage",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.payment-confirmed": {
+      "registryId": "gaming.payment-confirmed",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.product": {
+      "registryId": "gaming.product",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.products.manage": {
+      "registryId": "gaming.products.manage",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.publicOrder": {
+      "registryId": "gaming.publicOrder",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.publicQuote": {
+      "registryId": "gaming.publicQuote",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.purchaseField": {
+      "registryId": "gaming.purchaseField",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.read": {
+      "registryId": "gaming.read",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.refund-completed": {
+      "registryId": "gaming.refund-completed",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.refund-requested": {
+      "registryId": "gaming.refund-requested",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.regionRule": {
+      "registryId": "gaming.regionRule",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.registry": {
+      "registryId": "gaming.registry",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.supplier-availability-changed": {
+      "registryId": "gaming.supplier-availability-changed",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.supplier-health-changed": {
+      "registryId": "gaming.supplier-health-changed",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.supplierCapabilities": {
+      "registryId": "gaming.supplierCapabilities",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.supplierOfferMapping": {
+      "registryId": "gaming.supplierOfferMapping",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.suppliers.manage": {
+      "registryId": "gaming.suppliers.manage",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "gaming.validationResponse": {
+      "registryId": "gaming.validationResponse",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
     "integration.connected": {
       "registryId": "integration.connected",
       "introducedIn": "0.14.0",
@@ -13935,74 +14556,74 @@
     },
     "integrations.accountReference": {
       "registryId": "integrations.accountReference",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.actionBinding": {
       "registryId": "integrations.actionBinding",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.apiKeyConfiguration": {
       "registryId": "integrations.apiKeyConfiguration",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.authenticationProfile": {
       "registryId": "integrations.authenticationProfile",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.capabilityBinding": {
       "registryId": "integrations.capabilityBinding",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.capabilityDefinition": {
       "registryId": "integrations.capabilityDefinition",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.configurationField": {
       "registryId": "integrations.configurationField",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.configurationValue": {
       "registryId": "integrations.configurationValue",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.connections.create": {
@@ -14052,31 +14673,31 @@
     },
     "integrations.connectionStatus": {
       "registryId": "integrations.connectionStatus",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.connectionTest": {
       "registryId": "integrations.connectionTest",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.connectorDefinition": {
       "registryId": "integrations.connectorDefinition",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [
         "0.33.0"
       ],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.33.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": [
         {
           "entryId": "chg_2f5873ec7c9747",
@@ -14088,29 +14709,29 @@
     },
     "integrations.consentBinding": {
       "registryId": "integrations.consentBinding",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.conversionMapping": {
       "registryId": "integrations.conversionMapping",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.credentialReference": {
       "registryId": "integrations.credentialReference",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.credentials.manage": {
@@ -14133,110 +14754,128 @@
     },
     "integrations.crm": {
       "registryId": "integrations.crm",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.customApi": {
       "registryId": "integrations.customApi",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.dataMapping": {
       "registryId": "integrations.dataMapping",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.dataMappingField": {
       "registryId": "integrations.dataMappingField",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.dataPolicyBinding": {
       "registryId": "integrations.dataPolicyBinding",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.emailProvider": {
       "registryId": "integrations.emailProvider",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.environmentBinding": {
       "registryId": "integrations.environmentBinding",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.eventMapping": {
       "registryId": "integrations.eventMapping",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "integrations.fazerCards": {
+      "registryId": "integrations.fazerCards",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
+    },
+    "integrations.gamingSupplier": {
+      "registryId": "integrations.gamingSupplier",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.googleAds": {
       "registryId": "integrations.googleAds",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.googleAnalytics4": {
       "registryId": "integrations.googleAnalytics4",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.googleSearchConsole": {
       "registryId": "integrations.googleSearchConsole",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.googleTagManager": {
       "registryId": "integrations.googleTagManager",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.health.view": {
@@ -14250,56 +14889,56 @@
     },
     "integrations.healthCheck": {
       "registryId": "integrations.healthCheck",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.healthSnapshot": {
       "registryId": "integrations.healthSnapshot",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.integrationConnection": {
       "registryId": "integrations.integrationConnection",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.integrationContractStandard": {
       "registryId": "integrations.integrationContractStandard",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.integrationError": {
       "registryId": "integrations.integrationError",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.linkedin": {
       "registryId": "integrations.linkedin",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.mappings.edit": {
@@ -14331,101 +14970,101 @@
     },
     "integrations.meta": {
       "registryId": "integrations.meta",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.microsoftAds": {
       "registryId": "integrations.microsoftAds",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.microsoftClarity": {
       "registryId": "integrations.microsoftClarity",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.oauthConfiguration": {
       "registryId": "integrations.oauthConfiguration",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.providerActionDefinition": {
       "registryId": "integrations.providerActionDefinition",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.providerDefinition": {
       "registryId": "integrations.providerDefinition",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.rateLimitState": {
       "registryId": "integrations.rateLimitState",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.resourceReference": {
       "registryId": "integrations.resourceReference",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.retryPolicy": {
       "registryId": "integrations.retryPolicy",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.runtimeBinding": {
       "registryId": "integrations.runtimeBinding",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.secretReference": {
       "registryId": "integrations.secretReference",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.sync.manage": {
@@ -14448,56 +15087,56 @@
     },
     "integrations.syncCursor": {
       "registryId": "integrations.syncCursor",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.syncPolicy": {
       "registryId": "integrations.syncPolicy",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.syncResult": {
       "registryId": "integrations.syncResult",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.syncRun": {
       "registryId": "integrations.syncRun",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.tiktok": {
       "registryId": "integrations.tiktok",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "integrations.webhook": {
       "registryId": "integrations.webhook",
-      "introducedIn": "0.11.0",
+      "introducedIn": "1.2.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.11.0",
+      "latestRelatedRelease": "1.2.0",
       "entries": []
     },
     "inventory.adjusted": {
@@ -21284,6 +21923,15 @@
           "title": "Six framework-neutral Site Starter Contract Packs are now available for Corporate, Service Business, Lead Generation, Ecommerce, Documentation and Custom Extension projects."
         }
       ]
+    },
+    "starters.gaming": {
+      "registryId": "starters.gaming",
+      "introducedIn": "1.2.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.2.0",
+      "entries": []
     },
     "starters.index": {
       "registryId": "starters.index",

@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.0.0",
   "title": "Relationship Type Vocabulary",
   "description": "Controlled semantic metadata for explicit Contract Registry relationship types and graph-only derived associations.",

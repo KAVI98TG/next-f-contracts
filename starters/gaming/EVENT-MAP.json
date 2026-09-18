@@ -1,0 +1,18 @@
+{
+  "contractVersion": "1.2.0",
+  "authoritativeDomainEvents": [
+    "gaming.order-created",
+    "gaming.payment-confirmed",
+    "gaming.account-validated",
+    "gaming.fulfillment-submitted",
+    "gaming.fulfillment-processing",
+    "gaming.fulfillment-completed",
+    "gaming.fulfillment-failed",
+    "gaming.refund-requested",
+    "gaming.refund-completed",
+    "gaming.catalog-sync-completed",
+    "gaming.catalog-sync-failed",
+    "gaming.supplier-availability-changed",
+    "gaming.supplier-health-changed"
+  ]
+}

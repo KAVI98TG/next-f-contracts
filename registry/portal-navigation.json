@@ -1,5 +1,5 @@
 {
-  "portalVersion": "1.1.0",
+  "portalVersion": "1.2.0",
   "theme": "light",
   "groups": [
     {
@@ -11,7 +11,7 @@
           "path": "/overview",
           "label": "Overview",
           "status": "current",
-          "phase": 34
+          "phase": 33
         },
         {
           "id": "global-search",
@@ -339,5 +339,5 @@
       ]
     }
   ],
-  "registryVersion": "1.1.0"
+  "registryVersion": "1.2.0"
 }

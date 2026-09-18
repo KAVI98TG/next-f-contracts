@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "domains": [
     {
       "id": "accessibility",
@@ -90,6 +90,11 @@
       "id": "foundation",
       "label": "Foundation",
       "description": "Constitution, terminology, naming, architecture, ownership and security foundations."
+    },
+    {
+      "id": "gaming",
+      "label": "Gaming Store",
+      "description": "Supplier-neutral digital gaming marketplace contracts."
     },
     {
       "id": "integrations",

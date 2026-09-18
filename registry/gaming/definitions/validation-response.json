@@ -1,0 +1,91 @@
+{
+  "$id": "gaming.validationResponse",
+  "name": "Gaming Validation Response",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "validation",
+  "description": "Customer-safe account validation response.",
+  "purpose": "Customer-safe account validation response.",
+  "gamingModel": {
+    "kind": "public-projection",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "valid",
+      "required": true,
+      "nullable": false,
+      "description": "Whether validation succeeded.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "displayName",
+      "required": false,
+      "nullable": true,
+      "description": "Safe account display name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "region",
+      "required": false,
+      "nullable": true,
+      "description": "Safe region label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "message",
+      "required": false,
+      "nullable": true,
+      "description": "Customer-safe validation message.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "rawProviderPayloadForbidden",
+      "description": "Raw supplier payloads never appear in validation responses."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Validation Response",
+    "icon": "fa-gamepad",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "valid",
+      "displayName",
+      "region",
+      "message"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

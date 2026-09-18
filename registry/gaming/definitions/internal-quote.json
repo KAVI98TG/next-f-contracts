@@ -1,0 +1,174 @@
+{
+  "$id": "gaming.internalQuote",
+  "name": "Gaming Internal Quote",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "pricing",
+  "description": "Trusted quote snapshot including supplier cost, FX, fees, margin and selected routing data.",
+  "purpose": "Trusted quote snapshot including supplier cost, FX, fees, margin and selected routing data.",
+  "gamingModel": {
+    "kind": "internal-record",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "quoteId",
+      "required": true,
+      "nullable": false,
+      "description": "Quote ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "offerId",
+      "required": true,
+      "nullable": false,
+      "description": "Offer ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "selectedMappingId",
+      "required": true,
+      "nullable": false,
+      "description": "Selected supplier mapping ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "supplierCost",
+      "required": true,
+      "nullable": false,
+      "description": "Supplier cost snapshot.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "supplierCurrency",
+      "required": true,
+      "nullable": false,
+      "description": "Supplier currency.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "fxResult",
+      "required": false,
+      "nullable": true,
+      "description": "Foreign-exchange calculation result.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "gatewayFee",
+      "required": false,
+      "nullable": true,
+      "description": "Gateway fee snapshot.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "margin",
+      "required": false,
+      "nullable": true,
+      "description": "Internal margin snapshot.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "retailAmount",
+      "required": true,
+      "nullable": false,
+      "description": "Final retail amount.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "quantity",
+      "required": true,
+      "nullable": false,
+      "description": "Quoted quantity.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "requestedAmount",
+      "required": false,
+      "nullable": true,
+      "description": "Customer requested amount for amount-based offers.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Creation timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "expiresAt",
+      "required": true,
+      "nullable": false,
+      "description": "Expiry timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "gaming.offer",
+      "description": "Quote belongs to one offer."
+    },
+    {
+      "type": "references",
+      "target": "gaming.supplierOfferMapping",
+      "description": "Internal quote may reference selected supplier mapping."
+    },
+    {
+      "type": "uses",
+      "target": "commerce.moneySnapshot",
+      "description": "Money fields reuse Commerce money semantics."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "expiresAfterCreated",
+      "description": "Quote expiry must be after quote creation."
+    },
+    {
+      "id": "serverRevalidated",
+      "description": "Checkout must verify quote server-side before order/charge creation."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Internal Quote",
+    "icon": "fa-gamepad",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "quoteId",
+      "offerId",
+      "selectedMappingId",
+      "supplierCost"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

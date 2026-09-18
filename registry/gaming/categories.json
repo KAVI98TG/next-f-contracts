@@ -1,0 +1,45 @@
+{
+  "registryVersion": "1.2.0",
+  "categories": [
+    {
+      "id": "catalog",
+      "label": "Catalog",
+      "description": "Supplier-neutral Gaming products, offers and purchase fields."
+    },
+    {
+      "id": "pricing",
+      "label": "Pricing & Quotes",
+      "description": "Retail pricing modes, amount constraints and quote projections."
+    },
+    {
+      "id": "validation",
+      "label": "Account Validation",
+      "description": "Capability-driven player/account validation without exposing provider payloads."
+    },
+    {
+      "id": "region",
+      "label": "Regions",
+      "description": "Customer-safe region restrictions and country policy."
+    },
+    {
+      "id": "availability",
+      "label": "Availability",
+      "description": "Availability, stock and quantity snapshots beyond a single boolean."
+    },
+    {
+      "id": "supplier",
+      "label": "Supplier Routing",
+      "description": "Internal provider-neutral routing, capability and mapping contracts."
+    },
+    {
+      "id": "orders",
+      "label": "Orders",
+      "description": "Public and internal Gaming order lifecycle projections."
+    },
+    {
+      "id": "fulfillment",
+      "label": "Digital Fulfillment",
+      "description": "Fulfillment state and secure digital deliverables."
+    }
+  ]
+}

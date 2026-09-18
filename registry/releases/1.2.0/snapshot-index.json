@@ -1,0 +1,70 @@
+{
+  "registryVersion": "1.2.0",
+  "releaseVersion": "1.2.0",
+  "phase": 39,
+  "title": "NEXT F Contracts V1.2.0 Snapshot Index",
+  "frozenAt": "2026-09-14T04:39:39.949Z",
+  "previousStableVersion": "1.1.0",
+  "snapshots": [
+    {
+      "path": "registry/releases/1.2.0/snapshots/api-contracts.json",
+      "sha256": "769b21a2d2b350f99efe559e72badeb96efbbc837a148f20f6266bf9fbd9ff49",
+      "bytes": 386548
+    },
+    {
+      "path": "registry/releases/1.2.0/snapshots/compatibility.json",
+      "sha256": "153a362b81698d29e2b23a2099e31f62479acf9be6ad04a768d13f5c5cf58635",
+      "bytes": 1292
+    },
+    {
+      "path": "registry/releases/1.2.0/snapshots/events.json",
+      "sha256": "67a2e1f682bf80da1831703905566a6ff9b435b484fedb9db50670223c4318b0",
+      "bytes": 763911
+    },
+    {
+      "path": "registry/releases/1.2.0/snapshots/gaming-site-manifest.json",
+      "sha256": "b7b5370f9192ac75826ef48705909e2eaf7a5d5a88021ecaad28e198911266c3",
+      "bytes": 6803
+    },
+    {
+      "path": "registry/releases/1.2.0/snapshots/gaming.json",
+      "sha256": "3b64c86fd90ec339ac91d6ca5f3e6a151fad71f48f9d79dc18ab517627c7bed7",
+      "bytes": 64118
+    },
+    {
+      "path": "registry/releases/1.2.0/snapshots/integrations.json",
+      "sha256": "43408b6857fc68e69fc88aa2358ecdcdd1213e1c1b6d6baef28c4130a1d9f4e4",
+      "bytes": 178962
+    },
+    {
+      "path": "registry/releases/1.2.0/snapshots/modules.json",
+      "sha256": "710c5fbad7ed08af5c4f727985291ecbadaba1a623a8d184c5a627ef873f30b9",
+      "bytes": 171428
+    },
+    {
+      "path": "registry/releases/1.2.0/snapshots/permissions.json",
+      "sha256": "305f46f73c4d35e8854e2e68783d46fd6fe3ede88697e5b77c8198aab447b42c",
+      "bytes": 358493
+    },
+    {
+      "path": "registry/releases/1.2.0/snapshots/registry.json",
+      "sha256": "3ab2de9a05cfe06b3f43487c0c538e84a1418c9783d93a206357f0703b49fdc7",
+      "bytes": 2694712
+    },
+    {
+      "path": "registry/releases/1.2.0/snapshots/relationships.json",
+      "sha256": "d252857dbff7822d97186f4bb2f66b25f0b3728f27935f2ca616105cfb32fdfe",
+      "bytes": 3753086
+    },
+    {
+      "path": "registry/releases/1.2.0/snapshots/search.json",
+      "sha256": "28512ff6f046c12aa1d61fb5fa8ba2a777e98182040f3b0676254332f659a2e0",
+      "bytes": 11857168
+    },
+    {
+      "path": "registry/releases/1.2.0/snapshots/site-manifest.schema.json",
+      "sha256": "af451747b5bb5d9d8c4e9077f0d16898ecd1ae95eb522a0c6fa970e6173fe33a",
+      "bytes": 12625
+    }
+  ]
+}

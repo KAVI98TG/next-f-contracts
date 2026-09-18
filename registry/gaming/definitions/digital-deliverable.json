@@ -1,0 +1,133 @@
+{
+  "$id": "gaming.digitalDeliverable",
+  "name": "Gaming Digital Deliverable",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "fulfillment",
+  "description": "Secure deliverable shape for digital codes, PINs, serials, activation keys, redemption URLs, top-up confirmations and instructions.",
+  "purpose": "Secure deliverable shape for digital codes, PINs, serials, activation keys, redemption URLs, top-up confirmations and instructions.",
+  "gamingModel": {
+    "kind": "secure-record",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "secret"
+  },
+  "fields": [
+    {
+      "key": "deliverableId",
+      "required": true,
+      "nullable": false,
+      "description": "Deliverable ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "orderId",
+      "required": true,
+      "nullable": false,
+      "description": "Gaming order ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "kind",
+      "required": true,
+      "nullable": false,
+      "description": "Deliverable kind.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "code",
+          "pin",
+          "serial",
+          "activation-key",
+          "redemption-url",
+          "topup-confirmation",
+          "instruction"
+        ]
+      }
+    },
+    {
+      "key": "sensitive",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the deliverable value is secret-bearing.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "valueRef",
+      "required": true,
+      "nullable": false,
+      "description": "Protected value reference, never the live secret value.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "redactionPolicy",
+      "required": true,
+      "nullable": false,
+      "description": "Display/log redaction policy.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "availableUntil",
+      "required": false,
+      "nullable": true,
+      "description": "Availability expiration.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "gaming.internalOrder",
+      "description": "Deliverable belongs to an authorized order."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "secretValuesNotInRegistry",
+      "description": "Registry examples and public payloads never include real code, PIN, serial or key values."
+    },
+    {
+      "id": "secureOperationOnly",
+      "description": "Secret-bearing values require authenticated secure delivery retrieval."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Digital Deliverable",
+    "icon": "fa-gamepad",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "deliverableId",
+      "orderId",
+      "kind",
+      "sensitive"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

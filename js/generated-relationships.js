@@ -1,26 +1,26 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source: registry/relationships/relationship-index.json
-// SHA-256: 4e9aad6be81790dbb46f847581b375d1af5fc09b4a466dcd4edc7a604cd64200
-export const GENERATED_RELATIONSHIP_INDEX_SHA256 = "4e9aad6be81790dbb46f847581b375d1af5fc09b4a466dcd4edc7a604cd64200";
+// SHA-256: d252857dbff7822d97186f4bb2f66b25f0b3728f27935f2ca616105cfb32fdfe
+export const GENERATED_RELATIONSHIP_INDEX_SHA256 = "d252857dbff7822d97186f4bb2f66b25f0b3728f27935f2ca616105cfb32fdfe";
 export const GENERATED_RELATIONSHIP_INDEX = {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Relationship Index",
   "description": "Generated bounded graph projection for Relationship Explorer discovery.",
   "source": "registry/registry.json",
-  "sourceSha256": "2c9d133f373d7e495e37d8cbf2f6b3f2d689031b939b04e2dbc3ec134b2186fa",
+  "sourceSha256": "3ab2de9a05cfe06b3f43487c0c538e84a1418c9783d93a206357f0703b49fdc7",
   "stats": {
-    "nodes": 2284,
-    "edges": 8759,
-    "explicitEdges": 5602,
-    "permissionAssociations": 2902,
-    "eventAssociations": 255,
+    "nodes": 2371,
+    "edges": 8898,
+    "explicitEdges": 5713,
+    "permissionAssociations": 2920,
+    "eventAssociations": 267,
     "relationshipTypes": 26,
-    "isolatedNodes": 86,
-    "parallelEdgeGroups": 13,
-    "selfLoops": 5,
-    "symbolicAssociations": 22,
-    "unresolvedExplicitTargets": 0
+    "isolatedNodes": 87,
+    "parallelEdgeGroups": 28,
+    "selfLoops": 10,
+    "symbolicAssociations": 24,
+    "unresolvedExplicitTargets": 2
   },
   "nodes": [
     {
@@ -2100,6 +2100,54 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 8
     },
     {
+      "id": "adminUi.profile.gaming.catalog",
+      "name": "Gaming Catalog Admin",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/admin-ui/profiles/gaming-catalog-admin.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "adminUi.profile.gaming.finance",
+      "name": "Gaming Finance Admin",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/admin-ui/profiles/gaming-finance-admin.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "adminUi.profile.gaming.orders",
+      "name": "Gaming Orders Admin",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/admin-ui/profiles/gaming-orders-admin.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "adminUi.profile.gaming.suppliers",
+      "name": "Gaming Suppliers Admin",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/admin-ui/profiles/gaming-suppliers-admin.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
       "id": "adminUi.profile.integrations.connections",
       "name": "Connections Admin",
       "domain": "admin-ui",
@@ -2684,8 +2732,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "standards/26-api-contract-standard.md",
       "outgoing": 0,
-      "incoming": 172,
-      "degree": 172
+      "incoming": 175,
+      "degree": 175
     },
     {
       "id": "api.auth-modes",
@@ -2756,8 +2804,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 18,
       "source": "registry/api/schemas/commandResult.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 18,
+      "degree": 19
     },
     {
       "id": "api.commerce",
@@ -3742,6 +3790,306 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 1,
       "incoming": 0,
       "degree": 1
+    },
+    {
+      "id": "api.gaming-admin",
+      "name": "Gaming Admin API",
+      "domain": "api",
+      "type": "api-group",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/groups/gaming-admin.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "api.gaming-admin.order-action",
+      "name": "Run Gaming Order Action",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-admin/order-action.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
+    },
+    {
+      "id": "api.gaming-admin.read-catalog",
+      "name": "Read Gaming Catalog",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-admin/read-catalog.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-admin.read-finance",
+      "name": "Read Gaming Finance",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-admin/read-finance.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-admin.read-orders",
+      "name": "Read Gaming Orders",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-admin/read-orders.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-admin.read-supplier-mappings",
+      "name": "Read Gaming Supplier Mappings",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-admin/read-supplier-mappings.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-admin.read-supplier-status",
+      "name": "Read Gaming Supplier Status",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-admin/read-supplier-status.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-admin.update-supplier-mapping",
+      "name": "Update Gaming Supplier Mapping",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-admin/update-supplier-mapping.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-admin.upsert-offer",
+      "name": "Create or Update Gaming Offer",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-admin/upsert-offer.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-admin.upsert-product",
+      "name": "Create or Update Gaming Product",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-admin/upsert-product.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-public",
+      "name": "Gaming Public API",
+      "domain": "api",
+      "type": "api-group",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/groups/gaming-public.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "api.gaming-public.create-checkout",
+      "name": "Create Gaming Checkout Intent",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-public/create-checkout.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-public.create-quote",
+      "name": "Create Gaming Offer Quote",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-public/create-quote.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "api.gaming-public.get-order",
+      "name": "Get Public Gaming Order Status",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-public/get-order.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "api.gaming-public.get-order-delivery",
+      "name": "Get Secure Gaming Order Delivery",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-public/get-order-delivery.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-public.get-product",
+      "name": "Get Public Gaming Product",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-public/get-product.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "api.gaming-public.list-products",
+      "name": "List Public Gaming Products",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-public/list-products.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "api.gaming-public.store-bootstrap",
+      "name": "Get Gaming Store Bootstrap",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-public/store-bootstrap.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
+    },
+    {
+      "id": "api.gaming-public.validate-account",
+      "name": "Validate Gaming Account",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-public/validate-account.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "api.gaming-service",
+      "name": "Gaming Service API",
+      "domain": "api",
+      "type": "api-group",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/groups/gaming-service.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "api.gaming-service.receive-supplier-webhook",
+      "name": "Receive Gaming Supplier Webhook",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-service/receive-supplier-webhook.json",
+      "outgoing": 4,
+      "incoming": 0,
+      "degree": 4
+    },
+    {
+      "id": "api.gaming-service.refresh-fulfillment",
+      "name": "Refresh Gaming Fulfillment",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-service/refresh-fulfillment.json",
+      "outgoing": 4,
+      "incoming": 0,
+      "degree": 4
+    },
+    {
+      "id": "api.gaming-service.submit-fulfillment",
+      "name": "Submit Gaming Fulfillment",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-service/submit-fulfillment.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-service.sync-availability",
+      "name": "Sync Gaming Availability",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-service/sync-availability.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "api.gaming-service.sync-catalog",
+      "name": "Sync Gaming Catalog",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/api/operations/gaming-service/sync-catalog.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
     },
     {
       "id": "api.health",
@@ -5192,8 +5540,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 27,
       "source": "standards/35-changelog-standard.md",
       "outgoing": 3,
-      "incoming": 62,
-      "degree": 65
+      "incoming": 63,
+      "degree": 66
     },
     {
       "id": "changelog.compatibilityReference",
@@ -5770,6 +6118,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 16,
       "incoming": 0,
       "degree": 16
+    },
+    {
+      "id": "changelog.release.1.2.0",
+      "name": "V1.2.0 - Gaming Store Canonical Contracts",
+      "domain": "changelog",
+      "type": "release-note",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/changelog/releases/1.2.0.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
     },
     {
       "id": "changelog.releaseCollection",
@@ -7392,6 +7752,54 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 11
     },
     {
+      "id": "cmsUi.profile.gaming.catalog",
+      "name": "Gaming Catalog",
+      "domain": "cms-ui",
+      "type": "ui-profile",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/cms-ui/profiles/gaming-catalog.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
+    },
+    {
+      "id": "cmsUi.profile.gaming.finance",
+      "name": "Gaming Finance",
+      "domain": "cms-ui",
+      "type": "ui-profile",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/cms-ui/profiles/gaming-finance.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "cmsUi.profile.gaming.orders",
+      "name": "Gaming Orders",
+      "domain": "cms-ui",
+      "type": "ui-profile",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/cms-ui/profiles/gaming-orders.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "cmsUi.profile.gaming.suppliers",
+      "name": "Gaming Suppliers",
+      "domain": "cms-ui",
+      "type": "ui-profile",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/cms-ui/profiles/gaming-suppliers.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
       "id": "cmsUi.profile.integrations.connections",
       "name": "Integration Connections",
       "domain": "cms-ui",
@@ -8672,8 +9080,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/money-snapshot.json",
       "outgoing": 1,
-      "incoming": 17,
-      "degree": 18
+      "incoming": 20,
+      "degree": 21
     },
     {
       "id": "commerce.order",
@@ -8804,8 +9212,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 11,
       "source": "registry/commerce/definitions/payment.json",
       "outgoing": 12,
-      "incoming": 52,
-      "degree": 64
+      "incoming": 53,
+      "degree": 65
     },
     {
       "id": "commerce.paymentAttempt",
@@ -17508,6 +17916,582 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 3
     },
     {
+      "id": "gaming.account-validated",
+      "name": "Gaming Account Validated",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--account-validated.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "gaming.account-validated",
+      "name": "Gaming Account Validated",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--account-validated.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "gaming.accountValidationPolicy",
+      "name": "Gaming Account Validation Policy",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/account-validation-policy.json",
+      "outgoing": 1,
+      "incoming": 1,
+      "degree": 2
+    },
+    {
+      "id": "gaming.availability",
+      "name": "Gaming Availability",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/availability.json",
+      "outgoing": 1,
+      "incoming": 3,
+      "degree": 4
+    },
+    {
+      "id": "gaming.catalog-sync-completed",
+      "name": "Gaming Catalog Sync Completed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--catalog-sync-completed.json",
+      "outgoing": 2,
+      "incoming": 1,
+      "degree": 3
+    },
+    {
+      "id": "gaming.catalog-sync-completed",
+      "name": "Gaming Catalog Sync Completed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--catalog-sync-completed.json",
+      "outgoing": 2,
+      "incoming": 1,
+      "degree": 3
+    },
+    {
+      "id": "gaming.catalog-sync-failed",
+      "name": "Gaming Catalog Sync Failed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--catalog-sync-failed.json",
+      "outgoing": 2,
+      "incoming": 1,
+      "degree": 3
+    },
+    {
+      "id": "gaming.catalog-sync-failed",
+      "name": "Gaming Catalog Sync Failed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--catalog-sync-failed.json",
+      "outgoing": 2,
+      "incoming": 1,
+      "degree": 3
+    },
+    {
+      "id": "gaming.digitalDeliverable",
+      "name": "Gaming Digital Deliverable",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/digital-deliverable.json",
+      "outgoing": 2,
+      "incoming": 2,
+      "degree": 4
+    },
+    {
+      "id": "gaming.finance.manage",
+      "name": "Manage Gaming Finance",
+      "domain": "gaming",
+      "type": "permission",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/permissions/permissions/gaming.finance.manage.json",
+      "outgoing": 2,
+      "incoming": 4,
+      "degree": 6
+    },
+    {
+      "id": "gaming.fulfillment",
+      "name": "Gaming Fulfillment",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/fulfillment.json",
+      "outgoing": 3,
+      "incoming": 8,
+      "degree": 11
+    },
+    {
+      "id": "gaming.fulfillment-completed",
+      "name": "Gaming Fulfillment Completed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--fulfillment-completed.json",
+      "outgoing": 2,
+      "incoming": 2,
+      "degree": 4
+    },
+    {
+      "id": "gaming.fulfillment-completed",
+      "name": "Gaming Fulfillment Completed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--fulfillment-completed.json",
+      "outgoing": 2,
+      "incoming": 2,
+      "degree": 4
+    },
+    {
+      "id": "gaming.fulfillment-failed",
+      "name": "Gaming Fulfillment Failed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--fulfillment-failed.json",
+      "outgoing": 2,
+      "incoming": 2,
+      "degree": 4
+    },
+    {
+      "id": "gaming.fulfillment-failed",
+      "name": "Gaming Fulfillment Failed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--fulfillment-failed.json",
+      "outgoing": 2,
+      "incoming": 2,
+      "degree": 4
+    },
+    {
+      "id": "gaming.fulfillment-processing",
+      "name": "Gaming Fulfillment Processing",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--fulfillment-processing.json",
+      "outgoing": 2,
+      "incoming": 2,
+      "degree": 4
+    },
+    {
+      "id": "gaming.fulfillment-processing",
+      "name": "Gaming Fulfillment Processing",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--fulfillment-processing.json",
+      "outgoing": 2,
+      "incoming": 2,
+      "degree": 4
+    },
+    {
+      "id": "gaming.fulfillment-submitted",
+      "name": "Gaming Fulfillment Submitted",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--fulfillment-submitted.json",
+      "outgoing": 2,
+      "incoming": 2,
+      "degree": 4
+    },
+    {
+      "id": "gaming.fulfillment-submitted",
+      "name": "Gaming Fulfillment Submitted",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--fulfillment-submitted.json",
+      "outgoing": 2,
+      "incoming": 2,
+      "degree": 4
+    },
+    {
+      "id": "gaming.gamingStoreContractStandard",
+      "name": "Gaming Store Contract Standard",
+      "domain": "gaming",
+      "type": "standard",
+      "status": "stable",
+      "phase": 39,
+      "source": "standards/47-gaming-store-contract-standard.md",
+      "outgoing": 2,
+      "incoming": 16,
+      "degree": 18
+    },
+    {
+      "id": "gaming.internalOrder",
+      "name": "Gaming Internal Order",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/internal-order.json",
+      "outgoing": 3,
+      "incoming": 14,
+      "degree": 17
+    },
+    {
+      "id": "gaming.internalQuote",
+      "name": "Gaming Internal Quote",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/internal-quote.json",
+      "outgoing": 4,
+      "incoming": 5,
+      "degree": 9
+    },
+    {
+      "id": "gaming.offer",
+      "name": "Gaming Offer",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/offer.json",
+      "outgoing": 6,
+      "incoming": 4,
+      "degree": 10
+    },
+    {
+      "id": "gaming.order-created",
+      "name": "Gaming Order Created",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--order-created.json",
+      "outgoing": 2,
+      "incoming": 1,
+      "degree": 3
+    },
+    {
+      "id": "gaming.order-created",
+      "name": "Gaming Order Created",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--order-created.json",
+      "outgoing": 2,
+      "incoming": 1,
+      "degree": 3
+    },
+    {
+      "id": "gaming.orders.manage",
+      "name": "Manage Gaming Orders",
+      "domain": "gaming",
+      "type": "permission",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/permissions/permissions/gaming.orders.manage.json",
+      "outgoing": 2,
+      "incoming": 5,
+      "degree": 7
+    },
+    {
+      "id": "gaming.payment-confirmed",
+      "name": "Gaming Payment Confirmed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--payment-confirmed.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "gaming.payment-confirmed",
+      "name": "Gaming Payment Confirmed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--payment-confirmed.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "gaming.product",
+      "name": "Gaming Product",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/product.json",
+      "outgoing": 2,
+      "incoming": 8,
+      "degree": 10
+    },
+    {
+      "id": "gaming.products.manage",
+      "name": "Manage Gaming Products",
+      "domain": "gaming",
+      "type": "permission",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/permissions/permissions/gaming.products.manage.json",
+      "outgoing": 2,
+      "incoming": 5,
+      "degree": 7
+    },
+    {
+      "id": "gaming.publicOrder",
+      "name": "Gaming Public Order",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/public-order.json",
+      "outgoing": 2,
+      "incoming": 3,
+      "degree": 5
+    },
+    {
+      "id": "gaming.publicQuote",
+      "name": "Gaming Public Quote",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/public-quote.json",
+      "outgoing": 2,
+      "incoming": 2,
+      "degree": 4
+    },
+    {
+      "id": "gaming.purchaseField",
+      "name": "Gaming Purchase Field",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/purchase-field.json",
+      "outgoing": 1,
+      "incoming": 1,
+      "degree": 2
+    },
+    {
+      "id": "gaming.read",
+      "name": "Read Gaming",
+      "domain": "gaming",
+      "type": "permission",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/permissions/permissions/gaming.read.json",
+      "outgoing": 2,
+      "incoming": 3,
+      "degree": 5
+    },
+    {
+      "id": "gaming.refund-completed",
+      "name": "Gaming Refund Completed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--refund-completed.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "gaming.refund-completed",
+      "name": "Gaming Refund Completed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--refund-completed.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "gaming.refund-requested",
+      "name": "Gaming Refund Requested",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--refund-requested.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "gaming.refund-requested",
+      "name": "Gaming Refund Requested",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--refund-requested.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "gaming.regionRule",
+      "name": "Gaming Region Rule",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/region-rule.json",
+      "outgoing": 1,
+      "incoming": 1,
+      "degree": 2
+    },
+    {
+      "id": "gaming.registry",
+      "name": "Gaming Store Registry",
+      "domain": "gaming",
+      "type": "registry-index",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/index.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "gaming.supplier-availability-changed",
+      "name": "Gaming Supplier Availability Changed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--supplier-availability-changed.json",
+      "outgoing": 2,
+      "incoming": 1,
+      "degree": 3
+    },
+    {
+      "id": "gaming.supplier-availability-changed",
+      "name": "Gaming Supplier Availability Changed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--supplier-availability-changed.json",
+      "outgoing": 2,
+      "incoming": 1,
+      "degree": 3
+    },
+    {
+      "id": "gaming.supplier-health-changed",
+      "name": "Gaming Supplier Health Changed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/events/events/gaming--supplier-health-changed.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "gaming.supplier-health-changed",
+      "name": "Gaming Supplier Health Changed",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/gaming--supplier-health-changed.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "gaming.supplierCapabilities",
+      "name": "Gaming Supplier Capabilities",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/supplier-capabilities.json",
+      "outgoing": 2,
+      "incoming": 1,
+      "degree": 3
+    },
+    {
+      "id": "gaming.supplierOfferMapping",
+      "name": "Gaming Supplier Offer Mapping",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/supplier-offer-mapping.json",
+      "outgoing": 3,
+      "incoming": 9,
+      "degree": 12
+    },
+    {
+      "id": "gaming.suppliers.manage",
+      "name": "Manage Gaming Suppliers",
+      "domain": "gaming",
+      "type": "permission",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/permissions/permissions/gaming.suppliers.manage.json",
+      "outgoing": 2,
+      "incoming": 6,
+      "degree": 8
+    },
+    {
+      "id": "gaming.validationResponse",
+      "name": "Gaming Validation Response",
+      "domain": "gaming",
+      "type": "schema",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/gaming/definitions/validation-response.json",
+      "outgoing": 1,
+      "incoming": 3,
+      "degree": 4
+    },
+    {
       "id": "integration.connected",
       "name": "Integration Connected",
       "domain": "events",
@@ -17780,8 +18764,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/connector-definition.json",
       "outgoing": 3,
-      "incoming": 20,
-      "degree": 23
+      "incoming": 23,
+      "degree": 26
     },
     {
       "id": "integrations.consentBinding",
@@ -17815,9 +18799,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 10,
       "source": "registry/integrations/definitions/credential-reference.json",
-      "outgoing": 6,
+      "outgoing": 3,
       "incoming": 11,
-      "degree": 17
+      "degree": 14
     },
     {
       "id": "integrations.credentials.manage",
@@ -17828,8 +18812,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.credentials.manage.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "integrations.credentials.view",
@@ -17840,8 +18824,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.credentials.view.json",
       "outgoing": 1,
-      "incoming": 9,
-      "degree": 10
+      "incoming": 8,
+      "degree": 9
     },
     {
       "id": "integrations.crm",
@@ -17935,9 +18919,57 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 10,
       "source": "registry/integrations/definitions/event-mapping.json",
-      "outgoing": 8,
+      "outgoing": 4,
       "incoming": 3,
-      "degree": 11
+      "degree": 7
+    },
+    {
+      "id": "integrations.fazerCards",
+      "name": "FazerCards",
+      "domain": "integrations",
+      "type": "connector",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/integrations/connectors/fazer-cards.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
+    },
+    {
+      "id": "integrations.fazerCards",
+      "name": "FazerCards",
+      "domain": "integrations",
+      "type": "connector",
+      "status": "stable",
+      "phase": 10,
+      "source": "registry/integrations/connectors/fazer-cards.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
+    },
+    {
+      "id": "integrations.gamingSupplier",
+      "name": "Gaming Supplier",
+      "domain": "integrations",
+      "type": "connector",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/integrations/connectors/gaming-supplier.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
+    },
+    {
+      "id": "integrations.gamingSupplier",
+      "name": "Gaming Supplier",
+      "domain": "integrations",
+      "type": "connector",
+      "status": "stable",
+      "phase": 10,
+      "source": "registry/integrations/connectors/gaming-supplier.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
     },
     {
       "id": "integrations.googleAds",
@@ -18020,8 +19052,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/health-snapshot.json",
       "outgoing": 2,
-      "incoming": 4,
-      "degree": 6
+      "incoming": 6,
+      "degree": 8
     },
     {
       "id": "integrations.integrationConnection",
@@ -18044,8 +19076,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "standards/18-integration-contract-standard.md",
       "outgoing": 0,
-      "incoming": 49,
-      "degree": 49
+      "incoming": 54,
+      "degree": 54
     },
     {
       "id": "integrations.integrationError",
@@ -18080,8 +19112,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.mappings.edit.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "integrations.mappings.manage",
@@ -18092,8 +19124,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.mappings.manage.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "integrations.mappings.view",
@@ -18104,8 +19136,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/integrations.mappings.view.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "integrations.meta",
@@ -22280,8 +23312,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "standards/23-permission-registry-standard.md",
       "outgoing": 0,
-      "incoming": 424,
-      "degree": 424
+      "incoming": 427,
+      "degree": 427
     },
     {
       "id": "permissions.policyCondition",
@@ -26060,8 +27092,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 4,
       "source": "registry/core/definitions/media-reference.json",
       "outgoing": 3,
-      "incoming": 25,
-      "degree": 28
+      "incoming": 26,
+      "degree": 29
     },
     {
       "id": "shipment.created",
@@ -26254,6 +27286,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 14,
       "incoming": 1,
       "degree": 15
+    },
+    {
+      "id": "starters.gaming",
+      "name": "Gaming Store Site Starter",
+      "domain": "developer",
+      "type": "starter-pack",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/starters/definitions/gaming.json",
+      "outgoing": 0,
+      "incoming": 0,
+      "degree": 0
     },
     {
       "id": "starters.index",
@@ -31871,6 +32915,86 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "governance",
       "origin": "explicit",
       "description": "Admin profile presents or operates on this canonical contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_85d50f2491884df4fc74",
+      "source": "adminUi.profile.gaming.catalog",
+      "target": "gaming.product",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Admin profile targets this Gaming contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6126fa9e0ce300662964",
+      "source": "adminUi.profile.gaming.catalog",
+      "target": "gaming.products.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_82f46f92840e5b1866b2",
+      "source": "adminUi.profile.gaming.finance",
+      "target": "gaming.finance.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_01e8f67929446cf9b228",
+      "source": "adminUi.profile.gaming.finance",
+      "target": "gaming.internalQuote",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Admin profile targets this Gaming contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7e5f208210c08ea7decc",
+      "source": "adminUi.profile.gaming.orders",
+      "target": "gaming.internalOrder",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Admin profile targets this Gaming contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_176b30c359fc3b4025cd",
+      "source": "adminUi.profile.gaming.orders",
+      "target": "gaming.orders.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ced8239682d60a52772a",
+      "source": "adminUi.profile.gaming.suppliers",
+      "target": "gaming.supplierOfferMapping",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Admin profile targets this Gaming contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5cc98538732485359769",
+      "source": "adminUi.profile.gaming.suppliers",
+      "target": "gaming.suppliers.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
       "ordinal": 0
     },
     {
@@ -37531,6 +38655,496 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "governance",
       "origin": "explicit",
       "description": "Implements API Contract Standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_991cb89191b515753795",
+      "source": "api.gaming-admin",
+      "target": "api.apiContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Gaming API group follows API contract rules.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c36f68952bffc42c1a25",
+      "source": "api.gaming-admin.order-action",
+      "target": "api.commandResult",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e5af5031bce3f47d2634",
+      "source": "api.gaming-admin.order-action",
+      "target": "gaming.fulfillment-submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_554b6fc7a1e3371e1b95",
+      "source": "api.gaming-admin.order-action",
+      "target": "gaming.orders.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_29c3858185ddf55239a2",
+      "source": "api.gaming-admin.read-catalog",
+      "target": "gaming.product",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c7c411aa16f9ee12737b",
+      "source": "api.gaming-admin.read-catalog",
+      "target": "gaming.read",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f034361b4ca7e0ee82e7",
+      "source": "api.gaming-admin.read-finance",
+      "target": "gaming.finance.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_752d0769a5ea14fe4d4b",
+      "source": "api.gaming-admin.read-finance",
+      "target": "gaming.internalQuote",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_11da1b71544c4060d0aa",
+      "source": "api.gaming-admin.read-orders",
+      "target": "gaming.internalOrder",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c7702664afe47bfe9dfe",
+      "source": "api.gaming-admin.read-orders",
+      "target": "gaming.orders.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c4eb3077cebbb7a40a1e",
+      "source": "api.gaming-admin.read-supplier-mappings",
+      "target": "gaming.supplierOfferMapping",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_73fd644f0ead4a355ffe",
+      "source": "api.gaming-admin.read-supplier-mappings",
+      "target": "gaming.suppliers.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_03ee5f6923ff54a02e5e",
+      "source": "api.gaming-admin.read-supplier-status",
+      "target": "gaming.supplierCapabilities",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_49871283c1de860a53c7",
+      "source": "api.gaming-admin.read-supplier-status",
+      "target": "gaming.suppliers.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_15ddf16cc3653bfffecb",
+      "source": "api.gaming-admin.update-supplier-mapping",
+      "target": "gaming.supplierOfferMapping",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1029ac9131bd4ed024c2",
+      "source": "api.gaming-admin.update-supplier-mapping",
+      "target": "gaming.suppliers.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fe7be4c8462edbfc304c",
+      "source": "api.gaming-admin.upsert-offer",
+      "target": "gaming.offer",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_305f95b24c6f2b7f9946",
+      "source": "api.gaming-admin.upsert-offer",
+      "target": "gaming.products.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_659da173ff98069d6577",
+      "source": "api.gaming-admin.upsert-product",
+      "target": "gaming.product",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_470391c2e281ed2d1ca4",
+      "source": "api.gaming-admin.upsert-product",
+      "target": "gaming.products.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_246b7038e7fedbac8657",
+      "source": "api.gaming-public",
+      "target": "api.apiContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Gaming API group follows API contract rules.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_af927235d2e74751b90c",
+      "source": "api.gaming-public.create-checkout",
+      "target": "gaming.order-created",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_233e2513800c76d720cd",
+      "source": "api.gaming-public.create-checkout",
+      "target": "gaming.publicOrder",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b872ab608b92d2a6f618",
+      "source": "api.gaming-public.create-quote",
+      "target": "gaming.publicQuote",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f8d11c86b3eec3082cd2",
+      "source": "api.gaming-public.get-order",
+      "target": "gaming.publicOrder",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_256ac7f4ff855ba6bbd8",
+      "source": "api.gaming-public.get-order-delivery",
+      "target": "gaming.digitalDeliverable",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8a03cddfc4140bcda8ba",
+      "source": "api.gaming-public.get-order-delivery",
+      "target": "gaming.publicOrder",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_799357bc748409c8ffe3",
+      "source": "api.gaming-public.get-product",
+      "target": "gaming.product",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5b3c40c2f409ce5fc5f7",
+      "source": "api.gaming-public.list-products",
+      "target": "gaming.product",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8a8a37ed642598199ab6",
+      "source": "api.gaming-public.store-bootstrap",
+      "target": "gaming.offer",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_860f899ed3d5e41b7de1",
+      "source": "api.gaming-public.store-bootstrap",
+      "target": "gaming.product",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0cdbbc4c2a0cb737715d",
+      "source": "api.gaming-public.store-bootstrap",
+      "target": "gaming.publicQuote",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f8a23af6481ba5ac6daa",
+      "source": "api.gaming-public.validate-account",
+      "target": "gaming.validationResponse",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9a3a45e9c339dfef6198",
+      "source": "api.gaming-service",
+      "target": "api.apiContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Gaming API group follows API contract rules.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_92ff74e4e2a1247cdf22",
+      "source": "api.gaming-service.receive-supplier-webhook",
+      "target": "api.commandResult",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2b95aaba52fb7dc34c94",
+      "source": "api.gaming-service.receive-supplier-webhook",
+      "target": "gaming.fulfillment-completed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2f0730c26293885c506d",
+      "source": "api.gaming-service.receive-supplier-webhook",
+      "target": "gaming.fulfillment-failed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ddabb212a0c5978d4327",
+      "source": "api.gaming-service.receive-supplier-webhook",
+      "target": "gaming.fulfillment-processing",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3f0890b1b8d9baadc1f3",
+      "source": "api.gaming-service.refresh-fulfillment",
+      "target": "api.commandResult",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_51969b588a860328c6bb",
+      "source": "api.gaming-service.refresh-fulfillment",
+      "target": "gaming.fulfillment-completed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_84740cc2d04bc74d9c2f",
+      "source": "api.gaming-service.refresh-fulfillment",
+      "target": "gaming.fulfillment-failed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c2630dfa4a1da9d6f0d3",
+      "source": "api.gaming-service.refresh-fulfillment",
+      "target": "gaming.fulfillment-processing",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9c798d01ee70af95c9ee",
+      "source": "api.gaming-service.submit-fulfillment",
+      "target": "api.commandResult",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e0666e139f2eece04021",
+      "source": "api.gaming-service.submit-fulfillment",
+      "target": "gaming.fulfillment-submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7247105a46b29a6c9e82",
+      "source": "api.gaming-service.sync-availability",
+      "target": "api.commandResult",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_27ab00865fae28fad1f3",
+      "source": "api.gaming-service.sync-availability",
+      "target": "gaming.supplier-availability-changed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fcdf120fdf2b02700ac6",
+      "source": "api.gaming-service.sync-catalog",
+      "target": "api.commandResult",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_26878f102f427d1d6643",
+      "source": "api.gaming-service.sync-catalog",
+      "target": "gaming.catalog-sync-completed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ca171a7cce413ac55dd7",
+      "source": "api.gaming-service.sync-catalog",
+      "target": "gaming.catalog-sync-failed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
       "ordinal": 0
     },
     {
@@ -43914,6 +45528,16 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_9eaef4c6cf5c352478aa",
+      "source": "changelog.release.1.2.0",
+      "target": "changelog.changelogStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Release note follows the NEXT F Changelog Standard.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_bbc1e25c70c2b601f6bf",
       "source": "changelog.releaseCollection",
       "target": "changelog.changelogStandard",
@@ -48841,6 +50465,96 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "dependency",
       "origin": "explicit",
       "description": "Available when the Site Module is enabled.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5cea4a04ede00bf63d43",
+      "source": "cmsUi.profile.gaming.catalog",
+      "target": "gaming.product",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "UI profile targets this Gaming contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_79080687b9cb660a9744",
+      "source": "cmsUi.profile.gaming.catalog",
+      "target": "gaming.products.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_802ad541eeacac9bcf68",
+      "source": "cmsUi.profile.gaming.catalog",
+      "target": "gaming.read",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_27405b50041dcc303d3c",
+      "source": "cmsUi.profile.gaming.finance",
+      "target": "gaming.finance.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bf555f5d8942e17a94b7",
+      "source": "cmsUi.profile.gaming.finance",
+      "target": "gaming.internalQuote",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "UI profile targets this Gaming contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_28f246cd9be19e6ecf08",
+      "source": "cmsUi.profile.gaming.orders",
+      "target": "gaming.internalOrder",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "UI profile targets this Gaming contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f72c4509c5f0647aa227",
+      "source": "cmsUi.profile.gaming.orders",
+      "target": "gaming.orders.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0c2a23b4a24205ece643",
+      "source": "cmsUi.profile.gaming.suppliers",
+      "target": "gaming.supplierOfferMapping",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "UI profile targets this Gaming contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_264019d4035bab649867",
+      "source": "cmsUi.profile.gaming.suppliers",
+      "target": "gaming.suppliers.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
       "ordinal": 0
     },
     {
@@ -80694,6 +82408,736 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_ac263293038f168361c4",
+      "source": "gaming.account-validated",
+      "target": "gaming.validationResponse",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.validationResponse.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1303ed18e3e604f1a679",
+      "source": "gaming.account-validated",
+      "target": "gaming.validationResponse",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.validationResponse.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_8368f175ffbbbd01654b",
+      "source": "gaming.accountValidationPolicy",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2428821618567bd551bc",
+      "source": "gaming.availability",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_846f5227bbed7704a1d5",
+      "source": "gaming.catalog-sync-completed",
+      "target": "gaming.supplierOfferMapping",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.supplierOfferMapping.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_66659ad2e5ff0e498c02",
+      "source": "gaming.catalog-sync-completed",
+      "target": "gaming.supplierOfferMapping",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.supplierOfferMapping.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_8cdf992c3279bef7dc97",
+      "source": "gaming.catalog-sync-failed",
+      "target": "gaming.supplierOfferMapping",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.supplierOfferMapping.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_afd3d193d03b50a01753",
+      "source": "gaming.catalog-sync-failed",
+      "target": "gaming.supplierOfferMapping",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.supplierOfferMapping.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_e927ded5db9781ff7350",
+      "source": "gaming.digitalDeliverable",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5df1a6fa986c4526a0e3",
+      "source": "gaming.digitalDeliverable",
+      "target": "gaming.internalOrder",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Deliverable belongs to an authorized order.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4b36ae57d67fb01b9176",
+      "source": "gaming.finance.manage",
+      "target": "gaming.finance.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_43a2e9bc2b921c4e7cc4",
+      "source": "gaming.finance.manage",
+      "target": "permissions.permissionRegistryStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Gaming permission uses canonical permission semantics.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_167d6e92c4b6be22c2da",
+      "source": "gaming.fulfillment",
+      "target": "gaming.digitalDeliverable",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Secret-bearing deliverables remain separately protected.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2ca9ae4d0f4373e5d7c2",
+      "source": "gaming.fulfillment",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_95a0ecefd6d7cfa024eb",
+      "source": "gaming.fulfillment",
+      "target": "gaming.internalOrder",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Fulfillment belongs to a Gaming order.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b0c8fcdf6c57d3430106",
+      "source": "gaming.fulfillment-completed",
+      "target": "gaming.fulfillment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.fulfillment.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_204f7db38a45bd6935ef",
+      "source": "gaming.fulfillment-completed",
+      "target": "gaming.fulfillment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.fulfillment.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_71f19292229d69c1b679",
+      "source": "gaming.fulfillment-failed",
+      "target": "gaming.fulfillment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.fulfillment.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_83a44db1bfea247cd639",
+      "source": "gaming.fulfillment-failed",
+      "target": "gaming.fulfillment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.fulfillment.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_82746dff01e600f32f38",
+      "source": "gaming.fulfillment-processing",
+      "target": "gaming.fulfillment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.fulfillment.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5a965f99cc2eb7fa1d11",
+      "source": "gaming.fulfillment-processing",
+      "target": "gaming.fulfillment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.fulfillment.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_fcbce24b7405bfbfe319",
+      "source": "gaming.fulfillment-submitted",
+      "target": "gaming.fulfillment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.fulfillment.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_85037ee6dd829b12b76b",
+      "source": "gaming.fulfillment-submitted",
+      "target": "gaming.fulfillment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.fulfillment.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_82d9f6dda814452d5478",
+      "source": "gaming.gamingStoreContractStandard",
+      "target": "commerce.moneySnapshot",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Gaming pricing reuses Commerce money semantics.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3437c3bcebb9991d6c32",
+      "source": "gaming.gamingStoreContractStandard",
+      "target": "integrations.integrationContractStandard",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Supplier adapters live in Integrations.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fa4af80dcc6ffe85cf1c",
+      "source": "gaming.internalOrder",
+      "target": "commerce.payment",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Payment truth remains provider/server verified through Commerce payment concepts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8b8a6e65e36b48bff104",
+      "source": "gaming.internalOrder",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8dcdbd136157b01e5ab6",
+      "source": "gaming.internalOrder",
+      "target": "gaming.internalQuote",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Order is created from a trusted quote.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_93e3a670751ea956e6c1",
+      "source": "gaming.internalQuote",
+      "target": "commerce.moneySnapshot",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Money fields reuse Commerce money semantics.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0e7bc72b8b8698c78ed5",
+      "source": "gaming.internalQuote",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d09a984f2d9539c67908",
+      "source": "gaming.internalQuote",
+      "target": "gaming.offer",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Quote belongs to one offer.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d84fc9fcc9b15b9791a8",
+      "source": "gaming.internalQuote",
+      "target": "gaming.supplierOfferMapping",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Internal quote may reference selected supplier mapping.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_53b0267585d59e3384af",
+      "source": "gaming.offer",
+      "target": "commerce.moneySnapshot",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Retail money uses existing Commerce money semantics.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2b2f12417b578f92bd6e",
+      "source": "gaming.offer",
+      "target": "gaming.accountValidationPolicy",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Validation behavior is policy-driven.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_57669f2c2e2f11fc7d8b",
+      "source": "gaming.offer",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b6bdde215a526ebbc92a",
+      "source": "gaming.offer",
+      "target": "gaming.product",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Offer belongs to one canonical Gaming Product.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1e0d74ecf5875e49ae0f",
+      "source": "gaming.offer",
+      "target": "gaming.purchaseField",
+      "type": "composesMany",
+      "family": "composition",
+      "origin": "explicit",
+      "description": "Offer renders supplier-neutral purchase fields.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c3c40c68558b65a3c978",
+      "source": "gaming.offer",
+      "target": "gaming.regionRule",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Region messaging uses canonical region rules.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e5b87f1387fe216eed98",
+      "source": "gaming.order-created",
+      "target": "gaming.internalOrder",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.internalOrder.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3c00932d47afb32b2c41",
+      "source": "gaming.order-created",
+      "target": "gaming.internalOrder",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.internalOrder.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_e70be1c783055b2dc7dc",
+      "source": "gaming.orders.manage",
+      "target": "gaming.orders.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a5f2b633d64a04095250",
+      "source": "gaming.orders.manage",
+      "target": "permissions.permissionRegistryStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Gaming permission uses canonical permission semantics.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1a6c0ac80a6599b12cfa",
+      "source": "gaming.payment-confirmed",
+      "target": "gaming.internalOrder",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.internalOrder.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_676f6f555d885eb12e8f",
+      "source": "gaming.payment-confirmed",
+      "target": "gaming.internalOrder",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.internalOrder.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_03c6102fed49267a923a",
+      "source": "gaming.product",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_82928d55853713ad9fa4",
+      "source": "gaming.product",
+      "target": "shared.mediaReference",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Artwork should resolve to canonical media references where available.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a2fc97e6a351b2351b32",
+      "source": "gaming.products.manage",
+      "target": "gaming.products.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_abd2179c630ee9ef9e1c",
+      "source": "gaming.products.manage",
+      "target": "permissions.permissionRegistryStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Gaming permission uses canonical permission semantics.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0e838ffad4b810210307",
+      "source": "gaming.publicOrder",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f76275602738eeab6b49",
+      "source": "gaming.publicOrder",
+      "target": "gaming.internalOrder",
+      "type": "generatedFrom",
+      "family": "derivation",
+      "origin": "explicit",
+      "description": "Public order hides supplier and sensitive operational details.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_841da56f37b8eb55f2f8",
+      "source": "gaming.publicQuote",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_30dbe7c959acea51f8cd",
+      "source": "gaming.publicQuote",
+      "target": "gaming.internalQuote",
+      "type": "generatedFrom",
+      "family": "derivation",
+      "origin": "explicit",
+      "description": "Public quote is a safe projection of an internal quote.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_26be4cbb81000c92772c",
+      "source": "gaming.purchaseField",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_496bbdfb1cf5c96634ce",
+      "source": "gaming.read",
+      "target": "gaming.read",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_61a6cadaa2e3d3ad3ba1",
+      "source": "gaming.read",
+      "target": "permissions.permissionRegistryStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Gaming permission uses canonical permission semantics.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f1b0034f1020051285b6",
+      "source": "gaming.refund-completed",
+      "target": "gaming.internalOrder",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.internalOrder.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_980e0da1256a827ea4ce",
+      "source": "gaming.refund-completed",
+      "target": "gaming.internalOrder",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.internalOrder.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_62e4e6fa3387b2a864a0",
+      "source": "gaming.refund-requested",
+      "target": "gaming.internalOrder",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.internalOrder.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a628f2668fb24770098a",
+      "source": "gaming.refund-requested",
+      "target": "gaming.internalOrder",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.internalOrder.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_1f7e9187674fd836385e",
+      "source": "gaming.regionRule",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_733c4cd8a80f39128ef9",
+      "source": "gaming.registry",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Indexes definitions governed by Phase 39.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e458aff5bed60ed17d32",
+      "source": "gaming.supplier-availability-changed",
+      "target": "gaming.availability",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.availability.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_620078364f8337dd7005",
+      "source": "gaming.supplier-availability-changed",
+      "target": "gaming.availability",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be gaming.availability.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_171b261de0ad4f890398",
+      "source": "gaming.supplier-health-changed",
+      "target": "integrations.healthSnapshot",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be integrations.healthSnapshot.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d6d6389fe2684a73964a",
+      "source": "gaming.supplier-health-changed",
+      "target": "integrations.healthSnapshot",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Event subject may be integrations.healthSnapshot.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_e7eda57af025ff96183a",
+      "source": "gaming.supplierCapabilities",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5c09ff2a2fdc4dd695e3",
+      "source": "gaming.supplierCapabilities",
+      "target": "integrations.connectorDefinition",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Supplier capabilities describe connector behavior without exposing credentials.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c69cf61b5ca214d0d921",
+      "source": "gaming.supplierOfferMapping",
+      "target": "gaming.availability",
+      "type": "composes",
+      "family": "composition",
+      "origin": "explicit",
+      "description": "Uses Gaming availability semantics.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_13df36900e313cb6a7f8",
+      "source": "gaming.supplierOfferMapping",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5686a0dcfccf82aa405b",
+      "source": "gaming.supplierOfferMapping",
+      "target": "gaming.offer",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Maps a supplier reference to one canonical Gaming Offer.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9905781f2142e3d622bd",
+      "source": "gaming.suppliers.manage",
+      "target": "gaming.suppliers.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3d5272fe45d65d0efbd6",
+      "source": "gaming.suppliers.manage",
+      "target": "permissions.permissionRegistryStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Gaming permission uses canonical permission semantics.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2d6c0a17e63d2379f202",
+      "source": "gaming.validationResponse",
+      "target": "gaming.gamingStoreContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 39 Gaming Store contracts.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_19b95e98054f6514840f",
       "source": "integration.connected",
       "target": "integrations.integrationConnection",
@@ -81104,26 +83548,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_4cca606ceef165d46647",
-      "source": "integrations.credentialReference",
-      "target": "integrations.credentials.manage",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_db29f57e2ed263185bf1",
-      "source": "integrations.credentialReference",
-      "target": "integrations.credentials.view",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
       "id": "rel_2cbc151925537353e1e6",
       "source": "integrations.credentialReference",
       "target": "integrations.integrationContractStandard",
@@ -81141,16 +83565,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "composition",
       "origin": "explicit",
       "description": "Uses the referenced canonical contract.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_4778b6f0cff23429b04e",
-      "source": "integrations.credentialReference",
-      "target": "permissions.permissionRegistryStandard",
-      "type": "relatedTo",
-      "family": "association",
-      "origin": "explicit",
-      "description": "Authorization for this resource uses canonical Phase 15 permissions.",
       "ordinal": 0
     },
     {
@@ -81344,36 +83758,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_fd342581c9fa02c9a1c4",
-      "source": "integrations.eventMapping",
-      "target": "integrations.mappings.edit",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_085cb5ae7d12effb2b2e",
-      "source": "integrations.eventMapping",
-      "target": "integrations.mappings.manage",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_6afd5bdc5297ea11e1cd",
-      "source": "integrations.eventMapping",
-      "target": "integrations.mappings.view",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
       "id": "rel_0f2c638185f0107e97d7",
       "source": "integrations.eventMapping",
       "target": "integrations.resourceReference",
@@ -81394,14 +83778,64 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_81659a27ff3b3a294869",
-      "source": "integrations.eventMapping",
-      "target": "permissions.permissionRegistryStandard",
-      "type": "relatedTo",
-      "family": "association",
+      "id": "rel_a28c6b3e4f28abbc7014",
+      "source": "integrations.fazerCards",
+      "target": "integrations.connectorDefinition",
+      "type": "references",
+      "family": "reference",
       "origin": "explicit",
-      "description": "Authorization for this resource uses canonical Phase 15 permissions.",
+      "description": "Uses the canonical connector definition model.",
       "ordinal": 0
+    },
+    {
+      "id": "rel_850be3674a27e561efb7",
+      "source": "integrations.fazerCards",
+      "target": "integrations.integrationContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Gaming supplier connector follows Integration rules.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5c9a60fd3bfbf7ca7f26",
+      "source": "integrations.fazerCards",
+      "target": "integrations.integrationContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 10 Integration Contract Standard.",
+      "ordinal": 1
+    },
+    {
+      "id": "rel_61cd52a3a220f3da71cf",
+      "source": "integrations.gamingSupplier",
+      "target": "integrations.connectorDefinition",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Uses the canonical connector definition model.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_42b284dc15602a068618",
+      "source": "integrations.gamingSupplier",
+      "target": "integrations.integrationContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Gaming supplier connector follows Integration rules.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_586ae49730f7e331c769",
+      "source": "integrations.gamingSupplier",
+      "target": "integrations.integrationContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 10 Integration Contract Standard.",
+      "ordinal": 1
     },
     {
       "id": "rel_0db6313baac47d50564f",
@@ -115026,6 +117460,13 @@ export const GENERATED_RELATIONSHIP_INDEX = {
   ],
   "symbolicAssociations": [
     {
+      "source": "gaming.purchaseField",
+      "target": "forms.field",
+      "kind": "relationship",
+      "origin": "explicit",
+      "reason": "Explicit relationship target did not resolve. This is a validation failure."
+    },
+    {
       "source": "marketing.standardTrackingEvents",
       "target": "cta.clicked",
       "kind": "event",
@@ -115178,11 +117619,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "kind": "event",
       "origin": "eventAssociation",
       "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
+    },
+    {
+      "source": "starters.gaming",
+      "target": "modules.gaming",
+      "kind": "relationship",
+      "origin": "explicit",
+      "reason": "Explicit relationship target did not resolve. This is a validation failure."
     }
   ]
 };
 export const GENERATED_RELATIONSHIP_TYPES = {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.0.0",
   "title": "Relationship Type Vocabulary",
   "description": "Controlled semantic metadata for explicit Contract Registry relationship types and graph-only derived associations.",
@@ -115487,7 +117935,7 @@ export const GENERATED_RELATIONSHIP_TYPES = {
   ]
 };
 export const GENERATED_RELATIONSHIP_CONFIG = {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.0.0",
   "title": "Relationship Explorer Configuration",
   "sourceRegistry": "registry/registry.json",

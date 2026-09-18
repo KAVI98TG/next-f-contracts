@@ -1,0 +1,41 @@
+{
+  "$id": "adminUi.profile.gaming.finance",
+  "name": "Gaming Finance Admin",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "profileType": "resource",
+  "resource": "gaming.finance",
+  "moduleId": "gaming",
+  "description": "NEXT F Admin metadata for Gaming Finance Admin.",
+  "targetContracts": [
+    "gaming.internalQuote"
+  ],
+  "primaryTargetContract": "gaming.internalQuote",
+  "route": "/sites/:siteId/gaming/finance",
+  "screenKind": "admin-editor",
+  "layoutTemplate": "admin-operations",
+  "permissions": [
+    "gaming.finance.manage"
+  ],
+  "actions": [
+    {
+      "actionId": "manage",
+      "permissionId": "gaming.finance.manage",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "authorization-denied",
+    "network-error",
+    "success"
+  ],
+  "notes": [
+    "Admin profile metadata does not expose supplier secrets."
+  ]
+}

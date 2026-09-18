@@ -17,7 +17,7 @@
   "relatedRegistryIds": [
     "search.searchIndex"
   ],
-  "version": "1.1.0",
+  "version": "1.2.0",
   "status": "stable",
   "phase": 32,
   "sourceReference": "registry/performance/budgets/perf_budget_007.json"

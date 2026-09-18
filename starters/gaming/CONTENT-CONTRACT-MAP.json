@@ -1,0 +1,56 @@
+{
+  "contractVersion": "1.2.0",
+  "modules": {
+    "gaming": {
+      "capabilities": [
+        "gaming.catalog",
+        "gaming.topups",
+        "gaming.gift-cards",
+        "gaming.game-keys",
+        "gaming.steam-wallet",
+        "gaming.steam-gifts",
+        "gaming.telegram",
+        "gaming.manual-services",
+        "gaming.account-validation",
+        "gaming.supplier-routing",
+        "gaming.digital-fulfillment",
+        "gaming.regional-restrictions",
+        "gaming.dynamic-pricing"
+      ],
+      "contracts": [
+        "gaming.product",
+        "gaming.offer",
+        "gaming.purchaseField",
+        "gaming.accountValidationPolicy",
+        "gaming.regionRule",
+        "gaming.availability",
+        "gaming.supplierCapabilities",
+        "gaming.supplierOfferMapping",
+        "gaming.internalQuote",
+        "gaming.publicQuote",
+        "gaming.internalOrder",
+        "gaming.publicOrder",
+        "gaming.fulfillment",
+        "gaming.digitalDeliverable",
+        "gaming.validationResponse"
+      ]
+    }
+  },
+  "all": [
+    "gaming.product",
+    "gaming.offer",
+    "gaming.purchaseField",
+    "gaming.accountValidationPolicy",
+    "gaming.regionRule",
+    "gaming.availability",
+    "gaming.supplierCapabilities",
+    "gaming.supplierOfferMapping",
+    "gaming.internalQuote",
+    "gaming.publicQuote",
+    "gaming.internalOrder",
+    "gaming.publicOrder",
+    "gaming.fulfillment",
+    "gaming.digitalDeliverable",
+    "gaming.validationResponse"
+  ]
+}

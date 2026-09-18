@@ -75,6 +75,31 @@
       "key": "api.request",
       "label": "API Request",
       "runtime": "server"
+    },
+    {
+      "key": "gaming.catalog.sync",
+      "label": "Sync Gaming Catalog",
+      "runtime": "server"
+    },
+    {
+      "key": "gaming.availability.sync",
+      "label": "Sync Gaming Availability",
+      "runtime": "server"
+    },
+    {
+      "key": "gaming.account.validate",
+      "label": "Validate Gaming Account",
+      "runtime": "server"
+    },
+    {
+      "key": "gaming.fulfillment.submit",
+      "label": "Submit Gaming Fulfillment",
+      "runtime": "server"
+    },
+    {
+      "key": "gaming.fulfillment.refresh",
+      "label": "Refresh Gaming Fulfillment",
+      "runtime": "server"
     }
   ]
 }

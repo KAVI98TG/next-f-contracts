@@ -1,0 +1,166 @@
+{
+  "version": "1.2.0",
+  "title": "Gaming Store Canonical Contracts",
+  "releaseStatus": "published-stable",
+  "releaseDate": "2026-09-14",
+  "phase": 39,
+  "summary": "Adds supplier-neutral NEXT F Gaming Store contracts, APIs, permissions, events, integrations and a gaming.nextf.lk starter while preserving V1.0.0 and V1.1.0 immutable releases.",
+  "recordCompleteness": "complete",
+  "incompletenessReason": null,
+  "provenance": {
+    "exactRegistrySnapshotAvailable": true,
+    "source": "NEXT-F-CONTRACTS-GAMING-STORE-CODEX-GUIDE.md"
+  },
+  "evidence": {
+    "evidenceLevel": "authoritative",
+    "diffAvailable": true,
+    "diffRoute": "#/lifecycle/diff?from=1.1.0&to=1.2.0",
+    "compatibilityRoute": "#/lifecycle/compatibility",
+    "migrationRoute": null
+  },
+  "support": {
+    "supportLevel": "stable",
+    "compatibilityStatus": "compatible-additive",
+    "registryProductionStable": true
+  },
+  "affected": {
+    "domains": [],
+    "modules": [],
+    "contracts": [],
+    "events": [],
+    "permissions": [],
+    "webhooks": [],
+    "apis": [],
+    "manifests": [],
+    "cmsMetadata": [],
+    "adminMetadata": []
+  },
+  "changes": [
+    {
+      "entryId": "phase39-gaming-module",
+      "title": "Gaming Store module",
+      "category": "feature",
+      "changeType": "added",
+      "summary": "Adds the canonical Gaming Store module and capabilities.",
+      "affectedRegistryIds": [
+        "modules.gaming",
+        "gaming.catalog",
+        "gaming.topups",
+        "gaming.gift-cards",
+        "gaming.game-keys",
+        "gaming.steam-wallet",
+        "gaming.steam-gifts",
+        "gaming.telegram",
+        "gaming.manual-services",
+        "gaming.account-validation",
+        "gaming.supplier-routing",
+        "gaming.digital-fulfillment",
+        "gaming.regional-restrictions",
+        "gaming.dynamic-pricing"
+      ],
+      "affectedDomains": [
+        "modules",
+        "gaming"
+      ],
+      "affectedModules": [
+        "gaming"
+      ],
+      "impact": {
+        "compatibilityClassification": "backward-compatible",
+        "actionRequired": false
+      },
+      "sourceReference": "standards/47-gaming-store-contract-standard.md"
+    },
+    {
+      "entryId": "phase39-gaming-contracts",
+      "title": "Gaming canonical schemas",
+      "category": "feature",
+      "changeType": "added",
+      "summary": "Adds supplier-neutral Product, Offer, Purchase Field, Quote, Order, Fulfillment and Deliverable contracts.",
+      "affectedRegistryIds": [
+        "gaming.product",
+        "gaming.offer",
+        "gaming.purchaseField",
+        "gaming.accountValidationPolicy",
+        "gaming.regionRule",
+        "gaming.availability",
+        "gaming.supplierCapabilities",
+        "gaming.supplierOfferMapping",
+        "gaming.internalQuote",
+        "gaming.publicQuote",
+        "gaming.internalOrder",
+        "gaming.publicOrder",
+        "gaming.fulfillment",
+        "gaming.digitalDeliverable",
+        "gaming.validationResponse"
+      ],
+      "affectedDomains": [
+        "gaming"
+      ],
+      "affectedModules": [
+        "gaming"
+      ],
+      "impact": {
+        "compatibilityClassification": "backward-compatible",
+        "actionRequired": false
+      },
+      "sourceReference": "registry/gaming/index.json"
+    },
+    {
+      "entryId": "phase39-gaming-runtime-bindings",
+      "title": "Gaming runtime bindings",
+      "category": "feature",
+      "changeType": "added",
+      "summary": "Adds Gaming APIs, permissions, events, integrations, UI metadata and starter.",
+      "affectedRegistryIds": [
+        "api.gaming-public",
+        "api.gaming-admin",
+        "api.gaming-service",
+        "gaming.read",
+        "gaming.orders.manage",
+        "gaming.products.manage",
+        "gaming.suppliers.manage",
+        "gaming.finance.manage",
+        "gaming.order-created",
+        "gaming.payment-confirmed",
+        "gaming.account-validated",
+        "gaming.fulfillment-submitted",
+        "gaming.fulfillment-processing",
+        "gaming.fulfillment-completed",
+        "gaming.fulfillment-failed",
+        "gaming.refund-requested",
+        "gaming.refund-completed",
+        "gaming.catalog-sync-completed",
+        "gaming.catalog-sync-failed",
+        "gaming.supplier-availability-changed",
+        "gaming.supplier-health-changed",
+        "integrations.gamingSupplier",
+        "integrations.fazerCards",
+        "starters.gaming"
+      ],
+      "affectedDomains": [
+        "api",
+        "permissions",
+        "events",
+        "integrations",
+        "developer"
+      ],
+      "affectedModules": [
+        "gaming"
+      ],
+      "impact": {
+        "compatibilityClassification": "backward-compatible",
+        "actionRequired": false
+      },
+      "sourceReference": "registry/gaming/index.json"
+    }
+  ],
+  "sourceVersion": "1.1.0",
+  "targetVersion": "1.2.0",
+  "entryCount": 0,
+  "categoryCounts": {},
+  "breakingChange": null,
+  "migrationRequired": null,
+  "migrationNotes": null,
+  "recommendedAction": null
+}

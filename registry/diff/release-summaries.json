@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "summaries": [
     {
       "fromVersion": "0.3.0",
@@ -297,6 +297,15 @@
       "modified": 2128,
       "unchanged": 54,
       "totalCompared": 2284
+    },
+    {
+      "fromVersion": "1.1.0",
+      "toVersion": "1.2.0",
+      "added": 72,
+      "removed": 0,
+      "modified": 384,
+      "unchanged": 1900,
+      "totalCompared": 2356
     }
   ]
 }

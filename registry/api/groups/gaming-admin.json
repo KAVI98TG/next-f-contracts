@@ -1,0 +1,30 @@
+{
+  "$id": "api.gaming-admin",
+  "apiId": "api.gaming-admin",
+  "name": "Gaming Admin API",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "operations",
+  "description": "Customer CMS and NEXT F Admin Gaming operations.",
+  "basePath": "/api/v1/sites/{siteId}/gaming/admin",
+  "defaultAuthMode": "organization-user",
+  "defaultCachePolicy": "no-store",
+  "defaultRateLimitClass": "authenticated-read",
+  "defaultCorsPolicy": "customer-portal",
+  "operationIds": [
+    "api.gaming-admin.read-catalog",
+    "api.gaming-admin.upsert-product",
+    "api.gaming-admin.upsert-offer",
+    "api.gaming-admin.read-supplier-mappings",
+    "api.gaming-admin.update-supplier-mapping",
+    "api.gaming-admin.read-supplier-status",
+    "api.gaming-admin.read-orders",
+    "api.gaming-admin.order-action",
+    "api.gaming-admin.read-finance"
+  ],
+  "moduleBindings": [
+    "gaming"
+  ],
+  "notes": []
+}

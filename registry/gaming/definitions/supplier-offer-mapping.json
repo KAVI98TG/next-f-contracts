@@ -1,0 +1,159 @@
+{
+  "$id": "gaming.supplierOfferMapping",
+  "name": "Gaming Supplier Offer Mapping",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "supplier",
+  "description": "Internal mapping from a NEXT F Gaming Offer to one supplier-side offer/category/product reference.",
+  "purpose": "Internal mapping from a NEXT F Gaming Offer to one supplier-side offer/category/product reference.",
+  "gamingModel": {
+    "kind": "internal-record",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "mappingId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable mapping ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "offerId",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical NEXT F Gaming Offer ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "supplierRef",
+      "required": true,
+      "nullable": false,
+      "description": "Non-secret supplier/provider reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "providerReferences",
+      "required": true,
+      "nullable": false,
+      "description": "Provider-side offer/category/product references.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "priority",
+      "required": true,
+      "nullable": false,
+      "description": "Routing priority; lower is preferred.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether this mapping may be routed.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "availability",
+      "required": true,
+      "nullable": false,
+      "description": "Current availability snapshot.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "supplierCost",
+      "required": true,
+      "nullable": false,
+      "description": "Supplier cost snapshot.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "supplierCurrency",
+      "required": true,
+      "nullable": false,
+      "description": "Supplier currency.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "lastSyncedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Most recent sync timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "providerMetadata",
+      "required": false,
+      "nullable": true,
+      "description": "Bounded non-secret provider metadata.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "gaming.offer",
+      "description": "Maps a supplier reference to one canonical Gaming Offer."
+    },
+    {
+      "type": "composes",
+      "target": "gaming.availability",
+      "description": "Uses Gaming availability semantics."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "offerResolves",
+      "description": "Supplier mappings must reference valid canonical Offers."
+    },
+    {
+      "id": "priorityValid",
+      "description": "Priority must be positive and deterministic."
+    },
+    {
+      "id": "notPublic",
+      "description": "Supplier mappings are staff/server-only and never returned whole from public catalog operations."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Supplier Offer Mapping",
+    "icon": "fa-gamepad",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "mappingId",
+      "offerId",
+      "supplierRef",
+      "providerReferences"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

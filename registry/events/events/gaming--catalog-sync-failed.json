@@ -1,0 +1,131 @@
+{
+  "eventKey": "gaming.catalog-sync-failed",
+  "name": "Gaming Catalog Sync Failed",
+  "category": "gaming",
+  "producerKey": "gaming-supplier-router",
+  "subjectContracts": [
+    "gaming.supplierOfferMapping"
+  ],
+  "trigger": "Gaming supplier catalog synchronization fails.",
+  "dataPolicy": {
+    "sensitivity": "internal",
+    "containsPersonalData": false,
+    "containsFinancialData": false,
+    "containsSecrets": false,
+    "redactionRequired": true
+  },
+  "webhookEligible": true,
+  "consumers": [
+    "audit",
+    "customer-cms",
+    "nextf-admin",
+    "notification",
+    "integration-dispatch",
+    "webhook-bridge"
+  ],
+  "payloadFields": [
+    {
+      "key": "supplierRef",
+      "required": true,
+      "description": "Supplier reference.",
+      "type": "id"
+    },
+    {
+      "key": "reasonCode",
+      "required": false,
+      "description": "Safe reason code.",
+      "type": "string"
+    }
+  ],
+  "$id": "gaming.catalog-sync-failed",
+  "version": "1.2.0",
+  "eventVersion": "1.0.0",
+  "status": "stable",
+  "domain": "events",
+  "description": "Gaming supplier catalog synchronization fails.",
+  "purpose": "Provides a canonical Gaming Store fact for gaming catalog sync failed.",
+  "semantics": {
+    "factOnly": true,
+    "authoritativeAfterCommit": true,
+    "immutableOccurrence": true,
+    "transportIndependent": true,
+    "marketingTrackingEquivalent": null
+  },
+  "productionPolicy": {
+    "durability": "durable",
+    "commitBoundary": "transactional-outbox",
+    "failureBehavior": "fail-domain-commit-or-durable-recovery"
+  },
+  "idempotency": {
+    "dedupeKey": "eventId",
+    "replayedIdempotentCommand": "no-new-semantic-event",
+    "consumerIdempotencyRequired": true
+  },
+  "orderingPolicy": {
+    "scope": "gaming-object",
+    "strict": false
+  },
+  "retention": {
+    "class": "transaction-history"
+  },
+  "relationships": [
+    {
+      "type": "references",
+      "target": "gaming.supplierOfferMapping",
+      "description": "Event subject may be gaming.supplierOfferMapping."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "emitAfterAuthoritativeCommit",
+      "description": "Event is produced only after the authoritative Gaming transition is accepted."
+    },
+    {
+      "id": "immutableOccurrence",
+      "description": "Recorded event occurrences are immutable."
+    },
+    {
+      "id": "eventIdUnique",
+      "description": "Every semantic occurrence has one globally unique eventId."
+    },
+    {
+      "id": "idempotentReplay",
+      "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+    },
+    {
+      "id": "payloadMinimumNecessary",
+      "description": "Payload contains only data required by declared consumers."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+    },
+    {
+      "id": "tenantScope",
+      "description": "Organization/Site scope must match the authoritative subject."
+    },
+    {
+      "id": "transportIndependent",
+      "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+    }
+  ],
+  "futureBindings": {
+    "webhooks": "phase-39",
+    "permissions": "phase-39",
+    "siteManifest": "phase-39",
+    "modules": "phase-39",
+    "api": "phase-39",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [
+      {
+        "eventKey": "gaming.catalog-sync-failed",
+        "eventVersion": "1.0.0",
+        "eventId": "evt_gaming-catalog-sync-failed",
+        "occurredAt": "2026-09-14T00:00:00Z"
+      }
+    ],
+    "invalid": []
+  }
+}

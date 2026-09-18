@@ -1,0 +1,30 @@
+{
+  "$id": "gaming.finance.manage",
+  "name": "Manage Gaming Finance",
+  "permissionId": "gaming.finance.manage",
+  "domain": "gaming",
+  "resource": "finance",
+  "action": "manage",
+  "scopeKind": "site",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Read and manage Gaming reconciliation, supplier-cost reporting and financial controls.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound",
+    "supplier-secrets-hidden"
+  ],
+  "notes": [],
+  "version": "1.2.0",
+  "status": "stable"
+}

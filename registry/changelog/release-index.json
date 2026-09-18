@@ -1,10 +1,10 @@
 {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.1.0",
   "title": "NEXT F Changelog Release Index",
   "description": "All authoritative coordinated release notes in descending semantic-version order.",
-  "currentVersion": "1.1.0",
-  "releaseCount": 39,
+  "currentVersion": "1.2.0",
+  "releaseCount": 40,
   "entryCount": 605,
   "phases": [
     0,
@@ -45,7 +45,8 @@
     35,
     36,
     37,
-    38
+    38,
+    39
   ],
   "domains": [
     "accessibility",
@@ -86,6 +87,39 @@
     "modules.pages"
   ],
   "releases": [
+    {
+      "version": "1.2.0",
+      "phase": 39,
+      "title": "Gaming Store Canonical Contracts",
+      "releaseStatus": "published-stable",
+      "releaseDate": "2026-09-14",
+      "summary": "Adds supplier-neutral NEXT F Gaming Store contracts, APIs, permissions, events, integrations and a gaming.nextf.lk starter while preserving V1.0.0 and V1.1.0 immutable releases.",
+      "sourceVersion": "1.1.0",
+      "targetVersion": "1.2.0",
+      "recordCompleteness": "complete",
+      "incompletenessReason": null,
+      "entryCount": 0,
+      "categoryCounts": {},
+      "evidenceLevel": "authoritative",
+      "exactRegistrySnapshotAvailable": true,
+      "supportLevel": "stable",
+      "compatibilityStatus": "compatible-additive",
+      "breakingChange": null,
+      "migrationRequired": null,
+      "affected": {
+        "domains": [],
+        "modules": [],
+        "contracts": [],
+        "events": [],
+        "permissions": [],
+        "webhooks": [],
+        "apis": [],
+        "manifests": [],
+        "cmsMetadata": [],
+        "adminMetadata": []
+      },
+      "source": "registry/changelog/releases/1.2.0.json"
+    },
     {
       "version": "1.1.0",
       "phase": 38,

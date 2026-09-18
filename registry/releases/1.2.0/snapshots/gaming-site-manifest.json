@@ -1,0 +1,306 @@
+{
+  "manifestVersion": "1.0.0",
+  "contracts": {
+    "contractVersion": "1.2.0",
+    "manifestSpecVersion": "1.0.0",
+    "compatibilityMode": "strict-major"
+  },
+  "site": {
+    "siteId": "site_gaming_nextf_lk",
+    "name": "NEXT F Gaming",
+    "siteType": "gaming",
+    "primaryUrl": "https://gaming.nextf.lk"
+  },
+  "localization": {
+    "defaultLocale": "en-LK",
+    "supportedLocales": [
+      "en-LK"
+    ],
+    "timeZone": "Asia/Colombo"
+  },
+  "environments": [
+    {
+      "id": "development",
+      "kind": "development",
+      "baseUrl": "http://localhost:5173",
+      "enabled": true
+    },
+    {
+      "id": "production",
+      "kind": "production",
+      "baseUrl": "https://gaming.nextf.lk",
+      "enabled": true
+    }
+  ],
+  "contentDelivery": {
+    "mode": "runtime",
+    "publishedOnly": true,
+    "previewSupported": true
+  },
+  "modules": [
+    {
+      "moduleId": "core",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "core.audit",
+          "enabled": true
+        },
+        {
+          "capabilityId": "core.identity",
+          "enabled": true
+        },
+        {
+          "capabilityId": "core.publishing",
+          "enabled": true
+        },
+        {
+          "capabilityId": "core.tenant-isolation",
+          "enabled": true
+        },
+        {
+          "capabilityId": "core.versioning",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "media",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "media.contextual-metadata",
+          "enabled": true
+        },
+        {
+          "capabilityId": "media.images",
+          "enabled": true
+        },
+        {
+          "capabilityId": "media.library",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "commerce",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "commerce.catalog",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.customers",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.checkout",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.orders",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.payments",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.fulfillment",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.refunds",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "integrations",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "integrations.custom-api",
+          "enabled": true
+        },
+        {
+          "capabilityId": "integrations.health",
+          "enabled": true
+        },
+        {
+          "capabilityId": "integrations.sync",
+          "enabled": true
+        },
+        {
+          "capabilityId": "integrations.webhooks",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "gaming",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "gaming.catalog",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.topups",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.gift-cards",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.game-keys",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.steam-wallet",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.steam-gifts",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.telegram",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.manual-services",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.account-validation",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.supplier-routing",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.digital-fulfillment",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.regional-restrictions",
+          "enabled": true
+        },
+        {
+          "capabilityId": "gaming.dynamic-pricing",
+          "enabled": true
+        }
+      ]
+    }
+  ],
+  "runtime": {
+    "siteIdentity": true,
+    "contentConnector": true,
+    "eventLayer": true,
+    "consentLayer": true,
+    "integrationLoader": true
+  },
+  "cms": {
+    "enabled": true,
+    "workspaceMode": "site",
+    "editingMode": "structured",
+    "previewEnabled": true,
+    "publishingEnabled": true,
+    "revisionHistoryEnabled": true,
+    "arbitraryCodeEditing": false
+  },
+  "apiBindings": [
+    {
+      "apiId": "api.gaming-public",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.gaming-admin",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.gaming-service",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    }
+  ],
+  "events": {
+    "produces": [
+      "gaming.order-created",
+      "gaming.payment-confirmed",
+      "gaming.account-validated",
+      "gaming.fulfillment-submitted",
+      "gaming.fulfillment-processing",
+      "gaming.fulfillment-completed",
+      "gaming.fulfillment-failed",
+      "gaming.refund-requested",
+      "gaming.refund-completed",
+      "gaming.catalog-sync-completed",
+      "gaming.catalog-sync-failed",
+      "gaming.supplier-availability-changed",
+      "gaming.supplier-health-changed"
+    ],
+    "consumes": [
+      "gaming.supplier-availability-changed",
+      "gaming.supplier-health-changed"
+    ]
+  },
+  "tracking": {
+    "events": [
+      "page.viewed",
+      "cta.clicked"
+    ]
+  },
+  "integrations": [
+    {
+      "connectorId": "integrations.gamingSupplier",
+      "environments": [
+        "production"
+      ],
+      "enabled": true
+    },
+    {
+      "connectorId": "integrations.fazerCards",
+      "environments": [
+        "production"
+      ],
+      "enabled": true
+    }
+  ],
+  "configuration": [
+    {
+      "key": "GAMING_SUPPLIER_PROVIDER",
+      "exposure": "server",
+      "required": true,
+      "environments": [
+        "production"
+      ],
+      "purpose": "Selects the active server-side Gaming supplier adapter."
+    },
+    {
+      "key": "FAZERCARDS_API_KEY",
+      "exposure": "secret",
+      "required": false,
+      "environments": [
+        "production"
+      ],
+      "purpose": "Protected FazerCards API credential stored outside the Registry and browser bundles."
+    }
+  ],
+  "extensions": []
+}

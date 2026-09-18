@@ -1,0 +1,26 @@
+{
+  "$id": "api.gaming-service",
+  "apiId": "api.gaming-service",
+  "name": "Gaming Service API",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "operations",
+  "description": "Trusted service and supplier adapter Gaming operations.",
+  "basePath": "/api/v1/sites/{siteId}/gaming/service",
+  "defaultAuthMode": "internal-service",
+  "defaultCachePolicy": "no-store",
+  "defaultRateLimitClass": "server-to-server",
+  "defaultCorsPolicy": "server-only",
+  "operationIds": [
+    "api.gaming-service.receive-supplier-webhook",
+    "api.gaming-service.sync-catalog",
+    "api.gaming-service.sync-availability",
+    "api.gaming-service.submit-fulfillment",
+    "api.gaming-service.refresh-fulfillment"
+  ],
+  "moduleBindings": [
+    "gaming"
+  ],
+  "notes": []
+}

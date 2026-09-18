@@ -1,0 +1,78 @@
+{
+  "$id": "starters.gaming",
+  "slug": "gaming",
+  "name": "Gaming Store Site Starter",
+  "version": "1.2.0",
+  "status": "stable",
+  "siteType": "gaming",
+  "bundlePath": "starters/gaming",
+  "manifestPath": "starters/gaming/nextf.site.json",
+  "summary": "Digital gaming marketplace starter for supplier-neutral NEXT F Gaming.",
+  "modules": [
+    "core",
+    "media",
+    "commerce",
+    "integrations",
+    "gaming"
+  ],
+  "capabilities": [
+    "gaming.catalog",
+    "gaming.topups",
+    "gaming.gift-cards",
+    "gaming.game-keys",
+    "gaming.steam-wallet",
+    "gaming.steam-gifts",
+    "gaming.telegram",
+    "gaming.manual-services",
+    "gaming.account-validation",
+    "gaming.supplier-routing",
+    "gaming.digital-fulfillment",
+    "gaming.regional-restrictions",
+    "gaming.dynamic-pricing"
+  ],
+  "contractCount": 15,
+  "apiBindings": [
+    {
+      "apiId": "api.gaming-public",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.gaming-admin",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.gaming-service",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    }
+  ],
+  "integrations": [
+    {
+      "connectorId": "integrations.gamingSupplier",
+      "environments": [
+        "production"
+      ],
+      "enabled": true
+    },
+    {
+      "connectorId": "integrations.fazerCards",
+      "environments": [
+        "production"
+      ],
+      "enabled": true
+    }
+  ],
+  "permissionCount": 5,
+  "eventCount": 13
+}

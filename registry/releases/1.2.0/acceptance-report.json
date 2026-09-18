@@ -1,0 +1,43 @@
+{
+  "registryVersion": "1.2.0",
+  "phase": 39,
+  "title": "NEXT F Contracts V1.2.0 Gaming Store Acceptance",
+  "release": {
+    "phase": 39,
+    "version": "1.2.0",
+    "status": "STABLE",
+    "previousStableVersion": "1.1.0"
+  },
+  "inventory": {
+    "gamingSchemas": 15,
+    "gamingCapabilities": 13,
+    "gamingApiOperations": 22,
+    "gamingPermissions": 5,
+    "gamingEvents": 13,
+    "gamingConnectors": 2
+  },
+  "immutableReleasePolicy": {
+    "changedExistingImmutableRelease": false,
+    "preservedVersions": [
+      "1.0.0",
+      "1.1.0"
+    ]
+  },
+  "validation": {
+    "phase39": {
+      "exitCode": 0,
+      "passed": true
+    },
+    "gamingStarter": {
+      "command": "node bin/nextf-contract.mjs validate starters/gaming/nextf.site.json --json",
+      "exitCode": 0,
+      "passed": true
+    },
+    "compatibility": {
+      "command": "node bin/nextf-contract.mjs compatibility starters/gaming/nextf.site.json --json",
+      "exitCode": 0,
+      "passed": true
+    }
+  },
+  "generatedAt": "2026-09-14T04:39:40.109Z"
+}

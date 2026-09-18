@@ -55,6 +55,16 @@
       "key": "webhook-service",
       "label": "Webhook Service",
       "description": "Authoritative webhook endpoint, subscription, delivery and signing lifecycle boundary."
+    },
+    {
+      "key": "gaming-domain",
+      "label": "Gaming Domain",
+      "description": "Authoritative NEXT F Gaming catalog, quote, order and fulfillment domain."
+    },
+    {
+      "key": "gaming-supplier-router",
+      "label": "Gaming Supplier Router",
+      "description": "Trusted supplier routing and synchronization component."
     }
   ]
 }

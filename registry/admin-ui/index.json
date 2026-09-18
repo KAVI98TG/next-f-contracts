@@ -1,9 +1,9 @@
 {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Admin UI Metadata Registry",
   "description": "Internal-only declarative metadata for NEXT F Admin. It reuses canonical contracts and Customer CMS profiles where appropriate while adding platform scope, diagnostics, compatibility, migration, secret-status and privileged operational controls.",
-  "profileCount": 90,
+  "profileCount": 94,
   "resourceProfileCount": 74,
   "supportSchemaCount": 22,
   "controlCount": 25,
@@ -7072,6 +7072,170 @@
         "restrictiveWorkspaceOverridesAllowed": true,
         "customerAccessMayBeBroadened": false
       }
+    },
+    {
+      "$id": "adminUi.profile.gaming.catalog",
+      "name": "Gaming Catalog Admin",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "admin-ui",
+      "profileType": "resource",
+      "resource": "gaming.catalog",
+      "moduleId": "gaming",
+      "description": "NEXT F Admin metadata for Gaming Catalog Admin.",
+      "targetContracts": [
+        "gaming.product"
+      ],
+      "primaryTargetContract": "gaming.product",
+      "route": "/sites/:siteId/gaming/catalog",
+      "screenKind": "admin-editor",
+      "layoutTemplate": "admin-operations",
+      "permissions": [
+        "gaming.products.manage"
+      ],
+      "actions": [
+        {
+          "actionId": "manage",
+          "permissionId": "gaming.products.manage",
+          "riskLevel": "sensitive",
+          "requiresRecentAuthentication": true,
+          "requiresExplicitConfirmation": false
+        }
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "populated",
+        "authorization-denied",
+        "network-error",
+        "success"
+      ],
+      "notes": [
+        "Admin profile metadata does not expose supplier secrets."
+      ]
+    },
+    {
+      "$id": "adminUi.profile.gaming.finance",
+      "name": "Gaming Finance Admin",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "admin-ui",
+      "profileType": "resource",
+      "resource": "gaming.finance",
+      "moduleId": "gaming",
+      "description": "NEXT F Admin metadata for Gaming Finance Admin.",
+      "targetContracts": [
+        "gaming.internalQuote"
+      ],
+      "primaryTargetContract": "gaming.internalQuote",
+      "route": "/sites/:siteId/gaming/finance",
+      "screenKind": "admin-editor",
+      "layoutTemplate": "admin-operations",
+      "permissions": [
+        "gaming.finance.manage"
+      ],
+      "actions": [
+        {
+          "actionId": "manage",
+          "permissionId": "gaming.finance.manage",
+          "riskLevel": "sensitive",
+          "requiresRecentAuthentication": true,
+          "requiresExplicitConfirmation": false
+        }
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "populated",
+        "authorization-denied",
+        "network-error",
+        "success"
+      ],
+      "notes": [
+        "Admin profile metadata does not expose supplier secrets."
+      ]
+    },
+    {
+      "$id": "adminUi.profile.gaming.orders",
+      "name": "Gaming Orders Admin",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "admin-ui",
+      "profileType": "resource",
+      "resource": "gaming.orders",
+      "moduleId": "gaming",
+      "description": "NEXT F Admin metadata for Gaming Orders Admin.",
+      "targetContracts": [
+        "gaming.internalOrder"
+      ],
+      "primaryTargetContract": "gaming.internalOrder",
+      "route": "/sites/:siteId/gaming/orders",
+      "screenKind": "admin-editor",
+      "layoutTemplate": "admin-operations",
+      "permissions": [
+        "gaming.orders.manage"
+      ],
+      "actions": [
+        {
+          "actionId": "manage",
+          "permissionId": "gaming.orders.manage",
+          "riskLevel": "sensitive",
+          "requiresRecentAuthentication": true,
+          "requiresExplicitConfirmation": false
+        }
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "populated",
+        "authorization-denied",
+        "network-error",
+        "success"
+      ],
+      "notes": [
+        "Admin profile metadata does not expose supplier secrets."
+      ]
+    },
+    {
+      "$id": "adminUi.profile.gaming.suppliers",
+      "name": "Gaming Suppliers Admin",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "admin-ui",
+      "profileType": "resource",
+      "resource": "gaming.suppliers",
+      "moduleId": "gaming",
+      "description": "NEXT F Admin metadata for Gaming Suppliers Admin.",
+      "targetContracts": [
+        "gaming.supplierOfferMapping"
+      ],
+      "primaryTargetContract": "gaming.supplierOfferMapping",
+      "route": "/sites/:siteId/gaming/suppliers",
+      "screenKind": "admin-editor",
+      "layoutTemplate": "admin-operations",
+      "permissions": [
+        "gaming.suppliers.manage"
+      ],
+      "actions": [
+        {
+          "actionId": "manage",
+          "permissionId": "gaming.suppliers.manage",
+          "riskLevel": "privileged",
+          "requiresRecentAuthentication": true,
+          "requiresExplicitConfirmation": true
+        }
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "populated",
+        "authorization-denied",
+        "network-error",
+        "success"
+      ],
+      "notes": [
+        "Admin profile metadata does not expose supplier secrets."
+      ]
     },
     {
       "$id": "adminUi.profile.integrations.connections",

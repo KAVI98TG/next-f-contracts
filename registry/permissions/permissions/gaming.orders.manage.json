@@ -1,0 +1,30 @@
+{
+  "$id": "gaming.orders.manage",
+  "name": "Manage Gaming Orders",
+  "permissionId": "gaming.orders.manage",
+  "domain": "gaming",
+  "resource": "orders",
+  "action": "manage",
+  "scopeKind": "site",
+  "riskLevel": "sensitive",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Operate Gaming orders, supported retries and order-support actions.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound",
+    "supplier-secrets-hidden"
+  ],
+  "notes": [],
+  "version": "1.2.0",
+  "status": "stable"
+}

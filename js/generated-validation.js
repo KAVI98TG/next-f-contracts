@@ -1,10 +1,10 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 export const GENERATED_VALIDATION = {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Browser Contract Validation",
   "description": "Local-only deterministic nextf.site.json validation data shared with future developer tooling.",
-  "currentContractVersion": "1.1.0",
+  "currentContractVersion": "1.2.0",
   "manifestSchema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://contract.nextf.lk/registry/manifests/nextf-site-manifest.schema.json",
@@ -150,7 +150,8 @@ export const GENERATED_VALIDATION = {
               "lead-generation",
               "commerce",
               "documentation",
-              "custom"
+              "custom",
+              "gaming"
             ]
           },
           "primaryUrl": {
@@ -358,7 +359,7 @@ export const GENERATED_VALIDATION = {
         ],
         "properties": {
           "policyVersion": {
-            "const": "1.1.0"
+            "const": "1.2.0"
           },
           "restrictions": {
             "type": "array",
@@ -1545,94 +1546,6 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.consent",
-      "moduleId": "consent",
-      "name": "Consent",
-      "version": "0.18.0",
-      "status": "stable",
-      "category": "platform",
-      "icon": "fa-shield-halved",
-      "order": 300,
-      "description": "Tracking and marketing consent preferences, states, policies and immutable consent records used to gate optional integrations.",
-      "selection": {
-        "mandatory": false,
-        "defaultEnabled": false,
-        "explicitManifestSelection": true,
-        "customerCanEnable": false,
-        "nextfAdminCanEnable": true
-      },
-      "dependencies": [
-        {
-          "moduleId": "core",
-          "kind": "required",
-          "reason": "Consent state is Site-scoped and auditable."
-        }
-      ],
-      "conflicts": [],
-      "capabilityIds": [
-        "consent.preferences",
-        "consent.records",
-        "consent.categories",
-        "consent.integration-gating"
-      ],
-      "defaultCapabilityIds": [
-        "consent.preferences",
-        "consent.records",
-        "consent.categories",
-        "consent.integration-gating"
-      ],
-      "contractBindings": [
-        "forms.consentFieldConfig",
-        "forms.consentRecord",
-        "marketing.consentCategory",
-        "marketing.consentPolicy",
-        "marketing.consentPreference",
-        "marketing.consentState",
-        "marketing.trackingConsentRecord"
-      ],
-      "permissionBindings": [
-        "forms.consent.export",
-        "forms.consent.view",
-        "marketing.consent.edit",
-        "marketing.consent.manage",
-        "marketing.consent.view"
-      ],
-      "eventBindings": [
-        "consent.recorded",
-        "consent.updated"
-      ],
-      "cms": {
-        "customerVisible": true,
-        "group": "Platform",
-        "navigation": [
-          {
-            "label": "Consent & Privacy",
-            "path": "/website/consent",
-            "icon": "fa-shield-halved",
-            "order": 20
-          }
-        ]
-      },
-      "admin": {
-        "visible": true,
-        "group": "Sites",
-        "navigation": [
-          {
-            "label": "Consent",
-            "path": "/sites/:siteId/consent",
-            "icon": "fa-shield-halved",
-            "order": 60
-          }
-        ]
-      },
-      "manifest": {
-        "moduleId": "consent",
-        "capabilitySelection": "module-scoped",
-        "dependencyValidation": "strict"
-      },
-      "notes": []
-    },
-    {
       "$id": "modules.analytics",
       "moduleId": "analytics",
       "name": "Analytics",
@@ -1882,6 +1795,94 @@ export const GENERATED_VALIDATION = {
       },
       "manifest": {
         "moduleId": "marketing",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.consent",
+      "moduleId": "consent",
+      "name": "Consent",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "platform",
+      "icon": "fa-shield-halved",
+      "order": 300,
+      "description": "Tracking and marketing consent preferences, states, policies and immutable consent records used to gate optional integrations.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Consent state is Site-scoped and auditable."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "consent.preferences",
+        "consent.records",
+        "consent.categories",
+        "consent.integration-gating"
+      ],
+      "defaultCapabilityIds": [
+        "consent.preferences",
+        "consent.records",
+        "consent.categories",
+        "consent.integration-gating"
+      ],
+      "contractBindings": [
+        "forms.consentFieldConfig",
+        "forms.consentRecord",
+        "marketing.consentCategory",
+        "marketing.consentPolicy",
+        "marketing.consentPreference",
+        "marketing.consentState",
+        "marketing.trackingConsentRecord"
+      ],
+      "permissionBindings": [
+        "forms.consent.export",
+        "forms.consent.view",
+        "marketing.consent.edit",
+        "marketing.consent.manage",
+        "marketing.consent.view"
+      ],
+      "eventBindings": [
+        "consent.recorded",
+        "consent.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Platform",
+        "navigation": [
+          {
+            "label": "Consent & Privacy",
+            "path": "/website/consent",
+            "icon": "fa-shield-halved",
+            "order": 20
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Consent",
+            "path": "/sites/:siteId/consent",
+            "icon": "fa-shield-halved",
+            "order": 60
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "consent",
         "capabilitySelection": "module-scoped",
         "dependencyValidation": "strict"
       },
@@ -2641,482 +2642,194 @@ export const GENERATED_VALIDATION = {
         "dependencyValidation": "strict"
       },
       "notes": []
+    },
+    {
+      "$id": "modules.gaming",
+      "moduleId": "gaming",
+      "name": "Gaming Store",
+      "version": "1.2.0",
+      "status": "stable",
+      "category": "gaming",
+      "icon": "fa-gamepad",
+      "order": 450,
+      "description": "Supplier-neutral digital gaming marketplace covering products, offers, account validation, quotes, orders, supplier routing and secure digital fulfillment.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Gaming records are tenant/Site scoped and audited."
+        },
+        {
+          "moduleId": "media",
+          "kind": "recommended",
+          "reason": "Gaming product artwork should use canonical media references."
+        },
+        {
+          "moduleId": "commerce",
+          "kind": "required",
+          "reason": "Gaming reuses Commerce money, payment and transaction primitives."
+        },
+        {
+          "moduleId": "integrations",
+          "kind": "required",
+          "reason": "Supplier adapters and provider credentials live in the Integration layer."
+        },
+        {
+          "moduleId": "webhooks",
+          "kind": "recommended",
+          "reason": "Fulfillment and supplier status can use canonical Webhook transport."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "gaming.catalog",
+        "gaming.topups",
+        "gaming.gift-cards",
+        "gaming.game-keys",
+        "gaming.steam-wallet",
+        "gaming.steam-gifts",
+        "gaming.telegram",
+        "gaming.manual-services",
+        "gaming.account-validation",
+        "gaming.supplier-routing",
+        "gaming.digital-fulfillment",
+        "gaming.regional-restrictions",
+        "gaming.dynamic-pricing"
+      ],
+      "defaultCapabilityIds": [
+        "gaming.catalog",
+        "gaming.topups",
+        "gaming.gift-cards",
+        "gaming.game-keys",
+        "gaming.account-validation",
+        "gaming.digital-fulfillment",
+        "gaming.supplier-routing"
+      ],
+      "contractBindings": [
+        "gaming.product",
+        "gaming.offer",
+        "gaming.purchaseField",
+        "gaming.accountValidationPolicy",
+        "gaming.regionRule",
+        "gaming.availability",
+        "gaming.supplierCapabilities",
+        "gaming.supplierOfferMapping",
+        "gaming.internalQuote",
+        "gaming.publicQuote",
+        "gaming.internalOrder",
+        "gaming.publicOrder",
+        "gaming.fulfillment",
+        "gaming.digitalDeliverable",
+        "gaming.validationResponse"
+      ],
+      "permissionBindings": [
+        "gaming.read",
+        "gaming.orders.manage",
+        "gaming.products.manage",
+        "gaming.suppliers.manage",
+        "gaming.finance.manage"
+      ],
+      "eventBindings": [
+        "gaming.order-created",
+        "gaming.payment-confirmed",
+        "gaming.account-validated",
+        "gaming.fulfillment-submitted",
+        "gaming.fulfillment-processing",
+        "gaming.fulfillment-completed",
+        "gaming.fulfillment-failed",
+        "gaming.refund-requested",
+        "gaming.refund-completed",
+        "gaming.catalog-sync-completed",
+        "gaming.catalog-sync-failed",
+        "gaming.supplier-availability-changed",
+        "gaming.supplier-health-changed"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Commerce",
+        "navigation": [
+          {
+            "label": "Gaming Store",
+            "path": "/gaming-store",
+            "icon": "fa-gamepad",
+            "order": 110
+          },
+          {
+            "label": "Gaming Products",
+            "path": "/gaming-store/products",
+            "icon": "fa-gamepad",
+            "order": 111
+          },
+          {
+            "label": "Gaming Orders",
+            "path": "/gaming-store/orders",
+            "icon": "fa-receipt",
+            "order": 112
+          },
+          {
+            "label": "Gaming Suppliers",
+            "path": "/gaming-store/suppliers",
+            "icon": "fa-plug",
+            "order": 113
+          },
+          {
+            "label": "Gaming Finance",
+            "path": "/gaming-store/finance",
+            "icon": "fa-scale-balanced",
+            "order": 114
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Gaming Store",
+            "path": "/sites/:siteId/gaming",
+            "icon": "fa-gamepad",
+            "order": 115
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "gaming",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": [
+        "Gaming Store is digital-only. Physical shipping and warehouse concepts are intentionally absent."
+      ]
     }
   ],
   "capabilities": [
     {
-      "$id": "modules.capability.core.identity",
-      "capabilityId": "core.identity",
-      "name": "Identity and Tenant Scope",
+      "$id": "modules.capability.analytics.attribution",
+      "capabilityId": "analytics.attribution",
+      "name": "Attribution",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "core",
-      "mode": "always-on",
-      "selectable": false,
-      "defaultEnabled": true,
-      "description": "Identity and Tenant Scope capability within the Core module.",
+      "moduleId": "analytics",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Attribution capability within the Analytics module.",
       "contractBindings": [
-        "core.organization",
-        "core.site",
-        "core.entityIdentity",
-        "core.tenantScope"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.core.publishing",
-      "capabilityId": "core.publishing",
-      "name": "Publishing",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "core",
-      "mode": "always-on",
-      "selectable": false,
-      "defaultEnabled": true,
-      "description": "Publishing capability within the Core module.",
-      "contractBindings": [
-        "core.publishing",
-        "core.visibility",
-        "core.scheduleWindow"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.core.versioning",
-      "capabilityId": "core.versioning",
-      "name": "Versioning",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "core",
-      "mode": "always-on",
-      "selectable": false,
-      "defaultEnabled": true,
-      "description": "Versioning capability within the Core module.",
-      "contractBindings": [
-        "core.versionRecord",
-        "core.revisionPointer"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.core.audit",
-      "capabilityId": "core.audit",
-      "name": "Audit",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "core",
-      "mode": "always-on",
-      "selectable": false,
-      "defaultEnabled": true,
-      "description": "Audit capability within the Core module.",
-      "contractBindings": [
-        "core.auditRecord",
-        "core.actorReference",
-        "core.entityReference"
+        "marketing.attributionModel",
+        "marketing.attributionTouchpoint",
+        "marketing.attributionCredit"
       ],
       "permissionBindings": [
-        "core.audit.export",
-        "core.audit.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.core.tenant-isolation",
-      "capabilityId": "core.tenant-isolation",
-      "name": "Tenant Isolation",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "core",
-      "mode": "always-on",
-      "selectable": false,
-      "defaultEnabled": true,
-      "description": "Tenant Isolation capability within the Core module.",
-      "contractBindings": [
-        "core.tenantScope"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.media.library",
-      "capabilityId": "media.library",
-      "name": "Media Library",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "media",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Media Library capability within the Media module.",
-      "contractBindings": [
-        "shared.mediaAsset",
-        "shared.mediaReference"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.media.images",
-      "capabilityId": "media.images",
-      "name": "Image Assets",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "media",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Image Assets capability within the Media module.",
-      "contractBindings": [
-        "shared.mediaAsset",
-        "shared.mediaReference"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.media.documents",
-      "capabilityId": "media.documents",
-      "name": "Document Assets",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "media",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Document Assets capability within the Media module.",
-      "contractBindings": [
-        "shared.mediaAsset",
-        "shared.mediaReference"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.media.video",
-      "capabilityId": "media.video",
-      "name": "Video Assets",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "media",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Video Assets capability within the Media module.",
-      "contractBindings": [
-        "shared.mediaAsset",
-        "shared.mediaReference"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.media.audio",
-      "capabilityId": "media.audio",
-      "name": "Audio Assets",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "media",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Audio Assets capability within the Media module.",
-      "contractBindings": [
-        "shared.mediaAsset",
-        "shared.mediaReference"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.media.contextual-metadata",
-      "capabilityId": "media.contextual-metadata",
-      "name": "Contextual Media Metadata",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "media",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Contextual Media Metadata capability within the Media module.",
-      "contractBindings": [
-        "shared.mediaReference"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.pages.sections",
-      "capabilityId": "pages.sections",
-      "name": "Structured Sections",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "pages",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Structured Sections capability within the Pages module.",
-      "contractBindings": [
-        "content.page",
-        "content.pageSection"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.pages.reusable-content",
-      "capabilityId": "pages.reusable-content",
-      "name": "Reusable Content",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "pages",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Reusable Content capability within the Pages module.",
-      "contractBindings": [
-        "content.reusableContent"
-      ],
-      "permissionBindings": [
-        "content.reusablecontent.approve",
-        "content.reusablecontent.create",
-        "content.reusablecontent.delete",
-        "content.reusablecontent.edit",
-        "content.reusablecontent.publish",
-        "content.reusablecontent.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.pages.navigation",
-      "capabilityId": "pages.navigation",
-      "name": "Navigation",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "pages",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Navigation capability within the Pages module.",
-      "contractBindings": [
-        "content.navigation",
-        "content.navigationItem"
-      ],
-      "permissionBindings": [
-        "content.navigation.edit",
-        "content.navigation.manage",
-        "content.navigation.publish",
-        "content.navigation.view"
-      ],
-      "eventBindings": [
-        "navigation.updated"
-      ],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.pages.legal-pages",
-      "capabilityId": "pages.legal-pages",
-      "name": "Legal Pages",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "pages",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Legal Pages capability within the Pages module.",
-      "contractBindings": [
-        "content.legalPage"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.pages.custom-collections",
-      "capabilityId": "pages.custom-collections",
-      "name": "Custom Collections",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "pages",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Custom Collections capability within the Pages module.",
-      "contractBindings": [
-        "content.customCollection",
-        "content.customCollectionEntry"
-      ],
-      "permissionBindings": [
-        "content.customcollections.create",
-        "content.customcollections.delete",
-        "content.customcollections.edit",
-        "content.customcollections.manage",
-        "content.customcollections.view"
+        "marketing.attribution.export",
+        "marketing.attribution.manage",
+        "marketing.attribution.view"
       ],
       "eventBindings": [],
       "requiresCapabilities": [],
@@ -3132,20 +2845,17 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.pages.scheduling",
-      "capabilityId": "pages.scheduling",
-      "name": "Scheduled Publishing",
+      "$id": "modules.capability.analytics.campaign-performance",
+      "capabilityId": "analytics.campaign-performance",
+      "name": "Campaign Performance",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "pages",
+      "moduleId": "analytics",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Scheduled Publishing capability within the Pages module.",
-      "contractBindings": [
-        "core.scheduleWindow",
-        "core.publishing"
-      ],
+      "description": "Campaign Performance capability within the Analytics module.",
+      "contractBindings": [],
       "permissionBindings": [],
       "eventBindings": [],
       "requiresCapabilities": [],
@@ -3161,17 +2871,75 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.pages.approvals",
-      "capabilityId": "pages.approvals",
+      "$id": "modules.capability.analytics.measurement",
+      "capabilityId": "analytics.measurement",
+      "name": "Measurement",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "analytics",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Measurement capability within the Analytics module.",
+      "contractBindings": [
+        "marketing.analyticsConfiguration"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.analytics.reporting",
+      "capabilityId": "analytics.reporting",
+      "name": "Reporting",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "analytics",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Reporting capability within the Analytics module.",
+      "contractBindings": [
+        "marketing.analyticsObservation",
+        "marketing.analyticsSnapshot"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.blog.approvals",
+      "capabilityId": "blog.approvals",
       "name": "Approval Workflow",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "pages",
+      "moduleId": "blog",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Approval Workflow capability within the Pages module.",
+      "description": "Approval Workflow capability within the Blog module.",
       "contractBindings": [
+        "content.blogPost",
         "core.publishing"
       ],
       "permissionBindings": [],
@@ -3185,6 +2953,34 @@ export const GENERATED_VALIDATION = {
       "manifest": {
         "allowed": true,
         "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.blog.authors",
+      "capabilityId": "blog.authors",
+      "name": "Authors",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "blog",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Authors capability within the Blog module.",
+      "contractBindings": [
+        "content.author"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
       },
       "notes": []
     },
@@ -3209,68 +3005,6 @@ export const GENERATED_VALIDATION = {
         "content.blogcategories.manage",
         "content.blogcategories.view"
       ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.blog.tags",
-      "capabilityId": "blog.tags",
-      "name": "Tags",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "blog",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Tags capability within the Blog module.",
-      "contractBindings": [
-        "content.blogTag"
-      ],
-      "permissionBindings": [
-        "content.blogtags.create",
-        "content.blogtags.delete",
-        "content.blogtags.edit",
-        "content.blogtags.manage",
-        "content.blogtags.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.blog.authors",
-      "capabilityId": "blog.authors",
-      "name": "Authors",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "blog",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Authors capability within the Blog module.",
-      "contractBindings": [
-        "content.author"
-      ],
-      "permissionBindings": [],
       "eventBindings": [],
       "requiresCapabilities": [],
       "requiresModules": [],
@@ -3342,20 +3076,51 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.blog.approvals",
-      "capabilityId": "blog.approvals",
-      "name": "Approval Workflow",
+      "$id": "modules.capability.blog.tags",
+      "capabilityId": "blog.tags",
+      "name": "Tags",
       "version": "0.18.0",
       "status": "stable",
       "moduleId": "blog",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Tags capability within the Blog module.",
+      "contractBindings": [
+        "content.blogTag"
+      ],
+      "permissionBindings": [
+        "content.blogtags.create",
+        "content.blogtags.delete",
+        "content.blogtags.edit",
+        "content.blogtags.manage",
+        "content.blogtags.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.attributes",
+      "capabilityId": "commerce.attributes",
+      "name": "Attributes",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Approval Workflow capability within the Blog module.",
-      "contractBindings": [
-        "content.blogPost",
-        "core.publishing"
-      ],
+      "description": "Attributes capability within the Commerce module.",
+      "contractBindings": [],
       "permissionBindings": [],
       "eventBindings": [],
       "requiresCapabilities": [],
@@ -3371,18 +3136,50 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.documentation.collections",
-      "capabilityId": "documentation.collections",
-      "name": "Collections",
+      "$id": "modules.capability.commerce.carts",
+      "capabilityId": "commerce.carts",
+      "name": "Carts",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "documentation",
+      "moduleId": "commerce",
       "mode": "default-on",
       "selectable": true,
       "defaultEnabled": true,
-      "description": "Collections capability within the Documentation module.",
+      "description": "Carts capability within the Commerce module.",
       "contractBindings": [
-        "content.documentationCollection"
+        "commerce.cart",
+        "commerce.cartLine"
+      ],
+      "permissionBindings": [
+        "commerce.carts.manage",
+        "commerce.carts.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.catalog",
+      "capabilityId": "commerce.catalog",
+      "name": "Catalog",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Catalog capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.product"
       ],
       "permissionBindings": [],
       "eventBindings": [],
@@ -3399,18 +3196,825 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.documentation.categories",
-      "capabilityId": "documentation.categories",
+      "$id": "modules.capability.commerce.categories",
+      "capabilityId": "commerce.categories",
       "name": "Categories",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "documentation",
+      "moduleId": "commerce",
       "mode": "default-on",
       "selectable": true,
       "defaultEnabled": true,
-      "description": "Categories capability within the Documentation module.",
+      "description": "Categories capability within the Commerce module.",
       "contractBindings": [
-        "content.documentationCategory"
+        "commerce.productCategory"
+      ],
+      "permissionBindings": [
+        "commerce.categories.create",
+        "commerce.categories.delete",
+        "commerce.categories.edit",
+        "commerce.categories.manage",
+        "commerce.categories.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.checkout",
+      "capabilityId": "commerce.checkout",
+      "name": "Checkout",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Checkout capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.checkout",
+        "commerce.checkoutLine"
+      ],
+      "permissionBindings": [
+        "commerce.checkouts.manage",
+        "commerce.checkouts.view"
+      ],
+      "eventBindings": [
+        "checkout.abandoned",
+        "checkout.completed",
+        "checkout.expired",
+        "checkout.started",
+        "checkout.updated"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.collections",
+      "capabilityId": "commerce.collections",
+      "name": "Collections",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Collections capability within the Commerce module.",
+      "contractBindings": [],
+      "permissionBindings": [
+        "commerce.collections.create",
+        "commerce.collections.delete",
+        "commerce.collections.edit",
+        "commerce.collections.manage",
+        "commerce.collections.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.customers",
+      "capabilityId": "commerce.customers",
+      "name": "Commerce Customers",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Commerce Customers capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.customerAddress"
+      ],
+      "permissionBindings": [
+        "commerce.customers.edit",
+        "commerce.customers.export",
+        "commerce.customers.manage",
+        "commerce.customers.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.discounts",
+      "capabilityId": "commerce.discounts",
+      "name": "Discounts",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Discounts capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.discount"
+      ],
+      "permissionBindings": [
+        "commerce.discounts.create",
+        "commerce.discounts.delete",
+        "commerce.discounts.edit",
+        "commerce.discounts.manage",
+        "commerce.discounts.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.fulfillment",
+      "capabilityId": "commerce.fulfillment",
+      "name": "Fulfillment",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Fulfillment capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.fulfillment",
+        "commerce.shipment"
+      ],
+      "permissionBindings": [
+        "commerce.fulfillments.create",
+        "commerce.fulfillments.edit",
+        "commerce.fulfillments.manage",
+        "commerce.fulfillments.view"
+      ],
+      "eventBindings": [
+        "fulfillment.cancelled",
+        "fulfillment.completed",
+        "fulfillment.created",
+        "fulfillment.updated"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.inventory",
+      "capabilityId": "commerce.inventory",
+      "name": "Inventory",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Inventory capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.inventoryItem",
+        "commerce.inventoryLevel",
+        "commerce.inventoryAdjustment",
+        "commerce.inventoryReservation"
+      ],
+      "permissionBindings": [
+        "commerce.inventory.edit",
+        "commerce.inventory.export",
+        "commerce.inventory.manage",
+        "commerce.inventory.view"
+      ],
+      "eventBindings": [
+        "inventory.adjusted",
+        "inventory.back-in-stock",
+        "inventory.committed",
+        "inventory.low",
+        "inventory.out-of-stock",
+        "inventory.released",
+        "inventory.reserved",
+        "inventory.transferred"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.multi-location-inventory",
+      "capabilityId": "commerce.multi-location-inventory",
+      "name": "Multi-location Inventory",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Multi-location Inventory capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.inventoryLocation",
+        "commerce.inventoryTransfer"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.orders",
+      "capabilityId": "commerce.orders",
+      "name": "Orders",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Orders capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.order"
+      ],
+      "permissionBindings": [
+        "commerce.orders.edit",
+        "commerce.orders.export",
+        "commerce.orders.manage",
+        "commerce.orders.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.payments",
+      "capabilityId": "commerce.payments",
+      "name": "Payments",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Payments capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.payment",
+        "commerce.paymentAttempt",
+        "commerce.paymentAuthorization",
+        "commerce.paymentCapture"
+      ],
+      "permissionBindings": [
+        "commerce.payments.export",
+        "commerce.payments.manage",
+        "commerce.payments.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.promotions",
+      "capabilityId": "commerce.promotions",
+      "name": "Automatic Promotions",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Automatic Promotions capability within the Commerce module.",
+      "contractBindings": [],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.refunds",
+      "capabilityId": "commerce.refunds",
+      "name": "Refunds",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Refunds capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.refund"
+      ],
+      "permissionBindings": [
+        "commerce.refunds.create",
+        "commerce.refunds.export",
+        "commerce.refunds.manage",
+        "commerce.refunds.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.returns",
+      "capabilityId": "commerce.returns",
+      "name": "Returns",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Returns capability within the Commerce module.",
+      "contractBindings": [],
+      "permissionBindings": [
+        "commerce.returns.edit",
+        "commerce.returns.manage",
+        "commerce.returns.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.reviews",
+      "capabilityId": "commerce.reviews",
+      "name": "Reviews",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Reviews capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.productReview"
+      ],
+      "permissionBindings": [
+        "commerce.reviews.delete",
+        "commerce.reviews.edit",
+        "commerce.reviews.manage",
+        "commerce.reviews.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.shipping",
+      "capabilityId": "commerce.shipping",
+      "name": "Shipping",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Shipping capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.shippingZone",
+        "commerce.shippingMethod"
+      ],
+      "permissionBindings": [
+        "commerce.shipping.create",
+        "commerce.shipping.delete",
+        "commerce.shipping.edit",
+        "commerce.shipping.manage",
+        "commerce.shipping.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.taxes",
+      "capabilityId": "commerce.taxes",
+      "name": "Tax",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Tax capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.taxConfiguration",
+        "commerce.taxLine"
+      ],
+      "permissionBindings": [
+        "commerce.taxes.edit",
+        "commerce.taxes.manage",
+        "commerce.taxes.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.commerce.variants",
+      "capabilityId": "commerce.variants",
+      "name": "Variants",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "commerce",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Variants capability within the Commerce module.",
+      "contractBindings": [
+        "commerce.productVariant",
+        "commerce.productOption"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.consent.categories",
+      "capabilityId": "consent.categories",
+      "name": "Consent Categories",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "consent",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Consent Categories capability within the Consent module.",
+      "contractBindings": [
+        "marketing.consentCategory"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.consent.integration-gating",
+      "capabilityId": "consent.integration-gating",
+      "name": "Integration Gating",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "consent",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Integration Gating capability within the Consent module.",
+      "contractBindings": [
+        "marketing.consentPolicy"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.consent.preferences",
+      "capabilityId": "consent.preferences",
+      "name": "Consent Preferences",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "consent",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Consent Preferences capability within the Consent module.",
+      "contractBindings": [
+        "marketing.consentPreference",
+        "marketing.consentState"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.consent.records",
+      "capabilityId": "consent.records",
+      "name": "Consent Records",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "consent",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Consent Records capability within the Consent module.",
+      "contractBindings": [
+        "marketing.trackingConsentRecord"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.core.audit",
+      "capabilityId": "core.audit",
+      "name": "Audit",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "core",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Audit capability within the Core module.",
+      "contractBindings": [
+        "core.auditRecord",
+        "core.actorReference",
+        "core.entityReference"
+      ],
+      "permissionBindings": [
+        "core.audit.export",
+        "core.audit.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.core.identity",
+      "capabilityId": "core.identity",
+      "name": "Identity and Tenant Scope",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "core",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Identity and Tenant Scope capability within the Core module.",
+      "contractBindings": [
+        "core.organization",
+        "core.site",
+        "core.entityIdentity",
+        "core.tenantScope"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.core.publishing",
+      "capabilityId": "core.publishing",
+      "name": "Publishing",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "core",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Publishing capability within the Core module.",
+      "contractBindings": [
+        "core.publishing",
+        "core.visibility",
+        "core.scheduleWindow"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.core.tenant-isolation",
+      "capabilityId": "core.tenant-isolation",
+      "name": "Tenant Isolation",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "core",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Tenant Isolation capability within the Core module.",
+      "contractBindings": [
+        "core.tenantScope"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.core.versioning",
+      "capabilityId": "core.versioning",
+      "name": "Versioning",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "core",
+      "mode": "always-on",
+      "selectable": false,
+      "defaultEnabled": true,
+      "description": "Versioning capability within the Core module.",
+      "contractBindings": [
+        "core.versionRecord",
+        "core.revisionPointer"
       ],
       "permissionBindings": [],
       "eventBindings": [],
@@ -3452,6 +4056,62 @@ export const GENERATED_VALIDATION = {
       "manifest": {
         "allowed": true,
         "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.documentation.categories",
+      "capabilityId": "documentation.categories",
+      "name": "Categories",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "documentation",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Categories capability within the Documentation module.",
+      "contractBindings": [
+        "content.documentationCategory"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.documentation.collections",
+      "capabilityId": "documentation.collections",
+      "name": "Collections",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "documentation",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Collections capability within the Documentation module.",
+      "contractBindings": [
+        "content.documentationCollection"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
       },
       "notes": []
     },
@@ -3542,334 +4202,19 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.seo.metadata",
-      "capabilityId": "seo.metadata",
-      "name": "Metadata",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "seo",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Metadata capability within the SEO module.",
-      "contractBindings": [
-        "seo.metadata"
-      ],
-      "permissionBindings": [
-        "seo.metadata.edit",
-        "seo.metadata.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.seo.keywords",
-      "capabilityId": "seo.keywords",
-      "name": "Keywords",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "seo",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Keywords capability within the SEO module.",
-      "contractBindings": [
-        "seo.keywordSet",
-        "seo.keywordTarget"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.seo.social-sharing",
-      "capabilityId": "seo.social-sharing",
-      "name": "Social Sharing",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "seo",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Social Sharing capability within the SEO module.",
-      "contractBindings": [
-        "seo.openGraph",
-        "seo.socialCard"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.seo.structured-data",
-      "capabilityId": "seo.structured-data",
-      "name": "Structured Data",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "seo",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Structured Data capability within the SEO module.",
-      "contractBindings": [
-        "seo.structuredData"
-      ],
-      "permissionBindings": [
-        "seo.structureddata.edit",
-        "seo.structureddata.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.seo.redirects",
-      "capabilityId": "seo.redirects",
-      "name": "Redirects",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "seo",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Redirects capability within the SEO module.",
-      "contractBindings": [
-        "seo.redirect"
-      ],
-      "permissionBindings": [
-        "seo.redirects.create",
-        "seo.redirects.delete",
-        "seo.redirects.edit",
-        "seo.redirects.manage",
-        "seo.redirects.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.seo.sitemap",
-      "capabilityId": "seo.sitemap",
-      "name": "Sitemap",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "seo",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Sitemap capability within the SEO module.",
-      "contractBindings": [
-        "seo.sitemapEntry"
-      ],
-      "permissionBindings": [
-        "seo.sitemap.edit",
-        "seo.sitemap.manage",
-        "seo.sitemap.view"
-      ],
-      "eventBindings": [
-        "sitemap.updated"
-      ],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.seo.robots",
-      "capabilityId": "seo.robots",
-      "name": "Robots",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "seo",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Robots capability within the SEO module.",
-      "contractBindings": [
-        "seo.robotsPolicy",
-        "seo.robotsRule"
-      ],
-      "permissionBindings": [
-        "seo.robots.edit",
-        "seo.robots.manage",
-        "seo.robots.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.seo.audits",
-      "capabilityId": "seo.audits",
-      "name": "SEO Audits",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "seo",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "SEO Audits capability within the SEO module.",
-      "contractBindings": [
-        "seo.auditResult",
-        "seo.auditIssue"
-      ],
-      "permissionBindings": [
-        "seo.audits.export",
-        "seo.audits.manage",
-        "seo.audits.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.seo.search-performance",
-      "capabilityId": "seo.search-performance",
-      "name": "Search Performance",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "seo",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Search Performance capability within the SEO module.",
-      "contractBindings": [
-        "seo.searchPerformance",
-        "seo.searchQuery"
-      ],
-      "permissionBindings": [
-        "seo.searchperformance.export",
-        "seo.searchperformance.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.seo.indexing",
-      "capabilityId": "seo.indexing",
-      "name": "Indexing",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "seo",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Indexing capability within the SEO module.",
-      "contractBindings": [
-        "seo.indexingStatus"
-      ],
-      "permissionBindings": [
-        "seo.indexing.manage",
-        "seo.indexing.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.forms.multi-step",
-      "capabilityId": "forms.multi-step",
-      "name": "Multi-step Forms",
+      "$id": "modules.capability.forms.auto-response",
+      "capabilityId": "forms.auto-response",
+      "name": "Auto Response",
       "version": "0.18.0",
       "status": "stable",
       "moduleId": "forms",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Multi-step Forms capability within the Forms module.",
-      "contractBindings": [],
+      "description": "Auto Response capability within the Forms module.",
+      "contractBindings": [
+        "forms.autoResponse"
+      ],
       "permissionBindings": [],
       "eventBindings": [],
       "requiresCapabilities": [],
@@ -3910,126 +4255,6 @@ export const GENERATED_VALIDATION = {
       "manifest": {
         "allowed": true,
         "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.forms.file-uploads",
-      "capabilityId": "forms.file-uploads",
-      "name": "File Uploads",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "forms",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "File Uploads capability within the Forms module.",
-      "contractBindings": [
-        "forms.uploadPolicy",
-        "forms.submissionFile"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.forms.notifications",
-      "capabilityId": "forms.notifications",
-      "name": "Notifications",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "forms",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Notifications capability within the Forms module.",
-      "contractBindings": [
-        "forms.notificationRule",
-        "forms.notificationRecipient"
-      ],
-      "permissionBindings": [
-        "forms.notifications.edit",
-        "forms.notifications.manage",
-        "forms.notifications.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.forms.auto-response",
-      "capabilityId": "forms.auto-response",
-      "name": "Auto Response",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "forms",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Auto Response capability within the Forms module.",
-      "contractBindings": [
-        "forms.autoResponse"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.forms.spam-protection",
-      "capabilityId": "forms.spam-protection",
-      "name": "Spam Protection",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "forms",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Spam Protection capability within the Forms module.",
-      "contractBindings": [
-        "forms.spamPolicy",
-        "forms.spamSignal",
-        "forms.spamDecision"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
       },
       "notes": []
     },
@@ -4091,25 +4316,212 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.leads.status",
-      "capabilityId": "leads.status",
-      "name": "Lead Status",
+      "$id": "modules.capability.forms.file-uploads",
+      "capabilityId": "forms.file-uploads",
+      "name": "File Uploads",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "leads",
+      "moduleId": "forms",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "File Uploads capability within the Forms module.",
+      "contractBindings": [
+        "forms.uploadPolicy",
+        "forms.submissionFile"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.forms.multi-step",
+      "capabilityId": "forms.multi-step",
+      "name": "Multi-step Forms",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "forms",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Multi-step Forms capability within the Forms module.",
+      "contractBindings": [],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.forms.notifications",
+      "capabilityId": "forms.notifications",
+      "name": "Notifications",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "forms",
       "mode": "default-on",
       "selectable": true,
       "defaultEnabled": true,
-      "description": "Lead Status capability within the Leads module.",
+      "description": "Notifications capability within the Forms module.",
       "contractBindings": [
-        "forms.lead"
+        "forms.notificationRule",
+        "forms.notificationRecipient"
+      ],
+      "permissionBindings": [
+        "forms.notifications.edit",
+        "forms.notifications.manage",
+        "forms.notifications.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.forms.spam-protection",
+      "capabilityId": "forms.spam-protection",
+      "name": "Spam Protection",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "forms",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Spam Protection capability within the Forms module.",
+      "contractBindings": [
+        "forms.spamPolicy",
+        "forms.spamSignal",
+        "forms.spamDecision"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.gaming.account-validation",
+      "capabilityId": "gaming.account-validation",
+      "name": "Account Validation",
+      "version": "1.2.0",
+      "status": "stable",
+      "moduleId": "gaming",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Account Validation capability within the Gaming Store module.",
+      "contractBindings": [
+        "gaming.accountValidationPolicy",
+        "gaming.validationResponse"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.gaming.catalog",
+      "capabilityId": "gaming.catalog",
+      "name": "Catalog",
+      "version": "1.2.0",
+      "status": "stable",
+      "moduleId": "gaming",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Catalog capability within the Gaming Store module.",
+      "contractBindings": [
+        "gaming.product",
+        "gaming.offer",
+        "gaming.purchaseField"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.gaming.digital-fulfillment",
+      "capabilityId": "gaming.digital-fulfillment",
+      "name": "Digital Fulfillment",
+      "version": "1.2.0",
+      "status": "stable",
+      "moduleId": "gaming",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Digital Fulfillment capability within the Gaming Store module.",
+      "contractBindings": [
+        "gaming.fulfillment",
+        "gaming.digitalDeliverable"
       ],
       "permissionBindings": [],
       "eventBindings": [
-        "lead.status-changed"
+        "gaming.fulfillment-submitted",
+        "gaming.fulfillment-processing",
+        "gaming.fulfillment-completed",
+        "gaming.fulfillment-failed"
       ],
       "requiresCapabilities": [],
-      "requiresModules": [],
+      "requiresModules": [
+        "core"
+      ],
       "cms": {
         "customerVisible": true,
         "adminVisible": true
@@ -4121,135 +4533,28 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.leads.assignment",
-      "capabilityId": "leads.assignment",
-      "name": "Assignment",
-      "version": "0.18.0",
+      "$id": "modules.capability.gaming.dynamic-pricing",
+      "capabilityId": "gaming.dynamic-pricing",
+      "name": "Dynamic Pricing",
+      "version": "1.2.0",
       "status": "stable",
-      "moduleId": "leads",
+      "moduleId": "gaming",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Assignment capability within the Leads module.",
+      "description": "Dynamic Pricing capability within the Gaming Store module.",
       "contractBindings": [
-        "forms.leadAssignment"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.leads.notes",
-      "capabilityId": "leads.notes",
-      "name": "Notes",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "leads",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Notes capability within the Leads module.",
-      "contractBindings": [
-        "forms.leadNote"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.leads.activity",
-      "capabilityId": "leads.activity",
-      "name": "Activity Timeline",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "leads",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Activity Timeline capability within the Leads module.",
-      "contractBindings": [
-        "forms.leadActivity"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.leads.deduplication",
-      "capabilityId": "leads.deduplication",
-      "name": "Deduplication",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "leads",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Deduplication capability within the Leads module.",
-      "contractBindings": [],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.leads.export",
-      "capabilityId": "leads.export",
-      "name": "Export",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "leads",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Export capability within the Leads module.",
-      "contractBindings": [
-        "forms.lead"
+        "gaming.internalQuote",
+        "gaming.publicQuote"
       ],
       "permissionBindings": [
-        "forms.leads.export"
+        "gaming.finance.manage"
       ],
       "eventBindings": [],
       "requiresCapabilities": [],
-      "requiresModules": [],
+      "requiresModules": [
+        "core"
+      ],
       "cms": {
         "customerVisible": true,
         "adminVisible": true
@@ -4261,24 +4566,30 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.consent.preferences",
-      "capabilityId": "consent.preferences",
-      "name": "Consent Preferences",
-      "version": "0.18.0",
+      "$id": "modules.capability.gaming.game-keys",
+      "capabilityId": "gaming.game-keys",
+      "name": "Game Keys",
+      "version": "1.2.0",
       "status": "stable",
-      "moduleId": "consent",
+      "moduleId": "gaming",
       "mode": "default-on",
       "selectable": true,
       "defaultEnabled": true,
-      "description": "Consent Preferences capability within the Consent module.",
+      "description": "Game Keys capability within the Gaming Store module.",
       "contractBindings": [
-        "marketing.consentPreference",
-        "marketing.consentState"
+        "gaming.product",
+        "gaming.offer",
+        "gaming.digitalDeliverable"
       ],
       "permissionBindings": [],
       "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
+      "requiresCapabilities": [
+        "gaming.digital-fulfillment",
+        "gaming.regional-restrictions"
+      ],
+      "requiresModules": [
+        "core"
+      ],
       "cms": {
         "customerVisible": true,
         "adminVisible": true
@@ -4290,23 +4601,27 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.consent.records",
-      "capabilityId": "consent.records",
-      "name": "Consent Records",
-      "version": "0.18.0",
+      "$id": "modules.capability.gaming.gift-cards",
+      "capabilityId": "gaming.gift-cards",
+      "name": "Gift Cards",
+      "version": "1.2.0",
       "status": "stable",
-      "moduleId": "consent",
+      "moduleId": "gaming",
       "mode": "default-on",
       "selectable": true,
       "defaultEnabled": true,
-      "description": "Consent Records capability within the Consent module.",
+      "description": "Gift Cards capability within the Gaming Store module.",
       "contractBindings": [
-        "marketing.trackingConsentRecord"
+        "gaming.product",
+        "gaming.offer",
+        "gaming.digitalDeliverable"
       ],
       "permissionBindings": [],
       "eventBindings": [],
       "requiresCapabilities": [],
-      "requiresModules": [],
+      "requiresModules": [
+        "core"
+      ],
       "cms": {
         "customerVisible": true,
         "adminVisible": true
@@ -4318,168 +4633,25 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.consent.categories",
-      "capabilityId": "consent.categories",
-      "name": "Consent Categories",
-      "version": "0.18.0",
+      "$id": "modules.capability.gaming.manual-services",
+      "capabilityId": "gaming.manual-services",
+      "name": "Manual Services",
+      "version": "1.2.0",
       "status": "stable",
-      "moduleId": "consent",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Consent Categories capability within the Consent module.",
-      "contractBindings": [
-        "marketing.consentCategory"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.consent.integration-gating",
-      "capabilityId": "consent.integration-gating",
-      "name": "Integration Gating",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "consent",
-      "mode": "always-on",
-      "selectable": false,
-      "defaultEnabled": true,
-      "description": "Integration Gating capability within the Consent module.",
-      "contractBindings": [
-        "marketing.consentPolicy"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.analytics.measurement",
-      "capabilityId": "analytics.measurement",
-      "name": "Measurement",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "analytics",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Measurement capability within the Analytics module.",
-      "contractBindings": [
-        "marketing.analyticsConfiguration"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.analytics.reporting",
-      "capabilityId": "analytics.reporting",
-      "name": "Reporting",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "analytics",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Reporting capability within the Analytics module.",
-      "contractBindings": [
-        "marketing.analyticsObservation",
-        "marketing.analyticsSnapshot"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.analytics.attribution",
-      "capabilityId": "analytics.attribution",
-      "name": "Attribution",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "analytics",
+      "moduleId": "gaming",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Attribution capability within the Analytics module.",
+      "description": "Manual Services capability within the Gaming Store module.",
       "contractBindings": [
-        "marketing.attributionModel",
-        "marketing.attributionTouchpoint",
-        "marketing.attributionCredit"
+        "gaming.fulfillment"
       ],
-      "permissionBindings": [
-        "marketing.attribution.export",
-        "marketing.attribution.manage",
-        "marketing.attribution.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.analytics.campaign-performance",
-      "capabilityId": "analytics.campaign-performance",
-      "name": "Campaign Performance",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "analytics",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Campaign Performance capability within the Analytics module.",
-      "contractBindings": [],
       "permissionBindings": [],
       "eventBindings": [],
       "requiresCapabilities": [],
-      "requiresModules": [],
+      "requiresModules": [
+        "core"
+      ],
       "cms": {
         "customerVisible": true,
         "adminVisible": true
@@ -4491,31 +4663,186 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.marketing.conversions",
-      "capabilityId": "marketing.conversions",
-      "name": "Conversions",
-      "version": "0.18.0",
+      "$id": "modules.capability.gaming.regional-restrictions",
+      "capabilityId": "gaming.regional-restrictions",
+      "name": "Regional Restrictions",
+      "version": "1.2.0",
       "status": "stable",
-      "moduleId": "marketing",
+      "moduleId": "gaming",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Regional Restrictions capability within the Gaming Store module.",
+      "contractBindings": [
+        "gaming.regionRule"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.gaming.steam-gifts",
+      "capabilityId": "gaming.steam-gifts",
+      "name": "Steam Gifts",
+      "version": "1.2.0",
+      "status": "stable",
+      "moduleId": "gaming",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Steam Gifts capability within the Gaming Store module.",
+      "contractBindings": [
+        "gaming.offer",
+        "gaming.purchaseField"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.gaming.steam-wallet",
+      "capabilityId": "gaming.steam-wallet",
+      "name": "Steam Wallet",
+      "version": "1.2.0",
+      "status": "stable",
+      "moduleId": "gaming",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Steam Wallet capability within the Gaming Store module.",
+      "contractBindings": [
+        "gaming.offer",
+        "gaming.regionRule"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [
+        "gaming.dynamic-pricing"
+      ],
+      "requiresModules": [
+        "core"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.gaming.supplier-routing",
+      "capabilityId": "gaming.supplier-routing",
+      "name": "Supplier Routing",
+      "version": "1.2.0",
+      "status": "stable",
+      "moduleId": "gaming",
       "mode": "default-on",
       "selectable": true,
       "defaultEnabled": true,
-      "description": "Conversions capability within the Marketing module.",
+      "description": "Supplier Routing capability within the Gaming Store module.",
       "contractBindings": [
-        "marketing.conversionDefinition",
-        "marketing.conversionOccurrence",
-        "marketing.conversionValue"
+        "gaming.supplierCapabilities",
+        "gaming.supplierOfferMapping"
       ],
       "permissionBindings": [
-        "marketing.conversions.create",
-        "marketing.conversions.delete",
-        "marketing.conversions.edit",
-        "marketing.conversions.manage",
-        "marketing.conversions.view"
+        "gaming.suppliers.manage"
       ],
       "eventBindings": [],
       "requiresCapabilities": [],
-      "requiresModules": [],
+      "requiresModules": [
+        "core"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.gaming.telegram",
+      "capabilityId": "gaming.telegram",
+      "name": "Telegram",
+      "version": "1.2.0",
+      "status": "stable",
+      "moduleId": "gaming",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Telegram capability within the Gaming Store module.",
+      "contractBindings": [
+        "gaming.offer",
+        "gaming.purchaseField"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.gaming.topups",
+      "capabilityId": "gaming.topups",
+      "name": "Topups",
+      "version": "1.2.0",
+      "status": "stable",
+      "moduleId": "gaming",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Topups capability within the Gaming Store module.",
+      "contractBindings": [
+        "gaming.product",
+        "gaming.offer"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [
+        "gaming.digital-fulfillment"
+      ],
+      "requiresModules": [
+        "core"
+      ],
       "cms": {
         "customerVisible": true,
         "adminVisible": true
@@ -4527,145 +4854,102 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.marketing.campaigns",
-      "capabilityId": "marketing.campaigns",
-      "name": "Campaigns",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "marketing",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Campaigns capability within the Marketing module.",
-      "contractBindings": [
-        "marketing.campaignDefinition",
-        "marketing.campaignContext"
-      ],
-      "permissionBindings": [
-        "marketing.campaigns.create",
-        "marketing.campaigns.delete",
-        "marketing.campaigns.edit",
-        "marketing.campaigns.manage",
-        "marketing.campaigns.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.marketing.utm-attribution",
-      "capabilityId": "marketing.utm-attribution",
-      "name": "UTM Attribution",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "marketing",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "UTM Attribution capability within the Marketing module.",
-      "contractBindings": [
-        "marketing.utmParameters",
-        "marketing.trafficSource"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.marketing.ad-click-identifiers",
-      "capabilityId": "marketing.ad-click-identifiers",
-      "name": "Ad Click Identifiers",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "marketing",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Ad Click Identifiers capability within the Marketing module.",
-      "contractBindings": [
-        "marketing.adClickIdentifier"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.marketing.destinations",
-      "capabilityId": "marketing.destinations",
-      "name": "Marketing Destinations",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "marketing",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Marketing Destinations capability within the Marketing module.",
-      "contractBindings": [
-        "marketing.marketingDestination",
-        "marketing.destinationMapping"
-      ],
-      "permissionBindings": [
-        "marketing.destinations.create",
-        "marketing.destinations.delete",
-        "marketing.destinations.edit",
-        "marketing.destinations.manage",
-        "marketing.destinations.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.integrations.gtm",
-      "capabilityId": "integrations.gtm",
-      "name": "Google Tag Manager",
+      "$id": "modules.capability.integrations.clarity",
+      "capabilityId": "integrations.clarity",
+      "name": "Microsoft Clarity",
       "version": "0.18.0",
       "status": "stable",
       "moduleId": "integrations",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Google Tag Manager capability within the Integrations module.",
+      "description": "Microsoft Clarity capability within the Integrations module.",
       "contractBindings": [
-        "integrations.googleTagManager"
+        "integrations.microsoftClarity"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.crm",
+      "capabilityId": "integrations.crm",
+      "name": "CRM",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "CRM capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.crm"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.custom-api",
+      "capabilityId": "integrations.custom-api",
+      "name": "Custom API",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Custom API capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.customApi"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.email",
+      "capabilityId": "integrations.email",
+      "name": "Email Provider",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Email Provider capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.emailProvider"
       ],
       "permissionBindings": [],
       "eventBindings": [],
@@ -4738,18 +5022,79 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.integrations.search-console",
-      "capabilityId": "integrations.search-console",
-      "name": "Google Search Console",
+      "$id": "modules.capability.integrations.gtm",
+      "capabilityId": "integrations.gtm",
+      "name": "Google Tag Manager",
       "version": "0.18.0",
       "status": "stable",
       "moduleId": "integrations",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Google Search Console capability within the Integrations module.",
+      "description": "Google Tag Manager capability within the Integrations module.",
       "contractBindings": [
-        "integrations.googleSearchConsole"
+        "integrations.googleTagManager"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.health",
+      "capabilityId": "integrations.health",
+      "name": "Integration Health",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Integration Health capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.healthCheck"
+      ],
+      "permissionBindings": [
+        "integrations.health.view"
+      ],
+      "eventBindings": [
+        "integration.health-degraded",
+        "integration.health-restored"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.linkedin",
+      "capabilityId": "integrations.linkedin",
+      "name": "LinkedIn",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "LinkedIn capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.linkedin"
       ],
       "permissionBindings": [],
       "eventBindings": [],
@@ -4794,90 +5139,6 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.integrations.clarity",
-      "capabilityId": "integrations.clarity",
-      "name": "Microsoft Clarity",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "integrations",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Microsoft Clarity capability within the Integrations module.",
-      "contractBindings": [
-        "integrations.microsoftClarity"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.integrations.tiktok",
-      "capabilityId": "integrations.tiktok",
-      "name": "TikTok",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "integrations",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "TikTok capability within the Integrations module.",
-      "contractBindings": [
-        "integrations.tiktok"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.integrations.linkedin",
-      "capabilityId": "integrations.linkedin",
-      "name": "LinkedIn",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "integrations",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "LinkedIn capability within the Integrations module.",
-      "contractBindings": [
-        "integrations.linkedin"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
       "$id": "modules.capability.integrations.microsoft-ads",
       "capabilityId": "integrations.microsoft-ads",
       "name": "Microsoft Ads",
@@ -4906,18 +5167,18 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.integrations.email",
-      "capabilityId": "integrations.email",
-      "name": "Email Provider",
+      "$id": "modules.capability.integrations.search-console",
+      "capabilityId": "integrations.search-console",
+      "name": "Google Search Console",
       "version": "0.18.0",
       "status": "stable",
       "moduleId": "integrations",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Email Provider capability within the Integrations module.",
+      "description": "Google Search Console capability within the Integrations module.",
       "contractBindings": [
-        "integrations.emailProvider"
+        "integrations.googleSearchConsole"
       ],
       "permissionBindings": [],
       "eventBindings": [],
@@ -4934,18 +5195,53 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.integrations.crm",
-      "capabilityId": "integrations.crm",
-      "name": "CRM",
+      "$id": "modules.capability.integrations.sync",
+      "capabilityId": "integrations.sync",
+      "name": "Synchronization",
       "version": "0.18.0",
       "status": "stable",
       "moduleId": "integrations",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "CRM capability within the Integrations module.",
+      "description": "Synchronization capability within the Integrations module.",
       "contractBindings": [
-        "integrations.crm"
+        "integrations.syncRun"
+      ],
+      "permissionBindings": [
+        "integrations.sync.manage",
+        "integrations.sync.view"
+      ],
+      "eventBindings": [
+        "integration.sync-failed",
+        "integration.sync-started",
+        "integration.sync-succeeded"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.integrations.tiktok",
+      "capabilityId": "integrations.tiktok",
+      "name": "TikTok",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "integrations",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "TikTok capability within the Integrations module.",
+      "contractBindings": [
+        "integrations.tiktok"
       ],
       "permissionBindings": [],
       "eventBindings": [],
@@ -5009,18 +5305,46 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.integrations.custom-api",
-      "capabilityId": "integrations.custom-api",
-      "name": "Custom API",
+      "$id": "modules.capability.leads.activity",
+      "capabilityId": "leads.activity",
+      "name": "Activity Timeline",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "integrations",
+      "moduleId": "leads",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Activity Timeline capability within the Leads module.",
+      "contractBindings": [
+        "forms.leadActivity"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.leads.assignment",
+      "capabilityId": "leads.assignment",
+      "name": "Assignment",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "leads",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Custom API capability within the Integrations module.",
+      "description": "Assignment capability within the Leads module.",
       "contractBindings": [
-        "integrations.customApi"
+        "forms.leadAssignment"
       ],
       "permissionBindings": [],
       "eventBindings": [],
@@ -5037,141 +5361,16 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.integrations.health",
-      "capabilityId": "integrations.health",
-      "name": "Integration Health",
+      "$id": "modules.capability.leads.deduplication",
+      "capabilityId": "leads.deduplication",
+      "name": "Deduplication",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "integrations",
+      "moduleId": "leads",
       "mode": "default-on",
       "selectable": true,
       "defaultEnabled": true,
-      "description": "Integration Health capability within the Integrations module.",
-      "contractBindings": [
-        "integrations.healthCheck"
-      ],
-      "permissionBindings": [
-        "integrations.health.view"
-      ],
-      "eventBindings": [
-        "integration.health-degraded",
-        "integration.health-restored"
-      ],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.integrations.sync",
-      "capabilityId": "integrations.sync",
-      "name": "Synchronization",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "integrations",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Synchronization capability within the Integrations module.",
-      "contractBindings": [
-        "integrations.syncRun"
-      ],
-      "permissionBindings": [
-        "integrations.sync.manage",
-        "integrations.sync.view"
-      ],
-      "eventBindings": [
-        "integration.sync-failed",
-        "integration.sync-started",
-        "integration.sync-succeeded"
-      ],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.catalog",
-      "capabilityId": "commerce.catalog",
-      "name": "Catalog",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Catalog capability within the Commerce module.",
-      "contractBindings": [
-        "commerce.product"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.variants",
-      "capabilityId": "commerce.variants",
-      "name": "Variants",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Variants capability within the Commerce module.",
-      "contractBindings": [
-        "commerce.productVariant",
-        "commerce.productOption"
-      ],
-      "permissionBindings": [],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.attributes",
-      "capabilityId": "commerce.attributes",
-      "name": "Attributes",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Attributes capability within the Commerce module.",
+      "description": "Deduplication capability within the Leads module.",
       "contractBindings": [],
       "permissionBindings": [],
       "eventBindings": [],
@@ -5183,62 +5382,26 @@ export const GENERATED_VALIDATION = {
       },
       "manifest": {
         "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.categories",
-      "capabilityId": "commerce.categories",
-      "name": "Categories",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Categories capability within the Commerce module.",
-      "contractBindings": [
-        "commerce.productCategory"
-      ],
-      "permissionBindings": [
-        "commerce.categories.create",
-        "commerce.categories.delete",
-        "commerce.categories.edit",
-        "commerce.categories.manage",
-        "commerce.categories.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
         "explicitSelectionRequired": false
       },
       "notes": []
     },
     {
-      "$id": "modules.capability.commerce.collections",
-      "capabilityId": "commerce.collections",
-      "name": "Collections",
+      "$id": "modules.capability.leads.export",
+      "capabilityId": "leads.export",
+      "name": "Export",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "commerce",
+      "moduleId": "leads",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Collections capability within the Commerce module.",
-      "contractBindings": [],
+      "description": "Export capability within the Leads module.",
+      "contractBindings": [
+        "forms.lead"
+      ],
       "permissionBindings": [
-        "commerce.collections.create",
-        "commerce.collections.delete",
-        "commerce.collections.edit",
-        "commerce.collections.manage",
-        "commerce.collections.view"
+        "forms.leads.export"
       ],
       "eventBindings": [],
       "requiresCapabilities": [],
@@ -5254,64 +5417,18 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.commerce.inventory",
-      "capabilityId": "commerce.inventory",
-      "name": "Inventory",
+      "$id": "modules.capability.leads.notes",
+      "capabilityId": "leads.notes",
+      "name": "Notes",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "commerce",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Inventory capability within the Commerce module.",
-      "contractBindings": [
-        "commerce.inventoryItem",
-        "commerce.inventoryLevel",
-        "commerce.inventoryAdjustment",
-        "commerce.inventoryReservation"
-      ],
-      "permissionBindings": [
-        "commerce.inventory.edit",
-        "commerce.inventory.export",
-        "commerce.inventory.manage",
-        "commerce.inventory.view"
-      ],
-      "eventBindings": [
-        "inventory.adjusted",
-        "inventory.back-in-stock",
-        "inventory.committed",
-        "inventory.low",
-        "inventory.out-of-stock",
-        "inventory.released",
-        "inventory.reserved",
-        "inventory.transferred"
-      ],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.multi-location-inventory",
-      "capabilityId": "commerce.multi-location-inventory",
-      "name": "Multi-location Inventory",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
+      "moduleId": "leads",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Multi-location Inventory capability within the Commerce module.",
+      "description": "Notes capability within the Leads module.",
       "contractBindings": [
-        "commerce.inventoryLocation",
-        "commerce.inventoryTransfer"
+        "forms.leadNote"
       ],
       "permissionBindings": [],
       "eventBindings": [],
@@ -5328,95 +5445,22 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.commerce.customers",
-      "capabilityId": "commerce.customers",
-      "name": "Commerce Customers",
+      "$id": "modules.capability.leads.status",
+      "capabilityId": "leads.status",
+      "name": "Lead Status",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "commerce",
+      "moduleId": "leads",
       "mode": "default-on",
       "selectable": true,
       "defaultEnabled": true,
-      "description": "Commerce Customers capability within the Commerce module.",
+      "description": "Lead Status capability within the Leads module.",
       "contractBindings": [
-        "commerce.customerAddress"
+        "forms.lead"
       ],
-      "permissionBindings": [
-        "commerce.customers.edit",
-        "commerce.customers.export",
-        "commerce.customers.manage",
-        "commerce.customers.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.carts",
-      "capabilityId": "commerce.carts",
-      "name": "Carts",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Carts capability within the Commerce module.",
-      "contractBindings": [
-        "commerce.cart",
-        "commerce.cartLine"
-      ],
-      "permissionBindings": [
-        "commerce.carts.manage",
-        "commerce.carts.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.checkout",
-      "capabilityId": "commerce.checkout",
-      "name": "Checkout",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Checkout capability within the Commerce module.",
-      "contractBindings": [
-        "commerce.checkout",
-        "commerce.checkoutLine"
-      ],
-      "permissionBindings": [
-        "commerce.checkouts.manage",
-        "commerce.checkouts.view"
-      ],
+      "permissionBindings": [],
       "eventBindings": [
-        "checkout.abandoned",
-        "checkout.completed",
-        "checkout.expired",
-        "checkout.started",
-        "checkout.updated"
+        "lead.status-changed"
       ],
       "requiresCapabilities": [],
       "requiresModules": [],
@@ -5431,226 +5475,19 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.commerce.orders",
-      "capabilityId": "commerce.orders",
-      "name": "Orders",
+      "$id": "modules.capability.marketing.ad-click-identifiers",
+      "capabilityId": "marketing.ad-click-identifiers",
+      "name": "Ad Click Identifiers",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "commerce",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Orders capability within the Commerce module.",
-      "contractBindings": [
-        "commerce.order"
-      ],
-      "permissionBindings": [
-        "commerce.orders.edit",
-        "commerce.orders.export",
-        "commerce.orders.manage",
-        "commerce.orders.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.payments",
-      "capabilityId": "commerce.payments",
-      "name": "Payments",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
-      "mode": "default-on",
-      "selectable": true,
-      "defaultEnabled": true,
-      "description": "Payments capability within the Commerce module.",
-      "contractBindings": [
-        "commerce.payment",
-        "commerce.paymentAttempt",
-        "commerce.paymentAuthorization",
-        "commerce.paymentCapture"
-      ],
-      "permissionBindings": [
-        "commerce.payments.export",
-        "commerce.payments.manage",
-        "commerce.payments.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": false
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.refunds",
-      "capabilityId": "commerce.refunds",
-      "name": "Refunds",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
+      "moduleId": "marketing",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Refunds capability within the Commerce module.",
+      "description": "Ad Click Identifiers capability within the Marketing module.",
       "contractBindings": [
-        "commerce.refund"
+        "marketing.adClickIdentifier"
       ],
-      "permissionBindings": [
-        "commerce.refunds.create",
-        "commerce.refunds.export",
-        "commerce.refunds.manage",
-        "commerce.refunds.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.shipping",
-      "capabilityId": "commerce.shipping",
-      "name": "Shipping",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Shipping capability within the Commerce module.",
-      "contractBindings": [
-        "commerce.shippingZone",
-        "commerce.shippingMethod"
-      ],
-      "permissionBindings": [
-        "commerce.shipping.create",
-        "commerce.shipping.delete",
-        "commerce.shipping.edit",
-        "commerce.shipping.manage",
-        "commerce.shipping.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.fulfillment",
-      "capabilityId": "commerce.fulfillment",
-      "name": "Fulfillment",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Fulfillment capability within the Commerce module.",
-      "contractBindings": [
-        "commerce.fulfillment",
-        "commerce.shipment"
-      ],
-      "permissionBindings": [
-        "commerce.fulfillments.create",
-        "commerce.fulfillments.edit",
-        "commerce.fulfillments.manage",
-        "commerce.fulfillments.view"
-      ],
-      "eventBindings": [
-        "fulfillment.cancelled",
-        "fulfillment.completed",
-        "fulfillment.created",
-        "fulfillment.updated"
-      ],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.discounts",
-      "capabilityId": "commerce.discounts",
-      "name": "Discounts",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Discounts capability within the Commerce module.",
-      "contractBindings": [
-        "commerce.discount"
-      ],
-      "permissionBindings": [
-        "commerce.discounts.create",
-        "commerce.discounts.delete",
-        "commerce.discounts.edit",
-        "commerce.discounts.manage",
-        "commerce.discounts.view"
-      ],
-      "eventBindings": [],
-      "requiresCapabilities": [],
-      "requiresModules": [],
-      "cms": {
-        "customerVisible": true,
-        "adminVisible": true
-      },
-      "manifest": {
-        "allowed": true,
-        "explicitSelectionRequired": true
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.capability.commerce.promotions",
-      "capabilityId": "commerce.promotions",
-      "name": "Automatic Promotions",
-      "version": "0.18.0",
-      "status": "stable",
-      "moduleId": "commerce",
-      "mode": "optional",
-      "selectable": true,
-      "defaultEnabled": false,
-      "description": "Automatic Promotions capability within the Commerce module.",
-      "contractBindings": [],
       "permissionBindings": [],
       "eventBindings": [],
       "requiresCapabilities": [],
@@ -5666,21 +5503,26 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.commerce.returns",
-      "capabilityId": "commerce.returns",
-      "name": "Returns",
+      "$id": "modules.capability.marketing.campaigns",
+      "capabilityId": "marketing.campaigns",
+      "name": "Campaigns",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "commerce",
+      "moduleId": "marketing",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Returns capability within the Commerce module.",
-      "contractBindings": [],
+      "description": "Campaigns capability within the Marketing module.",
+      "contractBindings": [
+        "marketing.campaignDefinition",
+        "marketing.campaignContext"
+      ],
       "permissionBindings": [
-        "commerce.returns.edit",
-        "commerce.returns.manage",
-        "commerce.returns.view"
+        "marketing.campaigns.create",
+        "marketing.campaigns.delete",
+        "marketing.campaigns.edit",
+        "marketing.campaigns.manage",
+        "marketing.campaigns.view"
       ],
       "eventBindings": [],
       "requiresCapabilities": [],
@@ -5696,24 +5538,327 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.commerce.reviews",
-      "capabilityId": "commerce.reviews",
-      "name": "Reviews",
+      "$id": "modules.capability.marketing.conversions",
+      "capabilityId": "marketing.conversions",
+      "name": "Conversions",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "commerce",
+      "moduleId": "marketing",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Conversions capability within the Marketing module.",
+      "contractBindings": [
+        "marketing.conversionDefinition",
+        "marketing.conversionOccurrence",
+        "marketing.conversionValue"
+      ],
+      "permissionBindings": [
+        "marketing.conversions.create",
+        "marketing.conversions.delete",
+        "marketing.conversions.edit",
+        "marketing.conversions.manage",
+        "marketing.conversions.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.marketing.destinations",
+      "capabilityId": "marketing.destinations",
+      "name": "Marketing Destinations",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "marketing",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Marketing Destinations capability within the Marketing module.",
+      "contractBindings": [
+        "marketing.marketingDestination",
+        "marketing.destinationMapping"
+      ],
+      "permissionBindings": [
+        "marketing.destinations.create",
+        "marketing.destinations.delete",
+        "marketing.destinations.edit",
+        "marketing.destinations.manage",
+        "marketing.destinations.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.marketing.utm-attribution",
+      "capabilityId": "marketing.utm-attribution",
+      "name": "UTM Attribution",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "marketing",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "UTM Attribution capability within the Marketing module.",
+      "contractBindings": [
+        "marketing.utmParameters",
+        "marketing.trafficSource"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.audio",
+      "capabilityId": "media.audio",
+      "name": "Audio Assets",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Reviews capability within the Commerce module.",
+      "description": "Audio Assets capability within the Media module.",
       "contractBindings": [
-        "commerce.productReview"
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.contextual-metadata",
+      "capabilityId": "media.contextual-metadata",
+      "name": "Contextual Media Metadata",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Contextual Media Metadata capability within the Media module.",
+      "contractBindings": [
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.documents",
+      "capabilityId": "media.documents",
+      "name": "Document Assets",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Document Assets capability within the Media module.",
+      "contractBindings": [
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.images",
+      "capabilityId": "media.images",
+      "name": "Image Assets",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Image Assets capability within the Media module.",
+      "contractBindings": [
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.library",
+      "capabilityId": "media.library",
+      "name": "Media Library",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Media Library capability within the Media module.",
+      "contractBindings": [
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.media.video",
+      "capabilityId": "media.video",
+      "name": "Video Assets",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "media",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Video Assets capability within the Media module.",
+      "contractBindings": [
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.approvals",
+      "capabilityId": "pages.approvals",
+      "name": "Approval Workflow",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Approval Workflow capability within the Pages module.",
+      "contractBindings": [
+        "core.publishing"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.custom-collections",
+      "capabilityId": "pages.custom-collections",
+      "name": "Custom Collections",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Custom Collections capability within the Pages module.",
+      "contractBindings": [
+        "content.customCollection",
+        "content.customCollectionEntry"
       ],
       "permissionBindings": [
-        "commerce.reviews.delete",
-        "commerce.reviews.edit",
-        "commerce.reviews.manage",
-        "commerce.reviews.view"
+        "content.customcollections.create",
+        "content.customcollections.delete",
+        "content.customcollections.edit",
+        "content.customcollections.manage",
+        "content.customcollections.view"
       ],
       "eventBindings": [],
       "requiresCapabilities": [],
@@ -5729,24 +5874,465 @@ export const GENERATED_VALIDATION = {
       "notes": []
     },
     {
-      "$id": "modules.capability.commerce.taxes",
-      "capabilityId": "commerce.taxes",
-      "name": "Tax",
+      "$id": "modules.capability.pages.legal-pages",
+      "capabilityId": "pages.legal-pages",
+      "name": "Legal Pages",
       "version": "0.18.0",
       "status": "stable",
-      "moduleId": "commerce",
+      "moduleId": "pages",
       "mode": "optional",
       "selectable": true,
       "defaultEnabled": false,
-      "description": "Tax capability within the Commerce module.",
+      "description": "Legal Pages capability within the Pages module.",
       "contractBindings": [
-        "commerce.taxConfiguration",
-        "commerce.taxLine"
+        "content.legalPage"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.navigation",
+      "capabilityId": "pages.navigation",
+      "name": "Navigation",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Navigation capability within the Pages module.",
+      "contractBindings": [
+        "content.navigation",
+        "content.navigationItem"
       ],
       "permissionBindings": [
-        "commerce.taxes.edit",
-        "commerce.taxes.manage",
-        "commerce.taxes.view"
+        "content.navigation.edit",
+        "content.navigation.manage",
+        "content.navigation.publish",
+        "content.navigation.view"
+      ],
+      "eventBindings": [
+        "navigation.updated"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.reusable-content",
+      "capabilityId": "pages.reusable-content",
+      "name": "Reusable Content",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Reusable Content capability within the Pages module.",
+      "contractBindings": [
+        "content.reusableContent"
+      ],
+      "permissionBindings": [
+        "content.reusablecontent.approve",
+        "content.reusablecontent.create",
+        "content.reusablecontent.delete",
+        "content.reusablecontent.edit",
+        "content.reusablecontent.publish",
+        "content.reusablecontent.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.scheduling",
+      "capabilityId": "pages.scheduling",
+      "name": "Scheduled Publishing",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Scheduled Publishing capability within the Pages module.",
+      "contractBindings": [
+        "core.scheduleWindow",
+        "core.publishing"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.pages.sections",
+      "capabilityId": "pages.sections",
+      "name": "Structured Sections",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "pages",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Structured Sections capability within the Pages module.",
+      "contractBindings": [
+        "content.page",
+        "content.pageSection"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.audits",
+      "capabilityId": "seo.audits",
+      "name": "SEO Audits",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "SEO Audits capability within the SEO module.",
+      "contractBindings": [
+        "seo.auditResult",
+        "seo.auditIssue"
+      ],
+      "permissionBindings": [
+        "seo.audits.export",
+        "seo.audits.manage",
+        "seo.audits.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.indexing",
+      "capabilityId": "seo.indexing",
+      "name": "Indexing",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Indexing capability within the SEO module.",
+      "contractBindings": [
+        "seo.indexingStatus"
+      ],
+      "permissionBindings": [
+        "seo.indexing.manage",
+        "seo.indexing.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.keywords",
+      "capabilityId": "seo.keywords",
+      "name": "Keywords",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Keywords capability within the SEO module.",
+      "contractBindings": [
+        "seo.keywordSet",
+        "seo.keywordTarget"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.metadata",
+      "capabilityId": "seo.metadata",
+      "name": "Metadata",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Metadata capability within the SEO module.",
+      "contractBindings": [
+        "seo.metadata"
+      ],
+      "permissionBindings": [
+        "seo.metadata.edit",
+        "seo.metadata.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.redirects",
+      "capabilityId": "seo.redirects",
+      "name": "Redirects",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Redirects capability within the SEO module.",
+      "contractBindings": [
+        "seo.redirect"
+      ],
+      "permissionBindings": [
+        "seo.redirects.create",
+        "seo.redirects.delete",
+        "seo.redirects.edit",
+        "seo.redirects.manage",
+        "seo.redirects.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.robots",
+      "capabilityId": "seo.robots",
+      "name": "Robots",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Robots capability within the SEO module.",
+      "contractBindings": [
+        "seo.robotsPolicy",
+        "seo.robotsRule"
+      ],
+      "permissionBindings": [
+        "seo.robots.edit",
+        "seo.robots.manage",
+        "seo.robots.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.search-performance",
+      "capabilityId": "seo.search-performance",
+      "name": "Search Performance",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Search Performance capability within the SEO module.",
+      "contractBindings": [
+        "seo.searchPerformance",
+        "seo.searchQuery"
+      ],
+      "permissionBindings": [
+        "seo.searchperformance.export",
+        "seo.searchperformance.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.sitemap",
+      "capabilityId": "seo.sitemap",
+      "name": "Sitemap",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Sitemap capability within the SEO module.",
+      "contractBindings": [
+        "seo.sitemapEntry"
+      ],
+      "permissionBindings": [
+        "seo.sitemap.edit",
+        "seo.sitemap.manage",
+        "seo.sitemap.view"
+      ],
+      "eventBindings": [
+        "sitemap.updated"
+      ],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.social-sharing",
+      "capabilityId": "seo.social-sharing",
+      "name": "Social Sharing",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Social Sharing capability within the SEO module.",
+      "contractBindings": [
+        "seo.openGraph",
+        "seo.socialCard"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.seo.structured-data",
+      "capabilityId": "seo.structured-data",
+      "name": "Structured Data",
+      "version": "0.18.0",
+      "status": "stable",
+      "moduleId": "seo",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Structured Data capability within the SEO module.",
+      "contractBindings": [
+        "seo.structuredData"
+      ],
+      "permissionBindings": [
+        "seo.structureddata.edit",
+        "seo.structureddata.view"
       ],
       "eventBindings": [],
       "requiresCapabilities": [],
@@ -14666,11 +15252,7 @@ export const GENERATED_VALIDATION = {
   ],
   "apiGroups": [
     {
-      "apiId": "api.public-content",
-      "version": "1.0.0"
-    },
-    {
-      "apiId": "api.public-interaction",
+      "apiId": "api.commerce",
       "version": "1.0.0"
     },
     {
@@ -14678,15 +15260,31 @@ export const GENERATED_VALIDATION = {
       "version": "1.1.0"
     },
     {
+      "apiId": "api.events",
+      "version": "1.0.0"
+    },
+    {
+      "apiId": "api.gaming-admin",
+      "version": "1.0.0"
+    },
+    {
+      "apiId": "api.gaming-public",
+      "version": "1.0.0"
+    },
+    {
+      "apiId": "api.gaming-service",
+      "version": "1.0.0"
+    },
+    {
       "apiId": "api.nextf-admin",
       "version": "1.1.0"
     },
     {
-      "apiId": "api.commerce",
+      "apiId": "api.public-content",
       "version": "1.0.0"
     },
     {
-      "apiId": "api.events",
+      "apiId": "api.public-interaction",
       "version": "1.0.0"
     },
     {
@@ -14740,6 +15338,19 @@ export const GENERATED_VALIDATION = {
     "fulfillment.completed",
     "fulfillment.created",
     "fulfillment.updated",
+    "gaming.account-validated",
+    "gaming.catalog-sync-completed",
+    "gaming.catalog-sync-failed",
+    "gaming.fulfillment-completed",
+    "gaming.fulfillment-failed",
+    "gaming.fulfillment-processing",
+    "gaming.fulfillment-submitted",
+    "gaming.order-created",
+    "gaming.payment-confirmed",
+    "gaming.refund-completed",
+    "gaming.refund-requested",
+    "gaming.supplier-availability-changed",
+    "gaming.supplier-health-changed",
     "integration.connected",
     "integration.disconnected",
     "integration.health-degraded",
@@ -14847,6 +15458,8 @@ export const GENERATED_VALIDATION = {
     "integrations.crm",
     "integrations.customApi",
     "integrations.emailProvider",
+    "integrations.fazerCards",
+    "integrations.gamingSupplier",
     "integrations.googleAds",
     "integrations.googleAnalytics4",
     "integrations.googleSearchConsole",
@@ -14896,19 +15509,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 10,
         "deprecation": 0,
-        "non-breaking": 2211,
+        "non-breaking": 2287,
         "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-2-V0.3.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.2.0"
     },
     {
       "version": "0.4.0",
@@ -14919,19 +15532,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 15,
         "deprecation": 0,
-        "non-breaking": 2172,
+        "non-breaking": 2248,
         "documentation": 34,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-3-V0.4.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.2.0"
     },
     {
       "version": "0.5.0",
@@ -14942,19 +15555,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 17,
         "deprecation": 0,
-        "non-breaking": 2152,
+        "non-breaking": 2228,
         "documentation": 52,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-4-V0.5.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.2.0"
     },
     {
       "version": "0.6.0",
@@ -14965,19 +15578,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 37,
         "deprecation": 0,
-        "non-breaking": 2131,
+        "non-breaking": 2207,
         "documentation": 53,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-5-V0.6.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.2.0"
     },
     {
       "version": "0.7.0",
@@ -14988,19 +15601,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 36,
         "deprecation": 0,
-        "non-breaking": 2100,
+        "non-breaking": 2176,
         "documentation": 85,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-6-V0.7.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.2.0"
     },
     {
       "version": "0.8.0",
@@ -15011,19 +15624,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 42,
         "deprecation": 0,
-        "non-breaking": 2077,
+        "non-breaking": 2153,
         "documentation": 106,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-7-V0.8.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.2.0"
     },
     {
       "version": "0.9.0",
@@ -15034,19 +15647,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 46,
         "deprecation": 0,
-        "non-breaking": 2041,
+        "non-breaking": 2117,
         "documentation": 138,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-8-V0.9.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.2.0"
     },
     {
       "version": "0.10.0",
@@ -15057,19 +15670,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 55,
         "deprecation": 0,
-        "non-breaking": 1996,
+        "non-breaking": 2072,
         "documentation": 174,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-9-V0.10.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.2.0"
     },
     {
       "version": "0.11.0",
@@ -15080,19 +15693,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 58,
+        "review-required": 56,
         "deprecation": 0,
-        "non-breaking": 1947,
-        "documentation": 220,
+        "non-breaking": 2023,
+        "documentation": 222,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-10-V0.11.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.2.0"
     },
     {
       "version": "0.12.0",
@@ -15103,19 +15716,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 73,
+        "review-required": 71,
         "deprecation": 0,
-        "non-breaking": 1874,
-        "documentation": 278,
+        "non-breaking": 1950,
+        "documentation": 280,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-11-V0.12.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.2.0"
     },
     {
       "version": "0.13.0",
@@ -15140,19 +15753,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 78,
+        "review-required": 76,
         "deprecation": 0,
-        "non-breaking": 1597,
-        "documentation": 550,
+        "non-breaking": 1673,
+        "documentation": 552,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-13-V0.14.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.2.0"
     },
     {
       "version": "0.15.0",
@@ -15175,21 +15788,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
+        "breaking": 2,
         "potentially-breaking": 0,
-        "review-required": 25,
+        "review-required": 26,
         "deprecation": 0,
-        "non-breaking": 1176,
-        "documentation": 1024,
+        "non-breaking": 1252,
+        "documentation": 1021,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-15-V0.16.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.2.0"
     },
     {
       "version": "0.17.0",
@@ -15198,21 +15811,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 2,
+        "breaking": 2,
+        "potentially-breaking": 3,
         "review-required": 29,
         "deprecation": 0,
-        "non-breaking": 1153,
-        "documentation": 1041,
+        "non-breaking": 1229,
+        "documentation": 1038,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-16-V0.17.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.2.0"
     },
     {
       "version": "0.18.0",
@@ -15223,19 +15836,19 @@ export const GENERATED_VALIDATION = {
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2323 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2399 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 96,
-        "potentially-breaking": 6,
+        "breaking": 98,
+        "potentially-breaking": 7,
         "review-required": 31,
         "deprecation": 0,
-        "non-breaking": 1138,
-        "documentation": 1048,
+        "non-breaking": 1214,
+        "documentation": 1045,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-17-V0.18.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.2.0"
     },
     {
       "version": "0.19.0",
@@ -15258,21 +15871,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2229 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 111,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 112,
         "deprecation": 0,
-        "non-breaking": 713,
-        "documentation": 1401,
+        "non-breaking": 789,
+        "documentation": 1397,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-19-V0.20.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.2.0"
     },
     {
       "version": "0.21.0",
@@ -15281,21 +15894,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 186,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 187,
         "deprecation": 0,
-        "non-breaking": 550,
-        "documentation": 1473,
+        "non-breaking": 626,
+        "documentation": 1469,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-20-V0.21.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.2.0"
     },
     {
       "version": "0.22.0",
@@ -15304,21 +15917,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 187,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 188,
         "deprecation": 0,
-        "non-breaking": 477,
-        "documentation": 1545,
+        "non-breaking": 553,
+        "documentation": 1541,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-21-V0.22.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.2.0"
     },
     {
       "version": "0.23.0",
@@ -15327,21 +15940,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 188,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 189,
         "deprecation": 0,
-        "non-breaking": 468,
-        "documentation": 1553,
+        "non-breaking": 544,
+        "documentation": 1549,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-22-V0.23.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
     },
     {
       "version": "0.24.0",
@@ -15350,21 +15963,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 188,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 189,
         "deprecation": 0,
-        "non-breaking": 468,
-        "documentation": 1553,
+        "non-breaking": 544,
+        "documentation": 1549,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-23-V0.24.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.2.0"
     },
     {
       "version": "0.25.0",
@@ -15373,21 +15986,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 188,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 189,
         "deprecation": 0,
-        "non-breaking": 468,
-        "documentation": 1553,
+        "non-breaking": 544,
+        "documentation": 1549,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-24-V0.25.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.2.0"
     },
     {
       "version": "0.26.0",
@@ -15396,21 +16009,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 188,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 189,
         "deprecation": 0,
-        "non-breaking": 468,
-        "documentation": 1553,
+        "non-breaking": 544,
+        "documentation": 1549,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.2.0"
     },
     {
       "version": "0.27.0",
@@ -15419,21 +16032,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2213 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 188,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 189,
         "deprecation": 0,
-        "non-breaking": 468,
-        "documentation": 1553,
+        "non-breaking": 544,
+        "documentation": 1549,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.2.0"
     },
     {
       "version": "0.28.0",
@@ -15442,21 +16055,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2185 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2261 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 196,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 197,
         "deprecation": 0,
-        "non-breaking": 418,
-        "documentation": 1556,
+        "non-breaking": 494,
+        "documentation": 1552,
         "metadata": 15,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.2.0"
     },
     {
       "version": "0.29.0",
@@ -15465,21 +16078,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2184 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2260 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 201,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 202,
         "deprecation": 0,
-        "non-breaking": 405,
-        "documentation": 1558,
+        "non-breaking": 481,
+        "documentation": 1554,
         "metadata": 20,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.2.0"
     },
     {
       "version": "0.30.0",
@@ -15488,21 +16101,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2183 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2259 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 209,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 210,
         "deprecation": 0,
-        "non-breaking": 342,
-        "documentation": 1608,
+        "non-breaking": 418,
+        "documentation": 1604,
         "metadata": 24,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.2.0"
     },
     {
       "version": "0.31.0",
@@ -15511,21 +16124,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2182 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2258 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 284,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 285,
         "deprecation": 0,
-        "non-breaking": 259,
-        "documentation": 1609,
+        "non-breaking": 335,
+        "documentation": 1605,
         "metadata": 30,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.2.0"
     },
     {
       "version": "0.32.0",
@@ -15534,21 +16147,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2181 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2257 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 292,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 293,
         "deprecation": 0,
-        "non-breaking": 200,
-        "documentation": 1610,
+        "non-breaking": 276,
+        "documentation": 1606,
         "metadata": 79,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.2.0"
     },
     {
       "version": "0.33.0",
@@ -15557,21 +16170,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2180 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2256 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 301,
+        "breaking": 2,
+        "potentially-breaking": 1,
+        "review-required": 302,
         "deprecation": 0,
-        "non-breaking": 132,
-        "documentation": 1612,
+        "non-breaking": 208,
+        "documentation": 1608,
         "metadata": 135,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.2.0"
     },
     {
       "version": "0.34.0",
@@ -15580,21 +16193,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2179 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2255 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
+        "breaking": 2,
+        "potentially-breaking": 2,
         "review-required": 303,
         "deprecation": 0,
-        "non-breaking": 126,
-        "documentation": 1615,
+        "non-breaking": 202,
+        "documentation": 1611,
         "metadata": 135,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.2.0"
     },
     {
       "version": "0.35.0",
@@ -15603,21 +16216,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2178 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2254 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
+        "breaking": 2,
+        "potentially-breaking": 2,
         "review-required": 305,
         "deprecation": 0,
-        "non-breaking": 120,
-        "documentation": 1618,
+        "non-breaking": 196,
+        "documentation": 1614,
         "metadata": 135,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.2.0"
     },
     {
       "version": "0.36.0",
@@ -15626,21 +16239,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2177 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2253 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
+        "breaking": 2,
+        "potentially-breaking": 2,
         "review-required": 307,
         "deprecation": 0,
-        "non-breaking": 110,
-        "documentation": 1619,
+        "non-breaking": 186,
+        "documentation": 1615,
         "metadata": 141,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.2.0"
     },
     {
       "version": "0.37.0",
@@ -15649,21 +16262,21 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "historical-development",
       "productionEligible": false,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2176 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2252 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
+        "breaking": 2,
+        "potentially-breaking": 2,
         "review-required": 309,
         "deprecation": 0,
-        "non-breaking": 104,
-        "documentation": 1620,
-        "metadata": 143,
+        "non-breaking": 180,
+        "documentation": 1615,
+        "metadata": 144,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.2.0"
     },
     {
       "version": "1.0.0",
@@ -15672,25 +16285,48 @@ export const GENERATED_VALIDATION = {
       "availability": "exact",
       "supportLevel": "production-supported",
       "productionEligible": true,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2175 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2251 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
-        "potentially-breaking": 0,
-        "review-required": 206,
+        "breaking": 2,
+        "potentially-breaking": 2,
+        "review-required": 310,
         "deprecation": 0,
-        "non-breaking": 98,
-        "documentation": 1856,
-        "metadata": 15,
+        "non-breaking": 174,
+        "documentation": 1619,
+        "metadata": 144,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=1.0.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=1.0.0&to=1.2.0"
     },
     {
       "version": "1.1.0",
-      "phase": 38,
+      "phase": 34,
+      "exactSnapshotAvailable": true,
+      "availability": "exact",
+      "supportLevel": "production-supported",
+      "productionEligible": true,
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "405 consumer-relevant changed/added/removed definitions",
+      "impactCounts": {
+        "breaking": 2,
+        "potentially-breaking": 2,
+        "review-required": 120,
+        "deprecation": 0,
+        "non-breaking": 72,
+        "documentation": 0,
+        "metadata": 209,
+        "none": 0
+      },
+      "sourceReference": "registry/registry.json",
+      "diffRoute": "#/lifecycle/diff?from=1.1.0&to=1.2.0"
+    },
+    {
+      "version": "1.2.0",
+      "phase": 32,
       "exactSnapshotAvailable": true,
       "availability": "exact",
       "supportLevel": "production-current",
@@ -17185,14 +17821,14 @@ export const GENERATED_VALIDATION = {
   },
   "sourceHashes": {
     "standards/41-browser-contract-validation-standard.md": "115a888aa49d660e7279ec04b0d6ea9349fa3a2dae85bba3e9c6a3ac99037377",
-    "registry/manifests/nextf-site-manifest.schema.json": "c4386da9484aff9d2ac39e08fbff779e819263b3f5f0a75a7a0bd07142dc5abb",
-    "registry/modules/index.json": "fd4d93fa6632608450f61deb8cf8d8077debe058ccb9197ee4efda48047f1849",
+    "registry/manifests/nextf-site-manifest.schema.json": "af451747b5bb5d9d8c4e9077f0d16898ecd1ae95eb522a0c6fa970e6173fe33a",
+    "registry/modules/index.json": "710c5fbad7ed08af5c4f727985291ecbadaba1a623a8d184c5a627ef873f30b9",
     "registry/customer-access/index.json": "fde3ee868ef1fdd9033d9eed056d82d42879b32bbbfa4753b197e8ed944caa4b",
-    "registry/api/index.json": "54152f7b37a021627515a36a1590fa186f55b3559acf614ee6ef7b63a212f402",
-    "registry/events/index.json": "0b24bc5d950a903dc6b56a23c891aaec93795fb3478960cfd672494e1960ec80",
+    "registry/api/index.json": "769b21a2d2b350f99efe559e72badeb96efbbc837a148f20f6266bf9fbd9ff49",
+    "registry/events/index.json": "67a2e1f682bf80da1831703905566a6ff9b435b484fedb9db50670223c4318b0",
     "registry/marketing/index.json": "7b0003565e80e631c0331660fd1ceea51113a3503f85b17b53c58ad34c58e2d3",
-    "registry/integrations/index.json": "01dbdf2ecdada943bf594d6a63e38fc0bf33a40050edb43512b6a77434a9b327",
-    "registry/compatibility/release-compatibility.json": "9ec2f115e7d6a725df079ef2d813cb3b8187834bb0a387c0c6bc01a550071b2a",
-    "registry/deprecations/index.json": "e71bbb784937ef8ba5e5f8d7ce77f4069bb9e8f04df8a1a2ef5a5a05fafff3b6"
+    "registry/integrations/index.json": "43408b6857fc68e69fc88aa2358ecdcdd1213e1c1b6d6baef28c4130a1d9f4e4",
+    "registry/compatibility/release-compatibility.json": "014a7a60ca17c274ad36ec6348d30d54c75e035b930afb646418b8b6b946dbde",
+    "registry/deprecations/index.json": "3ab2495261394e1706796b4589e75a332306c7b388ce16b0dd11c5ba56c670ee"
   }
 };

@@ -75,6 +75,11 @@
       "key": "webhooks",
       "label": "Webhooks",
       "description": "Webhook endpoint, subscription, delivery and signing lifecycle facts. These events are never themselves webhook eligible."
+    },
+    {
+      "key": "gaming",
+      "label": "Gaming Store",
+      "description": "Gaming catalog, quote, order, fulfillment and supplier routing facts."
     }
   ]
 }

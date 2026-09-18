@@ -1,0 +1,12 @@
+{
+  "contractVersion": "1.2.0",
+  "surface": "nextf-admin",
+  "navigation": [
+    {
+      "label": "Gaming Store",
+      "path": "/sites/:siteId/gaming",
+      "icon": "fa-gamepad",
+      "order": 115
+    }
+  ]
+}

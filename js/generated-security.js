@@ -1,9 +1,9 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source set: registry/security/*
 export const GENERATED_SECURITY = {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "index": {
-    "registryVersion": "1.1.0",
+    "registryVersion": "1.2.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Security Control Registry",
     "description": "Machine-readable security standards for NEXT F platform surfaces.",
@@ -3661,7 +3661,7 @@ export const GENERATED_SECURITY = {
     }
   ],
   "categories": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.2.0",
     "categories": [
       {
         "id": "authentication",
@@ -3756,7 +3756,7 @@ export const GENERATED_SECURITY = {
     ]
   },
   "severityLevels": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.2.0",
     "title": "Security Violation Severity",
     "description": "Security impact severity only; this vocabulary is distinct from compatibility impact.",
     "levels": [
@@ -3788,7 +3788,7 @@ export const GENERATED_SECURITY = {
     ]
   },
   "obligations": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.2.0",
     "values": [
       {
         "id": "mandatory",
@@ -3801,7 +3801,7 @@ export const GENERATED_SECURITY = {
     ]
   },
   "verificationMethods": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.2.0",
     "methods": [
       {
         "id": "schema-validation",
@@ -3846,7 +3846,7 @@ export const GENERATED_SECURITY = {
     ]
   },
   "secretClasses": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.2.0",
     "title": "Security Value Classes",
     "classes": [
       {
@@ -3900,7 +3900,7 @@ export const GENERATED_SECURITY = {
     ]
   },
   "surfaceMapping": {
-    "registryVersion": "1.0.0",
+    "registryVersion": "1.2.0",
     "surfaces": [
       {
         "surfaceId": "public-site",
@@ -4113,7 +4113,7 @@ export const GENERATED_SECURITY = {
     {
       "$id": "security.secretClass",
       "name": "Security Value Class",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "status": "stable",
       "phase": 29,
       "description": "Classification of public identifiers, configuration, secrets, credentials, tokens, signing secrets and encryption keys.",
@@ -4127,7 +4127,7 @@ export const GENERATED_SECURITY = {
     {
       "$id": "security.securityControl",
       "name": "Security Control",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "status": "stable",
       "phase": 29,
       "description": "Machine-readable security requirement with applicability, verification and cross-registry bindings.",
@@ -4141,7 +4141,7 @@ export const GENERATED_SECURITY = {
     {
       "$id": "security.surfaceMapping",
       "name": "Security Surface Mapping",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "status": "stable",
       "phase": 29,
       "description": "Security-control applicability mapping for a platform surface.",
@@ -4155,7 +4155,7 @@ export const GENERATED_SECURITY = {
     {
       "$id": "security.verificationMethod",
       "name": "Security Verification Method",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "status": "stable",
       "phase": 29,
       "description": "Controlled verification method for security evidence.",
@@ -4168,13 +4168,13 @@ export const GENERATED_SECURITY = {
     }
   ],
   "sourceHashes": {
-    "registry/security/index.json": "a966e1e7d3a7193794d7eaa202e5e967af77a2a20f6c9cb7e813e1a6fcfb97b2",
-    "registry/security/categories.json": "f194d918b7572cc394c732956e40724086e3499e3166623122c29b266725803f",
-    "registry/security/severity-levels.json": "563a024f388d4e40e445ccad70b6036920a8d4a11b1a53b494c1cf4bb1d35bf2",
-    "registry/security/obligations.json": "4af0d43189d19ad12ad43eb9f12e11e099316e571c58a8abe68541f1123a62b2",
-    "registry/security/verification-methods.json": "337d651e663d8d4f16925a16953536d28e1c4e95a384a98311d059584f4e134c",
-    "registry/security/secret-classes.json": "d91b9da40ed27747afb6ed02ff2708cc7da72ead4aea0c74b8747698a4be7b60",
-    "registry/security/surface-mapping.json": "47b37abe3de9846b5e49c5e4e96cd607c7ce0bbd992cf6ff909d16d73b45ca78",
+    "registry/security/index.json": "947255ac7474c7f77ae8513508560d61249d33456a535cceebbc38c1d3d5fa4b",
+    "registry/security/categories.json": "985eb8477ed0422e7435a9b892295c8879e6c128cb9443296faba7bc5fef1547",
+    "registry/security/severity-levels.json": "32e54e4cb7d8f39313eb5218129e4668f5d7f9c478eaed8415ec42286d5982d5",
+    "registry/security/obligations.json": "fff1edbebc3318f6bfb288d29284953e083690403f5c5a2aa09d35855796bdbb",
+    "registry/security/verification-methods.json": "c623373f8e3bfd067f1d2883971aa122bfde45282cbc51bafcd055b496b8c92d",
+    "registry/security/secret-classes.json": "45ae104e3811ed992b19b273c3d291956c8a9a28c2dadbd19206f4de3f346403",
+    "registry/security/surface-mapping.json": "f6757e77819ef75c055adf43297c5089b2ba90ed697040f5ff88092b9de06c4f",
     "registry/security/security-control.schema.json": "965328e941a487920ffea9e41f88c8f648223d322b2bd957665028aae7f424f7",
     "registry/security/controls/sec_abuse_001.json": "00fef16318292b032adf72e950779e077bbb189d0b5ba97927313d1d89c074c9",
     "registry/security/controls/sec_audit_001.json": "43bed3679d0e66d8a16e9c1ef4e7ae88d858d96f3e9a8e23a15003b76e9189aa",
@@ -4225,9 +4225,9 @@ export const GENERATED_SECURITY = {
     "registry/security/controls/sec_wh_002.json": "3db97e53690e167179169de0af6cfc6fbe2a1a5db5eedc7ce8ec38bd05b33516",
     "registry/security/controls/sec_wh_003.json": "2a6f603e9aa6b43f2ccf18223d388be64faed6a3b0b91c9a4be0ccc7e77db978",
     "registry/security/controls/sec_xss_001.json": "11bd14df7cd51d9232aec06f91fcb943e7db7259c931867185f5d6defcb7415c",
-    "registry/security/definitions/secretClass.json": "81a95aadb0e88f131dfe701041be961c018d358d02937b2a258639730c3c44bc",
-    "registry/security/definitions/securityControl.json": "2139c4f67d3cce37422c7bdc35d498e4f0fa3f957eb256a2c73d821a8faebf70",
-    "registry/security/definitions/surfaceMapping.json": "af2e80efa05780df8605aee2f481380f7213e9ad9167cd9533325364d657c93f",
-    "registry/security/definitions/verificationMethod.json": "90dfc9df9a575f588b337db1affae1feabb1f08bdc094b18318dda8649cdbafd"
+    "registry/security/definitions/secretClass.json": "b07fb42139c0a6a1fc5f068f1946482f31d7dee8f7045c7b588641832b783010",
+    "registry/security/definitions/securityControl.json": "2a93126d5876655c88807e1b26080fe693cd1a00347788bd12f7d03fa77dfeeb",
+    "registry/security/definitions/surfaceMapping.json": "abed6e7eed9e984dad79ee07883148fa41e4bf9513e3365cc53a3b5f9e9b7932",
+    "registry/security/definitions/verificationMethod.json": "be93139fd0a1fccd010eedffb310061ac7c2e7971157fef528f5f14ffb56b85d"
   }
 };

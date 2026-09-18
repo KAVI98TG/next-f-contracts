@@ -1,14 +1,14 @@
 {
   "name": "next-f-contracts",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "scripts": {
     "generate:registry": "node scripts/generate-registry-bootstrap.mjs",
     "validate:phase0": "node scripts/validate-phase-0.mjs",
     "validate:phase1": "node scripts/validate-phase-1.mjs",
     "validate:phase2": "node scripts/validate-phase-2.mjs",
-    "validate": "node scripts/validate-phase-38.mjs",
+    "validate": "node scripts/validate-phase-39.mjs",
     "generate:customer-access": "node scripts/sync-customer-access-policy.mjs",
     "validate:phase38": "node scripts/validate-phase-38.mjs",
     "smoke:phase38": "node scripts/smoke-phase-38.mjs",
@@ -120,7 +120,10 @@
     "cloudflare:prepare": "node scripts/prepare-cloudflare-deploy.mjs",
     "cloudflare:check": "npm run cloudflare:prepare && wrangler deploy --dry-run",
     "cloudflare:dev": "npm run cloudflare:prepare && wrangler dev",
-    "cloudflare:deploy": "npm run validate && npm run validate:regression && npm run cloudflare:prepare && wrangler deploy"
+    "cloudflare:deploy": "npm run validate && npm run validate:regression && npm run cloudflare:prepare && wrangler deploy",
+    "generate:gaming": "node scripts/sync-gaming-store-registry.mjs",
+    "validate:phase39": "node scripts/validate-phase-39.mjs",
+    "smoke:phase39": "node scripts/smoke-phase-39.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.131.1"

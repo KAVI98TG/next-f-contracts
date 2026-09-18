@@ -1,0 +1,5 @@
+- [ ] Manifest pins 1.2.0.
+- [ ] Gaming module and dependencies resolve.
+- [ ] Supplier secrets stay in trusted secret storage.
+- [ ] Payment success is server/provider verified.
+- [ ] Secure deliverables use authorized delivery retrieval only.

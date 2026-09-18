@@ -1,6 +1,6 @@
 {
-  "registryVersion": "1.1.0",
-  "targetVersion": "1.1.0",
+  "registryVersion": "1.2.0",
+  "targetVersion": "1.2.0",
   "generatedAt": "2026-09-11T00:00:00Z",
   "evidenceMode": "repository-reference-manifests",
   "productionData": false,
@@ -12,16 +12,16 @@
       "manifestSource": "registry/manifests/examples/corporate.json",
       "manifestRoute": "#/development/site-manifest?example=corporate",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.1.0",
-      "overallStatus": "review-required",
+      "targetContractVersion": "1.2.0",
+      "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "summary": "Manifest requires migration before target 1.2.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
-          "status": "review-required",
+          "status": "migration-required",
           "required": true,
-          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+          "summary": "Breaking contract evidence requires migration before target adoption."
         },
         {
           "dimension": "site-manifest",
@@ -91,13 +91,13 @@
         },
         {
           "dimension": "data-migration",
-          "status": "review-required",
+          "status": "migration-required",
           "required": false,
           "summary": "Upgrade path requires explicit review/migration planning."
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
     },
     {
       "id": "site_example_service",
@@ -106,16 +106,16 @@
       "manifestSource": "registry/manifests/examples/service.json",
       "manifestRoute": "#/development/site-manifest?example=service",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.1.0",
-      "overallStatus": "review-required",
+      "targetContractVersion": "1.2.0",
+      "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "summary": "Manifest requires migration before target 1.2.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
-          "status": "review-required",
+          "status": "migration-required",
           "required": true,
-          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+          "summary": "Breaking contract evidence requires migration before target adoption."
         },
         {
           "dimension": "site-manifest",
@@ -185,13 +185,13 @@
         },
         {
           "dimension": "data-migration",
-          "status": "review-required",
+          "status": "migration-required",
           "required": false,
           "summary": "Upgrade path requires explicit review/migration planning."
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
     },
     {
       "id": "site_example_leadgen",
@@ -200,16 +200,16 @@
       "manifestSource": "registry/manifests/examples/lead-generation.json",
       "manifestRoute": "#/development/site-manifest?example=lead-generation",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.1.0",
-      "overallStatus": "review-required",
+      "targetContractVersion": "1.2.0",
+      "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "summary": "Manifest requires migration before target 1.2.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
-          "status": "review-required",
+          "status": "migration-required",
           "required": true,
-          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+          "summary": "Breaking contract evidence requires migration before target adoption."
         },
         {
           "dimension": "site-manifest",
@@ -279,13 +279,13 @@
         },
         {
           "dimension": "data-migration",
-          "status": "review-required",
+          "status": "migration-required",
           "required": false,
           "summary": "Upgrade path requires explicit review/migration planning."
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
     },
     {
       "id": "site_example_commerce",
@@ -294,16 +294,16 @@
       "manifestSource": "registry/manifests/examples/commerce.json",
       "manifestRoute": "#/development/site-manifest?example=commerce",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.1.0",
-      "overallStatus": "review-required",
+      "targetContractVersion": "1.2.0",
+      "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "summary": "Manifest requires migration before target 1.2.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
-          "status": "review-required",
+          "status": "migration-required",
           "required": true,
-          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+          "summary": "Breaking contract evidence requires migration before target adoption."
         },
         {
           "dimension": "site-manifest",
@@ -373,13 +373,13 @@
         },
         {
           "dimension": "data-migration",
-          "status": "review-required",
+          "status": "migration-required",
           "required": false,
           "summary": "Upgrade path requires explicit review/migration planning."
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
     },
     {
       "id": "site_example_docs",
@@ -388,16 +388,16 @@
       "manifestSource": "registry/manifests/examples/documentation.json",
       "manifestRoute": "#/development/site-manifest?example=documentation",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.1.0",
-      "overallStatus": "review-required",
+      "targetContractVersion": "1.2.0",
+      "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "summary": "Manifest requires migration before target 1.2.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
-          "status": "review-required",
+          "status": "migration-required",
           "required": true,
-          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+          "summary": "Breaking contract evidence requires migration before target adoption."
         },
         {
           "dimension": "site-manifest",
@@ -467,13 +467,13 @@
         },
         {
           "dimension": "data-migration",
-          "status": "review-required",
+          "status": "migration-required",
           "required": false,
           "summary": "Upgrade path requires explicit review/migration planning."
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
     },
     {
       "id": "site_example_custom",
@@ -482,16 +482,16 @@
       "manifestSource": "registry/manifests/examples/custom.json",
       "manifestRoute": "#/development/site-manifest?example=custom",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.1.0",
-      "overallStatus": "review-required",
+      "targetContractVersion": "1.2.0",
+      "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest structure resolves, but the 0.23.0 → 1.1.0 release path requires review and formal Site Runtime/SDK support is not yet declared.",
+      "summary": "Manifest requires migration before target 1.2.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
-          "status": "review-required",
+          "status": "migration-required",
           "required": true,
-          "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade."
+          "summary": "Breaking contract evidence requires migration before target adoption."
         },
         {
           "dimension": "site-manifest",
@@ -561,13 +561,13 @@
         },
         {
           "dimension": "data-migration",
-          "status": "review-required",
+          "status": "migration-required",
           "required": false,
           "summary": "Upgrade path requires explicit review/migration planning."
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.1.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
     }
   ]
 }

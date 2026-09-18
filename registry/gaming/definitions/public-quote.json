@@ -1,0 +1,118 @@
+{
+  "$id": "gaming.publicQuote",
+  "name": "Gaming Public Quote",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "pricing",
+  "description": "Customer-safe quote response for Gaming checkout.",
+  "purpose": "Customer-safe quote response for Gaming checkout.",
+  "gamingModel": {
+    "kind": "public-projection",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "quoteId",
+      "required": true,
+      "nullable": false,
+      "description": "Quote ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "offerId",
+      "required": true,
+      "nullable": false,
+      "description": "Offer ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "quantity",
+      "required": true,
+      "nullable": false,
+      "description": "Quoted quantity.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "retailAmount",
+      "required": true,
+      "nullable": false,
+      "description": "Retail amount and currency.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "expiresAt",
+      "required": true,
+      "nullable": false,
+      "description": "Quote expiry.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "availability",
+      "required": true,
+      "nullable": false,
+      "description": "Customer-safe availability.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "message",
+      "required": false,
+      "nullable": true,
+      "description": "Customer-safe message.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "generatedFrom",
+      "target": "gaming.internalQuote",
+      "description": "Public quote is a safe projection of an internal quote."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "noSupplierLeakage",
+      "description": "Public quote cannot expose supplier identity, cost, balance, margin or routing priority."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Public Quote",
+    "icon": "fa-gamepad",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "quoteId",
+      "offerId",
+      "quantity",
+      "retailAmount"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -15,7 +15,7 @@
   "environment": "Hosted runtime",
   "notes": "Normal hosted loading must not parse generated local fallbacks before authoritative JSON fails.",
   "relatedRegistryIds": [],
-  "version": "1.1.0",
+  "version": "1.2.0",
   "status": "stable",
   "phase": 32,
   "sourceReference": "registry/performance/budgets/perf_budget_005.json"

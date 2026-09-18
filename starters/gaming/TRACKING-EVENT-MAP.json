@@ -1,0 +1,10 @@
+{
+  "contractVersion": "1.2.0",
+  "trackingEvents": [
+    "page.viewed",
+    "cta.clicked"
+  ],
+  "notes": [
+    "Tracking observations never include deliverable secrets or supplier cost."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "$id": "adminUi.profile.gaming.orders",
+  "name": "Gaming Orders Admin",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "profileType": "resource",
+  "resource": "gaming.orders",
+  "moduleId": "gaming",
+  "description": "NEXT F Admin metadata for Gaming Orders Admin.",
+  "targetContracts": [
+    "gaming.internalOrder"
+  ],
+  "primaryTargetContract": "gaming.internalOrder",
+  "route": "/sites/:siteId/gaming/orders",
+  "screenKind": "admin-editor",
+  "layoutTemplate": "admin-operations",
+  "permissions": [
+    "gaming.orders.manage"
+  ],
+  "actions": [
+    {
+      "actionId": "manage",
+      "permissionId": "gaming.orders.manage",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "authorization-denied",
+    "network-error",
+    "success"
+  ],
+  "notes": [
+    "Admin profile metadata does not expose supplier secrets."
+  ]
+}

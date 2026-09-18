@@ -46,7 +46,8 @@ const roadmap = [
   [35, "Site Starter Contract Packs", "Six framework-neutral Site bootstraps with pinned manifests, contract maps and acceptance guidance.", "complete"],
   [36, "Registry Health Release Candidate", "Repository-wide QA, integrity evidence, findings and explicit environment-dependent deferrals.", "complete"],
   [37, "V1.0.0 Production Acceptance", "Stable Registry release, frozen baselines, integrity hashes and formal production-acceptance evidence.", "complete"],
-  [38, "Customer Capability Access Policy", "Explicit customer visibility, actions, approvals, publishing, fields, demo behavior and effective policy resolution.", "current"]
+  [38, "Customer Capability Access Policy", "Explicit customer visibility, actions, approvals, publishing, fields, demo behavior and effective policy resolution.", "complete"],
+  [39, "Gaming Store Canonical Contracts", "Supplier-neutral Gaming products, offers, quotes, orders, fulfillment, APIs, permissions, events, integrations and starter pack.", "current"]
 ];
 
 const architectureRules = [
@@ -91,7 +92,7 @@ export function renderOverview() {
             <span>${icon("fa-circle-half-stroke")} Light + dark themes</span>
             <span>${icon("fa-file-code")} HTML + CSS + JavaScript</span>
             <span>${icon("fa-database")} Repository-first authority</span>
-            <span>${icon("fa-code-branch")} Current registry v1.1.0</span>
+            <span>${icon("fa-code-branch")} Current registry v1.2.0</span>
           </div>
         </div>
       </section>
@@ -109,13 +110,13 @@ export function renderOverview() {
         </article>
         <article class="paper-card metric-card">
           <div class="metric-card__top"><span class="metric-card__label">Registry entries</span><span class="metric-card__icon">${icon("fa-database")}</span></div>
-          <div class="metric-card__value">2,284</div>
-          <p class="metric-card__meta">Canonical definitions in the stable V1.1 Registry</p>
+          <div class="metric-card__value">2,371</div>
+          <p class="metric-card__meta">Canonical definitions in the stable V1.2 Registry</p>
         </article>
         <article class="paper-card metric-card">
           <div class="metric-card__top"><span class="metric-card__label">Current phase</span><span class="metric-card__icon">${icon("fa-layer-group")}</span></div>
-          <div class="metric-card__value">38</div>
-          <p class="metric-card__meta">V1.1.0 Customer Access</p>
+          <div class="metric-card__value">39</div>
+          <p class="metric-card__meta">V1.2.0 Gaming Store</p>
         </article>
       </section>
 
@@ -136,7 +137,7 @@ export function renderOverview() {
 
       <section class="two-column">
         <article class="paper-card">
-          <div class="paper-card__header"><div><h2>Build roadmap</h2><p>The complete contract foundation through V1.1.0 Customer Capability Access Policy.</p></div>${phaseBadge(38)}</div>
+          <div class="paper-card__header"><div><h2>Build roadmap</h2><p>The complete contract foundation through V1.2.0 Gaming Store Canonical Contracts.</p></div>${phaseBadge(39)}</div>
           <div class="paper-card__body">
             <ol class="roadmap-list">
               ${roadmap.map(([number, title, text, state]) => `
@@ -166,13 +167,13 @@ export function renderOverview() {
           </article>
 
           <article class="paper-card">
-            <div class="paper-card__header"><div><h2>V1.1.0 Customer Capability Access Policy</h2><p>Every Customer CMS resource now has an explicit, machine-readable customer boundary backed by permissions, capabilities, APIs and approval contracts.</p></div><a class="button button--secondary button--compact" href="#/platform/customer-access">${icon("fa-shield-halved")} Open Customer Access</a></div>
+            <div class="paper-card__header"><div><h2>V1.2.0 Gaming Store Canonical Contracts</h2><p>Gaming Store now has supplier-neutral products, offers, purchase fields, account validation, quotes, orders, fulfillment, secure delivery, APIs, events, permissions and starter guidance.</p></div><a class="button button--secondary button--compact" href="#/registry?domain=gaming">${icon("fa-gamepad")} Open Gaming contracts</a></div>
             <div class="paper-card__body phase-summary">
-              <div class="phase-summary__row"><span>Customer policies</span><strong>75</strong></div>
-              <div class="phase-summary__row"><span>Policy coverage</span><strong>100%</strong></div>
-              <div class="phase-summary__row"><span>Blocking failures</span><strong>0</strong></div>
-              <div class="phase-summary__row"><span>Approval-required policies</span><strong>8</strong></div>
-              <div class="phase-summary__row"><span>Current release</span><strong>1.1.0</strong></div>
+              <div class="phase-summary__row"><span>Gaming schemas</span><strong>15</strong></div>
+              <div class="phase-summary__row"><span>Gaming capabilities</span><strong>13</strong></div>
+              <div class="phase-summary__row"><span>Gaming API operations</span><strong>22</strong></div>
+              <div class="phase-summary__row"><span>Gaming events</span><strong>13</strong></div>
+              <div class="phase-summary__row"><span>Current release</span><strong>1.2.0</strong></div>
             </div>
           </article>
         </div>

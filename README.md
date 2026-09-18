@@ -1,8 +1,16 @@
 # NEXT F Contracts
 
-Current stable Contract Registry version: **V1.1.0**
+Current stable Contract Registry version: **V1.2.0**
 
 `contract.nextf.lk` is the technical source of truth for NEXT F-built websites, Customer CMS, NEXT F Admin, APIs, reusable schemas, Commerce rules, Events, Webhooks, Permissions, Site Manifests, Modules, Codex development standards, reference implementations, Global Search and cross-registry relationship discovery.
+
+## Phase 39 - Gaming Store Canonical Contracts
+
+V1.2.0 adds supplier-neutral Gaming Store contracts for digital products, offers, dynamic purchase fields, account validation, region rules, availability, supplier routing, quotes, orders, digital fulfillment and secure deliverables.
+
+Existing V1.0.0 and V1.1.0 releases remain pinned and unchanged. Gaming supplier integrations, including FazerCards, are adapter descriptors behind trusted server boundaries; public projections must not expose supplier identity, cost, margin, provider payloads, secrets, player IDs or deliverable values.
+
+Run `npm run generate:gaming`, then `npm run validate`, `npm run smoke:phase39`, and `npm run validate:regression`.
 
 ## Phase 38 - Customer Capability Access Policy
 

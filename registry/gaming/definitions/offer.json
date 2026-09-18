@@ -1,0 +1,215 @@
+{
+  "$id": "gaming.offer",
+  "name": "Gaming Offer",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "catalog",
+  "description": "Retail offer for one Gaming Product, with supplier-neutral purchase fields, validation policy, region rule and pricing mode.",
+  "purpose": "Retail offer for one Gaming Product, with supplier-neutral purchase fields, validation policy, region rule and pricing mode.",
+  "gamingModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable canonical offer ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "productId",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Gaming Product ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "displayName",
+      "required": true,
+      "nullable": false,
+      "description": "Customer-facing offer label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "kind",
+      "required": true,
+      "nullable": false,
+      "description": "Digital offer kind.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "top-up",
+          "gift-card",
+          "game-key",
+          "steam-wallet",
+          "steam-gift",
+          "telegram-stars",
+          "telegram-premium",
+          "manual-service",
+          "digital-subscription"
+        ]
+      }
+    },
+    {
+      "key": "purchaseFields",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical dynamic purchase-field schema.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "accountValidationPolicy",
+      "required": true,
+      "nullable": false,
+      "description": "Referenced account-validation policy ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "regionRule",
+      "required": true,
+      "nullable": false,
+      "description": "Referenced region rule ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "pricingMode",
+      "required": true,
+      "nullable": false,
+      "description": "Retail pricing mode.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "fixed",
+          "supplier-quoted",
+          "amount-based"
+        ]
+      }
+    },
+    {
+      "key": "retailPrice",
+      "required": false,
+      "nullable": true,
+      "description": "Retail price snapshot for fixed pricing.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "amountConstraints",
+      "required": false,
+      "nullable": true,
+      "description": "Min/max/step constraints for amount-based pricing.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "quantityConstraints",
+      "required": false,
+      "nullable": true,
+      "description": "Min/max quantity constraints.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the offer can be purchased.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "sortOrder",
+      "required": true,
+      "nullable": false,
+      "description": "Display order.",
+      "primitive": "fields.integer"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "gaming.product",
+      "description": "Offer belongs to one canonical Gaming Product."
+    },
+    {
+      "type": "composesMany",
+      "target": "gaming.purchaseField",
+      "description": "Offer renders supplier-neutral purchase fields."
+    },
+    {
+      "type": "references",
+      "target": "gaming.accountValidationPolicy",
+      "description": "Validation behavior is policy-driven."
+    },
+    {
+      "type": "references",
+      "target": "gaming.regionRule",
+      "description": "Region messaging uses canonical region rules."
+    },
+    {
+      "type": "uses",
+      "target": "commerce.moneySnapshot",
+      "description": "Retail money uses existing Commerce money semantics."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "productKindCompatible",
+      "description": "Offer kind must be compatible with its Product kind."
+    },
+    {
+      "id": "purchaseFieldKeysUnique",
+      "description": "Purchase-field keys must be unique within an Offer."
+    },
+    {
+      "id": "fixedPriceRequiresMoney",
+      "description": "Fixed pricing requires valid retail money with currency."
+    },
+    {
+      "id": "amountRangeValid",
+      "description": "Minimum amount must not exceed maximum amount."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Offer",
+    "icon": "fa-gamepad",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "identity",
+      "productId",
+      "displayName",
+      "kind"
+    ],
+    "primaryActions": [
+      "view",
+      "create",
+      "edit",
+      "publish"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,173 @@
+{
+  "$id": "gaming.product",
+  "name": "Gaming Product",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "catalog",
+  "description": "NEXT F-owned digital gaming merchandise such as top-ups, game keys, gift cards, Steam Wallet, Telegram Stars and manual digital services.",
+  "purpose": "NEXT F-owned digital gaming merchandise such as top-ups, game keys, gift cards, Steam Wallet, Telegram Stars and manual digital services.",
+  "gamingModel": {
+    "kind": "entity",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "identity",
+      "required": true,
+      "nullable": false,
+      "description": "Stable canonical Gaming product ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning tenant/Site scope.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "slug",
+      "required": true,
+      "nullable": false,
+      "description": "Public product slug.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "name",
+      "required": true,
+      "nullable": false,
+      "description": "Customer-facing product name.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "brand",
+      "required": false,
+      "nullable": true,
+      "description": "Optional game, publisher or service brand.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "kind",
+      "required": true,
+      "nullable": false,
+      "description": "Digital product kind.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "top-up",
+          "gift-card",
+          "game-key",
+          "steam-wallet",
+          "steam-gift",
+          "telegram-stars",
+          "telegram-premium",
+          "manual-service",
+          "digital-subscription"
+        ]
+      }
+    },
+    {
+      "key": "publicDescription",
+      "required": false,
+      "nullable": true,
+      "description": "Public merchandising description.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "artwork",
+      "required": false,
+      "nullable": true,
+      "description": "Public media reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the product can be sold.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "visible",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the product can appear publicly.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "featured",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the product is featured.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "revision",
+      "required": false,
+      "nullable": true,
+      "description": "Version/revision pointer.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "uses",
+      "target": "shared.mediaReference",
+      "description": "Artwork should resolve to canonical media references where available."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "tenantScope",
+      "description": "Records are scoped to the authorized Organization/Site boundary."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Contracts define shape only and must not contain provider credentials or live deliverable values."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Product",
+    "icon": "fa-gamepad",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "identity",
+      "scope",
+      "slug",
+      "name"
+    ],
+    "primaryActions": [
+      "view",
+      "create",
+      "edit",
+      "publish"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,79 @@
+{
+  "$id": "api.gaming-admin.update-supplier-mapping",
+  "operationId": "api.gaming-admin.update-supplier-mapping",
+  "name": "Update Gaming Supplier Mapping",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.gaming-admin",
+  "method": "PATCH",
+  "path": "/supplier-mappings/{mappingId}",
+  "description": "Update Gaming Supplier Mapping",
+  "authentication": {
+    "mode": "organization-user",
+    "permissions": [
+      "gaming.suppliers.manage"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "mappingId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "If-Match"
+    ],
+    "bodyContract": "gaming.supplierOfferMapping",
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "gaming.supplierOfferMapping",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled",
+      "capability_disabled",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": true,
+      "requestHeader": "If-Match",
+      "responseHeader": "ETag"
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "gaming"
+  ],
+  "contractBindings": [
+    "gaming.supplierOfferMapping"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": []
+}

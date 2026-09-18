@@ -4,6 +4,8 @@
 > V0.x releases are development foundation releases and do not by themselves declare production support.
 > V1.0.0 and later production support claims require formal Production Acceptance evidence.
 
+## V1.2.0 - Phase 39 Gaming Store Canonical Contracts
+
 ## V1.1.0 - Phase 38 Customer Capability Access Policy
 
 ### Added

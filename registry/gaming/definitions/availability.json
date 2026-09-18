@@ -1,0 +1,121 @@
+{
+  "$id": "gaming.availability",
+  "name": "Gaming Availability",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "availability",
+  "description": "Availability, stock and quantity snapshot for a Gaming offer or supplier mapping.",
+  "purpose": "Availability, stock and quantity snapshot for a Gaming offer or supplier mapping.",
+  "gamingModel": {
+    "kind": "snapshot",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "state",
+      "required": true,
+      "nullable": false,
+      "description": "Availability state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "available",
+          "unavailable",
+          "unknown",
+          "paused"
+        ]
+      }
+    },
+    {
+      "key": "stock",
+      "required": false,
+      "nullable": true,
+      "description": "Known stock count when available.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "minQuantity",
+      "required": false,
+      "nullable": true,
+      "description": "Minimum purchase quantity.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "maxQuantity",
+      "required": false,
+      "nullable": true,
+      "description": "Maximum purchase quantity.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "checkedAt",
+      "required": true,
+      "nullable": false,
+      "description": "When availability was checked.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "source",
+      "required": true,
+      "nullable": false,
+      "description": "Availability source.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "canonical",
+          "supplier",
+          "manual",
+          "unknown"
+        ]
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "quantityRangeValid",
+      "description": "Minimum quantity must not exceed maximum quantity."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Availability",
+    "icon": "fa-gamepad",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "state",
+      "stock",
+      "minQuantity",
+      "maxQuantity"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

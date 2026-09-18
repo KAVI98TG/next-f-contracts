@@ -1,17 +1,17 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source: registry/integrations/index.json
-// SHA-256: 169d27c1dda2ffc92ae04e3c5fd9d0b5569dfbcf9c6c42bf11790cab94254ca0
-export const GENERATED_INTEGRATIONS_SOURCE_SHA256 = "169d27c1dda2ffc92ae04e3c5fd9d0b5569dfbcf9c6c42bf11790cab94254ca0";
+// SHA-256: 43408b6857fc68e69fc88aa2358ecdcdd1213e1c1b6d6baef28c4130a1d9f4e4
+export const GENERATED_INTEGRATIONS_SOURCE_SHA256 = "43408b6857fc68e69fc88aa2358ecdcdd1213e1c1b6d6baef28c4130a1d9f4e4";
 export const GENERATED_INTEGRATIONS = {
-  "registryVersion": "0.11.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Integration Contract Registry",
   "description": "Generated index of authoritative Phase 10 Integration definitions and provider connectors.",
   "definitionCount": 35,
-  "connectorCount": 13,
+  "connectorCount": 15,
   "categoryCount": 8,
-  "capabilityCount": 15,
-  "providerCount": 9,
+  "capabilityCount": 20,
+  "providerCount": 11,
   "sourceDirectory": "registry/integrations/definitions",
   "connectorDirectory": "registry/integrations/connectors",
   "categories": [
@@ -131,6 +131,31 @@ export const GENERATED_INTEGRATIONS = {
       "key": "api.request",
       "label": "API Request",
       "runtime": "server"
+    },
+    {
+      "key": "gaming.catalog.sync",
+      "label": "Sync Gaming Catalog",
+      "runtime": "server"
+    },
+    {
+      "key": "gaming.availability.sync",
+      "label": "Sync Gaming Availability",
+      "runtime": "server"
+    },
+    {
+      "key": "gaming.account.validate",
+      "label": "Validate Gaming Account",
+      "runtime": "server"
+    },
+    {
+      "key": "gaming.fulfillment.submit",
+      "label": "Submit Gaming Fulfillment",
+      "runtime": "server"
+    },
+    {
+      "key": "gaming.fulfillment.refresh",
+      "label": "Refresh Gaming Fulfillment",
+      "runtime": "server"
     }
   ],
   "providers": [
@@ -178,6 +203,16 @@ export const GENERATED_INTEGRATIONS = {
       "key": "generic-api",
       "label": "Generic API",
       "ownershipDefault": "customer"
+    },
+    {
+      "key": "gaming-supplier",
+      "label": "Generic Gaming Supplier",
+      "ownershipDefault": "nextf"
+    },
+    {
+      "key": "fazercards",
+      "label": "FazerCards",
+      "ownershipDefault": "nextf"
     }
   ],
   "schemas": [
@@ -4867,6 +4902,238 @@ export const GENERATED_INTEGRATIONS = {
       "aliases": [
         "Email",
         "Transactional Email"
+      ]
+    },
+    {
+      "$id": "integrations.fazerCards",
+      "name": "FazerCards",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "integrations",
+      "type": "connector",
+      "providerKey": "fazercards",
+      "family": "gaming-supplier",
+      "description": "FazerCards server-side Gaming supplier adapter descriptor. It is an implementation adapter, not the NEXT F canonical public model.",
+      "ownership": "nextf",
+      "runtimeModes": [
+        "nextf-server",
+        "provider-api",
+        "webhook-adapter"
+      ],
+      "capabilities": [
+        "api.request",
+        "account.verify",
+        "data.sync.pull",
+        "gaming.catalog.sync",
+        "gaming.availability.sync",
+        "gaming.account.validate",
+        "gaming.fulfillment.submit",
+        "gaming.fulfillment.refresh"
+      ],
+      "authentication": {
+        "type": "api-key",
+        "supported": [
+          "api-key",
+          "signed"
+        ]
+      },
+      "configurationFields": [
+        {
+          "key": "providerKey",
+          "label": "Provider Key",
+          "primitive": "fields.text",
+          "required": true,
+          "publicClientEligible": false,
+          "secret": false,
+          "customerEditable": false,
+          "helpText": "Non-secret provider key.",
+          "validation": {}
+        },
+        {
+          "key": "baseUrl",
+          "label": "Base URL",
+          "primitive": "fields.url",
+          "required": false,
+          "publicClientEligible": false,
+          "secret": false,
+          "customerEditable": false,
+          "helpText": "Provider API base URL.",
+          "validation": {
+            "scheme": "https"
+          }
+        },
+        {
+          "key": "credentialSecretRef",
+          "label": "Credential Secret Reference",
+          "primitive": "fields.text",
+          "required": true,
+          "publicClientEligible": false,
+          "secret": true,
+          "customerEditable": false,
+          "helpText": "Protected credential reference.",
+          "validation": {}
+        },
+        {
+          "key": "webhookSigningSecretRef",
+          "label": "Webhook Signing Secret Reference",
+          "primitive": "fields.text",
+          "required": false,
+          "publicClientEligible": false,
+          "secret": true,
+          "customerEditable": false,
+          "helpText": "Protected inbound webhook signing reference.",
+          "validation": {}
+        }
+      ],
+      "consent": {
+        "categories": [],
+        "mode": "business-purpose"
+      },
+      "dataHandling": {
+        "minimize": true,
+        "secretsServerSide": true,
+        "rawPayloadForwarding": false
+      },
+      "health": {
+        "supportsConnectionTest": true,
+        "supportsHealthSnapshot": true
+      },
+      "actions": [],
+      "mappings": [
+        {
+          "key": "offer-mapping",
+          "canonicalContract": "gaming.supplierOfferMapping"
+        }
+      ],
+      "futureBindings": {
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "api": "phase-39"
+      },
+      "notes": [
+        "Provider-native payloads remain adapter-private and must not become public Gaming contracts."
+      ],
+      "aliases": [
+        "FazerCards",
+        "Fazer Cards"
+      ]
+    },
+    {
+      "$id": "integrations.gamingSupplier",
+      "name": "Gaming Supplier",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "integrations",
+      "type": "connector",
+      "providerKey": "gaming-supplier",
+      "family": "gaming-supplier",
+      "description": "Provider-neutral server-side Gaming supplier adapter descriptor.",
+      "ownership": "nextf",
+      "runtimeModes": [
+        "nextf-server",
+        "provider-api",
+        "webhook-adapter"
+      ],
+      "capabilities": [
+        "api.request",
+        "account.verify",
+        "data.sync.pull",
+        "gaming.catalog.sync",
+        "gaming.availability.sync",
+        "gaming.account.validate",
+        "gaming.fulfillment.submit",
+        "gaming.fulfillment.refresh"
+      ],
+      "authentication": {
+        "type": "api-key",
+        "supported": [
+          "api-key",
+          "signed"
+        ]
+      },
+      "configurationFields": [
+        {
+          "key": "providerKey",
+          "label": "Provider Key",
+          "primitive": "fields.text",
+          "required": true,
+          "publicClientEligible": false,
+          "secret": false,
+          "customerEditable": false,
+          "helpText": "Non-secret provider key.",
+          "validation": {}
+        },
+        {
+          "key": "baseUrl",
+          "label": "Base URL",
+          "primitive": "fields.url",
+          "required": false,
+          "publicClientEligible": false,
+          "secret": false,
+          "customerEditable": false,
+          "helpText": "Provider API base URL.",
+          "validation": {
+            "scheme": "https"
+          }
+        },
+        {
+          "key": "credentialSecretRef",
+          "label": "Credential Secret Reference",
+          "primitive": "fields.text",
+          "required": true,
+          "publicClientEligible": false,
+          "secret": true,
+          "customerEditable": false,
+          "helpText": "Protected credential reference.",
+          "validation": {}
+        },
+        {
+          "key": "webhookSigningSecretRef",
+          "label": "Webhook Signing Secret Reference",
+          "primitive": "fields.text",
+          "required": false,
+          "publicClientEligible": false,
+          "secret": true,
+          "customerEditable": false,
+          "helpText": "Protected inbound webhook signing reference.",
+          "validation": {}
+        }
+      ],
+      "consent": {
+        "categories": [],
+        "mode": "business-purpose"
+      },
+      "dataHandling": {
+        "minimize": true,
+        "secretsServerSide": true,
+        "rawPayloadForwarding": false
+      },
+      "health": {
+        "supportsConnectionTest": true,
+        "supportsHealthSnapshot": true
+      },
+      "actions": [],
+      "mappings": [
+        {
+          "key": "offer-mapping",
+          "canonicalContract": "gaming.supplierOfferMapping"
+        }
+      ],
+      "futureBindings": {
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "api": "phase-39"
+      },
+      "notes": [
+        "Provider-native payloads remain adapter-private and must not become public Gaming contracts."
+      ],
+      "aliases": [
+        "Gaming Supplier",
+        "Supplier Router"
       ]
     },
     {

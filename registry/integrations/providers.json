@@ -45,6 +45,16 @@
       "key": "generic-api",
       "label": "Generic API",
       "ownershipDefault": "customer"
+    },
+    {
+      "key": "gaming-supplier",
+      "label": "Generic Gaming Supplier",
+      "ownershipDefault": "nextf"
+    },
+    {
+      "key": "fazercards",
+      "label": "FazerCards",
+      "ownershipDefault": "nextf"
     }
   ]
 }

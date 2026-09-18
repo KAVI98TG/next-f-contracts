@@ -1,0 +1,77 @@
+{
+  "$id": "api.gaming-public.validate-account",
+  "operationId": "api.gaming-public.validate-account",
+  "name": "Validate Gaming Account",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.gaming-public",
+  "method": "POST",
+  "path": "/offers/{offerId}/validate-account",
+  "description": "Validate Gaming Account",
+  "authentication": {
+    "mode": "anonymous-or-commerce-customer",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId",
+      "offerId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "gaming.purchaseField",
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "gaming.validationResponse",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "tenant_scope_mismatch",
+      "module_disabled",
+      "capability_disabled",
+      "not_found"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "commerce-checkout",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "gaming"
+  ],
+  "contractBindings": [
+    "gaming.validationResponse"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "sensitive",
+  "notes": []
+}

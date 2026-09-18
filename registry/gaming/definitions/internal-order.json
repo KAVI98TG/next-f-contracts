@@ -1,0 +1,182 @@
+{
+  "$id": "gaming.internalOrder",
+  "name": "Gaming Internal Order",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "orders",
+  "description": "Authoritative Gaming order state across payment, supplier routing and fulfillment.",
+  "purpose": "Authoritative Gaming order state across payment, supplier routing and fulfillment.",
+  "gamingModel": {
+    "kind": "internal-record",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "orderId",
+      "required": true,
+      "nullable": false,
+      "description": "Order ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "quoteId",
+      "required": true,
+      "nullable": false,
+      "description": "Quote ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "offerId",
+      "required": true,
+      "nullable": false,
+      "description": "Offer ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "customerRef",
+      "required": true,
+      "nullable": false,
+      "description": "Customer reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Normalized Gaming order lifecycle.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "created",
+          "awaiting-payment",
+          "payment-confirmed",
+          "validating",
+          "ready-for-fulfillment",
+          "fulfillment-submitted",
+          "fulfillment-processing",
+          "fulfilled",
+          "fulfillment-failed",
+          "refund-pending",
+          "refunded",
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "key": "paymentRef",
+      "required": false,
+      "nullable": true,
+      "description": "Trusted payment reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "selectedMappingId",
+      "required": false,
+      "nullable": true,
+      "description": "Selected supplier mapping ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "purchaseFieldSnapshot",
+      "required": true,
+      "nullable": false,
+      "description": "Submitted purchase-field snapshot.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "retailAmount",
+      "required": true,
+      "nullable": false,
+      "description": "Retail amount snapshot.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "refundState",
+      "required": false,
+      "nullable": true,
+      "description": "Refund state kept separate from fulfillment.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Order creation timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "updatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Order update timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "gaming.internalQuote",
+      "description": "Order is created from a trusted quote."
+    },
+    {
+      "type": "references",
+      "target": "commerce.payment",
+      "description": "Payment truth remains provider/server verified through Commerce payment concepts."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "validStateTransition",
+      "description": "Order state transitions must follow normalized Gaming lifecycle."
+    },
+    {
+      "id": "paymentServerVerified",
+      "description": "Browser clients cannot self-assert payment success."
+    },
+    {
+      "id": "refundSeparate",
+      "description": "Refund state remains separate from fulfillment state."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Internal Order",
+    "icon": "fa-gamepad",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "orderId",
+      "quoteId",
+      "offerId",
+      "customerRef"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

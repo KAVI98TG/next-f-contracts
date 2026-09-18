@@ -1,15 +1,15 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Sources: registry/events/*.json
-// SHA-256: 98016770b3529d01b177eb6174c450bd286c3c232634b17b86ba75f2fd5597c8
-export const GENERATED_EVENTS_SOURCE_SHA256 = "98016770b3529d01b177eb6174c450bd286c3c232634b17b86ba75f2fd5597c8";
+// SHA-256: 17bd4098f544986f8b3013a7ca80f7ca7492777a319324042698c1b745b0e7a7
+export const GENERATED_EVENTS_SOURCE_SHA256 = "17bd4098f544986f8b3013a7ca80f7ca7492777a319324042698c1b745b0e7a7";
 export const GENERATED_EVENTS = {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Event Registry",
   "description": "Authoritative canonical domain Event Registry. Events describe completed facts and remain independent of webhook/transport implementation.",
   "definitionCount": 13,
-  "eventCount": 132,
-  "categoryCount": 15,
+  "eventCount": 145,
+  "categoryCount": 16,
   "sourceDirectories": {
     "schemas": "registry/events/definitions",
     "events": "registry/events/events"
@@ -89,6 +89,11 @@ export const GENERATED_EVENTS = {
       "key": "webhooks",
       "label": "Webhooks",
       "description": "Webhook endpoint, subscription, delivery and signing lifecycle facts. These events are never themselves webhook eligible."
+    },
+    {
+      "key": "gaming",
+      "label": "Gaming Store",
+      "description": "Gaming catalog, quote, order, fulfillment and supplier routing facts."
     }
   ],
   "schemas": [
@@ -8481,6 +8486,1715 @@ export const GENERATED_EVENTS = {
             "problem": "duplicate semantic event emitted for an idempotent command replay"
           }
         ]
+      }
+    },
+    {
+      "eventKey": "gaming.account-validated",
+      "name": "Gaming Account Validated",
+      "category": "gaming",
+      "producerKey": "gaming-domain",
+      "subjectContracts": [
+        "gaming.validationResponse"
+      ],
+      "trigger": "A Gaming account/player identity validation completes with a customer-safe result.",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "offerId",
+          "required": true,
+          "description": "Gaming offer ID.",
+          "type": "id"
+        },
+        {
+          "key": "valid",
+          "required": true,
+          "description": "Validation result.",
+          "type": "boolean"
+        }
+      ],
+      "$id": "gaming.account-validated",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "A Gaming account/player identity validation completes with a customer-safe result.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming account validated.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.validationResponse",
+          "description": "Event subject may be gaming.validationResponse."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.account-validated",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-account-validated",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.catalog-sync-completed",
+      "name": "Gaming Catalog Sync Completed",
+      "category": "gaming",
+      "producerKey": "gaming-supplier-router",
+      "subjectContracts": [
+        "gaming.supplierOfferMapping"
+      ],
+      "trigger": "Gaming supplier catalog synchronization completes.",
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "supplierRef",
+          "required": true,
+          "description": "Supplier reference.",
+          "type": "id"
+        },
+        {
+          "key": "syncedAt",
+          "required": true,
+          "description": "Sync completion timestamp.",
+          "type": "dateTime"
+        }
+      ],
+      "$id": "gaming.catalog-sync-completed",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Gaming supplier catalog synchronization completes.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming catalog sync completed.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.supplierOfferMapping",
+          "description": "Event subject may be gaming.supplierOfferMapping."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.catalog-sync-completed",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-catalog-sync-completed",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.catalog-sync-failed",
+      "name": "Gaming Catalog Sync Failed",
+      "category": "gaming",
+      "producerKey": "gaming-supplier-router",
+      "subjectContracts": [
+        "gaming.supplierOfferMapping"
+      ],
+      "trigger": "Gaming supplier catalog synchronization fails.",
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "supplierRef",
+          "required": true,
+          "description": "Supplier reference.",
+          "type": "id"
+        },
+        {
+          "key": "reasonCode",
+          "required": false,
+          "description": "Safe reason code.",
+          "type": "string"
+        }
+      ],
+      "$id": "gaming.catalog-sync-failed",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Gaming supplier catalog synchronization fails.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming catalog sync failed.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.supplierOfferMapping",
+          "description": "Event subject may be gaming.supplierOfferMapping."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.catalog-sync-failed",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-catalog-sync-failed",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.fulfillment-completed",
+      "name": "Gaming Fulfillment Completed",
+      "category": "gaming",
+      "producerKey": "gaming-domain",
+      "subjectContracts": [
+        "gaming.fulfillment"
+      ],
+      "trigger": "A Gaming fulfillment completes without exposing secret deliverable values.",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "orderId",
+          "required": true,
+          "description": "Gaming order ID.",
+          "type": "id"
+        },
+        {
+          "key": "fulfillmentType",
+          "required": true,
+          "description": "Fulfillment type.",
+          "type": "string"
+        },
+        {
+          "key": "deliverableCount",
+          "required": false,
+          "description": "Count of deliverables, not values.",
+          "type": "integer"
+        }
+      ],
+      "$id": "gaming.fulfillment-completed",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "A Gaming fulfillment completes without exposing secret deliverable values.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming fulfillment completed.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.fulfillment",
+          "description": "Event subject may be gaming.fulfillment."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.fulfillment-completed",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-fulfillment-completed",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.fulfillment-failed",
+      "name": "Gaming Fulfillment Failed",
+      "category": "gaming",
+      "producerKey": "gaming-domain",
+      "subjectContracts": [
+        "gaming.fulfillment"
+      ],
+      "trigger": "A Gaming fulfillment fails or requires staff review.",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "orderId",
+          "required": true,
+          "description": "Gaming order ID.",
+          "type": "id"
+        },
+        {
+          "key": "reasonCode",
+          "required": false,
+          "description": "Safe failure reason code.",
+          "type": "string"
+        }
+      ],
+      "$id": "gaming.fulfillment-failed",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "A Gaming fulfillment fails or requires staff review.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming fulfillment failed.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.fulfillment",
+          "description": "Event subject may be gaming.fulfillment."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.fulfillment-failed",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-fulfillment-failed",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.fulfillment-processing",
+      "name": "Gaming Fulfillment Processing",
+      "category": "gaming",
+      "producerKey": "gaming-domain",
+      "subjectContracts": [
+        "gaming.fulfillment"
+      ],
+      "trigger": "A Gaming fulfillment request is accepted for processing.",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "orderId",
+          "required": true,
+          "description": "Gaming order ID.",
+          "type": "id"
+        },
+        {
+          "key": "fulfillmentId",
+          "required": true,
+          "description": "Fulfillment ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "gaming.fulfillment-processing",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "A Gaming fulfillment request is accepted for processing.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming fulfillment processing.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.fulfillment",
+          "description": "Event subject may be gaming.fulfillment."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.fulfillment-processing",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-fulfillment-processing",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.fulfillment-submitted",
+      "name": "Gaming Fulfillment Submitted",
+      "category": "gaming",
+      "producerKey": "gaming-domain",
+      "subjectContracts": [
+        "gaming.fulfillment"
+      ],
+      "trigger": "A Gaming fulfillment request is submitted to the internal fulfillment workflow or supplier router.",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "orderId",
+          "required": true,
+          "description": "Gaming order ID.",
+          "type": "id"
+        },
+        {
+          "key": "fulfillmentId",
+          "required": true,
+          "description": "Fulfillment ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "gaming.fulfillment-submitted",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "A Gaming fulfillment request is submitted to the internal fulfillment workflow or supplier router.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming fulfillment submitted.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.fulfillment",
+          "description": "Event subject may be gaming.fulfillment."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.fulfillment-submitted",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-fulfillment-submitted",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.order-created",
+      "name": "Gaming Order Created",
+      "category": "gaming",
+      "producerKey": "gaming-domain",
+      "subjectContracts": [
+        "gaming.internalOrder"
+      ],
+      "trigger": "A Gaming order is durably created from a trusted checkout/order intent.",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "orderId",
+          "required": true,
+          "description": "Gaming order ID.",
+          "type": "id"
+        },
+        {
+          "key": "offerId",
+          "required": true,
+          "description": "Gaming offer ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "gaming.order-created",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "A Gaming order is durably created from a trusted checkout/order intent.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming order created.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.internalOrder",
+          "description": "Event subject may be gaming.internalOrder."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.order-created",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-order-created",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.payment-confirmed",
+      "name": "Gaming Payment Confirmed",
+      "category": "gaming",
+      "producerKey": "gaming-domain",
+      "subjectContracts": [
+        "gaming.internalOrder"
+      ],
+      "trigger": "Trusted server or payment-provider verification confirms payment for a Gaming order.",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": false,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "orderId",
+          "required": true,
+          "description": "Gaming order ID.",
+          "type": "id"
+        },
+        {
+          "key": "paymentRef",
+          "required": true,
+          "description": "Trusted payment reference.",
+          "type": "id"
+        }
+      ],
+      "$id": "gaming.payment-confirmed",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Trusted server or payment-provider verification confirms payment for a Gaming order.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming payment confirmed.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.internalOrder",
+          "description": "Event subject may be gaming.internalOrder."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.payment-confirmed",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-payment-confirmed",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.refund-completed",
+      "name": "Gaming Refund Completed",
+      "category": "gaming",
+      "producerKey": "gaming-domain",
+      "subjectContracts": [
+        "gaming.internalOrder"
+      ],
+      "trigger": "A Gaming refund completes after trusted financial verification.",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": false,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "orderId",
+          "required": true,
+          "description": "Gaming order ID.",
+          "type": "id"
+        },
+        {
+          "key": "refundRef",
+          "required": true,
+          "description": "Trusted refund reference.",
+          "type": "id"
+        }
+      ],
+      "$id": "gaming.refund-completed",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "A Gaming refund completes after trusted financial verification.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming refund completed.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.internalOrder",
+          "description": "Event subject may be gaming.internalOrder."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.refund-completed",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-refund-completed",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.refund-requested",
+      "name": "Gaming Refund Requested",
+      "category": "gaming",
+      "producerKey": "gaming-domain",
+      "subjectContracts": [
+        "gaming.internalOrder"
+      ],
+      "trigger": "A refund path is requested for a Gaming order without changing fulfillment truth.",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": false,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "orderId",
+          "required": true,
+          "description": "Gaming order ID.",
+          "type": "id"
+        },
+        {
+          "key": "reasonCode",
+          "required": false,
+          "description": "Safe refund reason code.",
+          "type": "string"
+        }
+      ],
+      "$id": "gaming.refund-requested",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "A refund path is requested for a Gaming order without changing fulfillment truth.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming refund requested.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.internalOrder",
+          "description": "Event subject may be gaming.internalOrder."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.refund-requested",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-refund-requested",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.supplier-availability-changed",
+      "name": "Gaming Supplier Availability Changed",
+      "category": "gaming",
+      "producerKey": "gaming-supplier-router",
+      "subjectContracts": [
+        "gaming.availability"
+      ],
+      "trigger": "A supplier availability snapshot changes for one or more Gaming mappings.",
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "supplierRef",
+          "required": true,
+          "description": "Supplier reference.",
+          "type": "id"
+        },
+        {
+          "key": "state",
+          "required": true,
+          "description": "New availability state.",
+          "type": "string"
+        }
+      ],
+      "$id": "gaming.supplier-availability-changed",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "A supplier availability snapshot changes for one or more Gaming mappings.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming supplier availability changed.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.availability",
+          "description": "Event subject may be gaming.availability."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.supplier-availability-changed",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-supplier-availability-changed",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "gaming.supplier-health-changed",
+      "name": "Gaming Supplier Health Changed",
+      "category": "gaming",
+      "producerKey": "gaming-supplier-router",
+      "subjectContracts": [
+        "integrations.healthSnapshot"
+      ],
+      "trigger": "A supplier health state changes.",
+      "dataPolicy": {
+        "sensitivity": "internal",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "customer-cms",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "supplierRef",
+          "required": true,
+          "description": "Supplier reference.",
+          "type": "id"
+        },
+        {
+          "key": "state",
+          "required": true,
+          "description": "New health state.",
+          "type": "string"
+        }
+      ],
+      "$id": "gaming.supplier-health-changed",
+      "version": "1.2.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "A supplier health state changes.",
+      "purpose": "Provides a canonical Gaming Store fact for gaming supplier health changed.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "gaming-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "integrations.healthSnapshot",
+          "description": "Event subject may be integrations.healthSnapshot."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Gaming transition is accepted."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command must not emit a second semantic fact event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes supplier secrets, gift-card codes, PINs, activation keys or raw provider payloads."
+        },
+        {
+          "id": "tenantScope",
+          "description": "Organization/Site scope must match the authoritative subject."
+        },
+        {
+          "id": "transportIndependent",
+          "description": "Event meaning remains independent of webhook, queue, HTTP or provider transport."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-39",
+        "permissions": "phase-39",
+        "siteManifest": "phase-39",
+        "modules": "phase-39",
+        "api": "phase-39",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "gaming.supplier-health-changed",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_gaming-supplier-health-changed",
+            "occurredAt": "2026-09-14T00:00:00Z"
+          }
+        ],
+        "invalid": []
       }
     },
     {
@@ -21655,6 +23369,16 @@ export const GENERATED_EVENTS = {
       "key": "webhook-service",
       "label": "Webhook Service",
       "description": "Authoritative webhook endpoint, subscription, delivery and signing lifecycle boundary."
+    },
+    {
+      "key": "gaming-domain",
+      "label": "Gaming Domain",
+      "description": "Authoritative NEXT F Gaming catalog, quote, order and fulfillment domain."
+    },
+    {
+      "key": "gaming-supplier-router",
+      "label": "Gaming Supplier Router",
+      "description": "Trusted supplier routing and synchronization component."
     }
   ],
   "consumers": [

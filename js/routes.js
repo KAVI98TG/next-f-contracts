@@ -1,5 +1,5 @@
 export const routes = [
-  { id: "overview", path: "/overview", title: "Overview", group: "Overview", icon: "fa-house", phase: 38, status: "current", description: "Contract portal foundation, authority model and current V1.1 Registry roadmap." },
+  { id: "overview", path: "/overview", title: "Overview", group: "Overview", icon: "fa-house", phase: 39, status: "current", description: "Contract portal foundation, authority model and current V1.2 Gaming Store Registry roadmap." },
   { id: "global-search", path: "/search", title: "Global Search", group: "Overview", icon: "fa-magnifying-glass", phase: 23, status: "available", description: "Search canonical contracts, fields, Events, Webhooks, Permissions, Modules, APIs, examples, routes and documentation from one local index." },
   { id: "registry-health", path: "/registry/health", title: "Registry Health", group: "Overview", icon: "fa-heart-pulse", phase: 36, status: "available", description: "Repository-wide release-candidate QA, integrity evidence, findings and acceptance status." },
 

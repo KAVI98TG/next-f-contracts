@@ -1,0 +1,2184 @@
+// GENERATED FILE - DO NOT EDIT DIRECTLY.
+// Source: registry/gaming/index.json
+// SHA-256: 3b64c86fd90ec339ac91d6ca5f3e6a151fad71f48f9d79dc18ab517627c7bed7
+export const GENERATED_GAMING_SOURCE_SHA256 = "3b64c86fd90ec339ac91d6ca5f3e6a151fad71f48f9d79dc18ab517627c7bed7";
+export const GENERATED_GAMING_SCHEMAS = {
+  "registryVersion": "1.2.0",
+  "schemaVersion": "1.0.0",
+  "title": "NEXT F Gaming Store Contract Registry",
+  "description": "Authoritative supplier-neutral Gaming Store schemas for digital marketplace catalog, quotes, orders, supplier routing and fulfillment.",
+  "standard": "standards/47-gaming-store-contract-standard.md",
+  "definitionCount": 15,
+  "categoryCount": 8,
+  "sourceDirectory": "registry/gaming/definitions",
+  "categories": [
+    {
+      "id": "catalog",
+      "label": "Catalog",
+      "description": "Supplier-neutral Gaming products, offers and purchase fields."
+    },
+    {
+      "id": "pricing",
+      "label": "Pricing & Quotes",
+      "description": "Retail pricing modes, amount constraints and quote projections."
+    },
+    {
+      "id": "validation",
+      "label": "Account Validation",
+      "description": "Capability-driven player/account validation without exposing provider payloads."
+    },
+    {
+      "id": "region",
+      "label": "Regions",
+      "description": "Customer-safe region restrictions and country policy."
+    },
+    {
+      "id": "availability",
+      "label": "Availability",
+      "description": "Availability, stock and quantity snapshots beyond a single boolean."
+    },
+    {
+      "id": "supplier",
+      "label": "Supplier Routing",
+      "description": "Internal provider-neutral routing, capability and mapping contracts."
+    },
+    {
+      "id": "orders",
+      "label": "Orders",
+      "description": "Public and internal Gaming order lifecycle projections."
+    },
+    {
+      "id": "fulfillment",
+      "label": "Digital Fulfillment",
+      "description": "Fulfillment state and secure digital deliverables."
+    }
+  ],
+  "schemas": [
+    {
+      "$id": "gaming.product",
+      "name": "Gaming Product",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "catalog",
+      "description": "NEXT F-owned digital gaming merchandise such as top-ups, game keys, gift cards, Steam Wallet, Telegram Stars and manual digital services.",
+      "purpose": "NEXT F-owned digital gaming merchandise such as top-ups, game keys, gift cards, Steam Wallet, Telegram Stars and manual digital services.",
+      "gamingModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable canonical Gaming product ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning tenant/Site scope.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "slug",
+          "required": true,
+          "nullable": false,
+          "description": "Public product slug.",
+          "primitive": "fields.slug"
+        },
+        {
+          "key": "name",
+          "required": true,
+          "nullable": false,
+          "description": "Customer-facing product name.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "brand",
+          "required": false,
+          "nullable": true,
+          "description": "Optional game, publisher or service brand.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "kind",
+          "required": true,
+          "nullable": false,
+          "description": "Digital product kind.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "top-up",
+              "gift-card",
+              "game-key",
+              "steam-wallet",
+              "steam-gift",
+              "telegram-stars",
+              "telegram-premium",
+              "manual-service",
+              "digital-subscription"
+            ]
+          }
+        },
+        {
+          "key": "publicDescription",
+          "required": false,
+          "nullable": true,
+          "description": "Public merchandising description.",
+          "primitive": "fields.textarea"
+        },
+        {
+          "key": "artwork",
+          "required": false,
+          "nullable": true,
+          "description": "Public media reference.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the product can be sold.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "visible",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the product can appear publicly.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "featured",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the product is featured.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "revision",
+          "required": false,
+          "nullable": true,
+          "description": "Version/revision pointer.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "shared.mediaReference",
+          "description": "Artwork should resolve to canonical media references where available."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "tenantScope",
+          "description": "Records are scoped to the authorized Organization/Site boundary."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Contracts define shape only and must not contain provider credentials or live deliverable values."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Product",
+        "icon": "fa-gamepad",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "identity",
+          "scope",
+          "slug",
+          "name"
+        ],
+        "primaryActions": [
+          "view",
+          "create",
+          "edit",
+          "publish"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.offer",
+      "name": "Gaming Offer",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "catalog",
+      "description": "Retail offer for one Gaming Product, with supplier-neutral purchase fields, validation policy, region rule and pricing mode.",
+      "purpose": "Retail offer for one Gaming Product, with supplier-neutral purchase fields, validation policy, region rule and pricing mode.",
+      "gamingModel": {
+        "kind": "entity",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "identity",
+          "required": true,
+          "nullable": false,
+          "description": "Stable canonical offer ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "productId",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical Gaming Product ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "displayName",
+          "required": true,
+          "nullable": false,
+          "description": "Customer-facing offer label.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "kind",
+          "required": true,
+          "nullable": false,
+          "description": "Digital offer kind.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "top-up",
+              "gift-card",
+              "game-key",
+              "steam-wallet",
+              "steam-gift",
+              "telegram-stars",
+              "telegram-premium",
+              "manual-service",
+              "digital-subscription"
+            ]
+          }
+        },
+        {
+          "key": "purchaseFields",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical dynamic purchase-field schema.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "accountValidationPolicy",
+          "required": true,
+          "nullable": false,
+          "description": "Referenced account-validation policy ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "regionRule",
+          "required": true,
+          "nullable": false,
+          "description": "Referenced region rule ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "pricingMode",
+          "required": true,
+          "nullable": false,
+          "description": "Retail pricing mode.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "fixed",
+              "supplier-quoted",
+              "amount-based"
+            ]
+          }
+        },
+        {
+          "key": "retailPrice",
+          "required": false,
+          "nullable": true,
+          "description": "Retail price snapshot for fixed pricing.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "amountConstraints",
+          "required": false,
+          "nullable": true,
+          "description": "Min/max/step constraints for amount-based pricing.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "quantityConstraints",
+          "required": false,
+          "nullable": true,
+          "description": "Min/max quantity constraints.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the offer can be purchased.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "sortOrder",
+          "required": true,
+          "nullable": false,
+          "description": "Display order.",
+          "primitive": "fields.integer"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.product",
+          "description": "Offer belongs to one canonical Gaming Product."
+        },
+        {
+          "type": "composesMany",
+          "target": "gaming.purchaseField",
+          "description": "Offer renders supplier-neutral purchase fields."
+        },
+        {
+          "type": "references",
+          "target": "gaming.accountValidationPolicy",
+          "description": "Validation behavior is policy-driven."
+        },
+        {
+          "type": "references",
+          "target": "gaming.regionRule",
+          "description": "Region messaging uses canonical region rules."
+        },
+        {
+          "type": "uses",
+          "target": "commerce.moneySnapshot",
+          "description": "Retail money uses existing Commerce money semantics."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "productKindCompatible",
+          "description": "Offer kind must be compatible with its Product kind."
+        },
+        {
+          "id": "purchaseFieldKeysUnique",
+          "description": "Purchase-field keys must be unique within an Offer."
+        },
+        {
+          "id": "fixedPriceRequiresMoney",
+          "description": "Fixed pricing requires valid retail money with currency."
+        },
+        {
+          "id": "amountRangeValid",
+          "description": "Minimum amount must not exceed maximum amount."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Offer",
+        "icon": "fa-gamepad",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "identity",
+          "productId",
+          "displayName",
+          "kind"
+        ],
+        "primaryActions": [
+          "view",
+          "create",
+          "edit",
+          "publish"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.purchaseField",
+      "name": "Gaming Purchase Field",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "catalog",
+      "description": "Supplier-neutral input field required to complete a Gaming purchase.",
+      "purpose": "Supplier-neutral input field required to complete a Gaming purchase.",
+      "gamingModel": {
+        "kind": "value-object",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "key",
+          "required": true,
+          "nullable": false,
+          "description": "Stable canonical field key.",
+          "primitive": "fields.slug"
+        },
+        {
+          "key": "label",
+          "required": true,
+          "nullable": false,
+          "description": "Customer-facing field label.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Field type.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "text",
+              "number",
+              "select",
+              "email",
+              "url",
+              "username",
+              "country"
+            ]
+          }
+        },
+        {
+          "key": "required",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the field is required.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "placeholder",
+          "required": false,
+          "nullable": true,
+          "description": "Optional placeholder.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "helpText",
+          "required": false,
+          "nullable": true,
+          "description": "Optional customer-safe help text.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "validation",
+          "required": false,
+          "nullable": true,
+          "description": "Validation hints and safe input constraints.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "options",
+          "required": false,
+          "nullable": true,
+          "description": "Select options when type is select.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "relatedTo",
+          "target": "forms.field",
+          "description": "Reuses Forms field semantics where compatible."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "tenantScope",
+          "description": "Records are scoped to the authorized Organization/Site boundary."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Contracts define shape only and must not contain provider credentials or live deliverable values."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Purchase Field",
+        "icon": "fa-gamepad",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "key",
+          "label",
+          "type",
+          "required"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.accountValidationPolicy",
+      "name": "Gaming Account Validation Policy",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "validation",
+      "description": "Capability-driven account/player validation policy for one offer.",
+      "purpose": "Capability-driven account/player validation policy for one offer.",
+      "gamingModel": {
+        "kind": "policy",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "policyId",
+          "required": true,
+          "nullable": false,
+          "description": "Stable validation policy ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "supported",
+          "required": true,
+          "nullable": false,
+          "description": "Whether validation is supported.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "mode",
+          "required": true,
+          "nullable": false,
+          "description": "Validation mode.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "none",
+              "provider-preflight",
+              "local"
+            ]
+          }
+        },
+        {
+          "key": "fieldKeys",
+          "required": true,
+          "nullable": false,
+          "description": "Purchase-field keys required for validation.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "safeResponseFields",
+          "required": true,
+          "nullable": false,
+          "description": "Customer-safe validation response fields.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "fieldKeysResolve",
+          "description": "Validation fieldKeys must reference declared offer purchase fields."
+        },
+        {
+          "id": "providerPayloadHidden",
+          "description": "Raw provider validation payloads are never public."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Account Validation Policy",
+        "icon": "fa-gamepad",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "policyId",
+          "supported",
+          "mode",
+          "fieldKeys"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.regionRule",
+      "name": "Gaming Region Rule",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "region",
+      "description": "Customer-visible region restriction policy for digital gaming offers.",
+      "purpose": "Customer-visible region restriction policy for digital gaming offers.",
+      "gamingModel": {
+        "kind": "policy",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "ruleId",
+          "required": true,
+          "nullable": false,
+          "description": "Stable region rule ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "mode",
+          "required": true,
+          "nullable": false,
+          "description": "Region rule mode.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "global",
+              "named-region",
+              "allow-list",
+              "block-list"
+            ]
+          }
+        },
+        {
+          "key": "regionName",
+          "required": false,
+          "nullable": true,
+          "description": "Customer-safe region label.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "countryCodes",
+          "required": false,
+          "nullable": true,
+          "description": "ISO 3166-1 alpha-2 country codes.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "publicMessage",
+          "required": false,
+          "nullable": true,
+          "description": "Customer-facing compatibility message.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "countryCodesValid",
+          "description": "Country codes use the Registry country-code primitive, preferably ISO 3166-1 alpha-2."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Region Rule",
+        "icon": "fa-gamepad",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "ruleId",
+          "mode",
+          "regionName",
+          "countryCodes"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.availability",
+      "name": "Gaming Availability",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "availability",
+      "description": "Availability, stock and quantity snapshot for a Gaming offer or supplier mapping.",
+      "purpose": "Availability, stock and quantity snapshot for a Gaming offer or supplier mapping.",
+      "gamingModel": {
+        "kind": "snapshot",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "state",
+          "required": true,
+          "nullable": false,
+          "description": "Availability state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "available",
+              "unavailable",
+              "unknown",
+              "paused"
+            ]
+          }
+        },
+        {
+          "key": "stock",
+          "required": false,
+          "nullable": true,
+          "description": "Known stock count when available.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "minQuantity",
+          "required": false,
+          "nullable": true,
+          "description": "Minimum purchase quantity.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "maxQuantity",
+          "required": false,
+          "nullable": true,
+          "description": "Maximum purchase quantity.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "checkedAt",
+          "required": true,
+          "nullable": false,
+          "description": "When availability was checked.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "source",
+          "required": true,
+          "nullable": false,
+          "description": "Availability source.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "canonical",
+              "supplier",
+              "manual",
+              "unknown"
+            ]
+          }
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "quantityRangeValid",
+          "description": "Minimum quantity must not exceed maximum quantity."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Availability",
+        "icon": "fa-gamepad",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "state",
+          "stock",
+          "minQuantity",
+          "maxQuantity"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.supplierCapabilities",
+      "name": "Gaming Supplier Capabilities",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "supplier",
+      "description": "Provider-neutral description of what a supplier adapter can safely support.",
+      "purpose": "Provider-neutral description of what a supplier adapter can safely support.",
+      "gamingModel": {
+        "kind": "internal-record",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "sensitive"
+      },
+      "fields": [
+        {
+          "key": "supplierRef",
+          "required": true,
+          "nullable": false,
+          "description": "Non-secret supplier reference.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "productKinds",
+          "required": true,
+          "nullable": false,
+          "description": "Supported product kinds.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "accountValidation",
+          "required": true,
+          "nullable": false,
+          "description": "Supports account validation.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "inventoryCounts",
+          "required": true,
+          "nullable": false,
+          "description": "Supports stock counts.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "quantityRules",
+          "required": true,
+          "nullable": false,
+          "description": "Supports quantity rules.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "regionRules",
+          "required": true,
+          "nullable": false,
+          "description": "Supports region restrictions.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "synchronousCodeDelivery",
+          "required": true,
+          "nullable": false,
+          "description": "Supports immediate code delivery.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "webhookFulfillment",
+          "required": true,
+          "nullable": false,
+          "description": "Supports async webhook fulfillment.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "manualServiceChat",
+          "required": true,
+          "nullable": false,
+          "description": "Supports manual service workflows.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "idempotentOrders",
+          "required": true,
+          "nullable": false,
+          "description": "Supports idempotent order submission.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "integrations.connectorDefinition",
+          "description": "Supplier capabilities describe connector behavior without exposing credentials."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "tenantScope",
+          "description": "Records are scoped to the authorized Organization/Site boundary."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Contracts define shape only and must not contain provider credentials or live deliverable values."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Supplier Capabilities",
+        "icon": "fa-gamepad",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "supplierRef",
+          "productKinds",
+          "accountValidation",
+          "inventoryCounts"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.supplierOfferMapping",
+      "name": "Gaming Supplier Offer Mapping",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "supplier",
+      "description": "Internal mapping from a NEXT F Gaming Offer to one supplier-side offer/category/product reference.",
+      "purpose": "Internal mapping from a NEXT F Gaming Offer to one supplier-side offer/category/product reference.",
+      "gamingModel": {
+        "kind": "internal-record",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "sensitive"
+      },
+      "fields": [
+        {
+          "key": "mappingId",
+          "required": true,
+          "nullable": false,
+          "description": "Stable mapping ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "offerId",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical NEXT F Gaming Offer ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "supplierRef",
+          "required": true,
+          "nullable": false,
+          "description": "Non-secret supplier/provider reference.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "providerReferences",
+          "required": true,
+          "nullable": false,
+          "description": "Provider-side offer/category/product references.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "priority",
+          "required": true,
+          "nullable": false,
+          "description": "Routing priority; lower is preferred.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether this mapping may be routed.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "availability",
+          "required": true,
+          "nullable": false,
+          "description": "Current availability snapshot.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "supplierCost",
+          "required": true,
+          "nullable": false,
+          "description": "Supplier cost snapshot.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "supplierCurrency",
+          "required": true,
+          "nullable": false,
+          "description": "Supplier currency.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "lastSyncedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Most recent sync timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "providerMetadata",
+          "required": false,
+          "nullable": true,
+          "description": "Bounded non-secret provider metadata.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.offer",
+          "description": "Maps a supplier reference to one canonical Gaming Offer."
+        },
+        {
+          "type": "composes",
+          "target": "gaming.availability",
+          "description": "Uses Gaming availability semantics."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "offerResolves",
+          "description": "Supplier mappings must reference valid canonical Offers."
+        },
+        {
+          "id": "priorityValid",
+          "description": "Priority must be positive and deterministic."
+        },
+        {
+          "id": "notPublic",
+          "description": "Supplier mappings are staff/server-only and never returned whole from public catalog operations."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Supplier Offer Mapping",
+        "icon": "fa-gamepad",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "mappingId",
+          "offerId",
+          "supplierRef",
+          "providerReferences"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.internalQuote",
+      "name": "Gaming Internal Quote",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "pricing",
+      "description": "Trusted quote snapshot including supplier cost, FX, fees, margin and selected routing data.",
+      "purpose": "Trusted quote snapshot including supplier cost, FX, fees, margin and selected routing data.",
+      "gamingModel": {
+        "kind": "internal-record",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "sensitive"
+      },
+      "fields": [
+        {
+          "key": "quoteId",
+          "required": true,
+          "nullable": false,
+          "description": "Quote ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "offerId",
+          "required": true,
+          "nullable": false,
+          "description": "Offer ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "selectedMappingId",
+          "required": true,
+          "nullable": false,
+          "description": "Selected supplier mapping ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "supplierCost",
+          "required": true,
+          "nullable": false,
+          "description": "Supplier cost snapshot.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "supplierCurrency",
+          "required": true,
+          "nullable": false,
+          "description": "Supplier currency.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "fxResult",
+          "required": false,
+          "nullable": true,
+          "description": "Foreign-exchange calculation result.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "gatewayFee",
+          "required": false,
+          "nullable": true,
+          "description": "Gateway fee snapshot.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "margin",
+          "required": false,
+          "nullable": true,
+          "description": "Internal margin snapshot.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "retailAmount",
+          "required": true,
+          "nullable": false,
+          "description": "Final retail amount.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "quantity",
+          "required": true,
+          "nullable": false,
+          "description": "Quoted quantity.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "requestedAmount",
+          "required": false,
+          "nullable": true,
+          "description": "Customer requested amount for amount-based offers.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Creation timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "expiresAt",
+          "required": true,
+          "nullable": false,
+          "description": "Expiry timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.offer",
+          "description": "Quote belongs to one offer."
+        },
+        {
+          "type": "references",
+          "target": "gaming.supplierOfferMapping",
+          "description": "Internal quote may reference selected supplier mapping."
+        },
+        {
+          "type": "uses",
+          "target": "commerce.moneySnapshot",
+          "description": "Money fields reuse Commerce money semantics."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "expiresAfterCreated",
+          "description": "Quote expiry must be after quote creation."
+        },
+        {
+          "id": "serverRevalidated",
+          "description": "Checkout must verify quote server-side before order/charge creation."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Internal Quote",
+        "icon": "fa-gamepad",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "quoteId",
+          "offerId",
+          "selectedMappingId",
+          "supplierCost"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.publicQuote",
+      "name": "Gaming Public Quote",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "pricing",
+      "description": "Customer-safe quote response for Gaming checkout.",
+      "purpose": "Customer-safe quote response for Gaming checkout.",
+      "gamingModel": {
+        "kind": "public-projection",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "quoteId",
+          "required": true,
+          "nullable": false,
+          "description": "Quote ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "offerId",
+          "required": true,
+          "nullable": false,
+          "description": "Offer ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "quantity",
+          "required": true,
+          "nullable": false,
+          "description": "Quoted quantity.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "retailAmount",
+          "required": true,
+          "nullable": false,
+          "description": "Retail amount and currency.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "expiresAt",
+          "required": true,
+          "nullable": false,
+          "description": "Quote expiry.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "availability",
+          "required": true,
+          "nullable": false,
+          "description": "Customer-safe availability.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "message",
+          "required": false,
+          "nullable": true,
+          "description": "Customer-safe message.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "generatedFrom",
+          "target": "gaming.internalQuote",
+          "description": "Public quote is a safe projection of an internal quote."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "noSupplierLeakage",
+          "description": "Public quote cannot expose supplier identity, cost, balance, margin or routing priority."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Public Quote",
+        "icon": "fa-gamepad",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "quoteId",
+          "offerId",
+          "quantity",
+          "retailAmount"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.internalOrder",
+      "name": "Gaming Internal Order",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "orders",
+      "description": "Authoritative Gaming order state across payment, supplier routing and fulfillment.",
+      "purpose": "Authoritative Gaming order state across payment, supplier routing and fulfillment.",
+      "gamingModel": {
+        "kind": "internal-record",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "sensitive"
+      },
+      "fields": [
+        {
+          "key": "orderId",
+          "required": true,
+          "nullable": false,
+          "description": "Order ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "quoteId",
+          "required": true,
+          "nullable": false,
+          "description": "Quote ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "offerId",
+          "required": true,
+          "nullable": false,
+          "description": "Offer ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "customerRef",
+          "required": true,
+          "nullable": false,
+          "description": "Customer reference.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Normalized Gaming order lifecycle.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "created",
+              "awaiting-payment",
+              "payment-confirmed",
+              "validating",
+              "ready-for-fulfillment",
+              "fulfillment-submitted",
+              "fulfillment-processing",
+              "fulfilled",
+              "fulfillment-failed",
+              "refund-pending",
+              "refunded",
+              "cancelled"
+            ]
+          }
+        },
+        {
+          "key": "paymentRef",
+          "required": false,
+          "nullable": true,
+          "description": "Trusted payment reference.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "selectedMappingId",
+          "required": false,
+          "nullable": true,
+          "description": "Selected supplier mapping ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "purchaseFieldSnapshot",
+          "required": true,
+          "nullable": false,
+          "description": "Submitted purchase-field snapshot.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "retailAmount",
+          "required": true,
+          "nullable": false,
+          "description": "Retail amount snapshot.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "refundState",
+          "required": false,
+          "nullable": true,
+          "description": "Refund state kept separate from fulfillment.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "createdAt",
+          "required": true,
+          "nullable": false,
+          "description": "Order creation timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "updatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Order update timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.internalQuote",
+          "description": "Order is created from a trusted quote."
+        },
+        {
+          "type": "references",
+          "target": "commerce.payment",
+          "description": "Payment truth remains provider/server verified through Commerce payment concepts."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "validStateTransition",
+          "description": "Order state transitions must follow normalized Gaming lifecycle."
+        },
+        {
+          "id": "paymentServerVerified",
+          "description": "Browser clients cannot self-assert payment success."
+        },
+        {
+          "id": "refundSeparate",
+          "description": "Refund state remains separate from fulfillment state."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Internal Order",
+        "icon": "fa-gamepad",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "orderId",
+          "quoteId",
+          "offerId",
+          "customerRef"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.publicOrder",
+      "name": "Gaming Public Order",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "orders",
+      "description": "Customer-safe Gaming order status projection.",
+      "purpose": "Customer-safe Gaming order status projection.",
+      "gamingModel": {
+        "kind": "public-projection",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "orderId",
+          "required": true,
+          "nullable": false,
+          "description": "Order ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "offerId",
+          "required": true,
+          "nullable": false,
+          "description": "Offer ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Customer-safe order status.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "retailAmount",
+          "required": true,
+          "nullable": false,
+          "description": "Retail amount snapshot.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "message",
+          "required": false,
+          "nullable": true,
+          "description": "Customer-safe status message.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "deliveryAvailable",
+          "required": true,
+          "nullable": false,
+          "description": "Whether secure delivery can be retrieved by the authorized customer.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "generatedFrom",
+          "target": "gaming.internalOrder",
+          "description": "Public order hides supplier and sensitive operational details."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "tenantScope",
+          "description": "Records are scoped to the authorized Organization/Site boundary."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Contracts define shape only and must not contain provider credentials or live deliverable values."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Public Order",
+        "icon": "fa-gamepad",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "orderId",
+          "offerId",
+          "status",
+          "retailAmount"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.fulfillment",
+      "name": "Gaming Fulfillment",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "fulfillment",
+      "description": "Digital fulfillment result supporting top-up confirmation, code/PIN/serial/key delivery, redemption URL and manual-service completion.",
+      "purpose": "Digital fulfillment result supporting top-up confirmation, code/PIN/serial/key delivery, redemption URL and manual-service completion.",
+      "gamingModel": {
+        "kind": "internal-record",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "sensitive"
+      },
+      "fields": [
+        {
+          "key": "fulfillmentId",
+          "required": true,
+          "nullable": false,
+          "description": "Fulfillment ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "orderId",
+          "required": true,
+          "nullable": false,
+          "description": "Gaming order ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "type",
+          "required": true,
+          "nullable": false,
+          "description": "Fulfillment type.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "top-up-confirmation",
+              "code-delivery",
+              "pin-delivery",
+              "serial-delivery",
+              "redemption-url",
+              "activation-key",
+              "manual-service"
+            ]
+          }
+        },
+        {
+          "key": "state",
+          "required": true,
+          "nullable": false,
+          "description": "Fulfillment state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "submitted",
+              "processing",
+              "completed",
+              "failed",
+              "cancelled"
+            ]
+          }
+        },
+        {
+          "key": "deliverableRefs",
+          "required": false,
+          "nullable": true,
+          "description": "References to secure deliverables, not values.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "completedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Completion timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "instructions",
+          "required": false,
+          "nullable": true,
+          "description": "Customer-safe instructions.",
+          "primitive": "fields.textarea"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.internalOrder",
+          "description": "Fulfillment belongs to a Gaming order."
+        },
+        {
+          "type": "references",
+          "target": "gaming.digitalDeliverable",
+          "description": "Secret-bearing deliverables remain separately protected."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "tenantScope",
+          "description": "Records are scoped to the authorized Organization/Site boundary."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Contracts define shape only and must not contain provider credentials or live deliverable values."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Fulfillment",
+        "icon": "fa-gamepad",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "fulfillmentId",
+          "orderId",
+          "type",
+          "state"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.digitalDeliverable",
+      "name": "Gaming Digital Deliverable",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "fulfillment",
+      "description": "Secure deliverable shape for digital codes, PINs, serials, activation keys, redemption URLs, top-up confirmations and instructions.",
+      "purpose": "Secure deliverable shape for digital codes, PINs, serials, activation keys, redemption URLs, top-up confirmations and instructions.",
+      "gamingModel": {
+        "kind": "secure-record",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "secret"
+      },
+      "fields": [
+        {
+          "key": "deliverableId",
+          "required": true,
+          "nullable": false,
+          "description": "Deliverable ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "orderId",
+          "required": true,
+          "nullable": false,
+          "description": "Gaming order ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "kind",
+          "required": true,
+          "nullable": false,
+          "description": "Deliverable kind.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "code",
+              "pin",
+              "serial",
+              "activation-key",
+              "redemption-url",
+              "topup-confirmation",
+              "instruction"
+            ]
+          }
+        },
+        {
+          "key": "sensitive",
+          "required": true,
+          "nullable": false,
+          "description": "Whether the deliverable value is secret-bearing.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "valueRef",
+          "required": true,
+          "nullable": false,
+          "description": "Protected value reference, never the live secret value.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "redactionPolicy",
+          "required": true,
+          "nullable": false,
+          "description": "Display/log redaction policy.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "availableUntil",
+          "required": false,
+          "nullable": true,
+          "description": "Availability expiration.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "gaming.internalOrder",
+          "description": "Deliverable belongs to an authorized order."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "secretValuesNotInRegistry",
+          "description": "Registry examples and public payloads never include real code, PIN, serial or key values."
+        },
+        {
+          "id": "secureOperationOnly",
+          "description": "Secret-bearing values require authenticated secure delivery retrieval."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Digital Deliverable",
+        "icon": "fa-gamepad",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "deliverableId",
+          "orderId",
+          "kind",
+          "sensitive"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "gaming.validationResponse",
+      "name": "Gaming Validation Response",
+      "version": "1.2.0",
+      "status": "stable",
+      "domain": "gaming",
+      "category": "validation",
+      "description": "Customer-safe account validation response.",
+      "purpose": "Customer-safe account validation response.",
+      "gamingModel": {
+        "kind": "public-projection",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "valid",
+          "required": true,
+          "nullable": false,
+          "description": "Whether validation succeeded.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "displayName",
+          "required": false,
+          "nullable": true,
+          "description": "Safe account display name.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "region",
+          "required": false,
+          "nullable": true,
+          "description": "Safe region label.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "message",
+          "required": false,
+          "nullable": true,
+          "description": "Customer-safe validation message.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "rawProviderPayloadForbidden",
+          "description": "Raw supplier payloads never appear in validation responses."
+        }
+      ],
+      "cms": {
+        "label": "Gaming Validation Response",
+        "icon": "fa-gamepad",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "gaming-schema",
+        "defaultPlacement": "gaming",
+        "summaryFields": [
+          "valid",
+          "displayName",
+          "region",
+          "message"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+      },
+      "futureBindings": {
+        "modules": "phase-39",
+        "api": "phase-39",
+        "permissions": "phase-39",
+        "events": "phase-39",
+        "webhooks": "phase-39",
+        "integrations": "phase-39",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    }
+  ]
+};

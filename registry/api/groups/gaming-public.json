@@ -1,0 +1,29 @@
+{
+  "$id": "api.gaming-public",
+  "apiId": "api.gaming-public",
+  "name": "Gaming Public API",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "operations",
+  "description": "Customer-safe Gaming storefront operations.",
+  "basePath": "/api/v1/sites/{siteId}/gaming/public",
+  "defaultAuthMode": "anonymous",
+  "defaultCachePolicy": "public-short",
+  "defaultRateLimitClass": "public-read",
+  "defaultCorsPolicy": "site-origin",
+  "operationIds": [
+    "api.gaming-public.store-bootstrap",
+    "api.gaming-public.list-products",
+    "api.gaming-public.get-product",
+    "api.gaming-public.create-quote",
+    "api.gaming-public.validate-account",
+    "api.gaming-public.create-checkout",
+    "api.gaming-public.get-order",
+    "api.gaming-public.get-order-delivery"
+  ],
+  "moduleBindings": [
+    "gaming"
+  ],
+  "notes": []
+}

@@ -1,0 +1,109 @@
+{
+  "$id": "gaming.accountValidationPolicy",
+  "name": "Gaming Account Validation Policy",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "validation",
+  "description": "Capability-driven account/player validation policy for one offer.",
+  "purpose": "Capability-driven account/player validation policy for one offer.",
+  "gamingModel": {
+    "kind": "policy",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "policyId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable validation policy ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "supported",
+      "required": true,
+      "nullable": false,
+      "description": "Whether validation is supported.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "mode",
+      "required": true,
+      "nullable": false,
+      "description": "Validation mode.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "none",
+          "provider-preflight",
+          "local"
+        ]
+      }
+    },
+    {
+      "key": "fieldKeys",
+      "required": true,
+      "nullable": false,
+      "description": "Purchase-field keys required for validation.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "safeResponseFields",
+      "required": true,
+      "nullable": false,
+      "description": "Customer-safe validation response fields.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "fieldKeysResolve",
+      "description": "Validation fieldKeys must reference declared offer purchase fields."
+    },
+    {
+      "id": "providerPayloadHidden",
+      "description": "Raw provider validation payloads are never public."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Account Validation Policy",
+    "icon": "fa-gamepad",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "policyId",
+      "supported",
+      "mode",
+      "fieldKeys"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

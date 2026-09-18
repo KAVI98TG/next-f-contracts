@@ -1,14 +1,14 @@
 {
-  "registryVersion": "1.1.0",
-  "targetContractVersion": "1.1.0",
+  "registryVersion": "1.2.0",
+  "targetContractVersion": "1.2.0",
   "generatedAt": "2026-09-11T00:00:00Z",
   "components": [
     {
       "componentId": "contracts.registry",
       "componentType": "contract-registry",
       "name": "NEXT F Contract Registry",
-      "specificationVersion": "1.1.0",
-      "registryRelease": "1.1.0",
+      "specificationVersion": "1.2.0",
+      "registryRelease": "1.2.0",
       "runtimeImplemented": true,
       "runtimeEvidence": "static-authoritative-repository",
       "source": "registry/registry.json",

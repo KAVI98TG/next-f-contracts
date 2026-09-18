@@ -1,0 +1,140 @@
+{
+  "$id": "gaming.purchaseField",
+  "name": "Gaming Purchase Field",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "catalog",
+  "description": "Supplier-neutral input field required to complete a Gaming purchase.",
+  "purpose": "Supplier-neutral input field required to complete a Gaming purchase.",
+  "gamingModel": {
+    "kind": "value-object",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "key",
+      "required": true,
+      "nullable": false,
+      "description": "Stable canonical field key.",
+      "primitive": "fields.slug"
+    },
+    {
+      "key": "label",
+      "required": true,
+      "nullable": false,
+      "description": "Customer-facing field label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Field type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "text",
+          "number",
+          "select",
+          "email",
+          "url",
+          "username",
+          "country"
+        ]
+      }
+    },
+    {
+      "key": "required",
+      "required": true,
+      "nullable": false,
+      "description": "Whether the field is required.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "placeholder",
+      "required": false,
+      "nullable": true,
+      "description": "Optional placeholder.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "helpText",
+      "required": false,
+      "nullable": true,
+      "description": "Optional customer-safe help text.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "validation",
+      "required": false,
+      "nullable": true,
+      "description": "Validation hints and safe input constraints.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "options",
+      "required": false,
+      "nullable": true,
+      "description": "Select options when type is select.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "relatedTo",
+      "target": "forms.field",
+      "description": "Reuses Forms field semantics where compatible."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "tenantScope",
+      "description": "Records are scoped to the authorized Organization/Site boundary."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Contracts define shape only and must not contain provider credentials or live deliverable values."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Purchase Field",
+    "icon": "fa-gamepad",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "key",
+      "label",
+      "type",
+      "required"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

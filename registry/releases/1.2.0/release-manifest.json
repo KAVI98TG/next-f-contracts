@@ -1,0 +1,23 @@
+{
+  "releaseVersion": "1.2.0",
+  "phase": 39,
+  "status": "STABLE",
+  "previousStableVersion": "1.1.0",
+  "registrySha256": "3ab2de9a05cfe06b3f43487c0c538e84a1418c9783d93a206357f0703b49fdc7",
+  "snapshots": {
+    "index": "registry/releases/1.2.0/snapshot-index.json",
+    "root": "registry/releases/1.2.0/snapshots"
+  },
+  "acceptance": {
+    "report": "registry/releases/1.2.0/acceptance-report.json",
+    "conclusion": "PASS"
+  },
+  "counts": {
+    "gamingSchemas": 15,
+    "gamingCapabilities": 13,
+    "gamingApiOperations": 22,
+    "gamingPermissions": 5,
+    "gamingEvents": 13,
+    "gamingConnectors": 2
+  }
+}

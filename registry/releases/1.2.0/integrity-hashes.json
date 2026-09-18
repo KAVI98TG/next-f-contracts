@@ -1,0 +1,52 @@
+{
+  "registryVersion": "1.2.0",
+  "releaseVersion": "1.2.0",
+  "algorithm": "sha256",
+  "generatedAt": "2026-09-14T04:39:40.109Z",
+  "files": {
+    "registry/registry.json": {
+      "sha256": "3ab2de9a05cfe06b3f43487c0c538e84a1418c9783d93a206357f0703b49fdc7",
+      "bytes": 2694712
+    },
+    "registry/gaming/index.json": {
+      "sha256": "3b64c86fd90ec339ac91d6ca5f3e6a151fad71f48f9d79dc18ab517627c7bed7",
+      "bytes": 64118
+    },
+    "registry/modules/index.json": {
+      "sha256": "710c5fbad7ed08af5c4f727985291ecbadaba1a623a8d184c5a627ef873f30b9",
+      "bytes": 171428
+    },
+    "registry/api/index.json": {
+      "sha256": "769b21a2d2b350f99efe559e72badeb96efbbc837a148f20f6266bf9fbd9ff49",
+      "bytes": 386548
+    },
+    "registry/permissions/index.json": {
+      "sha256": "305f46f73c4d35e8854e2e68783d46fd6fe3ede88697e5b77c8198aab447b42c",
+      "bytes": 358493
+    },
+    "registry/events/index.json": {
+      "sha256": "67a2e1f682bf80da1831703905566a6ff9b435b484fedb9db50670223c4318b0",
+      "bytes": 763911
+    },
+    "registry/integrations/index.json": {
+      "sha256": "43408b6857fc68e69fc88aa2358ecdcdd1213e1c1b6d6baef28c4130a1d9f4e4",
+      "bytes": 178962
+    },
+    "starters/gaming/nextf.site.json": {
+      "sha256": "b7b5370f9192ac75826ef48705909e2eaf7a5d5a88021ecaad28e198911266c3",
+      "bytes": 6803
+    },
+    "registry/releases/1.2.0/acceptance-report.json": {
+      "sha256": "7e294b0818756ef335995412937047b708515c2eb0a2a815bb9b1c22c5fa013e",
+      "bytes": 1035
+    },
+    "registry/releases/1.2.0/release-manifest.json": {
+      "sha256": "a6e63ec4655db7135256df33b21c7ae13172fed39ab433a628c68622314d8dbd",
+      "bytes": 618
+    },
+    "registry/releases/1.2.0/snapshot-index.json": {
+      "sha256": "a48f63d18dae47ed65ea7b8de37e3b0ceaa48e0615580eedc2d3d2139a65f589",
+      "bytes": 2474
+    }
+  }
+}

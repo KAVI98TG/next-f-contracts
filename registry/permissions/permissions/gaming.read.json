@@ -1,0 +1,30 @@
+{
+  "$id": "gaming.read",
+  "name": "Read Gaming",
+  "permissionId": "gaming.read",
+  "domain": "gaming",
+  "resource": "read",
+  "action": "view",
+  "scopeKind": "site",
+  "riskLevel": "standard",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Read Gaming dashboard, catalog and order summaries.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound",
+    "supplier-secrets-hidden"
+  ],
+  "notes": [],
+  "version": "1.2.0",
+  "status": "stable"
+}

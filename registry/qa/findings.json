@@ -1,8 +1,48 @@
 {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "phase": 38,
-  "count": 3,
+  "count": 6,
   "findings": [
+    {
+      "checkId": "QA-ID-001",
+      "result": "FAIL",
+      "severity": "critical",
+      "description": "Canonical Registry IDs are unique",
+      "evidence": [
+        "Registry items: 2371",
+        "Unique IDs: 2356"
+      ],
+      "affectedDefinitions": [],
+      "remediationStatus": "required"
+    },
+    {
+      "checkId": "QA-REF-001",
+      "result": "FAIL",
+      "severity": "critical",
+      "description": "Registry relationship targets resolve",
+      "evidence": [
+        "Broken relationships: 2"
+      ],
+      "affectedDefinitions": [
+        "gaming.purchaseField -> forms.field",
+        "starters.gaming -> modules.gaming"
+      ],
+      "remediationStatus": "required"
+    },
+    {
+      "checkId": "QA-MOD-001",
+      "result": "FAIL",
+      "severity": "critical",
+      "description": "Module dependencies resolve",
+      "evidence": [
+        "Modules: 14",
+        "Capabilities: 115"
+      ],
+      "affectedDefinitions": [
+        "gaming->webhooks"
+      ],
+      "remediationStatus": "required"
+    },
     {
       "checkId": "QA-A11Y-002",
       "result": "DEFERRED",
@@ -15,20 +55,6 @@
       "remediationStatus": "manual-review"
     },
     {
-      "checkId": "QA-PERF-001",
-      "result": "WARNING",
-      "severity": "medium",
-      "description": "Phase 32 performance audit has no hard failures",
-      "evidence": [
-        "registry/performance/portal-audit.json",
-        "Audit status: warning",
-        "Budget warnings: 2",
-        "Budget failures: 0"
-      ],
-      "affectedDefinitions": [],
-      "remediationStatus": "monitor"
-    },
-    {
       "checkId": "QA-PERF-002",
       "result": "NOT_APPLICABLE",
       "severity": "info",
@@ -38,6 +64,23 @@
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-applicable"
+    },
+    {
+      "checkId": "QA-ACCESS-001",
+      "result": "FAIL",
+      "severity": "critical",
+      "description": "Every Customer CMS profile has one canonical Customer Access Policy",
+      "evidence": [
+        "Policies: 75",
+        "Customer CMS profiles: 79"
+      ],
+      "affectedDefinitions": [
+        "cmsUi.profile.gaming.catalog",
+        "cmsUi.profile.gaming.finance",
+        "cmsUi.profile.gaming.orders",
+        "cmsUi.profile.gaming.suppliers"
+      ],
+      "remediationStatus": "required"
     }
   ]
 }

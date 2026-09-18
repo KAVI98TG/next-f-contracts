@@ -1,0 +1,106 @@
+{
+  "$id": "gaming.regionRule",
+  "name": "Gaming Region Rule",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "region",
+  "description": "Customer-visible region restriction policy for digital gaming offers.",
+  "purpose": "Customer-visible region restriction policy for digital gaming offers.",
+  "gamingModel": {
+    "kind": "policy",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "ruleId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable region rule ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "mode",
+      "required": true,
+      "nullable": false,
+      "description": "Region rule mode.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "global",
+          "named-region",
+          "allow-list",
+          "block-list"
+        ]
+      }
+    },
+    {
+      "key": "regionName",
+      "required": false,
+      "nullable": true,
+      "description": "Customer-safe region label.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "countryCodes",
+      "required": false,
+      "nullable": true,
+      "description": "ISO 3166-1 alpha-2 country codes.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "publicMessage",
+      "required": false,
+      "nullable": true,
+      "description": "Customer-facing compatibility message.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "countryCodesValid",
+      "description": "Country codes use the Registry country-code primitive, preferably ISO 3166-1 alpha-2."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Region Rule",
+    "icon": "fa-gamepad",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "ruleId",
+      "mode",
+      "regionName",
+      "countryCodes"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

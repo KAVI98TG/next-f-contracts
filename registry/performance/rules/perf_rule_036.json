@@ -13,7 +13,7 @@
     "manual-review"
   ],
   "relatedRegistryIds": [],
-  "version": "1.1.0",
+  "version": "1.2.0",
   "status": "stable",
   "phase": 32,
   "sourceReference": "registry/performance/rules/perf_rule_036.json"

@@ -1,0 +1,32 @@
+{
+  "$id": "gaming.suppliers.manage",
+  "name": "Manage Gaming Suppliers",
+  "permissionId": "gaming.suppliers.manage",
+  "domain": "gaming",
+  "resource": "suppliers",
+  "action": "manage",
+  "scopeKind": "site",
+  "riskLevel": "privileged",
+  "customerEligible": true,
+  "adminEligible": true,
+  "grantable": false,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": true,
+  "surfaces": [
+    "customer-cms",
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Manage supplier mappings, connection metadata and configuration references without exposing secret values.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "scope-bound",
+    "supplier-secrets-hidden"
+  ],
+  "notes": [
+    "Supplier management must never expose plaintext credentials or protected supplier secrets."
+  ],
+  "version": "1.2.0",
+  "status": "stable"
+}

@@ -1,7 +1,7 @@
 {
   "$id": "changelog.releaseProvenance",
   "name": "Changelog Release Provenance",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "status": "stable",
   "domain": "changelog",
   "type": "schema",

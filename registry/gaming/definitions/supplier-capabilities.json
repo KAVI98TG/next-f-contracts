@@ -1,0 +1,143 @@
+{
+  "$id": "gaming.supplierCapabilities",
+  "name": "Gaming Supplier Capabilities",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "supplier",
+  "description": "Provider-neutral description of what a supplier adapter can safely support.",
+  "purpose": "Provider-neutral description of what a supplier adapter can safely support.",
+  "gamingModel": {
+    "kind": "internal-record",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "supplierRef",
+      "required": true,
+      "nullable": false,
+      "description": "Non-secret supplier reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "productKinds",
+      "required": true,
+      "nullable": false,
+      "description": "Supported product kinds.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "accountValidation",
+      "required": true,
+      "nullable": false,
+      "description": "Supports account validation.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "inventoryCounts",
+      "required": true,
+      "nullable": false,
+      "description": "Supports stock counts.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "quantityRules",
+      "required": true,
+      "nullable": false,
+      "description": "Supports quantity rules.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "regionRules",
+      "required": true,
+      "nullable": false,
+      "description": "Supports region restrictions.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "synchronousCodeDelivery",
+      "required": true,
+      "nullable": false,
+      "description": "Supports immediate code delivery.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "webhookFulfillment",
+      "required": true,
+      "nullable": false,
+      "description": "Supports async webhook fulfillment.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "manualServiceChat",
+      "required": true,
+      "nullable": false,
+      "description": "Supports manual service workflows.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "idempotentOrders",
+      "required": true,
+      "nullable": false,
+      "description": "Supports idempotent order submission.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "integrations.connectorDefinition",
+      "description": "Supplier capabilities describe connector behavior without exposing credentials."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "tenantScope",
+      "description": "Records are scoped to the authorized Organization/Site boundary."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Contracts define shape only and must not contain provider credentials or live deliverable values."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Supplier Capabilities",
+    "icon": "fa-gamepad",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "supplierRef",
+      "productKinds",
+      "accountValidation",
+      "inventoryCounts"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

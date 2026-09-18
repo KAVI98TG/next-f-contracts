@@ -1,0 +1,147 @@
+{
+  "$id": "gaming.fulfillment",
+  "name": "Gaming Fulfillment",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "gaming",
+  "category": "fulfillment",
+  "description": "Digital fulfillment result supporting top-up confirmation, code/PIN/serial/key delivery, redemption URL and manual-service completion.",
+  "purpose": "Digital fulfillment result supporting top-up confirmation, code/PIN/serial/key delivery, redemption URL and manual-service completion.",
+  "gamingModel": {
+    "kind": "internal-record",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "fulfillmentId",
+      "required": true,
+      "nullable": false,
+      "description": "Fulfillment ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "orderId",
+      "required": true,
+      "nullable": false,
+      "description": "Gaming order ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "type",
+      "required": true,
+      "nullable": false,
+      "description": "Fulfillment type.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "top-up-confirmation",
+          "code-delivery",
+          "pin-delivery",
+          "serial-delivery",
+          "redemption-url",
+          "activation-key",
+          "manual-service"
+        ]
+      }
+    },
+    {
+      "key": "state",
+      "required": true,
+      "nullable": false,
+      "description": "Fulfillment state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "submitted",
+          "processing",
+          "completed",
+          "failed",
+          "cancelled"
+        ]
+      }
+    },
+    {
+      "key": "deliverableRefs",
+      "required": false,
+      "nullable": true,
+      "description": "References to secure deliverables, not values.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "completedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Completion timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "instructions",
+      "required": false,
+      "nullable": true,
+      "description": "Customer-safe instructions.",
+      "primitive": "fields.textarea"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "gaming.internalOrder",
+      "description": "Fulfillment belongs to a Gaming order."
+    },
+    {
+      "type": "references",
+      "target": "gaming.digitalDeliverable",
+      "description": "Secret-bearing deliverables remain separately protected."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "tenantScope",
+      "description": "Records are scoped to the authorized Organization/Site boundary."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Contracts define shape only and must not contain provider credentials or live deliverable values."
+    }
+  ],
+  "cms": {
+    "label": "Gaming Fulfillment",
+    "icon": "fa-gamepad",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "gaming-schema",
+    "defaultPlacement": "gaming",
+    "summaryFields": [
+      "fulfillmentId",
+      "orderId",
+      "type",
+      "state"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Internal supplier, quote, order and delivery details stay behind trusted APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-39",
+    "api": "phase-39",
+    "permissions": "phase-39",
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "integrations": "phase-39",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

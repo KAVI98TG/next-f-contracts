@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.1.0",
+  "registryVersion": "1.2.0",
   "types": [
     {
       "id": "acceptance-check",
@@ -235,6 +235,11 @@
       "id": "starter-pack",
       "label": "Site Starter Contract Pack",
       "description": "Framework-neutral customer Site bootstrap package with a pinned manifest, contract maps, Codex handoff and validation guidance."
+    },
+    {
+      "id": "ui-profile",
+      "label": "UI Profile",
+      "description": "Customer CMS or Admin presentation metadata."
     },
     {
       "id": "validation-tool",

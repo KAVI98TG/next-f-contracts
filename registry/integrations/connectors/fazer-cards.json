@@ -1,0 +1,116 @@
+{
+  "$id": "integrations.fazerCards",
+  "name": "FazerCards",
+  "version": "1.2.0",
+  "status": "stable",
+  "domain": "integrations",
+  "type": "connector",
+  "providerKey": "fazercards",
+  "family": "gaming-supplier",
+  "description": "FazerCards server-side Gaming supplier adapter descriptor. It is an implementation adapter, not the NEXT F canonical public model.",
+  "ownership": "nextf",
+  "runtimeModes": [
+    "nextf-server",
+    "provider-api",
+    "webhook-adapter"
+  ],
+  "capabilities": [
+    "api.request",
+    "account.verify",
+    "data.sync.pull",
+    "gaming.catalog.sync",
+    "gaming.availability.sync",
+    "gaming.account.validate",
+    "gaming.fulfillment.submit",
+    "gaming.fulfillment.refresh"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "supported": [
+      "api-key",
+      "signed"
+    ]
+  },
+  "configurationFields": [
+    {
+      "key": "providerKey",
+      "label": "Provider Key",
+      "primitive": "fields.text",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": false,
+      "helpText": "Non-secret provider key.",
+      "validation": {}
+    },
+    {
+      "key": "baseUrl",
+      "label": "Base URL",
+      "primitive": "fields.url",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": false,
+      "customerEditable": false,
+      "helpText": "Provider API base URL.",
+      "validation": {
+        "scheme": "https"
+      }
+    },
+    {
+      "key": "credentialSecretRef",
+      "label": "Credential Secret Reference",
+      "primitive": "fields.text",
+      "required": true,
+      "publicClientEligible": false,
+      "secret": true,
+      "customerEditable": false,
+      "helpText": "Protected credential reference.",
+      "validation": {}
+    },
+    {
+      "key": "webhookSigningSecretRef",
+      "label": "Webhook Signing Secret Reference",
+      "primitive": "fields.text",
+      "required": false,
+      "publicClientEligible": false,
+      "secret": true,
+      "customerEditable": false,
+      "helpText": "Protected inbound webhook signing reference.",
+      "validation": {}
+    }
+  ],
+  "consent": {
+    "categories": [],
+    "mode": "business-purpose"
+  },
+  "dataHandling": {
+    "minimize": true,
+    "secretsServerSide": true,
+    "rawPayloadForwarding": false
+  },
+  "health": {
+    "supportsConnectionTest": true,
+    "supportsHealthSnapshot": true
+  },
+  "actions": [],
+  "mappings": [
+    {
+      "key": "offer-mapping",
+      "canonicalContract": "gaming.supplierOfferMapping"
+    }
+  ],
+  "futureBindings": {
+    "events": "phase-39",
+    "webhooks": "phase-39",
+    "permissions": "phase-39",
+    "siteManifest": "phase-39",
+    "api": "phase-39"
+  },
+  "notes": [
+    "Provider-native payloads remain adapter-private and must not become public Gaming contracts."
+  ],
+  "aliases": [
+    "FazerCards",
+    "Fazer Cards"
+  ]
+}
