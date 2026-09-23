@@ -1,0 +1,23 @@
+{
+  "batchId": "batch_staging_001",
+  "siteId": "site_example",
+  "environment": "staging",
+  "sdk": {
+    "sdkId": "nextf.tracking-sdk",
+    "sdkVersion": "1.0.0"
+  },
+  "events": [
+    {
+      "eventId": "evt_staging_001",
+      "eventKey": "page.viewed",
+      "occurredAt": "2026-09-23T13:00:00Z",
+      "source": "browser",
+      "schemaVersion": "1.0.0",
+      "debug": true,
+      "properties": {},
+      "context": {}
+    }
+  ],
+  "sentAt": "2026-09-23T13:00:01Z",
+  "isolationNote": "This batch is excluded from production reporting."
+}

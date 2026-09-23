@@ -1,5 +1,5 @@
 {
-  "portalVersion": "1.3.0",
+  "portalVersion": "1.4.0",
   "theme": "light",
   "groups": [
     {
@@ -339,5 +339,5 @@
       ]
     }
   ],
-  "registryVersion": "1.3.0"
+  "registryVersion": "1.4.0"
 }

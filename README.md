@@ -1,8 +1,14 @@
 # NEXT F Contracts
 
-Current stable Contract Registry version: **V1.3.0**
+Current stable Contract Registry version: **V1.4.0**
 
 `contract.nextf.lk` is the technical source of truth for NEXT F-built websites, Customer CMS, NEXT F Admin, APIs, reusable schemas, Commerce rules, Events, Webhooks, Permissions, Site Manifests, Modules, Codex development standards, reference implementations, Global Search and cross-registry relationship discovery.
+
+## Phase 41 - First-Party Tracking Platform Contracts
+
+V1.4.0 adds first-party SDK/collector protocol contracts, browser and server ingestion, Site-scoped identity/session policies, reporting, tracking health, Manifest declarations, privacy mappings, examples and validation. It reuses `marketing.trackingEvent` and does not claim that a production runtime is deployed.
+
+Run `npm run generate:tracking`, `npm run validate:phase41`, `npm run smoke:phase41`, `npm run audit:performance` and `npm run validate:regression`.
 
 ## Phase 40 - Software Canonical Contracts
 

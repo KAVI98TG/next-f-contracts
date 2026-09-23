@@ -15,7 +15,7 @@
   "environment": "Hosted and file review",
   "notes": "Excludes generated fallbacks so authored runtime complexity can be monitored independently.",
   "relatedRegistryIds": [],
-  "version": "1.3.0",
+  "version": "1.4.0",
   "status": "stable",
   "phase": 32,
   "sourceReference": "registry/performance/budgets/perf_budget_003.json"

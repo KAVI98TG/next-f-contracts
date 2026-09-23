@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Contract Diff Release Index",
   "description": "Exact historical release snapshots available for deterministic Contract Diff comparisons.",
@@ -454,6 +454,17 @@
       "sourceType": "current-repository",
       "sourceReference": "registry/registry.json",
       "notes": "Exact snapshot generated from the current Phase 32 repository."
+    },
+    {
+      "version": "1.4.0",
+      "phase": 33,
+      "available": true,
+      "availability": "exact",
+      "itemCount": 2503,
+      "registrySha256": "8c1e05e26c89171febe0b489a117a77f9688fe1414e6923b922ea3cffb8c4c29",
+      "sourceType": "current-repository",
+      "sourceReference": "registry/registry.json",
+      "notes": "Exact snapshot generated from the current Phase 33 repository."
     }
   ]
 }

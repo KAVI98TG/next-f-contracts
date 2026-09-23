@@ -1,5 +1,5 @@
 {
-  "registryVersion": "0.10.0",
+  "registryVersion": "1.4.0",
   "vocabularyVersion": "1.0.0",
   "title": "NEXT F Standard Marketing Tracking Event Keys",
   "description": "Phase 9 provider-neutral website interaction keys. These are tracking observations, not the full platform-domain Event Registry introduced in Phase 13.",
@@ -93,6 +93,41 @@
       "label": "Newsletter Subscribed",
       "defaultConsentCategory": "analytics",
       "description": "A newsletter subscription workflow completed successfully.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "navigation.route-changed",
+      "label": "SPA Route Changed",
+      "defaultConsentCategory": "analytics",
+      "description": "A client-side route transition produced a new visitor-visible view.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "engagement.session-engaged",
+      "label": "Session Engaged",
+      "defaultConsentCategory": "analytics",
+      "description": "A session met the configured engagement threshold.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "commerce.product-viewed",
+      "label": "Commerce Product Viewed",
+      "defaultConsentCategory": "analytics",
+      "description": "A public canonical Product was viewed.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "commerce.cart-updated",
+      "label": "Commerce Cart Updated",
+      "defaultConsentCategory": "analytics",
+      "description": "A visitor-visible cart interaction was observed; it is not inventory or order authority.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "commerce.checkout-started",
+      "label": "Commerce Checkout Started",
+      "defaultConsentCategory": "analytics",
+      "description": "A checkout flow was entered; it is not payment or order-completion evidence.",
       "conversionCandidate": true
     }
   ]

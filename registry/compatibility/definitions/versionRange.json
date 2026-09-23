@@ -1,7 +1,7 @@
 {
   "$id": "compatibility.versionRange",
   "name": "Version Range",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "status": "stable",
   "domain": "lifecycle",
   "type": "schema",

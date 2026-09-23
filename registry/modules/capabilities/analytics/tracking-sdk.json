@@ -1,0 +1,33 @@
+{
+  "$id": "modules.capability.analytics.tracking-sdk",
+  "capabilityId": "analytics.tracking-sdk",
+  "name": "Tracking SDK",
+  "version": "1.4.0",
+  "status": "stable",
+  "moduleId": "analytics",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Tracking SDK capability for the NEXT F first-party tracking platform.",
+  "contractBindings": [
+    "marketing.trackingSdkDescriptor",
+    "marketing.trackingCompatibility"
+  ],
+  "permissionBindings": [],
+  "eventBindings": [],
+  "requiresCapabilities": [
+    "analytics.measurement"
+  ],
+  "requiresModules": [
+    "consent"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

@@ -1,0 +1,149 @@
+{
+  "$id": "marketing.trackingCompatibility",
+  "name": "Tracking Compatibility Record",
+  "version": "1.4.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "sdk",
+  "description": "Explicit compatibility evidence across Contract, SDK and collector versions.",
+  "purpose": "Explicit compatibility evidence across Contract, SDK and collector versions.",
+  "marketingModel": {
+    "kind": "compatibility-record",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "recordId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable compatibility record ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "contractVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Exact NEXT F Contract version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sdkId",
+      "required": true,
+      "nullable": false,
+      "description": "SDK identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sdkVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Exact SDK version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "collectorApiId",
+      "required": true,
+      "nullable": false,
+      "description": "Collector API identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "collectorApiVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Collector API semantic version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "compatibilityStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Evidence-backed compatibility state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "compatible",
+          "incompatible",
+          "unknown",
+          "contract-defined"
+        ]
+      }
+    },
+    {
+      "key": "runtimeDeploymentStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Truthful runtime state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "not-implemented",
+          "development",
+          "pilot",
+          "production"
+        ]
+      }
+    },
+    {
+      "key": "verifiedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Verification timestamp when evidence exists.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "marketing.trackingSdkDescriptor",
+      "description": "Resolves the SDK descriptor."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "unknownNotGuessed",
+      "description": "Missing evidence is represented as unknown."
+    },
+    {
+      "id": "contractNotDeployment",
+      "description": "Published contracts do not imply runtime deployment."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Compatibility Record",
+    "icon": "fa-chart-line",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "recordId",
+      "contractVersion",
+      "sdkId",
+      "sdkVersion"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Delivered only through the declared scoped API projection."
+  },
+  "futureBindings": {
+    "modules": "phase-41",
+    "api": "phase-41",
+    "permissions": "phase-15",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

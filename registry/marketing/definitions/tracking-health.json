@@ -1,0 +1,218 @@
+{
+  "$id": "marketing.trackingHealth",
+  "name": "Tracking Health",
+  "version": "1.4.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "health",
+  "description": "Bounded Site/environment health snapshot for SDK, collector, validation and processing diagnostics.",
+  "purpose": "Bounded Site/environment health snapshot for SDK, collector, validation and processing diagnostics.",
+  "marketingModel": {
+    "kind": "operational-snapshot",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "healthId",
+      "required": true,
+      "nullable": false,
+      "description": "Health snapshot ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "Observed environment.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "development",
+          "preview",
+          "staging",
+          "production"
+        ]
+      }
+    },
+    {
+      "key": "sdkDetected",
+      "required": true,
+      "nullable": false,
+      "description": "Whether an SDK heartbeat/event was detected.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "sdkVersion",
+      "required": false,
+      "nullable": true,
+      "description": "Last detected SDK version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "contractVersion",
+      "required": false,
+      "nullable": true,
+      "description": "Last detected Contract version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "lastEventReceivedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Last accepted/observed event time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "receivedCount",
+      "required": true,
+      "nullable": false,
+      "description": "Events received in the bounded window.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "acceptedCount",
+      "required": true,
+      "nullable": false,
+      "description": "Events accepted in the bounded window.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "rejectedCount",
+      "required": true,
+      "nullable": false,
+      "description": "Events rejected in the bounded window.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "duplicateCount",
+      "required": true,
+      "nullable": false,
+      "description": "Duplicates in the bounded window.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "consentRestrictedCount",
+      "required": true,
+      "nullable": false,
+      "description": "Consent-restricted events in the bounded window.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "schemaErrorCount",
+      "required": true,
+      "nullable": false,
+      "description": "Schema errors in the bounded window.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "unknownEventCount",
+      "required": true,
+      "nullable": false,
+      "description": "Unknown event keys in the bounded window.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "collectorStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Collector status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "healthy",
+          "degraded",
+          "unavailable",
+          "unknown"
+        ]
+      }
+    },
+    {
+      "key": "processingStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Processing status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "healthy",
+          "delayed",
+          "blocked",
+          "unknown"
+        ]
+      }
+    },
+    {
+      "key": "generatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Health snapshot generation time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Health is Site scoped."
+    },
+    {
+      "type": "references",
+      "target": "marketing.trackingCompatibility",
+      "description": "Detected versions resolve through compatibility evidence."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "boundedDiagnostics",
+      "description": "Customer projection contains counts/status only, never raw payloads or infrastructure secrets."
+    },
+    {
+      "id": "notAvailabilityGuarantee",
+      "description": "A snapshot is evidence, not an uptime guarantee."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Health",
+    "icon": "fa-chart-line",
+    "customerVisible": true,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "healthId",
+      "scope",
+      "environment",
+      "sdkDetected"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Delivered only through the declared scoped API projection."
+  },
+  "futureBindings": {
+    "modules": "phase-41",
+    "api": "phase-41",
+    "permissions": "phase-15",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

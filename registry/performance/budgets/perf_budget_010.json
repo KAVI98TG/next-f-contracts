@@ -15,7 +15,7 @@
   "environment": "Hosted and file review",
   "notes": "Avoid large inline scripts that bypass caching and content-policy boundaries.",
   "relatedRegistryIds": [],
-  "version": "1.3.0",
+  "version": "1.4.0",
   "status": "stable",
   "phase": 32,
   "sourceReference": "registry/performance/budgets/perf_budget_010.json"

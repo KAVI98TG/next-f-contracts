@@ -1,0 +1,77 @@
+{
+  "$id": "api.customer-cms.get-tracking-health",
+  "operationId": "api.customer-cms.get-tracking-health",
+  "name": "Get Tracking Health",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.customer-cms",
+  "method": "GET",
+  "path": "/analytics/tracking-health",
+  "description": "Get Tracking Health",
+  "authentication": {
+    "mode": "organization-user",
+    "permissions": [
+      "marketing.tracking.view"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [
+      "environment?"
+    ],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "marketing.trackingHealth",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "validation_failed",
+      "rate_limited",
+      "module_disabled"
+    ],
+    "projection": "workspace-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "consent",
+    "analytics",
+    "marketing"
+  ],
+  "contractBindings": [
+    "marketing.trackingHealth"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "internal",
+  "notes": [
+    "Customer-safe counts and statuses only; raw rejected payloads and infrastructure details are excluded."
+  ]
+}

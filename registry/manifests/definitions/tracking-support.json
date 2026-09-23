@@ -1,7 +1,7 @@
 {
   "$id": "manifest.trackingSupport",
   "name": "Tracking Event Support",
-  "version": "0.17.0",
+  "version": "1.4.0",
   "status": "stable",
   "domain": "manifest",
   "category": "surfaces-bindings",
@@ -24,9 +24,88 @@
         "customerEditable": false,
         "adminEditable": true
       }
+    },
+    {
+      "key": "enabled",
+      "required": false,
+      "nullable": true,
+      "description": "Whether first-party tracking is enabled; absence is interpreted as disabled by V1.4 consumers.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "contractVersion",
+      "required": false,
+      "nullable": true,
+      "description": "Exact tracking envelope/contract version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sdkId",
+      "required": false,
+      "nullable": true,
+      "description": "Compatible SDK identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sdkVersion",
+      "required": false,
+      "nullable": true,
+      "description": "Exact compatible SDK version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "collectorApiId",
+      "required": false,
+      "nullable": true,
+      "description": "Canonical collector API operation ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "consentMode",
+      "required": false,
+      "nullable": true,
+      "description": "Consent evaluation mode.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "retentionPolicyRef",
+      "required": false,
+      "nullable": true,
+      "description": "Tracking data/retention policy reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "allowedEventNamespaces",
+      "required": false,
+      "nullable": true,
+      "description": "Approved canonical or namespaced tracking prefixes.",
+      "primitive": "fields.tag"
+    },
+    {
+      "key": "reportingEnabled",
+      "required": false,
+      "nullable": true,
+      "description": "Whether authorized analytics reporting is enabled.",
+      "primitive": "fields.boolean"
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.trackingSdkDescriptor",
+      "description": "Resolves SDK identity/version."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.trackingCompatibility",
+      "description": "Resolves Contract/SDK/collector compatibility."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.trackingCollectorPolicy",
+      "description": "Collector enforcement remains canonical."
+    }
+  ],
   "validationRules": [
     {
       "id": "trackingEventsMustResolve",
@@ -39,6 +118,10 @@
     {
       "id": "trackingRespectsConsent",
       "description": "Optional analytics/marketing dispatch remains governed by consent and destination data policy."
+    },
+    {
+      "id": "absenceDisablesTracking",
+      "description": "A V1.4 consumer must not initialize optional tracking when enabled is absent or false."
     }
   ],
   "cms": {

@@ -15,7 +15,7 @@
   "environment": "Hosted runtime",
   "notes": "Counts authoritative data loaders invoked by the current app shell. Future work may route-lazy more domains.",
   "relatedRegistryIds": [],
-  "version": "1.3.0",
+  "version": "1.4.0",
   "status": "stable",
   "phase": 32,
   "sourceReference": "registry/performance/budgets/perf_budget_017.json"

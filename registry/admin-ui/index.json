@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Admin UI Metadata Registry",
   "description": "Internal-only declarative metadata for NEXT F Admin. It reuses canonical contracts and Customer CMS profiles where appropriate while adding platform scope, diagnostics, compatibility, migration, secret-status and privileged operational controls.",
@@ -7112,7 +7112,8 @@
       ],
       "notes": [
         "Admin profile metadata does not expose supplier secrets."
-      ]
+      ],
+      "customerAccessPolicyRef": "customerAccess.policy.gaming.catalog"
     },
     {
       "$id": "adminUi.profile.gaming.finance",
@@ -7153,7 +7154,8 @@
       ],
       "notes": [
         "Admin profile metadata does not expose supplier secrets."
-      ]
+      ],
+      "customerAccessPolicyRef": "customerAccess.policy.gaming.finance"
     },
     {
       "$id": "adminUi.profile.gaming.orders",
@@ -7194,7 +7196,8 @@
       ],
       "notes": [
         "Admin profile metadata does not expose supplier secrets."
-      ]
+      ],
+      "customerAccessPolicyRef": "customerAccess.policy.gaming.orders"
     },
     {
       "$id": "adminUi.profile.gaming.suppliers",
@@ -7235,7 +7238,8 @@
       ],
       "notes": [
         "Admin profile metadata does not expose supplier secrets."
-      ]
+      ],
+      "customerAccessPolicyRef": "customerAccess.policy.gaming.suppliers"
     },
     {
       "$id": "adminUi.profile.integrations.connections",
@@ -7820,7 +7824,7 @@
     {
       "$id": "adminUi.profile.marketing.analytics",
       "name": "Analytics Admin",
-      "version": "1.1.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "admin-ui",
       "type": "admin-ui-profile",
@@ -7845,7 +7849,8 @@
       "inheritanceMode": "reference-not-copy",
       "targetContracts": [
         "marketing.analyticsSnapshot",
-        "marketing.analyticsObservation"
+        "marketing.analyticsObservation",
+        "marketing.analyticsReport"
       ],
       "primaryTargetContract": "marketing.analyticsSnapshot",
       "permissions": [
@@ -8592,7 +8597,7 @@
     {
       "$id": "adminUi.profile.marketing.tracking",
       "name": "Tracking Admin",
-      "version": "1.1.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "admin-ui",
       "type": "admin-ui-profile",
@@ -8617,7 +8622,8 @@
       "inheritanceMode": "reference-not-copy",
       "targetContracts": [
         "marketing.trackingConfiguration",
-        "marketing.dataLayerConfiguration"
+        "marketing.dataLayerConfiguration",
+        "marketing.trackingHealth"
       ],
       "primaryTargetContract": "marketing.trackingConfiguration",
       "permissions": [

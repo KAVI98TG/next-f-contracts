@@ -1,0 +1,44 @@
+{
+  "registryVersion": "1.4.0",
+  "releaseVersion": "1.4.0",
+  "algorithm": "sha256",
+  "generatedAt": "2026-09-23T12:03:54.177Z",
+  "files": {
+    "registry/registry.json": {
+      "sha256": "8c1e05e26c89171febe0b489a117a77f9688fe1414e6923b922ea3cffb8c4c29",
+      "bytes": 2819097
+    },
+    "registry/marketing/index.json": {
+      "sha256": "5cb9d74fa16694dc432024307540c05123a83b9b6d8834c88b405171f74d7b68",
+      "bytes": 256778
+    },
+    "registry/marketing/sdk-compatibility.json": {
+      "sha256": "5b9b207370c3add785836aa23addf18adb046727c98f6c5d9af3d614d205fedb",
+      "bytes": 561
+    },
+    "registry/modules/index.json": {
+      "sha256": "571d3d13c98dbf9dbae9ccf04472f29d0203384fde89f4f71d9fc54ab10750dd",
+      "bytes": 190130
+    },
+    "registry/api/index.json": {
+      "sha256": "b9da6f13511848db091b22cd48edc868a9e361f1233bd8b9adc49bfe59b40716",
+      "bytes": 481711
+    },
+    "registry/privacy/index.json": {
+      "sha256": "0a94013990048f664f7b3e7c8bb32bb4e92093d392e8cf19de443ee1e8ee8942",
+      "bytes": 68399
+    },
+    "registry/releases/1.4.0/acceptance-report.json": {
+      "sha256": "bed4ca9c48719710da14b24f9a0b8f3b1bbd3e9bdd2f8b1f5707bd84d75c8952",
+      "bytes": 1178
+    },
+    "registry/releases/1.4.0/release-manifest.json": {
+      "sha256": "0b52cc736e405b1e51d0231e88790d994ccfcc6549cfed5439b11a539d737521",
+      "bytes": 641
+    },
+    "registry/releases/1.4.0/snapshot-index.json": {
+      "sha256": "ffe0bf74d6361d924e68f9d1cd43f9276addf81ef13997d3e1c6d470c17baf72",
+      "bytes": 2290
+    }
+  }
+}

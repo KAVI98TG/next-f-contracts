@@ -10,19 +10,18 @@ const root=process.cwd();
 const version=fs.readFileSync(path.join(root,'VERSION'),'utf8').trim();
 const read=(rel)=>JSON.parse(fs.readFileSync(path.join(root,rel),'utf8'));
 const write=(rel,obj,compact=false)=>{const p=path.join(root,rel);fs.mkdirSync(path.dirname(p),{recursive:true});fs.writeFileSync(p,compact?JSON.stringify(obj):JSON.stringify(obj,null,2)+'\n');};
+const replace=(rel,obj,compact=false)=>{const p=path.join(root,rel),tmp=`${p}.next`;fs.mkdirSync(path.dirname(p),{recursive:true});fs.writeFileSync(tmp,compact?JSON.stringify(obj):JSON.stringify(obj,null,2)+'\n');fs.rmSync(p,{force:true});fs.renameSync(tmp,p);};
 const sha=(buf)=>crypto.createHash('sha256').update(buf).digest('hex');
 
 function appendSnapshotsStreaming(rel,additions,hasExistingSnapshots){
  const entries=Object.entries(additions);if(!entries.length)return;
- const p=path.join(root,rel),fd=fs.openSync(p,'r+');
- try{
-  const size=fs.fstatSync(fd).size,head=Buffer.alloc(Math.min(160,size)),tail=Buffer.alloc(2);
-  fs.readSync(fd,head,0,head.length,0);fs.readSync(fd,tail,0,2,size-2);
-  if(!head.toString('utf8').includes(`"registryVersion":${JSON.stringify(version)}`)||tail.toString('utf8')!=='}}')throw new Error('Diff snapshot store has an unsupported envelope.');
-  fs.ftruncateSync(fd,size-2);let position=size-2;
-  for(const [key,value] of entries){const chunk=`${hasExistingSnapshots||position>size-2?',':''}${JSON.stringify(key)}:${JSON.stringify(value)}`;position+=fs.writeSync(fd,chunk,position,'utf8');hasExistingSnapshots=true;}
-  fs.writeSync(fd,'}}',position,'utf8');
- }finally{fs.closeSync(fd);}
+ const p=path.join(root,rel),tmp=`${p}.next`,original=fs.readFileSync(p);
+ const head=original.subarray(0,Math.min(160,original.length)),tail=original.subarray(-2);
+ if(!head.toString('utf8').includes(`"registryVersion":${JSON.stringify(version)}`)||tail.toString('utf8')!=='}}')throw new Error('Diff snapshot store has an unsupported envelope.');
+ fs.writeFileSync(tmp,original.subarray(0,-2));
+ let first=true;
+ for(const [key,value] of entries){fs.appendFileSync(tmp,`${hasExistingSnapshots||!first?',':''}${JSON.stringify(key)}:${JSON.stringify(value)}`);hasExistingSnapshots=true;first=false;}
+ fs.appendFileSync(tmp,'}}');fs.rmSync(p,{force:true});fs.renameSync(tmp,p);
 }
 const canonical=(obj)=>Buffer.from(JSON.stringify(obj,Object.keys(obj).sort()));
 const stable=(obj)=>Buffer.from(JSON.stringify(sortDeep(obj)));
@@ -86,7 +85,7 @@ let currentRelease=releaseIndex.releases.find(x=>x.version===version);
 const currentDescriptor={version,phase:activePhase,available:true,availability:'exact',itemCount:Object.keys(items).length,registrySha256:sha(registryBuffer),sourceType:'current-repository',sourceReference:'registry/registry.json',notes:`Exact snapshot generated from the current Phase ${activePhase} repository.`};
 if(currentRelease)Object.assign(currentRelease,currentDescriptor);else releaseIndex.releases.push(currentDescriptor);
 releaseIndex.releases.sort((a,b)=>{const pa=a.version.split('.').map(Number),pb=b.version.split('.').map(Number);for(let i=0;i<3;i++){if(pa[i]!==pb[i])return pa[i]-pb[i];}return 0;});
-write('registry/diff/release-index.json',releaseIndex);write('registry/diff/release-manifests.json',manifestsDoc,true);appendSnapshotsStreaming('registry/diff/snapshots.json',newSnapshots,existingSnapshotHashes.size>0);
+replace('registry/diff/release-index.json',releaseIndex);replace('registry/diff/release-manifests.json',manifestsDoc,true);appendSnapshotsStreaming('registry/diff/snapshots.json',newSnapshots,existingSnapshotHashes.size>0);
 
 // Adjacent exact release summaries. Hash differences are intentionally conservative.
 const exact=releaseIndex.releases.filter(x=>x.available&&manifestsDoc.manifests[x.version]);

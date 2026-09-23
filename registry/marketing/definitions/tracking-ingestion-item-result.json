@@ -1,0 +1,122 @@
+{
+  "$id": "marketing.trackingIngestionItemResult",
+  "name": "Tracking Ingestion Item Result",
+  "version": "1.4.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "collection",
+  "description": "Per-event accepted, duplicate, restricted or rejected collector outcome.",
+  "purpose": "Per-event accepted, duplicate, restricted or rejected collector outcome.",
+  "marketingModel": {
+    "kind": "result",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "eventId",
+      "required": true,
+      "nullable": false,
+      "description": "Submitted event ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Collector disposition.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "accepted",
+          "duplicate",
+          "restricted",
+          "rejected"
+        ]
+      }
+    },
+    {
+      "key": "reasonCode",
+      "required": true,
+      "nullable": false,
+      "description": "Safe bounded outcome reason.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "none",
+          "consent-denied",
+          "unknown-event",
+          "invalid-schema",
+          "invalid-origin",
+          "invalid-environment",
+          "unsupported-version",
+          "payload-limit",
+          "rate-limited",
+          "prohibited-property",
+          "bot-or-invalid-traffic"
+        ]
+      }
+    },
+    {
+      "key": "receivedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Server receipt timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "processingId",
+      "required": false,
+      "nullable": true,
+      "description": "Opaque processing correlation ID.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "safeDiagnostics",
+      "description": "Results never echo rejected properties or secrets."
+    },
+    {
+      "id": "duplicateNotAcceptedAgain",
+      "description": "Duplicate status does not increment analytics counts."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Ingestion Item Result",
+    "icon": "fa-chart-line",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "eventId",
+      "status",
+      "reasonCode",
+      "receivedAt"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Public-safe receipt metadata only; rejected payload values and internal infrastructure are excluded."
+  },
+  "futureBindings": {
+    "modules": "phase-41",
+    "api": "phase-41",
+    "permissions": "phase-15",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

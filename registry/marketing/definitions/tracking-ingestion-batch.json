@@ -1,0 +1,136 @@
+{
+  "$id": "marketing.trackingIngestionBatch",
+  "name": "Tracking Ingestion Batch",
+  "version": "1.4.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "collection",
+  "description": "Bounded single-or-multiple event submission to the first-party collector.",
+  "purpose": "Bounded single-or-multiple event submission to the first-party collector.",
+  "marketingModel": {
+    "kind": "command",
+    "customerManaged": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "batchId",
+      "required": true,
+      "nullable": false,
+      "description": "Client/server generated batch ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "siteId",
+      "required": true,
+      "nullable": false,
+      "description": "Declared Site identity validated against route/origin/authentication.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "Declared environment.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "development",
+          "preview",
+          "staging",
+          "production"
+        ]
+      }
+    },
+    {
+      "key": "sdk",
+      "required": true,
+      "nullable": false,
+      "description": "Bounded SDK ID/version metadata.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "consentStateId",
+      "required": false,
+      "nullable": true,
+      "description": "Applicable consent-state reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "events",
+      "required": true,
+      "nullable": false,
+      "description": "One or more canonical marketing.trackingEvent objects.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "sentAt",
+      "required": true,
+      "nullable": false,
+      "description": "Client/server send timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "marketing.trackingEvent",
+      "description": "Contains canonical tracking observations."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.consentState",
+      "description": "References applicable consent state."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "bounded",
+      "description": "Request byte/event/property limits come from collector policy."
+    },
+    {
+      "id": "scopeDerived",
+      "description": "Collector validates route, origin or server identity against declared Site/environment."
+    },
+    {
+      "id": "noRawFormPayload",
+      "description": "Events never contain whole Form Submissions or arbitrary personal payloads."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Ingestion Batch",
+    "icon": "fa-chart-line",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "batchId",
+      "siteId",
+      "environment",
+      "sdk"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Delivered only through the declared scoped API projection."
+  },
+  "futureBindings": {
+    "modules": "phase-41",
+    "api": "phase-41",
+    "permissions": "phase-15",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

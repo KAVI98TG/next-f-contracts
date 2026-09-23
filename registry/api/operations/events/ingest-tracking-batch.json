@@ -1,0 +1,75 @@
+{
+  "$id": "api.events.ingest-tracking-batch",
+  "operationId": "api.events.ingest-tracking-batch",
+  "name": "Ingest Server Tracking Batch",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.events",
+  "method": "POST",
+  "path": "/tracking/batch",
+  "description": "Ingest Server Tracking Batch",
+  "authentication": {
+    "mode": "site-server",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "marketing.trackingIngestionBatch",
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 202,
+    "envelope": "api.successEnvelope",
+    "dataContract": "marketing.trackingIngestionReceipt",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "validation_failed",
+      "rate_limited",
+      "module_disabled"
+    ],
+    "projection": "workspace-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "server-to-server",
+    "cors": "server-only"
+  },
+  "moduleBindings": [
+    "core",
+    "consent",
+    "analytics",
+    "marketing"
+  ],
+  "contractBindings": [
+    "marketing.trackingIngestionBatch",
+    "marketing.trackingIngestionReceipt"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "personal",
+  "notes": [
+    "Cannot create authoritative Phase 13 Domain Events."
+  ]
+}

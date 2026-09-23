@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.marketing.tracking",
   "name": "Tracking",
-  "version": "1.1.0",
+  "version": "1.4.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -10,7 +10,8 @@
   "description": "Customer CMS presentation metadata for Tracking within authorized Site scope.",
   "targetContracts": [
     "marketing.trackingConfiguration",
-    "marketing.dataLayerConfiguration"
+    "marketing.dataLayerConfiguration",
+    "marketing.trackingHealth"
   ],
   "primaryTargetContract": "marketing.trackingConfiguration",
   "route": "/growth/tracking",

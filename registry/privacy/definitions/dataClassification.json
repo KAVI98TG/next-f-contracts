@@ -1,7 +1,7 @@
 {
   "$id": "privacy.dataClassification",
   "name": "Data Classification",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "status": "stable",
   "phase": 30,
   "description": "Primary public/internal/personal/sensitive/secret classification.",

@@ -1,26 +1,26 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source: registry/relationships/relationship-index.json
-// SHA-256: 98f111d6c4249862d298c63e30a32f8b5136756b22943dedc37090be591fa8aa
-export const GENERATED_RELATIONSHIP_INDEX_SHA256 = "98f111d6c4249862d298c63e30a32f8b5136756b22943dedc37090be591fa8aa";
+// SHA-256: c9954433d58b8a1b01c7bcf2173bb47e88d93d057d9229bd1369bd2260e95f9b
+export const GENERATED_RELATIONSHIP_INDEX_SHA256 = "c9954433d58b8a1b01c7bcf2173bb47e88d93d057d9229bd1369bd2260e95f9b";
 export const GENERATED_RELATIONSHIP_INDEX = {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Relationship Index",
   "description": "Generated bounded graph projection for Relationship Explorer discovery.",
   "source": "registry/registry.json",
-  "sourceSha256": "7de027a8f40e138ae3767de2e8948d6968e21836a20f89a31f266113339717b6",
+  "sourceSha256": "8c1e05e26c89171febe0b489a117a77f9688fe1414e6923b922ea3cffb8c4c29",
   "stats": {
-    "nodes": 2504,
-    "edges": 9110,
-    "explicitEdges": 5867,
-    "permissionAssociations": 2968,
-    "eventAssociations": 278,
+    "nodes": 2503,
+    "edges": 9169,
+    "explicitEdges": 5895,
+    "permissionAssociations": 2964,
+    "eventAssociations": 310,
     "relationshipTypes": 26,
-    "isolatedNodes": 88,
-    "parallelEdgeGroups": 47,
+    "isolatedNodes": 86,
+    "parallelEdgeGroups": 13,
     "selfLoops": 28,
-    "symbolicAssociations": 25,
-    "unresolvedExplicitTargets": 3
+    "symbolicAssociations": 32,
+    "unresolvedExplicitTargets": 0
   },
   "nodes": [
     {
@@ -2108,8 +2108,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/admin-ui/profiles/gaming-catalog-admin.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "adminUi.profile.gaming.finance",
@@ -2120,8 +2120,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/admin-ui/profiles/gaming-finance-admin.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "adminUi.profile.gaming.orders",
@@ -2132,8 +2132,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/admin-ui/profiles/gaming-orders-admin.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "adminUi.profile.gaming.suppliers",
@@ -2144,8 +2144,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/admin-ui/profiles/gaming-suppliers-admin.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "adminUi.profile.integrations.connections",
@@ -3396,6 +3396,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 7
     },
     {
+      "id": "api.customer-cms.get-analytics-report",
+      "name": "Get Analytics Report",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/api/operations/customer-cms/get-analytics-report.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
       "id": "api.customer-cms.get-blog-post",
       "name": "Get Blog Post",
       "domain": "api",
@@ -3502,6 +3514,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 4,
       "incoming": 1,
       "degree": 5
+    },
+    {
+      "id": "api.customer-cms.get-tracking-health",
+      "name": "Get Tracking Health",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/api/operations/customer-cms/get-tracking-health.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
     },
     {
       "id": "api.customer-cms.get-workspace",
@@ -3840,6 +3864,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 9
     },
     {
+      "id": "api.events.collect-browser-tracking",
+      "name": "Collect Browser Tracking Batch",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/api/operations/events/collect-browser-tracking.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
       "id": "api.events.get-correlation-chain",
       "name": "Get Event Correlation Chain",
       "domain": "api",
@@ -3886,6 +3922,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 4,
       "incoming": 0,
       "degree": 4
+    },
+    {
+      "id": "api.events.ingest-tracking-batch",
+      "name": "Ingest Server Tracking Batch",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/api/operations/events/ingest-tracking-batch.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
     },
     {
       "id": "api.events.list-domain-events",
@@ -4368,6 +4416,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 5
     },
     {
+      "id": "api.nextf-admin.get-analytics-report",
+      "name": "Get Site Analytics Report",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/api/operations/nextf-admin/get-analytics-report.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
       "id": "api.nextf-admin.get-diagnostics",
       "name": "Get Platform Diagnostics",
       "domain": "api",
@@ -4426,6 +4486,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 3,
       "incoming": 0,
       "degree": 3
+    },
+    {
+      "id": "api.nextf-admin.get-tracking-health",
+      "name": "Get Site Tracking Health",
+      "domain": "api",
+      "type": "api-operation",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/api/operations/nextf-admin/get-tracking-health.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
     },
     {
       "id": "api.nextf-admin.list-audit",
@@ -6188,8 +6260,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 27,
       "source": "standards/35-changelog-standard.md",
       "outgoing": 3,
-      "incoming": 64,
-      "degree": 67
+      "incoming": 65,
+      "degree": 68
     },
     {
       "id": "changelog.compatibilityReference",
@@ -6787,6 +6859,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 40,
       "source": "registry/changelog/releases/1.3.0.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "changelog.release.1.4.0",
+      "name": "V1.4.0 - First-Party Tracking Platform Contracts",
+      "domain": "changelog",
+      "type": "release-note",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/changelog/releases/1.4.0.json",
       "outgoing": 1,
       "incoming": 0,
       "degree": 1
@@ -8420,8 +8504,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/cms-ui/profiles/gaming-catalog.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "cmsUi.profile.gaming.finance",
@@ -8432,8 +8516,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/cms-ui/profiles/gaming-finance.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "cmsUi.profile.gaming.orders",
@@ -8444,8 +8528,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/cms-ui/profiles/gaming-orders.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "cmsUi.profile.gaming.suppliers",
@@ -8456,8 +8540,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/cms-ui/profiles/gaming-suppliers.json",
       "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "cmsUi.profile.integrations.connections",
@@ -14492,8 +14576,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 4,
       "source": "registry/core/definitions/tenant-scope.json",
       "outgoing": 2,
-      "incoming": 24,
-      "degree": 26
+      "incoming": 29,
+      "degree": 31
     },
     {
       "id": "core.versionRecord",
@@ -15214,6 +15298,54 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 17,
       "incoming": 0,
       "degree": 17
+    },
+    {
+      "id": "customerAccess.policy.gaming.catalog",
+      "name": "Gaming Catalog Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/customer-access/policies/gaming--catalog.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "customerAccess.policy.gaming.finance",
+      "name": "Gaming Finance Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/customer-access/policies/gaming--finance.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "customerAccess.policy.gaming.orders",
+      "name": "Gaming Orders Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/customer-access/policies/gaming--orders.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
+    },
+    {
+      "id": "customerAccess.policy.gaming.suppliers",
+      "name": "Gaming Suppliers Customer Access Policy",
+      "domain": "customer-access",
+      "type": "customer-access-policy",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/customer-access/policies/gaming--suppliers.json",
+      "outgoing": 2,
+      "incoming": 0,
+      "degree": 2
     },
     {
       "id": "customerAccess.policy.integrations.connections",
@@ -17936,8 +18068,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 8,
       "source": "registry/forms/definitions/form-field.json",
       "outgoing": 7,
-      "incoming": 6,
-      "degree": 13
+      "incoming": 7,
+      "degree": 14
     },
     {
       "id": "forms.forms.create",
@@ -18581,22 +18713,10 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "domain": "events",
       "type": "event",
       "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--account-validated.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
-    },
-    {
-      "id": "gaming.account-validated",
-      "name": "Gaming Account Validated",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--account-validated.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -18620,19 +18740,7 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/gaming/definitions/availability.json",
       "outgoing": 1,
-      "incoming": 3,
-      "degree": 4
-    },
-    {
-      "id": "gaming.catalog-sync-completed",
-      "name": "Gaming Catalog Sync Completed",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--catalog-sync-completed.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "incoming": 2,
       "degree": 3
     },
     {
@@ -18643,20 +18751,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--catalog-sync-completed.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
-    },
-    {
-      "id": "gaming.catalog-sync-failed",
-      "name": "Gaming Catalog Sync Failed",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--catalog-sync-failed.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
     },
     {
@@ -18667,8 +18763,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--catalog-sync-failed.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
     },
     {
@@ -18692,8 +18788,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/permissions/permissions/gaming.finance.manage.json",
       "outgoing": 2,
-      "incoming": 4,
-      "degree": 6
+      "incoming": 5,
+      "degree": 7
     },
     {
       "id": "gaming.fulfillment",
@@ -18704,20 +18800,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/gaming/definitions/fulfillment.json",
       "outgoing": 3,
-      "incoming": 8,
-      "degree": 11
-    },
-    {
-      "id": "gaming.fulfillment-completed",
-      "name": "Gaming Fulfillment Completed",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--fulfillment-completed.json",
-      "outgoing": 2,
-      "incoming": 2,
-      "degree": 4
+      "incoming": 4,
+      "degree": 7
     },
     {
       "id": "gaming.fulfillment-completed",
@@ -18727,20 +18811,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--fulfillment-completed.json",
-      "outgoing": 2,
-      "incoming": 2,
-      "degree": 4
-    },
-    {
-      "id": "gaming.fulfillment-failed",
-      "name": "Gaming Fulfillment Failed",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--fulfillment-failed.json",
-      "outgoing": 2,
-      "incoming": 2,
+      "outgoing": 1,
+      "incoming": 3,
       "degree": 4
     },
     {
@@ -18751,20 +18823,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--fulfillment-failed.json",
-      "outgoing": 2,
-      "incoming": 2,
-      "degree": 4
-    },
-    {
-      "id": "gaming.fulfillment-processing",
-      "name": "Gaming Fulfillment Processing",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--fulfillment-processing.json",
-      "outgoing": 2,
-      "incoming": 2,
+      "outgoing": 1,
+      "incoming": 3,
       "degree": 4
     },
     {
@@ -18775,20 +18835,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--fulfillment-processing.json",
-      "outgoing": 2,
-      "incoming": 2,
-      "degree": 4
-    },
-    {
-      "id": "gaming.fulfillment-submitted",
-      "name": "Gaming Fulfillment Submitted",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--fulfillment-submitted.json",
-      "outgoing": 2,
-      "incoming": 2,
+      "outgoing": 1,
+      "incoming": 3,
       "degree": 4
     },
     {
@@ -18799,8 +18847,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--fulfillment-submitted.json",
-      "outgoing": 2,
-      "incoming": 2,
+      "outgoing": 1,
+      "incoming": 3,
       "degree": 4
     },
     {
@@ -18824,8 +18872,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/gaming/definitions/internal-order.json",
       "outgoing": 3,
-      "incoming": 14,
-      "degree": 17
+      "incoming": 10,
+      "degree": 13
     },
     {
       "id": "gaming.internalQuote",
@@ -18857,22 +18905,10 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "domain": "events",
       "type": "event",
       "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--order-created.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
-    },
-    {
-      "id": "gaming.order-created",
-      "name": "Gaming Order Created",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--order-created.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
     },
     {
@@ -18884,20 +18920,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/permissions/permissions/gaming.orders.manage.json",
       "outgoing": 2,
-      "incoming": 5,
-      "degree": 7
-    },
-    {
-      "id": "gaming.payment-confirmed",
-      "name": "Gaming Payment Confirmed",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--payment-confirmed.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 6,
+      "degree": 8
     },
     {
       "id": "gaming.payment-confirmed",
@@ -18907,8 +18931,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--payment-confirmed.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -18932,8 +18956,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/permissions/permissions/gaming.products.manage.json",
       "outgoing": 2,
-      "incoming": 5,
-      "degree": 7
+      "incoming": 6,
+      "degree": 8
     },
     {
       "id": "gaming.publicOrder",
@@ -18967,9 +18991,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 39,
       "source": "registry/gaming/definitions/purchase-field.json",
-      "outgoing": 1,
+      "outgoing": 2,
       "incoming": 1,
-      "degree": 2
+      "degree": 3
     },
     {
       "id": "gaming.read",
@@ -18980,20 +19004,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/permissions/permissions/gaming.read.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
-    },
-    {
-      "id": "gaming.refund-completed",
-      "name": "Gaming Refund Completed",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--refund-completed.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "gaming.refund-completed",
@@ -19003,20 +19015,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--refund-completed.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
-    },
-    {
-      "id": "gaming.refund-requested",
-      "name": "Gaming Refund Requested",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--refund-requested.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -19027,8 +19027,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--refund-requested.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -19061,35 +19061,11 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "domain": "events",
       "type": "event",
       "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--supplier-availability-changed.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
-    },
-    {
-      "id": "gaming.supplier-availability-changed",
-      "name": "Gaming Supplier Availability Changed",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--supplier-availability-changed.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
-    },
-    {
-      "id": "gaming.supplier-health-changed",
-      "name": "Gaming Supplier Health Changed",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 39,
-      "source": "registry/events/events/gaming--supplier-health-changed.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
     },
     {
       "id": "gaming.supplier-health-changed",
@@ -19099,8 +19075,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/gaming--supplier-health-changed.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -19124,8 +19100,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/gaming/definitions/supplier-offer-mapping.json",
       "outgoing": 3,
-      "incoming": 9,
-      "degree": 12
+      "incoming": 7,
+      "degree": 10
     },
     {
       "id": "gaming.suppliers.manage",
@@ -19136,8 +19112,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/permissions/permissions/gaming.suppliers.manage.json",
       "outgoing": 2,
-      "incoming": 6,
-      "degree": 8
+      "incoming": 7,
+      "degree": 9
     },
     {
       "id": "gaming.validationResponse",
@@ -19148,8 +19124,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 39,
       "source": "registry/gaming/definitions/validation-response.json",
       "outgoing": 1,
-      "incoming": 3,
-      "degree": 4
+      "incoming": 2,
+      "degree": 3
     },
     {
       "id": "integration.connected",
@@ -19589,35 +19565,11 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "domain": "integrations",
       "type": "connector",
       "status": "stable",
-      "phase": 39,
-      "source": "registry/integrations/connectors/fazer-cards.json",
-      "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
-    },
-    {
-      "id": "integrations.fazerCards",
-      "name": "FazerCards",
-      "domain": "integrations",
-      "type": "connector",
-      "status": "stable",
       "phase": 10,
       "source": "registry/integrations/connectors/fazer-cards.json",
-      "outgoing": 3,
+      "outgoing": 2,
       "incoming": 0,
-      "degree": 3
-    },
-    {
-      "id": "integrations.gamingSupplier",
-      "name": "Gaming Supplier",
-      "domain": "integrations",
-      "type": "connector",
-      "status": "stable",
-      "phase": 39,
-      "source": "registry/integrations/connectors/gaming-supplier.json",
-      "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "degree": 2
     },
     {
       "id": "integrations.gamingSupplier",
@@ -19627,9 +19579,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 10,
       "source": "registry/integrations/connectors/gaming-supplier.json",
-      "outgoing": 3,
+      "outgoing": 2,
       "incoming": 0,
-      "degree": 3
+      "degree": 2
     },
     {
       "id": "integrations.googleAds",
@@ -19712,8 +19664,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "registry/integrations/definitions/health-snapshot.json",
       "outgoing": 2,
-      "incoming": 6,
-      "degree": 8
+      "incoming": 5,
+      "degree": 7
     },
     {
       "id": "integrations.integrationConnection",
@@ -19736,8 +19688,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 10,
       "source": "standards/18-integration-contract-standard.md",
       "outgoing": 0,
-      "incoming": 54,
-      "degree": 54
+      "incoming": 52,
+      "degree": 52
     },
     {
       "id": "integrations.integrationError",
@@ -20491,9 +20443,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 16,
       "source": "registry/manifests/definitions/tracking-support.json",
-      "outgoing": 1,
+      "outgoing": 4,
       "incoming": 1,
-      "degree": 2
+      "degree": 5
     },
     {
       "id": "marketing.adClickIdentifier",
@@ -20516,8 +20468,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.analytics.export.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "marketing.analytics.view",
@@ -20528,8 +20480,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.analytics.view.json",
       "outgoing": 1,
-      "incoming": 13,
-      "degree": 14
+      "incoming": 14,
+      "degree": 15
     },
     {
       "id": "marketing.analyticsConfiguration",
@@ -20539,9 +20491,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 9,
       "source": "registry/marketing/definitions/analytics-configuration.json",
-      "outgoing": 7,
+      "outgoing": 4,
       "incoming": 2,
-      "degree": 9
+      "degree": 6
     },
     {
       "id": "marketing.analyticsObservation",
@@ -20552,8 +20504,20 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/analytics-observation.json",
       "outgoing": 4,
-      "incoming": 5,
-      "degree": 9
+      "incoming": 6,
+      "degree": 10
+    },
+    {
+      "id": "marketing.analyticsReport",
+      "name": "Analytics Report",
+      "domain": "marketing",
+      "type": "schema",
+      "status": "stable",
+      "phase": 9,
+      "source": "registry/marketing/definitions/analytics-report.json",
+      "outgoing": 4,
+      "incoming": 3,
+      "degree": 7
     },
     {
       "id": "marketing.analyticsSnapshot",
@@ -20576,8 +20540,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.attribution.export.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.attribution.manage",
@@ -20588,8 +20552,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.attribution.manage.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.attribution.view",
@@ -20600,8 +20564,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.attribution.view.json",
       "outgoing": 1,
-      "incoming": 14,
-      "degree": 15
+      "incoming": 13,
+      "degree": 14
     },
     {
       "id": "marketing.attributionCredit",
@@ -20623,9 +20587,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 9,
       "source": "registry/marketing/definitions/attribution-model.json",
-      "outgoing": 5,
-      "incoming": 9,
-      "degree": 14
+      "outgoing": 1,
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.attributionTouchpoint",
@@ -20671,9 +20635,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 9,
       "source": "registry/marketing/definitions/campaign-definition.json",
-      "outgoing": 10,
+      "outgoing": 4,
       "incoming": 5,
-      "degree": 15
+      "degree": 9
     },
     {
       "id": "marketing.campaignPerformanceSnapshot",
@@ -20696,8 +20660,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.campaigns.create.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.campaigns.delete",
@@ -20708,8 +20672,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.campaigns.delete.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.campaigns.edit",
@@ -20720,8 +20684,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.campaigns.edit.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.campaigns.manage",
@@ -20732,8 +20696,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.campaigns.manage.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.campaigns.view",
@@ -20744,8 +20708,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.campaigns.view.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.consent.edit",
@@ -20756,8 +20720,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.consent.edit.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "marketing.consent.manage",
@@ -20768,8 +20732,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.consent.manage.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "marketing.consent.view",
@@ -20780,8 +20744,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.consent.view.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.consentCategory",
@@ -20827,9 +20791,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 9,
       "source": "registry/marketing/definitions/consent-state.json",
-      "outgoing": 6,
-      "incoming": 11,
-      "degree": 17
+      "outgoing": 2,
+      "incoming": 12,
+      "degree": 14
     },
     {
       "id": "marketing.conversionAttribution",
@@ -20863,9 +20827,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 9,
       "source": "registry/marketing/definitions/conversion-definition.json",
-      "outgoing": 12,
+      "outgoing": 6,
       "incoming": 8,
-      "degree": 20
+      "degree": 14
     },
     {
       "id": "marketing.conversionOccurrence",
@@ -20875,9 +20839,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 9,
       "source": "registry/marketing/definitions/conversion-occurrence.json",
-      "outgoing": 12,
+      "outgoing": 6,
       "incoming": 4,
-      "degree": 16
+      "degree": 10
     },
     {
       "id": "marketing.conversions.create",
@@ -20888,8 +20852,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.conversions.create.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.conversions.delete",
@@ -20900,8 +20864,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.conversions.delete.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.conversions.edit",
@@ -20912,8 +20876,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.conversions.edit.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.conversions.manage",
@@ -20924,8 +20888,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.conversions.manage.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.conversions.view",
@@ -20936,8 +20900,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.conversions.view.json",
       "outgoing": 1,
-      "incoming": 14,
-      "degree": 15
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "marketing.conversionSummary",
@@ -20996,8 +20960,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.destinations.create.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.destinations.delete",
@@ -21008,8 +20972,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.destinations.delete.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.destinations.edit",
@@ -21020,8 +20984,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.destinations.edit.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.destinations.manage",
@@ -21032,8 +20996,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.destinations.manage.json",
       "outgoing": 1,
-      "incoming": 11,
-      "degree": 12
+      "incoming": 10,
+      "degree": 11
     },
     {
       "id": "marketing.destinations.view",
@@ -21044,8 +21008,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.destinations.view.json",
       "outgoing": 1,
-      "incoming": 12,
-      "degree": 13
+      "incoming": 11,
+      "degree": 12
     },
     {
       "id": "marketing.deviceContext",
@@ -21132,6 +21096,30 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 2
     },
     {
+      "id": "marketing.firstPartyTrackingPlatformStandard",
+      "name": "First-Party Tracking Platform Contract Standard",
+      "domain": "marketing",
+      "type": "standard",
+      "status": "stable",
+      "phase": 41,
+      "source": "standards/49-first-party-tracking-platform-standard.md",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "marketing.invalidTrafficClassification",
+      "name": "Invalid Traffic Classification",
+      "domain": "marketing",
+      "type": "schema",
+      "status": "stable",
+      "phase": 9,
+      "source": "registry/marketing/definitions/invalid-traffic-classification.json",
+      "outgoing": 1,
+      "incoming": 1,
+      "degree": 2
+    },
+    {
       "id": "marketing.marketingDestination",
       "name": "Marketing Destination",
       "domain": "marketing",
@@ -21139,9 +21127,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 9,
       "source": "registry/marketing/definitions/marketing-destination.json",
-      "outgoing": 10,
+      "outgoing": 4,
       "incoming": 9,
-      "degree": 19
+      "degree": 13
     },
     {
       "id": "marketing.marketingTrackingContractStandard",
@@ -21152,8 +21140,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "standards/17-marketing-tracking-contract-standard.md",
       "outgoing": 0,
-      "incoming": 44,
-      "degree": 44
+      "incoming": 56,
+      "degree": 56
     },
     {
       "id": "marketing.metricDefinition",
@@ -21200,8 +21188,20 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/session-context.json",
       "outgoing": 3,
-      "incoming": 4,
-      "degree": 7
+      "incoming": 5,
+      "degree": 8
+    },
+    {
+      "id": "marketing.sessionPolicy",
+      "name": "Analytics Session Policy",
+      "domain": "marketing",
+      "type": "schema",
+      "status": "stable",
+      "phase": 9,
+      "source": "registry/marketing/definitions/session-policy.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
     },
     {
       "id": "marketing.standardTrackingEvents",
@@ -21224,8 +21224,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.tracking.edit.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "marketing.tracking.manage",
@@ -21236,8 +21236,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/marketing.tracking.manage.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 9,
+      "degree": 10
     },
     {
       "id": "marketing.tracking.view",
@@ -21252,6 +21252,30 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 12
     },
     {
+      "id": "marketing.trackingCollectorPolicy",
+      "name": "Tracking Collector Policy",
+      "domain": "marketing",
+      "type": "schema",
+      "status": "stable",
+      "phase": 9,
+      "source": "registry/marketing/definitions/tracking-collector-policy.json",
+      "outgoing": 2,
+      "incoming": 1,
+      "degree": 3
+    },
+    {
+      "id": "marketing.trackingCompatibility",
+      "name": "Tracking Compatibility Record",
+      "domain": "marketing",
+      "type": "schema",
+      "status": "stable",
+      "phase": 9,
+      "source": "registry/marketing/definitions/tracking-compatibility.json",
+      "outgoing": 2,
+      "incoming": 3,
+      "degree": 5
+    },
+    {
       "id": "marketing.trackingConfiguration",
       "name": "Tracking Configuration",
       "domain": "marketing",
@@ -21259,9 +21283,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 9,
       "source": "registry/marketing/definitions/tracking-configuration.json",
-      "outgoing": 13,
+      "outgoing": 9,
       "incoming": 3,
-      "degree": 16
+      "degree": 12
     },
     {
       "id": "marketing.trackingConsentRecord",
@@ -21296,8 +21320,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 9,
       "source": "registry/marketing/definitions/tracking-event.json",
       "outgoing": 4,
-      "incoming": 4,
-      "degree": 8
+      "incoming": 5,
+      "degree": 9
     },
     {
       "id": "marketing.trackingEventDefinition",
@@ -21310,6 +21334,78 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 4,
       "incoming": 6,
       "degree": 10
+    },
+    {
+      "id": "marketing.trackingHealth",
+      "name": "Tracking Health",
+      "domain": "marketing",
+      "type": "schema",
+      "status": "stable",
+      "phase": 9,
+      "source": "registry/marketing/definitions/tracking-health.json",
+      "outgoing": 3,
+      "incoming": 3,
+      "degree": 6
+    },
+    {
+      "id": "marketing.trackingIngestionBatch",
+      "name": "Tracking Ingestion Batch",
+      "domain": "marketing",
+      "type": "schema",
+      "status": "stable",
+      "phase": 9,
+      "source": "registry/marketing/definitions/tracking-ingestion-batch.json",
+      "outgoing": 3,
+      "incoming": 4,
+      "degree": 7
+    },
+    {
+      "id": "marketing.trackingIngestionItemResult",
+      "name": "Tracking Ingestion Item Result",
+      "domain": "marketing",
+      "type": "schema",
+      "status": "stable",
+      "phase": 9,
+      "source": "registry/marketing/definitions/tracking-ingestion-item-result.json",
+      "outgoing": 1,
+      "incoming": 1,
+      "degree": 2
+    },
+    {
+      "id": "marketing.trackingIngestionReceipt",
+      "name": "Tracking Ingestion Receipt",
+      "domain": "marketing",
+      "type": "schema",
+      "status": "stable",
+      "phase": 9,
+      "source": "registry/marketing/definitions/tracking-ingestion-receipt.json",
+      "outgoing": 2,
+      "incoming": 3,
+      "degree": 5
+    },
+    {
+      "id": "marketing.trackingSdkCompatibilityRegistry",
+      "name": "Tracking SDK Compatibility Registry",
+      "domain": "marketing",
+      "type": "machine-registry",
+      "status": "stable",
+      "phase": 41,
+      "source": "registry/marketing/sdk-compatibility.json",
+      "outgoing": 1,
+      "incoming": 0,
+      "degree": 1
+    },
+    {
+      "id": "marketing.trackingSdkDescriptor",
+      "name": "Tracking SDK Descriptor",
+      "domain": "marketing",
+      "type": "schema",
+      "status": "stable",
+      "phase": 9,
+      "source": "registry/marketing/definitions/tracking-sdk-descriptor.json",
+      "outgoing": 1,
+      "incoming": 2,
+      "degree": 3
     },
     {
       "id": "marketing.trafficSource",
@@ -21346,6 +21442,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 1,
       "incoming": 1,
       "degree": 2
+    },
+    {
+      "id": "marketing.visitorIdentityPolicy",
+      "name": "Visitor Identity Policy",
+      "domain": "marketing",
+      "type": "schema",
+      "status": "stable",
+      "phase": 9,
+      "source": "registry/marketing/definitions/visitor-identity-policy.json",
+      "outgoing": 2,
+      "incoming": 1,
+      "degree": 3
     },
     {
       "id": "media.created",
@@ -22692,6 +22800,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 60
     },
     {
+      "id": "modules.gaming",
+      "name": "Gaming Store",
+      "domain": "modules",
+      "type": "module",
+      "status": "stable",
+      "phase": 39,
+      "source": "registry/modules/index.json",
+      "outgoing": 18,
+      "incoming": 1,
+      "degree": 19
+    },
+    {
       "id": "modules.index",
       "name": "Module Registry",
       "domain": "modules",
@@ -22774,6 +22894,18 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "outgoing": 30,
       "incoming": 44,
       "degree": 74
+    },
+    {
+      "id": "modules.software",
+      "name": "Software",
+      "domain": "modules",
+      "type": "module",
+      "status": "stable",
+      "phase": 40,
+      "source": "registry/modules/index.json",
+      "outgoing": 37,
+      "incoming": 1,
+      "degree": 38
     },
     {
       "id": "modules.standard",
@@ -23972,8 +24104,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "standards/23-permission-registry-standard.md",
       "outgoing": 0,
-      "incoming": 445,
-      "degree": 445
+      "incoming": 437,
+      "degree": 437
     },
     {
       "id": "permissions.policyCondition",
@@ -24368,8 +24500,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 15,
       "source": "registry/permissions/permissions/platform.diagnostics.view.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 7,
+      "degree": 8
     },
     {
       "id": "platform.migrations.manage",
@@ -25560,6 +25692,90 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "degree": 2
     },
     {
+      "id": "privacy.field.priv_fld_090",
+      "name": "PRIV-FLD-090 — marketing.trackingIngestionBatch.fields.events",
+      "domain": "privacy",
+      "type": "data-handling-record",
+      "status": "stable",
+      "phase": 30,
+      "source": "registry/privacy/field-handling.json",
+      "outgoing": 4,
+      "incoming": 0,
+      "degree": 4
+    },
+    {
+      "id": "privacy.field.priv_fld_091",
+      "name": "PRIV-FLD-091 — marketing.trackingIngestionBatch.fields.consentStateId",
+      "domain": "privacy",
+      "type": "data-handling-record",
+      "status": "stable",
+      "phase": 30,
+      "source": "registry/privacy/field-handling.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
+    },
+    {
+      "id": "privacy.field.priv_fld_092",
+      "name": "PRIV-FLD-092 — marketing.visitorIdentityPolicy.fields.scope",
+      "domain": "privacy",
+      "type": "data-handling-record",
+      "status": "stable",
+      "phase": 30,
+      "source": "registry/privacy/field-handling.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
+    },
+    {
+      "id": "privacy.field.priv_fld_093",
+      "name": "PRIV-FLD-093 — marketing.trackingIngestionReceipt.fields.results",
+      "domain": "privacy",
+      "type": "data-handling-record",
+      "status": "stable",
+      "phase": 30,
+      "source": "registry/privacy/field-handling.json",
+      "outgoing": 4,
+      "incoming": 0,
+      "degree": 4
+    },
+    {
+      "id": "privacy.field.priv_fld_094",
+      "name": "PRIV-FLD-094 — marketing.invalidTrafficClassification.fields.category",
+      "domain": "privacy",
+      "type": "data-handling-record",
+      "status": "stable",
+      "phase": 30,
+      "source": "registry/privacy/field-handling.json",
+      "outgoing": 4,
+      "incoming": 0,
+      "degree": 4
+    },
+    {
+      "id": "privacy.field.priv_fld_095",
+      "name": "PRIV-FLD-095 — marketing.trackingHealth.fields.scope",
+      "domain": "privacy",
+      "type": "data-handling-record",
+      "status": "stable",
+      "phase": 30,
+      "source": "registry/privacy/field-handling.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
+    },
+    {
+      "id": "privacy.field.priv_fld_096",
+      "name": "PRIV-FLD-096 — marketing.analyticsReport.fields.dimensions",
+      "domain": "privacy",
+      "type": "data-handling-record",
+      "status": "stable",
+      "phase": 30,
+      "source": "registry/privacy/field-handling.json",
+      "outgoing": 3,
+      "incoming": 0,
+      "degree": 3
+    },
+    {
       "id": "privacy.fieldHandling",
       "name": "Field Privacy Handling Definition",
       "domain": "privacy",
@@ -25760,8 +25976,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 30,
       "source": "standards/38-privacy-data-standard.md",
       "outgoing": 0,
-      "incoming": 82,
-      "degree": 82
+      "incoming": 89,
+      "degree": 89
     },
     {
       "id": "product.archived",
@@ -26552,8 +26768,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 29,
       "source": "registry/security/controls/sec_err_001.json",
       "outgoing": 1,
-      "incoming": 0,
-      "degree": 1
+      "incoming": 1,
+      "degree": 2
     },
     {
       "id": "security.control.sec_hdr_001",
@@ -26588,8 +26804,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 29,
       "source": "registry/security/controls/sec_in_001.json",
       "outgoing": 1,
-      "incoming": 0,
-      "degree": 1
+      "incoming": 1,
+      "degree": 2
     },
     {
       "id": "security.control.sec_int_001",
@@ -26636,8 +26852,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 29,
       "source": "registry/security/controls/sec_log_001.json",
       "outgoing": 1,
-      "incoming": 10,
-      "degree": 11
+      "incoming": 12,
+      "degree": 13
     },
     {
       "id": "security.control.sec_oauth_001",
@@ -26744,8 +26960,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 29,
       "source": "registry/security/controls/sec_rate_001.json",
       "outgoing": 3,
-      "incoming": 0,
-      "degree": 3
+      "incoming": 1,
+      "degree": 4
     },
     {
       "id": "security.control.sec_recovery_001",
@@ -26864,8 +27080,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 29,
       "source": "registry/security/controls/sec_tenant_001.json",
       "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
+      "incoming": 6,
+      "degree": 8
     },
     {
       "id": "security.control.sec_tls_001",
@@ -27896,20 +28112,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/software/definitions/activation.json",
       "outgoing": 2,
-      "incoming": 6,
-      "degree": 8
-    },
-    {
-      "id": "software.activation-created",
-      "name": "Software Activation Created",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--activation-created.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "software.activation-created",
@@ -27919,20 +28123,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--activation-created.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
-    },
-    {
-      "id": "software.activation-deactivated",
-      "name": "Software Activation Deactivated",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--activation-deactivated.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
     },
     {
@@ -27943,8 +28135,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--activation-deactivated.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
     },
     {
@@ -27956,8 +28148,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.audit.view.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "software.auditReference",
@@ -27992,8 +28184,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.catalog.manage.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "software.catalog.publish",
@@ -28004,8 +28196,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.catalog.publish.json",
       "outgoing": 2,
-      "incoming": 2,
-      "degree": 4
+      "incoming": 3,
+      "degree": 5
     },
     {
       "id": "software.catalog.view",
@@ -28016,8 +28208,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.catalog.view.json",
       "outgoing": 2,
-      "incoming": 2,
-      "degree": 4
+      "incoming": 3,
+      "degree": 5
     },
     {
       "id": "software.compatibilityRequirement",
@@ -28052,8 +28244,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.customers.view.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "software.dashboard.view",
@@ -28064,20 +28256,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.dashboard.view.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
-    },
-    {
-      "id": "software.download-grant-issued",
-      "name": "Software Download Grant Issued",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--download-grant-issued.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "software.download-grant-issued",
@@ -28087,8 +28267,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--download-grant-issued.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
     },
     {
@@ -28100,8 +28280,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/software/definitions/download-grant.json",
       "outgoing": 1,
-      "incoming": 6,
-      "degree": 7
+      "incoming": 5,
+      "degree": 6
     },
     {
       "id": "software.edition",
@@ -28124,20 +28304,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/software/definitions/entitlement.json",
       "outgoing": 1,
-      "incoming": 8,
-      "degree": 9
-    },
-    {
-      "id": "software.entitlement-granted",
-      "name": "Software Entitlement Granted",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--entitlement-granted.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
+      "incoming": 6,
+      "degree": 7
     },
     {
       "id": "software.entitlement-granted",
@@ -28147,21 +28315,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--entitlement-granted.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
-    },
-    {
-      "id": "software.entitlement-revoked",
-      "name": "Software Entitlement Revoked",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--entitlement-revoked.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
     },
     {
       "id": "software.entitlement-revoked",
@@ -28171,8 +28327,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--entitlement-revoked.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -28184,8 +28340,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.entitlements.manage.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "software.grandfatherGrant",
@@ -28208,20 +28364,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/software/definitions/license.json",
       "outgoing": 2,
-      "incoming": 15,
-      "degree": 17
-    },
-    {
-      "id": "software.license-expired",
-      "name": "Software License Expired",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--license-expired.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 11,
+      "degree": 13
     },
     {
       "id": "software.license-expired",
@@ -28231,20 +28375,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--license-expired.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
-    },
-    {
-      "id": "software.license-issued",
-      "name": "Software License Issued",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--license-issued.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -28255,8 +28387,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--license-issued.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -28265,34 +28397,10 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "domain": "events",
       "type": "event",
       "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--license-restored.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
-    },
-    {
-      "id": "software.license-restored",
-      "name": "Software License Restored",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--license-restored.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
-    },
-    {
-      "id": "software.license-suspended",
-      "name": "Software License Suspended",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--license-suspended.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
     },
     {
@@ -28303,8 +28411,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--license-suspended.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
     },
     {
@@ -28316,8 +28424,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.licenses.manage.json",
       "outgoing": 2,
-      "incoming": 5,
-      "degree": 7
+      "incoming": 6,
+      "degree": 8
     },
     {
       "id": "software.licenses.view",
@@ -28328,43 +28436,19 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.licenses.view.json",
       "outgoing": 2,
+      "incoming": 3,
+      "degree": 5
+    },
+    {
+      "id": "software.order-created",
+      "name": "Software Order Created",
+      "domain": "events",
+      "type": "event",
+      "status": "stable",
+      "phase": 13,
+      "source": "registry/events/events/software--order-created.json",
+      "outgoing": 1,
       "incoming": 2,
-      "degree": 4
-    },
-    {
-      "id": "software.order-created",
-      "name": "Software Order Created",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--order-created.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
-    },
-    {
-      "id": "software.order-created",
-      "name": "Software Order Created",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 13,
-      "source": "registry/events/events/software--order-created.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
-    },
-    {
-      "id": "software.order-paid",
-      "name": "Software Order Paid",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--order-paid.json",
-      "outgoing": 2,
-      "incoming": 1,
       "degree": 3
     },
     {
@@ -28375,21 +28459,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--order-paid.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
-    },
-    {
-      "id": "software.order-refunded",
-      "name": "Software Order Refunded",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--order-refunded.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
     },
     {
       "id": "software.order-refunded",
@@ -28399,8 +28471,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--order-refunded.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -28412,8 +28484,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/software/definitions/order-extension.json",
       "outgoing": 3,
-      "incoming": 16,
-      "degree": 19
+      "incoming": 13,
+      "degree": 16
     },
     {
       "id": "software.orders.manage",
@@ -28424,8 +28496,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.orders.manage.json",
       "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
+      "incoming": 2,
+      "degree": 4
     },
     {
       "id": "software.orders.view",
@@ -28436,8 +28508,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.orders.view.json",
       "outgoing": 2,
-      "incoming": 5,
-      "degree": 7
+      "incoming": 6,
+      "degree": 8
     },
     {
       "id": "software.price",
@@ -28472,8 +28544,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.refunds.approve.json",
       "outgoing": 2,
-      "incoming": 2,
-      "degree": 4
+      "incoming": 3,
+      "degree": 5
     },
     {
       "id": "software.refunds.request",
@@ -28484,8 +28556,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.refunds.request.json",
       "outgoing": 2,
-      "incoming": 2,
-      "degree": 4
+      "incoming": 3,
+      "degree": 5
     },
     {
       "id": "software.registry",
@@ -28508,20 +28580,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/software/definitions/release.json",
       "outgoing": 3,
-      "incoming": 8,
-      "degree": 11
-    },
-    {
-      "id": "software.release-published",
-      "name": "Software Release Published",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--release-published.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
+      "incoming": 6,
+      "degree": 9
     },
     {
       "id": "software.release-published",
@@ -28531,21 +28591,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--release-published.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
-    },
-    {
-      "id": "software.release-withdrawn",
-      "name": "Software Release Withdrawn",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--release-withdrawn.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
     },
     {
       "id": "software.release-withdrawn",
@@ -28555,8 +28603,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--release-withdrawn.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -28580,8 +28628,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.releases.manage.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "software.releases.publish",
@@ -28592,8 +28640,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.releases.publish.json",
       "outgoing": 2,
-      "incoming": 2,
-      "degree": 4
+      "incoming": 3,
+      "degree": 5
     },
     {
       "id": "software.releases.view",
@@ -28604,8 +28652,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.releases.view.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "software.settings.manage",
@@ -28616,8 +28664,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.settings.manage.json",
       "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
+      "incoming": 2,
+      "degree": 4
     },
     {
       "id": "software.softwareContractStandard",
@@ -28640,20 +28688,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/software/definitions/subscription.json",
       "outgoing": 3,
-      "incoming": 12,
-      "degree": 15
-    },
-    {
-      "id": "software.subscription-activated",
-      "name": "Software Subscription Activated",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--subscription-activated.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
+      "incoming": 8,
+      "degree": 11
     },
     {
       "id": "software.subscription-activated",
@@ -28663,21 +28699,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--subscription-activated.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
-    },
-    {
-      "id": "software.subscription-cancelled",
-      "name": "Software Subscription Cancelled",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--subscription-cancelled.json",
-      "outgoing": 2,
+      "outgoing": 1,
       "incoming": 1,
-      "degree": 3
+      "degree": 2
     },
     {
       "id": "software.subscription-cancelled",
@@ -28687,21 +28711,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--subscription-cancelled.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
-    },
-    {
-      "id": "software.subscription-past-due",
-      "name": "Software Subscription Past Due",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--subscription-past-due.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
     },
     {
       "id": "software.subscription-past-due",
@@ -28711,20 +28723,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--subscription-past-due.json",
-      "outgoing": 2,
-      "incoming": 0,
-      "degree": 2
-    },
-    {
-      "id": "software.subscription-renewed",
-      "name": "Software Subscription Renewed",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--subscription-renewed.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -28735,8 +28735,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--subscription-renewed.json",
-      "outgoing": 2,
-      "incoming": 0,
+      "outgoing": 1,
+      "incoming": 1,
       "degree": 2
     },
     {
@@ -28748,8 +28748,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/permissions/permissions/software.support.manage.json",
       "outgoing": 2,
-      "incoming": 3,
-      "degree": 5
+      "incoming": 4,
+      "degree": 6
     },
     {
       "id": "software.supportEntitlement",
@@ -28769,22 +28769,10 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "domain": "events",
       "type": "event",
       "status": "stable",
-      "phase": 40,
-      "source": "registry/events/events/software--update-served.json",
-      "outgoing": 2,
-      "incoming": 1,
-      "degree": 3
-    },
-    {
-      "id": "software.update-served",
-      "name": "Software Update Served",
-      "domain": "events",
-      "type": "event",
-      "status": "stable",
       "phase": 13,
       "source": "registry/events/events/software--update-served.json",
-      "outgoing": 2,
-      "incoming": 1,
+      "outgoing": 1,
+      "incoming": 2,
       "degree": 3
     },
     {
@@ -28808,8 +28796,8 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "phase": 40,
       "source": "registry/software/definitions/update-response.json",
       "outgoing": 3,
-      "incoming": 4,
-      "degree": 7
+      "incoming": 3,
+      "degree": 6
     },
     {
       "id": "starters.corporate",
@@ -28879,9 +28867,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 39,
       "source": "registry/starters/definitions/gaming.json",
-      "outgoing": 0,
+      "outgoing": 1,
       "incoming": 0,
-      "degree": 0
+      "degree": 1
     },
     {
       "id": "starters.index",
@@ -28939,9 +28927,9 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "status": "stable",
       "phase": 40,
       "source": "registry/starters/definitions/software.json",
-      "outgoing": 0,
+      "outgoing": 1,
       "incoming": 0,
-      "degree": 0
+      "degree": 1
     },
     {
       "id": "validation.browserValidator",
@@ -38704,6 +38692,26 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_326eb9603f48e49461a1",
+      "source": "api.customer-cms.get-analytics-report",
+      "target": "marketing.analytics.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d212939c8c126714fb8e",
+      "source": "api.customer-cms.get-analytics-report",
+      "target": "marketing.analyticsReport",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_f9cbf875205c36dd49b4",
       "source": "api.customer-cms.get-blog-post",
       "target": "api.apiContractStandard",
@@ -39061,6 +39069,26 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "authorization",
       "origin": "permissionAssociation",
       "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_96ce019f23a68122c054",
+      "source": "api.customer-cms.get-tracking-health",
+      "target": "marketing.tracking.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_82fdc612205e6f32327c",
+      "source": "api.customer-cms.get-tracking-health",
+      "target": "marketing.trackingHealth",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
       "ordinal": 0
     },
     {
@@ -40234,6 +40262,26 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_6c54f4280213ca31a36f",
+      "source": "api.events.collect-browser-tracking",
+      "target": "marketing.trackingIngestionBatch",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f4947fe0a6c6f2deb3c5",
+      "source": "api.events.collect-browser-tracking",
+      "target": "marketing.trackingIngestionReceipt",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_22e8de1c5460eb996ba1",
       "source": "api.events.get-correlation-chain",
       "target": "api.apiContractStandard",
@@ -40411,6 +40459,26 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "reference",
       "origin": "explicit",
       "description": "Uses this canonical contract in request/response or operation semantics.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_01998aa68503a41210a4",
+      "source": "api.events.ingest-tracking-batch",
+      "target": "marketing.trackingIngestionBatch",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cbbb9be2df42db3038cb",
+      "source": "api.events.ingest-tracking-batch",
+      "target": "marketing.trackingIngestionReceipt",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
       "ordinal": 0
     },
     {
@@ -41294,6 +41362,26 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_abd28e9fb8519cf781cf",
+      "source": "api.nextf-admin.get-analytics-report",
+      "target": "marketing.analytics.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cd72bc5fb7a5dc1e005e",
+      "source": "api.nextf-admin.get-analytics-report",
+      "target": "marketing.analyticsReport",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_f2839cea1f71aa41d7ef",
       "source": "api.nextf-admin.get-diagnostics",
       "target": "api.apiContractStandard",
@@ -41477,6 +41565,26 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "id": "rel_6b43ede3668c2a40e988",
       "source": "api.nextf-admin.get-site-modules",
       "target": "platform.sites.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3cf5bd29f9318b7865b7",
+      "source": "api.nextf-admin.get-tracking-health",
+      "target": "marketing.trackingHealth",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Operation uses this contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dd460ebadff6fa3eaa74",
+      "source": "api.nextf-admin.get-tracking-health",
+      "target": "platform.diagnostics.view",
       "type": "associatedPermission",
       "family": "authorization",
       "origin": "permissionAssociation",
@@ -48116,6 +48224,16 @@ export const GENERATED_RELATIONSHIP_INDEX = {
     {
       "id": "rel_6c2a2af287bae0bbe1a5",
       "source": "changelog.release.1.3.0",
+      "target": "changelog.changelogStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Release note follows the NEXT F Changelog Standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3283f9a4d476b86e5106",
+      "source": "changelog.release.1.4.0",
       "target": "changelog.changelogStandard",
       "type": "implements",
       "family": "governance",
@@ -75904,6 +76022,86 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_72a12e37dec3cc6d0fda",
+      "source": "customerAccess.policy.gaming.catalog",
+      "target": "adminUi.profile.gaming.catalog",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Linked Admin profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e0f8dea3f5b8cb3a4ff9",
+      "source": "customerAccess.policy.gaming.catalog",
+      "target": "cmsUi.profile.gaming.catalog",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Governs the Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3556ddd224d03d510959",
+      "source": "customerAccess.policy.gaming.finance",
+      "target": "adminUi.profile.gaming.finance",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Linked Admin profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_53395dd89b1c35c4444a",
+      "source": "customerAccess.policy.gaming.finance",
+      "target": "cmsUi.profile.gaming.finance",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Governs the Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9a8a8f57b8f2861c043a",
+      "source": "customerAccess.policy.gaming.orders",
+      "target": "adminUi.profile.gaming.orders",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Linked Admin profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6de5cdd0b84b8b5830b4",
+      "source": "customerAccess.policy.gaming.orders",
+      "target": "cmsUi.profile.gaming.orders",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Governs the Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8f2601310255ba1a644a",
+      "source": "customerAccess.policy.gaming.suppliers",
+      "target": "adminUi.profile.gaming.suppliers",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Linked Admin profile.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_52af0cab8413611eb967",
+      "source": "customerAccess.policy.gaming.suppliers",
+      "target": "cmsUi.profile.gaming.suppliers",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Governs the Customer CMS profile.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_966aa0dea1cf616f4526",
       "source": "customerAccess.policy.integrations.connections",
       "target": "cmsUi.profile.integrations.connections",
@@ -85004,16 +85202,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_1303ed18e3e604f1a679",
-      "source": "gaming.account-validated",
-      "target": "gaming.validationResponse",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.validationResponse.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_8368f175ffbbbd01654b",
       "source": "gaming.accountValidationPolicy",
       "target": "gaming.gamingStoreContractStandard",
@@ -85044,16 +85232,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_66659ad2e5ff0e498c02",
-      "source": "gaming.catalog-sync-completed",
-      "target": "gaming.supplierOfferMapping",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.supplierOfferMapping.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_8cdf992c3279bef7dc97",
       "source": "gaming.catalog-sync-failed",
       "target": "gaming.supplierOfferMapping",
@@ -85062,16 +85240,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be gaming.supplierOfferMapping.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_afd3d193d03b50a01753",
-      "source": "gaming.catalog-sync-failed",
-      "target": "gaming.supplierOfferMapping",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.supplierOfferMapping.",
-      "ordinal": 1
     },
     {
       "id": "rel_e927ded5db9781ff7350",
@@ -85154,16 +85322,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_204f7db38a45bd6935ef",
-      "source": "gaming.fulfillment-completed",
-      "target": "gaming.fulfillment",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.fulfillment.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_71f19292229d69c1b679",
       "source": "gaming.fulfillment-failed",
       "target": "gaming.fulfillment",
@@ -85172,16 +85330,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be gaming.fulfillment.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_83a44db1bfea247cd639",
-      "source": "gaming.fulfillment-failed",
-      "target": "gaming.fulfillment",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.fulfillment.",
-      "ordinal": 1
     },
     {
       "id": "rel_82746dff01e600f32f38",
@@ -85194,16 +85342,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_5a965f99cc2eb7fa1d11",
-      "source": "gaming.fulfillment-processing",
-      "target": "gaming.fulfillment",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.fulfillment.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_fcbce24b7405bfbfe319",
       "source": "gaming.fulfillment-submitted",
       "target": "gaming.fulfillment",
@@ -85212,16 +85350,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be gaming.fulfillment.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_85037ee6dd829b12b76b",
-      "source": "gaming.fulfillment-submitted",
-      "target": "gaming.fulfillment",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.fulfillment.",
-      "ordinal": 1
     },
     {
       "id": "rel_82d9f6dda814452d5478",
@@ -85384,16 +85512,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_3c00932d47afb32b2c41",
-      "source": "gaming.order-created",
-      "target": "gaming.internalOrder",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.internalOrder.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_e70be1c783055b2dc7dc",
       "source": "gaming.orders.manage",
       "target": "gaming.orders.manage",
@@ -85422,16 +85540,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be gaming.internalOrder.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_676f6f555d885eb12e8f",
-      "source": "gaming.payment-confirmed",
-      "target": "gaming.internalOrder",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.internalOrder.",
-      "ordinal": 1
     },
     {
       "id": "rel_03c6102fed49267a923a",
@@ -85514,6 +85622,16 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_5f8136ffd6dc7072a658",
+      "source": "gaming.purchaseField",
+      "target": "forms.formField",
+      "type": "relatedTo",
+      "family": "association",
+      "origin": "explicit",
+      "description": "Reuses Forms field semantics where compatible.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_26be4cbb81000c92772c",
       "source": "gaming.purchaseField",
       "target": "gaming.gamingStoreContractStandard",
@@ -85554,16 +85672,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_980e0da1256a827ea4ce",
-      "source": "gaming.refund-completed",
-      "target": "gaming.internalOrder",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.internalOrder.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_62e4e6fa3387b2a864a0",
       "source": "gaming.refund-requested",
       "target": "gaming.internalOrder",
@@ -85572,16 +85680,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be gaming.internalOrder.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_a628f2668fb24770098a",
-      "source": "gaming.refund-requested",
-      "target": "gaming.internalOrder",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.internalOrder.",
-      "ordinal": 1
     },
     {
       "id": "rel_1f7e9187674fd836385e",
@@ -85614,16 +85712,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_620078364f8337dd7005",
-      "source": "gaming.supplier-availability-changed",
-      "target": "gaming.availability",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be gaming.availability.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_171b261de0ad4f890398",
       "source": "gaming.supplier-health-changed",
       "target": "integrations.healthSnapshot",
@@ -85632,16 +85720,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be integrations.healthSnapshot.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_d6d6389fe2684a73964a",
-      "source": "gaming.supplier-health-changed",
-      "target": "integrations.healthSnapshot",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be integrations.healthSnapshot.",
-      "ordinal": 1
     },
     {
       "id": "rel_e7eda57af025ff96183a",
@@ -86374,24 +86452,14 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_850be3674a27e561efb7",
-      "source": "integrations.fazerCards",
-      "target": "integrations.integrationContractStandard",
-      "type": "implements",
-      "family": "governance",
-      "origin": "explicit",
-      "description": "Gaming supplier connector follows Integration rules.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_5c9a60fd3bfbf7ca7f26",
+      "id": "rel_efe61cab43cb2be6cafc",
       "source": "integrations.fazerCards",
       "target": "integrations.integrationContractStandard",
       "type": "implements",
       "family": "governance",
       "origin": "explicit",
       "description": "Implements the Phase 10 Integration Contract Standard.",
-      "ordinal": 1
+      "ordinal": 0
     },
     {
       "id": "rel_61cd52a3a220f3da71cf",
@@ -86404,24 +86472,14 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_42b284dc15602a068618",
-      "source": "integrations.gamingSupplier",
-      "target": "integrations.integrationContractStandard",
-      "type": "implements",
-      "family": "governance",
-      "origin": "explicit",
-      "description": "Gaming supplier connector follows Integration rules.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_586ae49730f7e331c769",
+      "id": "rel_f63ea4589622784406de",
       "source": "integrations.gamingSupplier",
       "target": "integrations.integrationContractStandard",
       "type": "implements",
       "family": "governance",
       "origin": "explicit",
       "description": "Implements the Phase 10 Integration Contract Standard.",
-      "ordinal": 1
+      "ordinal": 0
     },
     {
       "id": "rel_0db6313baac47d50564f",
@@ -87624,6 +87682,36 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_ddb522f21f157c94fe51",
+      "source": "manifest.trackingSupport",
+      "target": "marketing.trackingCollectorPolicy",
+      "type": "optionallyReferences",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Collector enforcement remains canonical.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c30b6db191546d4d7f60",
+      "source": "manifest.trackingSupport",
+      "target": "marketing.trackingCompatibility",
+      "type": "optionallyReferences",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Resolves Contract/SDK/collector compatibility.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_222cf4975235b685e70c",
+      "source": "manifest.trackingSupport",
+      "target": "marketing.trackingSdkDescriptor",
+      "type": "optionallyReferences",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Resolves SDK identity/version.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_70bdb9d7a22e0bd22e7c",
       "source": "marketing.adClickIdentifier",
       "target": "marketing.marketingTrackingContractStandard",
@@ -87674,26 +87762,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_270328f0afe61362f57f",
-      "source": "marketing.analyticsConfiguration",
-      "target": "marketing.analytics.export",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_13489ee5cfa932f781cf",
-      "source": "marketing.analyticsConfiguration",
-      "target": "marketing.analytics.view",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
       "id": "rel_da5dc27d44c7581f268f",
       "source": "marketing.analyticsConfiguration",
       "target": "marketing.attributionModel",
@@ -87711,16 +87779,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "governance",
       "origin": "explicit",
       "description": "Implements the Phase 9 Marketing and Tracking standard.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_47015adcb4634495ee0c",
-      "source": "marketing.analyticsConfiguration",
-      "target": "permissions.permissionRegistryStandard",
-      "type": "relatedTo",
-      "family": "association",
-      "origin": "explicit",
-      "description": "Authorization for this resource uses canonical Phase 15 permissions.",
       "ordinal": 0
     },
     {
@@ -87761,6 +87819,46 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "reference",
       "origin": "explicit",
       "description": "metricKey resolves to metric.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_97e6a29b41388b81ec91",
+      "source": "marketing.analyticsReport",
+      "target": "core.tenantScope",
+      "type": "composes",
+      "family": "composition",
+      "origin": "explicit",
+      "description": "Report is tenant scoped.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ef4160b1acfe2bf2dcfd",
+      "source": "marketing.analyticsReport",
+      "target": "marketing.analyticsObservation",
+      "type": "composesMany",
+      "family": "composition",
+      "origin": "explicit",
+      "description": "Report metrics use canonical observations.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1a1dc05c6d8e0561aaa2",
+      "source": "marketing.analyticsReport",
+      "target": "marketing.attributionModel",
+      "type": "optionallyReferences",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Attribution is explicit and versioned.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0da2586c9ff7fc0d3a29",
+      "source": "marketing.analyticsReport",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 9 Marketing and Tracking standard.",
       "ordinal": 0
     },
     {
@@ -87854,36 +87952,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_580517d8221fbd799e9f",
-      "source": "marketing.attributionModel",
-      "target": "marketing.attribution.export",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_c092304bf34f72a1752a",
-      "source": "marketing.attributionModel",
-      "target": "marketing.attribution.manage",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_c14e7b99118c4c1925ae",
-      "source": "marketing.attributionModel",
-      "target": "marketing.attribution.view",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
       "id": "rel_812a767f82bad9966119",
       "source": "marketing.attributionModel",
       "target": "marketing.marketingTrackingContractStandard",
@@ -87891,16 +87959,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "governance",
       "origin": "explicit",
       "description": "Implements the Phase 9 Marketing and Tracking standard.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_f1f05ebd58acadef89d2",
-      "source": "marketing.attributionModel",
-      "target": "permissions.permissionRegistryStandard",
-      "type": "relatedTo",
-      "family": "association",
-      "origin": "explicit",
-      "description": "Authorization for this resource uses canonical Phase 15 permissions.",
       "ordinal": 0
     },
     {
@@ -88044,56 +88102,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_3818530c1eaea1c8a4b7",
-      "source": "marketing.campaignDefinition",
-      "target": "marketing.campaigns.create",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_3c28d84edac7f9e44c2b",
-      "source": "marketing.campaignDefinition",
-      "target": "marketing.campaigns.delete",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_34ddc6aeb908b51d448d",
-      "source": "marketing.campaignDefinition",
-      "target": "marketing.campaigns.edit",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_42b671f061aa8f595ed0",
-      "source": "marketing.campaignDefinition",
-      "target": "marketing.campaigns.manage",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_ddf8e883a5f45bf391b5",
-      "source": "marketing.campaignDefinition",
-      "target": "marketing.campaigns.view",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
       "id": "rel_edef5deafa8cfd31f504",
       "source": "marketing.campaignDefinition",
       "target": "marketing.marketingTrackingContractStandard",
@@ -88101,16 +88109,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "governance",
       "origin": "explicit",
       "description": "Implements the Phase 9 Marketing and Tracking standard.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_c8140c784fe69ecda3eb",
-      "source": "marketing.campaignDefinition",
-      "target": "permissions.permissionRegistryStandard",
-      "type": "relatedTo",
-      "family": "association",
-      "origin": "explicit",
-      "description": "Authorization for this resource uses canonical Phase 15 permissions.",
       "ordinal": 0
     },
     {
@@ -88304,36 +88302,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_dbbfc636431b9fea491a",
-      "source": "marketing.consentState",
-      "target": "marketing.consent.edit",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_94568bd0ac98afee18d4",
-      "source": "marketing.consentState",
-      "target": "marketing.consent.manage",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_873fa0bea334c68a1d84",
-      "source": "marketing.consentState",
-      "target": "marketing.consent.view",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
       "id": "rel_300235a233224dd1b6c0",
       "source": "marketing.consentState",
       "target": "marketing.consentPreference",
@@ -88351,16 +88319,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "governance",
       "origin": "explicit",
       "description": "Implements the Phase 9 Marketing and Tracking standard.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_e113c0ecb047e0af45c0",
-      "source": "marketing.consentState",
-      "target": "permissions.permissionRegistryStandard",
-      "type": "relatedTo",
-      "family": "association",
-      "origin": "explicit",
-      "description": "Authorization for this resource uses canonical Phase 15 permissions.",
       "ordinal": 0
     },
     {
@@ -88434,56 +88392,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_9221342430e4ec2009c5",
-      "source": "marketing.conversionDefinition",
-      "target": "marketing.conversions.create",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_a602eb422880ce5202f5",
-      "source": "marketing.conversionDefinition",
-      "target": "marketing.conversions.delete",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_b2607bbe5057456c8703",
-      "source": "marketing.conversionDefinition",
-      "target": "marketing.conversions.edit",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_cc65f8917a4a63c365cf",
-      "source": "marketing.conversionDefinition",
-      "target": "marketing.conversions.manage",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_81d522b0211c05dde59b",
-      "source": "marketing.conversionDefinition",
-      "target": "marketing.conversions.view",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
       "id": "rel_6f856354bb32b3557d4a",
       "source": "marketing.conversionDefinition",
       "target": "marketing.conversionValue",
@@ -88511,16 +88419,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "reference",
       "origin": "explicit",
       "description": "triggerEventKey resolves to tracking definition.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_c92302a31d23c9c41b0b",
-      "source": "marketing.conversionDefinition",
-      "target": "permissions.permissionRegistryStandard",
-      "type": "relatedTo",
-      "family": "association",
-      "origin": "explicit",
-      "description": "Authorization for this resource uses canonical Phase 15 permissions.",
       "ordinal": 0
     },
     {
@@ -88564,56 +88462,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_601c695166a7f7cc94f6",
-      "source": "marketing.conversionOccurrence",
-      "target": "marketing.conversions.create",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_07cf0db547446c2b3542",
-      "source": "marketing.conversionOccurrence",
-      "target": "marketing.conversions.delete",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_82dc9ecf5c6b2cbadd65",
-      "source": "marketing.conversionOccurrence",
-      "target": "marketing.conversions.edit",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_6543cdd7544a605cb876",
-      "source": "marketing.conversionOccurrence",
-      "target": "marketing.conversions.manage",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_02705ea5c127e1e8d778",
-      "source": "marketing.conversionOccurrence",
-      "target": "marketing.conversions.view",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
       "id": "rel_57a37798df31754298b3",
       "source": "marketing.conversionOccurrence",
       "target": "marketing.conversionValue",
@@ -88631,16 +88479,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "governance",
       "origin": "explicit",
       "description": "Implements the Phase 9 Marketing and Tracking standard.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_cac98d549cfa18551275",
-      "source": "marketing.conversionOccurrence",
-      "target": "permissions.permissionRegistryStandard",
-      "type": "relatedTo",
-      "family": "association",
-      "origin": "explicit",
-      "description": "Authorization for this resource uses canonical Phase 15 permissions.",
       "ordinal": 0
     },
     {
@@ -89074,6 +88912,26 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_bf3e7fc7a423a6074cf1",
+      "source": "marketing.firstPartyTrackingPlatformStandard",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Operationalizes the existing Marketing and Tracking authority.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_87c02b9d8b900e9e9eaf",
+      "source": "marketing.invalidTrafficClassification",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 9 Marketing and Tracking standard.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_61196409925ca1098a54",
       "source": "marketing.marketingDestination",
       "target": "core.entityIdentity",
@@ -89104,56 +88962,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_7b42ee64670276878dc2",
-      "source": "marketing.marketingDestination",
-      "target": "marketing.destinations.create",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_9f9b9a88d6c5aae49df1",
-      "source": "marketing.marketingDestination",
-      "target": "marketing.destinations.delete",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_2c0d0688fb052e5c34ff",
-      "source": "marketing.marketingDestination",
-      "target": "marketing.destinations.edit",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_4734a1ccd7664375afad",
-      "source": "marketing.marketingDestination",
-      "target": "marketing.destinations.manage",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_b7bc0be32264629c4dd4",
-      "source": "marketing.marketingDestination",
-      "target": "marketing.destinations.view",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
       "id": "rel_dfc89958764f2c917664",
       "source": "marketing.marketingDestination",
       "target": "marketing.marketingTrackingContractStandard",
@@ -89161,16 +88969,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "governance",
       "origin": "explicit",
       "description": "Implements the Phase 9 Marketing and Tracking standard.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_406cab66394bfb752036",
-      "source": "marketing.marketingDestination",
-      "target": "permissions.permissionRegistryStandard",
-      "type": "relatedTo",
-      "family": "association",
-      "origin": "explicit",
-      "description": "Authorization for this resource uses canonical Phase 15 permissions.",
       "ordinal": 0
     },
     {
@@ -89254,6 +89052,36 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_58cf8a034f87633f9516",
+      "source": "marketing.sessionPolicy",
+      "target": "core.tenantScope",
+      "type": "composes",
+      "family": "composition",
+      "origin": "explicit",
+      "description": "Policy is Site scoped.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_411f57ee8df807b05b2e",
+      "source": "marketing.sessionPolicy",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 9 Marketing and Tracking standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4ab4ec5243024d0e4046",
+      "source": "marketing.sessionPolicy",
+      "target": "marketing.sessionContext",
+      "type": "governs",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Defines session boundary behavior.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_eb4e2d3a81a06a988807",
       "source": "marketing.standardTrackingEvents",
       "target": "form.submitted",
@@ -89311,6 +89139,46 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "governance",
       "origin": "explicit",
       "description": "Governed by the Permission Registry standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_fe85b14a3e5ba19266ac",
+      "source": "marketing.trackingCollectorPolicy",
+      "target": "core.tenantScope",
+      "type": "composes",
+      "family": "composition",
+      "origin": "explicit",
+      "description": "Collector policy is Site scoped.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9c7593960d6b0ba10678",
+      "source": "marketing.trackingCollectorPolicy",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 9 Marketing and Tracking standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_80206dd40cf20c4ad8e8",
+      "source": "marketing.trackingCompatibility",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 9 Marketing and Tracking standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9d7f508aa7b96a2c23b1",
+      "source": "marketing.trackingCompatibility",
+      "target": "marketing.trackingSdkDescriptor",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Resolves the SDK descriptor.",
       "ordinal": 0
     },
     {
@@ -89384,36 +89252,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_b73a72dcba7c0240c98a",
-      "source": "marketing.trackingConfiguration",
-      "target": "marketing.tracking.edit",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_29988d45ffee229769ec",
-      "source": "marketing.trackingConfiguration",
-      "target": "marketing.tracking.manage",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_e5dacfd3b200bf8638fd",
-      "source": "marketing.trackingConfiguration",
-      "target": "marketing.tracking.view",
-      "type": "associatedPermission",
-      "family": "authorization",
-      "origin": "permissionAssociation",
-      "description": "Associated through the registry item permissions array.",
-      "ordinal": 0
-    },
-    {
       "id": "rel_ce8fdcdbbae60dc5eac3",
       "source": "marketing.trackingConfiguration",
       "target": "marketing.trackingDataPolicy",
@@ -89431,16 +89269,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "composition",
       "origin": "explicit",
       "description": "Declares tracking.",
-      "ordinal": 0
-    },
-    {
-      "id": "rel_8d1c78c8c82b0c2b0661",
-      "source": "marketing.trackingConfiguration",
-      "target": "permissions.permissionRegistryStandard",
-      "type": "relatedTo",
-      "family": "association",
-      "origin": "explicit",
-      "description": "Authorization for this resource uses canonical Phase 15 permissions.",
       "ordinal": 0
     },
     {
@@ -89574,6 +89402,116 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_d117eed98c929b14fba8",
+      "source": "marketing.trackingHealth",
+      "target": "core.tenantScope",
+      "type": "composes",
+      "family": "composition",
+      "origin": "explicit",
+      "description": "Health is Site scoped.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c318035667f8db2905e2",
+      "source": "marketing.trackingHealth",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 9 Marketing and Tracking standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e218b80749e1ea2f2868",
+      "source": "marketing.trackingHealth",
+      "target": "marketing.trackingCompatibility",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Detected versions resolve through compatibility evidence.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_aaf6e2c90a327de6afe0",
+      "source": "marketing.trackingIngestionBatch",
+      "target": "marketing.consentState",
+      "type": "optionallyReferences",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "References applicable consent state.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_63a65d2b8bc40522637d",
+      "source": "marketing.trackingIngestionBatch",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 9 Marketing and Tracking standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_16b54843de5656048992",
+      "source": "marketing.trackingIngestionBatch",
+      "target": "marketing.trackingEvent",
+      "type": "composesMany",
+      "family": "composition",
+      "origin": "explicit",
+      "description": "Contains canonical tracking observations.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b4fb455bb82ce21a95ff",
+      "source": "marketing.trackingIngestionItemResult",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 9 Marketing and Tracking standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_8ee7644f033cb40d9f95",
+      "source": "marketing.trackingIngestionReceipt",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 9 Marketing and Tracking standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a1dadb176f4153328767",
+      "source": "marketing.trackingIngestionReceipt",
+      "target": "marketing.trackingIngestionItemResult",
+      "type": "composesMany",
+      "family": "composition",
+      "origin": "explicit",
+      "description": "Contains per-event dispositions.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f950110a2e1cc9d25e76",
+      "source": "marketing.trackingSdkCompatibilityRegistry",
+      "target": "marketing.trackingCompatibility",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Records conform to the compatibility contract.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cd757b80385e6661073c",
+      "source": "marketing.trackingSdkDescriptor",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 9 Marketing and Tracking standard.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_3950d3bbf65d24bb6fdb",
       "source": "marketing.trafficSource",
       "target": "marketing.adClickIdentifier",
@@ -89626,6 +89564,26 @@ export const GENERATED_RELATIONSHIP_INDEX = {
     {
       "id": "rel_b33092c724ec69073bef",
       "source": "marketing.visitorContext",
+      "target": "marketing.marketingTrackingContractStandard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements the Phase 9 Marketing and Tracking standard.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0a6594be2ce2fcce50e6",
+      "source": "marketing.visitorIdentityPolicy",
+      "target": "core.tenantScope",
+      "type": "composes",
+      "family": "composition",
+      "origin": "explicit",
+      "description": "Identity is tenant and Site scoped.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7ecd904ef959b6e3123b",
+      "source": "marketing.visitorIdentityPolicy",
       "target": "marketing.marketingTrackingContractStandard",
       "type": "implements",
       "family": "governance",
@@ -96554,6 +96512,186 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_c20d7581a949fea49d75",
+      "source": "modules.gaming",
+      "target": "gaming.account-validated",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4ab439b76b84dda7e77b",
+      "source": "modules.gaming",
+      "target": "gaming.catalog-sync-completed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3130d90a5b2212963123",
+      "source": "modules.gaming",
+      "target": "gaming.catalog-sync-failed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2684895534ca0abc168d",
+      "source": "modules.gaming",
+      "target": "gaming.finance.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ee6008ae1b366d53af4a",
+      "source": "modules.gaming",
+      "target": "gaming.fulfillment-completed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6a5e33827d701bcce5c0",
+      "source": "modules.gaming",
+      "target": "gaming.fulfillment-failed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_885c56dd14e2f3f3304a",
+      "source": "modules.gaming",
+      "target": "gaming.fulfillment-processing",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1a39c08452a363ef2f1d",
+      "source": "modules.gaming",
+      "target": "gaming.fulfillment-submitted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_7407e386228ecf48b83c",
+      "source": "modules.gaming",
+      "target": "gaming.order-created",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_edbb6f2c570d718fa9bd",
+      "source": "modules.gaming",
+      "target": "gaming.orders.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f7d8c0be7a7cbe47a06a",
+      "source": "modules.gaming",
+      "target": "gaming.payment-confirmed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_01973991476170019162",
+      "source": "modules.gaming",
+      "target": "gaming.products.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_98a269d5deaa370948b7",
+      "source": "modules.gaming",
+      "target": "gaming.read",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cc561b69aef8d2968d74",
+      "source": "modules.gaming",
+      "target": "gaming.refund-completed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_307fa0edc182b6112d45",
+      "source": "modules.gaming",
+      "target": "gaming.refund-requested",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1d249375fa68b133c28c",
+      "source": "modules.gaming",
+      "target": "gaming.supplier-availability-changed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_295f08f3ccf031c2cf05",
+      "source": "modules.gaming",
+      "target": "gaming.supplier-health-changed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c294e279845730224cee",
+      "source": "modules.gaming",
+      "target": "gaming.suppliers.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_fcbf73f53a72b06c67ec",
       "source": "modules.index",
       "target": "modules.standard",
@@ -98247,6 +98385,376 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "id": "rel_935a76a0a9ca4d770c8b",
       "source": "modules.seo",
       "target": "sitemap.updated",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e1109ca496425ac91586",
+      "source": "modules.software",
+      "target": "software.activation-created",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_687d88f9a4da1c37e54f",
+      "source": "modules.software",
+      "target": "software.activation-deactivated",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a9d978a8038f13c35b52",
+      "source": "modules.software",
+      "target": "software.audit.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0e0703ab44defcae65e6",
+      "source": "modules.software",
+      "target": "software.catalog.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b7a205d9d4f6e9eef576",
+      "source": "modules.software",
+      "target": "software.catalog.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_759426e870f5af84d513",
+      "source": "modules.software",
+      "target": "software.catalog.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9bbad613a5329f9179c7",
+      "source": "modules.software",
+      "target": "software.customers.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d5f326eeaf44f02893d6",
+      "source": "modules.software",
+      "target": "software.dashboard.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_34c477251ccae6a6d6c6",
+      "source": "modules.software",
+      "target": "software.download-grant-issued",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a76ded54e2e3dce49a77",
+      "source": "modules.software",
+      "target": "software.entitlement-granted",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5739d4df2d2056643070",
+      "source": "modules.software",
+      "target": "software.entitlement-revoked",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_027e7bb390558909d044",
+      "source": "modules.software",
+      "target": "software.entitlements.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_78b0ec0d999f12561c73",
+      "source": "modules.software",
+      "target": "software.license-expired",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c7511ba158950d8c259a",
+      "source": "modules.software",
+      "target": "software.license-issued",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_bd098a5193947df95e0d",
+      "source": "modules.software",
+      "target": "software.license-restored",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_abebbb44dbaa0483f7aa",
+      "source": "modules.software",
+      "target": "software.license-suspended",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_35de56b08ed6135a3c03",
+      "source": "modules.software",
+      "target": "software.licenses.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_541f77d21916d63e499e",
+      "source": "modules.software",
+      "target": "software.licenses.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_ff5bcc78cd49b7b11a9e",
+      "source": "modules.software",
+      "target": "software.order-created",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c3f081e728aa03dc38b2",
+      "source": "modules.software",
+      "target": "software.order-paid",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_01a6498341ee5ee3f815",
+      "source": "modules.software",
+      "target": "software.order-refunded",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a71d2b6b292034c27142",
+      "source": "modules.software",
+      "target": "software.orders.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3ac911e8a9f3d6740fa6",
+      "source": "modules.software",
+      "target": "software.orders.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3a229777b80c10ae0ed3",
+      "source": "modules.software",
+      "target": "software.refunds.approve",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_21745f57894b5154b5f4",
+      "source": "modules.software",
+      "target": "software.refunds.request",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_007838fcae18c087f69b",
+      "source": "modules.software",
+      "target": "software.release-published",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_e6a6e77e1cc1cc177214",
+      "source": "modules.software",
+      "target": "software.release-withdrawn",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_9eaccb84624e267317f2",
+      "source": "modules.software",
+      "target": "software.releases.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cc691e3de15693432a0f",
+      "source": "modules.software",
+      "target": "software.releases.publish",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b8200e661165ef7b2932",
+      "source": "modules.software",
+      "target": "software.releases.view",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_b4bc006854e2d1e21af0",
+      "source": "modules.software",
+      "target": "software.settings.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_839f647f70dfb975a5d3",
+      "source": "modules.software",
+      "target": "software.subscription-activated",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0f1e619c99ae69303582",
+      "source": "modules.software",
+      "target": "software.subscription-cancelled",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_889dc45328a056d6cb0a",
+      "source": "modules.software",
+      "target": "software.subscription-past-due",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6187a259b416bbd7f819",
+      "source": "modules.software",
+      "target": "software.subscription-renewed",
+      "type": "associatedEvent",
+      "family": "event",
+      "origin": "eventAssociation",
+      "description": "Associated through the registry item events array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d466d123701e28a476be",
+      "source": "modules.software",
+      "target": "software.support.manage",
+      "type": "associatedPermission",
+      "family": "authorization",
+      "origin": "permissionAssociation",
+      "description": "Associated through the registry item permissions array.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_dafb834861a6ff91797c",
+      "source": "modules.software",
+      "target": "software.update-served",
       "type": "associatedEvent",
       "family": "event",
       "origin": "eventAssociation",
@@ -114624,6 +115132,246 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_60548250686f84b8ac64",
+      "source": "privacy.field.priv_fld_090",
+      "target": "marketing.trackingIngestionBatch",
+      "type": "appliesTo",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Privacy handling applies to marketing.trackingIngestionBatch.fields.events.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c5884d66b4ad72d61906",
+      "source": "privacy.field.priv_fld_090",
+      "target": "privacy.standard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 30 privacy handling.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_3af44701eb368d0d3540",
+      "source": "privacy.field.priv_fld_090",
+      "target": "security.control.sec_in_001",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Privacy handling references Security control SEC-IN-001 as a governing security constraint.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cc0407c8751732a7f804",
+      "source": "privacy.field.priv_fld_090",
+      "target": "security.control.sec_tenant_001",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Privacy handling references Security control SEC-TENANT-001 as a governing security constraint.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_347d0cd6d7c5ed8873b8",
+      "source": "privacy.field.priv_fld_091",
+      "target": "marketing.trackingIngestionBatch",
+      "type": "appliesTo",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Privacy handling applies to marketing.trackingIngestionBatch.fields.consentStateId.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_1f841ba63eb92c65aeee",
+      "source": "privacy.field.priv_fld_091",
+      "target": "privacy.standard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 30 privacy handling.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_2eca806ea2aed9ff108a",
+      "source": "privacy.field.priv_fld_091",
+      "target": "security.control.sec_tenant_001",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Privacy handling references Security control SEC-TENANT-001 as a governing security constraint.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_0879b2b5d47df83c12a8",
+      "source": "privacy.field.priv_fld_092",
+      "target": "marketing.visitorIdentityPolicy",
+      "type": "appliesTo",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Privacy handling applies to marketing.visitorIdentityPolicy.fields.scope.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4e4782e7cdfcbef8882f",
+      "source": "privacy.field.priv_fld_092",
+      "target": "privacy.standard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 30 privacy handling.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_5ca74cd41251f551f43c",
+      "source": "privacy.field.priv_fld_092",
+      "target": "security.control.sec_tenant_001",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Privacy handling references Security control SEC-TENANT-001 as a governing security constraint.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f99fe4df927333818812",
+      "source": "privacy.field.priv_fld_093",
+      "target": "marketing.trackingIngestionReceipt",
+      "type": "appliesTo",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Privacy handling applies to marketing.trackingIngestionReceipt.fields.results.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_05c702b98bdedbb13365",
+      "source": "privacy.field.priv_fld_093",
+      "target": "privacy.standard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 30 privacy handling.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4cc5f973f6bca8e43939",
+      "source": "privacy.field.priv_fld_093",
+      "target": "security.control.sec_err_001",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Privacy handling references Security control SEC-ERR-001 as a governing security constraint.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_cf196da40e3611af676f",
+      "source": "privacy.field.priv_fld_093",
+      "target": "security.control.sec_log_001",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Privacy handling references Security control SEC-LOG-001 as a governing security constraint.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_757f4e7bc19f76834caa",
+      "source": "privacy.field.priv_fld_094",
+      "target": "marketing.invalidTrafficClassification",
+      "type": "appliesTo",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Privacy handling applies to marketing.invalidTrafficClassification.fields.category.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_37022481b5cbb7e445b6",
+      "source": "privacy.field.priv_fld_094",
+      "target": "privacy.standard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 30 privacy handling.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_4ffc2276e3407fd6e257",
+      "source": "privacy.field.priv_fld_094",
+      "target": "security.control.sec_log_001",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Privacy handling references Security control SEC-LOG-001 as a governing security constraint.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_431db9896bd73f93a29c",
+      "source": "privacy.field.priv_fld_094",
+      "target": "security.control.sec_rate_001",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Privacy handling references Security control SEC-RATE-001 as a governing security constraint.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_26c543862c603f9b33c1",
+      "source": "privacy.field.priv_fld_095",
+      "target": "marketing.trackingHealth",
+      "type": "appliesTo",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Privacy handling applies to marketing.trackingHealth.fields.scope.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_a8c49903d52c3c133745",
+      "source": "privacy.field.priv_fld_095",
+      "target": "privacy.standard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 30 privacy handling.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_d3f9b50c46e19d8a288a",
+      "source": "privacy.field.priv_fld_095",
+      "target": "security.control.sec_tenant_001",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Privacy handling references Security control SEC-TENANT-001 as a governing security constraint.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_46c0417fed1c2ac651c4",
+      "source": "privacy.field.priv_fld_096",
+      "target": "marketing.analyticsReport",
+      "type": "appliesTo",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Privacy handling applies to marketing.analyticsReport.fields.dimensions.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_f88b7627b4d2037818ce",
+      "source": "privacy.field.priv_fld_096",
+      "target": "privacy.standard",
+      "type": "implements",
+      "family": "governance",
+      "origin": "explicit",
+      "description": "Implements Phase 30 privacy handling.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_6981817b71ac6946ffc2",
+      "source": "privacy.field.priv_fld_096",
+      "target": "security.control.sec_tenant_001",
+      "type": "references",
+      "family": "reference",
+      "origin": "explicit",
+      "description": "Privacy handling references Security control SEC-TENANT-001 as a governing security constraint.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_be4e74b37dff4de13932",
       "source": "privacy.fieldHandling",
       "target": "privacy.standard",
@@ -117964,16 +118712,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_cc83aa6f9318e5e91f40",
-      "source": "software.activation-created",
-      "target": "software.activation",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.activation.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_eb7d6ca99e3218d7df1f",
       "source": "software.activation-deactivated",
       "target": "software.activation",
@@ -117982,16 +118720,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be software.activation.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_fbeeec1e642bd14ef70e",
-      "source": "software.activation-deactivated",
-      "target": "software.activation",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.activation.",
-      "ordinal": 1
     },
     {
       "id": "rel_97b38022518f4eb364a4",
@@ -118194,16 +118922,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_47a21c5d9a16d1ee6190",
-      "source": "software.download-grant-issued",
-      "target": "software.downloadGrant",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.downloadGrant.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_8004d460701464cd7909",
       "source": "software.downloadGrant",
       "target": "software.softwareContractStandard",
@@ -118254,16 +118972,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_4b803cb677e667246999",
-      "source": "software.entitlement-granted",
-      "target": "software.entitlement",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.entitlement.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_d7fae157a958e7cb2fd5",
       "source": "software.entitlement-revoked",
       "target": "software.entitlement",
@@ -118272,16 +118980,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be software.entitlement.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_9ab4e9bf9e2be7efaec0",
-      "source": "software.entitlement-revoked",
-      "target": "software.entitlement",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.entitlement.",
-      "ordinal": 1
     },
     {
       "id": "rel_4174a84618fc78e5d4d2",
@@ -118344,16 +119042,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_0707660287d6498ac9f1",
-      "source": "software.license-expired",
-      "target": "software.license",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.license.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_2677821f8a8fbe69ec1c",
       "source": "software.license-issued",
       "target": "software.license",
@@ -118362,16 +119050,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be software.license.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_36ca67cef94582c7bbc8",
-      "source": "software.license-issued",
-      "target": "software.license",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.license.",
-      "ordinal": 1
     },
     {
       "id": "rel_4833f5c5c7175a32f35d",
@@ -118384,16 +119062,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_10e4f8f4e6d8b46fdf72",
-      "source": "software.license-restored",
-      "target": "software.license",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.license.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_1c55fa8614b325dc30f8",
       "source": "software.license-suspended",
       "target": "software.license",
@@ -118402,16 +119070,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be software.license.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_092f193a4a92a569838e",
-      "source": "software.license-suspended",
-      "target": "software.license",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.license.",
-      "ordinal": 1
     },
     {
       "id": "rel_49ee1734eeb19651b0f2",
@@ -118464,16 +119122,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_5d4e284597d2ef7a6ff0",
-      "source": "software.order-created",
-      "target": "software.orderExtension",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.orderExtension.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_9ce088d2899b023fd936",
       "source": "software.order-paid",
       "target": "software.orderExtension",
@@ -118484,16 +119132,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_32a3c1fff06e964a4e48",
-      "source": "software.order-paid",
-      "target": "software.orderExtension",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.orderExtension.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_01a7a3d7327f6e612720",
       "source": "software.order-refunded",
       "target": "software.orderExtension",
@@ -118502,16 +119140,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be software.orderExtension.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_cc7cada85de5dc38dedb",
-      "source": "software.order-refunded",
-      "target": "software.orderExtension",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.orderExtension.",
-      "ordinal": 1
     },
     {
       "id": "rel_ee7892603744efddec8c",
@@ -118724,16 +119352,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_3f07e185e0004bfd871c",
-      "source": "software.release-published",
-      "target": "software.release",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.release.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_ac6679ebf7adba63d607",
       "source": "software.release-withdrawn",
       "target": "software.release",
@@ -118742,16 +119360,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be software.release.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_e15059e0c2897bf20d12",
-      "source": "software.release-withdrawn",
-      "target": "software.release",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.release.",
-      "ordinal": 1
     },
     {
       "id": "rel_3a70968a4cf3a2de631f",
@@ -118904,16 +119512,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_2e44760060e27c0af0ea",
-      "source": "software.subscription-activated",
-      "target": "software.subscription",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.subscription.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_f8edf2ae65d26f7eac45",
       "source": "software.subscription-cancelled",
       "target": "software.subscription",
@@ -118922,16 +119520,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be software.subscription.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_47629cd563257eb58d5f",
-      "source": "software.subscription-cancelled",
-      "target": "software.subscription",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.subscription.",
-      "ordinal": 1
     },
     {
       "id": "rel_65f56af902b3d6d8c636",
@@ -118944,16 +119532,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
-      "id": "rel_8f26763133c5b1aebdc0",
-      "source": "software.subscription-past-due",
-      "target": "software.subscription",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.subscription.",
-      "ordinal": 1
-    },
-    {
       "id": "rel_8c583dcbd1474e511355",
       "source": "software.subscription-renewed",
       "target": "software.subscription",
@@ -118962,16 +119540,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be software.subscription.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_3d86c00e9ecdb5bfd56f",
-      "source": "software.subscription-renewed",
-      "target": "software.subscription",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.subscription.",
-      "ordinal": 1
     },
     {
       "id": "rel_6ff2a5b7c07adfd7b08d",
@@ -119012,16 +119580,6 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "origin": "explicit",
       "description": "Event subject may be software.updateResponse.",
       "ordinal": 0
-    },
-    {
-      "id": "rel_dda8a5fc3f1715f01c4a",
-      "source": "software.update-served",
-      "target": "software.updateResponse",
-      "type": "references",
-      "family": "reference",
-      "origin": "explicit",
-      "description": "Event subject may be software.updateResponse.",
-      "ordinal": 1
     },
     {
       "id": "rel_56cbf8b19c6f25711bf8",
@@ -119574,6 +120132,16 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "ordinal": 0
     },
     {
+      "id": "rel_d9da096d6088d5051bfd",
+      "source": "starters.gaming",
+      "target": "modules.gaming",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Enables Gaming Store module.",
+      "ordinal": 0
+    },
+    {
       "id": "rel_0fad02b78d2b25173082",
       "source": "starters.index",
       "target": "starters.siteStarterContractPackStandard",
@@ -119901,6 +120469,16 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "family": "dependency",
       "origin": "explicit",
       "description": "Every starter is validated by the developer CLI.",
+      "ordinal": 0
+    },
+    {
+      "id": "rel_c79771e71e2618ee322a",
+      "source": "starters.software",
+      "target": "modules.software",
+      "type": "uses",
+      "family": "dependency",
+      "origin": "explicit",
+      "description": "Enables Software module.",
       "ordinal": 0
     },
     {
@@ -121176,11 +121754,25 @@ export const GENERATED_RELATIONSHIP_INDEX = {
   ],
   "symbolicAssociations": [
     {
-      "source": "gaming.purchaseField",
-      "target": "forms.field",
-      "kind": "relationship",
-      "origin": "explicit",
-      "reason": "Explicit relationship target did not resolve. This is a validation failure."
+      "source": "marketing.standardTrackingEvents",
+      "target": "commerce.cart-updated",
+      "kind": "event",
+      "origin": "eventAssociation",
+      "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
+    },
+    {
+      "source": "marketing.standardTrackingEvents",
+      "target": "commerce.checkout-started",
+      "kind": "event",
+      "origin": "eventAssociation",
+      "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
+    },
+    {
+      "source": "marketing.standardTrackingEvents",
+      "target": "commerce.product-viewed",
+      "kind": "event",
+      "origin": "eventAssociation",
+      "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
     },
     {
       "source": "marketing.standardTrackingEvents",
@@ -121205,7 +121797,21 @@ export const GENERATED_RELATIONSHIP_INDEX = {
     },
     {
       "source": "marketing.standardTrackingEvents",
+      "target": "engagement.session-engaged",
+      "kind": "event",
+      "origin": "eventAssociation",
+      "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
+    },
+    {
+      "source": "marketing.standardTrackingEvents",
       "target": "form.started",
+      "kind": "event",
+      "origin": "eventAssociation",
+      "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
+    },
+    {
+      "source": "marketing.standardTrackingEvents",
+      "target": "navigation.route-changed",
       "kind": "event",
       "origin": "eventAssociation",
       "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
@@ -121261,6 +121867,27 @@ export const GENERATED_RELATIONSHIP_INDEX = {
     },
     {
       "source": "marketing.trackingEventDefinition",
+      "target": "commerce.cart-updated",
+      "kind": "event",
+      "origin": "eventAssociation",
+      "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
+    },
+    {
+      "source": "marketing.trackingEventDefinition",
+      "target": "commerce.checkout-started",
+      "kind": "event",
+      "origin": "eventAssociation",
+      "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
+    },
+    {
+      "source": "marketing.trackingEventDefinition",
+      "target": "commerce.product-viewed",
+      "kind": "event",
+      "origin": "eventAssociation",
+      "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
+    },
+    {
+      "source": "marketing.trackingEventDefinition",
       "target": "cta.clicked",
       "kind": "event",
       "origin": "eventAssociation",
@@ -121282,7 +121909,21 @@ export const GENERATED_RELATIONSHIP_INDEX = {
     },
     {
       "source": "marketing.trackingEventDefinition",
+      "target": "engagement.session-engaged",
+      "kind": "event",
+      "origin": "eventAssociation",
+      "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
+    },
+    {
+      "source": "marketing.trackingEventDefinition",
       "target": "form.started",
+      "kind": "event",
+      "origin": "eventAssociation",
+      "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
+    },
+    {
+      "source": "marketing.trackingEventDefinition",
+      "target": "navigation.route-changed",
       "kind": "event",
       "origin": "eventAssociation",
       "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
@@ -121335,25 +121976,11 @@ export const GENERATED_RELATIONSHIP_INDEX = {
       "kind": "event",
       "origin": "eventAssociation",
       "reason": "Identifier is a controlled symbolic event/tracking association without a standalone Registry node."
-    },
-    {
-      "source": "starters.gaming",
-      "target": "modules.gaming",
-      "kind": "relationship",
-      "origin": "explicit",
-      "reason": "Explicit relationship target did not resolve. This is a validation failure."
-    },
-    {
-      "source": "starters.software",
-      "target": "modules.software",
-      "kind": "relationship",
-      "origin": "explicit",
-      "reason": "Explicit relationship target did not resolve. This is a validation failure."
     }
   ]
 };
 export const GENERATED_RELATIONSHIP_TYPES = {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "schemaVersion": "1.0.0",
   "title": "Relationship Type Vocabulary",
   "description": "Controlled semantic metadata for explicit Contract Registry relationship types and graph-only derived associations.",
@@ -121658,7 +122285,7 @@ export const GENERATED_RELATIONSHIP_TYPES = {
   ]
 };
 export const GENERATED_RELATIONSHIP_CONFIG = {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "schemaVersion": "1.0.0",
   "title": "Relationship Explorer Configuration",
   "sourceRegistry": "registry/registry.json",

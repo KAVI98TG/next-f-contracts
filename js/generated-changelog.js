@@ -1,16 +1,16 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source set: registry/changelog/*
 export const GENERATED_CHANGELOG = {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "index": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Changelog",
     "description": "Authoritative release-note registry for the coordinated NEXT F Contract Registry development train.",
     "standard": "standards/35-changelog-standard.md",
     "route": "#/lifecycle/changelog",
-    "currentVersion": "1.3.0",
-    "releaseCount": 41,
+    "currentVersion": "1.4.0",
+    "releaseCount": 42,
     "entryCount": 605,
     "schemaCount": 11,
     "categoryCount": 12,
@@ -37,12 +37,12 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "releaseIndex": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "schemaVersion": "1.1.0",
     "title": "NEXT F Changelog Release Index",
     "description": "All authoritative coordinated release notes in descending semantic-version order.",
-    "currentVersion": "1.3.0",
-    "releaseCount": 41,
+    "currentVersion": "1.4.0",
+    "releaseCount": 42,
     "entryCount": 605,
     "phases": [
       0,
@@ -85,7 +85,8 @@ export const GENERATED_CHANGELOG = {
       37,
       38,
       39,
-      40
+      40,
+      41
     ],
     "domains": [
       "accessibility",
@@ -126,6 +127,39 @@ export const GENERATED_CHANGELOG = {
       "modules.pages"
     ],
     "releases": [
+      {
+        "version": "1.4.0",
+        "phase": 41,
+        "title": "First-Party Tracking Platform Contracts",
+        "releaseStatus": "published-stable",
+        "releaseDate": "2026-09-23",
+        "summary": "Extends canonical Marketing and Analytics contracts with first-party SDK/collector, browser and server ingestion, identity/session policies, reporting, tracking health, privacy handling, Manifest declarations and validation while preserving Tracking Observation and Domain Event separation.",
+        "sourceVersion": "1.3.0",
+        "targetVersion": "1.4.0",
+        "recordCompleteness": "complete",
+        "incompletenessReason": null,
+        "entryCount": 0,
+        "categoryCounts": {},
+        "evidenceLevel": "authoritative",
+        "exactRegistrySnapshotAvailable": true,
+        "supportLevel": "stable",
+        "compatibilityStatus": "compatible-additive",
+        "breakingChange": null,
+        "migrationRequired": null,
+        "affected": {
+          "domains": [],
+          "modules": [],
+          "contracts": [],
+          "events": [],
+          "permissions": [],
+          "webhooks": [],
+          "apis": [],
+          "manifests": [],
+          "cmsMetadata": [],
+          "adminMetadata": []
+        },
+        "source": "registry/changelog/releases/1.4.0.json"
+      },
       {
         "version": "1.3.0",
         "phase": 40,
@@ -1938,7 +1972,7 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "entryIndex": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "schemaVersion": "1.1.0",
     "title": "Changelog Entry Index",
     "entryCount": 605,
@@ -21377,7 +21411,7 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "contractHistory": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Contract Changelog History",
     "description": "Derived navigation index from authoritative Registry introducedIn metadata and explicit Changelog affected Registry IDs. It does not reconstruct missing history.",
@@ -24056,6 +24090,15 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.19.0",
         "entries": []
       },
+      "api.customer-cms.get-analytics-report": {
+        "registryId": "api.customer-cms.get-analytics-report",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
       "api.customer-cms.get-blog-post": {
         "registryId": "api.customer-cms.get-blog-post",
         "introducedIn": "0.19.0",
@@ -24135,6 +24178,15 @@ export const GENERATED_CHANGELOG = {
         "deprecatedIn": [],
         "removedIn": [],
         "latestRelatedRelease": "0.19.0",
+        "entries": []
+      },
+      "api.customer-cms.get-tracking-health": {
+        "registryId": "api.customer-cms.get-tracking-health",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "api.customer-cms.get-workspace": {
@@ -24396,6 +24448,15 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.19.0",
         "entries": []
       },
+      "api.events.collect-browser-tracking": {
+        "registryId": "api.events.collect-browser-tracking",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
       "api.events.get-correlation-chain": {
         "registryId": "api.events.get-correlation-chain",
         "introducedIn": "0.19.0",
@@ -24430,6 +24491,15 @@ export const GENERATED_CHANGELOG = {
         "deprecatedIn": [],
         "removedIn": [],
         "latestRelatedRelease": "0.19.0",
+        "entries": []
+      },
+      "api.events.ingest-tracking-batch": {
+        "registryId": "api.events.ingest-tracking-batch",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "api.events.list-domain-events": {
@@ -24799,6 +24869,15 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.19.0",
         "entries": []
       },
+      "api.nextf-admin.get-analytics-report": {
+        "registryId": "api.nextf-admin.get-analytics-report",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
       "api.nextf-admin.get-diagnostics": {
         "registryId": "api.nextf-admin.get-diagnostics",
         "introducedIn": "0.19.0",
@@ -24842,6 +24921,15 @@ export const GENERATED_CHANGELOG = {
         "deprecatedIn": [],
         "removedIn": [],
         "latestRelatedRelease": "0.19.0",
+        "entries": []
+      },
+      "api.nextf-admin.get-tracking-health": {
+        "registryId": "api.nextf-admin.get-tracking-health",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "api.nextf-admin.list-audit": {
@@ -26743,6 +26831,15 @@ export const GENERATED_CHANGELOG = {
         "deprecatedIn": [],
         "removedIn": [],
         "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "changelog.release.1.4.0": {
+        "registryId": "changelog.release.1.4.0",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "changelog.releaseCollection": {
@@ -33297,6 +33394,42 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "1.1.0",
         "entries": []
       },
+      "customerAccess.policy.gaming.catalog": {
+        "registryId": "customerAccess.policy.gaming.catalog",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "customerAccess.policy.gaming.finance": {
+        "registryId": "customerAccess.policy.gaming.finance",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "customerAccess.policy.gaming.orders": {
+        "registryId": "customerAccess.policy.gaming.orders",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "customerAccess.policy.gaming.suppliers": {
+        "registryId": "customerAccess.policy.gaming.suppliers",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
       "customerAccess.policy.integrations.connections": {
         "registryId": "customerAccess.policy.integrations.connections",
         "introducedIn": "1.1.0",
@@ -37149,29 +37282,31 @@ export const GENERATED_CHANGELOG = {
       },
       "manifest.apiBinding": {
         "registryId": "manifest.apiBinding",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.capabilitySelection": {
         "registryId": "manifest.capabilitySelection",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.cms": {
         "registryId": "manifest.cms",
-        "introducedIn": "1.1.0",
-        "changedIn": [],
+        "introducedIn": "1.4.0",
+        "changedIn": [
+          "1.1.0"
+        ],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": [
           {
             "entryId": "chg_v1_1_fail_closed_resolution",
@@ -37183,167 +37318,168 @@ export const GENERATED_CHANGELOG = {
       },
       "manifest.configurationBinding": {
         "registryId": "manifest.configurationBinding",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.configurationExposureKinds": {
         "registryId": "manifest.configurationExposureKinds",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.contentDelivery": {
         "registryId": "manifest.contentDelivery",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.contentDeliveryModes": {
         "registryId": "manifest.contentDeliveryModes",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.contractBinding": {
         "registryId": "manifest.contractBinding",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.environment": {
         "registryId": "manifest.environment",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.environmentKinds": {
         "registryId": "manifest.environmentKinds",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.eventSupport": {
         "registryId": "manifest.eventSupport",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.extensionDeclaration": {
         "registryId": "manifest.extensionDeclaration",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.index": {
         "registryId": "manifest.index",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.integrationSupport": {
         "registryId": "manifest.integrationSupport",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.localization": {
         "registryId": "manifest.localization",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.moduleSelection": {
         "registryId": "manifest.moduleSelection",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.nextfSiteJsonSchema": {
         "registryId": "manifest.nextfSiteJsonSchema",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.runtime": {
         "registryId": "manifest.runtime",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.runtimeCapabilities": {
         "registryId": "manifest.runtimeCapabilities",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.siteDescriptor": {
         "registryId": "manifest.siteDescriptor",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.siteManifest": {
         "registryId": "manifest.siteManifest",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [
           "0.34.0",
-          "1.0.0"
+          "1.0.0",
+          "1.1.0"
         ],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": [
           {
             "entryId": "chg_v1_1_explicit_upgrade",
@@ -37373,13 +37509,13 @@ export const GENERATED_CHANGELOG = {
       },
       "manifest.siteManifestStandard": {
         "registryId": "manifest.siteManifestStandard",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [
           "0.36.0"
         ],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": [
           {
             "entryId": "chg_eb5433226b1587",
@@ -37391,29 +37527,29 @@ export const GENERATED_CHANGELOG = {
       },
       "manifest.siteTypes": {
         "registryId": "manifest.siteTypes",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "manifest.trackingSupport": {
         "registryId": "manifest.trackingSupport",
-        "introducedIn": "1.1.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.1.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.adClickIdentifier": {
         "registryId": "marketing.adClickIdentifier",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.analytics.export": {
@@ -37436,29 +37572,38 @@ export const GENERATED_CHANGELOG = {
       },
       "marketing.analyticsConfiguration": {
         "registryId": "marketing.analyticsConfiguration",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.analyticsObservation": {
         "registryId": "marketing.analyticsObservation",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.analyticsReport": {
+        "registryId": "marketing.analyticsReport",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.analyticsSnapshot": {
         "registryId": "marketing.analyticsSnapshot",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.attribution.export": {
@@ -37490,65 +37635,65 @@ export const GENERATED_CHANGELOG = {
       },
       "marketing.attributionCredit": {
         "registryId": "marketing.attributionCredit",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.attributionModel": {
         "registryId": "marketing.attributionModel",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.attributionTouchpoint": {
         "registryId": "marketing.attributionTouchpoint",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.campaignAttribution": {
         "registryId": "marketing.campaignAttribution",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.campaignContext": {
         "registryId": "marketing.campaignContext",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.campaignDefinition": {
         "registryId": "marketing.campaignDefinition",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.campaignPerformanceSnapshot": {
         "registryId": "marketing.campaignPerformanceSnapshot",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.campaigns.create": {
@@ -37625,40 +37770,40 @@ export const GENERATED_CHANGELOG = {
       },
       "marketing.consentCategory": {
         "registryId": "marketing.consentCategory",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.consentPolicy": {
         "registryId": "marketing.consentPolicy",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.consentPreference": {
         "registryId": "marketing.consentPreference",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.consentState": {
         "registryId": "marketing.consentState",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [
           "0.33.0"
         ],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.33.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": [
           {
             "entryId": "chg_2f5873ec7c9747",
@@ -37670,38 +37815,38 @@ export const GENERATED_CHANGELOG = {
       },
       "marketing.conversionAttribution": {
         "registryId": "marketing.conversionAttribution",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.conversionDeduplicationPolicy": {
         "registryId": "marketing.conversionDeduplicationPolicy",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.conversionDefinition": {
         "registryId": "marketing.conversionDefinition",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.conversionOccurrence": {
         "registryId": "marketing.conversionOccurrence",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.conversions.create": {
@@ -37751,38 +37896,38 @@ export const GENERATED_CHANGELOG = {
       },
       "marketing.conversionSummary": {
         "registryId": "marketing.conversionSummary",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.conversionValue": {
         "registryId": "marketing.conversionValue",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.dataLayerConfiguration": {
         "registryId": "marketing.dataLayerConfiguration",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.destinationMapping": {
         "registryId": "marketing.destinationMapping",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.destinations.create": {
@@ -37832,128 +37977,155 @@ export const GENERATED_CHANGELOG = {
       },
       "marketing.deviceContext": {
         "registryId": "marketing.deviceContext",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.dimensionDefinition": {
         "registryId": "marketing.dimensionDefinition",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.dispatchRequest": {
         "registryId": "marketing.dispatchRequest",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.dispatchResult": {
         "registryId": "marketing.dispatchResult",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.eventContext": {
         "registryId": "marketing.eventContext",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.eventDestination": {
         "registryId": "marketing.eventDestination",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.eventPropertyDefinition": {
         "registryId": "marketing.eventPropertyDefinition",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.firstPartyTrackingPlatformStandard": {
+        "registryId": "marketing.firstPartyTrackingPlatformStandard",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.invalidTrafficClassification": {
+        "registryId": "marketing.invalidTrafficClassification",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.marketingDestination": {
         "registryId": "marketing.marketingDestination",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.marketingTrackingContractStandard": {
         "registryId": "marketing.marketingTrackingContractStandard",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.metricDefinition": {
         "registryId": "marketing.metricDefinition",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.pageContext": {
         "registryId": "marketing.pageContext",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.referrerContext": {
         "registryId": "marketing.referrerContext",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.sessionContext": {
         "registryId": "marketing.sessionContext",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.sessionPolicy": {
+        "registryId": "marketing.sessionPolicy",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.standardTrackingEvents": {
         "registryId": "marketing.standardTrackingEvents",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.tracking.edit": {
@@ -37983,24 +38155,42 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.16.0",
         "entries": []
       },
-      "marketing.trackingConfiguration": {
-        "registryId": "marketing.trackingConfiguration",
-        "introducedIn": "0.10.0",
+      "marketing.trackingCollectorPolicy": {
+        "registryId": "marketing.trackingCollectorPolicy",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.trackingCompatibility": {
+        "registryId": "marketing.trackingCompatibility",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.trackingConfiguration": {
+        "registryId": "marketing.trackingConfiguration",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.trackingConsentRecord": {
         "registryId": "marketing.trackingConsentRecord",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [
           "0.31.0"
         ],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.31.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": [
           {
             "entryId": "chg_71c970cac6b2ba",
@@ -38012,56 +38202,119 @@ export const GENERATED_CHANGELOG = {
       },
       "marketing.trackingDataPolicy": {
         "registryId": "marketing.trackingDataPolicy",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.trackingEvent": {
         "registryId": "marketing.trackingEvent",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.trackingEventDefinition": {
         "registryId": "marketing.trackingEventDefinition",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.trackingHealth": {
+        "registryId": "marketing.trackingHealth",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.trackingIngestionBatch": {
+        "registryId": "marketing.trackingIngestionBatch",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.trackingIngestionItemResult": {
+        "registryId": "marketing.trackingIngestionItemResult",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.trackingIngestionReceipt": {
+        "registryId": "marketing.trackingIngestionReceipt",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.trackingSdkCompatibilityRegistry": {
+        "registryId": "marketing.trackingSdkCompatibilityRegistry",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.trackingSdkDescriptor": {
+        "registryId": "marketing.trackingSdkDescriptor",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.trafficSource": {
         "registryId": "marketing.trafficSource",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.utmParameters": {
         "registryId": "marketing.utmParameters",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "marketing.visitorContext": {
         "registryId": "marketing.visitorContext",
-        "introducedIn": "0.10.0",
+        "introducedIn": "1.4.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "0.10.0",
+        "latestRelatedRelease": "1.4.0",
+        "entries": []
+      },
+      "marketing.visitorIdentityPolicy": {
+        "registryId": "marketing.visitorIdentityPolicy",
+        "introducedIn": "1.4.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.4.0",
         "entries": []
       },
       "media.created": {
@@ -41462,6 +41715,69 @@ export const GENERATED_CHANGELOG = {
       },
       "privacy.field.priv_fld_084": {
         "registryId": "privacy.field.priv_fld_084",
+        "introducedIn": "0.31.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "0.31.0",
+        "entries": []
+      },
+      "privacy.field.priv_fld_090": {
+        "registryId": "privacy.field.priv_fld_090",
+        "introducedIn": "0.31.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "0.31.0",
+        "entries": []
+      },
+      "privacy.field.priv_fld_091": {
+        "registryId": "privacy.field.priv_fld_091",
+        "introducedIn": "0.31.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "0.31.0",
+        "entries": []
+      },
+      "privacy.field.priv_fld_092": {
+        "registryId": "privacy.field.priv_fld_092",
+        "introducedIn": "0.31.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "0.31.0",
+        "entries": []
+      },
+      "privacy.field.priv_fld_093": {
+        "registryId": "privacy.field.priv_fld_093",
+        "introducedIn": "0.31.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "0.31.0",
+        "entries": []
+      },
+      "privacy.field.priv_fld_094": {
+        "registryId": "privacy.field.priv_fld_094",
+        "introducedIn": "0.31.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "0.31.0",
+        "entries": []
+      },
+      "privacy.field.priv_fld_095": {
+        "registryId": "privacy.field.priv_fld_095",
+        "introducedIn": "0.31.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "0.31.0",
+        "entries": []
+      },
+      "privacy.field.priv_fld_096": {
+        "registryId": "privacy.field.priv_fld_096",
         "introducedIn": "0.31.0",
         "changedIn": [],
         "deprecatedIn": [],
@@ -45528,7 +45844,7 @@ export const GENERATED_CHANGELOG = {
     }
   },
   "sections": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "schemaVersion": "1.0.0",
     "title": "Changelog Change Categories",
     "description": "Canonical release-note categories and aliases used by NEXT F Changelog records.",
@@ -45653,7 +45969,7 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "evidenceLevels": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "schemaVersion": "1.0.0",
     "title": "Changelog Evidence Levels",
     "levels": [
@@ -45684,13 +46000,13 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "policy": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "schemaVersion": "1.0.0",
     "title": "Changelog Operational Policy",
     "authoritativeReleaseDirectory": "registry/changelog/releases/",
     "generatedMarkdown": "CHANGELOG.md",
     "standard": "standards/35-changelog-standard.md",
-    "currentRelease": "1.3.0",
+    "currentRelease": "1.4.0",
     "preOneReleaseTrain": true,
     "productionSupportDeclared": false,
     "releaseOrdering": "descending-semver",
@@ -45707,6 +46023,143 @@ export const GENERATED_CHANGELOG = {
     "omittedHistoricalEvidence": "not-authoritative"
   },
   "releases": [
+    {
+      "version": "1.4.0",
+      "title": "First-Party Tracking Platform Contracts",
+      "releaseStatus": "published-stable",
+      "releaseDate": "2026-09-23",
+      "phase": 41,
+      "summary": "Extends canonical Marketing and Analytics contracts with first-party SDK/collector, browser and server ingestion, identity/session policies, reporting, tracking health, privacy handling, Manifest declarations and validation while preserving Tracking Observation and Domain Event separation.",
+      "recordCompleteness": "complete",
+      "incompletenessReason": null,
+      "provenance": {
+        "exactRegistrySnapshotAvailable": true,
+        "source": "NEXT F First-Party Tracking Platform Full Plan and Phase 41 gap audit"
+      },
+      "evidence": {
+        "evidenceLevel": "authoritative",
+        "diffAvailable": true,
+        "diffRoute": "#/lifecycle/diff?from=1.3.0&to=1.4.0",
+        "compatibilityRoute": "#/lifecycle/compatibility",
+        "migrationRoute": "developer/FIRST-PARTY-TRACKING-IMPLEMENTATION-PLAN.md"
+      },
+      "support": {
+        "supportLevel": "stable",
+        "compatibilityStatus": "compatible-additive",
+        "registryProductionStable": true
+      },
+      "affected": {
+        "domains": [],
+        "modules": [],
+        "contracts": [],
+        "events": [],
+        "permissions": [],
+        "webhooks": [],
+        "apis": [],
+        "manifests": [],
+        "cmsMetadata": [],
+        "adminMetadata": []
+      },
+      "changes": [
+        {
+          "entryId": "phase41-tracking-foundation",
+          "title": "First-party tracking operational contracts",
+          "category": "feature",
+          "changeType": "added",
+          "summary": "Adds SDK/collector compatibility, identity/session policies, batch/receipt semantics, invalid-traffic classification, reporting and tracking health while reusing marketing.trackingEvent.",
+          "affectedRegistryIds": [
+            "marketing.visitorIdentityPolicy",
+            "marketing.sessionPolicy",
+            "marketing.trackingSdkDescriptor",
+            "marketing.trackingCompatibility",
+            "marketing.trackingCollectorPolicy",
+            "marketing.trackingIngestionBatch",
+            "marketing.trackingIngestionItemResult",
+            "marketing.trackingIngestionReceipt",
+            "marketing.invalidTrafficClassification",
+            "marketing.analyticsReport",
+            "marketing.trackingHealth"
+          ],
+          "affectedDomains": [
+            "marketing"
+          ],
+          "affectedModules": [
+            "analytics",
+            "marketing"
+          ],
+          "impact": {
+            "compatibilityClassification": "backward-compatible",
+            "actionRequired": false
+          },
+          "sourceReference": "standards/49-first-party-tracking-platform-standard.md"
+        },
+        {
+          "entryId": "phase41-tracking-api-manifest",
+          "title": "First-party tracking APIs and Manifest declarations",
+          "category": "feature",
+          "changeType": "added",
+          "summary": "Adds browser/server ingestion, reporting and health operations plus additive Site Manifest SDK/collector declarations.",
+          "affectedRegistryIds": [
+            "api.events.collect-browser-tracking",
+            "api.events.ingest-tracking-batch",
+            "api.customer-cms.get-analytics-report",
+            "api.customer-cms.get-tracking-health",
+            "api.nextf-admin.get-analytics-report",
+            "api.nextf-admin.get-tracking-health",
+            "manifest.trackingSupport"
+          ],
+          "affectedDomains": [
+            "api",
+            "manifest"
+          ],
+          "affectedModules": [
+            "analytics",
+            "marketing"
+          ],
+          "impact": {
+            "compatibilityClassification": "backward-compatible",
+            "actionRequired": false
+          },
+          "sourceReference": "registry/api/index.json"
+        },
+        {
+          "entryId": "phase41-tracking-privacy-validation",
+          "title": "Tracking privacy and validation evidence",
+          "category": "security",
+          "changeType": "added",
+          "summary": "Adds field-level privacy handling, consent and environment-isolation fixtures, SDK compatibility truth and Phase 41 validation.",
+          "affectedRegistryIds": [
+            "PRIV-FLD-090",
+            "PRIV-FLD-091",
+            "PRIV-FLD-092",
+            "PRIV-FLD-093",
+            "PRIV-FLD-094",
+            "PRIV-FLD-095",
+            "PRIV-FLD-096"
+          ],
+          "affectedDomains": [
+            "privacy",
+            "developer"
+          ],
+          "affectedModules": [
+            "analytics"
+          ],
+          "impact": {
+            "compatibilityClassification": "backward-compatible",
+            "actionRequired": false
+          },
+          "sourceReference": "registry/privacy/field-handling.json"
+        }
+      ],
+      "sourceVersion": "1.3.0",
+      "targetVersion": "1.4.0",
+      "entryCount": 0,
+      "categoryCounts": {},
+      "breakingChange": null,
+      "migrationRequired": null,
+      "migrationNotes": null,
+      "recommendedAction": null
+    },
     {
       "version": "1.3.0",
       "title": "Software Canonical Contracts",
@@ -88064,7 +88517,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.affectedContractReference",
       "name": "Affected Contract Reference",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -88117,7 +88570,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.changeEntry",
       "name": "Changelog Change Entry",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -88307,7 +88760,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.compatibilityReference",
       "name": "Changelog Compatibility Reference",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -88374,7 +88827,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.evidenceDescriptor",
       "name": "Changelog Evidence Descriptor",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -88448,7 +88901,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.impactClassification",
       "name": "Changelog Impact Classification",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -88545,7 +88998,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseCollection",
       "name": "Changelog Release Collection",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -88605,7 +89058,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseCorrection",
       "name": "Changelog Release Correction",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -88693,7 +89146,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseNote",
       "name": "Changelog Release Note",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -88889,7 +89342,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseProvenance",
       "name": "Changelog Release Provenance",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -88956,7 +89409,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseSection",
       "name": "Changelog Release Section",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -89009,7 +89462,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseSummary",
       "name": "Changelog Release Summary",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -89089,13 +89542,13 @@ export const GENERATED_CHANGELOG = {
     }
   ],
   "sourceHashes": {
-    "registry/changelog/index.json": "a8b993aa8ddf3eb3ac8b9c6f5fedd0ae1b46d30db5f48cad77cfe692afc54ab3",
-    "registry/changelog/release-index.json": "48f4f9c10a62c5029e1115019da72d31decacd7b8b5e82949f84dc079900fcdf",
-    "registry/changelog/entry-index.json": "3fc76045dea402f4407276739093cf9bcb49327d5985c965a9d50aa3db4d56f2",
-    "registry/changelog/contract-history.json": "391e5f374f96aa032ef44a92181281e77347cccd962b1e4558f0617b61e16fe6",
-    "registry/changelog/sections.json": "8dd15804f3df58858cc494f4ed4d6aaca5c6b0d364965a3692f673291df16eff",
-    "registry/changelog/evidence-levels.json": "65084bec639a293c218a2a68393173c3ccb402146813abf620feb1819983dbbe",
-    "registry/changelog/policy.json": "62844170afc8b5e1eefa8697475fccbea8794766de29529b12424de627615889",
+    "registry/changelog/index.json": "4f4522b19a3cdbcc7abbd6e672cb33c54fd94d5a17d6b0aa21cbb9146a4aad08",
+    "registry/changelog/release-index.json": "6bf0e4f7a74d519412c44148fa5a3a009c4a072631fc96f5668091b1d0a574a1",
+    "registry/changelog/entry-index.json": "b145f74aa9e40d73333008181e3fa0468443864ba078bb12d6f89fedc58cb9b6",
+    "registry/changelog/contract-history.json": "5b588a121f35252eacaee78db3f636bd961931eff02ce6e1b1f75e04984c417a",
+    "registry/changelog/sections.json": "585bfac0d5c83dedbe7effca88a7beb607818691816200a1d19a4eb1c3be6755",
+    "registry/changelog/evidence-levels.json": "de395bfe0b9999bc9f0d72265a96b4402a8161ea6549e1ca4fe115a7e1bf0f9b",
+    "registry/changelog/policy.json": "02610ff7e1796c903748924ed9a3725cc9bd0c4e44d2e2e7b51637ddbc0e277f",
     "registry/changelog/release.schema.json": "505db9d69b8d8e3e42534c62d14915db9b94101e6d131677cbf7a68608540be5",
     "registry/changelog/change-entry.schema.json": "29b9ca5ada3afad8518f6f067f3a6d31d467ec270546c90f877951bc43741e25",
     "registry/changelog/impact.schema.json": "b84fe0dcd093a93e0a3be704d516bff0971e8b3c25425e87bb588447f4e85415",
@@ -89141,16 +89594,17 @@ export const GENERATED_CHANGELOG = {
     "registry/changelog/releases/1.1.0.json": "80bb8cb018f4bbc3717b0d544f951c6e43391031142d5c3cf3fdefed1c2df742",
     "registry/changelog/releases/1.2.0.json": "72e3c3bf76643c3a48f7e72589a6cab6aa499e36a849addd58ca2acc3951705f",
     "registry/changelog/releases/1.3.0.json": "aff03a829adad8fdc0a12080b7b1a97e026765c93c2e10821a65397f2ecef7be",
-    "registry/changelog/definitions/affectedContractReference.json": "39c7c34b6ad7891588b72a967a317b1c1146d7c6857eeb2ad99cd918bf54801a",
-    "registry/changelog/definitions/changeEntry.json": "4a98c2cb50d5f2f7cc5bdf403d7c33099ae0c079b933a7fb1dff43cb456c3e07",
-    "registry/changelog/definitions/compatibilityReference.json": "45f29253cdf0e0dc8e4c9b148dff3d72e09da832dfe7e636792d4284f29e3862",
-    "registry/changelog/definitions/evidenceDescriptor.json": "b2ab33790f7777af3a8cd4c946ad157d0042e2e4b37a84e706373eded25ec871",
-    "registry/changelog/definitions/impactClassification.json": "7b79487f6fa27c2f9ec9b8b781603ac0c76c45ab55daaeaa11a8c680cf95a8f5",
-    "registry/changelog/definitions/releaseCollection.json": "c412b7ad20979ca0136f18fc353d3dac4f83e5ecfa9e560788d7b5383d67912c",
-    "registry/changelog/definitions/releaseCorrection.json": "b8666067c42019afd1faa4a65d16a0af3fa13ebb2fad32d2f45c4811b24cd964",
-    "registry/changelog/definitions/releaseNote.json": "bb50bdcd0bfe1af2677481a15f0ffd68ea5a782d6f29cc5810d950ffe57a3aeb",
-    "registry/changelog/definitions/releaseProvenance.json": "726d4a0ed17ba67603eb34e4e311c832603a7a64db9cc1259d76656e7111f528",
-    "registry/changelog/definitions/releaseSection.json": "1457c8a4e6f02b3e586ee04c8fc93235fd55ee6bfc5ea071b3546699b741adf2",
-    "registry/changelog/definitions/releaseSummary.json": "684f2cc80fd7d54e75345d57a44c130cceef7e6dea0550267a01019312c83fb2"
+    "registry/changelog/releases/1.4.0.json": "8e2d8c3ec3bc7c70d0856596bfdc1ee4cee758929e8720923a8d60e400134c17",
+    "registry/changelog/definitions/affectedContractReference.json": "7a57163a37326deacad20a09c8ce54f4f452c914e28be67b7baf6c849f402308",
+    "registry/changelog/definitions/changeEntry.json": "2d6be7c441eb197d53ff37b9bd2f2dfcf7d2d13a55f0dc6be04a423593d2c3b8",
+    "registry/changelog/definitions/compatibilityReference.json": "3944da6ae51b0fba42873b248c91677eb1c659c7893ef376cd863fd8f523a8f1",
+    "registry/changelog/definitions/evidenceDescriptor.json": "d9be6196240ee7416030d2e58cbd21e6476826ae2024a09154f2adbad69358df",
+    "registry/changelog/definitions/impactClassification.json": "15af64d68ab388481b71fea13a5d729e1572970c61fb82be3836e7ebb86f8bd9",
+    "registry/changelog/definitions/releaseCollection.json": "6ad6ba4ea3db962d47517c913c355d7d1928c7607125cddded0e2c67022bc167",
+    "registry/changelog/definitions/releaseCorrection.json": "3f04bc6aa58de639d50f8097424c502861e5818b6c62fa46e4059d19680d5572",
+    "registry/changelog/definitions/releaseNote.json": "f320d35e5883ff1d3c4cd9108f2b46b1f5e4f501d6cce1a6852e9af9e3e871af",
+    "registry/changelog/definitions/releaseProvenance.json": "e2da579268600ea45c4fd2c8863b386a827334a84b7407bcc7cbf286783a5318",
+    "registry/changelog/definitions/releaseSection.json": "2fb6d8849e07f9672f2d8ccaab3f2333c56010ac3a51b9655046312d2f9950ff",
+    "registry/changelog/definitions/releaseSummary.json": "870f0771a6231af54d46e1c254a01ebf50b2dec072c1e5a7538616f19ff77e6a"
   }
 };

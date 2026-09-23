@@ -48,7 +48,8 @@ const roadmap = [
   [37, "V1.0.0 Production Acceptance", "Stable Registry release, frozen baselines, integrity hashes and formal production-acceptance evidence.", "complete"],
   [38, "Customer Capability Access Policy", "Explicit customer visibility, actions, approvals, publishing, fields, demo behavior and effective policy resolution.", "complete"],
   [39, "Gaming Store Canonical Contracts", "Supplier-neutral Gaming products, offers, quotes, orders, fulfillment, APIs, permissions, events, integrations and starter pack.", "complete"],
-  [40, "Software Canonical Contracts", "Software catalog, pricing, subscriptions, licensing, entitlements, releases, updates, customer access and Checkout evidence boundaries.", "current"]
+  [40, "Software Canonical Contracts", "Software catalog, pricing, subscriptions, licensing, entitlements, releases, updates, customer access and Checkout evidence boundaries.", "complete"],
+  [41, "First-Party Tracking Platform Contracts", "NEXT F-owned SDK/collector protocol, identity/session policies, ingestion, reporting, health, privacy and compatibility boundaries.", "current"]
 ];
 
 const architectureRules = [
@@ -93,7 +94,7 @@ export function renderOverview() {
             <span>${icon("fa-circle-half-stroke")} Light + dark themes</span>
             <span>${icon("fa-file-code")} HTML + CSS + JavaScript</span>
             <span>${icon("fa-database")} Repository-first authority</span>
-            <span>${icon("fa-code-branch")} Current registry v1.3.0</span>
+            <span>${icon("fa-code-branch")} Current registry v1.4.0</span>
           </div>
         </div>
       </section>
@@ -111,13 +112,13 @@ export function renderOverview() {
         </article>
         <article class="paper-card metric-card">
           <div class="metric-card__top"><span class="metric-card__label">Registry entries</span><span class="metric-card__icon">${icon("fa-database")}</span></div>
-          <div class="metric-card__value">2,371</div>
-          <p class="metric-card__meta">Canonical definitions in the stable V1.2 Registry</p>
+          <div class="metric-card__value">2,503</div>
+          <p class="metric-card__meta">Canonical definitions in the stable V1.4 Registry</p>
         </article>
         <article class="paper-card metric-card">
           <div class="metric-card__top"><span class="metric-card__label">Current phase</span><span class="metric-card__icon">${icon("fa-layer-group")}</span></div>
-          <div class="metric-card__value">39</div>
-          <p class="metric-card__meta">V1.2.0 Gaming Store</p>
+          <div class="metric-card__value">41</div>
+          <p class="metric-card__meta">V1.4.0 First-Party Tracking</p>
         </article>
       </section>
 
@@ -138,7 +139,7 @@ export function renderOverview() {
 
       <section class="two-column">
         <article class="paper-card">
-          <div class="paper-card__header"><div><h2>Build roadmap</h2><p>The complete contract foundation through V1.3.0 Software Canonical Contracts.</p></div>${phaseBadge(40)}</div>
+          <div class="paper-card__header"><div><h2>Build roadmap</h2><p>The complete contract foundation through V1.4.0 First-Party Tracking Platform Contracts.</p></div>${phaseBadge(41)}</div>
           <div class="paper-card__body">
             <ol class="roadmap-list">
               ${roadmap.map(([number, title, text, state]) => `
@@ -168,13 +169,13 @@ export function renderOverview() {
           </article>
 
           <article class="paper-card">
-            <div class="paper-card__header"><div><h2>V1.3.0 Software Canonical Contracts</h2><p>Software now has canonical catalog/pricing, customer/order extensions, subscriptions, licensing, entitlements, releases, updates, downloads, support, customer access and Checkout evidence boundaries.</p></div><a class="button button--secondary button--compact" href="#/registry?domain=software">${icon("fa-code")} Open Software contracts</a></div>
+            <div class="paper-card__header"><div><h2>V1.4.0 First-Party Tracking Platform Contracts</h2><p>Tracking now has canonical SDK/collector protocols, identity and session policies, browser/server ingestion, reporting, health, privacy and compatibility evidence.</p></div><a class="button button--secondary button--compact" href="#/registry?domain=marketing">${icon("fa-chart-line")} Open Tracking contracts</a></div>
             <div class="paper-card__body phase-summary">
-              <div class="phase-summary__row"><span>Software schemas</span><strong>19</strong></div>
-              <div class="phase-summary__row"><span>Software capabilities</span><strong>11</strong></div>
-              <div class="phase-summary__row"><span>Software API operations</span><strong>39</strong></div>
-              <div class="phase-summary__row"><span>Software events</span><strong>19</strong></div>
-              <div class="phase-summary__row"><span>Current release</span><strong>1.3.0</strong></div>
+              <div class="phase-summary__row"><span>Tracking schemas added</span><strong>11</strong></div>
+              <div class="phase-summary__row"><span>Analytics capabilities added</span><strong>3</strong></div>
+              <div class="phase-summary__row"><span>Tracking API operations</span><strong>6</strong></div>
+              <div class="phase-summary__row"><span>Tracking event keys</span><strong>18</strong></div>
+              <div class="phase-summary__row"><span>Current release</span><strong>1.4.0</strong></div>
             </div>
           </article>
         </div>

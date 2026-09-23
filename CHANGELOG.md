@@ -4,6 +4,8 @@
 > V0.x releases are development foundation releases and do not by themselves declare production support.
 > V1.0.0 and later production support claims require formal Production Acceptance evidence.
 
+## V1.4.0 - Phase 41 First-Party Tracking Platform Contracts
+
 ## V1.3.0 - Phase 40 Software Canonical Contracts
 
 ## V1.2.0 - Phase 39 Gaming Store Canonical Contracts

@@ -1,7 +1,7 @@
 {
   "$id": "changelog.compatibilityReference",
   "name": "Changelog Compatibility Reference",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "status": "stable",
   "domain": "changelog",
   "type": "schema",

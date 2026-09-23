@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "title": "High-risk Privacy Coverage",
   "areas": [
     {
@@ -51,7 +51,18 @@
         "marketing.trackingEvent",
         "marketing.trackingConsentRecord",
         "marketing.sessionContext",
-        "marketing.consentPolicy"
+        "marketing.consentPolicy",
+        "marketing.visitorIdentityPolicy",
+        "marketing.sessionPolicy",
+        "marketing.trackingSdkDescriptor",
+        "marketing.trackingCompatibility",
+        "marketing.trackingCollectorPolicy",
+        "marketing.trackingIngestionBatch",
+        "marketing.trackingIngestionItemResult",
+        "marketing.trackingIngestionReceipt",
+        "marketing.invalidTrafficClassification",
+        "marketing.analyticsReport",
+        "marketing.trackingHealth"
       ],
       "fieldHandlingIds": [
         "PRIV-FLD-030",
@@ -61,7 +72,14 @@
         "PRIV-FLD-034",
         "PRIV-FLD-035",
         "PRIV-FLD-036",
-        "PRIV-FLD-037"
+        "PRIV-FLD-037",
+        "PRIV-FLD-090",
+        "PRIV-FLD-091",
+        "PRIV-FLD-092",
+        "PRIV-FLD-093",
+        "PRIV-FLD-094",
+        "PRIV-FLD-095",
+        "PRIV-FLD-096"
       ],
       "notes": "Explicit Phase 30 classification/handling coverage for this high-risk area. Additional fields inherit owning-contract/security rules unless explicitly classified."
     },

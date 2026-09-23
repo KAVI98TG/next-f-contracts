@@ -20,7 +20,9 @@
     "api.events.list-domain-events",
     "api.events.get-domain-event",
     "api.events.get-correlation-chain",
-    "api.events.get-pipeline-health"
+    "api.events.get-pipeline-health",
+    "api.events.collect-browser-tracking",
+    "api.events.ingest-tracking-batch"
   ],
   "publicDocumentation": true,
   "order": 60,

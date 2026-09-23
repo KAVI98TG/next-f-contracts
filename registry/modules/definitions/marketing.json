@@ -2,7 +2,7 @@
   "$id": "modules.marketing",
   "moduleId": "marketing",
   "name": "Marketing",
-  "version": "0.18.0",
+  "version": "1.4.0",
   "status": "stable",
   "category": "growth",
   "icon": "fa-bullseye",
@@ -88,7 +88,18 @@
     "marketing.trackingEventDefinition",
     "marketing.trafficSource",
     "marketing.utmParameters",
-    "marketing.visitorContext"
+    "marketing.visitorContext",
+    "marketing.visitorIdentityPolicy",
+    "marketing.sessionPolicy",
+    "marketing.trackingSdkDescriptor",
+    "marketing.trackingCompatibility",
+    "marketing.trackingCollectorPolicy",
+    "marketing.trackingIngestionBatch",
+    "marketing.trackingIngestionItemResult",
+    "marketing.trackingIngestionReceipt",
+    "marketing.invalidTrafficClassification",
+    "marketing.analyticsReport",
+    "marketing.trackingHealth"
   ],
   "permissionBindings": [
     "marketing.attribution.export",

@@ -61,7 +61,9 @@
     "api.customer-cms.submit-change-request",
     "api.customer-cms.list-change-requests",
     "api.customer-cms.get-change-request",
-    "api.customer-cms.cancel-change-request"
+    "api.customer-cms.cancel-change-request",
+    "api.customer-cms.get-analytics-report",
+    "api.customer-cms.get-tracking-health"
   ],
   "publicDocumentation": true,
   "order": 30,

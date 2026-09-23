@@ -1,0 +1,11 @@
+{
+  "identity": {
+    "id": "tracking_config_disabled"
+  },
+  "scope": {
+    "organizationId": "org_example",
+    "siteId": "site_example"
+  },
+  "enabled": false,
+  "disabledBehavior": "do-not-initialize-sdk-or-send-optional-observations"
+}

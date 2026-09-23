@@ -11,6 +11,7 @@ const digest = crypto.createHash("sha256").update(raw).digest("hex");
 
 const banner = `// GENERATED FILE - DO NOT EDIT DIRECTLY.\n// Source: registry/registry.json\n// SHA-256: ${digest}\n`;
 const body = `${banner}export const GENERATED_REGISTRY_SOURCE_SHA256 = ${JSON.stringify(digest)};\nexport const GENERATED_REGISTRY = ${JSON.stringify(parsed, null, 2)};\n`;
+fs.rmSync(outputPath, { force: true });
 fs.writeFileSync(outputPath, body, "utf8");
 console.log(`Generated ${path.relative(root, outputPath)} from registry/registry.json`);
 console.log(`SHA-256 ${digest}`);

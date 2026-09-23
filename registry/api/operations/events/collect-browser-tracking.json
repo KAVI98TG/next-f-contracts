@@ -1,0 +1,78 @@
+{
+  "$id": "api.events.collect-browser-tracking",
+  "operationId": "api.events.collect-browser-tracking",
+  "name": "Collect Browser Tracking Batch",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.events",
+  "method": "POST",
+  "path": "/tracking/browser",
+  "description": "Collect Browser Tracking Batch",
+  "authentication": {
+    "mode": "anonymous",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "marketing.trackingIngestionBatch",
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 202,
+    "envelope": "api.successEnvelope",
+    "dataContract": "marketing.trackingIngestionReceipt",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "validation_failed",
+      "payload_too_large",
+      "rate_limited",
+      "module_disabled",
+      "tenant_scope_mismatch"
+    ],
+    "projection": "workspace-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "public-write",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "consent",
+    "analytics",
+    "marketing"
+  ],
+  "contractBindings": [
+    "marketing.trackingIngestionBatch",
+    "marketing.trackingIngestionReceipt"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "personal",
+  "notes": [
+    "Configured Site origins, payload limits, consent and abuse controls apply; CORS is not authorization.",
+    "No browser secret is accepted or required."
+  ]
+}

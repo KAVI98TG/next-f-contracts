@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Contract Changelog History",
   "description": "Derived navigation index from authoritative Registry introducedIn metadata and explicit Changelog affected Registry IDs. It does not reconstruct missing history.",
@@ -2678,6 +2678,15 @@
       "latestRelatedRelease": "0.19.0",
       "entries": []
     },
+    "api.customer-cms.get-analytics-report": {
+      "registryId": "api.customer-cms.get-analytics-report",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
     "api.customer-cms.get-blog-post": {
       "registryId": "api.customer-cms.get-blog-post",
       "introducedIn": "0.19.0",
@@ -2757,6 +2766,15 @@
       "deprecatedIn": [],
       "removedIn": [],
       "latestRelatedRelease": "0.19.0",
+      "entries": []
+    },
+    "api.customer-cms.get-tracking-health": {
+      "registryId": "api.customer-cms.get-tracking-health",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "api.customer-cms.get-workspace": {
@@ -3018,6 +3036,15 @@
       "latestRelatedRelease": "0.19.0",
       "entries": []
     },
+    "api.events.collect-browser-tracking": {
+      "registryId": "api.events.collect-browser-tracking",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
     "api.events.get-correlation-chain": {
       "registryId": "api.events.get-correlation-chain",
       "introducedIn": "0.19.0",
@@ -3052,6 +3079,15 @@
       "deprecatedIn": [],
       "removedIn": [],
       "latestRelatedRelease": "0.19.0",
+      "entries": []
+    },
+    "api.events.ingest-tracking-batch": {
+      "registryId": "api.events.ingest-tracking-batch",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "api.events.list-domain-events": {
@@ -3421,6 +3457,15 @@
       "latestRelatedRelease": "0.19.0",
       "entries": []
     },
+    "api.nextf-admin.get-analytics-report": {
+      "registryId": "api.nextf-admin.get-analytics-report",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
     "api.nextf-admin.get-diagnostics": {
       "registryId": "api.nextf-admin.get-diagnostics",
       "introducedIn": "0.19.0",
@@ -3464,6 +3509,15 @@
       "deprecatedIn": [],
       "removedIn": [],
       "latestRelatedRelease": "0.19.0",
+      "entries": []
+    },
+    "api.nextf-admin.get-tracking-health": {
+      "registryId": "api.nextf-admin.get-tracking-health",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "api.nextf-admin.list-audit": {
@@ -5365,6 +5419,15 @@
       "deprecatedIn": [],
       "removedIn": [],
       "latestRelatedRelease": "1.3.0",
+      "entries": []
+    },
+    "changelog.release.1.4.0": {
+      "registryId": "changelog.release.1.4.0",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "changelog.releaseCollection": {
@@ -11919,6 +11982,42 @@
       "latestRelatedRelease": "1.1.0",
       "entries": []
     },
+    "customerAccess.policy.gaming.catalog": {
+      "registryId": "customerAccess.policy.gaming.catalog",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "customerAccess.policy.gaming.finance": {
+      "registryId": "customerAccess.policy.gaming.finance",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "customerAccess.policy.gaming.orders": {
+      "registryId": "customerAccess.policy.gaming.orders",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "customerAccess.policy.gaming.suppliers": {
+      "registryId": "customerAccess.policy.gaming.suppliers",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
     "customerAccess.policy.integrations.connections": {
       "registryId": "customerAccess.policy.integrations.connections",
       "introducedIn": "1.1.0",
@@ -15771,29 +15870,31 @@
     },
     "manifest.apiBinding": {
       "registryId": "manifest.apiBinding",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.capabilitySelection": {
       "registryId": "manifest.capabilitySelection",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.cms": {
       "registryId": "manifest.cms",
-      "introducedIn": "1.1.0",
-      "changedIn": [],
+      "introducedIn": "1.4.0",
+      "changedIn": [
+        "1.1.0"
+      ],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": [
         {
           "entryId": "chg_v1_1_fail_closed_resolution",
@@ -15805,167 +15906,168 @@
     },
     "manifest.configurationBinding": {
       "registryId": "manifest.configurationBinding",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.configurationExposureKinds": {
       "registryId": "manifest.configurationExposureKinds",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.contentDelivery": {
       "registryId": "manifest.contentDelivery",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.contentDeliveryModes": {
       "registryId": "manifest.contentDeliveryModes",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.contractBinding": {
       "registryId": "manifest.contractBinding",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.environment": {
       "registryId": "manifest.environment",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.environmentKinds": {
       "registryId": "manifest.environmentKinds",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.eventSupport": {
       "registryId": "manifest.eventSupport",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.extensionDeclaration": {
       "registryId": "manifest.extensionDeclaration",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.index": {
       "registryId": "manifest.index",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.integrationSupport": {
       "registryId": "manifest.integrationSupport",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.localization": {
       "registryId": "manifest.localization",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.moduleSelection": {
       "registryId": "manifest.moduleSelection",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.nextfSiteJsonSchema": {
       "registryId": "manifest.nextfSiteJsonSchema",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.runtime": {
       "registryId": "manifest.runtime",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.runtimeCapabilities": {
       "registryId": "manifest.runtimeCapabilities",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.siteDescriptor": {
       "registryId": "manifest.siteDescriptor",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.siteManifest": {
       "registryId": "manifest.siteManifest",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [
         "0.34.0",
-        "1.0.0"
+        "1.0.0",
+        "1.1.0"
       ],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": [
         {
           "entryId": "chg_v1_1_explicit_upgrade",
@@ -15995,13 +16097,13 @@
     },
     "manifest.siteManifestStandard": {
       "registryId": "manifest.siteManifestStandard",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [
         "0.36.0"
       ],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": [
         {
           "entryId": "chg_eb5433226b1587",
@@ -16013,29 +16115,29 @@
     },
     "manifest.siteTypes": {
       "registryId": "manifest.siteTypes",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "manifest.trackingSupport": {
       "registryId": "manifest.trackingSupport",
-      "introducedIn": "1.1.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "1.1.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.adClickIdentifier": {
       "registryId": "marketing.adClickIdentifier",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.analytics.export": {
@@ -16058,29 +16160,38 @@
     },
     "marketing.analyticsConfiguration": {
       "registryId": "marketing.analyticsConfiguration",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.analyticsObservation": {
       "registryId": "marketing.analyticsObservation",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.analyticsReport": {
+      "registryId": "marketing.analyticsReport",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.analyticsSnapshot": {
       "registryId": "marketing.analyticsSnapshot",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.attribution.export": {
@@ -16112,65 +16223,65 @@
     },
     "marketing.attributionCredit": {
       "registryId": "marketing.attributionCredit",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.attributionModel": {
       "registryId": "marketing.attributionModel",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.attributionTouchpoint": {
       "registryId": "marketing.attributionTouchpoint",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.campaignAttribution": {
       "registryId": "marketing.campaignAttribution",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.campaignContext": {
       "registryId": "marketing.campaignContext",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.campaignDefinition": {
       "registryId": "marketing.campaignDefinition",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.campaignPerformanceSnapshot": {
       "registryId": "marketing.campaignPerformanceSnapshot",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.campaigns.create": {
@@ -16247,40 +16358,40 @@
     },
     "marketing.consentCategory": {
       "registryId": "marketing.consentCategory",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.consentPolicy": {
       "registryId": "marketing.consentPolicy",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.consentPreference": {
       "registryId": "marketing.consentPreference",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.consentState": {
       "registryId": "marketing.consentState",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [
         "0.33.0"
       ],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.33.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": [
         {
           "entryId": "chg_2f5873ec7c9747",
@@ -16292,38 +16403,38 @@
     },
     "marketing.conversionAttribution": {
       "registryId": "marketing.conversionAttribution",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.conversionDeduplicationPolicy": {
       "registryId": "marketing.conversionDeduplicationPolicy",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.conversionDefinition": {
       "registryId": "marketing.conversionDefinition",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.conversionOccurrence": {
       "registryId": "marketing.conversionOccurrence",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.conversions.create": {
@@ -16373,38 +16484,38 @@
     },
     "marketing.conversionSummary": {
       "registryId": "marketing.conversionSummary",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.conversionValue": {
       "registryId": "marketing.conversionValue",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.dataLayerConfiguration": {
       "registryId": "marketing.dataLayerConfiguration",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.destinationMapping": {
       "registryId": "marketing.destinationMapping",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.destinations.create": {
@@ -16454,128 +16565,155 @@
     },
     "marketing.deviceContext": {
       "registryId": "marketing.deviceContext",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.dimensionDefinition": {
       "registryId": "marketing.dimensionDefinition",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.dispatchRequest": {
       "registryId": "marketing.dispatchRequest",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.dispatchResult": {
       "registryId": "marketing.dispatchResult",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.eventContext": {
       "registryId": "marketing.eventContext",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.eventDestination": {
       "registryId": "marketing.eventDestination",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.eventPropertyDefinition": {
       "registryId": "marketing.eventPropertyDefinition",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.firstPartyTrackingPlatformStandard": {
+      "registryId": "marketing.firstPartyTrackingPlatformStandard",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.invalidTrafficClassification": {
+      "registryId": "marketing.invalidTrafficClassification",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.marketingDestination": {
       "registryId": "marketing.marketingDestination",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.marketingTrackingContractStandard": {
       "registryId": "marketing.marketingTrackingContractStandard",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.metricDefinition": {
       "registryId": "marketing.metricDefinition",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.pageContext": {
       "registryId": "marketing.pageContext",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.referrerContext": {
       "registryId": "marketing.referrerContext",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.sessionContext": {
       "registryId": "marketing.sessionContext",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.sessionPolicy": {
+      "registryId": "marketing.sessionPolicy",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.standardTrackingEvents": {
       "registryId": "marketing.standardTrackingEvents",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.tracking.edit": {
@@ -16605,24 +16743,42 @@
       "latestRelatedRelease": "0.16.0",
       "entries": []
     },
-    "marketing.trackingConfiguration": {
-      "registryId": "marketing.trackingConfiguration",
-      "introducedIn": "0.10.0",
+    "marketing.trackingCollectorPolicy": {
+      "registryId": "marketing.trackingCollectorPolicy",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.trackingCompatibility": {
+      "registryId": "marketing.trackingCompatibility",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.trackingConfiguration": {
+      "registryId": "marketing.trackingConfiguration",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.trackingConsentRecord": {
       "registryId": "marketing.trackingConsentRecord",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [
         "0.31.0"
       ],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.31.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": [
         {
           "entryId": "chg_71c970cac6b2ba",
@@ -16634,56 +16790,119 @@
     },
     "marketing.trackingDataPolicy": {
       "registryId": "marketing.trackingDataPolicy",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.trackingEvent": {
       "registryId": "marketing.trackingEvent",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.trackingEventDefinition": {
       "registryId": "marketing.trackingEventDefinition",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.trackingHealth": {
+      "registryId": "marketing.trackingHealth",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.trackingIngestionBatch": {
+      "registryId": "marketing.trackingIngestionBatch",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.trackingIngestionItemResult": {
+      "registryId": "marketing.trackingIngestionItemResult",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.trackingIngestionReceipt": {
+      "registryId": "marketing.trackingIngestionReceipt",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.trackingSdkCompatibilityRegistry": {
+      "registryId": "marketing.trackingSdkCompatibilityRegistry",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.trackingSdkDescriptor": {
+      "registryId": "marketing.trackingSdkDescriptor",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.trafficSource": {
       "registryId": "marketing.trafficSource",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.utmParameters": {
       "registryId": "marketing.utmParameters",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "marketing.visitorContext": {
       "registryId": "marketing.visitorContext",
-      "introducedIn": "0.10.0",
+      "introducedIn": "1.4.0",
       "changedIn": [],
       "deprecatedIn": [],
       "removedIn": [],
-      "latestRelatedRelease": "0.10.0",
+      "latestRelatedRelease": "1.4.0",
+      "entries": []
+    },
+    "marketing.visitorIdentityPolicy": {
+      "registryId": "marketing.visitorIdentityPolicy",
+      "introducedIn": "1.4.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "1.4.0",
       "entries": []
     },
     "media.created": {
@@ -20084,6 +20303,69 @@
     },
     "privacy.field.priv_fld_084": {
       "registryId": "privacy.field.priv_fld_084",
+      "introducedIn": "0.31.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "0.31.0",
+      "entries": []
+    },
+    "privacy.field.priv_fld_090": {
+      "registryId": "privacy.field.priv_fld_090",
+      "introducedIn": "0.31.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "0.31.0",
+      "entries": []
+    },
+    "privacy.field.priv_fld_091": {
+      "registryId": "privacy.field.priv_fld_091",
+      "introducedIn": "0.31.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "0.31.0",
+      "entries": []
+    },
+    "privacy.field.priv_fld_092": {
+      "registryId": "privacy.field.priv_fld_092",
+      "introducedIn": "0.31.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "0.31.0",
+      "entries": []
+    },
+    "privacy.field.priv_fld_093": {
+      "registryId": "privacy.field.priv_fld_093",
+      "introducedIn": "0.31.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "0.31.0",
+      "entries": []
+    },
+    "privacy.field.priv_fld_094": {
+      "registryId": "privacy.field.priv_fld_094",
+      "introducedIn": "0.31.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "0.31.0",
+      "entries": []
+    },
+    "privacy.field.priv_fld_095": {
+      "registryId": "privacy.field.priv_fld_095",
+      "introducedIn": "0.31.0",
+      "changedIn": [],
+      "deprecatedIn": [],
+      "removedIn": [],
+      "latestRelatedRelease": "0.31.0",
+      "entries": []
+    },
+    "privacy.field.priv_fld_096": {
+      "registryId": "privacy.field.priv_fld_096",
       "introducedIn": "0.31.0",
       "changedIn": [],
       "deprecatedIn": [],

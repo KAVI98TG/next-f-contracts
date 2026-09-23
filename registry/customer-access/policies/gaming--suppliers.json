@@ -1,0 +1,121 @@
+{
+  "$id": "customerAccess.policy.gaming.suppliers",
+  "name": "Gaming Suppliers Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "gaming.suppliers",
+  "contractRefs": [
+    "gaming.supplierOfferMapping"
+  ],
+  "moduleRef": "gaming",
+  "capabilityRefs": [
+    "gaming.supplier-routing"
+  ],
+  "customerMode": "hidden",
+  "actions": {
+    "read": "deny",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [],
+    "create": [],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.gaming.suppliers#mappingId",
+      "field": "mappingId",
+      "contractFieldRef": "gaming.supplierOfferMapping.mappingId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.suppliers#offerId",
+      "field": "offerId",
+      "contractFieldRef": "gaming.supplierOfferMapping.offerId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.suppliers#supplierRef",
+      "field": "supplierRef",
+      "contractFieldRef": "gaming.supplierOfferMapping.supplierRef",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.suppliers#providerReferences",
+      "field": "providerReferences",
+      "contractFieldRef": "gaming.supplierOfferMapping.providerReferences",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.suppliers#priority",
+      "field": "priority",
+      "contractFieldRef": "gaming.supplierOfferMapping.priority",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.suppliers#enabled",
+      "field": "enabled",
+      "contractFieldRef": "gaming.supplierOfferMapping.enabled",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.suppliers#availability",
+      "field": "availability",
+      "contractFieldRef": "gaming.supplierOfferMapping.availability",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.suppliers#supplierCost",
+      "field": "supplierCost",
+      "contractFieldRef": "gaming.supplierOfferMapping.supplierCost",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.suppliers#supplierCurrency",
+      "field": "supplierCurrency",
+      "contractFieldRef": "gaming.supplierOfferMapping.supplierCurrency",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.suppliers#lastSyncedAt",
+      "field": "lastSyncedAt",
+      "contractFieldRef": "gaming.supplierOfferMapping.lastSyncedAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.suppliers#providerMetadata",
+      "field": "providerMetadata",
+      "contractFieldRef": "gaming.supplierOfferMapping.providerMetadata",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "disabled",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.gaming.suppliers",
+    "adminProfileRef": "adminUi.profile.gaming.suppliers",
+    "approvalContractRef": null
+  },
+  "notes": [
+    "Fail-closed baseline: Gaming Customer CMS access remains hidden until canonical customer-safe APIs and action policy are published."
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "$id": "marketing.sessionPolicy",
+  "name": "Analytics Session Policy",
+  "version": "1.4.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "identity",
+  "description": "Canonical continuation, expiry and approximation policy for analytics sessions.",
+  "purpose": "Canonical continuation, expiry and approximation policy for analytics sessions.",
+  "marketingModel": {
+    "kind": "policy",
+    "customerManaged": true,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "policyId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable policy ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "inactivityTimeoutMinutes",
+      "required": true,
+      "nullable": false,
+      "description": "Inactivity timeout starting a new session.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "maximumDurationMinutes",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum bounded session duration.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "newCampaignStartsSession",
+      "required": true,
+      "nullable": false,
+      "description": "Whether a new eligible campaign starts a session.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "endMode",
+      "required": true,
+      "nullable": false,
+      "description": "Session end semantics.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "inactivity-approximation",
+          "explicit-server",
+          "hybrid"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Policy is Site scoped."
+    },
+    {
+      "type": "governs",
+      "target": "marketing.sessionContext",
+      "description": "Defines session boundary behavior."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "notAuthentication",
+      "description": "Analytics sessions never authorize application access."
+    },
+    {
+      "id": "bounded",
+      "description": "Timeout and maximum duration must be bounded by collector policy."
+    }
+  ],
+  "cms": {
+    "label": "Analytics Session Policy",
+    "icon": "fa-chart-line",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "policyId",
+      "scope",
+      "inactivityTimeoutMinutes",
+      "maximumDurationMinutes"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Delivered only through the declared scoped API projection."
+  },
+  "futureBindings": {
+    "modules": "phase-41",
+    "api": "phase-41",
+    "permissions": "phase-15",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

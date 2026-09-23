@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "phase": 38,
   "title": "Registry Health",
   "standard": "standards/44-registry-health-release-candidate-standard.md",
@@ -9,12 +9,12 @@
   "checkSchema": "registry/qa/check.schema.json",
   "counts": {
     "checks": 41,
-    "findings": 6,
-    "blockingFailures": 4,
-    "registryItems": 2504,
-    "searchDocuments": 8216,
-    "relationshipNodes": 2504,
-    "relationshipEdges": 9110,
-    "customerAccessPolicies": 75
+    "findings": 3,
+    "blockingFailures": 0,
+    "registryItems": 2503,
+    "searchDocuments": 8386,
+    "relationshipNodes": 2503,
+    "relationshipEdges": 9169,
+    "customerAccessPolicies": 79
   }
 }

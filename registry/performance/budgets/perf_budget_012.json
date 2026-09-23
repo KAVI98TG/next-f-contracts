@@ -15,7 +15,7 @@
   "environment": "Hosted runtime",
   "notes": "Contract Portal core operation must not depend on blocking external scripts.",
   "relatedRegistryIds": [],
-  "version": "1.3.0",
+  "version": "1.4.0",
   "status": "stable",
   "phase": 32,
   "sourceReference": "registry/performance/budgets/perf_budget_012.json"

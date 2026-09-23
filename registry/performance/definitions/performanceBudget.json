@@ -1,7 +1,7 @@
 {
   "$id": "performance.performanceBudget",
   "name": "Performance Budget",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "status": "stable",
   "domain": "performance",
   "description": "Machine-readable target/warning threshold for one performance metric."

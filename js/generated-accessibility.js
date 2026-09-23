@@ -1,9 +1,9 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source set: registry/accessibility/*
 export const GENERATED_ACCESSIBILITY = {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "index": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Accessibility Control Registry",
     "description": "Machine-readable accessibility standards for customer websites, Customer CMS, NEXT F Admin and the Contract Portal.",
@@ -129,7 +129,7 @@ export const GENERATED_ACCESSIBILITY = {
         ],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_admin_001.json"
@@ -164,7 +164,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_aria_001.json"
@@ -197,7 +197,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_auth_001.json"
@@ -245,7 +245,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_author_001.json"
@@ -276,7 +276,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_chart_001.json"
@@ -312,7 +312,7 @@ export const GENERATED_ACCESSIBILITY = {
         ],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_checkout_001.json"
@@ -353,7 +353,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_cms_001.json"
@@ -385,7 +385,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_code_001.json"
@@ -421,7 +421,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_color_001.json"
@@ -456,7 +456,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_contrast_001.json"
@@ -488,7 +488,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_copy_001.json"
@@ -522,7 +522,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_dlg_001.json"
@@ -553,7 +553,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_drag_001.json"
@@ -586,7 +586,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_drawer_001.json"
@@ -620,7 +620,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_filter_001.json"
@@ -659,7 +659,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_focus_001.json"
@@ -693,7 +693,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_focus_002.json"
@@ -737,7 +737,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_form_001.json"
@@ -773,7 +773,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_form_002.json"
@@ -809,7 +809,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_form_003.json"
@@ -844,7 +844,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_form_004.json"
@@ -884,7 +884,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_head_001.json"
@@ -922,7 +922,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_heading_002.json"
@@ -957,7 +957,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_icon_001.json"
@@ -998,7 +998,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_img_001.json"
@@ -1037,7 +1037,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_kbd_001.json"
@@ -1069,7 +1069,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_land_001.json"
@@ -1101,7 +1101,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_live_001.json"
@@ -1136,7 +1136,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_load_001.json"
@@ -1171,7 +1171,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_media_001.json"
@@ -1204,7 +1204,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_media_002.json"
@@ -1236,7 +1236,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_menu_001.json"
@@ -1273,7 +1273,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_mobile_001.json"
@@ -1307,7 +1307,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_motion_001.json"
@@ -1346,7 +1346,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_name_001.json"
@@ -1379,7 +1379,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_nav_001.json"
@@ -1413,7 +1413,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_palette_001.json"
@@ -1449,7 +1449,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_reflow_001.json"
@@ -1485,7 +1485,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_rte_001.json"
@@ -1520,7 +1520,7 @@ export const GENERATED_ACCESSIBILITY = {
         ],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_sem_001.json"
@@ -1552,7 +1552,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_skip_001.json"
@@ -1588,7 +1588,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_status_001.json"
@@ -1620,7 +1620,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_table_001.json"
@@ -1654,7 +1654,7 @@ export const GENERATED_ACCESSIBILITY = {
         "relatedRegistryIds": [],
         "manualReviewRequired": true,
         "subrequirements": [],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "status": "stable",
         "phase": 31,
         "sourceReference": "registry/accessibility/controls/acc_touch_001.json"
@@ -1713,7 +1713,7 @@ export const GENERATED_ACCESSIBILITY = {
       ],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_admin_001.json"
@@ -1748,7 +1748,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_aria_001.json"
@@ -1781,7 +1781,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_auth_001.json"
@@ -1829,7 +1829,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_author_001.json"
@@ -1860,7 +1860,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_chart_001.json"
@@ -1896,7 +1896,7 @@ export const GENERATED_ACCESSIBILITY = {
       ],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_checkout_001.json"
@@ -1937,7 +1937,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_cms_001.json"
@@ -1969,7 +1969,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_code_001.json"
@@ -2005,7 +2005,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_color_001.json"
@@ -2040,7 +2040,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_contrast_001.json"
@@ -2072,7 +2072,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_copy_001.json"
@@ -2106,7 +2106,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_dlg_001.json"
@@ -2137,7 +2137,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_drag_001.json"
@@ -2170,7 +2170,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_drawer_001.json"
@@ -2204,7 +2204,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_filter_001.json"
@@ -2243,7 +2243,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_focus_001.json"
@@ -2277,7 +2277,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_focus_002.json"
@@ -2321,7 +2321,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_form_001.json"
@@ -2357,7 +2357,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_form_002.json"
@@ -2393,7 +2393,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_form_003.json"
@@ -2428,7 +2428,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_form_004.json"
@@ -2468,7 +2468,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_head_001.json"
@@ -2506,7 +2506,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_heading_002.json"
@@ -2541,7 +2541,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_icon_001.json"
@@ -2582,7 +2582,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_img_001.json"
@@ -2621,7 +2621,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_kbd_001.json"
@@ -2653,7 +2653,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_land_001.json"
@@ -2685,7 +2685,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_live_001.json"
@@ -2720,7 +2720,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_load_001.json"
@@ -2755,7 +2755,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_media_001.json"
@@ -2788,7 +2788,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_media_002.json"
@@ -2820,7 +2820,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_menu_001.json"
@@ -2857,7 +2857,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_mobile_001.json"
@@ -2891,7 +2891,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_motion_001.json"
@@ -2930,7 +2930,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_name_001.json"
@@ -2963,7 +2963,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_nav_001.json"
@@ -2997,7 +2997,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_palette_001.json"
@@ -3033,7 +3033,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_reflow_001.json"
@@ -3069,7 +3069,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_rte_001.json"
@@ -3104,7 +3104,7 @@ export const GENERATED_ACCESSIBILITY = {
       ],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_sem_001.json"
@@ -3136,7 +3136,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_skip_001.json"
@@ -3172,7 +3172,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_status_001.json"
@@ -3204,7 +3204,7 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_table_001.json"
@@ -3238,14 +3238,14 @@ export const GENERATED_ACCESSIBILITY = {
       "relatedRegistryIds": [],
       "manualReviewRequired": true,
       "subrequirements": [],
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "sourceReference": "registry/accessibility/controls/acc_touch_001.json"
     }
   ],
   "categories": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "categories": [
       {
         "id": "structure",
@@ -3320,7 +3320,7 @@ export const GENERATED_ACCESSIBILITY = {
     ]
   },
   "uiTypes": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "types": [
       {
         "id": "page",
@@ -3405,7 +3405,7 @@ export const GENERATED_ACCESSIBILITY = {
     ]
   },
   "verificationMethods": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "methods": [
       {
         "id": "automated-static",
@@ -3450,7 +3450,7 @@ export const GENERATED_ACCESSIBILITY = {
     ]
   },
   "severityLevels": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "title": "Security Violation Severity",
     "description": "Security impact severity only; this vocabulary is distinct from compatibility impact.",
     "levels": [
@@ -3482,7 +3482,7 @@ export const GENERATED_ACCESSIBILITY = {
     ]
   },
   "surfaceMapping": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "surfaces": [
       {
         "surfaceId": "public-site",
@@ -3680,7 +3680,7 @@ export const GENERATED_ACCESSIBILITY = {
     ]
   },
   "portalChecklist": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "checks": [
       {
         "checkId": "PORTAL-A11Y-001",
@@ -3781,7 +3781,7 @@ export const GENERATED_ACCESSIBILITY = {
     ]
   },
   "portalAudit": {
-    "registryVersion": "1.3.0",
+    "registryVersion": "1.4.0",
     "auditVersion": "1.0.0",
     "scope": "contract.nextf.lk",
     "overallStatus": "pass",
@@ -3925,7 +3925,7 @@ export const GENERATED_ACCESSIBILITY = {
     {
       "$id": "accessibility.accessibilityControl",
       "name": "Accessibility Control",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "description": "Machine-readable accessibility requirement with applicability, affected UI types, verification and cross-registry bindings.",
@@ -3939,7 +3939,7 @@ export const GENERATED_ACCESSIBILITY = {
     {
       "$id": "accessibility.portalAuditCheck",
       "name": "Portal Accessibility Audit Check",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "description": "Auditable baseline requirement and evidence for contract.nextf.lk accessibility review.",
@@ -3953,7 +3953,7 @@ export const GENERATED_ACCESSIBILITY = {
     {
       "$id": "accessibility.surfaceMappingDefinition",
       "name": "Accessibility Surface Mapping",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "description": "Accessibility-control applicability across NEXT F platform surfaces.",
@@ -3967,7 +3967,7 @@ export const GENERATED_ACCESSIBILITY = {
     {
       "$id": "accessibility.uiType",
       "name": "Accessibility UI Type",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "description": "Controlled UI/component type used to scope accessibility controls.",
@@ -3981,7 +3981,7 @@ export const GENERATED_ACCESSIBILITY = {
     {
       "$id": "accessibility.verificationMethod",
       "name": "Accessibility Verification Method",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "status": "stable",
       "phase": 31,
       "description": "Controlled method for automated or manual accessibility verification.",
@@ -3994,62 +3994,62 @@ export const GENERATED_ACCESSIBILITY = {
     }
   ],
   "sourceHashes": {
-    "registry/accessibility/index.json": "e454ea0e976f3511498890cbc519027ec9374a2c255104b851dcc38506169540",
-    "registry/accessibility/categories.json": "791383987a9fbdcc53921c31b17ef2bd4125c8fb4bf163acf431867cd246ae08",
-    "registry/accessibility/ui-types.json": "058e60ff1f7b51b44df2b47534fc8da420edf992a89e08b108ba0b2b8327eeeb",
-    "registry/accessibility/verification-methods.json": "09011282362631767834a4836d058402c4982ce043fc987025103e9666865f29",
-    "registry/accessibility/surface-mapping.json": "4ac164753987e84d2f6485f3425221a97cc91480bf5758c33479513a73ddd67a",
-    "registry/accessibility/portal-checklist.json": "994f89f4f5780cb554d30f3e6e96940f4e854bad8e3f072fcd6670da29a4e692",
+    "registry/accessibility/index.json": "e3c3a58704bb17aaa5c8eadd709369af385fe5fc67e5531938c6401b4685a1e5",
+    "registry/accessibility/categories.json": "110d06c99cb8b1d197ec353d25b228febf4fbc83b0bdbb26589a7a253044c24c",
+    "registry/accessibility/ui-types.json": "edf0727ff447e0abddfa688148e2952c3c3ea76bff836f65643d4fdf1c40b6fd",
+    "registry/accessibility/verification-methods.json": "8e11ffd101d1908b81e8ca520b5208630b3a94e5c2bcf5c8abfebdb96a28686e",
+    "registry/accessibility/surface-mapping.json": "53d3c8fa265834321f9e990fe9356280f6d93f0a37dc05c7385ae79470fbf8a2",
+    "registry/accessibility/portal-checklist.json": "1c367c3565f72b9adb81f731e28b6b35d3a514fda550b04a82838b0ab307c580",
     "registry/accessibility/accessibility-control.schema.json": "f365ae35df659bd98f1570a22a9586f691880ed15cbd7ef412f251ad6a811c2e",
-    "registry/accessibility/controls/acc_admin_001.json": "c1b5114f0b56b1c2dbf8220bfc733c0937b54bd0a21ce1468a55bd072a66eb6d",
-    "registry/accessibility/controls/acc_aria_001.json": "5b349b7aa4d7823f101a504a6c5801c9fa489e7d57b6ced6da008fd6a21f1351",
-    "registry/accessibility/controls/acc_auth_001.json": "a4b8c525403d21c4e96a0785837176da88dbc7a15752ac48a2a0d9f0ea8469e4",
-    "registry/accessibility/controls/acc_author_001.json": "e4921533c2a296c245688c3c544ffb0d8958b245fd74316b5a36f37b316b2a60",
-    "registry/accessibility/controls/acc_chart_001.json": "e28d051ec1039e3f901de29e3c3ad54105fa3638d7858ae861c5fc7332e242e6",
-    "registry/accessibility/controls/acc_checkout_001.json": "9e55389e773e2f3b4fa1da5fbebfaf8830bbb694ad224fd4dba66af3187b29f2",
-    "registry/accessibility/controls/acc_cms_001.json": "9bf21b2354b7fbb8fb3257055d737a3a3387d9ed98cbd3872afd4e9ebb8ed6e1",
-    "registry/accessibility/controls/acc_code_001.json": "2fe852a8acbff911aef0b4d96c2f4cd1ea3c1f7efa015c2cb57570dad4d0d472",
-    "registry/accessibility/controls/acc_color_001.json": "71042e0120e29c603e94fb1c6dce1abfb3d7420184223cc78c48e918c70e1d2c",
-    "registry/accessibility/controls/acc_contrast_001.json": "92b0575b9c654046281b4405f9038b31ab2273468d4464470621dde4e93bb7c6",
-    "registry/accessibility/controls/acc_copy_001.json": "089652841e9fa44db995e35e485db04e705f8037e3573244615d075a7ca1e27e",
-    "registry/accessibility/controls/acc_dlg_001.json": "2cbe81b991ed3b8651d80a04953a9321d82c8fcfbc8ccd2fa9695255d71f24d1",
-    "registry/accessibility/controls/acc_drag_001.json": "34ccff4720a5c7d84a77cb9f57775d0f96227e221028624d39f34dcbf70ebdca",
-    "registry/accessibility/controls/acc_drawer_001.json": "49ab6da0525e21135ed8e6aa36902a4f580de673acdb678760add3de3425a3fc",
-    "registry/accessibility/controls/acc_filter_001.json": "2a1b8fa83f9c9ab08c0a4db11d736cc5349f2c6fd80fe4f2929522913f1dbd7e",
-    "registry/accessibility/controls/acc_focus_001.json": "ce0d58ba1c8d82991dcb861f21d0c0e22fb27610bb147a71dd8dc4ee4ab40b02",
-    "registry/accessibility/controls/acc_focus_002.json": "f1c2f2eef82ab01c4bf57cb1b393c29483a92adbfa7e962c0d7de441640edbf9",
-    "registry/accessibility/controls/acc_form_001.json": "c79408750fd55bfd26ed86cbc3e5b0e049c59f542879273f4aaf27c0467f271d",
-    "registry/accessibility/controls/acc_form_002.json": "00c03048c6bba89e07251310940cd4c2e4348b3ddd7cc8d69b6f96382ffd77ff",
-    "registry/accessibility/controls/acc_form_003.json": "2090f4923ba8ecee0aa996a20166d6c0126657888e5be0cff3af017f61d793a1",
-    "registry/accessibility/controls/acc_form_004.json": "8648047e5e95059bbb9f70a5c8277cc6385946dada88488db6b5dbbb8778d7ef",
-    "registry/accessibility/controls/acc_head_001.json": "738d6d9ab5906ae50d8b59fe90d8ab8ee809b1d564155699432e696e4601505b",
-    "registry/accessibility/controls/acc_heading_002.json": "3442ed0363907735435d842101d714aca0aabe30262b5e1640d04b464604206e",
-    "registry/accessibility/controls/acc_icon_001.json": "382ab98ec96c06228f0ecee28eaaa620d08c93c99a7abe2ed59dbe8f41c554b5",
-    "registry/accessibility/controls/acc_img_001.json": "e62647b8d9bdee423e28e15005f33cea062f129e63ec46cdcb0aabd32ef483c0",
-    "registry/accessibility/controls/acc_kbd_001.json": "3bbbb194d51759ad9a9d55c98b373ae683ca55cbbd81baade8230c2e136c9462",
-    "registry/accessibility/controls/acc_land_001.json": "5ae71ac3c1ab69d819eda353ddc510f1bdadee1ec12b2ed5bde1b62531054c33",
-    "registry/accessibility/controls/acc_live_001.json": "57811b69a866aa7b6fc33dc239d592143524ec6df8c41d22f3164d2a8fe7be4a",
-    "registry/accessibility/controls/acc_load_001.json": "ecb51b7420d746957c62a456572034b518225c408084c7955ce1d2ad384739a3",
-    "registry/accessibility/controls/acc_media_001.json": "b64150d60afc985852c8ccafa45209daf64ba7b579b8184194bec45e02257a32",
-    "registry/accessibility/controls/acc_media_002.json": "e3826258d262003cee39506ce6035a3257e203fde33699920d441c4cee71e899",
-    "registry/accessibility/controls/acc_menu_001.json": "68f24ac2537694497b9281aace48e0186be6670afd6b2b63a5c978f4a07286af",
-    "registry/accessibility/controls/acc_mobile_001.json": "883698894fc980526339ae1241429c565204e8c2cfbd8ad7593bbdcca90ca06c",
-    "registry/accessibility/controls/acc_motion_001.json": "0b73561948966cb27573e16656885b2caa12abdfc3068d09c876d4d934a3116f",
-    "registry/accessibility/controls/acc_name_001.json": "e47aa7bf6f341dd1d9745a29dd1eb82a5d4094f352e85a0700c5285b20f05c7a",
-    "registry/accessibility/controls/acc_nav_001.json": "100777c8f5660090696307ee50120772f4720b86df22248101be2331ea530562",
-    "registry/accessibility/controls/acc_palette_001.json": "19cee1763fb87c76c9fe89c30b30b5fae730757687eeb7a0613af0c416635c06",
-    "registry/accessibility/controls/acc_reflow_001.json": "279f6223f89624045b8f3ac66c473f65dedbf22b78709affd5298d1eea1aed1f",
-    "registry/accessibility/controls/acc_rte_001.json": "9d7ae9febc65649bae3c00d6688e1210fa220f020cd86b411a78d3eb95dab004",
-    "registry/accessibility/controls/acc_sem_001.json": "2e4f0475dcc1e1af4cbc44f0b1022e2d27790e580d6d62372219990f03eea00b",
-    "registry/accessibility/controls/acc_skip_001.json": "caa0aa373f280c7289c7376222b733c39902beb43f919b5e21cf1804824d09d1",
-    "registry/accessibility/controls/acc_status_001.json": "f399631f1ceb86039cf8252221d718e94477670aee4a8bb55af3d443da6c6bd2",
-    "registry/accessibility/controls/acc_table_001.json": "02073b3501ecd615d016a0b0841e1daf8f952db26627ce4ff03fb7a38ec4b3dc",
-    "registry/accessibility/controls/acc_touch_001.json": "f43e84aeed662f2f015ca76b41664921f8754bed6c9160598d04f819ade5f588",
-    "registry/accessibility/definitions/accessibilityControl.json": "37ae1a2b64ac4c3cf6545f614b214741d7a890af80d2f30f4d015ddb389f5428",
-    "registry/accessibility/definitions/portalAuditCheck.json": "cbd52abcedb8c286c0279a5d6d47ed6a6c0f5daa91d62d0537a8df639b9d5305",
-    "registry/accessibility/definitions/surfaceMapping.json": "d82c17154d33b8fab87508deeb0a486d952fc9dbaebb19f2451e5a18216b56ef",
-    "registry/accessibility/definitions/uiType.json": "15b3b8c8972f391c3267dcac7b4320792a349f3b63899f67c9d93ee5c9fb8e80",
-    "registry/accessibility/definitions/verificationMethod.json": "5be00421e14afc944b4d1306fc553f0f5baa4a0731ff1d6e509de9f8a85c5c82",
-    "registry/accessibility/portal-audit.json": "bfa892103b0eaf72c43ac7bf02853edd91182591ce2a3299d67b5690ce8ac2fd"
+    "registry/accessibility/controls/acc_admin_001.json": "6c11f3758bc35308ddac3a945f7ebd0c92daf4f55d1f1a46ff74f5962bc8a144",
+    "registry/accessibility/controls/acc_aria_001.json": "b878ac013515ea2459584bf40f684f62f49acf0ec911361427def7fce4021306",
+    "registry/accessibility/controls/acc_auth_001.json": "7ea0511d98b78eba637fb6c9b34668efe720cf9d90667157cb288f64aee5f0f5",
+    "registry/accessibility/controls/acc_author_001.json": "5ecfb93c7895599328a24fe645cd30b86bd844dae2c5533c01f6f20becbff7b4",
+    "registry/accessibility/controls/acc_chart_001.json": "f8171a2b33b39089b0a91ea137af781788605a1b64ad184779f96abdb5097e7d",
+    "registry/accessibility/controls/acc_checkout_001.json": "974383a075c79d5d4592cc60a03812156373d742a7ee36d0f55b5b35942606b1",
+    "registry/accessibility/controls/acc_cms_001.json": "7f24ac2e012786bb26fdb78f008a144f1b52b0f0ecba477927678b91731ebb4b",
+    "registry/accessibility/controls/acc_code_001.json": "457e1f087f54ff7dfcfad757dcb540bc531bc6cc49e77fc69cfcd189d8881beb",
+    "registry/accessibility/controls/acc_color_001.json": "f2f7ea9383f458e19e79fa221c66c72bfb388a949d763a0f2024b5e0b82acf78",
+    "registry/accessibility/controls/acc_contrast_001.json": "1e78285fb55c86297ad0586afd6efd1c2a7aae61dcbb394ba49b2a4b44016f35",
+    "registry/accessibility/controls/acc_copy_001.json": "10c53334f06374daaf18bd475806eab33e0ded494489f9b9575e4eb144e44261",
+    "registry/accessibility/controls/acc_dlg_001.json": "9561e06b012bc0916a948c6d9651481c046a0e31ddca3f86bc210f5b51582f95",
+    "registry/accessibility/controls/acc_drag_001.json": "4d2d7640bebff0ee97eeba4821aac3352cd38f3bb90bcd6be8517721e74fe266",
+    "registry/accessibility/controls/acc_drawer_001.json": "cb8a48e6dd2103d266595fe72dbfc649505e1981a893bf9ef94a5237daa47bc0",
+    "registry/accessibility/controls/acc_filter_001.json": "aa70f9e36b0699cdca333aadd52ca1c9d043d8654fc4f598c0bd1887a64cf04a",
+    "registry/accessibility/controls/acc_focus_001.json": "19d0cb737ae28447b04230521315ba0f9532e575cb31064703dd83a2c0226fe4",
+    "registry/accessibility/controls/acc_focus_002.json": "01e1246279b76252b141896631b35d922aafa221521e4ccbdfddbfcdcac8080e",
+    "registry/accessibility/controls/acc_form_001.json": "5ff8bdf6268862db34a2e3edb4d905646a6ef691bd8a26462db4a487dd57b6a9",
+    "registry/accessibility/controls/acc_form_002.json": "e4068cce9ae250c28842c7360297ff9e78a75e581d51ad121a1afc5d8a43a330",
+    "registry/accessibility/controls/acc_form_003.json": "1f13253190364ac8c7d8c21b4d742e5928548253419089b1992d9b348e1465f6",
+    "registry/accessibility/controls/acc_form_004.json": "4b3cc388e0f101f3c779bbc7cab5ac7c46df8aa187d2f6cce7f7d34f6e366f5e",
+    "registry/accessibility/controls/acc_head_001.json": "2c603637ec9e82a59d5008afbbe4e8bf67738f23d161e3a9be55246eabbabc71",
+    "registry/accessibility/controls/acc_heading_002.json": "4d71d4b10c4b5ecc6334f6d85f54e168979f210a33d2f86be3089a64d46c8b69",
+    "registry/accessibility/controls/acc_icon_001.json": "66be416c2c3cbca282fca9128b8fe98a75a2b5275e537ca50d94a56270469046",
+    "registry/accessibility/controls/acc_img_001.json": "ef960f24f21ce74683a88ae08878dd144e05a76349844c6b74e493a0c99a3728",
+    "registry/accessibility/controls/acc_kbd_001.json": "28e0cf54b10fea64a8302d52e47340e68d501ce9264ca78313cc20b36053ef11",
+    "registry/accessibility/controls/acc_land_001.json": "2c9b4c5b2e9b8d835a530e6d38fc9ab3ad6a97697599cd918765b451c60616af",
+    "registry/accessibility/controls/acc_live_001.json": "88c0365acb60ad5274255b511d7e731ae9d43a7830a7ac5205086c5c05dbdfc4",
+    "registry/accessibility/controls/acc_load_001.json": "30281bff4c986bcc98a8a270292545d2f76d7a18740d73c48e319e19f142b6d1",
+    "registry/accessibility/controls/acc_media_001.json": "376a237c644105255e6da2599426f260648da5f05bf58e0f46eaae3f1fa3e3e5",
+    "registry/accessibility/controls/acc_media_002.json": "89af6f4ebc37f56ad108ca3ec8d6e26a4736c0c15acee1b59e34b027f9c8c12a",
+    "registry/accessibility/controls/acc_menu_001.json": "9c102c8a1a3b0ee5d5ddac52e8519aa17c3c84f8cda6a1d57eab90c03f9634fc",
+    "registry/accessibility/controls/acc_mobile_001.json": "a8eae13e3713bb7414830d9a539b920156844318a7e181b679c2c86466710e2a",
+    "registry/accessibility/controls/acc_motion_001.json": "b8f495609c1bce22417637f52f4abbe0684c84bff8dced7fab1cf6029ab49a7e",
+    "registry/accessibility/controls/acc_name_001.json": "753e489ddbe3af31e4df0998ccd8a8b9c8236f64a857befe8ab7212bdb4164cd",
+    "registry/accessibility/controls/acc_nav_001.json": "226611b943913e9a5ce1f1ed37fb0a4691d890a243561d6efafebbb385621cc2",
+    "registry/accessibility/controls/acc_palette_001.json": "8f5f5622a26b42b491eea3aab4a078c8518b96e619e8e23fc238d30ec6dc25ae",
+    "registry/accessibility/controls/acc_reflow_001.json": "8ae8dba6ff611baf7bd2cefbfea050ccbac2dd0f7120406b348516e80a45062e",
+    "registry/accessibility/controls/acc_rte_001.json": "df74ddc8293c2b5e633cdd9e2ff9737d0be79924b7f7eb572b3397292a37e3d8",
+    "registry/accessibility/controls/acc_sem_001.json": "b3af1e8b9291848323458cb105592fb13bd527b9d96169f7a9033fa031014ade",
+    "registry/accessibility/controls/acc_skip_001.json": "9db9d92e6e7c37e92efd61f13a4be5b1593de91faee02ee9b5d6391030ed7b23",
+    "registry/accessibility/controls/acc_status_001.json": "8b2293fc1bee2643b6d32f84b730ebb0010cc84e809f91f1f01d65ab9cc0a7c5",
+    "registry/accessibility/controls/acc_table_001.json": "3135bdc654e7d24f85fa166acd08882e72ef6f936199645a8979a202d0f3665e",
+    "registry/accessibility/controls/acc_touch_001.json": "3a78656d1f28268c935e6da84793bc15621e8c9fcf169539d22639cc440ed233",
+    "registry/accessibility/definitions/accessibilityControl.json": "36fa9f944064ca2983cb699bcccb319a6e27d6e5b4a905d0248c914d2982d923",
+    "registry/accessibility/definitions/portalAuditCheck.json": "bcf0c4e3b6275076ca8b4572cf973faaa9f7d08999873875fe1a9ba96b1f9884",
+    "registry/accessibility/definitions/surfaceMapping.json": "054735ea2b3c36f0ed8fde3e295b2b89fe0bdf6c7fd8df837c5213aeea54854f",
+    "registry/accessibility/definitions/uiType.json": "5b53f9f75f7493ccf15594580fba6dbddc4cbdefa32a74094411a7937e58ec6d",
+    "registry/accessibility/definitions/verificationMethod.json": "5381eb40c05ba7a1025619326af4155481f032f5eee656d37df7cf5838a27af8",
+    "registry/accessibility/portal-audit.json": "fb6ad0a290bd53be3b778836d63888f01fe8cfb79c2885e7c710241240fe60f4"
   }
 };

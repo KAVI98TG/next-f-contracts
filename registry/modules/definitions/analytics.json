@@ -2,7 +2,7 @@
   "$id": "modules.analytics",
   "moduleId": "analytics",
   "name": "Analytics",
-  "version": "0.18.0",
+  "version": "1.4.0",
   "status": "stable",
   "category": "growth",
   "icon": "fa-chart-line",
@@ -37,7 +37,10 @@
     "analytics.measurement",
     "analytics.reporting",
     "analytics.attribution",
-    "analytics.campaign-performance"
+    "analytics.campaign-performance",
+    "analytics.first-party-collection",
+    "analytics.tracking-sdk",
+    "analytics.tracking-health"
   ],
   "defaultCapabilityIds": [
     "analytics.measurement",
@@ -54,7 +57,18 @@
     "marketing.campaignPerformanceSnapshot",
     "marketing.conversionAttribution",
     "marketing.dimensionDefinition",
-    "marketing.metricDefinition"
+    "marketing.metricDefinition",
+    "marketing.visitorIdentityPolicy",
+    "marketing.sessionPolicy",
+    "marketing.trackingSdkDescriptor",
+    "marketing.trackingCompatibility",
+    "marketing.trackingCollectorPolicy",
+    "marketing.trackingIngestionBatch",
+    "marketing.trackingIngestionItemResult",
+    "marketing.trackingIngestionReceipt",
+    "marketing.invalidTrafficClassification",
+    "marketing.analyticsReport",
+    "marketing.trackingHealth"
   ],
   "permissionBindings": [
     "marketing.analytics.export",

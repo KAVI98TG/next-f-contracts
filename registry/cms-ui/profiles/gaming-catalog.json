@@ -334,5 +334,37 @@
   "notes": [
     "UI visibility is never authorization; protected actions require canonical Gaming permissions."
   ],
-  "customerAccessPolicyRef": null
+  "customerAccessPolicyRef": "customerAccess.policy.gaming.catalog",
+  "effectiveCustomerAccess": {
+    "policyVersion": "1.1.0",
+    "mode": "hidden",
+    "publishingMode": "not_applicable",
+    "actions": {
+      "read": "deny",
+      "create": "deny",
+      "update": "deny",
+      "delete": "deny",
+      "submit_for_review": "deny",
+      "publish": "deny",
+      "unpublish": "deny",
+      "restore_version": "deny"
+    },
+    "permissionRefs": {
+      "read": [],
+      "create": [],
+      "update": [],
+      "delete": [],
+      "submit_for_review": [],
+      "publish": [],
+      "unpublish": [],
+      "restore_version": []
+    },
+    "capabilityRefs": [
+      "gaming.catalog"
+    ],
+    "demoMode": "disabled",
+    "approvalRequired": false,
+    "hiddenFromCustomerDiscovery": true,
+    "unavailableReason": "Customer-safe Gaming APIs and action policy are not published."
+  }
 }

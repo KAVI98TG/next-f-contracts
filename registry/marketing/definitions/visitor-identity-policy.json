@@ -1,0 +1,138 @@
+{
+  "$id": "marketing.visitorIdentityPolicy",
+  "name": "Visitor Identity Policy",
+  "version": "1.4.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "identity",
+  "description": "Site-scoped lifecycle policy for random first-party anonymous visitor identifiers.",
+  "purpose": "Site-scoped lifecycle policy for random first-party anonymous visitor identifiers.",
+  "marketingModel": {
+    "kind": "policy",
+    "customerManaged": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "policyId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable policy ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "enabled",
+      "required": true,
+      "nullable": false,
+      "description": "Whether anonymous visitor continuity is enabled.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "storageMode",
+      "required": true,
+      "nullable": false,
+      "description": "Approved first-party storage mode.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "none",
+          "memory",
+          "first-party-cookie",
+          "first-party-storage"
+        ]
+      }
+    },
+    {
+      "key": "lifetimeDays",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum identifier lifetime in days.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "rotationDays",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum rotation interval in days.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "resetOnConsentWithdrawal",
+      "required": true,
+      "nullable": false,
+      "description": "Whether withdrawal clears the identifier.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "crossSiteLinking",
+      "required": true,
+      "nullable": false,
+      "description": "Must remain false in V1.4.0.",
+      "primitive": "fields.boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Identity is tenant and Site scoped."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "randomOnly",
+      "description": "Identifiers are random and never derived from fingerprinting."
+    },
+    {
+      "id": "noCrossCustomerGraph",
+      "description": "crossSiteLinking must be false in V1.4.0."
+    },
+    {
+      "id": "consentBound",
+      "description": "Optional persistent identity requires applicable consent."
+    }
+  ],
+  "cms": {
+    "label": "Visitor Identity Policy",
+    "icon": "fa-chart-line",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "policyId",
+      "scope",
+      "enabled",
+      "storageMode"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Delivered only through the declared scoped API projection."
+  },
+  "futureBindings": {
+    "modules": "phase-41",
+    "api": "phase-41",
+    "permissions": "phase-15",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

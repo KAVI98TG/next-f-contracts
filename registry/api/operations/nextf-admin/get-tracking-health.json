@@ -1,0 +1,75 @@
+{
+  "$id": "api.nextf-admin.get-tracking-health",
+  "operationId": "api.nextf-admin.get-tracking-health",
+  "name": "Get Site Tracking Health",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.nextf-admin",
+  "method": "GET",
+  "path": "/sites/{siteId}/analytics/tracking-health",
+  "description": "Get Site Tracking Health",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "platform.diagnostics.view"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [
+      "environment?"
+    ],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "marketing.trackingHealth",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "validation_failed",
+      "rate_limited",
+      "module_disabled"
+    ],
+    "projection": "workspace-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "admin-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "consent",
+    "analytics",
+    "marketing"
+  ],
+  "contractBindings": [
+    "marketing.trackingHealth"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "internal",
+  "notes": []
+}

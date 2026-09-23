@@ -482,3 +482,15 @@ Before claiming V1 release integrity, run `npm run validate:phase37`, `npm run s
 - Do not remotely disable installed plugin functionality when annual update/support access expires.
 - Never expose raw license keys, download tokens, signing keys, provider secrets or private R2 credentials.
 - License/update requests must not contain WordPress content or unrelated visitor analytics.
+
+
+## Phase 41 first-party tracking rules
+
+- Reuse `marketing.trackingEvent`; never create a parallel observation envelope.
+- Browser collection uses public Site identity plus exact origin, rate, payload, consent and abuse controls; never expose a collector secret.
+- Tracking Observations never assert authoritative Orders, Payments, Refunds, Leads or other Domain Events.
+- Anonymous visitor/session IDs are random, Site-scoped and never fingerprints or cross-customer identity.
+- Keep non-production observations isolated from production reporting.
+- Tracking failures never block rendering, navigation, forms or checkout.
+- Customer health/reporting surfaces expose bounded authorized aggregates, not raw payloads or infrastructure secrets.
+- Resolve Contract/SDK/collector compatibility explicitly and report unknown/runtime-not-implemented truthfully.

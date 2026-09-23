@@ -1,0 +1,127 @@
+{
+  "$id": "customerAccess.policy.gaming.orders",
+  "name": "Gaming Orders Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "gaming.orders",
+  "contractRefs": [
+    "gaming.internalOrder"
+  ],
+  "moduleRef": "gaming",
+  "capabilityRefs": [
+    "gaming.digital-fulfillment"
+  ],
+  "customerMode": "hidden",
+  "actions": {
+    "read": "deny",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [],
+    "create": [],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#orderId",
+      "field": "orderId",
+      "contractFieldRef": "gaming.internalOrder.orderId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#quoteId",
+      "field": "quoteId",
+      "contractFieldRef": "gaming.internalOrder.quoteId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#offerId",
+      "field": "offerId",
+      "contractFieldRef": "gaming.internalOrder.offerId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#customerRef",
+      "field": "customerRef",
+      "contractFieldRef": "gaming.internalOrder.customerRef",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#status",
+      "field": "status",
+      "contractFieldRef": "gaming.internalOrder.status",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#paymentRef",
+      "field": "paymentRef",
+      "contractFieldRef": "gaming.internalOrder.paymentRef",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#selectedMappingId",
+      "field": "selectedMappingId",
+      "contractFieldRef": "gaming.internalOrder.selectedMappingId",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#purchaseFieldSnapshot",
+      "field": "purchaseFieldSnapshot",
+      "contractFieldRef": "gaming.internalOrder.purchaseFieldSnapshot",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#retailAmount",
+      "field": "retailAmount",
+      "contractFieldRef": "gaming.internalOrder.retailAmount",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#refundState",
+      "field": "refundState",
+      "contractFieldRef": "gaming.internalOrder.refundState",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#createdAt",
+      "field": "createdAt",
+      "contractFieldRef": "gaming.internalOrder.createdAt",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.orders#updatedAt",
+      "field": "updatedAt",
+      "contractFieldRef": "gaming.internalOrder.updatedAt",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "disabled",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.gaming.orders",
+    "adminProfileRef": "adminUi.profile.gaming.orders",
+    "approvalContractRef": null
+  },
+  "notes": [
+    "Fail-closed baseline: Gaming Customer CMS access remains hidden until canonical customer-safe APIs and action policy are published."
+  ]
+}

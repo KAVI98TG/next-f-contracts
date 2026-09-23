@@ -1,0 +1,17 @@
+{
+  "registryVersion": "1.4.0",
+  "records": [
+    {
+      "recordId": "tracking-compatibility-v1-4-contract",
+      "contractVersion": "1.4.0",
+      "sdkId": "nextf.tracking-sdk",
+      "sdkVersion": "1.0.0",
+      "collectorApiId": "api.events.collect-browser-tracking",
+      "collectorApiVersion": "1.0.0",
+      "compatibilityStatus": "contract-defined",
+      "runtimeDeploymentStatus": "not-implemented",
+      "verifiedAt": null
+    }
+  ],
+  "note": "This record defines the protocol target and does not claim a published SDK or deployed collector."
+}

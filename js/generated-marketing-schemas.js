@@ -1,16 +1,16 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source: registry/marketing/index.json
-// SHA-256: 27f88077b8255c2b76176f281d4a7056cc4b8167d6fcc038b286827c4d7e6e0a
-export const GENERATED_MARKETING_SCHEMAS_SOURCE_SHA256 = "27f88077b8255c2b76176f281d4a7056cc4b8167d6fcc038b286827c4d7e6e0a";
+// SHA-256: 5cb9d74fa16694dc432024307540c05123a83b9b6d8834c88b405171f74d7b68
+export const GENERATED_MARKETING_SCHEMAS_SOURCE_SHA256 = "5cb9d74fa16694dc432024307540c05123a83b9b6d8834c88b405171f74d7b68";
 export const GENERATED_MARKETING_SCHEMAS = {
-  "registryVersion": "0.10.0",
+  "registryVersion": "1.4.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Marketing and Tracking Contract Registry",
   "description": "Generated index of authoritative Phase 9 Marketing and Tracking definitions.",
-  "definitionCount": 43,
+  "definitionCount": 54,
   "sourceDirectory": "registry/marketing/definitions",
   "trackingVocabulary": "registry/marketing/tracking-events.json",
-  "trackingEventCount": 13,
+  "trackingEventCount": 18,
   "trackingEvents": [
     {
       "key": "page.viewed",
@@ -101,6 +101,41 @@ export const GENERATED_MARKETING_SCHEMAS = {
       "label": "Newsletter Subscribed",
       "defaultConsentCategory": "analytics",
       "description": "A newsletter subscription workflow completed successfully.",
+      "conversionCandidate": true
+    },
+    {
+      "key": "navigation.route-changed",
+      "label": "SPA Route Changed",
+      "defaultConsentCategory": "analytics",
+      "description": "A client-side route transition produced a new visitor-visible view.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "engagement.session-engaged",
+      "label": "Session Engaged",
+      "defaultConsentCategory": "analytics",
+      "description": "A session met the configured engagement threshold.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "commerce.product-viewed",
+      "label": "Commerce Product Viewed",
+      "defaultConsentCategory": "analytics",
+      "description": "A public canonical Product was viewed.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "commerce.cart-updated",
+      "label": "Commerce Cart Updated",
+      "defaultConsentCategory": "analytics",
+      "description": "A visitor-visible cart interaction was observed; it is not inventory or order authority.",
+      "conversionCandidate": false
+    },
+    {
+      "key": "commerce.checkout-started",
+      "label": "Commerce Checkout Started",
+      "defaultConsentCategory": "analytics",
+      "description": "A checkout flow was entered; it is not payment or order-completion evidence.",
       "conversionCandidate": true
     }
   ],
@@ -607,6 +642,183 @@ export const GENERATED_MARKETING_SCHEMAS = {
         "webhooks": "phase-14",
         "permissions": "phase-15",
         "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.analyticsReport",
+      "name": "Analytics Report",
+      "version": "1.4.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "reporting",
+      "description": "Immutable tenant-scoped analytics report over canonical metrics, dimensions and attribution.",
+      "purpose": "Immutable tenant-scoped analytics report over canonical metrics, dimensions and attribution.",
+      "marketingModel": {
+        "kind": "derived-report",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "reportId",
+          "required": true,
+          "nullable": false,
+          "description": "Immutable report ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Organization and Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "environment",
+          "required": true,
+          "nullable": false,
+          "description": "Report environment.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "development",
+              "preview",
+              "staging",
+              "production"
+            ]
+          }
+        },
+        {
+          "key": "periodStart",
+          "required": true,
+          "nullable": false,
+          "description": "Inclusive reporting period start.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "periodEnd",
+          "required": true,
+          "nullable": false,
+          "description": "Exclusive reporting period end.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "granularity",
+          "required": true,
+          "nullable": false,
+          "description": "Aggregation granularity.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "hour",
+              "day",
+              "week",
+              "month"
+            ]
+          }
+        },
+        {
+          "key": "metrics",
+          "required": true,
+          "nullable": false,
+          "description": "Canonical metric observations.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "dimensions",
+          "required": true,
+          "nullable": false,
+          "description": "Approved bounded dimensions.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "attributionModelKey",
+          "required": false,
+          "nullable": true,
+          "description": "Attribution model key.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "generatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Report generation time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "sourceFreshThrough",
+          "required": true,
+          "nullable": false,
+          "description": "Latest included processed observation time.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Report is tenant scoped."
+        },
+        {
+          "type": "composesMany",
+          "target": "marketing.analyticsObservation",
+          "description": "Report metrics use canonical observations."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.attributionModel",
+          "description": "Attribution is explicit and versioned."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "readOnlyDerived",
+          "description": "Reports are derived and never directly customer edited."
+        },
+        {
+          "id": "environmentIsolated",
+          "description": "Non-production observations never contaminate production reports."
+        },
+        {
+          "id": "boundedDimensions",
+          "description": "Dimensions must be approved, privacy-safe and cardinality bounded."
+        }
+      ],
+      "cms": {
+        "label": "Analytics Report",
+        "icon": "fa-chart-line",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "reportId",
+          "scope",
+          "environment",
+          "periodStart"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Delivered only through the declared scoped API projection."
+      },
+      "futureBindings": {
+        "modules": "phase-41",
+        "api": "phase-41",
+        "permissions": "phase-15",
+        "privacy": "phase-30",
+        "security": "phase-29"
       },
       "examples": {
         "valid": [],
@@ -4913,6 +5125,133 @@ export const GENERATED_MARKETING_SCHEMAS = {
       "notes": []
     },
     {
+      "$id": "marketing.invalidTrafficClassification",
+      "name": "Invalid Traffic Classification",
+      "version": "1.4.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "processing",
+      "description": "Explainable processing classification for bots, monitoring, testing, malformed, duplicate or abusive traffic.",
+      "purpose": "Explainable processing classification for bots, monitoring, testing, malformed, duplicate or abusive traffic.",
+      "marketingModel": {
+        "kind": "classification",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "classificationId",
+          "required": true,
+          "nullable": false,
+          "description": "Stable classification ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "eventId",
+          "required": true,
+          "nullable": false,
+          "description": "Related tracking event ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "category",
+          "required": true,
+          "nullable": false,
+          "description": "Invalid-traffic category.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "known-bot",
+              "monitoring",
+              "internal-test",
+              "development",
+              "malformed",
+              "duplicate",
+              "abusive",
+              "rate-limited",
+              "unknown"
+            ]
+          }
+        },
+        {
+          "key": "disposition",
+          "required": true,
+          "nullable": false,
+          "description": "Processing outcome.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "include",
+              "exclude",
+              "quarantine",
+              "reject"
+            ]
+          }
+        },
+        {
+          "key": "ruleId",
+          "required": true,
+          "nullable": false,
+          "description": "Applied rule identifier.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "classifiedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Classification timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "explainable",
+          "description": "Classification records the applied rule and disposition."
+        },
+        {
+          "id": "noSilentDeletion",
+          "description": "Exclusion/rejection remains observable through bounded operational counts."
+        }
+      ],
+      "cms": {
+        "label": "Invalid Traffic Classification",
+        "icon": "fa-chart-line",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "classificationId",
+          "eventId",
+          "category",
+          "disposition"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Delivered only through the declared scoped API projection."
+      },
+      "futureBindings": {
+        "modules": "phase-41",
+        "api": "phase-41",
+        "permissions": "phase-15",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
       "$id": "marketing.marketingDestination",
       "name": "Marketing Destination",
       "version": "0.10.0",
@@ -5682,6 +6021,435 @@ export const GENERATED_MARKETING_SCHEMAS = {
         "webhooks": "phase-14",
         "permissions": "phase-15",
         "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.sessionPolicy",
+      "name": "Analytics Session Policy",
+      "version": "1.4.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "identity",
+      "description": "Canonical continuation, expiry and approximation policy for analytics sessions.",
+      "purpose": "Canonical continuation, expiry and approximation policy for analytics sessions.",
+      "marketingModel": {
+        "kind": "policy",
+        "customerManaged": true,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "policyId",
+          "required": true,
+          "nullable": false,
+          "description": "Stable policy ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Organization and Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "inactivityTimeoutMinutes",
+          "required": true,
+          "nullable": false,
+          "description": "Inactivity timeout starting a new session.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "maximumDurationMinutes",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum bounded session duration.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "newCampaignStartsSession",
+          "required": true,
+          "nullable": false,
+          "description": "Whether a new eligible campaign starts a session.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "endMode",
+          "required": true,
+          "nullable": false,
+          "description": "Session end semantics.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "inactivity-approximation",
+              "explicit-server",
+              "hybrid"
+            ]
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Policy is Site scoped."
+        },
+        {
+          "type": "governs",
+          "target": "marketing.sessionContext",
+          "description": "Defines session boundary behavior."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "notAuthentication",
+          "description": "Analytics sessions never authorize application access."
+        },
+        {
+          "id": "bounded",
+          "description": "Timeout and maximum duration must be bounded by collector policy."
+        }
+      ],
+      "cms": {
+        "label": "Analytics Session Policy",
+        "icon": "fa-chart-line",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "policyId",
+          "scope",
+          "inactivityTimeoutMinutes",
+          "maximumDurationMinutes"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Delivered only through the declared scoped API projection."
+      },
+      "futureBindings": {
+        "modules": "phase-41",
+        "api": "phase-41",
+        "permissions": "phase-15",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trackingCollectorPolicy",
+      "name": "Tracking Collector Policy",
+      "version": "1.4.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "collection",
+      "description": "Limits, origin, validation, consent and abuse rules for first-party ingestion.",
+      "purpose": "Limits, origin, validation, consent and abuse rules for first-party ingestion.",
+      "marketingModel": {
+        "kind": "policy",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "policyId",
+          "required": true,
+          "nullable": false,
+          "description": "Stable collector policy ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Organization and Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "allowedOrigins",
+          "required": true,
+          "nullable": false,
+          "description": "Exact allowed browser origins.",
+          "primitive": "fields.tag"
+        },
+        {
+          "key": "maximumRequestBytes",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum request body bytes.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "maximumEventsPerBatch",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum events per batch.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "maximumPropertyCount",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum properties per event.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "acceptedEnvelopeVersions",
+          "required": true,
+          "nullable": false,
+          "description": "Accepted envelope versions.",
+          "primitive": "fields.tag"
+        },
+        {
+          "key": "consentEnforcement",
+          "required": true,
+          "nullable": false,
+          "description": "Collector consent behavior.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "drop",
+              "restrict",
+              "reject"
+            ]
+          }
+        },
+        {
+          "key": "rawIpPersistence",
+          "required": true,
+          "nullable": false,
+          "description": "Must remain false for analytics storage.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "redirectPolicy",
+          "required": true,
+          "nullable": false,
+          "description": "Collector redirect behavior.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "never-follow"
+            ]
+          }
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Collector policy is Site scoped."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "originRequired",
+          "description": "Browser collection requires an exact configured Site origin."
+        },
+        {
+          "id": "noBrowserSecret",
+          "description": "Browser collection never relies on confidential credentials."
+        },
+        {
+          "id": "rawIpNotIdentity",
+          "description": "Raw IP addresses are not persisted as analytics visitor identity."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Collector Policy",
+        "icon": "fa-chart-line",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "policyId",
+          "scope",
+          "allowedOrigins",
+          "maximumRequestBytes"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Delivered only through the declared scoped API projection."
+      },
+      "futureBindings": {
+        "modules": "phase-41",
+        "api": "phase-41",
+        "permissions": "phase-15",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trackingCompatibility",
+      "name": "Tracking Compatibility Record",
+      "version": "1.4.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "sdk",
+      "description": "Explicit compatibility evidence across Contract, SDK and collector versions.",
+      "purpose": "Explicit compatibility evidence across Contract, SDK and collector versions.",
+      "marketingModel": {
+        "kind": "compatibility-record",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "recordId",
+          "required": true,
+          "nullable": false,
+          "description": "Stable compatibility record ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "contractVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Exact NEXT F Contract version.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "sdkId",
+          "required": true,
+          "nullable": false,
+          "description": "SDK identifier.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "sdkVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Exact SDK version.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "collectorApiId",
+          "required": true,
+          "nullable": false,
+          "description": "Collector API identifier.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "collectorApiVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Collector API semantic version.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "compatibilityStatus",
+          "required": true,
+          "nullable": false,
+          "description": "Evidence-backed compatibility state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "compatible",
+              "incompatible",
+              "unknown",
+              "contract-defined"
+            ]
+          }
+        },
+        {
+          "key": "runtimeDeploymentStatus",
+          "required": true,
+          "nullable": false,
+          "description": "Truthful runtime state.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "not-implemented",
+              "development",
+              "pilot",
+              "production"
+            ]
+          }
+        },
+        {
+          "key": "verifiedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Verification timestamp when evidence exists.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "marketing.trackingSdkDescriptor",
+          "description": "Resolves the SDK descriptor."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "unknownNotGuessed",
+          "description": "Missing evidence is represented as unknown."
+        },
+        {
+          "id": "contractNotDeployment",
+          "description": "Published contracts do not imply runtime deployment."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Compatibility Record",
+        "icon": "fa-chart-line",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "recordId",
+          "contractVersion",
+          "sdkId",
+          "sdkVersion"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Delivered only through the declared scoped API projection."
+      },
+      "futureBindings": {
+        "modules": "phase-41",
+        "api": "phase-41",
+        "permissions": "phase-15",
+        "privacy": "phase-30",
+        "security": "phase-29"
       },
       "examples": {
         "valid": [],
@@ -6634,6 +7402,746 @@ export const GENERATED_MARKETING_SCHEMAS = {
       "notes": []
     },
     {
+      "$id": "marketing.trackingHealth",
+      "name": "Tracking Health",
+      "version": "1.4.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "health",
+      "description": "Bounded Site/environment health snapshot for SDK, collector, validation and processing diagnostics.",
+      "purpose": "Bounded Site/environment health snapshot for SDK, collector, validation and processing diagnostics.",
+      "marketingModel": {
+        "kind": "operational-snapshot",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "healthId",
+          "required": true,
+          "nullable": false,
+          "description": "Health snapshot ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Organization and Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "environment",
+          "required": true,
+          "nullable": false,
+          "description": "Observed environment.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "development",
+              "preview",
+              "staging",
+              "production"
+            ]
+          }
+        },
+        {
+          "key": "sdkDetected",
+          "required": true,
+          "nullable": false,
+          "description": "Whether an SDK heartbeat/event was detected.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "sdkVersion",
+          "required": false,
+          "nullable": true,
+          "description": "Last detected SDK version.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "contractVersion",
+          "required": false,
+          "nullable": true,
+          "description": "Last detected Contract version.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "lastEventReceivedAt",
+          "required": false,
+          "nullable": true,
+          "description": "Last accepted/observed event time.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "receivedCount",
+          "required": true,
+          "nullable": false,
+          "description": "Events received in the bounded window.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "acceptedCount",
+          "required": true,
+          "nullable": false,
+          "description": "Events accepted in the bounded window.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "rejectedCount",
+          "required": true,
+          "nullable": false,
+          "description": "Events rejected in the bounded window.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "duplicateCount",
+          "required": true,
+          "nullable": false,
+          "description": "Duplicates in the bounded window.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "consentRestrictedCount",
+          "required": true,
+          "nullable": false,
+          "description": "Consent-restricted events in the bounded window.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "schemaErrorCount",
+          "required": true,
+          "nullable": false,
+          "description": "Schema errors in the bounded window.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "unknownEventCount",
+          "required": true,
+          "nullable": false,
+          "description": "Unknown event keys in the bounded window.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "collectorStatus",
+          "required": true,
+          "nullable": false,
+          "description": "Collector status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "healthy",
+              "degraded",
+              "unavailable",
+              "unknown"
+            ]
+          }
+        },
+        {
+          "key": "processingStatus",
+          "required": true,
+          "nullable": false,
+          "description": "Processing status.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "healthy",
+              "delayed",
+              "blocked",
+              "unknown"
+            ]
+          }
+        },
+        {
+          "key": "generatedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Health snapshot generation time.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Health is Site scoped."
+        },
+        {
+          "type": "references",
+          "target": "marketing.trackingCompatibility",
+          "description": "Detected versions resolve through compatibility evidence."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "boundedDiagnostics",
+          "description": "Customer projection contains counts/status only, never raw payloads or infrastructure secrets."
+        },
+        {
+          "id": "notAvailabilityGuarantee",
+          "description": "A snapshot is evidence, not an uptime guarantee."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Health",
+        "icon": "fa-chart-line",
+        "customerVisible": true,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "healthId",
+          "scope",
+          "environment",
+          "sdkDetected"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Delivered only through the declared scoped API projection."
+      },
+      "futureBindings": {
+        "modules": "phase-41",
+        "api": "phase-41",
+        "permissions": "phase-15",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trackingIngestionBatch",
+      "name": "Tracking Ingestion Batch",
+      "version": "1.4.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "collection",
+      "description": "Bounded single-or-multiple event submission to the first-party collector.",
+      "purpose": "Bounded single-or-multiple event submission to the first-party collector.",
+      "marketingModel": {
+        "kind": "command",
+        "customerManaged": false,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "batchId",
+          "required": true,
+          "nullable": false,
+          "description": "Client/server generated batch ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "siteId",
+          "required": true,
+          "nullable": false,
+          "description": "Declared Site identity validated against route/origin/authentication.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "environment",
+          "required": true,
+          "nullable": false,
+          "description": "Declared environment.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "development",
+              "preview",
+              "staging",
+              "production"
+            ]
+          }
+        },
+        {
+          "key": "sdk",
+          "required": true,
+          "nullable": false,
+          "description": "Bounded SDK ID/version metadata.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "consentStateId",
+          "required": false,
+          "nullable": true,
+          "description": "Applicable consent-state reference.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "events",
+          "required": true,
+          "nullable": false,
+          "description": "One or more canonical marketing.trackingEvent objects.",
+          "primitive": "fields.json"
+        },
+        {
+          "key": "sentAt",
+          "required": true,
+          "nullable": false,
+          "description": "Client/server send timestamp.",
+          "primitive": "fields.dateTime"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composesMany",
+          "target": "marketing.trackingEvent",
+          "description": "Contains canonical tracking observations."
+        },
+        {
+          "type": "optionallyReferences",
+          "target": "marketing.consentState",
+          "description": "References applicable consent state."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "bounded",
+          "description": "Request byte/event/property limits come from collector policy."
+        },
+        {
+          "id": "scopeDerived",
+          "description": "Collector validates route, origin or server identity against declared Site/environment."
+        },
+        {
+          "id": "noRawFormPayload",
+          "description": "Events never contain whole Form Submissions or arbitrary personal payloads."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Ingestion Batch",
+        "icon": "fa-chart-line",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "batchId",
+          "siteId",
+          "environment",
+          "sdk"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Delivered only through the declared scoped API projection."
+      },
+      "futureBindings": {
+        "modules": "phase-41",
+        "api": "phase-41",
+        "permissions": "phase-15",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trackingIngestionItemResult",
+      "name": "Tracking Ingestion Item Result",
+      "version": "1.4.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "collection",
+      "description": "Per-event accepted, duplicate, restricted or rejected collector outcome.",
+      "purpose": "Per-event accepted, duplicate, restricted or rejected collector outcome.",
+      "marketingModel": {
+        "kind": "result",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "eventId",
+          "required": true,
+          "nullable": false,
+          "description": "Submitted event ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "status",
+          "required": true,
+          "nullable": false,
+          "description": "Collector disposition.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "accepted",
+              "duplicate",
+              "restricted",
+              "rejected"
+            ]
+          }
+        },
+        {
+          "key": "reasonCode",
+          "required": true,
+          "nullable": false,
+          "description": "Safe bounded outcome reason.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "none",
+              "consent-denied",
+              "unknown-event",
+              "invalid-schema",
+              "invalid-origin",
+              "invalid-environment",
+              "unsupported-version",
+              "payload-limit",
+              "rate-limited",
+              "prohibited-property",
+              "bot-or-invalid-traffic"
+            ]
+          }
+        },
+        {
+          "key": "receivedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Server receipt timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "processingId",
+          "required": false,
+          "nullable": true,
+          "description": "Opaque processing correlation ID.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "safeDiagnostics",
+          "description": "Results never echo rejected properties or secrets."
+        },
+        {
+          "id": "duplicateNotAcceptedAgain",
+          "description": "Duplicate status does not increment analytics counts."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Ingestion Item Result",
+        "icon": "fa-chart-line",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "eventId",
+          "status",
+          "reasonCode",
+          "receivedAt"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Public-safe receipt metadata only; rejected payload values and internal infrastructure are excluded."
+      },
+      "futureBindings": {
+        "modules": "phase-41",
+        "api": "phase-41",
+        "permissions": "phase-15",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trackingIngestionReceipt",
+      "name": "Tracking Ingestion Receipt",
+      "version": "1.4.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "collection",
+      "description": "Batch-level collector receipt with bounded per-event outcomes.",
+      "purpose": "Batch-level collector receipt with bounded per-event outcomes.",
+      "marketingModel": {
+        "kind": "result",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": true,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "receiptId",
+          "required": true,
+          "nullable": false,
+          "description": "Opaque receipt ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "batchId",
+          "required": true,
+          "nullable": false,
+          "description": "Submitted batch ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "requestId",
+          "required": true,
+          "nullable": false,
+          "description": "Operational request correlation ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "receivedAt",
+          "required": true,
+          "nullable": false,
+          "description": "Server receipt timestamp.",
+          "primitive": "fields.dateTime"
+        },
+        {
+          "key": "acceptedCount",
+          "required": true,
+          "nullable": false,
+          "description": "Accepted event count.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "duplicateCount",
+          "required": true,
+          "nullable": false,
+          "description": "Duplicate event count.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "restrictedCount",
+          "required": true,
+          "nullable": false,
+          "description": "Consent/policy restricted count.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "rejectedCount",
+          "required": true,
+          "nullable": false,
+          "description": "Rejected event count.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "results",
+          "required": true,
+          "nullable": false,
+          "description": "Bounded marketing.trackingIngestionItemResult list.",
+          "primitive": "fields.json"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composesMany",
+          "target": "marketing.trackingIngestionItemResult",
+          "description": "Contains per-event dispositions."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "countsMatch",
+          "description": "Disposition counts match result items."
+        },
+        {
+          "id": "noRawEcho",
+          "description": "Receipt never returns submitted property values."
+        }
+      ],
+      "cms": {
+        "label": "Tracking Ingestion Receipt",
+        "icon": "fa-chart-line",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "receiptId",
+          "batchId",
+          "requestId",
+          "receivedAt"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": true,
+        "notes": "Delivered only through the declared scoped API projection."
+      },
+      "futureBindings": {
+        "modules": "phase-41",
+        "api": "phase-41",
+        "permissions": "phase-15",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.trackingSdkDescriptor",
+      "name": "Tracking SDK Descriptor",
+      "version": "1.4.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "sdk",
+      "description": "Machine-readable browser/server SDK protocol and non-blocking behavior contract.",
+      "purpose": "Machine-readable browser/server SDK protocol and non-blocking behavior contract.",
+      "marketingModel": {
+        "kind": "compatibility-descriptor",
+        "customerManaged": false,
+        "containsPersonalData": false,
+        "publicEligible": false,
+        "supportsRevision": false,
+        "dataSensitivity": "internal"
+      },
+      "fields": [
+        {
+          "key": "sdkId",
+          "required": true,
+          "nullable": false,
+          "description": "Stable SDK identifier.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "sdkVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Exact semantic SDK version.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "envelopeVersion",
+          "required": true,
+          "nullable": false,
+          "description": "Supported tracking envelope version.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "supportedSources",
+          "required": true,
+          "nullable": false,
+          "description": "Supported browser/server source modes.",
+          "primitive": "fields.tag"
+        },
+        {
+          "key": "queueLimit",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum queued events.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "batchLimit",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum events per request.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "retryLimit",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum automatic retry count.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "runtimeAvailable",
+          "required": true,
+          "nullable": false,
+          "description": "Whether a runtime artifact is actually available.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "artifactReference",
+          "required": false,
+          "nullable": true,
+          "description": "Optional governed artifact reference.",
+          "primitive": "fields.text"
+        }
+      ],
+      "relationships": [],
+      "validationRules": [
+        {
+          "id": "nonBlocking",
+          "description": "SDK failure never blocks Site behavior."
+        },
+        {
+          "id": "boundedStorageAndRetry",
+          "description": "Queues, storage and retries are bounded."
+        },
+        {
+          "id": "compatibilityExplicit",
+          "description": "Contract and collector compatibility is machine-readable and unknown when not proven."
+        }
+      ],
+      "cms": {
+        "label": "Tracking SDK Descriptor",
+        "icon": "fa-chart-line",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "sdkId",
+          "sdkVersion",
+          "envelopeVersion",
+          "supportedSources"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Delivered only through the declared scoped API projection."
+      },
+      "futureBindings": {
+        "modules": "phase-41",
+        "api": "phase-41",
+        "permissions": "phase-15",
+        "privacy": "phase-30",
+        "security": "phase-29"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
       "$id": "marketing.trafficSource",
       "name": "Traffic Source",
       "version": "0.10.0",
@@ -7107,6 +8615,144 @@ export const GENERATED_MARKETING_SCHEMAS = {
         "webhooks": "phase-14",
         "permissions": "phase-15",
         "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [],
+        "invalid": []
+      },
+      "notes": []
+    },
+    {
+      "$id": "marketing.visitorIdentityPolicy",
+      "name": "Visitor Identity Policy",
+      "version": "1.4.0",
+      "status": "stable",
+      "domain": "marketing",
+      "category": "identity",
+      "description": "Site-scoped lifecycle policy for random first-party anonymous visitor identifiers.",
+      "purpose": "Site-scoped lifecycle policy for random first-party anonymous visitor identifiers.",
+      "marketingModel": {
+        "kind": "policy",
+        "customerManaged": true,
+        "containsPersonalData": true,
+        "publicEligible": false,
+        "supportsRevision": true,
+        "dataSensitivity": "personal"
+      },
+      "fields": [
+        {
+          "key": "policyId",
+          "required": true,
+          "nullable": false,
+          "description": "Stable policy ID.",
+          "primitive": "fields.text"
+        },
+        {
+          "key": "scope",
+          "required": true,
+          "nullable": false,
+          "description": "Owning Organization and Site.",
+          "schema": "core.tenantScope"
+        },
+        {
+          "key": "enabled",
+          "required": true,
+          "nullable": false,
+          "description": "Whether anonymous visitor continuity is enabled.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "storageMode",
+          "required": true,
+          "nullable": false,
+          "description": "Approved first-party storage mode.",
+          "primitive": "fields.select",
+          "config": {
+            "options": [
+              "none",
+              "memory",
+              "first-party-cookie",
+              "first-party-storage"
+            ]
+          }
+        },
+        {
+          "key": "lifetimeDays",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum identifier lifetime in days.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "rotationDays",
+          "required": true,
+          "nullable": false,
+          "description": "Maximum rotation interval in days.",
+          "primitive": "fields.integer"
+        },
+        {
+          "key": "resetOnConsentWithdrawal",
+          "required": true,
+          "nullable": false,
+          "description": "Whether withdrawal clears the identifier.",
+          "primitive": "fields.boolean"
+        },
+        {
+          "key": "crossSiteLinking",
+          "required": true,
+          "nullable": false,
+          "description": "Must remain false in V1.4.0.",
+          "primitive": "fields.boolean"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "composes",
+          "target": "core.tenantScope",
+          "description": "Identity is tenant and Site scoped."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "randomOnly",
+          "description": "Identifiers are random and never derived from fingerprinting."
+        },
+        {
+          "id": "noCrossCustomerGraph",
+          "description": "crossSiteLinking must be false in V1.4.0."
+        },
+        {
+          "id": "consentBound",
+          "description": "Optional persistent identity requires applicable consent."
+        }
+      ],
+      "cms": {
+        "label": "Visitor Identity Policy",
+        "icon": "fa-chart-line",
+        "customerVisible": false,
+        "adminVisible": true,
+        "editorMode": "structured",
+        "defaultPlacement": "marketing",
+        "summaryFields": [
+          "policyId",
+          "scope",
+          "enabled",
+          "storageMode"
+        ],
+        "primaryActions": [
+          "view"
+        ]
+      },
+      "delivery": {
+        "publicAllowed": false,
+        "notes": "Delivered only through the declared scoped API projection."
+      },
+      "futureBindings": {
+        "modules": "phase-41",
+        "api": "phase-41",
+        "permissions": "phase-15",
+        "privacy": "phase-30",
+        "security": "phase-29"
       },
       "examples": {
         "valid": [],

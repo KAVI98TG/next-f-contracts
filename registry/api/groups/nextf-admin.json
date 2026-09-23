@@ -32,7 +32,9 @@
     "api.nextf-admin.get-integration-health",
     "api.nextf-admin.review-change-request",
     "api.nextf-admin.approve-change-request",
-    "api.nextf-admin.apply-change-request"
+    "api.nextf-admin.apply-change-request",
+    "api.nextf-admin.get-analytics-report",
+    "api.nextf-admin.get-tracking-health"
   ],
   "publicDocumentation": true,
   "order": 40,

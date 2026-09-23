@@ -1,0 +1,80 @@
+{
+  "$id": "api.nextf-admin.get-analytics-report",
+  "operationId": "api.nextf-admin.get-analytics-report",
+  "name": "Get Site Analytics Report",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.nextf-admin",
+  "method": "GET",
+  "path": "/sites/{siteId}/analytics/report",
+  "description": "Get Site Analytics Report",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "marketing.analytics.view"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "siteId"
+    ],
+    "query": [
+      "environment?",
+      "periodStart",
+      "periodEnd",
+      "granularity?",
+      "metrics?",
+      "dimensions?"
+    ],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "marketing.analyticsReport",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "validation_failed",
+      "rate_limited",
+      "module_disabled"
+    ],
+    "projection": "workspace-authorized"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "admin-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "consent",
+    "analytics",
+    "marketing"
+  ],
+  "contractBindings": [
+    "marketing.analyticsReport"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "internal",
+  "notes": []
+}

@@ -1,7 +1,7 @@
 {
   "$id": "cmsUi.profile.marketing.analytics",
   "name": "Analytics",
-  "version": "1.1.0",
+  "version": "1.4.0",
   "status": "stable",
   "domain": "cms-ui",
   "profileType": "resource",
@@ -10,7 +10,8 @@
   "description": "Customer CMS presentation metadata for Analytics within authorized Site scope.",
   "targetContracts": [
     "marketing.analyticsSnapshot",
-    "marketing.analyticsObservation"
+    "marketing.analyticsObservation",
+    "marketing.analyticsReport"
   ],
   "primaryTargetContract": "marketing.analyticsSnapshot",
   "route": "/growth/analytics",

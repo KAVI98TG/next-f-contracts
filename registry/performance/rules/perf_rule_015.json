@@ -17,7 +17,7 @@
     "marketing.consentState",
     "privacy.consentBoundaries"
   ],
-  "version": "1.3.0",
+  "version": "1.4.0",
   "status": "stable",
   "phase": 32,
   "sourceReference": "registry/performance/rules/perf_rule_015.json"

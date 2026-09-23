@@ -1,29 +1,29 @@
 {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "phase": 38,
   "title": "NEXT F Registry Health - Customer Access Acceptance",
-  "releaseStatus": "BLOCKED",
-  "generatedAt": "2026-09-23T05:27:39.822Z",
+  "releaseStatus": "RELEASE_CANDIDATE",
+  "generatedAt": "2026-09-23T12:06:48.959Z",
   "summary": {
     "total": 41,
-    "pass": 35,
-    "fail": 4,
-    "warning": 0,
+    "pass": 38,
+    "fail": 0,
+    "warning": 1,
     "deferred": 1,
     "notApplicable": 1,
-    "criticalFailures": 4,
-    "blockingFailures": 4
+    "criticalFailures": 0,
+    "blockingFailures": 0
   },
   "customerAccess": {
-    "policies": 75,
+    "policies": 79,
     "modes": {
-      "hidden": 2,
+      "hidden": 6,
       "read_only": 13,
       "direct_edit": 52,
       "approval_required": 8
     },
-    "classifiedProfiles": 75,
-    "unclassifiedProfiles": 4,
+    "classifiedProfiles": 79,
+    "unclassifiedProfiles": 0,
     "brokenReferences": 0,
     "uiMismatches": 0,
     "approvalWorkflowGaps": 0,
@@ -34,14 +34,14 @@
       "checkId": "QA-ID-001",
       "category": "identifiers",
       "description": "Canonical Registry IDs are unique",
-      "result": "FAIL",
+      "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Registry items: 2504",
-        "Unique IDs: 2470"
+        "Registry items: 2503",
+        "Unique IDs: 2503"
       ],
       "affectedDefinitions": [],
-      "remediationStatus": "required"
+      "remediationStatus": "not-required"
     },
     {
       "checkId": "QA-SRC-001",
@@ -86,7 +86,7 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "JSON files checked: 2414"
+        "JSON files checked: 2463"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -98,7 +98,7 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Definition IDs: 1929",
+        "Definition IDs: 1953",
         "Duplicates: 0"
       ],
       "affectedDefinitions": [],
@@ -108,17 +108,13 @@
       "checkId": "QA-REF-001",
       "category": "references",
       "description": "Registry relationship targets resolve",
-      "result": "FAIL",
+      "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Broken relationships: 3"
+        "Broken relationships: 0"
       ],
-      "affectedDefinitions": [
-        "gaming.purchaseField -> forms.field",
-        "starters.gaming -> modules.gaming",
-        "starters.software -> modules.software"
-      ],
-      "remediationStatus": "required"
+      "affectedDefinitions": [],
+      "remediationStatus": "not-required"
     },
     {
       "checkId": "QA-REF-002",
@@ -127,8 +123,8 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Graph nodes: 2504",
-        "Graph edges: 9110",
+        "Graph nodes: 2503",
+        "Graph edges: 9169",
         "Broken edges: 0"
       ],
       "affectedDefinitions": [],
@@ -153,7 +149,7 @@
       "result": "PASS",
       "severity": "high",
       "evidence": [
-        "Search documents: 8216",
+        "Search documents: 8386",
         "Broken sources: 0"
       ],
       "affectedDefinitions": [],
@@ -163,16 +159,14 @@
       "checkId": "QA-MOD-001",
       "category": "modules",
       "description": "Module dependencies resolve",
-      "result": "FAIL",
+      "result": "PASS",
       "severity": "critical",
       "evidence": [
         "Modules: 15",
-        "Capabilities: 126"
+        "Capabilities: 129"
       ],
-      "affectedDefinitions": [
-        "gaming->webhooks"
-      ],
-      "remediationStatus": "required"
+      "affectedDefinitions": [],
+      "remediationStatus": "not-required"
     },
     {
       "checkId": "QA-MOD-002",
@@ -229,7 +223,7 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "API operations: 186"
+        "API operations: 192"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -266,7 +260,7 @@
       "result": "PASS",
       "severity": "high",
       "evidence": [
-        "Releases: 41",
+        "Releases: 42",
         "Unresolved affected IDs: 0"
       ],
       "affectedDefinitions": [],
@@ -279,7 +273,7 @@
       "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Exact releases: 36"
+        "Exact releases: 37"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -380,7 +374,7 @@
       "severity": "high",
       "evidence": [
         "Security controls: 49",
-        "Privacy rules: 54"
+        "Privacy rules: 61"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "not-required"
@@ -462,16 +456,16 @@
       "checkId": "QA-PERF-001",
       "category": "performance",
       "description": "Phase 32 performance audit has no hard failures",
-      "result": "PASS",
+      "result": "WARNING",
       "severity": "medium",
       "evidence": [
         "registry/performance/portal-audit.json",
-        "Audit status: pass",
-        "Budget warnings: 0",
+        "Audit status: warning",
+        "Budget warnings: 1",
         "Budget failures: 0"
       ],
       "affectedDefinitions": [],
-      "remediationStatus": "reviewed"
+      "remediationStatus": "monitor"
     },
     {
       "checkId": "QA-PERF-002",
@@ -489,19 +483,14 @@
       "checkId": "QA-ACCESS-001",
       "category": "customer-access",
       "description": "Every Customer CMS profile has one canonical Customer Access Policy",
-      "result": "FAIL",
+      "result": "PASS",
       "severity": "critical",
       "evidence": [
-        "Policies: 75",
+        "Policies: 79",
         "Customer CMS profiles: 79"
       ],
-      "affectedDefinitions": [
-        "cmsUi.profile.gaming.catalog",
-        "cmsUi.profile.gaming.finance",
-        "cmsUi.profile.gaming.orders",
-        "cmsUi.profile.gaming.suppliers"
-      ],
-      "remediationStatus": "required"
+      "affectedDefinitions": [],
+      "remediationStatus": "not-required"
     },
     {
       "checkId": "QA-ACCESS-002",

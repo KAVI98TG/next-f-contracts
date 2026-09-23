@@ -1,0 +1,127 @@
+{
+  "$id": "marketing.invalidTrafficClassification",
+  "name": "Invalid Traffic Classification",
+  "version": "1.4.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "processing",
+  "description": "Explainable processing classification for bots, monitoring, testing, malformed, duplicate or abusive traffic.",
+  "purpose": "Explainable processing classification for bots, monitoring, testing, malformed, duplicate or abusive traffic.",
+  "marketingModel": {
+    "kind": "classification",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "classificationId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable classification ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "eventId",
+      "required": true,
+      "nullable": false,
+      "description": "Related tracking event ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "category",
+      "required": true,
+      "nullable": false,
+      "description": "Invalid-traffic category.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "known-bot",
+          "monitoring",
+          "internal-test",
+          "development",
+          "malformed",
+          "duplicate",
+          "abusive",
+          "rate-limited",
+          "unknown"
+        ]
+      }
+    },
+    {
+      "key": "disposition",
+      "required": true,
+      "nullable": false,
+      "description": "Processing outcome.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "include",
+          "exclude",
+          "quarantine",
+          "reject"
+        ]
+      }
+    },
+    {
+      "key": "ruleId",
+      "required": true,
+      "nullable": false,
+      "description": "Applied rule identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "classifiedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Classification timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "explainable",
+      "description": "Classification records the applied rule and disposition."
+    },
+    {
+      "id": "noSilentDeletion",
+      "description": "Exclusion/rejection remains observable through bounded operational counts."
+    }
+  ],
+  "cms": {
+    "label": "Invalid Traffic Classification",
+    "icon": "fa-chart-line",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "classificationId",
+      "eventId",
+      "category",
+      "disposition"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Delivered only through the declared scoped API projection."
+  },
+  "futureBindings": {
+    "modules": "phase-41",
+    "api": "phase-41",
+    "permissions": "phase-15",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

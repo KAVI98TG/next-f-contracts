@@ -1,0 +1,177 @@
+{
+  "$id": "marketing.analyticsReport",
+  "name": "Analytics Report",
+  "version": "1.4.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "reporting",
+  "description": "Immutable tenant-scoped analytics report over canonical metrics, dimensions and attribution.",
+  "purpose": "Immutable tenant-scoped analytics report over canonical metrics, dimensions and attribution.",
+  "marketingModel": {
+    "kind": "derived-report",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "reportId",
+      "required": true,
+      "nullable": false,
+      "description": "Immutable report ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "Report environment.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "development",
+          "preview",
+          "staging",
+          "production"
+        ]
+      }
+    },
+    {
+      "key": "periodStart",
+      "required": true,
+      "nullable": false,
+      "description": "Inclusive reporting period start.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "periodEnd",
+      "required": true,
+      "nullable": false,
+      "description": "Exclusive reporting period end.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "granularity",
+      "required": true,
+      "nullable": false,
+      "description": "Aggregation granularity.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "hour",
+          "day",
+          "week",
+          "month"
+        ]
+      }
+    },
+    {
+      "key": "metrics",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical metric observations.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "dimensions",
+      "required": true,
+      "nullable": false,
+      "description": "Approved bounded dimensions.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "attributionModelKey",
+      "required": false,
+      "nullable": true,
+      "description": "Attribution model key.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "generatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Report generation time.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "sourceFreshThrough",
+      "required": true,
+      "nullable": false,
+      "description": "Latest included processed observation time.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Report is tenant scoped."
+    },
+    {
+      "type": "composesMany",
+      "target": "marketing.analyticsObservation",
+      "description": "Report metrics use canonical observations."
+    },
+    {
+      "type": "optionallyReferences",
+      "target": "marketing.attributionModel",
+      "description": "Attribution is explicit and versioned."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "readOnlyDerived",
+      "description": "Reports are derived and never directly customer edited."
+    },
+    {
+      "id": "environmentIsolated",
+      "description": "Non-production observations never contaminate production reports."
+    },
+    {
+      "id": "boundedDimensions",
+      "description": "Dimensions must be approved, privacy-safe and cardinality bounded."
+    }
+  ],
+  "cms": {
+    "label": "Analytics Report",
+    "icon": "fa-chart-line",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "reportId",
+      "scope",
+      "environment",
+      "periodStart"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Delivered only through the declared scoped API projection."
+  },
+  "futureBindings": {
+    "modules": "phase-41",
+    "api": "phase-41",
+    "permissions": "phase-15",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,18 @@
+{
+  "receiptId": "receipt_duplicate_001",
+  "batchId": "batch_retry_001",
+  "requestId": "req_002",
+  "receivedAt": "2026-09-23T12:05:00Z",
+  "acceptedCount": 0,
+  "duplicateCount": 1,
+  "restrictedCount": 0,
+  "rejectedCount": 0,
+  "results": [
+    {
+      "eventId": "evt_page_001",
+      "status": "duplicate",
+      "reasonCode": "none",
+      "receivedAt": "2026-09-23T12:05:00Z"
+    }
+  ]
+}

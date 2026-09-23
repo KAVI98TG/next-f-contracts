@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.2.0",
+  "registryVersion": "1.4.0",
   "schemaVersion": "1.0.0",
   "title": "Customer CMS UI Metadata Registry",
   "description": "Declarative metadata that turns canonical NEXT F contracts into a consistent, permission-aware Customer CMS without redefining business data.",
@@ -19699,7 +19699,39 @@
       "notes": [
         "UI visibility is never authorization; protected actions require canonical Gaming permissions."
       ],
-      "customerAccessPolicyRef": null
+      "customerAccessPolicyRef": "customerAccess.policy.gaming.catalog",
+      "effectiveCustomerAccess": {
+        "policyVersion": "1.1.0",
+        "mode": "hidden",
+        "publishingMode": "not_applicable",
+        "actions": {
+          "read": "deny",
+          "create": "deny",
+          "update": "deny",
+          "delete": "deny",
+          "submit_for_review": "deny",
+          "publish": "deny",
+          "unpublish": "deny",
+          "restore_version": "deny"
+        },
+        "permissionRefs": {
+          "read": [],
+          "create": [],
+          "update": [],
+          "delete": [],
+          "submit_for_review": [],
+          "publish": [],
+          "unpublish": [],
+          "restore_version": []
+        },
+        "capabilityRefs": [
+          "gaming.catalog"
+        ],
+        "demoMode": "disabled",
+        "approvalRequired": false,
+        "hiddenFromCustomerDiscovery": true,
+        "unavailableReason": "Customer-safe Gaming APIs and action policy are not published."
+      }
     },
     {
       "$id": "cmsUi.profile.gaming.finance",
@@ -20037,7 +20069,39 @@
       "notes": [
         "UI visibility is never authorization; protected actions require canonical Gaming permissions."
       ],
-      "customerAccessPolicyRef": null
+      "customerAccessPolicyRef": "customerAccess.policy.gaming.finance",
+      "effectiveCustomerAccess": {
+        "policyVersion": "1.1.0",
+        "mode": "hidden",
+        "publishingMode": "not_applicable",
+        "actions": {
+          "read": "deny",
+          "create": "deny",
+          "update": "deny",
+          "delete": "deny",
+          "submit_for_review": "deny",
+          "publish": "deny",
+          "unpublish": "deny",
+          "restore_version": "deny"
+        },
+        "permissionRefs": {
+          "read": [],
+          "create": [],
+          "update": [],
+          "delete": [],
+          "submit_for_review": [],
+          "publish": [],
+          "unpublish": [],
+          "restore_version": []
+        },
+        "capabilityRefs": [
+          "gaming.dynamic-pricing"
+        ],
+        "demoMode": "disabled",
+        "approvalRequired": false,
+        "hiddenFromCustomerDiscovery": true,
+        "unavailableReason": "Customer-safe Gaming APIs and action policy are not published."
+      }
     },
     {
       "$id": "cmsUi.profile.gaming.orders",
@@ -20370,7 +20434,39 @@
       "notes": [
         "UI visibility is never authorization; protected actions require canonical Gaming permissions."
       ],
-      "customerAccessPolicyRef": null
+      "customerAccessPolicyRef": "customerAccess.policy.gaming.orders",
+      "effectiveCustomerAccess": {
+        "policyVersion": "1.1.0",
+        "mode": "hidden",
+        "publishingMode": "not_applicable",
+        "actions": {
+          "read": "deny",
+          "create": "deny",
+          "update": "deny",
+          "delete": "deny",
+          "submit_for_review": "deny",
+          "publish": "deny",
+          "unpublish": "deny",
+          "restore_version": "deny"
+        },
+        "permissionRefs": {
+          "read": [],
+          "create": [],
+          "update": [],
+          "delete": [],
+          "submit_for_review": [],
+          "publish": [],
+          "unpublish": [],
+          "restore_version": []
+        },
+        "capabilityRefs": [
+          "gaming.digital-fulfillment"
+        ],
+        "demoMode": "disabled",
+        "approvalRequired": false,
+        "hiddenFromCustomerDiscovery": true,
+        "unavailableReason": "Customer-safe Gaming APIs and action policy are not published."
+      }
     },
     {
       "$id": "cmsUi.profile.gaming.suppliers",
@@ -20668,7 +20764,39 @@
       "notes": [
         "UI visibility is never authorization; protected actions require canonical Gaming permissions."
       ],
-      "customerAccessPolicyRef": null
+      "customerAccessPolicyRef": "customerAccess.policy.gaming.suppliers",
+      "effectiveCustomerAccess": {
+        "policyVersion": "1.1.0",
+        "mode": "hidden",
+        "publishingMode": "not_applicable",
+        "actions": {
+          "read": "deny",
+          "create": "deny",
+          "update": "deny",
+          "delete": "deny",
+          "submit_for_review": "deny",
+          "publish": "deny",
+          "unpublish": "deny",
+          "restore_version": "deny"
+        },
+        "permissionRefs": {
+          "read": [],
+          "create": [],
+          "update": [],
+          "delete": [],
+          "submit_for_review": [],
+          "publish": [],
+          "unpublish": [],
+          "restore_version": []
+        },
+        "capabilityRefs": [
+          "gaming.supplier-routing"
+        ],
+        "demoMode": "disabled",
+        "approvalRequired": false,
+        "hiddenFromCustomerDiscovery": true,
+        "unavailableReason": "Customer-safe Gaming APIs and action policy are not published."
+      }
     },
     {
       "$id": "cmsUi.profile.integrations.connections",
@@ -22181,7 +22309,7 @@
     {
       "$id": "cmsUi.profile.marketing.analytics",
       "name": "Analytics",
-      "version": "1.1.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "cms-ui",
       "profileType": "resource",
@@ -22190,7 +22318,8 @@
       "description": "Customer CMS presentation metadata for Analytics within authorized Site scope.",
       "targetContracts": [
         "marketing.analyticsSnapshot",
-        "marketing.analyticsObservation"
+        "marketing.analyticsObservation",
+        "marketing.analyticsReport"
       ],
       "primaryTargetContract": "marketing.analyticsSnapshot",
       "route": "/growth/analytics",
@@ -24358,7 +24487,7 @@
     {
       "$id": "cmsUi.profile.marketing.tracking",
       "name": "Tracking",
-      "version": "1.1.0",
+      "version": "1.4.0",
       "status": "stable",
       "domain": "cms-ui",
       "profileType": "resource",
@@ -24367,7 +24496,8 @@
       "description": "Customer CMS presentation metadata for Tracking within authorized Site scope.",
       "targetContracts": [
         "marketing.trackingConfiguration",
-        "marketing.dataLayerConfiguration"
+        "marketing.dataLayerConfiguration",
+        "marketing.trackingHealth"
       ],
       "primaryTargetContract": "marketing.trackingConfiguration",
       "route": "/growth/tracking",

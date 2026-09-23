@@ -1,0 +1,131 @@
+{
+  "$id": "marketing.trackingSdkDescriptor",
+  "name": "Tracking SDK Descriptor",
+  "version": "1.4.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "sdk",
+  "description": "Machine-readable browser/server SDK protocol and non-blocking behavior contract.",
+  "purpose": "Machine-readable browser/server SDK protocol and non-blocking behavior contract.",
+  "marketingModel": {
+    "kind": "compatibility-descriptor",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "sdkId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable SDK identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sdkVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Exact semantic SDK version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "envelopeVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Supported tracking envelope version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "supportedSources",
+      "required": true,
+      "nullable": false,
+      "description": "Supported browser/server source modes.",
+      "primitive": "fields.tag"
+    },
+    {
+      "key": "queueLimit",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum queued events.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "batchLimit",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum events per request.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "retryLimit",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum automatic retry count.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "runtimeAvailable",
+      "required": true,
+      "nullable": false,
+      "description": "Whether a runtime artifact is actually available.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "artifactReference",
+      "required": false,
+      "nullable": true,
+      "description": "Optional governed artifact reference.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "nonBlocking",
+      "description": "SDK failure never blocks Site behavior."
+    },
+    {
+      "id": "boundedStorageAndRetry",
+      "description": "Queues, storage and retries are bounded."
+    },
+    {
+      "id": "compatibilityExplicit",
+      "description": "Contract and collector compatibility is machine-readable and unknown when not proven."
+    }
+  ],
+  "cms": {
+    "label": "Tracking SDK Descriptor",
+    "icon": "fa-chart-line",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "sdkId",
+      "sdkVersion",
+      "envelopeVersion",
+      "supportedSources"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Delivered only through the declared scoped API projection."
+  },
+  "futureBindings": {
+    "modules": "phase-41",
+    "api": "phase-41",
+    "permissions": "phase-15",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

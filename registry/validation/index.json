@@ -1,9 +1,9 @@
 {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Browser Contract Validation",
   "description": "Local-only deterministic nextf.site.json validation data shared with future developer tooling.",
-  "currentContractVersion": "1.3.0",
+  "currentContractVersion": "1.4.0",
   "manifestSchema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://contract.nextf.lk/registry/manifests/nextf-site-manifest.schema.json",
@@ -470,6 +470,49 @@
               "type": "string",
               "pattern": "^[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*$"
             }
+          },
+          "enabled": {
+            "type": "boolean",
+            "default": false
+          },
+          "contractVersion": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+          },
+          "sdkId": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9.-]*$"
+          },
+          "sdkVersion": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+          },
+          "collectorApiId": {
+            "type": "string",
+            "pattern": "^api\\.[a-z0-9-]+\\.[a-z0-9-]+$"
+          },
+          "consentMode": {
+            "enum": [
+              "required",
+              "essential-only",
+              "disabled"
+            ]
+          },
+          "retentionPolicyRef": {
+            "type": "string",
+            "minLength": 1
+          },
+          "allowedEventNamespaces": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*$"
+            }
+          },
+          "reportingEnabled": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -575,227 +618,15 @@
   },
   "modules": [
     {
-      "$id": "modules.core",
-      "moduleId": "core",
-      "name": "Core",
-      "version": "0.18.0",
+      "$id": "modules.analytics",
+      "moduleId": "analytics",
+      "name": "Analytics",
+      "version": "1.4.0",
       "status": "stable",
-      "category": "foundation",
-      "icon": "fa-cubes",
-      "order": 10,
-      "description": "Tenant identity, Site scope, publishing, versioning, audit and shared platform primitives required by every NEXT F Site.",
-      "selection": {
-        "mandatory": true,
-        "defaultEnabled": true,
-        "explicitManifestSelection": true,
-        "customerCanEnable": false,
-        "nextfAdminCanEnable": false
-      },
-      "dependencies": [],
-      "conflicts": [],
-      "capabilityIds": [
-        "core.identity",
-        "core.publishing",
-        "core.versioning",
-        "core.audit",
-        "core.tenant-isolation"
-      ],
-      "defaultCapabilityIds": [
-        "core.identity",
-        "core.publishing",
-        "core.versioning",
-        "core.audit",
-        "core.tenant-isolation"
-      ],
-      "contractBindings": [
-        "core.actorReference",
-        "core.auditRecord",
-        "core.entityIdentity",
-        "core.entityReference",
-        "core.organization",
-        "core.publishing",
-        "core.revisionPointer",
-        "core.scheduleWindow",
-        "core.sharedCoreStandard",
-        "core.site",
-        "core.tenantScope",
-        "core.versionRecord",
-        "core.visibility",
-        "shared.address",
-        "shared.contactPoint",
-        "shared.cta",
-        "shared.externalReference",
-        "shared.link",
-        "shared.mediaAsset",
-        "shared.mediaReference"
-      ],
-      "permissionBindings": [
-        "core.audit.export",
-        "core.audit.view",
-        "core.members.create",
-        "core.members.delete",
-        "core.members.edit",
-        "core.members.manage",
-        "core.members.view",
-        "core.settings.edit",
-        "core.settings.manage",
-        "core.settings.view",
-        "core.sitehealth.view",
-        "core.workspace.manage",
-        "core.workspace.view",
-        "platform.sites.create",
-        "platform.sites.delete",
-        "platform.sites.edit",
-        "platform.sites.export",
-        "platform.sites.manage",
-        "platform.sites.view"
-      ],
-      "eventBindings": [
-        "site.activated",
-        "site.connection-degraded",
-        "site.connection-restored",
-        "site.created",
-        "site.suspended",
-        "site.updated"
-      ],
-      "cms": {
-        "customerVisible": true,
-        "group": "Foundation",
-        "navigation": [
-          {
-            "label": "Overview",
-            "path": "/overview",
-            "icon": "fa-gauge-high",
-            "order": 10
-          },
-          {
-            "label": "Activity",
-            "path": "/activity",
-            "icon": "fa-clock-rotate-left",
-            "order": 90
-          }
-        ]
-      },
-      "admin": {
-        "visible": true,
-        "group": "Sites",
-        "navigation": [
-          {
-            "label": "Site Overview",
-            "path": "/sites/:siteId",
-            "icon": "fa-globe",
-            "order": 10
-          },
-          {
-            "label": "Activity",
-            "path": "/sites/:siteId/activity",
-            "icon": "fa-clock-rotate-left",
-            "order": 90
-          }
-        ]
-      },
-      "manifest": {
-        "moduleId": "core",
-        "capabilitySelection": "module-scoped",
-        "dependencyValidation": "strict"
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.media",
-      "moduleId": "media",
-      "name": "Media",
-      "version": "0.18.0",
-      "status": "stable",
-      "category": "foundation",
-      "icon": "fa-photo-film",
-      "order": 20,
-      "description": "Reusable Site-scoped media library and asset metadata used by content and commerce without tying contracts to one storage provider.",
-      "selection": {
-        "mandatory": false,
-        "defaultEnabled": true,
-        "explicitManifestSelection": true,
-        "customerCanEnable": false,
-        "nextfAdminCanEnable": true
-      },
-      "dependencies": [
-        {
-          "moduleId": "core",
-          "kind": "required",
-          "reason": "Media assets are Site-scoped and audited through Core."
-        }
-      ],
-      "conflicts": [],
-      "capabilityIds": [
-        "media.library",
-        "media.images",
-        "media.documents",
-        "media.video",
-        "media.audio",
-        "media.contextual-metadata"
-      ],
-      "defaultCapabilityIds": [
-        "media.library",
-        "media.images",
-        "media.contextual-metadata"
-      ],
-      "contractBindings": [
-        "shared.mediaAsset",
-        "shared.mediaReference"
-      ],
-      "permissionBindings": [
-        "content.media.create",
-        "content.media.delete",
-        "content.media.edit",
-        "content.media.manage",
-        "content.media.view"
-      ],
-      "eventBindings": [
-        "media.created",
-        "media.deleted",
-        "media.updated"
-      ],
-      "cms": {
-        "customerVisible": true,
-        "group": "Foundation",
-        "navigation": [
-          {
-            "label": "Media",
-            "path": "/content/media",
-            "icon": "fa-photo-film",
-            "order": 40
-          }
-        ]
-      },
-      "admin": {
-        "visible": true,
-        "group": "Sites",
-        "navigation": [
-          {
-            "label": "Media",
-            "path": "/sites/:siteId/media",
-            "icon": "fa-photo-film",
-            "order": 40
-          }
-        ]
-      },
-      "manifest": {
-        "moduleId": "media",
-        "capabilitySelection": "module-scoped",
-        "dependencyValidation": "strict"
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.pages",
-      "moduleId": "pages",
-      "name": "Pages",
-      "version": "0.18.0",
-      "status": "stable",
-      "category": "content",
-      "icon": "fa-file-lines",
-      "order": 100,
-      "description": "Structured pages, sections, reusable content, navigation, legal content and custom collections for coded customer websites.",
+      "category": "growth",
+      "icon": "fa-chart-line",
+      "order": 230,
+      "description": "Provider-neutral website measurement, analytics observations, reporting, attribution and campaign performance summaries.",
       "selection": {
         "mandatory": false,
         "defaultEnabled": false,
@@ -807,136 +638,77 @@
         {
           "moduleId": "core",
           "kind": "required",
-          "reason": "All page content is Site-scoped and publishable."
+          "reason": "Analytics configuration is Site-scoped."
         },
         {
-          "moduleId": "media",
+          "moduleId": "consent",
           "kind": "required",
-          "reason": "Page blocks may reference canonical media assets."
+          "reason": "Optional analytics measurement must honor canonical consent state."
         },
         {
-          "moduleId": "seo",
+          "moduleId": "integrations",
           "kind": "recommended",
-          "reason": "Routable pages should normally use canonical SEO metadata."
+          "reason": "Provider reporting normally arrives through supported integration connectors."
         }
       ],
       "conflicts": [],
       "capabilityIds": [
-        "pages.sections",
-        "pages.reusable-content",
-        "pages.navigation",
-        "pages.legal-pages",
-        "pages.custom-collections",
-        "pages.scheduling",
-        "pages.approvals"
+        "analytics.measurement",
+        "analytics.reporting",
+        "analytics.attribution",
+        "analytics.campaign-performance",
+        "analytics.first-party-collection",
+        "analytics.tracking-sdk",
+        "analytics.tracking-health"
       ],
       "defaultCapabilityIds": [
-        "pages.sections",
-        "pages.reusable-content",
-        "pages.navigation"
+        "analytics.measurement",
+        "analytics.reporting"
       ],
       "contractBindings": [
-        "content.page",
-        "content.pageSection",
-        "content.reusableContent",
-        "content.navigation",
-        "content.navigationItem",
-        "content.legalPage",
-        "content.customCollection",
-        "content.customCollectionEntry",
-        "blocks.actionGroup",
-        "blocks.blockContractStandard",
-        "blocks.cta",
-        "blocks.custom",
-        "blocks.documents",
-        "blocks.faq",
-        "blocks.featureGrid",
-        "blocks.featureItem",
-        "blocks.form",
-        "blocks.gallery",
-        "blocks.galleryItem",
-        "blocks.heading",
-        "blocks.hero",
-        "blocks.locations",
-        "blocks.logoGrid",
-        "blocks.logoItem",
-        "blocks.pricing",
-        "blocks.pricingPlan",
-        "blocks.process",
-        "blocks.processStep",
-        "blocks.relatedContent",
-        "blocks.relatedContentItem",
-        "blocks.richText",
-        "blocks.services",
-        "blocks.statItem",
-        "blocks.stats",
-        "blocks.team",
-        "blocks.testimonials",
-        "blocks.textImage",
-        "blocks.video"
+        "marketing.analyticsConfiguration",
+        "marketing.analyticsObservation",
+        "marketing.analyticsSnapshot",
+        "marketing.attributionCredit",
+        "marketing.attributionModel",
+        "marketing.attributionTouchpoint",
+        "marketing.campaignAttribution",
+        "marketing.campaignPerformanceSnapshot",
+        "marketing.conversionAttribution",
+        "marketing.dimensionDefinition",
+        "marketing.metricDefinition",
+        "marketing.visitorIdentityPolicy",
+        "marketing.sessionPolicy",
+        "marketing.trackingSdkDescriptor",
+        "marketing.trackingCompatibility",
+        "marketing.trackingCollectorPolicy",
+        "marketing.trackingIngestionBatch",
+        "marketing.trackingIngestionItemResult",
+        "marketing.trackingIngestionReceipt",
+        "marketing.invalidTrafficClassification",
+        "marketing.analyticsReport",
+        "marketing.trackingHealth"
       ],
       "permissionBindings": [
-        "content.customcollections.create",
-        "content.customcollections.delete",
-        "content.customcollections.edit",
-        "content.customcollections.manage",
-        "content.customcollections.view",
-        "content.navigation.edit",
-        "content.navigation.manage",
-        "content.navigation.publish",
-        "content.navigation.view",
-        "content.pages.approve",
-        "content.pages.create",
-        "content.pages.delete",
-        "content.pages.edit",
-        "content.pages.publish",
-        "content.pages.view",
-        "content.reusablecontent.approve",
-        "content.reusablecontent.create",
-        "content.reusablecontent.delete",
-        "content.reusablecontent.edit",
-        "content.reusablecontent.publish",
-        "content.reusablecontent.view"
+        "marketing.analytics.export",
+        "marketing.analytics.view",
+        "marketing.attribution.export",
+        "marketing.attribution.manage",
+        "marketing.attribution.view"
       ],
       "eventBindings": [
-        "content.archived",
-        "content.created",
-        "content.deleted",
-        "content.published",
-        "content.restored",
-        "content.scheduled",
-        "content.unpublished",
-        "content.updated",
-        "content.version-created",
-        "navigation.updated"
+        "conversion.recorded",
+        "consent.updated"
       ],
       "cms": {
         "customerVisible": true,
-        "group": "Content",
+        "group": "Growth",
         "navigation": [
           {
-            "label": "Pages",
-            "path": "/content/pages",
-            "icon": "fa-file-lines",
-            "order": 10
-          },
-          {
-            "label": "Reusable Content",
-            "path": "/content/reusable",
-            "icon": "fa-clone",
-            "order": 20
-          },
-          {
-            "label": "Navigation",
-            "path": "/website/navigation",
-            "icon": "fa-bars",
-            "order": 30
-          },
-          {
-            "label": "Custom Collections",
-            "path": "/content/collections",
-            "icon": "fa-table-list",
-            "order": 50
+            "label": "Analytics",
+            "path": "/growth/analytics",
+            "icon": "fa-chart-line",
+            "order": 40
           }
         ]
       },
@@ -945,15 +717,15 @@
         "group": "Sites",
         "navigation": [
           {
-            "label": "Content Model",
-            "path": "/sites/:siteId/content",
-            "icon": "fa-diagram-project",
-            "order": 20
+            "label": "Analytics",
+            "path": "/sites/:siteId/analytics",
+            "icon": "fa-chart-line",
+            "order": 65
           }
         ]
       },
       "manifest": {
-        "moduleId": "pages",
+        "moduleId": "analytics",
         "capabilitySelection": "module-scoped",
         "dependencyValidation": "strict"
       },
@@ -1068,1058 +840,6 @@
       },
       "manifest": {
         "moduleId": "blog",
-        "capabilitySelection": "module-scoped",
-        "dependencyValidation": "strict"
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.documentation",
-      "moduleId": "documentation",
-      "name": "Documentation",
-      "version": "0.18.0",
-      "status": "stable",
-      "category": "content",
-      "icon": "fa-book-open",
-      "order": 120,
-      "description": "Structured documentation collections, categories and articles with attachments, visibility, related content and version-aware publishing.",
-      "selection": {
-        "mandatory": false,
-        "defaultEnabled": false,
-        "explicitManifestSelection": true,
-        "customerCanEnable": false,
-        "nextfAdminCanEnable": true
-      },
-      "dependencies": [
-        {
-          "moduleId": "core",
-          "kind": "required",
-          "reason": "Documentation is versioned and Site-scoped."
-        },
-        {
-          "moduleId": "media",
-          "kind": "required",
-          "reason": "Documentation may reference attachments/media."
-        },
-        {
-          "moduleId": "seo",
-          "kind": "recommended",
-          "reason": "Public documentation benefits from canonical SEO metadata."
-        }
-      ],
-      "conflicts": [],
-      "capabilityIds": [
-        "documentation.collections",
-        "documentation.categories",
-        "documentation.attachments",
-        "documentation.related-articles",
-        "documentation.versioning",
-        "documentation.visibility"
-      ],
-      "defaultCapabilityIds": [
-        "documentation.collections",
-        "documentation.categories",
-        "documentation.versioning",
-        "documentation.visibility"
-      ],
-      "contractBindings": [
-        "content.documentationCollection",
-        "content.documentationCategory",
-        "content.documentationArticle"
-      ],
-      "permissionBindings": [
-        "content.documentation.approve",
-        "content.documentation.create",
-        "content.documentation.delete",
-        "content.documentation.edit",
-        "content.documentation.publish",
-        "content.documentation.view"
-      ],
-      "eventBindings": [
-        "content.archived",
-        "content.created",
-        "content.deleted",
-        "content.published",
-        "content.restored",
-        "content.scheduled",
-        "content.unpublished",
-        "content.updated",
-        "content.version-created"
-      ],
-      "cms": {
-        "customerVisible": true,
-        "group": "Content",
-        "navigation": [
-          {
-            "label": "Documentation",
-            "path": "/content/documentation",
-            "icon": "fa-book-open",
-            "order": 30
-          }
-        ]
-      },
-      "admin": {
-        "visible": true,
-        "group": "Sites",
-        "navigation": [
-          {
-            "label": "Documentation",
-            "path": "/sites/:siteId/documentation",
-            "icon": "fa-book-open",
-            "order": 35
-          }
-        ]
-      },
-      "manifest": {
-        "moduleId": "documentation",
-        "capabilitySelection": "module-scoped",
-        "dependencyValidation": "strict"
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.seo",
-      "moduleId": "seo",
-      "name": "SEO",
-      "version": "0.18.0",
-      "status": "stable",
-      "category": "growth",
-      "icon": "fa-magnifying-glass-chart",
-      "order": 200,
-      "description": "Canonical metadata, keywords, social metadata, structured data, redirects, sitemap, robots, audits and search-performance records.",
-      "selection": {
-        "mandatory": false,
-        "defaultEnabled": false,
-        "explicitManifestSelection": true,
-        "customerCanEnable": false,
-        "nextfAdminCanEnable": true
-      },
-      "dependencies": [
-        {
-          "moduleId": "core",
-          "kind": "required",
-          "reason": "SEO records belong to a Site and target canonical entities."
-        },
-        {
-          "moduleId": "integrations",
-          "kind": "optional",
-          "reason": "Search performance and indexing data may be sourced through supported connectors."
-        }
-      ],
-      "conflicts": [],
-      "capabilityIds": [
-        "seo.metadata",
-        "seo.keywords",
-        "seo.social-sharing",
-        "seo.structured-data",
-        "seo.redirects",
-        "seo.sitemap",
-        "seo.robots",
-        "seo.audits",
-        "seo.search-performance",
-        "seo.indexing"
-      ],
-      "defaultCapabilityIds": [
-        "seo.metadata",
-        "seo.social-sharing",
-        "seo.sitemap",
-        "seo.robots"
-      ],
-      "contractBindings": [
-        "seo.alternateLanguage",
-        "seo.auditIssue",
-        "seo.auditResult",
-        "seo.brokenLink",
-        "seo.indexingStatus",
-        "seo.internalLink",
-        "seo.keywordSet",
-        "seo.keywordTarget",
-        "seo.metadata",
-        "seo.openGraph",
-        "seo.redirect",
-        "seo.robotsDirective",
-        "seo.robotsPolicy",
-        "seo.robotsRule",
-        "seo.searchPerformance",
-        "seo.searchPreview",
-        "seo.searchQuery",
-        "seo.seoContractStandard",
-        "seo.siteDefaults",
-        "seo.sitemapEntry",
-        "seo.socialCard",
-        "seo.structuredData",
-        "seo.urlInspectionResult"
-      ],
-      "permissionBindings": [
-        "seo.audits.export",
-        "seo.audits.manage",
-        "seo.audits.view",
-        "seo.indexing.manage",
-        "seo.indexing.view",
-        "seo.metadata.edit",
-        "seo.metadata.view",
-        "seo.redirects.create",
-        "seo.redirects.delete",
-        "seo.redirects.edit",
-        "seo.redirects.manage",
-        "seo.redirects.view",
-        "seo.robots.edit",
-        "seo.robots.manage",
-        "seo.robots.view",
-        "seo.searchperformance.export",
-        "seo.searchperformance.view",
-        "seo.sitemap.edit",
-        "seo.sitemap.manage",
-        "seo.sitemap.view",
-        "seo.structureddata.edit",
-        "seo.structureddata.view"
-      ],
-      "eventBindings": [
-        "redirect.created",
-        "redirect.deleted",
-        "redirect.updated",
-        "seo.updated",
-        "sitemap.updated"
-      ],
-      "cms": {
-        "customerVisible": true,
-        "group": "Growth",
-        "navigation": [
-          {
-            "label": "SEO",
-            "path": "/growth/seo",
-            "icon": "fa-magnifying-glass-chart",
-            "order": 10
-          }
-        ]
-      },
-      "admin": {
-        "visible": true,
-        "group": "Sites",
-        "navigation": [
-          {
-            "label": "SEO",
-            "path": "/sites/:siteId/seo",
-            "icon": "fa-magnifying-glass-chart",
-            "order": 40
-          }
-        ]
-      },
-      "manifest": {
-        "moduleId": "seo",
-        "capabilitySelection": "module-scoped",
-        "dependencyValidation": "strict"
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.forms",
-      "moduleId": "forms",
-      "name": "Forms",
-      "version": "0.18.0",
-      "status": "stable",
-      "category": "growth",
-      "icon": "fa-rectangle-list",
-      "order": 210,
-      "description": "Structured forms, submissions, validation, notifications, spam handling, consent capture and conversion mapping.",
-      "selection": {
-        "mandatory": false,
-        "defaultEnabled": false,
-        "explicitManifestSelection": true,
-        "customerCanEnable": false,
-        "nextfAdminCanEnable": true
-      },
-      "dependencies": [
-        {
-          "moduleId": "core",
-          "kind": "required",
-          "reason": "Forms and submissions are Site-scoped."
-        },
-        {
-          "moduleId": "consent",
-          "kind": "conditional",
-          "reason": "Consent module is required when optional analytics/marketing consent is collected or enforced."
-        }
-      ],
-      "conflicts": [],
-      "capabilityIds": [
-        "forms.multi-step",
-        "forms.conditional-logic",
-        "forms.file-uploads",
-        "forms.notifications",
-        "forms.auto-response",
-        "forms.spam-protection",
-        "forms.consent-fields",
-        "forms.conversion-mapping"
-      ],
-      "defaultCapabilityIds": [
-        "forms.notifications",
-        "forms.spam-protection",
-        "forms.consent-fields"
-      ],
-      "contractBindings": [
-        "forms.autoResponse",
-        "forms.condition",
-        "forms.conditionGroup",
-        "forms.confirmation",
-        "forms.consentFieldConfig",
-        "forms.consentRecord",
-        "forms.conversionMapping",
-        "forms.dataHandling",
-        "forms.fieldMapping",
-        "forms.fieldOption",
-        "forms.fieldValidationRule",
-        "forms.form",
-        "forms.formAvailability",
-        "forms.formField",
-        "forms.formSection",
-        "forms.formStep",
-        "forms.formsLeadsContractStandard",
-        "forms.notificationRecipient",
-        "forms.notificationRule",
-        "forms.rateLimitPolicy",
-        "forms.requestContext",
-        "forms.spamDecision",
-        "forms.spamPolicy",
-        "forms.spamSignal",
-        "forms.submission",
-        "forms.submissionFile",
-        "forms.submissionValue",
-        "forms.uploadPolicy"
-      ],
-      "permissionBindings": [
-        "forms.consent.export",
-        "forms.consent.view",
-        "forms.forms.create",
-        "forms.forms.delete",
-        "forms.forms.edit",
-        "forms.forms.manage",
-        "forms.forms.publish",
-        "forms.forms.view",
-        "forms.notifications.edit",
-        "forms.notifications.manage",
-        "forms.notifications.view",
-        "forms.spam.manage",
-        "forms.spam.view",
-        "forms.submissions.delete",
-        "forms.submissions.export",
-        "forms.submissions.manage",
-        "forms.submissions.view"
-      ],
-      "eventBindings": [
-        "form.archived",
-        "form.created",
-        "form.published",
-        "form.rejected",
-        "form.submitted",
-        "form.updated"
-      ],
-      "cms": {
-        "customerVisible": true,
-        "group": "Growth",
-        "navigation": [
-          {
-            "label": "Forms",
-            "path": "/growth/forms",
-            "icon": "fa-rectangle-list",
-            "order": 20
-          }
-        ]
-      },
-      "admin": {
-        "visible": true,
-        "group": "Sites",
-        "navigation": [
-          {
-            "label": "Forms",
-            "path": "/sites/:siteId/forms",
-            "icon": "fa-rectangle-list",
-            "order": 50
-          }
-        ]
-      },
-      "manifest": {
-        "moduleId": "forms",
-        "capabilitySelection": "module-scoped",
-        "dependencyValidation": "strict"
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.leads",
-      "moduleId": "leads",
-      "name": "Leads",
-      "version": "0.18.0",
-      "status": "stable",
-      "category": "growth",
-      "icon": "fa-user-plus",
-      "order": 220,
-      "description": "Lead records, status, assignment, notes, activity, deduplication and export generated from approved sources such as Forms.",
-      "selection": {
-        "mandatory": false,
-        "defaultEnabled": false,
-        "explicitManifestSelection": true,
-        "customerCanEnable": false,
-        "nextfAdminCanEnable": true
-      },
-      "dependencies": [
-        {
-          "moduleId": "core",
-          "kind": "required",
-          "reason": "Leads are Site-scoped business records."
-        },
-        {
-          "moduleId": "forms",
-          "kind": "required",
-          "reason": "Phase 17 Lead workflows use the Forms/Lead contract family as their canonical source."
-        }
-      ],
-      "conflicts": [],
-      "capabilityIds": [
-        "leads.status",
-        "leads.assignment",
-        "leads.notes",
-        "leads.activity",
-        "leads.deduplication",
-        "leads.export"
-      ],
-      "defaultCapabilityIds": [
-        "leads.status",
-        "leads.activity",
-        "leads.deduplication"
-      ],
-      "contractBindings": [
-        "forms.fieldMapping",
-        "forms.lead",
-        "forms.leadActivity",
-        "forms.leadAssignment",
-        "forms.leadDedupePolicy",
-        "forms.leadMapping",
-        "forms.leadNote",
-        "forms.leadSource",
-        "forms.leadStatusDefinition"
-      ],
-      "permissionBindings": [
-        "forms.leads.create",
-        "forms.leads.delete",
-        "forms.leads.edit",
-        "forms.leads.export",
-        "forms.leads.manage",
-        "forms.leads.view"
-      ],
-      "eventBindings": [
-        "lead.assigned",
-        "lead.created",
-        "lead.merged",
-        "lead.status-changed",
-        "lead.updated"
-      ],
-      "cms": {
-        "customerVisible": true,
-        "group": "Growth",
-        "navigation": [
-          {
-            "label": "Leads",
-            "path": "/growth/leads",
-            "icon": "fa-user-plus",
-            "order": 30
-          }
-        ]
-      },
-      "admin": {
-        "visible": true,
-        "group": "Sites",
-        "navigation": [
-          {
-            "label": "Leads",
-            "path": "/sites/:siteId/leads",
-            "icon": "fa-user-plus",
-            "order": 55
-          }
-        ]
-      },
-      "manifest": {
-        "moduleId": "leads",
-        "capabilitySelection": "module-scoped",
-        "dependencyValidation": "strict"
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.analytics",
-      "moduleId": "analytics",
-      "name": "Analytics",
-      "version": "0.18.0",
-      "status": "stable",
-      "category": "growth",
-      "icon": "fa-chart-line",
-      "order": 230,
-      "description": "Provider-neutral website measurement, analytics observations, reporting, attribution and campaign performance summaries.",
-      "selection": {
-        "mandatory": false,
-        "defaultEnabled": false,
-        "explicitManifestSelection": true,
-        "customerCanEnable": false,
-        "nextfAdminCanEnable": true
-      },
-      "dependencies": [
-        {
-          "moduleId": "core",
-          "kind": "required",
-          "reason": "Analytics configuration is Site-scoped."
-        },
-        {
-          "moduleId": "consent",
-          "kind": "required",
-          "reason": "Optional analytics measurement must honor canonical consent state."
-        },
-        {
-          "moduleId": "integrations",
-          "kind": "recommended",
-          "reason": "Provider reporting normally arrives through supported integration connectors."
-        }
-      ],
-      "conflicts": [],
-      "capabilityIds": [
-        "analytics.measurement",
-        "analytics.reporting",
-        "analytics.attribution",
-        "analytics.campaign-performance"
-      ],
-      "defaultCapabilityIds": [
-        "analytics.measurement",
-        "analytics.reporting"
-      ],
-      "contractBindings": [
-        "marketing.analyticsConfiguration",
-        "marketing.analyticsObservation",
-        "marketing.analyticsSnapshot",
-        "marketing.attributionCredit",
-        "marketing.attributionModel",
-        "marketing.attributionTouchpoint",
-        "marketing.campaignAttribution",
-        "marketing.campaignPerformanceSnapshot",
-        "marketing.conversionAttribution",
-        "marketing.dimensionDefinition",
-        "marketing.metricDefinition"
-      ],
-      "permissionBindings": [
-        "marketing.analytics.export",
-        "marketing.analytics.view",
-        "marketing.attribution.export",
-        "marketing.attribution.manage",
-        "marketing.attribution.view"
-      ],
-      "eventBindings": [
-        "conversion.recorded",
-        "consent.updated"
-      ],
-      "cms": {
-        "customerVisible": true,
-        "group": "Growth",
-        "navigation": [
-          {
-            "label": "Analytics",
-            "path": "/growth/analytics",
-            "icon": "fa-chart-line",
-            "order": 40
-          }
-        ]
-      },
-      "admin": {
-        "visible": true,
-        "group": "Sites",
-        "navigation": [
-          {
-            "label": "Analytics",
-            "path": "/sites/:siteId/analytics",
-            "icon": "fa-chart-line",
-            "order": 65
-          }
-        ]
-      },
-      "manifest": {
-        "moduleId": "analytics",
-        "capabilitySelection": "module-scoped",
-        "dependencyValidation": "strict"
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.marketing",
-      "moduleId": "marketing",
-      "name": "Marketing",
-      "version": "0.18.0",
-      "status": "stable",
-      "category": "growth",
-      "icon": "fa-bullseye",
-      "order": 240,
-      "description": "Conversions, campaign attribution, UTM/click identifiers, marketing destinations and provider-neutral tracking configuration.",
-      "selection": {
-        "mandatory": false,
-        "defaultEnabled": false,
-        "explicitManifestSelection": true,
-        "customerCanEnable": false,
-        "nextfAdminCanEnable": true
-      },
-      "dependencies": [
-        {
-          "moduleId": "core",
-          "kind": "required",
-          "reason": "Marketing configuration is Site-scoped."
-        },
-        {
-          "moduleId": "consent",
-          "kind": "required",
-          "reason": "Optional marketing destinations must honor consent."
-        },
-        {
-          "moduleId": "analytics",
-          "kind": "recommended",
-          "reason": "Attribution and reporting can consume Analytics capability."
-        },
-        {
-          "moduleId": "integrations",
-          "kind": "recommended",
-          "reason": "Ad platforms and marketing tools connect through canonical connectors."
-        }
-      ],
-      "conflicts": [],
-      "capabilityIds": [
-        "marketing.conversions",
-        "marketing.campaigns",
-        "marketing.utm-attribution",
-        "marketing.ad-click-identifiers",
-        "marketing.destinations"
-      ],
-      "defaultCapabilityIds": [
-        "marketing.conversions",
-        "marketing.utm-attribution",
-        "marketing.destinations"
-      ],
-      "contractBindings": [
-        "marketing.adClickIdentifier",
-        "marketing.analyticsConfiguration",
-        "marketing.attributionCredit",
-        "marketing.attributionModel",
-        "marketing.attributionTouchpoint",
-        "marketing.campaignAttribution",
-        "marketing.campaignContext",
-        "marketing.campaignDefinition",
-        "marketing.campaignPerformanceSnapshot",
-        "marketing.conversionAttribution",
-        "marketing.conversionDeduplicationPolicy",
-        "marketing.conversionDefinition",
-        "marketing.conversionOccurrence",
-        "marketing.conversionSummary",
-        "marketing.conversionValue",
-        "marketing.dataLayerConfiguration",
-        "marketing.destinationMapping",
-        "marketing.deviceContext",
-        "marketing.dimensionDefinition",
-        "marketing.dispatchRequest",
-        "marketing.dispatchResult",
-        "marketing.eventContext",
-        "marketing.eventDestination",
-        "marketing.eventPropertyDefinition",
-        "marketing.marketingDestination",
-        "marketing.marketingTrackingContractStandard",
-        "marketing.metricDefinition",
-        "marketing.pageContext",
-        "marketing.referrerContext",
-        "marketing.sessionContext",
-        "marketing.standardTrackingEvents",
-        "marketing.trackingConfiguration",
-        "marketing.trackingDataPolicy",
-        "marketing.trackingEvent",
-        "marketing.trackingEventDefinition",
-        "marketing.trafficSource",
-        "marketing.utmParameters",
-        "marketing.visitorContext"
-      ],
-      "permissionBindings": [
-        "marketing.attribution.export",
-        "marketing.attribution.manage",
-        "marketing.attribution.view",
-        "marketing.campaigns.create",
-        "marketing.campaigns.delete",
-        "marketing.campaigns.edit",
-        "marketing.campaigns.manage",
-        "marketing.campaigns.view",
-        "marketing.conversions.create",
-        "marketing.conversions.delete",
-        "marketing.conversions.edit",
-        "marketing.conversions.manage",
-        "marketing.conversions.view",
-        "marketing.destinations.create",
-        "marketing.destinations.delete",
-        "marketing.destinations.edit",
-        "marketing.destinations.manage",
-        "marketing.destinations.view",
-        "marketing.tracking.edit",
-        "marketing.tracking.manage",
-        "marketing.tracking.view"
-      ],
-      "eventBindings": [
-        "conversion.recorded"
-      ],
-      "cms": {
-        "customerVisible": true,
-        "group": "Growth",
-        "navigation": [
-          {
-            "label": "Conversions",
-            "path": "/growth/conversions",
-            "icon": "fa-bullseye",
-            "order": 50
-          },
-          {
-            "label": "Marketing",
-            "path": "/growth/marketing",
-            "icon": "fa-megaphone",
-            "order": 60
-          }
-        ]
-      },
-      "admin": {
-        "visible": true,
-        "group": "Sites",
-        "navigation": [
-          {
-            "label": "Marketing",
-            "path": "/sites/:siteId/marketing",
-            "icon": "fa-bullseye",
-            "order": 70
-          }
-        ]
-      },
-      "manifest": {
-        "moduleId": "marketing",
-        "capabilitySelection": "module-scoped",
-        "dependencyValidation": "strict"
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.consent",
-      "moduleId": "consent",
-      "name": "Consent",
-      "version": "0.18.0",
-      "status": "stable",
-      "category": "platform",
-      "icon": "fa-shield-halved",
-      "order": 300,
-      "description": "Tracking and marketing consent preferences, states, policies and immutable consent records used to gate optional integrations.",
-      "selection": {
-        "mandatory": false,
-        "defaultEnabled": false,
-        "explicitManifestSelection": true,
-        "customerCanEnable": false,
-        "nextfAdminCanEnable": true
-      },
-      "dependencies": [
-        {
-          "moduleId": "core",
-          "kind": "required",
-          "reason": "Consent state is Site-scoped and auditable."
-        }
-      ],
-      "conflicts": [],
-      "capabilityIds": [
-        "consent.preferences",
-        "consent.records",
-        "consent.categories",
-        "consent.integration-gating"
-      ],
-      "defaultCapabilityIds": [
-        "consent.preferences",
-        "consent.records",
-        "consent.categories",
-        "consent.integration-gating"
-      ],
-      "contractBindings": [
-        "forms.consentFieldConfig",
-        "forms.consentRecord",
-        "marketing.consentCategory",
-        "marketing.consentPolicy",
-        "marketing.consentPreference",
-        "marketing.consentState",
-        "marketing.trackingConsentRecord"
-      ],
-      "permissionBindings": [
-        "forms.consent.export",
-        "forms.consent.view",
-        "marketing.consent.edit",
-        "marketing.consent.manage",
-        "marketing.consent.view"
-      ],
-      "eventBindings": [
-        "consent.recorded",
-        "consent.updated"
-      ],
-      "cms": {
-        "customerVisible": true,
-        "group": "Platform",
-        "navigation": [
-          {
-            "label": "Consent & Privacy",
-            "path": "/website/consent",
-            "icon": "fa-shield-halved",
-            "order": 20
-          }
-        ]
-      },
-      "admin": {
-        "visible": true,
-        "group": "Sites",
-        "navigation": [
-          {
-            "label": "Consent",
-            "path": "/sites/:siteId/consent",
-            "icon": "fa-shield-halved",
-            "order": 60
-          }
-        ]
-      },
-      "manifest": {
-        "moduleId": "consent",
-        "capabilitySelection": "module-scoped",
-        "dependencyValidation": "strict"
-      },
-      "notes": []
-    },
-    {
-      "$id": "modules.integrations",
-      "moduleId": "integrations",
-      "name": "Integrations",
-      "version": "0.18.0",
-      "status": "stable",
-      "category": "platform",
-      "icon": "fa-plug",
-      "order": 310,
-      "description": "Approved provider connectors, credentials references, environment bindings, mappings, synchronization and health diagnostics.",
-      "selection": {
-        "mandatory": false,
-        "defaultEnabled": false,
-        "explicitManifestSelection": true,
-        "customerCanEnable": false,
-        "nextfAdminCanEnable": true
-      },
-      "dependencies": [
-        {
-          "moduleId": "core",
-          "kind": "required",
-          "reason": "Connections are Site-scoped and permission-controlled."
-        },
-        {
-          "moduleId": "consent",
-          "kind": "conditional",
-          "reason": "Tracking/advertising connectors require consent-aware runtime behavior."
-        }
-      ],
-      "conflicts": [],
-      "capabilityIds": [
-        "integrations.gtm",
-        "integrations.ga4",
-        "integrations.google-ads",
-        "integrations.search-console",
-        "integrations.meta",
-        "integrations.clarity",
-        "integrations.tiktok",
-        "integrations.linkedin",
-        "integrations.microsoft-ads",
-        "integrations.email",
-        "integrations.crm",
-        "integrations.webhooks",
-        "integrations.custom-api",
-        "integrations.health",
-        "integrations.sync"
-      ],
-      "defaultCapabilityIds": [
-        "integrations.health"
-      ],
-      "contractBindings": [
-        "integrations.accountReference",
-        "integrations.actionBinding",
-        "integrations.apiKeyConfiguration",
-        "integrations.authenticationProfile",
-        "integrations.capabilityBinding",
-        "integrations.capabilityDefinition",
-        "integrations.configurationField",
-        "integrations.configurationValue",
-        "integrations.connectionStatus",
-        "integrations.connectionTest",
-        "integrations.connectorDefinition",
-        "integrations.consentBinding",
-        "integrations.conversionMapping",
-        "integrations.credentialReference",
-        "integrations.crm",
-        "integrations.customApi",
-        "integrations.dataMapping",
-        "integrations.dataMappingField",
-        "integrations.dataPolicyBinding",
-        "integrations.emailProvider",
-        "integrations.environmentBinding",
-        "integrations.eventMapping",
-        "integrations.googleAds",
-        "integrations.googleAnalytics4",
-        "integrations.googleSearchConsole",
-        "integrations.googleTagManager",
-        "integrations.healthCheck",
-        "integrations.healthSnapshot",
-        "integrations.integrationConnection",
-        "integrations.integrationContractStandard",
-        "integrations.integrationError",
-        "integrations.linkedin",
-        "integrations.meta",
-        "integrations.microsoftAds",
-        "integrations.microsoftClarity",
-        "integrations.oauthConfiguration",
-        "integrations.providerActionDefinition",
-        "integrations.providerDefinition",
-        "integrations.rateLimitState",
-        "integrations.resourceReference",
-        "integrations.retryPolicy",
-        "integrations.runtimeBinding",
-        "integrations.secretReference",
-        "integrations.syncCursor",
-        "integrations.syncPolicy",
-        "integrations.syncResult",
-        "integrations.syncRun",
-        "integrations.tiktok",
-        "integrations.webhook",
-        "webhooks.dataAccessPolicy",
-        "webhooks.deadLetter",
-        "webhooks.defaultPolicies",
-        "webhooks.delivery",
-        "webhooks.deliveryAttempt",
-        "webhooks.deliveryFailure",
-        "webhooks.deliveryLogRecord",
-        "webhooks.deliveryMetricSnapshot",
-        "webhooks.deliveryQueuePolicy",
-        "webhooks.deliveryRequest",
-        "webhooks.deliveryResponse",
-        "webhooks.deliverySummary",
-        "webhooks.endpoint",
-        "webhooks.endpointAuthentication",
-        "webhooks.endpointHealth",
-        "webhooks.endpointNetworkPolicy",
-        "webhooks.endpointVerification",
-        "webhooks.endpointVerificationPayload",
-        "webhooks.endpointVerificationResponse",
-        "webhooks.environmentBinding",
-        "webhooks.eventCatalog",
-        "webhooks.eventExposure",
-        "webhooks.eventSelection",
-        "webhooks.failureClassification",
-        "webhooks.failureCodeVocabulary",
-        "webhooks.headerPolicy",
-        "webhooks.headerVocabulary",
-        "webhooks.httpOutcomePolicy",
-        "webhooks.pausePolicy",
-        "webhooks.payloadEnvelope",
-        "webhooks.payloadPolicy",
-        "webhooks.ratePolicy",
-        "webhooks.redactionPolicy",
-        "webhooks.redeliveryRequest",
-        "webhooks.replayProtection",
-        "webhooks.requestHeader",
-        "webhooks.responsePolicy",
-        "webhooks.retentionPolicy",
-        "webhooks.retryPolicy",
-        "webhooks.secretRotation",
-        "webhooks.signaturePolicy",
-        "webhooks.signingKeyReference",
-        "webhooks.statusVocabulary",
-        "webhooks.subscription",
-        "webhooks.subscriptionFilter",
-        "webhooks.subscriptionOwnership",
-        "webhooks.subscriptionState",
-        "webhooks.testDelivery",
-        "webhooks.timeoutPolicy",
-        "webhooks.webhookReference",
-        "webhooks.webhookRegistryStandard"
-      ],
-      "permissionBindings": [
-        "integrations.connections.create",
-        "integrations.connections.delete",
-        "integrations.connections.edit",
-        "integrations.connections.manage",
-        "integrations.connections.view",
-        "integrations.credentials.manage",
-        "integrations.credentials.view",
-        "integrations.health.view",
-        "integrations.mappings.edit",
-        "integrations.mappings.manage",
-        "integrations.mappings.view",
-        "integrations.sync.manage",
-        "integrations.sync.view",
-        "webhooks.deadletters.manage",
-        "webhooks.deadletters.view",
-        "webhooks.deliveries.export",
-        "webhooks.deliveries.manage",
-        "webhooks.deliveries.view",
-        "webhooks.endpoints.create",
-        "webhooks.endpoints.delete",
-        "webhooks.endpoints.edit",
-        "webhooks.endpoints.manage",
-        "webhooks.endpoints.view",
-        "webhooks.secrets.manage",
-        "webhooks.subscriptions.create",
-        "webhooks.subscriptions.delete",
-        "webhooks.subscriptions.edit",
-        "webhooks.subscriptions.manage",
-        "webhooks.subscriptions.view",
-        "webhooks.tests.create",
-        "webhooks.tests.view"
-      ],
-      "eventBindings": [
-        "integration.connected",
-        "integration.disconnected",
-        "integration.health-degraded",
-        "integration.health-restored",
-        "integration.sync-failed",
-        "integration.sync-started",
-        "integration.sync-succeeded",
-        "webhook.delivery-dead-lettered",
-        "webhook.endpoint-degraded",
-        "webhook.endpoint-disabled",
-        "webhook.endpoint-restored",
-        "webhook.endpoint-verification-failed",
-        "webhook.endpoint-verified",
-        "webhook.redelivery-requested",
-        "webhook.signing-secret-rotated",
-        "webhook.subscription-created",
-        "webhook.subscription-disabled",
-        "webhook.subscription-paused",
-        "webhook.subscription-resumed"
-      ],
-      "cms": {
-        "customerVisible": true,
-        "group": "Platform",
-        "navigation": [
-          {
-            "label": "Integrations",
-            "path": "/website/integrations",
-            "icon": "fa-plug",
-            "order": 10
-          }
-        ]
-      },
-      "admin": {
-        "visible": true,
-        "group": "Sites",
-        "navigation": [
-          {
-            "label": "Integrations",
-            "path": "/sites/:siteId/integrations",
-            "icon": "fa-plug",
-            "order": 80
-          }
-        ]
-      },
-      "manifest": {
-        "moduleId": "integrations",
         "capabilitySelection": "module-scoped",
         "dependencyValidation": "strict"
       },
@@ -2644,6 +1364,458 @@
       "notes": []
     },
     {
+      "$id": "modules.consent",
+      "moduleId": "consent",
+      "name": "Consent",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "platform",
+      "icon": "fa-shield-halved",
+      "order": 300,
+      "description": "Tracking and marketing consent preferences, states, policies and immutable consent records used to gate optional integrations.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Consent state is Site-scoped and auditable."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "consent.preferences",
+        "consent.records",
+        "consent.categories",
+        "consent.integration-gating"
+      ],
+      "defaultCapabilityIds": [
+        "consent.preferences",
+        "consent.records",
+        "consent.categories",
+        "consent.integration-gating"
+      ],
+      "contractBindings": [
+        "forms.consentFieldConfig",
+        "forms.consentRecord",
+        "marketing.consentCategory",
+        "marketing.consentPolicy",
+        "marketing.consentPreference",
+        "marketing.consentState",
+        "marketing.trackingConsentRecord"
+      ],
+      "permissionBindings": [
+        "forms.consent.export",
+        "forms.consent.view",
+        "marketing.consent.edit",
+        "marketing.consent.manage",
+        "marketing.consent.view"
+      ],
+      "eventBindings": [
+        "consent.recorded",
+        "consent.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Platform",
+        "navigation": [
+          {
+            "label": "Consent & Privacy",
+            "path": "/website/consent",
+            "icon": "fa-shield-halved",
+            "order": 20
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Consent",
+            "path": "/sites/:siteId/consent",
+            "icon": "fa-shield-halved",
+            "order": 60
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "consent",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.core",
+      "moduleId": "core",
+      "name": "Core",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "foundation",
+      "icon": "fa-cubes",
+      "order": 10,
+      "description": "Tenant identity, Site scope, publishing, versioning, audit and shared platform primitives required by every NEXT F Site.",
+      "selection": {
+        "mandatory": true,
+        "defaultEnabled": true,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": false
+      },
+      "dependencies": [],
+      "conflicts": [],
+      "capabilityIds": [
+        "core.identity",
+        "core.publishing",
+        "core.versioning",
+        "core.audit",
+        "core.tenant-isolation"
+      ],
+      "defaultCapabilityIds": [
+        "core.identity",
+        "core.publishing",
+        "core.versioning",
+        "core.audit",
+        "core.tenant-isolation"
+      ],
+      "contractBindings": [
+        "core.actorReference",
+        "core.auditRecord",
+        "core.entityIdentity",
+        "core.entityReference",
+        "core.organization",
+        "core.publishing",
+        "core.revisionPointer",
+        "core.scheduleWindow",
+        "core.sharedCoreStandard",
+        "core.site",
+        "core.tenantScope",
+        "core.versionRecord",
+        "core.visibility",
+        "shared.address",
+        "shared.contactPoint",
+        "shared.cta",
+        "shared.externalReference",
+        "shared.link",
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [
+        "core.audit.export",
+        "core.audit.view",
+        "core.members.create",
+        "core.members.delete",
+        "core.members.edit",
+        "core.members.manage",
+        "core.members.view",
+        "core.settings.edit",
+        "core.settings.manage",
+        "core.settings.view",
+        "core.sitehealth.view",
+        "core.workspace.manage",
+        "core.workspace.view",
+        "platform.sites.create",
+        "platform.sites.delete",
+        "platform.sites.edit",
+        "platform.sites.export",
+        "platform.sites.manage",
+        "platform.sites.view"
+      ],
+      "eventBindings": [
+        "site.activated",
+        "site.connection-degraded",
+        "site.connection-restored",
+        "site.created",
+        "site.suspended",
+        "site.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Foundation",
+        "navigation": [
+          {
+            "label": "Overview",
+            "path": "/overview",
+            "icon": "fa-gauge-high",
+            "order": 10
+          },
+          {
+            "label": "Activity",
+            "path": "/activity",
+            "icon": "fa-clock-rotate-left",
+            "order": 90
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Site Overview",
+            "path": "/sites/:siteId",
+            "icon": "fa-globe",
+            "order": 10
+          },
+          {
+            "label": "Activity",
+            "path": "/sites/:siteId/activity",
+            "icon": "fa-clock-rotate-left",
+            "order": 90
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "core",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.documentation",
+      "moduleId": "documentation",
+      "name": "Documentation",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "content",
+      "icon": "fa-book-open",
+      "order": 120,
+      "description": "Structured documentation collections, categories and articles with attachments, visibility, related content and version-aware publishing.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Documentation is versioned and Site-scoped."
+        },
+        {
+          "moduleId": "media",
+          "kind": "required",
+          "reason": "Documentation may reference attachments/media."
+        },
+        {
+          "moduleId": "seo",
+          "kind": "recommended",
+          "reason": "Public documentation benefits from canonical SEO metadata."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "documentation.collections",
+        "documentation.categories",
+        "documentation.attachments",
+        "documentation.related-articles",
+        "documentation.versioning",
+        "documentation.visibility"
+      ],
+      "defaultCapabilityIds": [
+        "documentation.collections",
+        "documentation.categories",
+        "documentation.versioning",
+        "documentation.visibility"
+      ],
+      "contractBindings": [
+        "content.documentationCollection",
+        "content.documentationCategory",
+        "content.documentationArticle"
+      ],
+      "permissionBindings": [
+        "content.documentation.approve",
+        "content.documentation.create",
+        "content.documentation.delete",
+        "content.documentation.edit",
+        "content.documentation.publish",
+        "content.documentation.view"
+      ],
+      "eventBindings": [
+        "content.archived",
+        "content.created",
+        "content.deleted",
+        "content.published",
+        "content.restored",
+        "content.scheduled",
+        "content.unpublished",
+        "content.updated",
+        "content.version-created"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Content",
+        "navigation": [
+          {
+            "label": "Documentation",
+            "path": "/content/documentation",
+            "icon": "fa-book-open",
+            "order": 30
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Documentation",
+            "path": "/sites/:siteId/documentation",
+            "icon": "fa-book-open",
+            "order": 35
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "documentation",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.forms",
+      "moduleId": "forms",
+      "name": "Forms",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "growth",
+      "icon": "fa-rectangle-list",
+      "order": 210,
+      "description": "Structured forms, submissions, validation, notifications, spam handling, consent capture and conversion mapping.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Forms and submissions are Site-scoped."
+        },
+        {
+          "moduleId": "consent",
+          "kind": "conditional",
+          "reason": "Consent module is required when optional analytics/marketing consent is collected or enforced."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "forms.multi-step",
+        "forms.conditional-logic",
+        "forms.file-uploads",
+        "forms.notifications",
+        "forms.auto-response",
+        "forms.spam-protection",
+        "forms.consent-fields",
+        "forms.conversion-mapping"
+      ],
+      "defaultCapabilityIds": [
+        "forms.notifications",
+        "forms.spam-protection",
+        "forms.consent-fields"
+      ],
+      "contractBindings": [
+        "forms.autoResponse",
+        "forms.condition",
+        "forms.conditionGroup",
+        "forms.confirmation",
+        "forms.consentFieldConfig",
+        "forms.consentRecord",
+        "forms.conversionMapping",
+        "forms.dataHandling",
+        "forms.fieldMapping",
+        "forms.fieldOption",
+        "forms.fieldValidationRule",
+        "forms.form",
+        "forms.formAvailability",
+        "forms.formField",
+        "forms.formSection",
+        "forms.formStep",
+        "forms.formsLeadsContractStandard",
+        "forms.notificationRecipient",
+        "forms.notificationRule",
+        "forms.rateLimitPolicy",
+        "forms.requestContext",
+        "forms.spamDecision",
+        "forms.spamPolicy",
+        "forms.spamSignal",
+        "forms.submission",
+        "forms.submissionFile",
+        "forms.submissionValue",
+        "forms.uploadPolicy"
+      ],
+      "permissionBindings": [
+        "forms.consent.export",
+        "forms.consent.view",
+        "forms.forms.create",
+        "forms.forms.delete",
+        "forms.forms.edit",
+        "forms.forms.manage",
+        "forms.forms.publish",
+        "forms.forms.view",
+        "forms.notifications.edit",
+        "forms.notifications.manage",
+        "forms.notifications.view",
+        "forms.spam.manage",
+        "forms.spam.view",
+        "forms.submissions.delete",
+        "forms.submissions.export",
+        "forms.submissions.manage",
+        "forms.submissions.view"
+      ],
+      "eventBindings": [
+        "form.archived",
+        "form.created",
+        "form.published",
+        "form.rejected",
+        "form.submitted",
+        "form.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Growth",
+        "navigation": [
+          {
+            "label": "Forms",
+            "path": "/growth/forms",
+            "icon": "fa-rectangle-list",
+            "order": 20
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Forms",
+            "path": "/sites/:siteId/forms",
+            "icon": "fa-rectangle-list",
+            "order": 50
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "forms",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
       "$id": "modules.gaming",
       "moduleId": "gaming",
       "name": "Gaming Store",
@@ -2680,11 +1852,6 @@
           "moduleId": "integrations",
           "kind": "required",
           "reason": "Supplier adapters and provider credentials live in the Integration layer."
-        },
-        {
-          "moduleId": "webhooks",
-          "kind": "recommended",
-          "reason": "Fulfillment and supplier status can use canonical Webhook transport."
         }
       ],
       "conflicts": [],
@@ -2807,6 +1974,902 @@
       "notes": [
         "Gaming Store is digital-only. Physical shipping and warehouse concepts are intentionally absent."
       ]
+    },
+    {
+      "$id": "modules.integrations",
+      "moduleId": "integrations",
+      "name": "Integrations",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "platform",
+      "icon": "fa-plug",
+      "order": 310,
+      "description": "Approved provider connectors, credentials references, environment bindings, mappings, synchronization and health diagnostics.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Connections are Site-scoped and permission-controlled."
+        },
+        {
+          "moduleId": "consent",
+          "kind": "conditional",
+          "reason": "Tracking/advertising connectors require consent-aware runtime behavior."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "integrations.gtm",
+        "integrations.ga4",
+        "integrations.google-ads",
+        "integrations.search-console",
+        "integrations.meta",
+        "integrations.clarity",
+        "integrations.tiktok",
+        "integrations.linkedin",
+        "integrations.microsoft-ads",
+        "integrations.email",
+        "integrations.crm",
+        "integrations.webhooks",
+        "integrations.custom-api",
+        "integrations.health",
+        "integrations.sync"
+      ],
+      "defaultCapabilityIds": [
+        "integrations.health"
+      ],
+      "contractBindings": [
+        "integrations.accountReference",
+        "integrations.actionBinding",
+        "integrations.apiKeyConfiguration",
+        "integrations.authenticationProfile",
+        "integrations.capabilityBinding",
+        "integrations.capabilityDefinition",
+        "integrations.configurationField",
+        "integrations.configurationValue",
+        "integrations.connectionStatus",
+        "integrations.connectionTest",
+        "integrations.connectorDefinition",
+        "integrations.consentBinding",
+        "integrations.conversionMapping",
+        "integrations.credentialReference",
+        "integrations.crm",
+        "integrations.customApi",
+        "integrations.dataMapping",
+        "integrations.dataMappingField",
+        "integrations.dataPolicyBinding",
+        "integrations.emailProvider",
+        "integrations.environmentBinding",
+        "integrations.eventMapping",
+        "integrations.googleAds",
+        "integrations.googleAnalytics4",
+        "integrations.googleSearchConsole",
+        "integrations.googleTagManager",
+        "integrations.healthCheck",
+        "integrations.healthSnapshot",
+        "integrations.integrationConnection",
+        "integrations.integrationContractStandard",
+        "integrations.integrationError",
+        "integrations.linkedin",
+        "integrations.meta",
+        "integrations.microsoftAds",
+        "integrations.microsoftClarity",
+        "integrations.oauthConfiguration",
+        "integrations.providerActionDefinition",
+        "integrations.providerDefinition",
+        "integrations.rateLimitState",
+        "integrations.resourceReference",
+        "integrations.retryPolicy",
+        "integrations.runtimeBinding",
+        "integrations.secretReference",
+        "integrations.syncCursor",
+        "integrations.syncPolicy",
+        "integrations.syncResult",
+        "integrations.syncRun",
+        "integrations.tiktok",
+        "integrations.webhook",
+        "webhooks.dataAccessPolicy",
+        "webhooks.deadLetter",
+        "webhooks.defaultPolicies",
+        "webhooks.delivery",
+        "webhooks.deliveryAttempt",
+        "webhooks.deliveryFailure",
+        "webhooks.deliveryLogRecord",
+        "webhooks.deliveryMetricSnapshot",
+        "webhooks.deliveryQueuePolicy",
+        "webhooks.deliveryRequest",
+        "webhooks.deliveryResponse",
+        "webhooks.deliverySummary",
+        "webhooks.endpoint",
+        "webhooks.endpointAuthentication",
+        "webhooks.endpointHealth",
+        "webhooks.endpointNetworkPolicy",
+        "webhooks.endpointVerification",
+        "webhooks.endpointVerificationPayload",
+        "webhooks.endpointVerificationResponse",
+        "webhooks.environmentBinding",
+        "webhooks.eventCatalog",
+        "webhooks.eventExposure",
+        "webhooks.eventSelection",
+        "webhooks.failureClassification",
+        "webhooks.failureCodeVocabulary",
+        "webhooks.headerPolicy",
+        "webhooks.headerVocabulary",
+        "webhooks.httpOutcomePolicy",
+        "webhooks.pausePolicy",
+        "webhooks.payloadEnvelope",
+        "webhooks.payloadPolicy",
+        "webhooks.ratePolicy",
+        "webhooks.redactionPolicy",
+        "webhooks.redeliveryRequest",
+        "webhooks.replayProtection",
+        "webhooks.requestHeader",
+        "webhooks.responsePolicy",
+        "webhooks.retentionPolicy",
+        "webhooks.retryPolicy",
+        "webhooks.secretRotation",
+        "webhooks.signaturePolicy",
+        "webhooks.signingKeyReference",
+        "webhooks.statusVocabulary",
+        "webhooks.subscription",
+        "webhooks.subscriptionFilter",
+        "webhooks.subscriptionOwnership",
+        "webhooks.subscriptionState",
+        "webhooks.testDelivery",
+        "webhooks.timeoutPolicy",
+        "webhooks.webhookReference",
+        "webhooks.webhookRegistryStandard"
+      ],
+      "permissionBindings": [
+        "integrations.connections.create",
+        "integrations.connections.delete",
+        "integrations.connections.edit",
+        "integrations.connections.manage",
+        "integrations.connections.view",
+        "integrations.credentials.manage",
+        "integrations.credentials.view",
+        "integrations.health.view",
+        "integrations.mappings.edit",
+        "integrations.mappings.manage",
+        "integrations.mappings.view",
+        "integrations.sync.manage",
+        "integrations.sync.view",
+        "webhooks.deadletters.manage",
+        "webhooks.deadletters.view",
+        "webhooks.deliveries.export",
+        "webhooks.deliveries.manage",
+        "webhooks.deliveries.view",
+        "webhooks.endpoints.create",
+        "webhooks.endpoints.delete",
+        "webhooks.endpoints.edit",
+        "webhooks.endpoints.manage",
+        "webhooks.endpoints.view",
+        "webhooks.secrets.manage",
+        "webhooks.subscriptions.create",
+        "webhooks.subscriptions.delete",
+        "webhooks.subscriptions.edit",
+        "webhooks.subscriptions.manage",
+        "webhooks.subscriptions.view",
+        "webhooks.tests.create",
+        "webhooks.tests.view"
+      ],
+      "eventBindings": [
+        "integration.connected",
+        "integration.disconnected",
+        "integration.health-degraded",
+        "integration.health-restored",
+        "integration.sync-failed",
+        "integration.sync-started",
+        "integration.sync-succeeded",
+        "webhook.delivery-dead-lettered",
+        "webhook.endpoint-degraded",
+        "webhook.endpoint-disabled",
+        "webhook.endpoint-restored",
+        "webhook.endpoint-verification-failed",
+        "webhook.endpoint-verified",
+        "webhook.redelivery-requested",
+        "webhook.signing-secret-rotated",
+        "webhook.subscription-created",
+        "webhook.subscription-disabled",
+        "webhook.subscription-paused",
+        "webhook.subscription-resumed"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Platform",
+        "navigation": [
+          {
+            "label": "Integrations",
+            "path": "/website/integrations",
+            "icon": "fa-plug",
+            "order": 10
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Integrations",
+            "path": "/sites/:siteId/integrations",
+            "icon": "fa-plug",
+            "order": 80
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "integrations",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.leads",
+      "moduleId": "leads",
+      "name": "Leads",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "growth",
+      "icon": "fa-user-plus",
+      "order": 220,
+      "description": "Lead records, status, assignment, notes, activity, deduplication and export generated from approved sources such as Forms.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Leads are Site-scoped business records."
+        },
+        {
+          "moduleId": "forms",
+          "kind": "required",
+          "reason": "Phase 17 Lead workflows use the Forms/Lead contract family as their canonical source."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "leads.status",
+        "leads.assignment",
+        "leads.notes",
+        "leads.activity",
+        "leads.deduplication",
+        "leads.export"
+      ],
+      "defaultCapabilityIds": [
+        "leads.status",
+        "leads.activity",
+        "leads.deduplication"
+      ],
+      "contractBindings": [
+        "forms.fieldMapping",
+        "forms.lead",
+        "forms.leadActivity",
+        "forms.leadAssignment",
+        "forms.leadDedupePolicy",
+        "forms.leadMapping",
+        "forms.leadNote",
+        "forms.leadSource",
+        "forms.leadStatusDefinition"
+      ],
+      "permissionBindings": [
+        "forms.leads.create",
+        "forms.leads.delete",
+        "forms.leads.edit",
+        "forms.leads.export",
+        "forms.leads.manage",
+        "forms.leads.view"
+      ],
+      "eventBindings": [
+        "lead.assigned",
+        "lead.created",
+        "lead.merged",
+        "lead.status-changed",
+        "lead.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Growth",
+        "navigation": [
+          {
+            "label": "Leads",
+            "path": "/growth/leads",
+            "icon": "fa-user-plus",
+            "order": 30
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Leads",
+            "path": "/sites/:siteId/leads",
+            "icon": "fa-user-plus",
+            "order": 55
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "leads",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.marketing",
+      "moduleId": "marketing",
+      "name": "Marketing",
+      "version": "1.4.0",
+      "status": "stable",
+      "category": "growth",
+      "icon": "fa-bullseye",
+      "order": 240,
+      "description": "Conversions, campaign attribution, UTM/click identifiers, marketing destinations and provider-neutral tracking configuration.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Marketing configuration is Site-scoped."
+        },
+        {
+          "moduleId": "consent",
+          "kind": "required",
+          "reason": "Optional marketing destinations must honor consent."
+        },
+        {
+          "moduleId": "analytics",
+          "kind": "recommended",
+          "reason": "Attribution and reporting can consume Analytics capability."
+        },
+        {
+          "moduleId": "integrations",
+          "kind": "recommended",
+          "reason": "Ad platforms and marketing tools connect through canonical connectors."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "marketing.conversions",
+        "marketing.campaigns",
+        "marketing.utm-attribution",
+        "marketing.ad-click-identifiers",
+        "marketing.destinations"
+      ],
+      "defaultCapabilityIds": [
+        "marketing.conversions",
+        "marketing.utm-attribution",
+        "marketing.destinations"
+      ],
+      "contractBindings": [
+        "marketing.adClickIdentifier",
+        "marketing.analyticsConfiguration",
+        "marketing.attributionCredit",
+        "marketing.attributionModel",
+        "marketing.attributionTouchpoint",
+        "marketing.campaignAttribution",
+        "marketing.campaignContext",
+        "marketing.campaignDefinition",
+        "marketing.campaignPerformanceSnapshot",
+        "marketing.conversionAttribution",
+        "marketing.conversionDeduplicationPolicy",
+        "marketing.conversionDefinition",
+        "marketing.conversionOccurrence",
+        "marketing.conversionSummary",
+        "marketing.conversionValue",
+        "marketing.dataLayerConfiguration",
+        "marketing.destinationMapping",
+        "marketing.deviceContext",
+        "marketing.dimensionDefinition",
+        "marketing.dispatchRequest",
+        "marketing.dispatchResult",
+        "marketing.eventContext",
+        "marketing.eventDestination",
+        "marketing.eventPropertyDefinition",
+        "marketing.marketingDestination",
+        "marketing.marketingTrackingContractStandard",
+        "marketing.metricDefinition",
+        "marketing.pageContext",
+        "marketing.referrerContext",
+        "marketing.sessionContext",
+        "marketing.standardTrackingEvents",
+        "marketing.trackingConfiguration",
+        "marketing.trackingDataPolicy",
+        "marketing.trackingEvent",
+        "marketing.trackingEventDefinition",
+        "marketing.trafficSource",
+        "marketing.utmParameters",
+        "marketing.visitorContext",
+        "marketing.visitorIdentityPolicy",
+        "marketing.sessionPolicy",
+        "marketing.trackingSdkDescriptor",
+        "marketing.trackingCompatibility",
+        "marketing.trackingCollectorPolicy",
+        "marketing.trackingIngestionBatch",
+        "marketing.trackingIngestionItemResult",
+        "marketing.trackingIngestionReceipt",
+        "marketing.invalidTrafficClassification",
+        "marketing.analyticsReport",
+        "marketing.trackingHealth"
+      ],
+      "permissionBindings": [
+        "marketing.attribution.export",
+        "marketing.attribution.manage",
+        "marketing.attribution.view",
+        "marketing.campaigns.create",
+        "marketing.campaigns.delete",
+        "marketing.campaigns.edit",
+        "marketing.campaigns.manage",
+        "marketing.campaigns.view",
+        "marketing.conversions.create",
+        "marketing.conversions.delete",
+        "marketing.conversions.edit",
+        "marketing.conversions.manage",
+        "marketing.conversions.view",
+        "marketing.destinations.create",
+        "marketing.destinations.delete",
+        "marketing.destinations.edit",
+        "marketing.destinations.manage",
+        "marketing.destinations.view",
+        "marketing.tracking.edit",
+        "marketing.tracking.manage",
+        "marketing.tracking.view"
+      ],
+      "eventBindings": [
+        "conversion.recorded"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Growth",
+        "navigation": [
+          {
+            "label": "Conversions",
+            "path": "/growth/conversions",
+            "icon": "fa-bullseye",
+            "order": 50
+          },
+          {
+            "label": "Marketing",
+            "path": "/growth/marketing",
+            "icon": "fa-megaphone",
+            "order": 60
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Marketing",
+            "path": "/sites/:siteId/marketing",
+            "icon": "fa-bullseye",
+            "order": 70
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "marketing",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.media",
+      "moduleId": "media",
+      "name": "Media",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "foundation",
+      "icon": "fa-photo-film",
+      "order": 20,
+      "description": "Reusable Site-scoped media library and asset metadata used by content and commerce without tying contracts to one storage provider.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": true,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Media assets are Site-scoped and audited through Core."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "media.library",
+        "media.images",
+        "media.documents",
+        "media.video",
+        "media.audio",
+        "media.contextual-metadata"
+      ],
+      "defaultCapabilityIds": [
+        "media.library",
+        "media.images",
+        "media.contextual-metadata"
+      ],
+      "contractBindings": [
+        "shared.mediaAsset",
+        "shared.mediaReference"
+      ],
+      "permissionBindings": [
+        "content.media.create",
+        "content.media.delete",
+        "content.media.edit",
+        "content.media.manage",
+        "content.media.view"
+      ],
+      "eventBindings": [
+        "media.created",
+        "media.deleted",
+        "media.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Foundation",
+        "navigation": [
+          {
+            "label": "Media",
+            "path": "/content/media",
+            "icon": "fa-photo-film",
+            "order": 40
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Media",
+            "path": "/sites/:siteId/media",
+            "icon": "fa-photo-film",
+            "order": 40
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "media",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.pages",
+      "moduleId": "pages",
+      "name": "Pages",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "content",
+      "icon": "fa-file-lines",
+      "order": 100,
+      "description": "Structured pages, sections, reusable content, navigation, legal content and custom collections for coded customer websites.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "All page content is Site-scoped and publishable."
+        },
+        {
+          "moduleId": "media",
+          "kind": "required",
+          "reason": "Page blocks may reference canonical media assets."
+        },
+        {
+          "moduleId": "seo",
+          "kind": "recommended",
+          "reason": "Routable pages should normally use canonical SEO metadata."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "pages.sections",
+        "pages.reusable-content",
+        "pages.navigation",
+        "pages.legal-pages",
+        "pages.custom-collections",
+        "pages.scheduling",
+        "pages.approvals"
+      ],
+      "defaultCapabilityIds": [
+        "pages.sections",
+        "pages.reusable-content",
+        "pages.navigation"
+      ],
+      "contractBindings": [
+        "content.page",
+        "content.pageSection",
+        "content.reusableContent",
+        "content.navigation",
+        "content.navigationItem",
+        "content.legalPage",
+        "content.customCollection",
+        "content.customCollectionEntry",
+        "blocks.actionGroup",
+        "blocks.blockContractStandard",
+        "blocks.cta",
+        "blocks.custom",
+        "blocks.documents",
+        "blocks.faq",
+        "blocks.featureGrid",
+        "blocks.featureItem",
+        "blocks.form",
+        "blocks.gallery",
+        "blocks.galleryItem",
+        "blocks.heading",
+        "blocks.hero",
+        "blocks.locations",
+        "blocks.logoGrid",
+        "blocks.logoItem",
+        "blocks.pricing",
+        "blocks.pricingPlan",
+        "blocks.process",
+        "blocks.processStep",
+        "blocks.relatedContent",
+        "blocks.relatedContentItem",
+        "blocks.richText",
+        "blocks.services",
+        "blocks.statItem",
+        "blocks.stats",
+        "blocks.team",
+        "blocks.testimonials",
+        "blocks.textImage",
+        "blocks.video"
+      ],
+      "permissionBindings": [
+        "content.customcollections.create",
+        "content.customcollections.delete",
+        "content.customcollections.edit",
+        "content.customcollections.manage",
+        "content.customcollections.view",
+        "content.navigation.edit",
+        "content.navigation.manage",
+        "content.navigation.publish",
+        "content.navigation.view",
+        "content.pages.approve",
+        "content.pages.create",
+        "content.pages.delete",
+        "content.pages.edit",
+        "content.pages.publish",
+        "content.pages.view",
+        "content.reusablecontent.approve",
+        "content.reusablecontent.create",
+        "content.reusablecontent.delete",
+        "content.reusablecontent.edit",
+        "content.reusablecontent.publish",
+        "content.reusablecontent.view"
+      ],
+      "eventBindings": [
+        "content.archived",
+        "content.created",
+        "content.deleted",
+        "content.published",
+        "content.restored",
+        "content.scheduled",
+        "content.unpublished",
+        "content.updated",
+        "content.version-created",
+        "navigation.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Content",
+        "navigation": [
+          {
+            "label": "Pages",
+            "path": "/content/pages",
+            "icon": "fa-file-lines",
+            "order": 10
+          },
+          {
+            "label": "Reusable Content",
+            "path": "/content/reusable",
+            "icon": "fa-clone",
+            "order": 20
+          },
+          {
+            "label": "Navigation",
+            "path": "/website/navigation",
+            "icon": "fa-bars",
+            "order": 30
+          },
+          {
+            "label": "Custom Collections",
+            "path": "/content/collections",
+            "icon": "fa-table-list",
+            "order": 50
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "Content Model",
+            "path": "/sites/:siteId/content",
+            "icon": "fa-diagram-project",
+            "order": 20
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "pages",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.seo",
+      "moduleId": "seo",
+      "name": "SEO",
+      "version": "0.18.0",
+      "status": "stable",
+      "category": "growth",
+      "icon": "fa-magnifying-glass-chart",
+      "order": 200,
+      "description": "Canonical metadata, keywords, social metadata, structured data, redirects, sitemap, robots, audits and search-performance records.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "SEO records belong to a Site and target canonical entities."
+        },
+        {
+          "moduleId": "integrations",
+          "kind": "optional",
+          "reason": "Search performance and indexing data may be sourced through supported connectors."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "seo.metadata",
+        "seo.keywords",
+        "seo.social-sharing",
+        "seo.structured-data",
+        "seo.redirects",
+        "seo.sitemap",
+        "seo.robots",
+        "seo.audits",
+        "seo.search-performance",
+        "seo.indexing"
+      ],
+      "defaultCapabilityIds": [
+        "seo.metadata",
+        "seo.social-sharing",
+        "seo.sitemap",
+        "seo.robots"
+      ],
+      "contractBindings": [
+        "seo.alternateLanguage",
+        "seo.auditIssue",
+        "seo.auditResult",
+        "seo.brokenLink",
+        "seo.indexingStatus",
+        "seo.internalLink",
+        "seo.keywordSet",
+        "seo.keywordTarget",
+        "seo.metadata",
+        "seo.openGraph",
+        "seo.redirect",
+        "seo.robotsDirective",
+        "seo.robotsPolicy",
+        "seo.robotsRule",
+        "seo.searchPerformance",
+        "seo.searchPreview",
+        "seo.searchQuery",
+        "seo.seoContractStandard",
+        "seo.siteDefaults",
+        "seo.sitemapEntry",
+        "seo.socialCard",
+        "seo.structuredData",
+        "seo.urlInspectionResult"
+      ],
+      "permissionBindings": [
+        "seo.audits.export",
+        "seo.audits.manage",
+        "seo.audits.view",
+        "seo.indexing.manage",
+        "seo.indexing.view",
+        "seo.metadata.edit",
+        "seo.metadata.view",
+        "seo.redirects.create",
+        "seo.redirects.delete",
+        "seo.redirects.edit",
+        "seo.redirects.manage",
+        "seo.redirects.view",
+        "seo.robots.edit",
+        "seo.robots.manage",
+        "seo.robots.view",
+        "seo.searchperformance.export",
+        "seo.searchperformance.view",
+        "seo.sitemap.edit",
+        "seo.sitemap.manage",
+        "seo.sitemap.view",
+        "seo.structureddata.edit",
+        "seo.structureddata.view"
+      ],
+      "eventBindings": [
+        "redirect.created",
+        "redirect.deleted",
+        "redirect.updated",
+        "seo.updated",
+        "sitemap.updated"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "group": "Growth",
+        "navigation": [
+          {
+            "label": "SEO",
+            "path": "/growth/seo",
+            "icon": "fa-magnifying-glass-chart",
+            "order": 10
+          }
+        ]
+      },
+      "admin": {
+        "visible": true,
+        "group": "Sites",
+        "navigation": [
+          {
+            "label": "SEO",
+            "path": "/sites/:siteId/seo",
+            "icon": "fa-magnifying-glass-chart",
+            "order": 40
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "seo",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": []
     },
     {
       "$id": "modules.software",
@@ -3026,6 +3089,40 @@
       "notes": []
     },
     {
+      "$id": "modules.capability.analytics.first-party-collection",
+      "capabilityId": "analytics.first-party-collection",
+      "name": "First-Party Collection",
+      "version": "1.4.0",
+      "status": "stable",
+      "moduleId": "analytics",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "First-Party Collection capability for the NEXT F first-party tracking platform.",
+      "contractBindings": [
+        "marketing.trackingCollectorPolicy",
+        "marketing.trackingIngestionBatch",
+        "marketing.trackingIngestionReceipt"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [
+        "analytics.measurement"
+      ],
+      "requiresModules": [
+        "consent"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
       "$id": "modules.capability.analytics.measurement",
       "capabilityId": "analytics.measurement",
       "name": "Measurement",
@@ -3079,6 +3176,73 @@
       "manifest": {
         "allowed": true,
         "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.analytics.tracking-health",
+      "capabilityId": "analytics.tracking-health",
+      "name": "Tracking Health",
+      "version": "1.4.0",
+      "status": "stable",
+      "moduleId": "analytics",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Tracking Health capability for the NEXT F first-party tracking platform.",
+      "contractBindings": [
+        "marketing.trackingHealth"
+      ],
+      "permissionBindings": [
+        "marketing.tracking.view"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [
+        "analytics.measurement"
+      ],
+      "requiresModules": [
+        "consent"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.analytics.tracking-sdk",
+      "capabilityId": "analytics.tracking-sdk",
+      "name": "Tracking SDK",
+      "version": "1.4.0",
+      "status": "stable",
+      "moduleId": "analytics",
+      "mode": "optional",
+      "selectable": true,
+      "defaultEnabled": false,
+      "description": "Tracking SDK capability for the NEXT F first-party tracking platform.",
+      "contractBindings": [
+        "marketing.trackingSdkDescriptor",
+        "marketing.trackingCompatibility"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [
+        "analytics.measurement"
+      ],
+      "requiresModules": [
+        "consent"
+      ],
+      "cms": {
+        "customerVisible": true,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": true
       },
       "notes": []
     },
@@ -12628,6 +12792,514 @@
       "notes": []
     },
     {
+      "$id": "customerAccess.policy.gaming.catalog",
+      "name": "Gaming Catalog Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "gaming.catalog",
+      "contractRefs": [
+        "gaming.product"
+      ],
+      "moduleRef": "gaming",
+      "capabilityRefs": [
+        "gaming.catalog"
+      ],
+      "customerMode": "hidden",
+      "actions": {
+        "read": "deny",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#identity",
+          "field": "identity",
+          "contractFieldRef": "gaming.product.identity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#scope",
+          "field": "scope",
+          "contractFieldRef": "gaming.product.scope",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#slug",
+          "field": "slug",
+          "contractFieldRef": "gaming.product.slug",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#name",
+          "field": "name",
+          "contractFieldRef": "gaming.product.name",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#brand",
+          "field": "brand",
+          "contractFieldRef": "gaming.product.brand",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#kind",
+          "field": "kind",
+          "contractFieldRef": "gaming.product.kind",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#publicDescription",
+          "field": "publicDescription",
+          "contractFieldRef": "gaming.product.publicDescription",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#artwork",
+          "field": "artwork",
+          "contractFieldRef": "gaming.product.artwork",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#enabled",
+          "field": "enabled",
+          "contractFieldRef": "gaming.product.enabled",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#visible",
+          "field": "visible",
+          "contractFieldRef": "gaming.product.visible",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#featured",
+          "field": "featured",
+          "contractFieldRef": "gaming.product.featured",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.catalog#revision",
+          "field": "revision",
+          "contractFieldRef": "gaming.product.revision",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "disabled",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.gaming.catalog",
+        "adminProfileRef": "adminUi.profile.gaming.catalog",
+        "approvalContractRef": null
+      },
+      "notes": [
+        "Fail-closed baseline: Gaming Customer CMS access remains hidden until canonical customer-safe APIs and action policy are published."
+      ]
+    },
+    {
+      "$id": "customerAccess.policy.gaming.finance",
+      "name": "Gaming Finance Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "gaming.finance",
+      "contractRefs": [
+        "gaming.internalQuote"
+      ],
+      "moduleRef": "gaming",
+      "capabilityRefs": [
+        "gaming.dynamic-pricing"
+      ],
+      "customerMode": "hidden",
+      "actions": {
+        "read": "deny",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#quoteId",
+          "field": "quoteId",
+          "contractFieldRef": "gaming.internalQuote.quoteId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#offerId",
+          "field": "offerId",
+          "contractFieldRef": "gaming.internalQuote.offerId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#selectedMappingId",
+          "field": "selectedMappingId",
+          "contractFieldRef": "gaming.internalQuote.selectedMappingId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#supplierCost",
+          "field": "supplierCost",
+          "contractFieldRef": "gaming.internalQuote.supplierCost",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#supplierCurrency",
+          "field": "supplierCurrency",
+          "contractFieldRef": "gaming.internalQuote.supplierCurrency",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#fxResult",
+          "field": "fxResult",
+          "contractFieldRef": "gaming.internalQuote.fxResult",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#gatewayFee",
+          "field": "gatewayFee",
+          "contractFieldRef": "gaming.internalQuote.gatewayFee",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#margin",
+          "field": "margin",
+          "contractFieldRef": "gaming.internalQuote.margin",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#retailAmount",
+          "field": "retailAmount",
+          "contractFieldRef": "gaming.internalQuote.retailAmount",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#quantity",
+          "field": "quantity",
+          "contractFieldRef": "gaming.internalQuote.quantity",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#requestedAmount",
+          "field": "requestedAmount",
+          "contractFieldRef": "gaming.internalQuote.requestedAmount",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#createdAt",
+          "field": "createdAt",
+          "contractFieldRef": "gaming.internalQuote.createdAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.finance#expiresAt",
+          "field": "expiresAt",
+          "contractFieldRef": "gaming.internalQuote.expiresAt",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "disabled",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.gaming.finance",
+        "adminProfileRef": "adminUi.profile.gaming.finance",
+        "approvalContractRef": null
+      },
+      "notes": [
+        "Fail-closed baseline: Gaming Customer CMS access remains hidden until canonical customer-safe APIs and action policy are published."
+      ]
+    },
+    {
+      "$id": "customerAccess.policy.gaming.orders",
+      "name": "Gaming Orders Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "gaming.orders",
+      "contractRefs": [
+        "gaming.internalOrder"
+      ],
+      "moduleRef": "gaming",
+      "capabilityRefs": [
+        "gaming.digital-fulfillment"
+      ],
+      "customerMode": "hidden",
+      "actions": {
+        "read": "deny",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#orderId",
+          "field": "orderId",
+          "contractFieldRef": "gaming.internalOrder.orderId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#quoteId",
+          "field": "quoteId",
+          "contractFieldRef": "gaming.internalOrder.quoteId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#offerId",
+          "field": "offerId",
+          "contractFieldRef": "gaming.internalOrder.offerId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#customerRef",
+          "field": "customerRef",
+          "contractFieldRef": "gaming.internalOrder.customerRef",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#status",
+          "field": "status",
+          "contractFieldRef": "gaming.internalOrder.status",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#paymentRef",
+          "field": "paymentRef",
+          "contractFieldRef": "gaming.internalOrder.paymentRef",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#selectedMappingId",
+          "field": "selectedMappingId",
+          "contractFieldRef": "gaming.internalOrder.selectedMappingId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#purchaseFieldSnapshot",
+          "field": "purchaseFieldSnapshot",
+          "contractFieldRef": "gaming.internalOrder.purchaseFieldSnapshot",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#retailAmount",
+          "field": "retailAmount",
+          "contractFieldRef": "gaming.internalOrder.retailAmount",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#refundState",
+          "field": "refundState",
+          "contractFieldRef": "gaming.internalOrder.refundState",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#createdAt",
+          "field": "createdAt",
+          "contractFieldRef": "gaming.internalOrder.createdAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.orders#updatedAt",
+          "field": "updatedAt",
+          "contractFieldRef": "gaming.internalOrder.updatedAt",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "disabled",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.gaming.orders",
+        "adminProfileRef": "adminUi.profile.gaming.orders",
+        "approvalContractRef": null
+      },
+      "notes": [
+        "Fail-closed baseline: Gaming Customer CMS access remains hidden until canonical customer-safe APIs and action policy are published."
+      ]
+    },
+    {
+      "$id": "customerAccess.policy.gaming.suppliers",
+      "name": "Gaming Suppliers Customer Access Policy",
+      "type": "customer-access-policy",
+      "version": "1.1.0",
+      "status": "stable",
+      "resourceRef": "gaming.suppliers",
+      "contractRefs": [
+        "gaming.supplierOfferMapping"
+      ],
+      "moduleRef": "gaming",
+      "capabilityRefs": [
+        "gaming.supplier-routing"
+      ],
+      "customerMode": "hidden",
+      "actions": {
+        "read": "deny",
+        "create": "deny",
+        "update": "deny",
+        "delete": "deny",
+        "submit_for_review": "deny",
+        "publish": "deny",
+        "unpublish": "deny",
+        "restore_version": "deny"
+      },
+      "publishingPolicy": {
+        "mode": "not_applicable"
+      },
+      "permissionRefs": {
+        "read": [],
+        "create": [],
+        "update": [],
+        "delete": [],
+        "submit_for_review": [],
+        "publish": [],
+        "unpublish": [],
+        "restore_version": []
+      },
+      "fieldRules": [
+        {
+          "fieldRef": "cmsUi.profile.gaming.suppliers#mappingId",
+          "field": "mappingId",
+          "contractFieldRef": "gaming.supplierOfferMapping.mappingId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.suppliers#offerId",
+          "field": "offerId",
+          "contractFieldRef": "gaming.supplierOfferMapping.offerId",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.suppliers#supplierRef",
+          "field": "supplierRef",
+          "contractFieldRef": "gaming.supplierOfferMapping.supplierRef",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.suppliers#providerReferences",
+          "field": "providerReferences",
+          "contractFieldRef": "gaming.supplierOfferMapping.providerReferences",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.suppliers#priority",
+          "field": "priority",
+          "contractFieldRef": "gaming.supplierOfferMapping.priority",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.suppliers#enabled",
+          "field": "enabled",
+          "contractFieldRef": "gaming.supplierOfferMapping.enabled",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.suppliers#availability",
+          "field": "availability",
+          "contractFieldRef": "gaming.supplierOfferMapping.availability",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.suppliers#supplierCost",
+          "field": "supplierCost",
+          "contractFieldRef": "gaming.supplierOfferMapping.supplierCost",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.suppliers#supplierCurrency",
+          "field": "supplierCurrency",
+          "contractFieldRef": "gaming.supplierOfferMapping.supplierCurrency",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.suppliers#lastSyncedAt",
+          "field": "lastSyncedAt",
+          "contractFieldRef": "gaming.supplierOfferMapping.lastSyncedAt",
+          "mode": "hidden"
+        },
+        {
+          "fieldRef": "cmsUi.profile.gaming.suppliers#providerMetadata",
+          "field": "providerMetadata",
+          "contractFieldRef": "gaming.supplierOfferMapping.providerMetadata",
+          "mode": "hidden"
+        }
+      ],
+      "demoPolicy": {
+        "mode": "disabled",
+        "productionWrites": false
+      },
+      "apiOperationRefs": [],
+      "eventRefs": [],
+      "relationships": {
+        "customerCmsProfileRef": "cmsUi.profile.gaming.suppliers",
+        "adminProfileRef": "adminUi.profile.gaming.suppliers",
+        "approvalContractRef": null
+      },
+      "notes": [
+        "Fail-closed baseline: Gaming Customer CMS access remains hidden until canonical customer-safe APIs and action policy are published."
+      ]
+    },
+    {
       "$id": "customerAccess.policy.integrations.connections",
       "name": "Integration Connections Customer Access Policy",
       "type": "customer-access-policy",
@@ -16019,7 +16691,12 @@
     "search.performed",
     "video.started",
     "video.completed",
-    "newsletter.subscribed"
+    "newsletter.subscribed",
+    "navigation.route-changed",
+    "engagement.session-engaged",
+    "commerce.product-viewed",
+    "commerce.cart-updated",
+    "commerce.checkout-started"
   ],
   "connectors": [
     "integrations.crm",
@@ -16076,19 +16753,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2412 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2445 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 3,
         "deprecation": 0,
-        "non-breaking": 2401,
+        "non-breaking": 2434,
         "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-2-V0.3.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.4.0"
     },
     {
       "version": "0.4.0",
@@ -16099,19 +16776,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2377 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2410 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 7,
         "deprecation": 0,
-        "non-breaking": 2362,
+        "non-breaking": 2395,
         "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-3-V0.4.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.4.0"
     },
     {
       "version": "0.5.0",
@@ -16122,19 +16799,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2358 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2391 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 8,
         "deprecation": 0,
-        "non-breaking": 2342,
+        "non-breaking": 2375,
         "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-4-V0.5.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.4.0"
     },
     {
       "version": "0.6.0",
@@ -16145,19 +16822,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2356 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2389 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 27,
         "deprecation": 0,
-        "non-breaking": 2321,
+        "non-breaking": 2354,
         "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-5-V0.6.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.4.0"
     },
     {
       "version": "0.7.0",
@@ -16168,19 +16845,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2323 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2356 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 25,
         "deprecation": 0,
-        "non-breaking": 2290,
+        "non-breaking": 2323,
         "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-6-V0.7.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.4.0"
     },
     {
       "version": "0.8.0",
@@ -16191,19 +16868,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2301 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2334 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 30,
         "deprecation": 0,
-        "non-breaking": 2267,
+        "non-breaking": 2300,
         "documentation": 0,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-7-V0.8.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.4.0"
     },
     {
       "version": "0.9.0",
@@ -16214,19 +16891,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2267 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2300 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
         "review-required": 33,
         "deprecation": 0,
-        "non-breaking": 2231,
+        "non-breaking": 2264,
         "documentation": 0,
         "metadata": 3,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-8-V0.9.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.4.0"
     },
     {
       "version": "0.10.0",
@@ -16237,19 +16914,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2230 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2258 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 41,
+        "review-required": 34,
         "deprecation": 0,
-        "non-breaking": 2186,
+        "non-breaking": 2220,
         "documentation": 0,
-        "metadata": 3,
+        "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-9-V0.10.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.4.0"
     },
     {
       "version": "0.11.0",
@@ -16260,19 +16937,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2182 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2210 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 41,
+        "review-required": 34,
         "deprecation": 0,
-        "non-breaking": 2137,
+        "non-breaking": 2171,
         "documentation": 0,
-        "metadata": 4,
+        "metadata": 5,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-10-V0.11.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.4.0"
     },
     {
       "version": "0.12.0",
@@ -16283,19 +16960,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2123 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2151 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 55,
+        "review-required": 48,
         "deprecation": 0,
-        "non-breaking": 2064,
+        "non-breaking": 2098,
         "documentation": 0,
-        "metadata": 4,
+        "metadata": 5,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-11-V0.12.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.4.0"
     },
     {
       "version": "0.13.0",
@@ -16320,19 +16997,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "1849 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "1877 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 58,
+        "review-required": 51,
         "deprecation": 0,
-        "non-breaking": 1787,
+        "non-breaking": 1821,
         "documentation": 0,
-        "metadata": 4,
+        "metadata": 5,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-13-V0.14.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.4.0"
     },
     {
       "version": "0.15.0",
@@ -16357,19 +17034,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "1380 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "1424 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 0,
-        "review-required": 7,
+        "review-required": 8,
         "deprecation": 0,
-        "non-breaking": 1366,
+        "non-breaking": 1400,
         "documentation": 0,
-        "metadata": 5,
+        "metadata": 6,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-15-V0.16.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.4.0"
     },
     {
       "version": "0.17.0",
@@ -16380,19 +17057,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "1380 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "1424 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 3,
-        "review-required": 9,
+        "review-required": 11,
         "deprecation": 0,
-        "non-breaking": 1343,
+        "non-breaking": 1377,
         "documentation": 0,
         "metadata": 23,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-16-V0.17.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.4.0"
     },
     {
       "version": "0.18.0",
@@ -16403,19 +17080,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "1469 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "1515 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 98,
+        "breaking": 106,
         "potentially-breaking": 7,
-        "review-required": 11,
+        "review-required": 15,
         "deprecation": 0,
-        "non-breaking": 1328,
+        "non-breaking": 1362,
         "documentation": 0,
         "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-17-V0.18.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.4.0"
     },
     {
       "version": "0.19.0",
@@ -16440,19 +17117,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "1020 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "1067 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 89,
+        "review-required": 94,
         "deprecation": 0,
-        "non-breaking": 903,
+        "non-breaking": 937,
         "documentation": 0,
         "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-19-V0.20.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.4.0"
     },
     {
       "version": "0.21.0",
@@ -16463,19 +17140,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "931 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "978 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 163,
+        "review-required": 168,
         "deprecation": 0,
-        "non-breaking": 740,
+        "non-breaking": 774,
         "documentation": 0,
         "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-20-V0.21.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.4.0"
     },
     {
       "version": "0.22.0",
@@ -16486,19 +17163,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "858 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "905 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 163,
+        "review-required": 168,
         "deprecation": 0,
-        "non-breaking": 667,
+        "non-breaking": 701,
         "documentation": 0,
         "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-21-V0.22.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.4.0"
     },
     {
       "version": "0.23.0",
@@ -16509,19 +17186,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "849 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "896 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 163,
+        "review-required": 168,
         "deprecation": 0,
-        "non-breaking": 658,
+        "non-breaking": 692,
         "documentation": 0,
         "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-22-V0.23.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.4.0"
     },
     {
       "version": "0.24.0",
@@ -16532,19 +17209,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "849 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "896 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 163,
+        "review-required": 168,
         "deprecation": 0,
-        "non-breaking": 658,
+        "non-breaking": 692,
         "documentation": 0,
         "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-23-V0.24.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.4.0"
     },
     {
       "version": "0.25.0",
@@ -16555,19 +17232,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "848 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "895 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 162,
+        "review-required": 167,
         "deprecation": 0,
-        "non-breaking": 658,
+        "non-breaking": 692,
         "documentation": 0,
         "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-24-V0.25.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.4.0"
     },
     {
       "version": "0.26.0",
@@ -16578,19 +17255,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "848 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "895 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 162,
+        "review-required": 167,
         "deprecation": 0,
-        "non-breaking": 658,
+        "non-breaking": 692,
         "documentation": 0,
         "metadata": 25,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.4.0"
     },
     {
       "version": "0.27.0",
@@ -16601,19 +17278,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "848 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "895 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 162,
+        "review-required": 167,
         "deprecation": 0,
-        "non-breaking": 658,
+        "non-breaking": 692,
         "documentation": 0,
         "metadata": 25,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.4.0"
     },
     {
       "version": "0.28.0",
@@ -16624,19 +17301,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "820 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "867 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 169,
+        "review-required": 174,
         "deprecation": 0,
-        "non-breaking": 608,
+        "non-breaking": 642,
         "documentation": 0,
         "metadata": 40,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.4.0"
     },
     {
       "version": "0.29.0",
@@ -16647,19 +17324,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "819 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "866 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 173,
+        "review-required": 178,
         "deprecation": 0,
-        "non-breaking": 595,
+        "non-breaking": 629,
         "documentation": 0,
         "metadata": 48,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.4.0"
     },
     {
       "version": "0.30.0",
@@ -16670,19 +17347,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "817 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "864 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 179,
+        "review-required": 184,
         "deprecation": 0,
-        "non-breaking": 532,
+        "non-breaking": 566,
         "documentation": 0,
         "metadata": 103,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.4.0"
     },
     {
       "version": "0.31.0",
@@ -16693,19 +17370,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "816 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "863 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 253,
+        "review-required": 258,
         "deprecation": 0,
-        "non-breaking": 449,
+        "non-breaking": 483,
         "documentation": 0,
         "metadata": 111,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.4.0"
     },
     {
       "version": "0.32.0",
@@ -16716,19 +17393,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "815 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "862 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 260,
+        "review-required": 265,
         "deprecation": 0,
-        "non-breaking": 390,
+        "non-breaking": 424,
         "documentation": 0,
         "metadata": 162,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.4.0"
     },
     {
       "version": "0.33.0",
@@ -16739,19 +17416,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "814 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "861 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 1,
-        "review-required": 268,
+        "review-required": 273,
         "deprecation": 0,
-        "non-breaking": 322,
+        "non-breaking": 356,
         "documentation": 0,
         "metadata": 221,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.4.0"
     },
     {
       "version": "0.34.0",
@@ -16762,19 +17439,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "813 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "860 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 2,
-        "review-required": 268,
+        "review-required": 273,
         "deprecation": 0,
-        "non-breaking": 316,
+        "non-breaking": 350,
         "documentation": 0,
         "metadata": 225,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.4.0"
     },
     {
       "version": "0.35.0",
@@ -16785,19 +17462,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "812 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "859 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 2,
-        "review-required": 269,
+        "review-required": 274,
         "deprecation": 0,
-        "non-breaking": 310,
+        "non-breaking": 344,
         "documentation": 0,
         "metadata": 229,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.4.0"
     },
     {
       "version": "0.36.0",
@@ -16808,19 +17485,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "811 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "858 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 2,
-        "review-required": 270,
+        "review-required": 275,
         "deprecation": 0,
-        "non-breaking": 300,
+        "non-breaking": 334,
         "documentation": 0,
         "metadata": 237,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.4.0"
     },
     {
       "version": "0.37.0",
@@ -16831,19 +17508,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "810 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "857 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 2,
-        "review-required": 271,
+        "review-required": 276,
         "deprecation": 0,
-        "non-breaking": 294,
+        "non-breaking": 328,
         "documentation": 0,
         "metadata": 241,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.4.0"
     },
     {
       "version": "1.0.0",
@@ -16854,19 +17531,19 @@
       "productionEligible": true,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "803 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "850 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 2,
-        "review-required": 270,
+        "review-required": 275,
         "deprecation": 0,
-        "non-breaking": 288,
+        "non-breaking": 322,
         "documentation": 0,
         "metadata": 241,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=1.0.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=1.0.0&to=1.4.0"
     },
     {
       "version": "1.1.0",
@@ -16877,19 +17554,19 @@
       "productionEligible": true,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2109 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2150 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 2,
+        "breaking": 10,
         "potentially-breaking": 2,
-        "review-required": 160,
+        "review-required": 173,
         "deprecation": 0,
-        "non-breaking": 186,
-        "documentation": 1621,
+        "non-breaking": 220,
+        "documentation": 1607,
         "metadata": 138,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=1.1.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=1.1.0&to=1.4.0"
     },
     {
       "version": "1.2.0",
@@ -16898,25 +17575,48 @@
       "availability": "exact",
       "supportLevel": "production-supported",
       "productionEligible": true,
-      "compatibilityStatus": "review-required",
-      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2032 consumer-relevant changed/added/removed definitions",
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "2082 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
-        "breaking": 0,
+        "breaking": 8,
         "potentially-breaking": 2,
-        "review-required": 155,
+        "review-required": 177,
         "deprecation": 0,
-        "non-breaking": 114,
-        "documentation": 1623,
+        "non-breaking": 148,
+        "documentation": 1609,
         "metadata": 138,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=1.2.0&to=1.3.0"
+      "diffRoute": "#/lifecycle/diff?from=1.2.0&to=1.4.0"
     },
     {
       "version": "1.3.0",
       "phase": 32,
+      "exactSnapshotAvailable": true,
+      "availability": "exact",
+      "supportLevel": "production-supported",
+      "productionEligible": true,
+      "compatibilityStatus": "migration-required",
+      "summary": "Breaking contract evidence requires migration before target adoption.",
+      "changeSummary": "406 consumer-relevant changed/added/removed definitions",
+      "impactCounts": {
+        "breaking": 8,
+        "potentially-breaking": 0,
+        "review-required": 135,
+        "deprecation": 0,
+        "non-breaking": 34,
+        "documentation": 0,
+        "metadata": 229,
+        "none": 0
+      },
+      "sourceReference": "registry/registry.json",
+      "diffRoute": "#/lifecycle/diff?from=1.3.0&to=1.4.0"
+    },
+    {
+      "version": "1.4.0",
+      "phase": 33,
       "exactSnapshotAvailable": true,
       "availability": "exact",
       "supportLevel": "production-current",
@@ -18411,14 +19111,14 @@
   },
   "sourceHashes": {
     "standards/41-browser-contract-validation-standard.md": "f710c83512a9f7b305e507d8482a2456b92fd12e9380a78b82d87d673af5c611",
-    "registry/manifests/nextf-site-manifest.schema.json": "d0d3b316d8a4586f15e0cd6957ac89ab33f043a910df0deb7feff68486f7640a",
-    "registry/modules/index.json": "f1d6608deb6d153c44f37969459f6a6346af7e0e499ccdd2b6bea520cc013005",
-    "registry/customer-access/index.json": "fde3ee868ef1fdd9033d9eed056d82d42879b32bbbfa4753b197e8ed944caa4b",
-    "registry/api/index.json": "1933af7ae54b0008297222ba3b30d7ccd39860bd5af3d2774ce41eab454eb090",
+    "registry/manifests/nextf-site-manifest.schema.json": "1afdce71662cf876066029b24b5498efb3f2920e37aff2543cd3df4571d2b859",
+    "registry/modules/index.json": "571d3d13c98dbf9dbae9ccf04472f29d0203384fde89f4f71d9fc54ab10750dd",
+    "registry/customer-access/index.json": "d7c829be2283092666b87a6c619bcfb08bca99f642190831a007499b5b511552",
+    "registry/api/index.json": "b9da6f13511848db091b22cd48edc868a9e361f1233bd8b9adc49bfe59b40716",
     "registry/events/index.json": "df87650b4c1e219d446ef8bf2ae135ae79b41221af5e028cfd45685014b94833",
-    "registry/marketing/index.json": "27f88077b8255c2b76176f281d4a7056cc4b8167d6fcc038b286827c4d7e6e0a",
+    "registry/marketing/index.json": "5cb9d74fa16694dc432024307540c05123a83b9b6d8834c88b405171f74d7b68",
     "registry/integrations/index.json": "43408b6857fc68e69fc88aa2358ecdcdd1213e1c1b6d6baef28c4130a1d9f4e4",
-    "registry/compatibility/release-compatibility.json": "5a61724fe025bdbce0d5b8a584376ac19ccc7edd17ea384b9e263fdacb2be11a",
-    "registry/deprecations/index.json": "08258263b00089ab4377e1adf47e4824b8063b46c496e5fafcbdec5134c96fc4"
+    "registry/compatibility/release-compatibility.json": "9e38deeaacad4e32e9547ccc0a9a2e38e2ddf79878fe65d595b3f453181aa33f",
+    "registry/deprecations/index.json": "41565b560a047f9d96d25cfffcebd779f0860c6692f7ea02aaa24dfb843ac1e2"
   }
 }

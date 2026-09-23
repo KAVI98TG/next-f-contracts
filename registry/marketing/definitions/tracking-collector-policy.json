@@ -1,0 +1,156 @@
+{
+  "$id": "marketing.trackingCollectorPolicy",
+  "name": "Tracking Collector Policy",
+  "version": "1.4.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "collection",
+  "description": "Limits, origin, validation, consent and abuse rules for first-party ingestion.",
+  "purpose": "Limits, origin, validation, consent and abuse rules for first-party ingestion.",
+  "marketingModel": {
+    "kind": "policy",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "supportsRevision": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "policyId",
+      "required": true,
+      "nullable": false,
+      "description": "Stable collector policy ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scope",
+      "required": true,
+      "nullable": false,
+      "description": "Owning Organization and Site.",
+      "schema": "core.tenantScope"
+    },
+    {
+      "key": "allowedOrigins",
+      "required": true,
+      "nullable": false,
+      "description": "Exact allowed browser origins.",
+      "primitive": "fields.tag"
+    },
+    {
+      "key": "maximumRequestBytes",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum request body bytes.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "maximumEventsPerBatch",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum events per batch.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "maximumPropertyCount",
+      "required": true,
+      "nullable": false,
+      "description": "Maximum properties per event.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "acceptedEnvelopeVersions",
+      "required": true,
+      "nullable": false,
+      "description": "Accepted envelope versions.",
+      "primitive": "fields.tag"
+    },
+    {
+      "key": "consentEnforcement",
+      "required": true,
+      "nullable": false,
+      "description": "Collector consent behavior.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "drop",
+          "restrict",
+          "reject"
+        ]
+      }
+    },
+    {
+      "key": "rawIpPersistence",
+      "required": true,
+      "nullable": false,
+      "description": "Must remain false for analytics storage.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "redirectPolicy",
+      "required": true,
+      "nullable": false,
+      "description": "Collector redirect behavior.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "never-follow"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composes",
+      "target": "core.tenantScope",
+      "description": "Collector policy is Site scoped."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "originRequired",
+      "description": "Browser collection requires an exact configured Site origin."
+    },
+    {
+      "id": "noBrowserSecret",
+      "description": "Browser collection never relies on confidential credentials."
+    },
+    {
+      "id": "rawIpNotIdentity",
+      "description": "Raw IP addresses are not persisted as analytics visitor identity."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Collector Policy",
+    "icon": "fa-chart-line",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "policyId",
+      "scope",
+      "allowedOrigins",
+      "maximumRequestBytes"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Delivered only through the declared scoped API projection."
+  },
+  "futureBindings": {
+    "modules": "phase-41",
+    "api": "phase-41",
+    "permissions": "phase-15",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

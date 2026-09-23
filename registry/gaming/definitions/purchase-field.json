@@ -87,7 +87,7 @@
   "relationships": [
     {
       "type": "relatedTo",
-      "target": "forms.field",
+      "target": "forms.formField",
       "description": "Reuses Forms field semantics where compatible."
     }
   ],

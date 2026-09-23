@@ -1,7 +1,7 @@
 {
   "$id": "adminUi.profile.marketing.tracking",
   "name": "Tracking Admin",
-  "version": "1.1.0",
+  "version": "1.4.0",
   "status": "stable",
   "domain": "admin-ui",
   "type": "admin-ui-profile",
@@ -26,7 +26,8 @@
   "inheritanceMode": "reference-not-copy",
   "targetContracts": [
     "marketing.trackingConfiguration",
-    "marketing.dataLayerConfiguration"
+    "marketing.dataLayerConfiguration",
+    "marketing.trackingHealth"
   ],
   "primaryTargetContract": "marketing.trackingConfiguration",
   "permissions": [

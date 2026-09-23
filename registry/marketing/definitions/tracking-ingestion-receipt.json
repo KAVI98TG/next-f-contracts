@@ -1,0 +1,133 @@
+{
+  "$id": "marketing.trackingIngestionReceipt",
+  "name": "Tracking Ingestion Receipt",
+  "version": "1.4.0",
+  "status": "stable",
+  "domain": "marketing",
+  "category": "collection",
+  "description": "Batch-level collector receipt with bounded per-event outcomes.",
+  "purpose": "Batch-level collector receipt with bounded per-event outcomes.",
+  "marketingModel": {
+    "kind": "result",
+    "customerManaged": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "supportsRevision": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "receiptId",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque receipt ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "batchId",
+      "required": true,
+      "nullable": false,
+      "description": "Submitted batch ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "requestId",
+      "required": true,
+      "nullable": false,
+      "description": "Operational request correlation ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "receivedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Server receipt timestamp.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "acceptedCount",
+      "required": true,
+      "nullable": false,
+      "description": "Accepted event count.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "duplicateCount",
+      "required": true,
+      "nullable": false,
+      "description": "Duplicate event count.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "restrictedCount",
+      "required": true,
+      "nullable": false,
+      "description": "Consent/policy restricted count.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "rejectedCount",
+      "required": true,
+      "nullable": false,
+      "description": "Rejected event count.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "results",
+      "required": true,
+      "nullable": false,
+      "description": "Bounded marketing.trackingIngestionItemResult list.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "composesMany",
+      "target": "marketing.trackingIngestionItemResult",
+      "description": "Contains per-event dispositions."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "countsMatch",
+      "description": "Disposition counts match result items."
+    },
+    {
+      "id": "noRawEcho",
+      "description": "Receipt never returns submitted property values."
+    }
+  ],
+  "cms": {
+    "label": "Tracking Ingestion Receipt",
+    "icon": "fa-chart-line",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "structured",
+    "defaultPlacement": "marketing",
+    "summaryFields": [
+      "receiptId",
+      "batchId",
+      "requestId",
+      "receivedAt"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Delivered only through the declared scoped API projection."
+  },
+  "futureBindings": {
+    "modules": "phase-41",
+    "api": "phase-41",
+    "permissions": "phase-15",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

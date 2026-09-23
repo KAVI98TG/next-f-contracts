@@ -1,0 +1,34 @@
+{
+  "$id": "modules.capability.analytics.tracking-health",
+  "capabilityId": "analytics.tracking-health",
+  "name": "Tracking Health",
+  "version": "1.4.0",
+  "status": "stable",
+  "moduleId": "analytics",
+  "mode": "optional",
+  "selectable": true,
+  "defaultEnabled": false,
+  "description": "Tracking Health capability for the NEXT F first-party tracking platform.",
+  "contractBindings": [
+    "marketing.trackingHealth"
+  ],
+  "permissionBindings": [
+    "marketing.tracking.view"
+  ],
+  "eventBindings": [],
+  "requiresCapabilities": [
+    "analytics.measurement"
+  ],
+  "requiresModules": [
+    "consent"
+  ],
+  "cms": {
+    "customerVisible": true,
+    "adminVisible": true
+  },
+  "manifest": {
+    "allowed": true,
+    "explicitSelectionRequired": true
+  },
+  "notes": []
+}

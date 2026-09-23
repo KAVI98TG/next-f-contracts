@@ -1,0 +1,42 @@
+{
+  "registryVersion": "1.4.0",
+  "phase": 41,
+  "title": "NEXT F Contracts V1.4.0 First-Party Tracking Acceptance",
+  "release": {
+    "phase": 41,
+    "version": "1.4.0",
+    "status": "STABLE",
+    "previousStableVersion": "1.3.0"
+  },
+  "inventory": {
+    "trackingSchemas": 11,
+    "trackingEvents": 18,
+    "analyticsCapabilitiesAdded": 3,
+    "trackingApiOperations": 6,
+    "privacyHandlingRecordsAdded": 7,
+    "referenceFixtures": 8
+  },
+  "immutableReleasePolicy": {
+    "changedExistingImmutableRelease": false,
+    "preservedVersions": [
+      "1.0.0",
+      "1.1.0",
+      "1.2.0",
+      "1.3.0"
+    ]
+  },
+  "runtimeStatus": {
+    "sdk": "not-implemented",
+    "collector": "not-implemented",
+    "reporting": "not-implemented",
+    "productionDeploymentClaimed": false
+  },
+  "validation": {
+    "phase41": {
+      "exitCode": 0,
+      "passed": true,
+      "output": "NEXT F Contracts Phase 41 validation\nVersion: 1.4.0\nTracking schemas added: 11\nTracking API operations: 6\nTracking vocabulary events: 18\nPasses: 89\nFailures: 0\nPASS - V1.4.0 first-party tracking platform contracts are complete."
+    }
+  },
+  "generatedAt": "2026-09-23T12:03:54.177Z"
+}

@@ -1,0 +1,65 @@
+{
+  "registryVersion": "1.4.0",
+  "releaseVersion": "1.4.0",
+  "phase": 41,
+  "title": "NEXT F Contracts V1.4.0 Snapshot Index",
+  "frozenAt": "2026-09-23T12:03:51.625Z",
+  "previousStableVersion": "1.3.0",
+  "snapshots": [
+    {
+      "path": "registry/releases/1.4.0/snapshots/api-contracts.json",
+      "sha256": "b9da6f13511848db091b22cd48edc868a9e361f1233bd8b9adc49bfe59b40716",
+      "bytes": 481711
+    },
+    {
+      "path": "registry/releases/1.4.0/snapshots/events.json",
+      "sha256": "df87650b4c1e219d446ef8bf2ae135ae79b41221af5e028cfd45685014b94833",
+      "bytes": 834495
+    },
+    {
+      "path": "registry/releases/1.4.0/snapshots/marketing.json",
+      "sha256": "5cb9d74fa16694dc432024307540c05123a83b9b6d8834c88b405171f74d7b68",
+      "bytes": 256778
+    },
+    {
+      "path": "registry/releases/1.4.0/snapshots/modules.json",
+      "sha256": "571d3d13c98dbf9dbae9ccf04472f29d0203384fde89f4f71d9fc54ab10750dd",
+      "bytes": 190130
+    },
+    {
+      "path": "registry/releases/1.4.0/snapshots/permissions.json",
+      "sha256": "e237a5e3908a10675e11edc4a99def56fabb43ab93339cf9bcee852c856e7def",
+      "bytes": 373976
+    },
+    {
+      "path": "registry/releases/1.4.0/snapshots/privacy.json",
+      "sha256": "0a94013990048f664f7b3e7c8bb32bb4e92093d392e8cf19de443ee1e8ee8942",
+      "bytes": 68399
+    },
+    {
+      "path": "registry/releases/1.4.0/snapshots/registry.json",
+      "sha256": "8c1e05e26c89171febe0b489a117a77f9688fe1414e6923b922ea3cffb8c4c29",
+      "bytes": 2819097
+    },
+    {
+      "path": "registry/releases/1.4.0/snapshots/relationships.json",
+      "sha256": "c9954433d58b8a1b01c7bcf2173bb47e88d93d057d9229bd1369bd2260e95f9b",
+      "bytes": 3887201
+    },
+    {
+      "path": "registry/releases/1.4.0/snapshots/search.json",
+      "sha256": "4fef065d20f33f30f82237c5b416ff2e5ed9cac0ca0c61ee7e46cf0a81ddd44e",
+      "bytes": 12694191
+    },
+    {
+      "path": "registry/releases/1.4.0/snapshots/site-manifest.schema.json",
+      "sha256": "1afdce71662cf876066029b24b5498efb3f2920e37aff2543cd3df4571d2b859",
+      "bytes": 13727
+    },
+    {
+      "path": "registry/releases/1.4.0/snapshots/tracking-sdk-compatibility.json",
+      "sha256": "5b9b207370c3add785836aa23addf18adb046727c98f6c5d9af3d614d205fedb",
+      "bytes": 561
+    }
+  ]
+}

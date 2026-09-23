@@ -6,7 +6,7 @@ import { pathToFileURL } from "node:url";
 const root = process.cwd();
 const version = fs.readFileSync(path.join(root, "VERSION"), "utf8").trim();
 const readJson = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), "utf8"));
-const writeJson = (rel, value) => fs.writeFileSync(path.join(root, rel), JSON.stringify(value, null, 2) + "\n");
+const writeJson = (rel, value) => { const target = path.join(root, rel), temporary = `${target}.next`; fs.writeFileSync(temporary, JSON.stringify(value, null, 2) + "\n"); fs.rmSync(target, { force: true }); fs.renameSync(temporary, target); };
 const exists = (rel) => fs.existsSync(path.join(root, rel));
 
 function text(value) {
@@ -377,10 +377,12 @@ writeJson("registry/search/search-index.json", searchIndex);
 
 const searchRaw = fs.readFileSync(path.join(root, "registry/search/search-index.json"));
 const searchDigest = crypto.createHash("sha256").update(searchRaw).digest("hex");
+fs.rmSync(path.join(root, "js/generated-search-index.js"), { force: true });
 fs.writeFileSync(path.join(root, "js/generated-search-index.js"), `// Generated from registry/search/search-index.json\n// SHA-256: ${searchDigest}\nexport const GENERATED_SEARCH_INDEX_SOURCE_SHA256 = ${JSON.stringify(searchDigest)};\nexport const GENERATED_SEARCH_INDEX = ${searchRaw.toString("utf8").trim()};\n`);
 
 const registryRaw = fs.readFileSync(path.join(root, "registry/registry.json"));
 const registryDigest = crypto.createHash("sha256").update(registryRaw).digest("hex");
+fs.rmSync(path.join(root, "js/generated-registry.js"), { force: true });
 fs.writeFileSync(path.join(root, "js/generated-registry.js"), `// Generated from registry/registry.json\n// SHA-256: ${registryDigest}\nexport const GENERATED_REGISTRY_SOURCE_SHA256 = ${JSON.stringify(registryDigest)};\nexport const GENERATED_REGISTRY = ${registryRaw.toString("utf8").trim()};\n`);
 
 console.log(`Global Search synchronized: ${stats.documents} searchable documents (${stats.registry} registry, ${stats.fields} fields, ${stats.routes} routes, ${stats.documentation} docs).`);

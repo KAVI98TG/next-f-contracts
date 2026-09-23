@@ -1,7 +1,7 @@
 {
   "$id": "deprecations.supportWindow",
   "name": "Deprecation Support Window",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "status": "stable",
   "phase": 28,
   "description": "Optional authoritative support boundary; unknown remains explicit when not established.",

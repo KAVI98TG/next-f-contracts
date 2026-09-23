@@ -1,0 +1,127 @@
+{
+  "$id": "customerAccess.policy.gaming.catalog",
+  "name": "Gaming Catalog Customer Access Policy",
+  "type": "customer-access-policy",
+  "version": "1.1.0",
+  "status": "stable",
+  "resourceRef": "gaming.catalog",
+  "contractRefs": [
+    "gaming.product"
+  ],
+  "moduleRef": "gaming",
+  "capabilityRefs": [
+    "gaming.catalog"
+  ],
+  "customerMode": "hidden",
+  "actions": {
+    "read": "deny",
+    "create": "deny",
+    "update": "deny",
+    "delete": "deny",
+    "submit_for_review": "deny",
+    "publish": "deny",
+    "unpublish": "deny",
+    "restore_version": "deny"
+  },
+  "publishingPolicy": {
+    "mode": "not_applicable"
+  },
+  "permissionRefs": {
+    "read": [],
+    "create": [],
+    "update": [],
+    "delete": [],
+    "submit_for_review": [],
+    "publish": [],
+    "unpublish": [],
+    "restore_version": []
+  },
+  "fieldRules": [
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#identity",
+      "field": "identity",
+      "contractFieldRef": "gaming.product.identity",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#scope",
+      "field": "scope",
+      "contractFieldRef": "gaming.product.scope",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#slug",
+      "field": "slug",
+      "contractFieldRef": "gaming.product.slug",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#name",
+      "field": "name",
+      "contractFieldRef": "gaming.product.name",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#brand",
+      "field": "brand",
+      "contractFieldRef": "gaming.product.brand",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#kind",
+      "field": "kind",
+      "contractFieldRef": "gaming.product.kind",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#publicDescription",
+      "field": "publicDescription",
+      "contractFieldRef": "gaming.product.publicDescription",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#artwork",
+      "field": "artwork",
+      "contractFieldRef": "gaming.product.artwork",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#enabled",
+      "field": "enabled",
+      "contractFieldRef": "gaming.product.enabled",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#visible",
+      "field": "visible",
+      "contractFieldRef": "gaming.product.visible",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#featured",
+      "field": "featured",
+      "contractFieldRef": "gaming.product.featured",
+      "mode": "hidden"
+    },
+    {
+      "fieldRef": "cmsUi.profile.gaming.catalog#revision",
+      "field": "revision",
+      "contractFieldRef": "gaming.product.revision",
+      "mode": "hidden"
+    }
+  ],
+  "demoPolicy": {
+    "mode": "disabled",
+    "productionWrites": false
+  },
+  "apiOperationRefs": [],
+  "eventRefs": [],
+  "relationships": {
+    "customerCmsProfileRef": "cmsUi.profile.gaming.catalog",
+    "adminProfileRef": "adminUi.profile.gaming.catalog",
+    "approvalContractRef": null
+  },
+  "notes": [
+    "Fail-closed baseline: Gaming Customer CMS access remains hidden until canonical customer-safe APIs and action policy are published."
+  ]
+}

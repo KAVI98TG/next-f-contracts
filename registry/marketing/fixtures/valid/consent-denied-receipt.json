@@ -1,0 +1,18 @@
+{
+  "receiptId": "receipt_denied_001",
+  "batchId": "batch_denied_001",
+  "requestId": "req_001",
+  "receivedAt": "2026-09-23T12:00:00Z",
+  "acceptedCount": 0,
+  "duplicateCount": 0,
+  "restrictedCount": 1,
+  "rejectedCount": 0,
+  "results": [
+    {
+      "eventId": "evt_denied_001",
+      "status": "restricted",
+      "reasonCode": "consent-denied",
+      "receivedAt": "2026-09-23T12:00:00Z"
+    }
+  ]
+}

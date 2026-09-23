@@ -1,10 +1,10 @@
 {
-  "registryVersion": "1.3.0",
+  "registryVersion": "1.4.0",
   "schemaVersion": "1.1.0",
   "title": "NEXT F Changelog Release Index",
   "description": "All authoritative coordinated release notes in descending semantic-version order.",
-  "currentVersion": "1.3.0",
-  "releaseCount": 41,
+  "currentVersion": "1.4.0",
+  "releaseCount": 42,
   "entryCount": 605,
   "phases": [
     0,
@@ -47,7 +47,8 @@
     37,
     38,
     39,
-    40
+    40,
+    41
   ],
   "domains": [
     "accessibility",
@@ -88,6 +89,39 @@
     "modules.pages"
   ],
   "releases": [
+    {
+      "version": "1.4.0",
+      "phase": 41,
+      "title": "First-Party Tracking Platform Contracts",
+      "releaseStatus": "published-stable",
+      "releaseDate": "2026-09-23",
+      "summary": "Extends canonical Marketing and Analytics contracts with first-party SDK/collector, browser and server ingestion, identity/session policies, reporting, tracking health, privacy handling, Manifest declarations and validation while preserving Tracking Observation and Domain Event separation.",
+      "sourceVersion": "1.3.0",
+      "targetVersion": "1.4.0",
+      "recordCompleteness": "complete",
+      "incompletenessReason": null,
+      "entryCount": 0,
+      "categoryCounts": {},
+      "evidenceLevel": "authoritative",
+      "exactRegistrySnapshotAvailable": true,
+      "supportLevel": "stable",
+      "compatibilityStatus": "compatible-additive",
+      "breakingChange": null,
+      "migrationRequired": null,
+      "affected": {
+        "domains": [],
+        "modules": [],
+        "contracts": [],
+        "events": [],
+        "permissions": [],
+        "webhooks": [],
+        "apis": [],
+        "manifests": [],
+        "cmsMetadata": [],
+        "adminMetadata": []
+      },
+      "source": "registry/changelog/releases/1.4.0.json"
+    },
     {
       "version": "1.3.0",
       "phase": 40,
