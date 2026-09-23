@@ -1,15 +1,15 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Sources: registry/events/*.json
-// SHA-256: 17bd4098f544986f8b3013a7ca80f7ca7492777a319324042698c1b745b0e7a7
-export const GENERATED_EVENTS_SOURCE_SHA256 = "17bd4098f544986f8b3013a7ca80f7ca7492777a319324042698c1b745b0e7a7";
+// SHA-256: 9dc95f561ac7db6c0e0c33699cf7669e5e17ad5ae41fa6b5d54eea2419a834ef
+export const GENERATED_EVENTS_SOURCE_SHA256 = "9dc95f561ac7db6c0e0c33699cf7669e5e17ad5ae41fa6b5d54eea2419a834ef";
 export const GENERATED_EVENTS = {
-  "registryVersion": "1.2.0",
+  "registryVersion": "1.3.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Event Registry",
   "description": "Authoritative canonical domain Event Registry. Events describe completed facts and remain independent of webhook/transport implementation.",
   "definitionCount": 13,
-  "eventCount": 145,
-  "categoryCount": 16,
+  "eventCount": 164,
+  "categoryCount": 17,
   "sourceDirectories": {
     "schemas": "registry/events/definitions",
     "events": "registry/events/events"
@@ -94,6 +94,11 @@ export const GENERATED_EVENTS = {
       "key": "gaming",
       "label": "Gaming Store",
       "description": "Gaming catalog, quote, order, fulfillment and supplier routing facts."
+    },
+    {
+      "key": "software",
+      "label": "Software",
+      "description": "Software orders, subscriptions, licenses, entitlements, releases, downloads and update facts."
     }
   ],
   "schemas": [
@@ -21579,6 +21584,2270 @@ export const GENERATED_EVENTS = {
       }
     },
     {
+      "eventKey": "software.activation-created",
+      "name": "Software Activation Created",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.activation"
+      ],
+      "trigger": "Software Activation Created",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "activationId",
+          "required": true,
+          "description": "Software activation ID.",
+          "type": "id"
+        },
+        {
+          "key": "licenseId",
+          "required": true,
+          "description": "Software license ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.activation-created",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Activation Created",
+      "purpose": "Provides a canonical Software domain fact for software activation created.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.activation",
+          "description": "Event subject may be software.activation."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.activation-created",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-activation-created",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.activation-deactivated",
+      "name": "Software Activation Deactivated",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.activation"
+      ],
+      "trigger": "Software Activation Deactivated",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "activationId",
+          "required": true,
+          "description": "Software activation ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.activation-deactivated",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Activation Deactivated",
+      "purpose": "Provides a canonical Software domain fact for software activation deactivated.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.activation",
+          "description": "Event subject may be software.activation."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.activation-deactivated",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-activation-deactivated",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.download-grant-issued",
+      "name": "Software Download Grant Issued",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.downloadGrant"
+      ],
+      "trigger": "Software Download Grant Issued",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "grantId",
+          "required": true,
+          "description": "Download grant ID.",
+          "type": "id"
+        },
+        {
+          "key": "productId",
+          "required": true,
+          "description": "Software product ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.download-grant-issued",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Download Grant Issued",
+      "purpose": "Provides a canonical Software domain fact for software download grant issued.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.downloadGrant",
+          "description": "Event subject may be software.downloadGrant."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.download-grant-issued",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-download-grant-issued",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.entitlement-granted",
+      "name": "Software Entitlement Granted",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.entitlement"
+      ],
+      "trigger": "Software Entitlement Granted",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "entitlementId",
+          "required": true,
+          "description": "Software entitlement ID.",
+          "type": "id"
+        },
+        {
+          "key": "capability",
+          "required": true,
+          "description": "Granted capability.",
+          "type": "string"
+        }
+      ],
+      "$id": "software.entitlement-granted",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Entitlement Granted",
+      "purpose": "Provides a canonical Software domain fact for software entitlement granted.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.entitlement",
+          "description": "Event subject may be software.entitlement."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.entitlement-granted",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-entitlement-granted",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.entitlement-revoked",
+      "name": "Software Entitlement Revoked",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.entitlement"
+      ],
+      "trigger": "Software Entitlement Revoked",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "entitlementId",
+          "required": true,
+          "description": "Software entitlement ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.entitlement-revoked",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Entitlement Revoked",
+      "purpose": "Provides a canonical Software domain fact for software entitlement revoked.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.entitlement",
+          "description": "Event subject may be software.entitlement."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.entitlement-revoked",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-entitlement-revoked",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.license-expired",
+      "name": "Software License Expired",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.license"
+      ],
+      "trigger": "Software License Expired",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "licenseId",
+          "required": true,
+          "description": "Software license ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.license-expired",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software License Expired",
+      "purpose": "Provides a canonical Software domain fact for software license expired.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.license-expired",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-license-expired",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.license-issued",
+      "name": "Software License Issued",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.license"
+      ],
+      "trigger": "Software License Issued",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "licenseId",
+          "required": true,
+          "description": "Software license ID.",
+          "type": "id"
+        },
+        {
+          "key": "productId",
+          "required": true,
+          "description": "Software product ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.license-issued",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software License Issued",
+      "purpose": "Provides a canonical Software domain fact for software license issued.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.license-issued",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-license-issued",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.license-restored",
+      "name": "Software License Restored",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.license"
+      ],
+      "trigger": "Software License Restored",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "licenseId",
+          "required": true,
+          "description": "Software license ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.license-restored",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software License Restored",
+      "purpose": "Provides a canonical Software domain fact for software license restored.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.license-restored",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-license-restored",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.license-suspended",
+      "name": "Software License Suspended",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.license"
+      ],
+      "trigger": "Software License Suspended",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "licenseId",
+          "required": true,
+          "description": "Software license ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.license-suspended",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software License Suspended",
+      "purpose": "Provides a canonical Software domain fact for software license suspended.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.license-suspended",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-license-suspended",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.order-created",
+      "name": "Software Order Created",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.orderExtension"
+      ],
+      "trigger": "A Software order is durably created from server-resolved catalog and price data.",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "softwareOrderId",
+          "required": true,
+          "description": "Software order ID.",
+          "type": "id"
+        },
+        {
+          "key": "customerId",
+          "required": true,
+          "description": "Software customer ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.order-created",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "A Software order is durably created from server-resolved catalog and price data.",
+      "purpose": "Provides a canonical Software domain fact for software order created.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.orderExtension",
+          "description": "Event subject may be software.orderExtension."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.order-created",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-order-created",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.order-paid",
+      "name": "Software Order Paid",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.orderExtension"
+      ],
+      "trigger": "Verified Checkout payment evidence is reconciled and the Software order fulfillment transaction succeeds.",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "softwareOrderId",
+          "required": true,
+          "description": "Software order ID.",
+          "type": "id"
+        },
+        {
+          "key": "captureRef",
+          "required": true,
+          "description": "Verified Checkout capture reference.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.order-paid",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Verified Checkout payment evidence is reconciled and the Software order fulfillment transaction succeeds.",
+      "purpose": "Provides a canonical Software domain fact for software order paid.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.orderExtension",
+          "description": "Event subject may be software.orderExtension."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.order-paid",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-order-paid",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.order-refunded",
+      "name": "Software Order Refunded",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.orderExtension"
+      ],
+      "trigger": "Software Order Refunded",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "softwareOrderId",
+          "required": true,
+          "description": "Software order ID.",
+          "type": "id"
+        },
+        {
+          "key": "refundRef",
+          "required": true,
+          "description": "Verified refund reference.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.order-refunded",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Order Refunded",
+      "purpose": "Provides a canonical Software domain fact for software order refunded.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.orderExtension",
+          "description": "Event subject may be software.orderExtension."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.order-refunded",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-order-refunded",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.release-published",
+      "name": "Software Release Published",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.release"
+      ],
+      "trigger": "Software Release Published",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "releaseId",
+          "required": true,
+          "description": "Software release ID.",
+          "type": "id"
+        },
+        {
+          "key": "productId",
+          "required": true,
+          "description": "Software product ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.release-published",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Release Published",
+      "purpose": "Provides a canonical Software domain fact for software release published.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.release",
+          "description": "Event subject may be software.release."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.release-published",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-release-published",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.release-withdrawn",
+      "name": "Software Release Withdrawn",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.release"
+      ],
+      "trigger": "Software Release Withdrawn",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "releaseId",
+          "required": true,
+          "description": "Software release ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.release-withdrawn",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Release Withdrawn",
+      "purpose": "Provides a canonical Software domain fact for software release withdrawn.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.release",
+          "description": "Event subject may be software.release."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.release-withdrawn",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-release-withdrawn",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.subscription-activated",
+      "name": "Software Subscription Activated",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.subscription"
+      ],
+      "trigger": "Software Subscription Activated",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "subscriptionId",
+          "required": true,
+          "description": "Software subscription ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.subscription-activated",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Subscription Activated",
+      "purpose": "Provides a canonical Software domain fact for software subscription activated.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.subscription-activated",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-subscription-activated",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.subscription-cancelled",
+      "name": "Software Subscription Cancelled",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.subscription"
+      ],
+      "trigger": "Software Subscription Cancelled",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "subscriptionId",
+          "required": true,
+          "description": "Software subscription ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.subscription-cancelled",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Subscription Cancelled",
+      "purpose": "Provides a canonical Software domain fact for software subscription cancelled.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.subscription-cancelled",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-subscription-cancelled",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.subscription-past-due",
+      "name": "Software Subscription Past Due",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.subscription"
+      ],
+      "trigger": "Software Subscription Past Due",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "subscriptionId",
+          "required": true,
+          "description": "Software subscription ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.subscription-past-due",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Subscription Past Due",
+      "purpose": "Provides a canonical Software domain fact for software subscription past due.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.subscription-past-due",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-subscription-past-due",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.subscription-renewed",
+      "name": "Software Subscription Renewed",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.subscription"
+      ],
+      "trigger": "Software Subscription Renewed",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": true,
+        "containsFinancialData": true,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": true,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "subscriptionId",
+          "required": true,
+          "description": "Software subscription ID.",
+          "type": "id"
+        },
+        {
+          "key": "renewalOrderId",
+          "required": true,
+          "description": "Renewal Software order ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.subscription-renewed",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Subscription Renewed",
+      "purpose": "Provides a canonical Software domain fact for software subscription renewed.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.subscription-renewed",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-subscription-renewed",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "eventKey": "software.update-served",
+      "name": "Software Update Served",
+      "category": "software",
+      "producerKey": "software-domain",
+      "subjectContracts": [
+        "software.updateResponse"
+      ],
+      "trigger": "Software Update Served",
+      "dataPolicy": {
+        "sensitivity": "sensitive",
+        "containsPersonalData": false,
+        "containsFinancialData": false,
+        "containsSecrets": false,
+        "redactionRequired": true
+      },
+      "webhookEligible": false,
+      "consumers": [
+        "audit",
+        "nextf-admin",
+        "notification",
+        "integration-dispatch",
+        "webhook-bridge"
+      ],
+      "payloadFields": [
+        {
+          "key": "productId",
+          "required": true,
+          "description": "Software product ID.",
+          "type": "id"
+        },
+        {
+          "key": "releaseId",
+          "required": false,
+          "description": "Served release ID.",
+          "type": "id"
+        }
+      ],
+      "$id": "software.update-served",
+      "version": "1.3.0",
+      "eventVersion": "1.0.0",
+      "status": "stable",
+      "domain": "events",
+      "description": "Software Update Served",
+      "purpose": "Provides a canonical Software domain fact for software update served.",
+      "semantics": {
+        "factOnly": true,
+        "authoritativeAfterCommit": true,
+        "immutableOccurrence": true,
+        "transportIndependent": true,
+        "marketingTrackingEquivalent": null
+      },
+      "productionPolicy": {
+        "durability": "durable",
+        "commitBoundary": "transactional-outbox",
+        "failureBehavior": "fail-domain-commit-or-durable-recovery"
+      },
+      "idempotency": {
+        "dedupeKey": "eventId",
+        "replayedIdempotentCommand": "no-new-semantic-event",
+        "consumerIdempotencyRequired": true
+      },
+      "orderingPolicy": {
+        "scope": "software-object",
+        "strict": false
+      },
+      "retention": {
+        "class": "transaction-history"
+      },
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.updateResponse",
+          "description": "Event subject may be software.updateResponse."
+        }
+      ],
+      "validationRules": [
+        {
+          "id": "emitAfterAuthoritativeCommit",
+          "description": "Event is produced only after the authoritative Software transaction commits."
+        },
+        {
+          "id": "immutableOccurrence",
+          "description": "Recorded event occurrences are immutable."
+        },
+        {
+          "id": "eventIdUnique",
+          "description": "Every semantic occurrence has one globally unique eventId."
+        },
+        {
+          "id": "idempotentReplay",
+          "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+        },
+        {
+          "id": "payloadMinimumNecessary",
+          "description": "Payload contains only minimum data required by declared consumers."
+        },
+        {
+          "id": "noSecrets",
+          "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+        }
+      ],
+      "futureBindings": {
+        "webhooks": "phase-40",
+        "permissions": "phase-40",
+        "siteManifest": "phase-40",
+        "modules": "phase-40",
+        "api": "phase-40",
+        "privacy": "phase-30"
+      },
+      "examples": {
+        "valid": [
+          {
+            "eventKey": "software.update-served",
+            "eventVersion": "1.0.0",
+            "eventId": "evt_software-update-served",
+            "occurredAt": "2026-09-23T00:00:00Z"
+          }
+        ],
+        "invalid": []
+      }
+    },
+    {
       "eventKey": "variant.created",
       "name": "Product Variant Created",
       "category": "commerce-catalog",
@@ -23379,6 +25648,11 @@ export const GENERATED_EVENTS = {
       "key": "gaming-supplier-router",
       "label": "Gaming Supplier Router",
       "description": "Trusted supplier routing and synchronization component."
+    },
+    {
+      "key": "software-domain",
+      "label": "Software Domain",
+      "description": "Authoritative NEXT F Software business service."
     }
   ],
   "consumers": [

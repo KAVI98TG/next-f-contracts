@@ -1,0 +1,75 @@
+{
+  "$id": "api.software-service.consume-payment-event",
+  "operationId": "api.software-service.consume-payment-event",
+  "name": "Consume Verified Checkout Payment Event",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-service",
+  "method": "POST",
+  "path": "/checkout/events",
+  "description": "Consume Verified Checkout Payment Event",
+  "authentication": {
+    "mode": "internal-service",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "software.orderExtension",
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.orderExtension",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "server-to-server",
+    "cors": "server-only"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.orderExtension"
+  ],
+  "eventBindings": [
+    "software.order-paid"
+  ],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": [
+    "Receiver verifies signature, audience, timestamp, business, environment, schema, event ID, capture ID, order amount and currency before exactly-once fulfillment."
+  ]
+}

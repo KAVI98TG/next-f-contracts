@@ -1,0 +1,72 @@
+{
+  "$id": "api.software-cms.overview",
+  "operationId": "api.software-cms.overview",
+  "name": "Get Software Operations Overview",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-cms",
+  "method": "GET",
+  "path": "/overview",
+  "description": "Get Software Operations Overview",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "software.dashboard.view"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.auditReference",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.auditReference"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": []
+}

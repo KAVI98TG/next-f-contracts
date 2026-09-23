@@ -1,16 +1,16 @@
 // GENERATED FILE - DO NOT EDIT DIRECTLY.
 // Source set: registry/changelog/*
 export const GENERATED_CHANGELOG = {
-  "registryVersion": "1.2.0",
+  "registryVersion": "1.3.0",
   "index": {
-    "registryVersion": "1.2.0",
+    "registryVersion": "1.3.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Changelog",
     "description": "Authoritative release-note registry for the coordinated NEXT F Contract Registry development train.",
     "standard": "standards/35-changelog-standard.md",
     "route": "#/lifecycle/changelog",
-    "currentVersion": "1.2.0",
-    "releaseCount": 40,
+    "currentVersion": "1.3.0",
+    "releaseCount": 41,
     "entryCount": 605,
     "schemaCount": 11,
     "categoryCount": 12,
@@ -37,12 +37,12 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "releaseIndex": {
-    "registryVersion": "1.2.0",
+    "registryVersion": "1.3.0",
     "schemaVersion": "1.1.0",
     "title": "NEXT F Changelog Release Index",
     "description": "All authoritative coordinated release notes in descending semantic-version order.",
-    "currentVersion": "1.2.0",
-    "releaseCount": 40,
+    "currentVersion": "1.3.0",
+    "releaseCount": 41,
     "entryCount": 605,
     "phases": [
       0,
@@ -84,7 +84,8 @@ export const GENERATED_CHANGELOG = {
       36,
       37,
       38,
-      39
+      39,
+      40
     ],
     "domains": [
       "accessibility",
@@ -125,6 +126,39 @@ export const GENERATED_CHANGELOG = {
       "modules.pages"
     ],
     "releases": [
+      {
+        "version": "1.3.0",
+        "phase": 40,
+        "title": "Software Canonical Contracts",
+        "releaseStatus": "published-stable",
+        "releaseDate": "2026-09-23",
+        "summary": "Adds the canonical NEXT F Software domain, stable launch identifiers, owner-scoped customer contracts, CMS permissions, Software/Checkout boundaries, licensing/entitlement/release/update APIs and the software.nextf.lk starter while preserving V1.0.0-V1.2.0 immutable releases.",
+        "sourceVersion": "1.2.0",
+        "targetVersion": "1.3.0",
+        "recordCompleteness": "complete",
+        "incompletenessReason": null,
+        "entryCount": 0,
+        "categoryCounts": {},
+        "evidenceLevel": "authoritative",
+        "exactRegistrySnapshotAvailable": true,
+        "supportLevel": "stable",
+        "compatibilityStatus": "compatible-additive",
+        "breakingChange": null,
+        "migrationRequired": null,
+        "affected": {
+          "domains": [],
+          "modules": [],
+          "contracts": [],
+          "events": [],
+          "permissions": [],
+          "webhooks": [],
+          "apis": [],
+          "manifests": [],
+          "cmsMetadata": [],
+          "adminMetadata": []
+        },
+        "source": "registry/changelog/releases/1.3.0.json"
+      },
       {
         "version": "1.2.0",
         "phase": 39,
@@ -1904,7 +1938,7 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "entryIndex": {
-    "registryVersion": "1.2.0",
+    "registryVersion": "1.3.0",
     "schemaVersion": "1.1.0",
     "title": "Changelog Entry Index",
     "entryCount": 605,
@@ -21343,7 +21377,7 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "contractHistory": {
-    "registryVersion": "1.2.0",
+    "registryVersion": "1.3.0",
     "schemaVersion": "1.0.0",
     "title": "NEXT F Contract Changelog History",
     "description": "Derived navigation index from authoritative Registry introducedIn metadata and explicit Changelog affected Registry IDs. It does not reconstruct missing history.",
@@ -23410,6 +23444,105 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.21.0",
         "entries": []
       },
+      "adminUi.profile.software.audit": {
+        "registryId": "adminUi.profile.software.audit",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "adminUi.profile.software.catalog": {
+        "registryId": "adminUi.profile.software.catalog",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "adminUi.profile.software.customers": {
+        "registryId": "adminUi.profile.software.customers",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "adminUi.profile.software.delivery": {
+        "registryId": "adminUi.profile.software.delivery",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "adminUi.profile.software.entitlements": {
+        "registryId": "adminUi.profile.software.entitlements",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "adminUi.profile.software.licenses": {
+        "registryId": "adminUi.profile.software.licenses",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "adminUi.profile.software.orders": {
+        "registryId": "adminUi.profile.software.orders",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "adminUi.profile.software.overview": {
+        "registryId": "adminUi.profile.software.overview",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "adminUi.profile.software.releases": {
+        "registryId": "adminUi.profile.software.releases",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "adminUi.profile.software.subscriptions": {
+        "registryId": "adminUi.profile.software.subscriptions",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "adminUi.profile.software.support": {
+        "registryId": "adminUi.profile.software.support",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
       "adminUi.profile.webhooks.deadletters": {
         "registryId": "adminUi.profile.webhooks.deadletters",
         "introducedIn": "0.21.0",
@@ -25089,6 +25222,393 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.19.0",
         "entries": []
       },
+      "api.software-cms": {
+        "registryId": "api.software-cms",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.activation-limit": {
+        "registryId": "api.software-cms.activation-limit",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.audit": {
+        "registryId": "api.software-cms.audit",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.customers": {
+        "registryId": "api.software-cms.customers",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.grant-entitlement": {
+        "registryId": "api.software-cms.grant-entitlement",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.initiate-release-upload": {
+        "registryId": "api.software-cms.initiate-release-upload",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.licenses": {
+        "registryId": "api.software-cms.licenses",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.orders": {
+        "registryId": "api.software-cms.orders",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.overview": {
+        "registryId": "api.software-cms.overview",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.products": {
+        "registryId": "api.software-cms.products",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.publish-product": {
+        "registryId": "api.software-cms.publish-product",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.publish-release": {
+        "registryId": "api.software-cms.publish-release",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.refund-approve": {
+        "registryId": "api.software-cms.refund-approve",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.refund-request": {
+        "registryId": "api.software-cms.refund-request",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.releases": {
+        "registryId": "api.software-cms.releases",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.restore-license": {
+        "registryId": "api.software-cms.restore-license",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.subscriptions": {
+        "registryId": "api.software-cms.subscriptions",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.support": {
+        "registryId": "api.software-cms.support",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.suspend-license": {
+        "registryId": "api.software-cms.suspend-license",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-cms.upsert-product": {
+        "registryId": "api.software-cms.upsert-product",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer": {
+        "registryId": "api.software-customer",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer.account": {
+        "registryId": "api.software-customer.account",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer.activate": {
+        "registryId": "api.software-customer.activate",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer.cancel-subscription": {
+        "registryId": "api.software-customer.cancel-subscription",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer.create-download": {
+        "registryId": "api.software-customer.create-download",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer.deactivate": {
+        "registryId": "api.software-customer.deactivate",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer.downloads": {
+        "registryId": "api.software-customer.downloads",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer.licenses": {
+        "registryId": "api.software-customer.licenses",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer.order": {
+        "registryId": "api.software-customer.order",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer.orders": {
+        "registryId": "api.software-customer.orders",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer.subscriptions": {
+        "registryId": "api.software-customer.subscriptions",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-customer.support": {
+        "registryId": "api.software-customer.support",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-public": {
+        "registryId": "api.software-public",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-public.catalog": {
+        "registryId": "api.software-public.catalog",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-public.create-order": {
+        "registryId": "api.software-public.create-order",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-public.product": {
+        "registryId": "api.software-public.product",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-service": {
+        "registryId": "api.software-service",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-service.checkout-session": {
+        "registryId": "api.software-service.checkout-session",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-service.consume-payment-event": {
+        "registryId": "api.software-service.consume-payment-event",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-service.download": {
+        "registryId": "api.software-service.download",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-service.license-validate": {
+        "registryId": "api.software-service.license-validate",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-service.reconciliation": {
+        "registryId": "api.software-service.reconciliation",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "api.software-service.update-check": {
+        "registryId": "api.software-service.update-check",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
       "api.sortExpression": {
         "registryId": "api.sortExpression",
         "introducedIn": "0.19.0",
@@ -26214,6 +26734,15 @@ export const GENERATED_CHANGELOG = {
         "deprecatedIn": [],
         "removedIn": [],
         "latestRelatedRelease": "1.2.0",
+        "entries": []
+      },
+      "changelog.release.1.3.0": {
+        "registryId": "changelog.release.1.3.0",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
         "entries": []
       },
       "changelog.releaseCollection": {
@@ -34199,11 +34728,11 @@ export const GENERATED_CHANGELOG = {
       },
       "events.consumerVocabulary": {
         "registryId": "events.consumerVocabulary",
-        "introducedIn": "1.2.0",
+        "introducedIn": "1.3.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.2.0",
+        "latestRelatedRelease": "1.3.0",
         "entries": []
       },
       "events.eventActor": {
@@ -34289,11 +34818,11 @@ export const GENERATED_CHANGELOG = {
       },
       "events.eventRegistry": {
         "registryId": "events.eventRegistry",
-        "introducedIn": "1.2.0",
+        "introducedIn": "1.3.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.2.0",
+        "latestRelatedRelease": "1.3.0",
         "entries": []
       },
       "events.eventRegistryStandard": {
@@ -34352,11 +34881,11 @@ export const GENERATED_CHANGELOG = {
       },
       "events.producerVocabulary": {
         "registryId": "events.producerVocabulary",
-        "introducedIn": "1.2.0",
+        "introducedIn": "1.3.0",
         "changedIn": [],
         "deprecatedIn": [],
         "removedIn": [],
-        "latestRelatedRelease": "1.2.0",
+        "latestRelatedRelease": "1.3.0",
         "entries": []
       },
       "events.productionPolicy": {
@@ -43176,6 +43705,528 @@ export const GENERATED_CHANGELOG = {
         "latestRelatedRelease": "0.14.0",
         "entries": []
       },
+      "software.activation": {
+        "registryId": "software.activation",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.activation-created": {
+        "registryId": "software.activation-created",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.activation-deactivated": {
+        "registryId": "software.activation-deactivated",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.audit.view": {
+        "registryId": "software.audit.view",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.auditReference": {
+        "registryId": "software.auditReference",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.bundleComponent": {
+        "registryId": "software.bundleComponent",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.catalog.manage": {
+        "registryId": "software.catalog.manage",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.catalog.publish": {
+        "registryId": "software.catalog.publish",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.catalog.view": {
+        "registryId": "software.catalog.view",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.compatibilityRequirement": {
+        "registryId": "software.compatibilityRequirement",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.customer": {
+        "registryId": "software.customer",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.customers.view": {
+        "registryId": "software.customers.view",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.dashboard.view": {
+        "registryId": "software.dashboard.view",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.download-grant-issued": {
+        "registryId": "software.download-grant-issued",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.downloadGrant": {
+        "registryId": "software.downloadGrant",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.edition": {
+        "registryId": "software.edition",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.entitlement": {
+        "registryId": "software.entitlement",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.entitlement-granted": {
+        "registryId": "software.entitlement-granted",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.entitlement-revoked": {
+        "registryId": "software.entitlement-revoked",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.entitlements.manage": {
+        "registryId": "software.entitlements.manage",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.grandfatherGrant": {
+        "registryId": "software.grandfatherGrant",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.license": {
+        "registryId": "software.license",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.license-expired": {
+        "registryId": "software.license-expired",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.license-issued": {
+        "registryId": "software.license-issued",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.license-restored": {
+        "registryId": "software.license-restored",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.license-suspended": {
+        "registryId": "software.license-suspended",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.licenses.manage": {
+        "registryId": "software.licenses.manage",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.licenses.view": {
+        "registryId": "software.licenses.view",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.order-created": {
+        "registryId": "software.order-created",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.order-paid": {
+        "registryId": "software.order-paid",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.order-refunded": {
+        "registryId": "software.order-refunded",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.orderExtension": {
+        "registryId": "software.orderExtension",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.orders.manage": {
+        "registryId": "software.orders.manage",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.orders.view": {
+        "registryId": "software.orders.view",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.price": {
+        "registryId": "software.price",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.product": {
+        "registryId": "software.product",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.refunds.approve": {
+        "registryId": "software.refunds.approve",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.refunds.request": {
+        "registryId": "software.refunds.request",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.registry": {
+        "registryId": "software.registry",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.release": {
+        "registryId": "software.release",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.release-published": {
+        "registryId": "software.release-published",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.release-withdrawn": {
+        "registryId": "software.release-withdrawn",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.releaseArtifact": {
+        "registryId": "software.releaseArtifact",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.releases.manage": {
+        "registryId": "software.releases.manage",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.releases.publish": {
+        "registryId": "software.releases.publish",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.releases.view": {
+        "registryId": "software.releases.view",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.settings.manage": {
+        "registryId": "software.settings.manage",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.softwareContractStandard": {
+        "registryId": "software.softwareContractStandard",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.subscription": {
+        "registryId": "software.subscription",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.subscription-activated": {
+        "registryId": "software.subscription-activated",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.subscription-cancelled": {
+        "registryId": "software.subscription-cancelled",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.subscription-past-due": {
+        "registryId": "software.subscription-past-due",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.subscription-renewed": {
+        "registryId": "software.subscription-renewed",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.support.manage": {
+        "registryId": "software.support.manage",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.supportEntitlement": {
+        "registryId": "software.supportEntitlement",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.update-served": {
+        "registryId": "software.update-served",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.updateRequest": {
+        "registryId": "software.updateRequest",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
+      "software.updateResponse": {
+        "registryId": "software.updateResponse",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
+      },
       "starters.corporate": {
         "registryId": "starters.corporate",
         "introducedIn": "0.36.0",
@@ -43384,6 +44435,15 @@ export const GENERATED_CHANGELOG = {
             "title": "Site Starter Contract Pack Standard documents framework neutrality, required pack contents, runtime boundaries, special starter requirements and Codex bootstrap behavior."
           }
         ]
+      },
+      "starters.software": {
+        "registryId": "starters.software",
+        "introducedIn": "1.3.0",
+        "changedIn": [],
+        "deprecatedIn": [],
+        "removedIn": [],
+        "latestRelatedRelease": "1.3.0",
+        "entries": []
       },
       "validation.browserValidator": {
         "registryId": "validation.browserValidator",
@@ -44468,7 +45528,7 @@ export const GENERATED_CHANGELOG = {
     }
   },
   "sections": {
-    "registryVersion": "1.2.0",
+    "registryVersion": "1.3.0",
     "schemaVersion": "1.0.0",
     "title": "Changelog Change Categories",
     "description": "Canonical release-note categories and aliases used by NEXT F Changelog records.",
@@ -44593,7 +45653,7 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "evidenceLevels": {
-    "registryVersion": "1.2.0",
+    "registryVersion": "1.3.0",
     "schemaVersion": "1.0.0",
     "title": "Changelog Evidence Levels",
     "levels": [
@@ -44624,13 +45684,13 @@ export const GENERATED_CHANGELOG = {
     ]
   },
   "policy": {
-    "registryVersion": "1.2.0",
+    "registryVersion": "1.3.0",
     "schemaVersion": "1.0.0",
     "title": "Changelog Operational Policy",
     "authoritativeReleaseDirectory": "registry/changelog/releases/",
     "generatedMarkdown": "CHANGELOG.md",
     "standard": "standards/35-changelog-standard.md",
-    "currentRelease": "1.2.0",
+    "currentRelease": "1.3.0",
     "preOneReleaseTrain": true,
     "productionSupportDeclared": false,
     "releaseOrdering": "descending-semver",
@@ -44647,6 +45707,179 @@ export const GENERATED_CHANGELOG = {
     "omittedHistoricalEvidence": "not-authoritative"
   },
   "releases": [
+    {
+      "version": "1.3.0",
+      "title": "Software Canonical Contracts",
+      "releaseStatus": "published-stable",
+      "releaseDate": "2026-09-23",
+      "phase": 40,
+      "summary": "Adds the canonical NEXT F Software domain, stable launch identifiers, owner-scoped customer contracts, CMS permissions, Software/Checkout boundaries, licensing/entitlement/release/update APIs and the software.nextf.lk starter while preserving V1.0.0-V1.2.0 immutable releases.",
+      "recordCompleteness": "complete",
+      "incompletenessReason": null,
+      "provenance": {
+        "exactRegistrySnapshotAvailable": true,
+        "source": "NEXT F Software Integration Pack"
+      },
+      "evidence": {
+        "evidenceLevel": "authoritative",
+        "diffAvailable": true,
+        "diffRoute": "#/lifecycle/diff?from=1.2.0&to=1.3.0",
+        "compatibilityRoute": "#/lifecycle/compatibility",
+        "migrationRoute": null
+      },
+      "support": {
+        "supportLevel": "stable",
+        "compatibilityStatus": "compatible-additive",
+        "registryProductionStable": true
+      },
+      "affected": {
+        "domains": [],
+        "modules": [],
+        "contracts": [],
+        "events": [],
+        "permissions": [],
+        "webhooks": [],
+        "apis": [],
+        "manifests": [],
+        "cmsMetadata": [],
+        "adminMetadata": []
+      },
+      "changes": [
+        {
+          "entryId": "phase40-software-domain",
+          "title": "Software canonical domain",
+          "category": "feature",
+          "changeType": "added",
+          "summary": "Adds Software products, editions, effective prices, subscriptions, licenses, activations, entitlements, grandfathering, releases, updates, downloads and support contracts.",
+          "affectedRegistryIds": [
+            "software.product",
+            "software.edition",
+            "software.price",
+            "software.bundleComponent",
+            "software.customer",
+            "software.orderExtension",
+            "software.subscription",
+            "software.license",
+            "software.activation",
+            "software.entitlement",
+            "software.grandfatherGrant",
+            "software.release",
+            "software.releaseArtifact",
+            "software.compatibilityRequirement",
+            "software.downloadGrant",
+            "software.updateRequest",
+            "software.updateResponse",
+            "software.supportEntitlement",
+            "software.auditReference"
+          ],
+          "affectedDomains": [
+            "software"
+          ],
+          "affectedModules": [
+            "software"
+          ],
+          "impact": {
+            "compatibilityClassification": "backward-compatible",
+            "actionRequired": false
+          },
+          "sourceReference": "standards/48-software-contract-standard.md"
+        },
+        {
+          "entryId": "phase40-software-runtime",
+          "title": "Software runtime boundaries",
+          "category": "feature",
+          "changeType": "added",
+          "summary": "Adds public/customer/CMS/service APIs, staff permissions and Software domain events with verified Checkout evidence boundaries.",
+          "affectedRegistryIds": [
+            "api.software-public",
+            "api.software-customer",
+            "api.software-cms",
+            "api.software-service",
+            "software.dashboard.view",
+            "software.catalog.view",
+            "software.catalog.manage",
+            "software.catalog.publish",
+            "software.releases.view",
+            "software.releases.manage",
+            "software.releases.publish",
+            "software.orders.view",
+            "software.orders.manage",
+            "software.refunds.request",
+            "software.refunds.approve",
+            "software.customers.view",
+            "software.licenses.view",
+            "software.licenses.manage",
+            "software.entitlements.manage",
+            "software.support.manage",
+            "software.settings.manage",
+            "software.audit.view",
+            "software.order-created",
+            "software.order-paid",
+            "software.order-refunded",
+            "software.subscription-activated",
+            "software.subscription-past-due",
+            "software.subscription-renewed",
+            "software.subscription-cancelled",
+            "software.license-issued",
+            "software.license-suspended",
+            "software.license-restored",
+            "software.license-expired",
+            "software.activation-created",
+            "software.activation-deactivated",
+            "software.entitlement-granted",
+            "software.entitlement-revoked",
+            "software.release-published",
+            "software.release-withdrawn",
+            "software.download-grant-issued",
+            "software.update-served"
+          ],
+          "affectedDomains": [
+            "api",
+            "permissions",
+            "events"
+          ],
+          "affectedModules": [
+            "software"
+          ],
+          "impact": {
+            "compatibilityClassification": "backward-compatible",
+            "actionRequired": false
+          },
+          "sourceReference": "registry/software/index.json"
+        },
+        {
+          "entryId": "phase40-software-launch-ids",
+          "title": "Software launch identifiers",
+          "category": "feature",
+          "changeType": "added",
+          "summary": "Pins product/edition/launch-price identifiers and customer-initiated annual renewal semantics for launch planning.",
+          "affectedRegistryIds": [
+            "software.product",
+            "software.edition",
+            "software.price"
+          ],
+          "affectedDomains": [
+            "software"
+          ],
+          "affectedModules": [
+            "software"
+          ],
+          "impact": {
+            "compatibilityClassification": "backward-compatible",
+            "actionRequired": false
+          },
+          "sourceReference": "registry/software/fixtures/valid/launch-catalog.json"
+        }
+      ],
+      "sourceVersion": "1.2.0",
+      "targetVersion": "1.3.0",
+      "entryCount": 0,
+      "categoryCounts": {},
+      "breakingChange": null,
+      "migrationRequired": null,
+      "migrationNotes": null,
+      "recommendedAction": null
+    },
     {
       "version": "1.2.0",
       "title": "Gaming Store Canonical Contracts",
@@ -86831,7 +88064,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.affectedContractReference",
       "name": "Affected Contract Reference",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -86884,7 +88117,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.changeEntry",
       "name": "Changelog Change Entry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -87074,7 +88307,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.compatibilityReference",
       "name": "Changelog Compatibility Reference",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -87141,7 +88374,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.evidenceDescriptor",
       "name": "Changelog Evidence Descriptor",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -87215,7 +88448,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.impactClassification",
       "name": "Changelog Impact Classification",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -87312,7 +88545,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseCollection",
       "name": "Changelog Release Collection",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -87372,7 +88605,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseCorrection",
       "name": "Changelog Release Correction",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -87460,7 +88693,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseNote",
       "name": "Changelog Release Note",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -87656,7 +88889,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseProvenance",
       "name": "Changelog Release Provenance",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -87723,7 +88956,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseSection",
       "name": "Changelog Release Section",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -87776,7 +89009,7 @@ export const GENERATED_CHANGELOG = {
     {
       "$id": "changelog.releaseSummary",
       "name": "Changelog Release Summary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "domain": "changelog",
       "type": "schema",
@@ -87856,17 +89089,17 @@ export const GENERATED_CHANGELOG = {
     }
   ],
   "sourceHashes": {
-    "registry/changelog/index.json": "5588fa4083b213b8c271ddf63bf755feb2feb08cc3b72b3fafd7ddb74b9d566d",
-    "registry/changelog/release-index.json": "698a19098a95a797acca3a0c57c21ac75609a140c2be75d6534173ec25701d16",
-    "registry/changelog/entry-index.json": "7bcf0e18e1f2b6543be773468dfe3642f85726849a22fd9e934e83cded1b371c",
-    "registry/changelog/contract-history.json": "1c72577b0ca4cc7e13dda9d2d3b6eb237066561cfcdd8d6da15810e34dc4481c",
-    "registry/changelog/sections.json": "0fd12db2f66caab6547b1e0ed168508103a095883d02aca300aa99384c7151fa",
-    "registry/changelog/evidence-levels.json": "7492d6b659b1d24605c3ff2df71d5c05c636e55fc54b255a51244f7eb5b14718",
-    "registry/changelog/policy.json": "f743ad8a5bb15aad7f1d60b3a3b0f382180ba81e3a2c0977a9e4ef9a327730e3",
-    "registry/changelog/release.schema.json": "90a2a8535b1538176560bb9b2a092a2e71f21a4163c2c439f39eaf2c86e4a1e0",
-    "registry/changelog/change-entry.schema.json": "1a4e34d72ae84af48aa4e2147a35bd4cd417dec67c0795a081d7af0214f27f7c",
-    "registry/changelog/impact.schema.json": "f73059440b82a6cf3b2882bbb16739163e44d5e2000641514389a79c4109bf53",
-    "registry/changelog/changelog-release-note.schema.json": "6d29bd2d1d5b98e6a4e7b8ce17b26dd39f2d92cadad07d53b6792dc18ff4bf56",
+    "registry/changelog/index.json": "a8b993aa8ddf3eb3ac8b9c6f5fedd0ae1b46d30db5f48cad77cfe692afc54ab3",
+    "registry/changelog/release-index.json": "48f4f9c10a62c5029e1115019da72d31decacd7b8b5e82949f84dc079900fcdf",
+    "registry/changelog/entry-index.json": "3fc76045dea402f4407276739093cf9bcb49327d5985c965a9d50aa3db4d56f2",
+    "registry/changelog/contract-history.json": "391e5f374f96aa032ef44a92181281e77347cccd962b1e4558f0617b61e16fe6",
+    "registry/changelog/sections.json": "8dd15804f3df58858cc494f4ed4d6aaca5c6b0d364965a3692f673291df16eff",
+    "registry/changelog/evidence-levels.json": "65084bec639a293c218a2a68393173c3ccb402146813abf620feb1819983dbbe",
+    "registry/changelog/policy.json": "62844170afc8b5e1eefa8697475fccbea8794766de29529b12424de627615889",
+    "registry/changelog/release.schema.json": "505db9d69b8d8e3e42534c62d14915db9b94101e6d131677cbf7a68608540be5",
+    "registry/changelog/change-entry.schema.json": "29b9ca5ada3afad8518f6f067f3a6d31d467ec270546c90f877951bc43741e25",
+    "registry/changelog/impact.schema.json": "b84fe0dcd093a93e0a3be704d516bff0971e8b3c25425e87bb588447f4e85415",
+    "registry/changelog/changelog-release-note.schema.json": "bbb3d24cb532b8ac656cd4f06068897edf8b724770c0568a2529612c3b5cf163",
     "registry/changelog/releases/0.1.0.json": "d555558122dee0e0b3280d2081406eb1202f1c4cb4a78ea1851218f3a9812614",
     "registry/changelog/releases/0.2.0.json": "72b6a22002d76227c751374e5838452dcdd371ebc648074b50af9ff13f000397",
     "registry/changelog/releases/0.3.0.json": "218badabefbf4bd5092478d5933d8da8a31db418611c842076df26abc8be4139",
@@ -87907,16 +89140,17 @@ export const GENERATED_CHANGELOG = {
     "registry/changelog/releases/1.0.0.json": "7a3ba7d09b90037f18629a3b21eb29bde0c82d0f442fbbe2ea5d3ff07f374ec6",
     "registry/changelog/releases/1.1.0.json": "80bb8cb018f4bbc3717b0d544f951c6e43391031142d5c3cf3fdefed1c2df742",
     "registry/changelog/releases/1.2.0.json": "72e3c3bf76643c3a48f7e72589a6cab6aa499e36a849addd58ca2acc3951705f",
-    "registry/changelog/definitions/affectedContractReference.json": "aa0b87138439a1e34749955dc205134cc2642bc1593560ed5441a86355ffa2b8",
-    "registry/changelog/definitions/changeEntry.json": "fa9ad82e2a9858dffe37556de8009c886d4ed13ff628feb10e33948dad24bd0b",
-    "registry/changelog/definitions/compatibilityReference.json": "aea7125fc917b2d277cc5946607188fea457c4eb24ae375c0787c2c4fe6f1e12",
-    "registry/changelog/definitions/evidenceDescriptor.json": "5754743bf19807dd888576ee430eee91445254aab8ebfaeb6c31effdeff3ee3f",
-    "registry/changelog/definitions/impactClassification.json": "0faee7697bb25227f74d8c145bf62c1e3d340ae17aebd2c7b1ed85f410f07610",
-    "registry/changelog/definitions/releaseCollection.json": "21cd2a34ad7339876449ac84c89c5cce7b9f4fa88ee670cac2dde40b23379b84",
-    "registry/changelog/definitions/releaseCorrection.json": "3ba6ef898d2f6eda533310f23f44f73ea104b60c0728d7b449292841c4ba5629",
-    "registry/changelog/definitions/releaseNote.json": "b1b3f099dc44d470371568a2e407a6bd81b0100140f6535b12255fa6b697a96a",
-    "registry/changelog/definitions/releaseProvenance.json": "a5040e500bad8158e1cfb06342a33669f9d57dbe90fc934532be64b4e9ba48b3",
-    "registry/changelog/definitions/releaseSection.json": "135d3a93cd50d9a727fe4faf66545eac2ec1decb9f236385739bd47c41adb8a9",
-    "registry/changelog/definitions/releaseSummary.json": "ed3b165a4ca41ebbc5bf6c36df68dddf70445ae0f0f95299ff8f6ee3a9ed37bc"
+    "registry/changelog/releases/1.3.0.json": "aff03a829adad8fdc0a12080b7b1a97e026765c93c2e10821a65397f2ecef7be",
+    "registry/changelog/definitions/affectedContractReference.json": "39c7c34b6ad7891588b72a967a317b1c1146d7c6857eeb2ad99cd918bf54801a",
+    "registry/changelog/definitions/changeEntry.json": "4a98c2cb50d5f2f7cc5bdf403d7c33099ae0c079b933a7fb1dff43cb456c3e07",
+    "registry/changelog/definitions/compatibilityReference.json": "45f29253cdf0e0dc8e4c9b148dff3d72e09da832dfe7e636792d4284f29e3862",
+    "registry/changelog/definitions/evidenceDescriptor.json": "b2ab33790f7777af3a8cd4c946ad157d0042e2e4b37a84e706373eded25ec871",
+    "registry/changelog/definitions/impactClassification.json": "7b79487f6fa27c2f9ec9b8b781603ac0c76c45ab55daaeaa11a8c680cf95a8f5",
+    "registry/changelog/definitions/releaseCollection.json": "c412b7ad20979ca0136f18fc353d3dac4f83e5ecfa9e560788d7b5383d67912c",
+    "registry/changelog/definitions/releaseCorrection.json": "b8666067c42019afd1faa4a65d16a0af3fa13ebb2fad32d2f45c4811b24cd964",
+    "registry/changelog/definitions/releaseNote.json": "bb50bdcd0bfe1af2677481a15f0ffd68ea5a782d6f29cc5810d950ffe57a3aeb",
+    "registry/changelog/definitions/releaseProvenance.json": "726d4a0ed17ba67603eb34e4e311c832603a7a64db9cc1259d76656e7111f528",
+    "registry/changelog/definitions/releaseSection.json": "1457c8a4e6f02b3e586ee04c8fc93235fd55ee6bfc5ea071b3546699b741adf2",
+    "registry/changelog/definitions/releaseSummary.json": "684f2cc80fd7d54e75345d57a44c130cceef7e6dea0550267a01019312c83fb2"
   }
 };

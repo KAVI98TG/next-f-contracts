@@ -1,0 +1,75 @@
+{
+  "$id": "api.software-cms.publish-product",
+  "operationId": "api.software-cms.publish-product",
+  "name": "Publish Software Product",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-cms",
+  "method": "POST",
+  "path": "/products/{productId}/publish",
+  "description": "Publish Software Product",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "software.catalog.publish"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "productId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.product",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.product"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": []
+}

@@ -1,0 +1,30 @@
+{
+  "$id": "software.audit.view",
+  "name": "View Software Audit",
+  "permissionId": "software.audit.view",
+  "domain": "software",
+  "resource": "audit",
+  "action": "view",
+  "scopeKind": "platform",
+  "riskLevel": "sensitive",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Read immutable Software audit evidence.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "staff-binding-required",
+    "audit-required",
+    "service-secrets-hidden"
+  ],
+  "notes": [],
+  "version": "1.3.0",
+  "status": "stable"
+}

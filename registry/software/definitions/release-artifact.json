@@ -1,0 +1,130 @@
+{
+  "$id": "software.releaseArtifact",
+  "name": "Software Release Artifact",
+  "version": "1.3.0",
+  "status": "stable",
+  "domain": "software",
+  "category": "delivery",
+  "description": "Private release-package metadata and server-calculated integrity evidence.",
+  "purpose": "Private release-package metadata and server-calculated integrity evidence.",
+  "softwareModel": {
+    "kind": "secure-record",
+    "customerOwned": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "immutableSnapshot": false,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "artifactId",
+      "required": true,
+      "nullable": false,
+      "description": "Release artifact ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "releaseId",
+      "required": true,
+      "nullable": false,
+      "description": "Software Release ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "packageRef",
+      "required": true,
+      "nullable": false,
+      "description": "Opaque private object-storage reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sizeBytes",
+      "required": true,
+      "nullable": false,
+      "description": "Server-calculated package size.",
+      "primitive": "fields.integer"
+    },
+    {
+      "key": "sha256",
+      "required": true,
+      "nullable": false,
+      "description": "Server-calculated SHA-256 checksum.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "signatureRef",
+      "required": true,
+      "nullable": false,
+      "description": "Signing-key/signature evidence reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "scanStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Package scan status.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "pending",
+          "passed",
+          "failed",
+          "review"
+        ]
+      }
+    },
+    {
+      "key": "calculatedAt",
+      "required": true,
+      "nullable": false,
+      "description": "Integrity calculation timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "privatePackageRef",
+      "description": "Artifacts contain opaque private storage references, never public bucket credentials."
+    },
+    {
+      "id": "checksumServerCalculated",
+      "description": "CMS/browser supplied checksums are never accepted as authoritative."
+    }
+  ],
+  "cms": {
+    "label": "Software Release Artifact",
+    "icon": "fa-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "software-schema",
+    "defaultPlacement": "software",
+    "summaryFields": [
+      "artifactId",
+      "releaseId",
+      "packageRef",
+      "sizeBytes"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Software business truth is served through scoped Software APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-40",
+    "api": "phase-40",
+    "permissions": "phase-40",
+    "events": "phase-40",
+    "webhooks": "phase-40",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

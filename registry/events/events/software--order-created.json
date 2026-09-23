@@ -1,0 +1,122 @@
+{
+  "eventKey": "software.order-created",
+  "name": "Software Order Created",
+  "category": "software",
+  "producerKey": "software-domain",
+  "subjectContracts": [
+    "software.orderExtension"
+  ],
+  "trigger": "A Software order is durably created from server-resolved catalog and price data.",
+  "dataPolicy": {
+    "sensitivity": "sensitive",
+    "containsPersonalData": true,
+    "containsFinancialData": true,
+    "containsSecrets": false,
+    "redactionRequired": true
+  },
+  "webhookEligible": true,
+  "consumers": [
+    "audit",
+    "nextf-admin",
+    "notification",
+    "integration-dispatch",
+    "webhook-bridge"
+  ],
+  "payloadFields": [
+    {
+      "key": "softwareOrderId",
+      "required": true,
+      "description": "Software order ID.",
+      "type": "id"
+    },
+    {
+      "key": "customerId",
+      "required": true,
+      "description": "Software customer ID.",
+      "type": "id"
+    }
+  ],
+  "$id": "software.order-created",
+  "version": "1.3.0",
+  "eventVersion": "1.0.0",
+  "status": "stable",
+  "domain": "events",
+  "description": "A Software order is durably created from server-resolved catalog and price data.",
+  "purpose": "Provides a canonical Software domain fact for software order created.",
+  "semantics": {
+    "factOnly": true,
+    "authoritativeAfterCommit": true,
+    "immutableOccurrence": true,
+    "transportIndependent": true,
+    "marketingTrackingEquivalent": null
+  },
+  "productionPolicy": {
+    "durability": "durable",
+    "commitBoundary": "transactional-outbox",
+    "failureBehavior": "fail-domain-commit-or-durable-recovery"
+  },
+  "idempotency": {
+    "dedupeKey": "eventId",
+    "replayedIdempotentCommand": "no-new-semantic-event",
+    "consumerIdempotencyRequired": true
+  },
+  "orderingPolicy": {
+    "scope": "software-object",
+    "strict": false
+  },
+  "retention": {
+    "class": "transaction-history"
+  },
+  "relationships": [
+    {
+      "type": "references",
+      "target": "software.orderExtension",
+      "description": "Event subject may be software.orderExtension."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "emitAfterAuthoritativeCommit",
+      "description": "Event is produced only after the authoritative Software transaction commits."
+    },
+    {
+      "id": "immutableOccurrence",
+      "description": "Recorded event occurrences are immutable."
+    },
+    {
+      "id": "eventIdUnique",
+      "description": "Every semantic occurrence has one globally unique eventId."
+    },
+    {
+      "id": "idempotentReplay",
+      "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+    },
+    {
+      "id": "payloadMinimumNecessary",
+      "description": "Payload contains only minimum data required by declared consumers."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+    }
+  ],
+  "futureBindings": {
+    "webhooks": "phase-40",
+    "permissions": "phase-40",
+    "siteManifest": "phase-40",
+    "modules": "phase-40",
+    "api": "phase-40",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [
+      {
+        "eventKey": "software.order-created",
+        "eventVersion": "1.0.0",
+        "eventId": "evt_software-order-created",
+        "occurredAt": "2026-09-23T00:00:00Z"
+      }
+    ],
+    "invalid": []
+  }
+}

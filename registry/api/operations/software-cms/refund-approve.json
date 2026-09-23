@@ -1,0 +1,78 @@
+{
+  "$id": "api.software-cms.refund-approve",
+  "operationId": "api.software-cms.refund-approve",
+  "name": "Approve Software Refund",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-cms",
+  "method": "POST",
+  "path": "/orders/{orderId}/refund-requests/{refundRequestId}/approve",
+  "description": "Approve Software Refund",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "software.refunds.approve"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "orderId",
+      "refundRequestId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.orderExtension",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.orderExtension"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": [
+    "Only verified refund success later changes paid balance/order entitlement policy."
+  ]
+}

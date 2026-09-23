@@ -1,0 +1,73 @@
+{
+  "$id": "api.software-service.license-validate",
+  "operationId": "api.software-service.license-validate",
+  "name": "Validate Software License",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-service",
+  "method": "POST",
+  "path": "/license/validate",
+  "description": "Validate Software License",
+  "authentication": {
+    "mode": "site-server",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "software.updateRequest",
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.updateResponse",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "sensitive-write",
+    "cors": "server-only"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.updateResponse"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": [
+    "WordPress plugin uses license-scoped public protocol; no CMS/service credential is sent to the plugin."
+  ]
+}

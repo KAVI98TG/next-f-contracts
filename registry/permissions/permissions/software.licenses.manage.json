@@ -1,0 +1,30 @@
+{
+  "$id": "software.licenses.manage",
+  "name": "Manage Software Licenses",
+  "permissionId": "software.licenses.manage",
+  "domain": "software",
+  "resource": "licenses",
+  "action": "manage",
+  "scopeKind": "platform",
+  "riskLevel": "privileged",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": true,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Suspend, restore or adjust activation limits with audit.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "staff-binding-required",
+    "audit-required",
+    "service-secrets-hidden"
+  ],
+  "notes": [],
+  "version": "1.3.0",
+  "status": "stable"
+}

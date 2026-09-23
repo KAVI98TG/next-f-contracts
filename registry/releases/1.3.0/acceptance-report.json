@@ -1,0 +1,53 @@
+{
+  "registryVersion": "1.3.0",
+  "phase": 40,
+  "title": "NEXT F Contracts V1.3.0 Software Acceptance",
+  "release": {
+    "phase": 40,
+    "version": "1.3.0",
+    "status": "STABLE",
+    "previousStableVersion": "1.2.0"
+  },
+  "inventory": {
+    "softwareSchemas": 19,
+    "softwareCapabilities": 11,
+    "softwareApiOperations": 39,
+    "softwareStaffPermissions": 18,
+    "softwareCustomerCapabilities": 8,
+    "softwareEvents": 19,
+    "adminProfiles": 11
+  },
+  "immutableReleasePolicy": {
+    "changedExistingImmutableRelease": false,
+    "preservedVersions": [
+      "1.0.0",
+      "1.1.0",
+      "1.2.0"
+    ]
+  },
+  "launchDecisions": {
+    "renewalMode": "customer-initiated",
+    "automaticRenewalAccepted": false,
+    "featureGatingAccepted": false,
+    "paymentAuthority": "Checkout",
+    "softwareBusinessAuthority": "Software API"
+  },
+  "validation": {
+    "phase40": {
+      "exitCode": 0,
+      "passed": true,
+      "output": "NEXT F Contracts Phase 40 validation\nVersion: 1.3.0\nSoftware schemas: 19\nSoftware capabilities: 11\nSoftware API operations: 39\nSoftware events: 19\nPasses: 340\nFailures: 0\nPASS - V1.3.0 Software canonical contracts are complete."
+    },
+    "softwareStarter": {
+      "command": "node bin/nextf-contract.mjs validate starters/software/nextf.site.json --json",
+      "exitCode": 0,
+      "passed": true
+    },
+    "compatibility": {
+      "command": "node bin/nextf-contract.mjs compatibility starters/software/nextf.site.json --json",
+      "exitCode": 0,
+      "passed": true
+    }
+  },
+  "generatedAt": "2026-09-23T05:27:40.448Z"
+}

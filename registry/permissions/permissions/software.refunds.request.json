@@ -1,0 +1,30 @@
+{
+  "$id": "software.refunds.request",
+  "name": "Request Software Refunds",
+  "permissionId": "software.refunds.request",
+  "domain": "software",
+  "resource": "refunds",
+  "action": "request",
+  "scopeKind": "platform",
+  "riskLevel": "sensitive",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Request a Software refund with reason and evidence.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "staff-binding-required",
+    "audit-required",
+    "service-secrets-hidden"
+  ],
+  "notes": [],
+  "version": "1.3.0",
+  "status": "stable"
+}

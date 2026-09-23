@@ -1,0 +1,163 @@
+{
+  "$id": "software.release",
+  "name": "Software Release",
+  "version": "1.3.0",
+  "status": "stable",
+  "domain": "software",
+  "category": "delivery",
+  "description": "Versioned plugin release metadata, channel, requirements, changelog, artifact linkage and rollback relationship.",
+  "purpose": "Versioned plugin release metadata, channel, requirements, changelog, artifact linkage and rollback relationship.",
+  "softwareModel": {
+    "kind": "entity",
+    "customerOwned": false,
+    "containsPersonalData": false,
+    "publicEligible": true,
+    "immutableSnapshot": true,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "releaseId",
+      "required": true,
+      "nullable": false,
+      "description": "Release ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "productId",
+      "required": true,
+      "nullable": false,
+      "description": "Software Product ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "version",
+      "required": true,
+      "nullable": false,
+      "description": "Plugin/package semantic version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "channel",
+      "required": true,
+      "nullable": false,
+      "description": "Release channel.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "stable",
+          "beta",
+          "rc",
+          "development"
+        ]
+      }
+    },
+    {
+      "key": "status",
+      "required": true,
+      "nullable": false,
+      "description": "Release lifecycle.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "draft",
+          "published",
+          "deprecated",
+          "withdrawn"
+        ]
+      }
+    },
+    {
+      "key": "artifactRef",
+      "required": true,
+      "nullable": false,
+      "description": "Software Release Artifact ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "compatibilityRefs",
+      "required": true,
+      "nullable": false,
+      "description": "Structured compatibility requirement IDs.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "changelog",
+      "required": true,
+      "nullable": false,
+      "description": "Release changelog.",
+      "primitive": "fields.textarea"
+    },
+    {
+      "key": "rollbackReleaseId",
+      "required": false,
+      "nullable": true,
+      "description": "Eligible rollback release ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "publishedAt",
+      "required": false,
+      "nullable": true,
+      "description": "Publication timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "software.releaseArtifact",
+      "description": "Package evidence is modeled separately from public release metadata."
+    },
+    {
+      "type": "references",
+      "target": "software.compatibilityRequirement",
+      "description": "Compatibility is structured by runtime/version range."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "authorityBoundary",
+      "description": "Mutation is accepted only by the declared trusted Software authority."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Contract examples and public projections never contain service credentials, signing keys or raw download tokens."
+    }
+  ],
+  "cms": {
+    "label": "Software Release",
+    "icon": "fa-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "software-schema",
+    "defaultPlacement": "software",
+    "summaryFields": [
+      "releaseId",
+      "productId",
+      "version",
+      "channel"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": true,
+    "notes": "Software business truth is served through scoped Software APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-40",
+    "api": "phase-40",
+    "permissions": "phase-40",
+    "events": "phase-40",
+    "webhooks": "phase-40",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

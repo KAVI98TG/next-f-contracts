@@ -1,0 +1,72 @@
+{
+  "$id": "api.software-public.product",
+  "operationId": "api.software-public.product",
+  "name": "Get Public Software Product",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-public",
+  "method": "GET",
+  "path": "/products/{productId}",
+  "description": "Get Public Software Product",
+  "authentication": {
+    "mode": "anonymous",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "productId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.product",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "public-safe"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "public-short",
+    "rateLimit": "public-read",
+    "cors": "public-read"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.product"
+  ],
+  "eventBindings": [],
+  "publicSurface": true,
+  "privacy": "public",
+  "notes": []
+}

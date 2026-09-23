@@ -15,7 +15,7 @@
   "environment": "Hosted and file review",
   "notes": "Keep styling in cacheable CSS assets.",
   "relatedRegistryIds": [],
-  "version": "1.2.0",
+  "version": "1.3.0",
   "status": "stable",
   "phase": 32,
   "sourceReference": "registry/performance/budgets/perf_budget_011.json"

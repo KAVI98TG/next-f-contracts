@@ -8,9 +8,9 @@ const pass=[];const fail=[];
 const ok=(name,condition,detail='')=>condition?pass.push(name):fail.push(`${name}${detail?`: ${detail}`:''}`);
 const run=(label,script)=>{const r=spawnSync(process.execPath,[path.join(root,script)],{encoding:'utf8'});ok(label,r.status===0,r.status===0?'':(r.stdout+r.stderr).trim().slice(-1200));};
 
-// Phase 39 is current. Phase 36/37/38 scripts remain frozen release-time evidence for previous stable releases.
-run('Phase 39 validator','scripts/validate-phase-39.mjs');
-const smokePhases=[23,24,25,26,27,28,29,30,31,32,33,35,39];
+// Phase 40 is current. Earlier phase scripts remain frozen release-time evidence for previous stable releases.
+run('Phase 40 validator','scripts/validate-phase-40.mjs');
+const smokePhases=[23,24,25,26,27,28,29,30,31,32,33,35,40];
 const smokeResults=await Promise.all(smokePhases.map(phase=>new Promise(resolve=>{const script=path.join(root,`scripts/smoke-phase-${phase}.mjs`);const child=spawn(process.execPath,[script],{cwd:root});let out='';child.stdout.on('data',d=>out+=d);child.stderr.on('data',d=>out+=d);child.on('close',code=>resolve({phase,code,out}));})));
 for(const r of smokeResults)ok(`Phase ${r.phase} smoke`,r.code===0,r.code===0?'':r.out.trim().slice(-1200));
 

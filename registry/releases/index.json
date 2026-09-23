@@ -1,10 +1,10 @@
 {
-  "currentVersion": "1.2.0",
+  "currentVersion": "1.3.0",
   "stable": true,
-  "productionAcceptance": "registry/releases/1.2.0/acceptance-report.json",
-  "releaseManifest": "registry/releases/1.2.0/release-manifest.json",
-  "snapshotIndex": "registry/releases/1.2.0/snapshot-index.json",
-  "integrityHashes": "registry/releases/1.2.0/integrity-hashes.json",
+  "productionAcceptance": "registry/releases/1.3.0/acceptance-report.json",
+  "releaseManifest": "registry/releases/1.3.0/release-manifest.json",
+  "snapshotIndex": "registry/releases/1.3.0/snapshot-index.json",
+  "integrityHashes": "registry/releases/1.3.0/integrity-hashes.json",
   "releases": [
     {
       "version": "1.0.0",
@@ -20,6 +20,11 @@
       "version": "1.2.0",
       "status": "STABLE",
       "manifest": "registry/releases/1.2.0/release-manifest.json"
+    },
+    {
+      "version": "1.3.0",
+      "status": "STABLE",
+      "manifest": "registry/releases/1.3.0/release-manifest.json"
     }
   ]
 }

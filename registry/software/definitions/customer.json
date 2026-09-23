@@ -1,0 +1,114 @@
+{
+  "$id": "software.customer",
+  "name": "Software Customer",
+  "version": "1.3.0",
+  "status": "stable",
+  "domain": "software",
+  "category": "commerce",
+  "description": "Software account linked to platform identity and canonical Commerce customer references.",
+  "purpose": "Software account linked to platform identity and canonical Commerce customer references.",
+  "softwareModel": {
+    "kind": "entity",
+    "customerOwned": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "immutableSnapshot": false,
+    "dataSensitivity": "personal"
+  },
+  "fields": [
+    {
+      "key": "customerId",
+      "required": true,
+      "nullable": false,
+      "description": "Software customer ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "identityRef",
+      "required": true,
+      "nullable": false,
+      "description": "Platform identity reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "commerceCustomerRef",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Commerce customer reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "billingIdentityRef",
+      "required": false,
+      "nullable": true,
+      "description": "Billing identity reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "supportProfileRef",
+      "required": false,
+      "nullable": true,
+      "description": "Support profile reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "createdAt",
+      "required": true,
+      "nullable": false,
+      "description": "Account creation timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.commerceCustomer",
+      "description": "Generic buyer identity remains a Commerce concept."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "authorityBoundary",
+      "description": "Mutation is accepted only by the declared trusted Software authority."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Contract examples and public projections never contain service credentials, signing keys or raw download tokens."
+    }
+  ],
+  "cms": {
+    "label": "Software Customer",
+    "icon": "fa-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "software-schema",
+    "defaultPlacement": "software",
+    "summaryFields": [
+      "customerId",
+      "identityRef",
+      "commerceCustomerRef",
+      "billingIdentityRef"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Software business truth is served through scoped Software APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-40",
+    "api": "phase-40",
+    "permissions": "phase-40",
+    "events": "phase-40",
+    "webhooks": "phase-40",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

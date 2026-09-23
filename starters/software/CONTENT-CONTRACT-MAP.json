@@ -1,0 +1,62 @@
+{
+  "contractVersion": "1.3.0",
+  "modules": {
+    "software": {
+      "capabilities": [
+        "software.catalog",
+        "software.commerce",
+        "software.subscriptions",
+        "software.licensing",
+        "software.activations",
+        "software.entitlements",
+        "software.releases",
+        "software.downloads",
+        "software.updates",
+        "software.support",
+        "software.customer-workspace"
+      ],
+      "contracts": [
+        "software.product",
+        "software.edition",
+        "software.price",
+        "software.bundleComponent",
+        "software.customer",
+        "software.orderExtension",
+        "software.subscription",
+        "software.license",
+        "software.activation",
+        "software.entitlement",
+        "software.grandfatherGrant",
+        "software.release",
+        "software.releaseArtifact",
+        "software.compatibilityRequirement",
+        "software.downloadGrant",
+        "software.updateRequest",
+        "software.updateResponse",
+        "software.supportEntitlement",
+        "software.auditReference"
+      ]
+    }
+  },
+  "all": [
+    "software.product",
+    "software.edition",
+    "software.price",
+    "software.bundleComponent",
+    "software.customer",
+    "software.orderExtension",
+    "software.subscription",
+    "software.license",
+    "software.activation",
+    "software.entitlement",
+    "software.grandfatherGrant",
+    "software.release",
+    "software.releaseArtifact",
+    "software.compatibilityRequirement",
+    "software.downloadGrant",
+    "software.updateRequest",
+    "software.updateResponse",
+    "software.supportEntitlement",
+    "software.auditReference"
+  ]
+}

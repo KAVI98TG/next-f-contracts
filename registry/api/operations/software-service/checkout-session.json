@@ -1,0 +1,73 @@
+{
+  "$id": "api.software-service.checkout-session",
+  "operationId": "api.software-service.checkout-session",
+  "name": "Create Checkout Business Session for Software Order",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-service",
+  "method": "POST",
+  "path": "/checkout/sessions",
+  "description": "Create Checkout Business Session for Software Order",
+  "authentication": {
+    "mode": "internal-service",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "software.orderExtension",
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.orderExtension",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "server-to-server",
+    "cors": "server-only"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.orderExtension"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": [
+    "Outgoing Software-to-Checkout business command uses exact server-authoritative order amount/currency and dedicated credentials."
+  ]
+}

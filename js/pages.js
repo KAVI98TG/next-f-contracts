@@ -47,7 +47,8 @@ const roadmap = [
   [36, "Registry Health Release Candidate", "Repository-wide QA, integrity evidence, findings and explicit environment-dependent deferrals.", "complete"],
   [37, "V1.0.0 Production Acceptance", "Stable Registry release, frozen baselines, integrity hashes and formal production-acceptance evidence.", "complete"],
   [38, "Customer Capability Access Policy", "Explicit customer visibility, actions, approvals, publishing, fields, demo behavior and effective policy resolution.", "complete"],
-  [39, "Gaming Store Canonical Contracts", "Supplier-neutral Gaming products, offers, quotes, orders, fulfillment, APIs, permissions, events, integrations and starter pack.", "current"]
+  [39, "Gaming Store Canonical Contracts", "Supplier-neutral Gaming products, offers, quotes, orders, fulfillment, APIs, permissions, events, integrations and starter pack.", "complete"],
+  [40, "Software Canonical Contracts", "Software catalog, pricing, subscriptions, licensing, entitlements, releases, updates, customer access and Checkout evidence boundaries.", "current"]
 ];
 
 const architectureRules = [
@@ -92,7 +93,7 @@ export function renderOverview() {
             <span>${icon("fa-circle-half-stroke")} Light + dark themes</span>
             <span>${icon("fa-file-code")} HTML + CSS + JavaScript</span>
             <span>${icon("fa-database")} Repository-first authority</span>
-            <span>${icon("fa-code-branch")} Current registry v1.2.0</span>
+            <span>${icon("fa-code-branch")} Current registry v1.3.0</span>
           </div>
         </div>
       </section>
@@ -137,7 +138,7 @@ export function renderOverview() {
 
       <section class="two-column">
         <article class="paper-card">
-          <div class="paper-card__header"><div><h2>Build roadmap</h2><p>The complete contract foundation through V1.2.0 Gaming Store Canonical Contracts.</p></div>${phaseBadge(39)}</div>
+          <div class="paper-card__header"><div><h2>Build roadmap</h2><p>The complete contract foundation through V1.3.0 Software Canonical Contracts.</p></div>${phaseBadge(40)}</div>
           <div class="paper-card__body">
             <ol class="roadmap-list">
               ${roadmap.map(([number, title, text, state]) => `
@@ -167,13 +168,13 @@ export function renderOverview() {
           </article>
 
           <article class="paper-card">
-            <div class="paper-card__header"><div><h2>V1.2.0 Gaming Store Canonical Contracts</h2><p>Gaming Store now has supplier-neutral products, offers, purchase fields, account validation, quotes, orders, fulfillment, secure delivery, APIs, events, permissions and starter guidance.</p></div><a class="button button--secondary button--compact" href="#/registry?domain=gaming">${icon("fa-gamepad")} Open Gaming contracts</a></div>
+            <div class="paper-card__header"><div><h2>V1.3.0 Software Canonical Contracts</h2><p>Software now has canonical catalog/pricing, customer/order extensions, subscriptions, licensing, entitlements, releases, updates, downloads, support, customer access and Checkout evidence boundaries.</p></div><a class="button button--secondary button--compact" href="#/registry?domain=software">${icon("fa-code")} Open Software contracts</a></div>
             <div class="paper-card__body phase-summary">
-              <div class="phase-summary__row"><span>Gaming schemas</span><strong>15</strong></div>
-              <div class="phase-summary__row"><span>Gaming capabilities</span><strong>13</strong></div>
-              <div class="phase-summary__row"><span>Gaming API operations</span><strong>22</strong></div>
-              <div class="phase-summary__row"><span>Gaming events</span><strong>13</strong></div>
-              <div class="phase-summary__row"><span>Current release</span><strong>1.2.0</strong></div>
+              <div class="phase-summary__row"><span>Software schemas</span><strong>19</strong></div>
+              <div class="phase-summary__row"><span>Software capabilities</span><strong>11</strong></div>
+              <div class="phase-summary__row"><span>Software API operations</span><strong>39</strong></div>
+              <div class="phase-summary__row"><span>Software events</span><strong>19</strong></div>
+              <div class="phase-summary__row"><span>Current release</span><strong>1.3.0</strong></div>
             </div>
           </article>
         </div>

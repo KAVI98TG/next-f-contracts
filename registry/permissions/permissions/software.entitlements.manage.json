@@ -1,0 +1,30 @@
+{
+  "$id": "software.entitlements.manage",
+  "name": "Manage Software Entitlements",
+  "permissionId": "software.entitlements.manage",
+  "domain": "software",
+  "resource": "entitlements",
+  "action": "manage",
+  "scopeKind": "platform",
+  "riskLevel": "privileged",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": true,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Create exceptional or grandfather Software grants with approval.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "staff-binding-required",
+    "audit-required",
+    "service-secrets-hidden"
+  ],
+  "notes": [],
+  "version": "1.3.0",
+  "status": "stable"
+}

@@ -1,8 +1,14 @@
 # NEXT F Contracts
 
-Current stable Contract Registry version: **V1.2.0**
+Current stable Contract Registry version: **V1.3.0**
 
 `contract.nextf.lk` is the technical source of truth for NEXT F-built websites, Customer CMS, NEXT F Admin, APIs, reusable schemas, Commerce rules, Events, Webhooks, Permissions, Site Manifests, Modules, Codex development standards, reference implementations, Global Search and cross-registry relationship discovery.
+
+## Phase 40 - Software Canonical Contracts
+
+V1.3.0 adds `registry/software/`, canonical Software APIs/events/permissions, stable launch product, edition and price IDs, licensing/entitlement/release/update contracts and the `starters/software/` composition. Annual launch renewal is customer-initiated; automatic renewal remains reserved until the required Checkout/provider evidence is accepted. Existing V1.0.0-V1.2.0 release evidence remains pinned and unchanged.
+
+Run `npm run generate:software`, `npm run validate:phase40`, `npm run smoke:phase40` and `npm run validate:regression` before packaging.
 
 ## Phase 39 - Gaming Store Canonical Contracts
 
@@ -32,7 +38,7 @@ The Contract Portal is configured as a Cloudflare Worker with Static Assets at `
 
 The `nextf.lk` zone must already be active in the same Cloudflare account. The Custom Domain declaration lets Cloudflare create and manage the `contracts.nextf.lk` DNS record and certificate during deployment. Remove any conflicting DNS record for that hostname before the first deploy.
 
-`cloudflare:prepare` creates a clean `dist/` directory from an explicit public-file allowlist. It excludes local backups, source maintenance scripts and `registry/diff/snapshots.json`. That snapshot file exceeds Cloudflare's 25 MiB per-asset limit; Contract Diff continues to use the included compressed `js/generated-diff.js` browser fallback.
+`cloudflare:prepare` creates a clean `dist/` directory from an explicit public-file allowlist. It excludes local backups, source maintenance scripts, `registry/diff/snapshots.json`, and `registry/diff/release-manifests.json`. The Diff source artifacts can exceed Cloudflare's 25 MiB per-asset limit; Contract Diff continues to use the included compressed `js/generated-diff.js` browser fallbacks.
 
 
 ## Phase 28 - Deprecation System

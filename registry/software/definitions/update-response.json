@@ -1,0 +1,147 @@
+{
+  "$id": "software.updateResponse",
+  "name": "Software Update Response",
+  "version": "1.3.0",
+  "status": "stable",
+  "domain": "software",
+  "category": "delivery",
+  "description": "License/entitlement-aware update metadata response without exposing private package credentials.",
+  "purpose": "License/entitlement-aware update metadata response without exposing private package credentials.",
+  "softwareModel": {
+    "kind": "response",
+    "customerOwned": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "immutableSnapshot": false,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "eligible",
+      "required": true,
+      "nullable": false,
+      "description": "Whether update entitlement is currently valid.",
+      "primitive": "fields.boolean"
+    },
+    {
+      "key": "activationStatus",
+      "required": true,
+      "nullable": false,
+      "description": "Normalized activation/license result.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "capabilities",
+      "required": true,
+      "nullable": false,
+      "description": "Effective capability entitlements.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "offlineValidUntil",
+      "required": true,
+      "nullable": false,
+      "description": "Signed offline-cache validity.",
+      "primitive": "fields.dateTime"
+    },
+    {
+      "key": "releaseId",
+      "required": false,
+      "nullable": true,
+      "description": "Eligible Software Release ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "version",
+      "required": false,
+      "nullable": true,
+      "description": "Eligible version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "channel",
+      "required": false,
+      "nullable": true,
+      "description": "Eligible channel.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "downloadGrantRef",
+      "required": false,
+      "nullable": true,
+      "description": "Short-lived download-grant reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "sha256",
+      "required": false,
+      "nullable": true,
+      "description": "Release artifact checksum.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "signatureRef",
+      "required": false,
+      "nullable": true,
+      "description": "Release signature evidence reference.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "software.entitlement",
+      "description": "Update eligibility follows capability entitlement."
+    },
+    {
+      "type": "references",
+      "target": "software.downloadGrant",
+      "description": "Eligible package delivery uses a short-lived grant."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "authorityBoundary",
+      "description": "Mutation is accepted only by the declared trusted Software authority."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Contract examples and public projections never contain service credentials, signing keys or raw download tokens."
+    }
+  ],
+  "cms": {
+    "label": "Software Update Response",
+    "icon": "fa-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "software-schema",
+    "defaultPlacement": "software",
+    "summaryFields": [
+      "eligible",
+      "activationStatus",
+      "capabilities",
+      "offlineValidUntil"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Software business truth is served through scoped Software APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-40",
+    "api": "phase-40",
+    "permissions": "phase-40",
+    "events": "phase-40",
+    "webhooks": "phase-40",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,0 +1,10 @@
+{
+  "contractVersion": "1.3.0",
+  "trackingEvents": [
+    "page.viewed",
+    "cta.clicked"
+  ],
+  "notes": [
+    "Tracking never includes raw license keys, download tokens, site content or payment/provider payloads."
+  ]
+}

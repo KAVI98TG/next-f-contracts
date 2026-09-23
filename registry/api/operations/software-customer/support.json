@@ -1,0 +1,73 @@
+{
+  "$id": "api.software-customer.support",
+  "operationId": "api.software-customer.support",
+  "name": "Create Own Software Support Request",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-customer",
+  "method": "POST",
+  "path": "/support",
+  "description": "Create Own Software Support Request",
+  "authentication": {
+    "mode": "commerce-customer",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "software.supportEntitlement",
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.supportEntitlement",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.supportEntitlement"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": [
+    "Request acceptance is bounded by the authenticated customer and support entitlement."
+  ]
+}

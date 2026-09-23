@@ -1,9 +1,9 @@
 {
-  "registryVersion": "1.2.0",
+  "registryVersion": "1.3.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Deprecation Registry",
   "description": "Authoritative lifecycle-management records for deprecated and removed NEXT F Registry definitions.",
-  "currentVersion": "1.2.0",
+  "currentVersion": "1.3.0",
   "recordCount": 0,
   "activeDeprecationCount": 0,
   "removedCount": 0,

@@ -1,0 +1,122 @@
+{
+  "$id": "software.auditReference",
+  "name": "Software Audit Reference",
+  "version": "1.3.0",
+  "status": "stable",
+  "domain": "software",
+  "category": "audit",
+  "description": "Reference from Software domain mutations to append-oriented immutable audit evidence.",
+  "purpose": "Reference from Software domain mutations to append-oriented immutable audit evidence.",
+  "softwareModel": {
+    "kind": "audit-reference",
+    "customerOwned": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "immutableSnapshot": true,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "auditRef",
+      "required": true,
+      "nullable": false,
+      "description": "Audit evidence reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "subjectType",
+      "required": true,
+      "nullable": false,
+      "description": "Software subject type.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "subjectId",
+      "required": true,
+      "nullable": false,
+      "description": "Software subject ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "action",
+      "required": true,
+      "nullable": false,
+      "description": "Audited action.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "actorRef",
+      "required": true,
+      "nullable": false,
+      "description": "Staff/service/customer actor reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "correlationId",
+      "required": true,
+      "nullable": false,
+      "description": "Correlation/request ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "evidenceRef",
+      "required": false,
+      "nullable": true,
+      "description": "Supporting evidence reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "occurredAt",
+      "required": true,
+      "nullable": false,
+      "description": "Audit occurrence timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "authorityBoundary",
+      "description": "Mutation is accepted only by the declared trusted Software authority."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Contract examples and public projections never contain service credentials, signing keys or raw download tokens."
+    }
+  ],
+  "cms": {
+    "label": "Software Audit Reference",
+    "icon": "fa-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "software-schema",
+    "defaultPlacement": "software",
+    "summaryFields": [
+      "auditRef",
+      "subjectType",
+      "subjectId",
+      "action"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Software business truth is served through scoped Software APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-40",
+    "api": "phase-40",
+    "permissions": "phase-40",
+    "events": "phase-40",
+    "webhooks": "phase-40",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

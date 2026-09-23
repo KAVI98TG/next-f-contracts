@@ -1,0 +1,8 @@
+- [ ] Manifest pins 1.3.0.
+- [ ] Public prices come from active Software price records.
+- [ ] Browser price tampering cannot affect final order totals.
+- [ ] Redirect without verified capture grants nothing.
+- [ ] Annual launch renewal is customer-initiated.
+- [ ] License/update requests contain no site content.
+- [ ] Private release packages require short-lived entitlement-scoped grants.
+- [ ] Existing users are grandfathered before paid feature gates.

@@ -1,0 +1,30 @@
+{
+  "$id": "software.catalog.view",
+  "name": "View Software Catalog",
+  "permissionId": "software.catalog.view",
+  "domain": "software",
+  "resource": "catalog",
+  "action": "view",
+  "scopeKind": "platform",
+  "riskLevel": "standard",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Read Software products, editions, bundles and prices.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "staff-binding-required",
+    "audit-required",
+    "service-secrets-hidden"
+  ],
+  "notes": [],
+  "version": "1.3.0",
+  "status": "stable"
+}

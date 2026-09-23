@@ -1,0 +1,72 @@
+{
+  "$id": "api.software-cms.licenses",
+  "operationId": "api.software-cms.licenses",
+  "name": "Read Masked Software Licenses",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-cms",
+  "method": "GET",
+  "path": "/licenses",
+  "description": "Read Masked Software Licenses",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "software.licenses.view"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.license",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "staff-masked"
+  },
+  "policies": {
+    "idempotency": {
+      "required": false,
+      "header": null
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.license"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": []
+}

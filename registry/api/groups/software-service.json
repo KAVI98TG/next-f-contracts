@@ -1,0 +1,27 @@
+{
+  "$id": "api.software-service",
+  "apiId": "api.software-service",
+  "name": "Software Service API",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "operations",
+  "description": "Trusted Checkout, plugin protocol and reconciliation service operations.",
+  "basePath": "/api/v1/software/service",
+  "defaultAuthMode": "internal-service",
+  "defaultCachePolicy": "no-store",
+  "defaultRateLimitClass": "server-to-server",
+  "defaultCorsPolicy": "server-only",
+  "operationIds": [
+    "api.software-service.checkout-session",
+    "api.software-service.consume-payment-event",
+    "api.software-service.license-validate",
+    "api.software-service.update-check",
+    "api.software-service.download",
+    "api.software-service.reconciliation"
+  ],
+  "moduleBindings": [
+    "software"
+  ],
+  "notes": []
+}

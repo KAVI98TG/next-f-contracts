@@ -1,0 +1,152 @@
+{
+  "$id": "software.orderExtension",
+  "name": "Software Order Extension",
+  "version": "1.3.0",
+  "status": "stable",
+  "domain": "software",
+  "category": "commerce",
+  "description": "Software-specific immutable commercial snapshot and fulfillment linkage extending a canonical Commerce Order.",
+  "purpose": "Software-specific immutable commercial snapshot and fulfillment linkage extending a canonical Commerce Order.",
+  "softwareModel": {
+    "kind": "transaction-extension",
+    "customerOwned": true,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "immutableSnapshot": true,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "softwareOrderId",
+      "required": true,
+      "nullable": false,
+      "description": "Software order ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "commerceOrderId",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical Commerce Order ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "publicOrderNumber",
+      "required": true,
+      "nullable": false,
+      "description": "Immutable customer-visible order number.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "customerId",
+      "required": true,
+      "nullable": false,
+      "description": "Software customer ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "lineGrantSnapshots",
+      "required": true,
+      "nullable": false,
+      "description": "Immutable product/edition/price/grant snapshots.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "checkoutSessionRef",
+      "required": false,
+      "nullable": true,
+      "description": "Checkout session reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "captureRefs",
+      "required": false,
+      "nullable": true,
+      "description": "Verified Checkout capture references.",
+      "primitive": "fields.json"
+    },
+    {
+      "key": "fulfillmentState",
+      "required": true,
+      "nullable": false,
+      "description": "Software fulfillment state.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "pending",
+          "fulfilled",
+          "review",
+          "reversed"
+        ]
+      }
+    },
+    {
+      "key": "fulfilledAt",
+      "required": false,
+      "nullable": true,
+      "description": "Fulfillment timestamp.",
+      "primitive": "fields.dateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "commerce.order",
+      "description": "Software order extension is linked to canonical Commerce Order financial truth."
+    },
+    {
+      "type": "references",
+      "target": "commerce.paymentCapture",
+      "description": "Paid state is derived only from verified payment capture evidence."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "redirectNotEvidence",
+      "description": "Browser return/success redirects cannot mark this order paid or fulfilled."
+    },
+    {
+      "id": "fulfillExactlyOnce",
+      "description": "Equivalent verified capture events grant Software access exactly once."
+    },
+    {
+      "id": "historicalSnapshotImmutable",
+      "description": "Purchased product, edition and price/grant snapshots remain immutable."
+    }
+  ],
+  "cms": {
+    "label": "Software Order Extension",
+    "icon": "fa-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "software-schema",
+    "defaultPlacement": "software",
+    "summaryFields": [
+      "softwareOrderId",
+      "commerceOrderId",
+      "publicOrderNumber",
+      "customerId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Software business truth is served through scoped Software APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-40",
+    "api": "phase-40",
+    "permissions": "phase-40",
+    "events": "phase-40",
+    "webhooks": "phase-40",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

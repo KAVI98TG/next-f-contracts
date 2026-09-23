@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.2.0",
+  "registryVersion": "1.3.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Site Starter Contract Packs",
   "description": "Framework-neutral contract integration starters derived from authoritative Phase 22 reference compositions.",
@@ -110,11 +110,81 @@
       "contractCount": 270,
       "permissionCount": 163,
       "eventCount": 57
+    },
+    {
+      "$id": "starters.software",
+      "slug": "software",
+      "name": "NEXT F Software Site Starter",
+      "version": "1.3.0",
+      "status": "stable",
+      "siteType": "software",
+      "bundlePath": "starters/software",
+      "manifestPath": "starters/software/nextf.site.json",
+      "summary": "Public Software storefront starter bound to canonical Software contracts.",
+      "modules": [
+        "core",
+        "media",
+        "commerce",
+        "integrations",
+        "software"
+      ],
+      "capabilities": [
+        "software.catalog",
+        "software.commerce",
+        "software.subscriptions",
+        "software.licensing",
+        "software.activations",
+        "software.entitlements",
+        "software.releases",
+        "software.downloads",
+        "software.updates",
+        "software.support",
+        "software.customer-workspace"
+      ],
+      "contractCount": 19,
+      "apiBindings": [
+        {
+          "apiId": "api.software-public",
+          "version": "1.0.0",
+          "environments": [
+            "development",
+            "production"
+          ]
+        },
+        {
+          "apiId": "api.software-customer",
+          "version": "1.0.0",
+          "environments": [
+            "development",
+            "production"
+          ]
+        },
+        {
+          "apiId": "api.software-cms",
+          "version": "1.0.0",
+          "environments": [
+            "development",
+            "production"
+          ]
+        },
+        {
+          "apiId": "api.software-service",
+          "version": "1.0.0",
+          "environments": [
+            "development",
+            "production"
+          ]
+        }
+      ],
+      "integrations": [],
+      "permissionCount": 18,
+      "eventCount": 19
     }
   ],
   "counts": {
     "starters": 7,
     "siteTypes": 7,
     "filesPerStarter": 16
-  }
+  },
+  "starterCount": 8
 }

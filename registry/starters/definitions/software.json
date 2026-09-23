@@ -1,0 +1,69 @@
+{
+  "$id": "starters.software",
+  "slug": "software",
+  "name": "NEXT F Software Site Starter",
+  "version": "1.3.0",
+  "status": "stable",
+  "siteType": "software",
+  "bundlePath": "starters/software",
+  "manifestPath": "starters/software/nextf.site.json",
+  "summary": "Public Software storefront starter bound to canonical Software contracts.",
+  "modules": [
+    "core",
+    "media",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "capabilities": [
+    "software.catalog",
+    "software.commerce",
+    "software.subscriptions",
+    "software.licensing",
+    "software.activations",
+    "software.entitlements",
+    "software.releases",
+    "software.downloads",
+    "software.updates",
+    "software.support",
+    "software.customer-workspace"
+  ],
+  "contractCount": 19,
+  "apiBindings": [
+    {
+      "apiId": "api.software-public",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.software-customer",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.software-cms",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.software-service",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    }
+  ],
+  "integrations": [],
+  "permissionCount": 18,
+  "eventCount": 19
+}

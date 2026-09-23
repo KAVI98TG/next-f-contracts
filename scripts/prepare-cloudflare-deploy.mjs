@@ -28,7 +28,10 @@ const publicFiles = [
 
 // Cloudflare Static Assets limits individual files to 25 MiB. Contract Diff
 // already falls back to js/generated-diff.js when this source file is absent.
-const excludedFiles = new Set(["registry/diff/snapshots.json"]);
+const excludedFiles = new Set([
+  "registry/diff/snapshots.json",
+  "registry/diff/release-manifests.json"
+]);
 
 let fileCount = 0;
 let totalBytes = 0;
@@ -96,4 +99,4 @@ console.log(`Output: ${output}`);
 console.log(`Assets: ${fileCount}`);
 console.log(`Total: ${(totalBytes / 1024 / 1024).toFixed(2)} MiB`);
 console.log(`Largest: ${largestAsset.path} (${(largestAsset.bytes / 1024 / 1024).toFixed(2)} MiB)`);
-console.log("Excluded: registry/diff/snapshots.json (generated browser fallback retained)");
+console.log("Excluded: registry/diff/snapshots.json, registry/diff/release-manifests.json (generated browser fallbacks retained)");

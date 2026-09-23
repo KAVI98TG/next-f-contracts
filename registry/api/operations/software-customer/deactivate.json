@@ -1,0 +1,77 @@
+{
+  "$id": "api.software-customer.deactivate",
+  "operationId": "api.software-customer.deactivate",
+  "name": "Deactivate Own Software Activation",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-customer",
+  "method": "POST",
+  "path": "/activations/{activationId}/deactivate",
+  "description": "Deactivate Own Software Activation",
+  "authentication": {
+    "mode": "commerce-customer",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "activationId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.activation",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.activation"
+  ],
+  "eventBindings": [
+    "software.activation-deactivated"
+  ],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": [
+    "Owner-scoped."
+  ]
+}

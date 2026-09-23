@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.2.0",
+  "registryVersion": "1.3.0",
   "phase": 38,
   "count": 6,
   "findings": [
@@ -9,8 +9,8 @@
       "severity": "critical",
       "description": "Canonical Registry IDs are unique",
       "evidence": [
-        "Registry items: 2371",
-        "Unique IDs: 2356"
+        "Registry items: 2504",
+        "Unique IDs: 2470"
       ],
       "affectedDefinitions": [],
       "remediationStatus": "required"
@@ -21,11 +21,12 @@
       "severity": "critical",
       "description": "Registry relationship targets resolve",
       "evidence": [
-        "Broken relationships: 2"
+        "Broken relationships: 3"
       ],
       "affectedDefinitions": [
         "gaming.purchaseField -> forms.field",
-        "starters.gaming -> modules.gaming"
+        "starters.gaming -> modules.gaming",
+        "starters.software -> modules.software"
       ],
       "remediationStatus": "required"
     },
@@ -35,8 +36,8 @@
       "severity": "critical",
       "description": "Module dependencies resolve",
       "evidence": [
-        "Modules: 14",
-        "Capabilities: 115"
+        "Modules: 15",
+        "Capabilities: 126"
       ],
       "affectedDefinitions": [
         "gaming->webhooks"

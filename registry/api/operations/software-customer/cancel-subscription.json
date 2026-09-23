@@ -1,0 +1,77 @@
+{
+  "$id": "api.software-customer.cancel-subscription",
+  "operationId": "api.software-customer.cancel-subscription",
+  "name": "Cancel Own Software Subscription",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-customer",
+  "method": "POST",
+  "path": "/subscriptions/{subscriptionId}/cancel",
+  "description": "Cancel Own Software Subscription",
+  "authentication": {
+    "mode": "commerce-customer",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [
+      "subscriptionId"
+    ],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.subscription",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.subscription"
+  ],
+  "eventBindings": [
+    "software.subscription-cancelled"
+  ],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": [
+    "Owner-scoped and policy-bound."
+  ]
+}

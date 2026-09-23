@@ -1,0 +1,18 @@
+- `software.dashboard.view` - Read aggregate Software operational health.
+- `software.catalog.view` - Read Software products, editions, bundles and prices.
+- `software.catalog.manage` - Draft Software catalog and pricing changes.
+- `software.catalog.publish` - Publish effective Software commercial changes.
+- `software.releases.view` - Read Software release metadata and checks.
+- `software.releases.manage` - Upload draft packages and edit release metadata.
+- `software.releases.publish` - Promote, deprecate or withdraw Software releases.
+- `software.orders.view` - Read Software order snapshots and payment references.
+- `software.orders.manage` - Apply approved non-financial Software order corrections.
+- `software.refunds.request` - Request a Software refund with reason and evidence.
+- `software.refunds.approve` - Approve a Software refund under policy.
+- `software.customers.view` - Read Software customer records.
+- `software.licenses.view` - Read masked Software licenses and activations.
+- `software.licenses.manage` - Suspend, restore or adjust activation limits with audit.
+- `software.entitlements.manage` - Create exceptional or grandfather Software grants with approval.
+- `software.support.manage` - Operate Software support cases.
+- `software.settings.manage` - Change Software licensing and delivery policy.
+- `software.audit.view` - Read immutable Software audit evidence.

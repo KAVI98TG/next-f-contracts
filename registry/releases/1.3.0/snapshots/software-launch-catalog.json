@@ -1,0 +1,169 @@
+{
+  "contractVersion": "1.3.0",
+  "currency": "USD",
+  "renewalMode": "customer-initiated",
+  "products": [
+    {
+      "productId": "product.nextf-documentation",
+      "name": "NEXT F Documentation",
+      "productType": "plugin"
+    },
+    {
+      "productId": "product.nextf-blog-suite",
+      "name": "NEXT F Blog Suite",
+      "productType": "plugin"
+    },
+    {
+      "productId": "product.nextf-publisher-suite",
+      "name": "NEXT F Publisher Suite",
+      "productType": "bundle"
+    }
+  ],
+  "editions": [
+    {
+      "editionId": "edition.nextf-documentation.free",
+      "productId": "product.nextf-documentation",
+      "code": "free",
+      "billingMode": "free",
+      "activationPolicy": "single"
+    },
+    {
+      "editionId": "edition.nextf-documentation.single",
+      "productId": "product.nextf-documentation",
+      "code": "single",
+      "billingMode": "annual",
+      "activationPolicy": "single"
+    },
+    {
+      "editionId": "edition.nextf-documentation.studio",
+      "productId": "product.nextf-documentation",
+      "code": "studio",
+      "billingMode": "annual",
+      "activationPolicy": "unlimited"
+    },
+    {
+      "editionId": "edition.nextf-documentation.lifetime",
+      "productId": "product.nextf-documentation",
+      "code": "lifetime",
+      "billingMode": "one-time",
+      "activationPolicy": "unlimited"
+    },
+    {
+      "editionId": "edition.nextf-blog-suite.free",
+      "productId": "product.nextf-blog-suite",
+      "code": "free",
+      "billingMode": "free",
+      "activationPolicy": "single"
+    },
+    {
+      "editionId": "edition.nextf-blog-suite.single",
+      "productId": "product.nextf-blog-suite",
+      "code": "single",
+      "billingMode": "annual",
+      "activationPolicy": "single"
+    },
+    {
+      "editionId": "edition.nextf-blog-suite.studio",
+      "productId": "product.nextf-blog-suite",
+      "code": "studio",
+      "billingMode": "annual",
+      "activationPolicy": "unlimited"
+    },
+    {
+      "editionId": "edition.nextf-blog-suite.lifetime",
+      "productId": "product.nextf-blog-suite",
+      "code": "lifetime",
+      "billingMode": "one-time",
+      "activationPolicy": "unlimited"
+    },
+    {
+      "editionId": "edition.nextf-publisher-suite.single",
+      "productId": "product.nextf-publisher-suite",
+      "code": "single",
+      "billingMode": "annual",
+      "activationPolicy": "single"
+    },
+    {
+      "editionId": "edition.nextf-publisher-suite.studio",
+      "productId": "product.nextf-publisher-suite",
+      "code": "studio",
+      "billingMode": "annual",
+      "activationPolicy": "unlimited"
+    },
+    {
+      "editionId": "edition.nextf-publisher-suite.lifetime",
+      "productId": "product.nextf-publisher-suite",
+      "code": "lifetime",
+      "billingMode": "one-time",
+      "activationPolicy": "unlimited"
+    }
+  ],
+  "launchPrices": [
+    {
+      "priceId": "price.nextf-documentation.single.usd-annual.launch",
+      "editionId": "edition.nextf-documentation.single",
+      "amount": "39.00",
+      "cadence": "annual"
+    },
+    {
+      "priceId": "price.nextf-documentation.studio.usd-annual.launch",
+      "editionId": "edition.nextf-documentation.studio",
+      "amount": "89.00",
+      "cadence": "annual"
+    },
+    {
+      "priceId": "price.nextf-documentation.lifetime.usd-once.launch",
+      "editionId": "edition.nextf-documentation.lifetime",
+      "amount": "149.00",
+      "cadence": "one-time"
+    },
+    {
+      "priceId": "price.nextf-blog-suite.single.usd-annual.launch",
+      "editionId": "edition.nextf-blog-suite.single",
+      "amount": "39.00",
+      "cadence": "annual"
+    },
+    {
+      "priceId": "price.nextf-blog-suite.studio.usd-annual.launch",
+      "editionId": "edition.nextf-blog-suite.studio",
+      "amount": "89.00",
+      "cadence": "annual"
+    },
+    {
+      "priceId": "price.nextf-blog-suite.lifetime.usd-once.launch",
+      "editionId": "edition.nextf-blog-suite.lifetime",
+      "amount": "149.00",
+      "cadence": "one-time"
+    },
+    {
+      "priceId": "price.nextf-publisher-suite.single.usd-annual.launch",
+      "editionId": "edition.nextf-publisher-suite.single",
+      "amount": "69.00",
+      "cadence": "annual"
+    },
+    {
+      "priceId": "price.nextf-publisher-suite.studio.usd-annual.launch",
+      "editionId": "edition.nextf-publisher-suite.studio",
+      "amount": "129.00",
+      "cadence": "annual"
+    },
+    {
+      "priceId": "price.nextf-publisher-suite.lifetime.usd-once.launch",
+      "editionId": "edition.nextf-publisher-suite.lifetime",
+      "amount": "229.00",
+      "cadence": "one-time"
+    }
+  ],
+  "bundleComponents": [
+    {
+      "bundleProductId": "product.nextf-publisher-suite",
+      "componentProductId": "product.nextf-documentation",
+      "tierMapping": "equivalent-tier"
+    },
+    {
+      "bundleProductId": "product.nextf-publisher-suite",
+      "componentProductId": "product.nextf-blog-suite",
+      "tierMapping": "equivalent-tier"
+    }
+  ]
+}

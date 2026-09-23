@@ -1,0 +1,116 @@
+{
+  "eventKey": "software.license-expired",
+  "name": "Software License Expired",
+  "category": "software",
+  "producerKey": "software-domain",
+  "subjectContracts": [
+    "software.license"
+  ],
+  "trigger": "Software License Expired",
+  "dataPolicy": {
+    "sensitivity": "sensitive",
+    "containsPersonalData": true,
+    "containsFinancialData": false,
+    "containsSecrets": false,
+    "redactionRequired": true
+  },
+  "webhookEligible": true,
+  "consumers": [
+    "audit",
+    "nextf-admin",
+    "notification",
+    "integration-dispatch",
+    "webhook-bridge"
+  ],
+  "payloadFields": [
+    {
+      "key": "licenseId",
+      "required": true,
+      "description": "Software license ID.",
+      "type": "id"
+    }
+  ],
+  "$id": "software.license-expired",
+  "version": "1.3.0",
+  "eventVersion": "1.0.0",
+  "status": "stable",
+  "domain": "events",
+  "description": "Software License Expired",
+  "purpose": "Provides a canonical Software domain fact for software license expired.",
+  "semantics": {
+    "factOnly": true,
+    "authoritativeAfterCommit": true,
+    "immutableOccurrence": true,
+    "transportIndependent": true,
+    "marketingTrackingEquivalent": null
+  },
+  "productionPolicy": {
+    "durability": "durable",
+    "commitBoundary": "transactional-outbox",
+    "failureBehavior": "fail-domain-commit-or-durable-recovery"
+  },
+  "idempotency": {
+    "dedupeKey": "eventId",
+    "replayedIdempotentCommand": "no-new-semantic-event",
+    "consumerIdempotencyRequired": true
+  },
+  "orderingPolicy": {
+    "scope": "software-object",
+    "strict": false
+  },
+  "retention": {
+    "class": "transaction-history"
+  },
+  "relationships": [
+    {
+      "type": "references",
+      "target": "software.license",
+      "description": "Event subject may be software.license."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "emitAfterAuthoritativeCommit",
+      "description": "Event is produced only after the authoritative Software transaction commits."
+    },
+    {
+      "id": "immutableOccurrence",
+      "description": "Recorded event occurrences are immutable."
+    },
+    {
+      "id": "eventIdUnique",
+      "description": "Every semantic occurrence has one globally unique eventId."
+    },
+    {
+      "id": "idempotentReplay",
+      "description": "Retrying the same idempotent command does not emit a duplicate semantic event."
+    },
+    {
+      "id": "payloadMinimumNecessary",
+      "description": "Payload contains only minimum data required by declared consumers."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Payload never includes raw license keys, raw download tokens, signing keys or provider secrets."
+    }
+  ],
+  "futureBindings": {
+    "webhooks": "phase-40",
+    "permissions": "phase-40",
+    "siteManifest": "phase-40",
+    "modules": "phase-40",
+    "api": "phase-40",
+    "privacy": "phase-30"
+  },
+  "examples": {
+    "valid": [
+      {
+        "eventKey": "software.license-expired",
+        "eventVersion": "1.0.0",
+        "eventId": "evt_software-license-expired",
+        "occurredAt": "2026-09-23T00:00:00Z"
+      }
+    ],
+    "invalid": []
+  }
+}

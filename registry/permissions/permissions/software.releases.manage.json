@@ -1,0 +1,30 @@
+{
+  "$id": "software.releases.manage",
+  "name": "Manage Software Releases",
+  "permissionId": "software.releases.manage",
+  "domain": "software",
+  "resource": "releases",
+  "action": "manage",
+  "scopeKind": "platform",
+  "riskLevel": "elevated",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": false,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Upload draft packages and edit release metadata.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "staff-binding-required",
+    "audit-required",
+    "service-secrets-hidden"
+  ],
+  "notes": [],
+  "version": "1.3.0",
+  "status": "stable"
+}

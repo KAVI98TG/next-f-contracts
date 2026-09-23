@@ -1,0 +1,73 @@
+{
+  "$id": "api.software-service.update-check",
+  "operationId": "api.software-service.update-check",
+  "name": "Check Software Update",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-service",
+  "method": "POST",
+  "path": "/updates/check",
+  "description": "Check Software Update",
+  "authentication": {
+    "mode": "site-server",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "software.updateRequest",
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.updateResponse",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "sensitive-write",
+    "cors": "server-only"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.updateResponse"
+  ],
+  "eventBindings": [
+    "software.update-served"
+  ],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": []
+}

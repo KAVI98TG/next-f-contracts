@@ -1,0 +1,24 @@
+{
+  "contractVersion": "1.3.0",
+  "authoritativeDomainEvents": [
+    "software.order-created",
+    "software.order-paid",
+    "software.order-refunded",
+    "software.subscription-activated",
+    "software.subscription-past-due",
+    "software.subscription-renewed",
+    "software.subscription-cancelled",
+    "software.license-issued",
+    "software.license-suspended",
+    "software.license-restored",
+    "software.license-expired",
+    "software.activation-created",
+    "software.activation-deactivated",
+    "software.entitlement-granted",
+    "software.entitlement-revoked",
+    "software.release-published",
+    "software.release-withdrawn",
+    "software.download-grant-issued",
+    "software.update-served"
+  ]
+}

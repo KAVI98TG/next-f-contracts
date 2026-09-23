@@ -1,0 +1,40 @@
+{
+  "$id": "api.software-cms",
+  "apiId": "api.software-cms",
+  "name": "Software CMS API",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "operations",
+  "description": "Guarded NEXT F staff control-plane operations.",
+  "basePath": "/api/v1/software/cms",
+  "defaultAuthMode": "nextf-admin",
+  "defaultCachePolicy": "no-store",
+  "defaultRateLimitClass": "authenticated-read",
+  "defaultCorsPolicy": "admin-portal",
+  "operationIds": [
+    "api.software-cms.overview",
+    "api.software-cms.products",
+    "api.software-cms.upsert-product",
+    "api.software-cms.publish-product",
+    "api.software-cms.releases",
+    "api.software-cms.initiate-release-upload",
+    "api.software-cms.publish-release",
+    "api.software-cms.orders",
+    "api.software-cms.refund-request",
+    "api.software-cms.refund-approve",
+    "api.software-cms.customers",
+    "api.software-cms.licenses",
+    "api.software-cms.suspend-license",
+    "api.software-cms.restore-license",
+    "api.software-cms.activation-limit",
+    "api.software-cms.subscriptions",
+    "api.software-cms.grant-entitlement",
+    "api.software-cms.support",
+    "api.software-cms.audit"
+  ],
+  "moduleBindings": [
+    "software"
+  ],
+  "notes": []
+}

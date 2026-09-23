@@ -1,5 +1,5 @@
 {
-  "registryVersion": "1.2.0",
+  "registryVersion": "1.3.0",
   "domains": [
     {
       "id": "accessibility",
@@ -175,6 +175,11 @@
       "id": "shared",
       "label": "Shared",
       "description": "Reusable cross-domain structures such as address, media, links, CTA, contact and external references."
+    },
+    {
+      "id": "software",
+      "label": "Software",
+      "description": "NEXT F downloadable-software catalog, commerce extension, licensing, entitlements, releases, updates, downloads and support."
     },
     {
       "id": "validation",

@@ -1,8 +1,8 @@
 // Generated from registry/permissions/index.json
-// SHA-256: 305f46f73c4d35e8854e2e68783d46fd6fe3ede88697e5b77c8198aab447b42c
-export const GENERATED_PERMISSIONS_SOURCE_SHA256 = "305f46f73c4d35e8854e2e68783d46fd6fe3ede88697e5b77c8198aab447b42c";
+// SHA-256: e237a5e3908a10675e11edc4a99def56fabb43ab93339cf9bcee852c856e7def
+export const GENERATED_PERMISSION_SOURCE_SHA256 = "e237a5e3908a10675e11edc4a99def56fabb43ab93339cf9bcee852c856e7def";
 export const GENERATED_PERMISSIONS = {
-  "registryVersion": "1.2.0",
+  "registryVersion": "1.3.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Permission Registry",
   "description": "Canonical deny-by-default authorization vocabulary, reference roles and evaluation contracts for NEXT F Admin, Customer CMS and APIs.",
@@ -9392,6 +9392,546 @@ export const GENERATED_PERMISSIONS = {
       "status": "stable"
     },
     {
+      "$id": "software.audit.view",
+      "name": "View Software Audit",
+      "permissionId": "software.audit.view",
+      "domain": "software",
+      "resource": "audit",
+      "action": "view",
+      "scopeKind": "platform",
+      "riskLevel": "sensitive",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Read immutable Software audit evidence.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.catalog.manage",
+      "name": "Manage Software Catalog",
+      "permissionId": "software.catalog.manage",
+      "domain": "software",
+      "resource": "catalog",
+      "action": "manage",
+      "scopeKind": "platform",
+      "riskLevel": "elevated",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Draft Software catalog and pricing changes.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.catalog.publish",
+      "name": "Publish Software Catalog",
+      "permissionId": "software.catalog.publish",
+      "domain": "software",
+      "resource": "catalog",
+      "action": "publish",
+      "scopeKind": "platform",
+      "riskLevel": "privileged",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": true,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Publish effective Software commercial changes.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.catalog.view",
+      "name": "View Software Catalog",
+      "permissionId": "software.catalog.view",
+      "domain": "software",
+      "resource": "catalog",
+      "action": "view",
+      "scopeKind": "platform",
+      "riskLevel": "standard",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Read Software products, editions, bundles and prices.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.customers.view",
+      "name": "View Software Customers",
+      "permissionId": "software.customers.view",
+      "domain": "software",
+      "resource": "customers",
+      "action": "view",
+      "scopeKind": "platform",
+      "riskLevel": "sensitive",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Read Software customer records.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.dashboard.view",
+      "name": "View Software Dashboard",
+      "permissionId": "software.dashboard.view",
+      "domain": "software",
+      "resource": "dashboard",
+      "action": "view",
+      "scopeKind": "platform",
+      "riskLevel": "standard",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Read aggregate Software operational health.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.entitlements.manage",
+      "name": "Manage Software Entitlements",
+      "permissionId": "software.entitlements.manage",
+      "domain": "software",
+      "resource": "entitlements",
+      "action": "manage",
+      "scopeKind": "platform",
+      "riskLevel": "privileged",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": true,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Create exceptional or grandfather Software grants with approval.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.licenses.manage",
+      "name": "Manage Software Licenses",
+      "permissionId": "software.licenses.manage",
+      "domain": "software",
+      "resource": "licenses",
+      "action": "manage",
+      "scopeKind": "platform",
+      "riskLevel": "privileged",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": true,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Suspend, restore or adjust activation limits with audit.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.licenses.view",
+      "name": "View Software Licenses",
+      "permissionId": "software.licenses.view",
+      "domain": "software",
+      "resource": "licenses",
+      "action": "view",
+      "scopeKind": "platform",
+      "riskLevel": "sensitive",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Read masked Software licenses and activations.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.orders.manage",
+      "name": "Manage Software Orders",
+      "permissionId": "software.orders.manage",
+      "domain": "software",
+      "resource": "orders",
+      "action": "manage",
+      "scopeKind": "platform",
+      "riskLevel": "sensitive",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Apply approved non-financial Software order corrections.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.orders.view",
+      "name": "View Software Orders",
+      "permissionId": "software.orders.view",
+      "domain": "software",
+      "resource": "orders",
+      "action": "view",
+      "scopeKind": "platform",
+      "riskLevel": "sensitive",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Read Software order snapshots and payment references.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.refunds.approve",
+      "name": "Approve Software Refunds",
+      "permissionId": "software.refunds.approve",
+      "domain": "software",
+      "resource": "refunds",
+      "action": "approve",
+      "scopeKind": "platform",
+      "riskLevel": "privileged",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": true,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Approve a Software refund under policy.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.refunds.request",
+      "name": "Request Software Refunds",
+      "permissionId": "software.refunds.request",
+      "domain": "software",
+      "resource": "refunds",
+      "action": "request",
+      "scopeKind": "platform",
+      "riskLevel": "sensitive",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Request a Software refund with reason and evidence.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.releases.manage",
+      "name": "Manage Software Releases",
+      "permissionId": "software.releases.manage",
+      "domain": "software",
+      "resource": "releases",
+      "action": "manage",
+      "scopeKind": "platform",
+      "riskLevel": "elevated",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Upload draft packages and edit release metadata.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.releases.publish",
+      "name": "Publish Software Releases",
+      "permissionId": "software.releases.publish",
+      "domain": "software",
+      "resource": "releases",
+      "action": "publish",
+      "scopeKind": "platform",
+      "riskLevel": "privileged",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": true,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Promote, deprecate or withdraw Software releases.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.releases.view",
+      "name": "View Software Releases",
+      "permissionId": "software.releases.view",
+      "domain": "software",
+      "resource": "releases",
+      "action": "view",
+      "scopeKind": "platform",
+      "riskLevel": "standard",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": false,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Read Software release metadata and checks.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.settings.manage",
+      "name": "Manage Software Settings",
+      "permissionId": "software.settings.manage",
+      "domain": "software",
+      "resource": "settings",
+      "action": "manage",
+      "scopeKind": "platform",
+      "riskLevel": "privileged",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Change Software licensing and delivery policy.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
+      "$id": "software.support.manage",
+      "name": "Manage Software Support",
+      "permissionId": "software.support.manage",
+      "domain": "software",
+      "resource": "support",
+      "action": "manage",
+      "scopeKind": "platform",
+      "riskLevel": "sensitive",
+      "customerEligible": false,
+      "adminEligible": true,
+      "grantable": true,
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false,
+      "surfaces": [
+        "nextf-admin",
+        "api"
+      ],
+      "description": "Operate Software support cases.",
+      "constraints": [
+        "deny-by-default",
+        "exact-permission-match",
+        "staff-binding-required",
+        "audit-required",
+        "service-secrets-hidden"
+      ],
+      "notes": [],
+      "version": "1.3.0",
+      "status": "stable"
+    },
+    {
       "$id": "webhooks.deadletters.manage",
       "name": "Manage Deadletters",
       "permissionId": "webhooks.deadletters.manage",
@@ -12304,5 +12844,6 @@ export const GENERATED_PERMISSIONS = {
     "privilegeEscalationProtection": true,
     "recentAuthenticationForSensitiveChanges": true,
     "auditRoleChanges": true
-  }
+  },
+  "permissionCount": 357
 };

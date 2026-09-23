@@ -1,0 +1,73 @@
+{
+  "$id": "api.software-service.reconciliation",
+  "operationId": "api.software-service.reconciliation",
+  "name": "Run Software Checkout Reconciliation",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-service",
+  "method": "POST",
+  "path": "/reconciliation",
+  "description": "Run Software Checkout Reconciliation",
+  "authentication": {
+    "mode": "internal-service",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": null,
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.auditReference",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "server-to-server",
+    "cors": "server-only"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.auditReference"
+  ],
+  "eventBindings": [],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": [
+    "Produces attention records; does not silently rewrite historical financial facts."
+  ]
+}

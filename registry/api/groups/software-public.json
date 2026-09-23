@@ -1,0 +1,24 @@
+{
+  "$id": "api.software-public",
+  "apiId": "api.software-public",
+  "name": "Software Public API",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "operations",
+  "description": "Public Software catalog and purchase initiation.",
+  "basePath": "/api/v1/software/public",
+  "defaultAuthMode": "anonymous",
+  "defaultCachePolicy": "public-short",
+  "defaultRateLimitClass": "public-read",
+  "defaultCorsPolicy": "site-origin",
+  "operationIds": [
+    "api.software-public.catalog",
+    "api.software-public.product",
+    "api.software-public.create-order"
+  ],
+  "moduleBindings": [
+    "software"
+  ],
+  "notes": []
+}

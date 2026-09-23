@@ -1,0 +1,43 @@
+{
+  "$id": "adminUi.profile.software.licenses",
+  "name": "Software Licenses",
+  "version": "1.3.0",
+  "status": "stable",
+  "domain": "admin-ui",
+  "profileType": "resource",
+  "resource": "software.licenses",
+  "moduleId": "software",
+  "description": "NEXT F CMS/Admin metadata for Software Licenses.",
+  "targetContracts": [
+    "software.license"
+  ],
+  "primaryTargetContract": "software.license",
+  "route": "/software/licenses",
+  "screenKind": "admin-editor",
+  "layoutTemplate": "admin-operations",
+  "permissions": [
+    "software.licenses.manage"
+  ],
+  "actions": [
+    {
+      "actionId": "manage",
+      "permissionId": "software.licenses.manage",
+      "riskLevel": "sensitive",
+      "requiresRecentAuthentication": true,
+      "requiresExplicitConfirmation": false
+    }
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "populated",
+    "authorization-denied",
+    "conflict",
+    "network-error",
+    "success"
+  ],
+  "notes": [
+    "UI visibility never authorizes the action; CMS API and Software API enforce the canonical permission.",
+    "Secret and raw license/download/payment payloads are redacted."
+  ]
+}

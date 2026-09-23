@@ -1,0 +1,40 @@
+{
+  "registryVersion": "1.3.0",
+  "categories": [
+    {
+      "id": "catalog",
+      "label": "Catalog",
+      "description": "Software products, editions, prices and bundle grants."
+    },
+    {
+      "id": "commerce",
+      "label": "Software Commerce",
+      "description": "Software customer, order-extension and subscription concepts that reference canonical Commerce financial truth."
+    },
+    {
+      "id": "licensing",
+      "label": "Licensing",
+      "description": "Licenses, activations and normalized site identity."
+    },
+    {
+      "id": "entitlements",
+      "label": "Entitlements",
+      "description": "Machine-readable capability grants and grandfathered access."
+    },
+    {
+      "id": "delivery",
+      "label": "Releases & Delivery",
+      "description": "Releases, artifacts, compatibility, update checks and short-lived download grants."
+    },
+    {
+      "id": "support",
+      "label": "Support",
+      "description": "Software support entitlement and customer support access."
+    },
+    {
+      "id": "audit",
+      "label": "Audit",
+      "description": "References to immutable operational audit evidence."
+    }
+  ]
+}

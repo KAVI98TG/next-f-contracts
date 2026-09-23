@@ -1,0 +1,124 @@
+{
+  "$id": "software.compatibilityRequirement",
+  "name": "Software Compatibility Requirement",
+  "version": "1.3.0",
+  "status": "stable",
+  "domain": "software",
+  "category": "delivery",
+  "description": "Structured runtime/version compatibility for a Software Release.",
+  "purpose": "Structured runtime/version compatibility for a Software Release.",
+  "softwareModel": {
+    "kind": "requirement",
+    "customerOwned": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "immutableSnapshot": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "requirementId",
+      "required": true,
+      "nullable": false,
+      "description": "Compatibility requirement ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "releaseId",
+      "required": true,
+      "nullable": false,
+      "description": "Software Release ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "runtime",
+      "required": true,
+      "nullable": false,
+      "description": "Runtime/component kind.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "wordpress",
+          "php",
+          "elementor",
+          "plugin",
+          "browser"
+        ]
+      }
+    },
+    {
+      "key": "component",
+      "required": true,
+      "nullable": false,
+      "description": "Component identifier.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "minimumVersion",
+      "required": false,
+      "nullable": true,
+      "description": "Minimum supported version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "maximumVersion",
+      "required": false,
+      "nullable": true,
+      "description": "Maximum supported version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "constraint",
+      "required": true,
+      "nullable": false,
+      "description": "Canonical version-range/constraint expression.",
+      "primitive": "fields.text"
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "authorityBoundary",
+      "description": "Mutation is accepted only by the declared trusted Software authority."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Contract examples and public projections never contain service credentials, signing keys or raw download tokens."
+    }
+  ],
+  "cms": {
+    "label": "Software Compatibility Requirement",
+    "icon": "fa-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "software-schema",
+    "defaultPlacement": "software",
+    "summaryFields": [
+      "requirementId",
+      "releaseId",
+      "runtime",
+      "component"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Software business truth is served through scoped Software APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-40",
+    "api": "phase-40",
+    "permissions": "phase-40",
+    "events": "phase-40",
+    "webhooks": "phase-40",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

@@ -1,9 +1,9 @@
 {
-  "registryVersion": "1.2.0",
+  "registryVersion": "1.3.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Browser Contract Validation",
   "description": "Local-only deterministic nextf.site.json validation data shared with future developer tooling.",
-  "currentContractVersion": "1.2.0",
+  "currentContractVersion": "1.3.0",
   "manifestSchema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://contract.nextf.lk/registry/manifests/nextf-site-manifest.schema.json",
@@ -150,7 +150,8 @@
               "commerce",
               "documentation",
               "custom",
-              "gaming"
+              "gaming",
+              "software"
             ]
           },
           "primaryUrl": {
@@ -2805,6 +2806,161 @@
       },
       "notes": [
         "Gaming Store is digital-only. Physical shipping and warehouse concepts are intentionally absent."
+      ]
+    },
+    {
+      "$id": "modules.software",
+      "moduleId": "software",
+      "name": "Software",
+      "version": "1.3.0",
+      "status": "stable",
+      "category": "software",
+      "icon": "fa-code",
+      "order": 460,
+      "description": "NEXT F Software catalog, commerce extension, subscriptions, licensing, entitlements, releases, downloads, updates, support and customer workspace contracts.",
+      "selection": {
+        "mandatory": false,
+        "defaultEnabled": false,
+        "explicitManifestSelection": true,
+        "customerCanEnable": false,
+        "nextfAdminCanEnable": true
+      },
+      "dependencies": [
+        {
+          "moduleId": "core",
+          "kind": "required",
+          "reason": "Software records require identity, audit and versioned scope."
+        },
+        {
+          "moduleId": "commerce",
+          "kind": "required",
+          "reason": "Software reuses canonical Commerce order, money, payment capture and refund primitives."
+        },
+        {
+          "moduleId": "integrations",
+          "kind": "required",
+          "reason": "Checkout/server bindings and notification/service boundaries use canonical integration practices."
+        },
+        {
+          "moduleId": "media",
+          "kind": "recommended",
+          "reason": "Public product images should use governed Media references."
+        }
+      ],
+      "conflicts": [],
+      "capabilityIds": [
+        "software.catalog",
+        "software.commerce",
+        "software.subscriptions",
+        "software.licensing",
+        "software.activations",
+        "software.entitlements",
+        "software.releases",
+        "software.downloads",
+        "software.updates",
+        "software.support",
+        "software.customer-workspace"
+      ],
+      "defaultCapabilityIds": [
+        "software.catalog",
+        "software.commerce",
+        "software.subscriptions",
+        "software.licensing",
+        "software.activations",
+        "software.entitlements",
+        "software.releases",
+        "software.downloads",
+        "software.updates",
+        "software.support",
+        "software.customer-workspace"
+      ],
+      "contractBindings": [
+        "software.product",
+        "software.edition",
+        "software.price",
+        "software.bundleComponent",
+        "software.customer",
+        "software.orderExtension",
+        "software.subscription",
+        "software.license",
+        "software.activation",
+        "software.entitlement",
+        "software.grandfatherGrant",
+        "software.release",
+        "software.releaseArtifact",
+        "software.compatibilityRequirement",
+        "software.downloadGrant",
+        "software.updateRequest",
+        "software.updateResponse",
+        "software.supportEntitlement",
+        "software.auditReference"
+      ],
+      "permissionBindings": [
+        "software.dashboard.view",
+        "software.catalog.view",
+        "software.catalog.manage",
+        "software.catalog.publish",
+        "software.releases.view",
+        "software.releases.manage",
+        "software.releases.publish",
+        "software.orders.view",
+        "software.orders.manage",
+        "software.refunds.request",
+        "software.refunds.approve",
+        "software.customers.view",
+        "software.licenses.view",
+        "software.licenses.manage",
+        "software.entitlements.manage",
+        "software.support.manage",
+        "software.settings.manage",
+        "software.audit.view"
+      ],
+      "eventBindings": [
+        "software.order-created",
+        "software.order-paid",
+        "software.order-refunded",
+        "software.subscription-activated",
+        "software.subscription-past-due",
+        "software.subscription-renewed",
+        "software.subscription-cancelled",
+        "software.license-issued",
+        "software.license-suspended",
+        "software.license-restored",
+        "software.license-expired",
+        "software.activation-created",
+        "software.activation-deactivated",
+        "software.entitlement-granted",
+        "software.entitlement-revoked",
+        "software.release-published",
+        "software.release-withdrawn",
+        "software.download-grant-issued",
+        "software.update-served"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "group": "Software",
+        "navigation": []
+      },
+      "admin": {
+        "visible": true,
+        "group": "Software",
+        "navigation": [
+          {
+            "label": "Software",
+            "path": "/software",
+            "icon": "fa-code",
+            "order": 120
+          }
+        ]
+      },
+      "manifest": {
+        "moduleId": "software",
+        "capabilitySelection": "module-scoped",
+        "dependencyValidation": "strict"
+      },
+      "notes": [
+        "Customer Workspace is owner-scoped self-service and is not modeled as Customer CMS authoring.",
+        "Automatic renewal is reserved and not an active V1.3.0 launch capability."
       ]
     }
   ],
@@ -6343,6 +6499,383 @@
       "manifest": {
         "allowed": true,
         "explicitSelectionRequired": true
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.software.activations",
+      "capabilityId": "software.activations",
+      "name": "Activations",
+      "version": "1.3.0",
+      "status": "stable",
+      "moduleId": "software",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Activations capability within the Software module.",
+      "contractBindings": [
+        "software.activation"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [
+        "software.licensing"
+      ],
+      "requiresModules": [
+        "core",
+        "commerce"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.software.catalog",
+      "capabilityId": "software.catalog",
+      "name": "Catalog",
+      "version": "1.3.0",
+      "status": "stable",
+      "moduleId": "software",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Catalog capability within the Software module.",
+      "contractBindings": [
+        "software.product",
+        "software.edition",
+        "software.price",
+        "software.bundleComponent"
+      ],
+      "permissionBindings": [
+        "software.catalog.view",
+        "software.catalog.manage",
+        "software.catalog.publish"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core",
+        "commerce"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.software.commerce",
+      "capabilityId": "software.commerce",
+      "name": "Commerce",
+      "version": "1.3.0",
+      "status": "stable",
+      "moduleId": "software",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Commerce capability within the Software module.",
+      "contractBindings": [
+        "software.customer",
+        "software.orderExtension"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core",
+        "commerce"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.software.customer-workspace",
+      "capabilityId": "software.customer-workspace",
+      "name": "Customer Workspace",
+      "version": "1.3.0",
+      "status": "stable",
+      "moduleId": "software",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Customer Workspace capability within the Software module.",
+      "contractBindings": [
+        "software.customer",
+        "software.orderExtension",
+        "software.subscription",
+        "software.license",
+        "software.activation",
+        "software.downloadGrant",
+        "software.supportEntitlement"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core",
+        "commerce"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.software.downloads",
+      "capabilityId": "software.downloads",
+      "name": "Downloads",
+      "version": "1.3.0",
+      "status": "stable",
+      "moduleId": "software",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Downloads capability within the Software module.",
+      "contractBindings": [
+        "software.downloadGrant"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [
+        "software.entitlements",
+        "software.releases"
+      ],
+      "requiresModules": [
+        "core",
+        "commerce"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.software.entitlements",
+      "capabilityId": "software.entitlements",
+      "name": "Entitlements",
+      "version": "1.3.0",
+      "status": "stable",
+      "moduleId": "software",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Entitlements capability within the Software module.",
+      "contractBindings": [
+        "software.entitlement",
+        "software.grandfatherGrant"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core",
+        "commerce"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.software.licensing",
+      "capabilityId": "software.licensing",
+      "name": "Licensing",
+      "version": "1.3.0",
+      "status": "stable",
+      "moduleId": "software",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Licensing capability within the Software module.",
+      "contractBindings": [
+        "software.license"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core",
+        "commerce"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.software.releases",
+      "capabilityId": "software.releases",
+      "name": "Releases",
+      "version": "1.3.0",
+      "status": "stable",
+      "moduleId": "software",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Releases capability within the Software module.",
+      "contractBindings": [
+        "software.release",
+        "software.releaseArtifact",
+        "software.compatibilityRequirement"
+      ],
+      "permissionBindings": [
+        "software.releases.view",
+        "software.releases.manage",
+        "software.releases.publish"
+      ],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core",
+        "commerce"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.software.subscriptions",
+      "capabilityId": "software.subscriptions",
+      "name": "Subscriptions",
+      "version": "1.3.0",
+      "status": "stable",
+      "moduleId": "software",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Subscriptions capability within the Software module.",
+      "contractBindings": [
+        "software.subscription"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core",
+        "commerce"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": [
+        "V1.3.0 annual renewals are customer-initiated."
+      ]
+    },
+    {
+      "$id": "modules.capability.software.support",
+      "capabilityId": "software.support",
+      "name": "Support",
+      "version": "1.3.0",
+      "status": "stable",
+      "moduleId": "software",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Support capability within the Software module.",
+      "contractBindings": [
+        "software.supportEntitlement"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [],
+      "requiresCapabilities": [],
+      "requiresModules": [
+        "core",
+        "commerce"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
+      },
+      "notes": []
+    },
+    {
+      "$id": "modules.capability.software.updates",
+      "capabilityId": "software.updates",
+      "name": "Updates",
+      "version": "1.3.0",
+      "status": "stable",
+      "moduleId": "software",
+      "mode": "default-on",
+      "selectable": true,
+      "defaultEnabled": true,
+      "description": "Updates capability within the Software module.",
+      "contractBindings": [
+        "software.updateRequest",
+        "software.updateResponse"
+      ],
+      "permissionBindings": [],
+      "eventBindings": [
+        "software.update-served"
+      ],
+      "requiresCapabilities": [
+        "software.licensing",
+        "software.entitlements",
+        "software.releases",
+        "software.downloads"
+      ],
+      "requiresModules": [
+        "core",
+        "commerce"
+      ],
+      "cms": {
+        "customerVisible": false,
+        "adminVisible": true
+      },
+      "manifest": {
+        "allowed": true,
+        "explicitSelectionRequired": false
       },
       "notes": []
     }
@@ -15287,6 +15820,22 @@
       "version": "1.0.0"
     },
     {
+      "apiId": "api.software-cms",
+      "version": "1.0.0"
+    },
+    {
+      "apiId": "api.software-customer",
+      "version": "1.0.0"
+    },
+    {
+      "apiId": "api.software-public",
+      "version": "1.0.0"
+    },
+    {
+      "apiId": "api.software-service",
+      "version": "1.0.0"
+    },
+    {
       "apiId": "api.webhooks",
       "version": "1.0.0"
     }
@@ -15423,6 +15972,25 @@
     "site.suspended",
     "site.updated",
     "sitemap.updated",
+    "software.activation-created",
+    "software.activation-deactivated",
+    "software.download-grant-issued",
+    "software.entitlement-granted",
+    "software.entitlement-revoked",
+    "software.license-expired",
+    "software.license-issued",
+    "software.license-restored",
+    "software.license-suspended",
+    "software.order-created",
+    "software.order-paid",
+    "software.order-refunded",
+    "software.release-published",
+    "software.release-withdrawn",
+    "software.subscription-activated",
+    "software.subscription-cancelled",
+    "software.subscription-past-due",
+    "software.subscription-renewed",
+    "software.update-served",
     "variant.created",
     "variant.updated",
     "webhook.delivery-dead-lettered",
@@ -15508,19 +16076,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2412 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 10,
+        "review-required": 3,
         "deprecation": 0,
-        "non-breaking": 2287,
+        "non-breaking": 2401,
         "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-2-V0.3.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.3.0&to=1.3.0"
     },
     {
       "version": "0.4.0",
@@ -15531,19 +16099,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2377 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 15,
+        "review-required": 7,
         "deprecation": 0,
-        "non-breaking": 2248,
-        "documentation": 34,
+        "non-breaking": 2362,
+        "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-3-V0.4.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.4.0&to=1.3.0"
     },
     {
       "version": "0.5.0",
@@ -15554,19 +16122,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2358 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 17,
+        "review-required": 8,
         "deprecation": 0,
-        "non-breaking": 2228,
-        "documentation": 52,
+        "non-breaking": 2342,
+        "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-4-V0.5.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.5.0&to=1.3.0"
     },
     {
       "version": "0.6.0",
@@ -15577,19 +16145,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2356 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 37,
+        "review-required": 27,
         "deprecation": 0,
-        "non-breaking": 2207,
-        "documentation": 53,
+        "non-breaking": 2321,
+        "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-5-V0.6.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.6.0&to=1.3.0"
     },
     {
       "version": "0.7.0",
@@ -15600,19 +16168,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2323 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 36,
+        "review-required": 25,
         "deprecation": 0,
-        "non-breaking": 2176,
-        "documentation": 85,
+        "non-breaking": 2290,
+        "documentation": 0,
         "metadata": 8,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-6-V0.7.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.7.0&to=1.3.0"
     },
     {
       "version": "0.8.0",
@@ -15623,19 +16191,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2301 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 42,
+        "review-required": 30,
         "deprecation": 0,
-        "non-breaking": 2153,
-        "documentation": 106,
+        "non-breaking": 2267,
+        "documentation": 0,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-7-V0.8.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.8.0&to=1.3.0"
     },
     {
       "version": "0.9.0",
@@ -15646,19 +16214,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2267 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 46,
+        "review-required": 33,
         "deprecation": 0,
-        "non-breaking": 2117,
-        "documentation": 138,
-        "metadata": 4,
+        "non-breaking": 2231,
+        "documentation": 0,
+        "metadata": 3,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-8-V0.9.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.9.0&to=1.3.0"
     },
     {
       "version": "0.10.0",
@@ -15669,19 +16237,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2230 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 55,
+        "review-required": 41,
         "deprecation": 0,
-        "non-breaking": 2072,
-        "documentation": 174,
-        "metadata": 4,
+        "non-breaking": 2186,
+        "documentation": 0,
+        "metadata": 3,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-9-V0.10.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.10.0&to=1.3.0"
     },
     {
       "version": "0.11.0",
@@ -15692,19 +16260,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2182 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 56,
+        "review-required": 41,
         "deprecation": 0,
-        "non-breaking": 2023,
-        "documentation": 222,
+        "non-breaking": 2137,
+        "documentation": 0,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-10-V0.11.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.11.0&to=1.3.0"
     },
     {
       "version": "0.12.0",
@@ -15715,19 +16283,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2123 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 71,
+        "review-required": 55,
         "deprecation": 0,
-        "non-breaking": 1950,
-        "documentation": 280,
+        "non-breaking": 2064,
+        "documentation": 0,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-11-V0.12.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.12.0&to=1.3.0"
     },
     {
       "version": "0.13.0",
@@ -15752,19 +16320,19 @@
       "productionEligible": false,
       "compatibilityStatus": "review-required",
       "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "1849 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 0,
         "potentially-breaking": 0,
-        "review-required": 76,
+        "review-required": 58,
         "deprecation": 0,
-        "non-breaking": 1673,
-        "documentation": 552,
+        "non-breaking": 1787,
+        "documentation": 0,
         "metadata": 4,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-13-V0.14.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.14.0&to=1.3.0"
     },
     {
       "version": "0.15.0",
@@ -15789,19 +16357,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "1380 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 0,
-        "review-required": 26,
+        "review-required": 7,
         "deprecation": 0,
-        "non-breaking": 1252,
-        "documentation": 1021,
-        "metadata": 4,
+        "non-breaking": 1366,
+        "documentation": 0,
+        "metadata": 5,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-15-V0.16.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.16.0&to=1.3.0"
     },
     {
       "version": "0.17.0",
@@ -15812,19 +16380,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "1380 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 3,
-        "review-required": 29,
+        "review-required": 9,
         "deprecation": 0,
-        "non-breaking": 1229,
-        "documentation": 1038,
-        "metadata": 4,
+        "non-breaking": 1343,
+        "documentation": 0,
+        "metadata": 23,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-16-V0.17.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.17.0&to=1.3.0"
     },
     {
       "version": "0.18.0",
@@ -15835,19 +16403,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2399 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "1469 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 98,
         "potentially-breaking": 7,
-        "review-required": 31,
+        "review-required": 11,
         "deprecation": 0,
-        "non-breaking": 1214,
-        "documentation": 1045,
-        "metadata": 4,
+        "non-breaking": 1328,
+        "documentation": 0,
+        "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-17-V0.18.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.18.0&to=1.3.0"
     },
     {
       "version": "0.19.0",
@@ -15872,19 +16440,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2305 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "1020 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 112,
+        "review-required": 89,
         "deprecation": 0,
-        "non-breaking": 789,
-        "documentation": 1397,
-        "metadata": 4,
+        "non-breaking": 903,
+        "documentation": 0,
+        "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-19-V0.20.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.20.0&to=1.3.0"
     },
     {
       "version": "0.21.0",
@@ -15895,19 +16463,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "931 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 187,
+        "review-required": 163,
         "deprecation": 0,
-        "non-breaking": 626,
-        "documentation": 1469,
-        "metadata": 4,
+        "non-breaking": 740,
+        "documentation": 0,
+        "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-20-V0.21.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.21.0&to=1.3.0"
     },
     {
       "version": "0.22.0",
@@ -15918,19 +16486,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "858 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 188,
+        "review-required": 163,
         "deprecation": 0,
-        "non-breaking": 553,
-        "documentation": 1541,
-        "metadata": 4,
+        "non-breaking": 667,
+        "documentation": 0,
+        "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-21-V0.22.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.22.0&to=1.3.0"
     },
     {
       "version": "0.23.0",
@@ -15941,19 +16509,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "849 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 189,
+        "review-required": 163,
         "deprecation": 0,
-        "non-breaking": 544,
-        "documentation": 1549,
-        "metadata": 4,
+        "non-breaking": 658,
+        "documentation": 0,
+        "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-22-V0.23.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.3.0"
     },
     {
       "version": "0.24.0",
@@ -15964,19 +16532,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "849 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 189,
+        "review-required": 163,
         "deprecation": 0,
-        "non-breaking": 544,
-        "documentation": 1549,
-        "metadata": 4,
+        "non-breaking": 658,
+        "documentation": 0,
+        "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-23-V0.24.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.24.0&to=1.3.0"
     },
     {
       "version": "0.25.0",
@@ -15987,19 +16555,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "848 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 189,
+        "review-required": 162,
         "deprecation": 0,
-        "non-breaking": 544,
-        "documentation": 1549,
-        "metadata": 4,
+        "non-breaking": 658,
+        "documentation": 0,
+        "metadata": 25,
         "none": 0
       },
       "sourceReference": "NEXT-F-CONTRACTS-PHASE-24-V0.25.0.zip",
-      "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.25.0&to=1.3.0"
     },
     {
       "version": "0.26.0",
@@ -16010,19 +16578,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "848 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 189,
+        "review-required": 162,
         "deprecation": 0,
-        "non-breaking": 544,
-        "documentation": 1549,
-        "metadata": 4,
+        "non-breaking": 658,
+        "documentation": 0,
+        "metadata": 25,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.26.0&to=1.3.0"
     },
     {
       "version": "0.27.0",
@@ -16033,19 +16601,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2289 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "848 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 189,
+        "review-required": 162,
         "deprecation": 0,
-        "non-breaking": 544,
-        "documentation": 1549,
-        "metadata": 4,
+        "non-breaking": 658,
+        "documentation": 0,
+        "metadata": 25,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.27.0&to=1.3.0"
     },
     {
       "version": "0.28.0",
@@ -16056,19 +16624,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2261 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "820 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 197,
+        "review-required": 169,
         "deprecation": 0,
-        "non-breaking": 494,
-        "documentation": 1552,
-        "metadata": 15,
+        "non-breaking": 608,
+        "documentation": 0,
+        "metadata": 40,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.28.0&to=1.3.0"
     },
     {
       "version": "0.29.0",
@@ -16079,19 +16647,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2260 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "819 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 202,
+        "review-required": 173,
         "deprecation": 0,
-        "non-breaking": 481,
-        "documentation": 1554,
-        "metadata": 20,
+        "non-breaking": 595,
+        "documentation": 0,
+        "metadata": 48,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.29.0&to=1.3.0"
     },
     {
       "version": "0.30.0",
@@ -16102,19 +16670,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2259 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "817 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 210,
+        "review-required": 179,
         "deprecation": 0,
-        "non-breaking": 418,
-        "documentation": 1604,
-        "metadata": 24,
+        "non-breaking": 532,
+        "documentation": 0,
+        "metadata": 103,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.30.0&to=1.3.0"
     },
     {
       "version": "0.31.0",
@@ -16125,19 +16693,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2258 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "816 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 285,
+        "review-required": 253,
         "deprecation": 0,
-        "non-breaking": 335,
-        "documentation": 1605,
-        "metadata": 30,
+        "non-breaking": 449,
+        "documentation": 0,
+        "metadata": 111,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.31.0&to=1.3.0"
     },
     {
       "version": "0.32.0",
@@ -16148,19 +16716,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2257 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "815 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 293,
+        "review-required": 260,
         "deprecation": 0,
-        "non-breaking": 276,
-        "documentation": 1606,
-        "metadata": 79,
+        "non-breaking": 390,
+        "documentation": 0,
+        "metadata": 162,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.32.0&to=1.3.0"
     },
     {
       "version": "0.33.0",
@@ -16171,19 +16739,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2256 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "814 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 1,
-        "review-required": 302,
+        "review-required": 268,
         "deprecation": 0,
-        "non-breaking": 208,
-        "documentation": 1608,
-        "metadata": 135,
+        "non-breaking": 322,
+        "documentation": 0,
+        "metadata": 221,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.33.0&to=1.3.0"
     },
     {
       "version": "0.34.0",
@@ -16194,19 +16762,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2255 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "813 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 2,
-        "review-required": 303,
+        "review-required": 268,
         "deprecation": 0,
-        "non-breaking": 202,
-        "documentation": 1611,
-        "metadata": 135,
+        "non-breaking": 316,
+        "documentation": 0,
+        "metadata": 225,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.34.0&to=1.3.0"
     },
     {
       "version": "0.35.0",
@@ -16217,19 +16785,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2254 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "812 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 2,
-        "review-required": 305,
+        "review-required": 269,
         "deprecation": 0,
-        "non-breaking": 196,
-        "documentation": 1614,
-        "metadata": 135,
+        "non-breaking": 310,
+        "documentation": 0,
+        "metadata": 229,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.35.0&to=1.3.0"
     },
     {
       "version": "0.36.0",
@@ -16240,19 +16808,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2253 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "811 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 2,
-        "review-required": 307,
+        "review-required": 270,
         "deprecation": 0,
-        "non-breaking": 186,
-        "documentation": 1615,
-        "metadata": 141,
+        "non-breaking": 300,
+        "documentation": 0,
+        "metadata": 237,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.36.0&to=1.3.0"
     },
     {
       "version": "0.37.0",
@@ -16263,19 +16831,19 @@
       "productionEligible": false,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2252 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "810 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 2,
-        "review-required": 309,
+        "review-required": 271,
         "deprecation": 0,
-        "non-breaking": 180,
-        "documentation": 1615,
-        "metadata": 144,
+        "non-breaking": 294,
+        "documentation": 0,
+        "metadata": 241,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.37.0&to=1.3.0"
     },
     {
       "version": "1.0.0",
@@ -16286,19 +16854,19 @@
       "productionEligible": true,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "2251 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "803 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 2,
-        "review-required": 310,
+        "review-required": 270,
         "deprecation": 0,
-        "non-breaking": 174,
-        "documentation": 1619,
-        "metadata": 144,
+        "non-breaking": 288,
+        "documentation": 0,
+        "metadata": 241,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=1.0.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=1.0.0&to=1.3.0"
     },
     {
       "version": "1.1.0",
@@ -16309,22 +16877,45 @@
       "productionEligible": true,
       "compatibilityStatus": "migration-required",
       "summary": "Breaking contract evidence requires migration before target adoption.",
-      "changeSummary": "405 consumer-relevant changed/added/removed definitions",
+      "changeSummary": "2109 consumer-relevant changed/added/removed definitions",
       "impactCounts": {
         "breaking": 2,
         "potentially-breaking": 2,
-        "review-required": 120,
+        "review-required": 160,
         "deprecation": 0,
-        "non-breaking": 72,
-        "documentation": 0,
-        "metadata": 209,
+        "non-breaking": 186,
+        "documentation": 1621,
+        "metadata": 138,
         "none": 0
       },
       "sourceReference": "registry/registry.json",
-      "diffRoute": "#/lifecycle/diff?from=1.1.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=1.1.0&to=1.3.0"
     },
     {
       "version": "1.2.0",
+      "phase": 32,
+      "exactSnapshotAvailable": true,
+      "availability": "exact",
+      "supportLevel": "production-supported",
+      "productionEligible": true,
+      "compatibilityStatus": "review-required",
+      "summary": "Exact history is available, but one or more consumer-relevant changes require review before upgrade.",
+      "changeSummary": "2032 consumer-relevant changed/added/removed definitions",
+      "impactCounts": {
+        "breaking": 0,
+        "potentially-breaking": 2,
+        "review-required": 155,
+        "deprecation": 0,
+        "non-breaking": 114,
+        "documentation": 1623,
+        "metadata": 138,
+        "none": 0
+      },
+      "sourceReference": "registry/registry.json",
+      "diffRoute": "#/lifecycle/diff?from=1.2.0&to=1.3.0"
+    },
+    {
+      "version": "1.3.0",
       "phase": 32,
       "exactSnapshotAvailable": true,
       "availability": "exact",
@@ -17819,15 +18410,15 @@
     "deprecations": "registry/deprecations/index.json"
   },
   "sourceHashes": {
-    "standards/41-browser-contract-validation-standard.md": "115a888aa49d660e7279ec04b0d6ea9349fa3a2dae85bba3e9c6a3ac99037377",
-    "registry/manifests/nextf-site-manifest.schema.json": "af451747b5bb5d9d8c4e9077f0d16898ecd1ae95eb522a0c6fa970e6173fe33a",
-    "registry/modules/index.json": "710c5fbad7ed08af5c4f727985291ecbadaba1a623a8d184c5a627ef873f30b9",
+    "standards/41-browser-contract-validation-standard.md": "f710c83512a9f7b305e507d8482a2456b92fd12e9380a78b82d87d673af5c611",
+    "registry/manifests/nextf-site-manifest.schema.json": "d0d3b316d8a4586f15e0cd6957ac89ab33f043a910df0deb7feff68486f7640a",
+    "registry/modules/index.json": "f1d6608deb6d153c44f37969459f6a6346af7e0e499ccdd2b6bea520cc013005",
     "registry/customer-access/index.json": "fde3ee868ef1fdd9033d9eed056d82d42879b32bbbfa4753b197e8ed944caa4b",
-    "registry/api/index.json": "769b21a2d2b350f99efe559e72badeb96efbbc837a148f20f6266bf9fbd9ff49",
-    "registry/events/index.json": "67a2e1f682bf80da1831703905566a6ff9b435b484fedb9db50670223c4318b0",
-    "registry/marketing/index.json": "7b0003565e80e631c0331660fd1ceea51113a3503f85b17b53c58ad34c58e2d3",
+    "registry/api/index.json": "1933af7ae54b0008297222ba3b30d7ccd39860bd5af3d2774ce41eab454eb090",
+    "registry/events/index.json": "df87650b4c1e219d446ef8bf2ae135ae79b41221af5e028cfd45685014b94833",
+    "registry/marketing/index.json": "27f88077b8255c2b76176f281d4a7056cc4b8167d6fcc038b286827c4d7e6e0a",
     "registry/integrations/index.json": "43408b6857fc68e69fc88aa2358ecdcdd1213e1c1b6d6baef28c4130a1d9f4e4",
-    "registry/compatibility/release-compatibility.json": "014a7a60ca17c274ad36ec6348d30d54c75e035b930afb646418b8b6b946dbde",
-    "registry/deprecations/index.json": "3ab2495261394e1706796b4589e75a332306c7b388ce16b0dd11c5ba56c670ee"
+    "registry/compatibility/release-compatibility.json": "5a61724fe025bdbce0d5b8a584376ac19ccc7edd17ea384b9e263fdacb2be11a",
+    "registry/deprecations/index.json": "08258263b00089ab4377e1adf47e4824b8063b46c496e5fafcbdec5134c96fc4"
   }
 }

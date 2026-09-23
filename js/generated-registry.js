@@ -1,8 +1,9 @@
-// Generated from registry/registry.json
-// SHA-256: 3ab2de9a05cfe06b3f43487c0c538e84a1418c9783d93a206357f0703b49fdc7
-export const GENERATED_REGISTRY_SOURCE_SHA256 = "3ab2de9a05cfe06b3f43487c0c538e84a1418c9783d93a206357f0703b49fdc7";
+// GENERATED FILE - DO NOT EDIT DIRECTLY.
+// Source: registry/registry.json
+// SHA-256: 7de027a8f40e138ae3767de2e8948d6968e21836a20f89a31f266113339717b6
+export const GENERATED_REGISTRY_SOURCE_SHA256 = "7de027a8f40e138ae3767de2e8948d6968e21836a20f89a31f266113339717b6";
 export const GENERATED_REGISTRY = {
-  "registryVersion": "1.2.0",
+  "registryVersion": "1.3.0",
   "schemaVersion": "1.0.0",
   "title": "NEXT F Contract Registry",
   "description": "Authoritative registry index for definitions currently implemented by NEXT F Contracts.",
@@ -12,7 +13,7 @@ export const GENERATED_REGISTRY = {
       "name": "Accessibility Control",
       "domain": "accessibility",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Machine-readable accessibility requirement with applicability, affected UI types, verification and cross-registry bindings.",
       "source": "registry/accessibility/definitions/accessibilityControl.json",
@@ -39,7 +40,7 @@ export const GENERATED_REGISTRY = {
       "name": "Accessibility Categories",
       "domain": "accessibility",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled accessibility category vocabulary.",
       "source": "registry/accessibility/categories.json",
@@ -65,7 +66,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-ADMIN-001 — NEXT F Admin accessibility",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "NEXT F Admin tables, context selectors, diagnostics, dialogs and privileged actions must satisfy applicable accessibility controls and must not communicate risk/status by color alone.",
       "source": "registry/accessibility/controls/acc_admin_001.json",
@@ -104,7 +105,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-ARIA-001 — Use ARIA with restraint",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "ARIA must supplement native semantics only when necessary and must not contradict native roles, states or properties.",
       "source": "registry/accessibility/controls/acc_aria_001.json",
@@ -133,7 +134,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-AUTH-001 — Accessible authentication flows",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Sign-in, verification, recovery and recent-authentication flows must expose labels, instructions, errors, status and keyboard operation without inaccessible challenge assumptions.",
       "source": "registry/accessibility/controls/acc_auth_001.json",
@@ -162,7 +163,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-AUTHOR-001 — Author accessibility metadata",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Schema/UI metadata should expose accessibility-relevant authoring requirements such as alt text, accessible labels, help/error association, caption/transcript references and heading constraints where applicable.",
       "source": "registry/accessibility/controls/acc_author_001.json",
@@ -246,7 +247,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-CHART-001 — Provide data alternatives for charts",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Charts and visual data representations must provide an accessible textual/table alternative or equivalent programmatic data representation.",
       "source": "registry/accessibility/controls/acc_chart_001.json",
@@ -275,7 +276,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-CHECKOUT-001 — Accessible checkout flow",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Checkout must preserve labels, validation, error recovery, keyboard operation, progress/status context and review/confirmation access without pointer-only interaction.",
       "source": "registry/accessibility/controls/acc_checkout_001.json",
@@ -314,7 +315,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-CMS-001 — Customer CMS accessibility",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Customer CMS resource lists, editors, actions, dialogs and validation must satisfy the applicable accessibility controls and preserve keyboard alternatives for authoring workflows.",
       "source": "registry/accessibility/controls/acc_cms_001.json",
@@ -363,7 +364,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-CODE-001 — Accessible code and raw-data views",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Code/raw-data viewers must preserve selectable text, readable overflow behavior and keyboard-accessible copy actions without requiring syntax color to understand content.",
       "source": "registry/accessibility/controls/acc_code_001.json",
@@ -392,7 +393,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-COLOR-001 — Do not rely on color alone",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Status, validation, risk and selection states must communicate meaning with text, iconography, shape or semantics in addition to color.",
       "source": "registry/accessibility/controls/acc_color_001.json",
@@ -421,7 +422,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-CONTRAST-001 — Meet contrast requirements",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Text, interactive states and essential non-text UI indicators must provide sufficient contrast against adjacent backgrounds.",
       "source": "registry/accessibility/controls/acc_contrast_001.json",
@@ -450,7 +451,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-COPY-001 — Accessible copy actions",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Copy actions must be semantic buttons with an accessible name and must expose success/failure feedback without relying only on visual change.",
       "source": "registry/accessibility/controls/acc_copy_001.json",
@@ -479,7 +480,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-DLG-001 — Accessible dialogs",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Dialogs must expose dialog semantics, an accessible name, keyboard containment while modal, predictable close behavior and focus restoration.",
       "source": "registry/accessibility/controls/acc_dlg_001.json",
@@ -508,7 +509,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-DRAG-001 — Provide alternatives to drag and drop",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Any drag-and-drop operation must have a keyboard-accessible non-drag alternative that performs the same action.",
       "source": "registry/accessibility/controls/acc_drag_001.json",
@@ -537,7 +538,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-DRAWER-001 — Accessible drawers",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Navigation and action drawers must expose their state, support keyboard closing, and manage focus without trapping users behind the drawer.",
       "source": "registry/accessibility/controls/acc_drawer_001.json",
@@ -566,7 +567,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-FILTER-001 — Accessible filters",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Search and filter controls must have labels, keyboard operation, deterministic state, clear/reset behavior and a discoverable result count.",
       "source": "registry/accessibility/controls/acc_filter_001.json",
@@ -600,7 +601,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-FOCUS-001 — Visible keyboard focus",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Keyboard focus must always have a clearly visible indicator on interactive controls.",
       "source": "registry/accessibility/controls/acc_focus_001.json",
@@ -629,7 +630,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-FOCUS-002 — Manage focus across UI transitions",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Dialogs, drawers and route-level transitions must move, contain, restore or announce focus intentionally according to the interaction pattern.",
       "source": "registry/accessibility/controls/acc_focus_002.json",
@@ -658,7 +659,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-FORM-001 — Associate labels with inputs",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Every user-editable form control must have an explicitly associated visible or programmatic label.",
       "source": "registry/accessibility/controls/acc_form_001.json",
@@ -732,7 +733,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-FORM-002 — Associate descriptions and help",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Help text, constraints and descriptions must be programmatically associated with the field when they affect successful input.",
       "source": "registry/accessibility/controls/acc_form_002.json",
@@ -771,7 +772,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-FORM-003 — Associate validation errors",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Validation errors must identify the affected field programmatically and provide actionable text.",
       "source": "registry/accessibility/controls/acc_form_003.json",
@@ -805,7 +806,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-FORM-004 — Communicate required input",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Required state and input requirements must be conveyed in text or semantics, not only by visual styling.",
       "source": "registry/accessibility/controls/acc_form_004.json",
@@ -839,7 +840,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-HEAD-001 — Logical heading structure",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Pages and authored content must use a logical heading hierarchy without using heading level only for visual styling.",
       "source": "registry/accessibility/controls/acc_head_001.json",
@@ -893,7 +894,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-HEADING-002 — Constrain authored heading levels",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Structured content blocks that expose headings must support a valid content outline and must not use heading levels only for typography.",
       "source": "registry/accessibility/controls/acc_heading_002.json",
@@ -942,7 +943,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-ICON-001 — Handle icon semantics correctly",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Decorative icons must be hidden from assistive technology; meaningful icon-only controls must receive an accessible name.",
       "source": "registry/accessibility/controls/acc_icon_001.json",
@@ -971,7 +972,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-IMG-001 — Alternative text for meaningful images",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Meaningful images must have appropriate alternative text; decorative images must be intentionally hidden from assistive technology.",
       "source": "registry/accessibility/controls/acc_img_001.json",
@@ -1030,7 +1031,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-KBD-001 — Full keyboard operation",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "All functionality must be operable from a keyboard without requiring pointer-specific interaction.",
       "source": "registry/accessibility/controls/acc_kbd_001.json",
@@ -1059,7 +1060,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-LAND-001 — Expose page landmarks",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Primary page regions such as navigation and main content must use semantic landmarks or equivalent labeled regions.",
       "source": "registry/accessibility/controls/acc_land_001.json",
@@ -1088,7 +1089,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-LIVE-001 — Use live regions deliberately",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Live regions must use an appropriate politeness level, avoid noisy repeated announcements and contain concise status text.",
       "source": "registry/accessibility/controls/acc_live_001.json",
@@ -1117,7 +1118,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-LOAD-001 — Accessible loading and error states",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Loading, empty and error states must provide text that identifies the state and the next available action where applicable.",
       "source": "registry/accessibility/controls/acc_load_001.json",
@@ -1146,7 +1147,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-MEDIA-001 — Captions for synchronized media",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Prerecorded video with meaningful spoken content must support captions when the content requires them.",
       "source": "registry/accessibility/controls/acc_media_001.json",
@@ -1185,7 +1186,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-MEDIA-002 — Transcripts where applicable",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Audio-first or information-dense media must provide a text transcript or equivalent alternative where applicable.",
       "source": "registry/accessibility/controls/acc_media_002.json",
@@ -1224,7 +1225,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-MENU-001 — Accessible menus",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Menus and menu-like controls must use an interaction model consistent with their semantic role and provide keyboard equivalents for every action.",
       "source": "registry/accessibility/controls/acc_menu_001.json",
@@ -1253,7 +1254,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-MOBILE-001 — Preserve accessibility on responsive layouts",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Responsive transformations must preserve reading order, control names, keyboard access, focus visibility and complete functionality on narrow viewports.",
       "source": "registry/accessibility/controls/acc_mobile_001.json",
@@ -1282,7 +1283,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-MOTION-001 — Respect reduced motion",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Non-essential animation and transitions must respect the user reduced-motion preference and must not be required to understand content.",
       "source": "registry/accessibility/controls/acc_motion_001.json",
@@ -1311,7 +1312,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-NAME-001 — Accessible names for controls",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Every interactive control must expose a stable accessible name that communicates its purpose.",
       "source": "registry/accessibility/controls/acc_name_001.json",
@@ -1350,7 +1351,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-NAV-001 — Accessible navigation state",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Navigation must expose meaningful link text, current-route state and an operable small-screen alternative without hiding functionality from keyboard users.",
       "source": "registry/accessibility/controls/acc_nav_001.json",
@@ -1379,7 +1380,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-PALETTE-001 — Accessible command palette",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Command palettes must support keyboard opening, result navigation, Escape closing, focus containment/restoration and announced result state.",
       "source": "registry/accessibility/controls/acc_palette_001.json",
@@ -1408,7 +1409,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-REFLOW-001 — Support zoom and reflow",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Content and primary workflows must remain usable under browser zoom and narrow reflow without requiring two-dimensional scrolling except where intrinsically necessary.",
       "source": "registry/accessibility/controls/acc_reflow_001.json",
@@ -1437,7 +1438,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-RTE-001 — Accessible rich-text editing",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Rich-text editors must expose toolbar controls, editing context and formatting actions to keyboard and assistive technology, with a non-pointer path for all supported operations.",
       "source": "registry/accessibility/controls/acc_rte_001.json",
@@ -1476,7 +1477,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-SEM-001 — Use semantic HTML",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Use native semantic HTML elements for structure and controls before adding ARIA or custom interaction roles.",
       "source": "registry/accessibility/controls/acc_sem_001.json",
@@ -1510,7 +1511,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-SKIP-001 — Provide skip navigation",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Repeated navigation must provide a keyboard-accessible mechanism to move directly to main content.",
       "source": "registry/accessibility/controls/acc_skip_001.json",
@@ -1539,7 +1540,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-STATUS-001 — Announce important status changes",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Important asynchronous status changes must be exposed to assistive technology without unexpectedly moving focus.",
       "source": "registry/accessibility/controls/acc_status_001.json",
@@ -1568,7 +1569,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-TABLE-001 — Accessible data tables",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Data tables must identify headers and relationships programmatically; responsive transformations must preserve data context.",
       "source": "registry/accessibility/controls/acc_table_001.json",
@@ -1597,7 +1598,7 @@ export const GENERATED_REGISTRY = {
       "name": "ACC-TOUCH-001 — Provide usable touch targets",
       "domain": "accessibility",
       "type": "accessibility-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Frequently used interactive targets must be large and separated enough for reliable touch operation.",
       "source": "registry/accessibility/controls/acc_touch_001.json",
@@ -1626,7 +1627,7 @@ export const GENERATED_REGISTRY = {
       "name": "Accessibility Control JSON Schema",
       "domain": "accessibility",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "JSON Schema for machine-readable accessibility controls.",
       "source": "registry/accessibility/accessibility-control.schema.json",
@@ -1652,7 +1653,7 @@ export const GENERATED_REGISTRY = {
       "name": "Accessibility Control Registry",
       "domain": "accessibility",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Generated index of canonical accessibility controls.",
       "source": "registry/accessibility/index.json",
@@ -1678,7 +1679,7 @@ export const GENERATED_REGISTRY = {
       "name": "Contract Portal Accessibility Audit",
       "domain": "accessibility",
       "type": "accessibility-audit",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Generated Phase 31 audit evidence for contract.nextf.lk.",
       "source": "registry/accessibility/portal-audit.json",
@@ -1704,7 +1705,7 @@ export const GENERATED_REGISTRY = {
       "name": "Portal Accessibility Audit Check",
       "domain": "accessibility",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Auditable baseline requirement and evidence for contract.nextf.lk accessibility review.",
       "source": "registry/accessibility/definitions/portalAuditCheck.json",
@@ -1731,7 +1732,7 @@ export const GENERATED_REGISTRY = {
       "name": "Contract Portal Accessibility Checklist",
       "domain": "accessibility",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Defined Phase 31 baseline checks for contract.nextf.lk.",
       "source": "registry/accessibility/portal-checklist.json",
@@ -1757,7 +1758,7 @@ export const GENERATED_REGISTRY = {
       "name": "Accessibility Standard",
       "domain": "accessibility",
       "type": "standard",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Complete Phase 31 accessibility requirements and verification standard.",
       "source": "standards/39-accessibility-standard.md",
@@ -1777,7 +1778,7 @@ export const GENERATED_REGISTRY = {
       "name": "Accessibility Surface Mapping",
       "domain": "accessibility",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Control applicability across NEXT F platform surfaces.",
       "source": "registry/accessibility/surface-mapping.json",
@@ -1803,7 +1804,7 @@ export const GENERATED_REGISTRY = {
       "name": "Accessibility Surface Mapping",
       "domain": "accessibility",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Accessibility-control applicability across NEXT F platform surfaces.",
       "source": "registry/accessibility/definitions/surfaceMapping.json",
@@ -1830,7 +1831,7 @@ export const GENERATED_REGISTRY = {
       "name": "Accessibility UI Type",
       "domain": "accessibility",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled UI/component type used to scope accessibility controls.",
       "source": "registry/accessibility/definitions/uiType.json",
@@ -1857,7 +1858,7 @@ export const GENERATED_REGISTRY = {
       "name": "Accessibility UI Types",
       "domain": "accessibility",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled UI/component applicability vocabulary.",
       "source": "registry/accessibility/ui-types.json",
@@ -1883,7 +1884,7 @@ export const GENERATED_REGISTRY = {
       "name": "Accessibility Verification Method",
       "domain": "accessibility",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled method for automated or manual accessibility verification.",
       "source": "registry/accessibility/definitions/verificationMethod.json",
@@ -1910,7 +1911,7 @@ export const GENERATED_REGISTRY = {
       "name": "Accessibility Verification Methods",
       "domain": "accessibility",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled automated and manual accessibility verification methods.",
       "source": "registry/accessibility/verification-methods.json",
@@ -6719,6 +6720,314 @@ export const GENERATED_REGISTRY = {
       ],
       "events": [],
       "managedBy": "admin-ui-sync"
+    },
+    {
+      "id": "adminUi.profile.software.audit",
+      "name": "Software Audit",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "NEXT F CMS/Admin metadata for Software Audit.",
+      "source": "registry/admin-ui/profiles/software-audit-admin.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "admin-ui",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.auditReference",
+          "description": "Admin profile targets this Software contract."
+        }
+      ],
+      "permissions": [
+        "software.audit.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "adminUi.profile.software.catalog",
+      "name": "Software Catalog",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "NEXT F CMS/Admin metadata for Software Catalog.",
+      "source": "registry/admin-ui/profiles/software-catalog-admin.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "admin-ui",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.product",
+          "description": "Admin profile targets this Software contract."
+        }
+      ],
+      "permissions": [
+        "software.catalog.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "adminUi.profile.software.customers",
+      "name": "Software Customers",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "NEXT F CMS/Admin metadata for Software Customers.",
+      "source": "registry/admin-ui/profiles/software-customers-admin.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "admin-ui",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.customer",
+          "description": "Admin profile targets this Software contract."
+        }
+      ],
+      "permissions": [
+        "software.customers.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "adminUi.profile.software.delivery",
+      "name": "Software Delivery",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "NEXT F CMS/Admin metadata for Software Delivery.",
+      "source": "registry/admin-ui/profiles/software-delivery-admin.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "admin-ui",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.downloadGrant",
+          "description": "Admin profile targets this Software contract."
+        }
+      ],
+      "permissions": [
+        "software.releases.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "adminUi.profile.software.entitlements",
+      "name": "Software Entitlements",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "NEXT F CMS/Admin metadata for Software Entitlements.",
+      "source": "registry/admin-ui/profiles/software-entitlements-admin.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "admin-ui",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.entitlement",
+          "description": "Admin profile targets this Software contract."
+        }
+      ],
+      "permissions": [
+        "software.entitlements.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "adminUi.profile.software.licenses",
+      "name": "Software Licenses",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "NEXT F CMS/Admin metadata for Software Licenses.",
+      "source": "registry/admin-ui/profiles/software-licenses-admin.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "admin-ui",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.license",
+          "description": "Admin profile targets this Software contract."
+        }
+      ],
+      "permissions": [
+        "software.licenses.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "adminUi.profile.software.orders",
+      "name": "Software Orders",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "NEXT F CMS/Admin metadata for Software Orders.",
+      "source": "registry/admin-ui/profiles/software-orders-admin.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "admin-ui",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.orderExtension",
+          "description": "Admin profile targets this Software contract."
+        }
+      ],
+      "permissions": [
+        "software.orders.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "adminUi.profile.software.overview",
+      "name": "Software Overview",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "NEXT F CMS/Admin metadata for Software Overview.",
+      "source": "registry/admin-ui/profiles/software-overview-admin.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "admin-ui",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.auditReference",
+          "description": "Admin profile targets this Software contract."
+        }
+      ],
+      "permissions": [
+        "software.dashboard.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "adminUi.profile.software.releases",
+      "name": "Software Releases",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "NEXT F CMS/Admin metadata for Software Releases.",
+      "source": "registry/admin-ui/profiles/software-releases-admin.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "admin-ui",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.release",
+          "description": "Admin profile targets this Software contract."
+        }
+      ],
+      "permissions": [
+        "software.releases.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "adminUi.profile.software.subscriptions",
+      "name": "Software Subscriptions",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "NEXT F CMS/Admin metadata for Software Subscriptions.",
+      "source": "registry/admin-ui/profiles/software-subscriptions-admin.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "admin-ui",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.subscription",
+          "description": "Admin profile targets this Software contract."
+        }
+      ],
+      "permissions": [
+        "software.orders.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "adminUi.profile.software.support",
+      "name": "Software Support",
+      "domain": "admin-ui",
+      "type": "ui-profile",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "NEXT F CMS/Admin metadata for Software Support.",
+      "source": "registry/admin-ui/profiles/software-support-admin.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "admin-ui",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.supportEntitlement",
+          "description": "Admin profile targets this Software contract."
+        }
+      ],
+      "permissions": [
+        "software.support.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
     },
     {
       "id": "adminUi.profile.webhooks.deadletters",
@@ -13518,6 +13827,1281 @@ export const GENERATED_REGISTRY = {
       "managedBy": "api-sync"
     },
     {
+      "id": "api.software-cms",
+      "name": "Software CMS API",
+      "domain": "api",
+      "type": "api-group",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Guarded NEXT F staff control-plane operations.",
+      "source": "registry/api/groups/software-cms.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api",
+        "software",
+        "group"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "api.apiContractStandard",
+          "description": "Software API group follows API contract rules."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.activation-limit",
+      "name": "Change Software Activation Limit",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Change Software Activation Limit",
+      "source": "registry/api/operations/software-cms/activation-limit.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.license",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.licenses.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.audit",
+      "name": "Read Software Audit",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Read Software Audit",
+      "source": "registry/api/operations/software-cms/audit.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.auditReference",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.audit.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.customers",
+      "name": "Read Software Customers",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Read Software Customers",
+      "source": "registry/api/operations/software-cms/customers.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.customer",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.customers.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.grant-entitlement",
+      "name": "Create Exceptional Software Entitlement",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Create Exceptional Software Entitlement",
+      "source": "registry/api/operations/software-cms/grant-entitlement.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.entitlement",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.entitlements.manage"
+      ],
+      "events": [
+        "software.entitlement-granted"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.initiate-release-upload",
+      "name": "Initiate Software Release Upload",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Initiate Software Release Upload",
+      "source": "registry/api/operations/software-cms/initiate-release-upload.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.releaseArtifact",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.releases.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.licenses",
+      "name": "Read Masked Software Licenses",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Read Masked Software Licenses",
+      "source": "registry/api/operations/software-cms/licenses.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.license",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.licenses.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.orders",
+      "name": "Read Software Orders",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Read Software Orders",
+      "source": "registry/api/operations/software-cms/orders.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.orderExtension",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.orders.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.overview",
+      "name": "Get Software Operations Overview",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Get Software Operations Overview",
+      "source": "registry/api/operations/software-cms/overview.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.auditReference",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.dashboard.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.products",
+      "name": "Read Software Products",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Read Software Products",
+      "source": "registry/api/operations/software-cms/products.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.product",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.catalog.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.publish-product",
+      "name": "Publish Software Product",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Publish Software Product",
+      "source": "registry/api/operations/software-cms/publish-product.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.product",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.catalog.publish"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.publish-release",
+      "name": "Publish Software Release",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Publish Software Release",
+      "source": "registry/api/operations/software-cms/publish-release.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.release",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.releases.publish"
+      ],
+      "events": [
+        "software.release-published"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.refund-approve",
+      "name": "Approve Software Refund",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Approve Software Refund",
+      "source": "registry/api/operations/software-cms/refund-approve.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.orderExtension",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.refunds.approve"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.refund-request",
+      "name": "Request Software Refund",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Request Software Refund",
+      "source": "registry/api/operations/software-cms/refund-request.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.orderExtension",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.refunds.request"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.releases",
+      "name": "Read Software Releases",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Read Software Releases",
+      "source": "registry/api/operations/software-cms/releases.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.release",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.releases.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.restore-license",
+      "name": "Restore Software License",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Restore Software License",
+      "source": "registry/api/operations/software-cms/restore-license.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.license",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.licenses.manage"
+      ],
+      "events": [
+        "software.license-restored"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.subscriptions",
+      "name": "Read Software Subscriptions",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Read Software Subscriptions",
+      "source": "registry/api/operations/software-cms/subscriptions.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.subscription",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.orders.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.support",
+      "name": "Read Software Support",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Read Software Support",
+      "source": "registry/api/operations/software-cms/support.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.supportEntitlement",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.support.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.suspend-license",
+      "name": "Suspend Software License",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Suspend Software License",
+      "source": "registry/api/operations/software-cms/suspend-license.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.license",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.licenses.manage"
+      ],
+      "events": [
+        "software.license-suspended"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-cms.upsert-product",
+      "name": "Create or Update Software Product",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Create or Update Software Product",
+      "source": "registry/api/operations/software-cms/upsert-product.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "PUT",
+        "nextf-admin"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.product",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [
+        "software.catalog.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer",
+      "name": "Software Customer API",
+      "domain": "api",
+      "type": "api-group",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Authenticated-owner Workspace operations.",
+      "source": "registry/api/groups/software-customer.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api",
+        "software",
+        "group"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "api.apiContractStandard",
+          "description": "Software API group follows API contract rules."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer.account",
+      "name": "Get Own Software Account",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Get Own Software Account",
+      "source": "registry/api/operations/software-customer/account.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.customer",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer.activate",
+      "name": "Activate Own Software License",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Activate Own Software License",
+      "source": "registry/api/operations/software-customer/activate.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.activation",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.activation-created"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer.cancel-subscription",
+      "name": "Cancel Own Software Subscription",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Cancel Own Software Subscription",
+      "source": "registry/api/operations/software-customer/cancel-subscription.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.subscription",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.subscription-cancelled"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer.create-download",
+      "name": "Create Own Download Grant",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Create Own Download Grant",
+      "source": "registry/api/operations/software-customer/create-download.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.downloadGrant",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.download-grant-issued"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer.deactivate",
+      "name": "Deactivate Own Software Activation",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Deactivate Own Software Activation",
+      "source": "registry/api/operations/software-customer/deactivate.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.activation",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.activation-deactivated"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer.downloads",
+      "name": "List Own Eligible Downloads",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "List Own Eligible Downloads",
+      "source": "registry/api/operations/software-customer/downloads.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.release",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer.licenses",
+      "name": "List Own Software Licenses",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "List Own Software Licenses",
+      "source": "registry/api/operations/software-customer/licenses.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.license",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer.order",
+      "name": "Get Own Software Order",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Get Own Software Order",
+      "source": "registry/api/operations/software-customer/order.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.orderExtension",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer.orders",
+      "name": "List Own Software Orders",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "List Own Software Orders",
+      "source": "registry/api/operations/software-customer/orders.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.orderExtension",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer.subscriptions",
+      "name": "List Own Software Subscriptions",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "List Own Software Subscriptions",
+      "source": "registry/api/operations/software-customer/subscriptions.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.subscription",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-customer.support",
+      "name": "Create Own Software Support Request",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Create Own Software Support Request",
+      "source": "registry/api/operations/software-customer/support.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.supportEntitlement",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-public",
+      "name": "Software Public API",
+      "domain": "api",
+      "type": "api-group",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Public Software catalog and purchase initiation.",
+      "source": "registry/api/groups/software-public.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api",
+        "software",
+        "group"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "api.apiContractStandard",
+          "description": "Software API group follows API contract rules."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-public.catalog",
+      "name": "Get Public Software Catalog",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Get Public Software Catalog",
+      "source": "registry/api/operations/software-public/catalog.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "anonymous"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.product",
+          "description": "Operation uses this contract."
+        },
+        {
+          "type": "uses",
+          "target": "software.edition",
+          "description": "Operation uses this contract."
+        },
+        {
+          "type": "uses",
+          "target": "software.price",
+          "description": "Operation uses this contract."
+        },
+        {
+          "type": "uses",
+          "target": "software.bundleComponent",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-public.create-order",
+      "name": "Create Software Purchase Order",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Create Software Purchase Order",
+      "source": "registry/api/operations/software-public/create-order.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "commerce-customer"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.orderExtension",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.order-created"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-public.product",
+      "name": "Get Public Software Product",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Get Public Software Product",
+      "source": "registry/api/operations/software-public/product.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "GET",
+        "anonymous"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.product",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-service",
+      "name": "Software Service API",
+      "domain": "api",
+      "type": "api-group",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Trusted Checkout, plugin protocol and reconciliation service operations.",
+      "source": "registry/api/groups/software-service.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api",
+        "software",
+        "group"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "api.apiContractStandard",
+          "description": "Software API group follows API contract rules."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-service.checkout-session",
+      "name": "Create Checkout Business Session for Software Order",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Create Checkout Business Session for Software Order",
+      "source": "registry/api/operations/software-service/checkout-session.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "internal-service"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.orderExtension",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-service.consume-payment-event",
+      "name": "Consume Verified Checkout Payment Event",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Consume Verified Checkout Payment Event",
+      "source": "registry/api/operations/software-service/consume-payment-event.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "internal-service"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.orderExtension",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.order-paid"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-service.download",
+      "name": "Redeem Software Download Grant",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Redeem Software Download Grant",
+      "source": "registry/api/operations/software-service/download.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "site-server"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.downloadGrant",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-service.license-validate",
+      "name": "Validate Software License",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Validate Software License",
+      "source": "registry/api/operations/software-service/license-validate.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "site-server"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.updateResponse",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-service.reconciliation",
+      "name": "Run Software Checkout Reconciliation",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Run Software Checkout Reconciliation",
+      "source": "registry/api/operations/software-service/reconciliation.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "internal-service"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.auditReference",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "api.software-service.update-check",
+      "name": "Check Software Update",
+      "domain": "api",
+      "type": "api-operation",
+      "version": "1.0.0",
+      "status": "stable",
+      "description": "Check Software Update",
+      "source": "registry/api/operations/software-service/update-check.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "api-operation",
+        "software",
+        "POST",
+        "site-server"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "software.updateResponse",
+          "description": "Operation uses this contract."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.update-served"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
       "id": "api.sortExpression",
       "name": "Sort Expression",
       "domain": "api",
@@ -15704,7 +17288,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -15731,7 +17315,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -15758,7 +17342,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -15796,7 +17380,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -15823,7 +17407,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -15850,7 +17434,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -15877,7 +17461,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -15904,7 +17488,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -15931,7 +17515,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -15958,7 +17542,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -15985,7 +17569,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -16012,7 +17596,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -16039,7 +17623,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -18386,6 +19970,33 @@ export const GENERATED_REGISTRY = {
       "managedBy": "changelog-sync"
     },
     {
+      "id": "changelog.release.1.3.0",
+      "name": "V1.3.0 - Software Canonical Contracts",
+      "type": "release-note",
+      "source": "registry/changelog/releases/1.3.0.json",
+      "description": "Adds the canonical NEXT F Software domain, stable launch identifiers, owner-scoped customer contracts, CMS permissions, Software/Checkout boundaries, licensing/entitlement/release/update APIs and the software.nextf.lk starter while preserving V1.0.0-V1.2.0 immutable releases.",
+      "tags": [
+        "changelog",
+        "release",
+        "phase-40"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "changelog.changelogStandard",
+          "description": "Release note follows the NEXT F Changelog Standard."
+        }
+      ],
+      "domain": "changelog",
+      "version": "1.3.0",
+      "status": "stable",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "permissions": [],
+      "events": [],
+      "managedBy": "changelog-sync"
+    },
+    {
       "id": "changelog.releaseCollection",
       "name": "Changelog Release Collection",
       "type": "schema",
@@ -18404,7 +20015,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -18431,7 +20042,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -18458,7 +20069,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -18485,7 +20096,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -18512,7 +20123,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -18539,7 +20150,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -18566,7 +20177,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -18593,7 +20204,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -18620,7 +20231,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "changelog",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 27,
       "introducedIn": "0.28.0",
@@ -36107,7 +37718,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36133,7 +37744,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36162,7 +37773,7 @@ export const GENERATED_REGISTRY = {
         "site"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36198,7 +37809,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36224,7 +37835,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36253,7 +37864,7 @@ export const GENERATED_REGISTRY = {
         "runtime"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36280,7 +37891,7 @@ export const GENERATED_REGISTRY = {
         "vocabulary"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36306,7 +37917,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36333,7 +37944,7 @@ export const GENERATED_REGISTRY = {
         "vocabulary"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36359,7 +37970,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36385,7 +37996,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36412,7 +38023,7 @@ export const GENERATED_REGISTRY = {
         "vocabulary"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36439,7 +38050,7 @@ export const GENERATED_REGISTRY = {
         "machine-readable"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36465,7 +38076,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36491,7 +38102,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36517,7 +38128,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36544,7 +38155,7 @@ export const GENERATED_REGISTRY = {
         "aggregation"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36572,7 +38183,7 @@ export const GENERATED_REGISTRY = {
         "assessment"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36600,7 +38211,7 @@ export const GENERATED_REGISTRY = {
         "upgrade"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36626,7 +38237,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36652,7 +38263,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36678,7 +38289,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36705,7 +38316,7 @@ export const GENERATED_REGISTRY = {
         "vocabulary"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36732,7 +38343,7 @@ export const GENERATED_REGISTRY = {
         "lifecycle"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36758,7 +38369,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36784,7 +38395,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -36810,7 +38421,7 @@ export const GENERATED_REGISTRY = {
         "schema"
       ],
       "domain": "lifecycle",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 26,
       "introducedIn": "0.27.0",
@@ -49105,7 +50716,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -49132,7 +50743,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -49153,7 +50764,7 @@ export const GENERATED_REGISTRY = {
       ],
       "relationships": [],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -49180,7 +50791,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -49207,7 +50818,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -49234,7 +50845,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -49261,7 +50872,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -49288,7 +50899,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -49315,7 +50926,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -49342,7 +50953,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -49369,7 +50980,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -49396,7 +51007,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "deprecations",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 28,
       "introducedIn": "0.29.0",
@@ -51447,7 +53058,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51474,7 +53085,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51501,7 +53112,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51528,7 +53139,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51562,7 +53173,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51590,7 +53201,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51617,7 +53228,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51644,7 +53255,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51671,7 +53282,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51698,7 +53309,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51725,7 +53336,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51753,7 +53364,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51780,7 +53391,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51807,7 +53418,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "diff",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 25,
       "introducedIn": "0.26.0",
@@ -51940,12 +53551,12 @@ export const GENERATED_REGISTRY = {
       "name": "Event Consumer Vocabulary",
       "domain": "events",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled logical event consumer classes.",
       "source": "registry/events/consumers.json",
       "phase": 13,
-      "introducedIn": "1.2.0",
+      "introducedIn": "1.3.0",
       "tags": [
         "events",
         "consumer",
@@ -52193,12 +53804,12 @@ export const GENERATED_REGISTRY = {
       "name": "Event Registry",
       "domain": "events",
       "type": "registry-index",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Machine-readable index of Phase 13 support schemas and canonical Event definitions.",
       "source": "registry/events/index.json",
       "phase": 13,
-      "introducedIn": "1.2.0",
+      "introducedIn": "1.3.0",
       "tags": [
         "events",
         "registry"
@@ -52383,12 +53994,12 @@ export const GENERATED_REGISTRY = {
       "name": "Event Producer Vocabulary",
       "domain": "events",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled logical producer authorities.",
       "source": "registry/events/producers.json",
       "phase": 13,
-      "introducedIn": "1.2.0",
+      "introducedIn": "1.3.0",
       "tags": [
         "events",
         "producer",
@@ -70856,7 +72467,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-001 — Portal HTML payload",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "portal.indexHtmlBytes target lte 65536 bytes.",
       "source": "registry/performance/budgets/perf_budget_001.json",
@@ -70885,7 +72496,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-002 — Local CSS aggregate",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "portal.localCssBytes target lte 196608 bytes.",
       "source": "registry/performance/budgets/perf_budget_002.json",
@@ -70914,7 +72525,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-003 — Non-generated JavaScript source",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "portal.localJsSourceBytes target lte 921600 bytes.",
       "source": "registry/performance/budgets/perf_budget_003.json",
@@ -70943,7 +72554,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-004 — Generated fallback aggregate",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "portal.generatedFallbackBytes target lte 94371840 bytes.",
       "source": "registry/performance/budgets/perf_budget_004.json",
@@ -70987,7 +72598,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-005 — Eager generated fallback bytes",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "portal.eagerGeneratedFallbackBytes target lte 0 bytes.",
       "source": "registry/performance/budgets/perf_budget_005.json",
@@ -71016,7 +72627,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-006 — Registry index size",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "registry.registryJsonBytes target lte 3145728 bytes.",
       "source": "registry/performance/budgets/perf_budget_006.json",
@@ -71045,7 +72656,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-007 — Global Search index size",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "search.indexBytes target lte 12582912 bytes.",
       "source": "registry/performance/budgets/perf_budget_007.json",
@@ -71079,7 +72690,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-008 — Relationship index size",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "relationships.indexBytes target lte 4194304 bytes.",
       "source": "registry/performance/budgets/perf_budget_008.json",
@@ -71113,7 +72724,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-009 — Diff snapshot storage",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "diff.snapshotsBytes target lte 367001600 bytes.",
       "source": "registry/performance/budgets/perf_budget_009.json",
@@ -71147,7 +72758,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-010 — Inline script payload",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "portal.inlineScriptBytes target lte 0 bytes.",
       "source": "registry/performance/budgets/perf_budget_010.json",
@@ -71176,7 +72787,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-011 — Inline style payload",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "portal.inlineStyleBytes target lte 0 bytes.",
       "source": "registry/performance/budgets/perf_budget_011.json",
@@ -71205,7 +72816,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-012 — External blocking scripts",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "portal.externalScriptCount target lte 0 count.",
       "source": "registry/performance/budgets/perf_budget_012.json",
@@ -71234,7 +72845,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-013 — External stylesheet dependencies",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "portal.externalStylesheetCount target lte 1 count.",
       "source": "registry/performance/budgets/perf_budget_013.json",
@@ -71263,7 +72874,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-014 — Eager Diff imports",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "portal.eagerDiffImportCount target lte 0 count.",
       "source": "registry/performance/budgets/perf_budget_014.json",
@@ -71297,7 +72908,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-015 — Relationship render bound",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "relationships.maxRenderedNeighbors target lte 80 count.",
       "source": "registry/performance/budgets/perf_budget_015.json",
@@ -71331,7 +72942,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-016 — Search page result bound",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "search.defaultPageLimit target lte 50 count.",
       "source": "registry/performance/budgets/perf_budget_016.json",
@@ -71365,7 +72976,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-BUDGET-017 — Bootstrap registry loaders",
       "domain": "performance",
       "type": "performance-budget",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "portal.bootstrapRegistryLoaderCount target lte 24 count.",
       "source": "registry/performance/budgets/perf_budget_017.json",
@@ -71394,7 +73005,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Budget JSON Schema",
       "domain": "performance",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "JSON Schema for machine-readable performance budgets.",
       "source": "registry/performance/performance-budget.schema.json",
@@ -71420,7 +73031,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Categories",
       "domain": "performance",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled performance category vocabulary.",
       "source": "registry/performance/categories.json",
@@ -71446,7 +73057,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Registry",
       "domain": "performance",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Generated index of performance rules, budgets and portal evidence.",
       "source": "registry/performance/index.json",
@@ -71472,7 +73083,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Measurement Method",
       "domain": "performance",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled method used to gather performance evidence.",
       "source": "registry/performance/definitions/measurementMethod.json",
@@ -71499,7 +73110,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Measurement Methods",
       "domain": "performance",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled performance evidence methods.",
       "source": "registry/performance/measurement-methods.json",
@@ -71525,7 +73136,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Metrics",
       "domain": "performance",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled measurable performance metric vocabulary.",
       "source": "registry/performance/metrics.json",
@@ -71551,7 +73162,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Audit",
       "domain": "performance",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Measured Contract Portal performance evidence against Phase 32 budgets.",
       "source": "registry/performance/definitions/performanceAudit.json",
@@ -71578,7 +73189,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Budget",
       "domain": "performance",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Machine-readable target/warning threshold for one performance metric.",
       "source": "registry/performance/definitions/performanceBudget.json",
@@ -71605,7 +73216,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Metric",
       "domain": "performance",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled measurable metric used by a Performance Budget.",
       "source": "registry/performance/definitions/performanceMetric.json",
@@ -71632,7 +73243,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Rule",
       "domain": "performance",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Machine-readable implementation requirement for performance behavior.",
       "source": "registry/performance/definitions/performanceRule.json",
@@ -71659,7 +73270,7 @@ export const GENERATED_REGISTRY = {
       "name": "Contract Portal Performance Audit",
       "domain": "performance",
       "type": "performance-audit",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Measured Phase 32 Contract Portal budget and loading evidence.",
       "source": "registry/performance/portal-audit.json",
@@ -71685,7 +73296,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-001 — HTML payload discipline",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Keep page shells semantic and compact; do not embed large Registry payloads directly into HTML.",
       "source": "registry/performance/rules/perf_rule_001.json",
@@ -71713,7 +73324,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-002 — CSS payload discipline",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Use shared tokens/components and avoid duplicated or oversized inline styles.",
       "source": "registry/performance/rules/perf_rule_002.json",
@@ -71741,7 +73352,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-003 — JavaScript payload discipline",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Prefer small ES modules, shared utilities and data-driven rendering over duplicated page-specific code.",
       "source": "registry/performance/rules/perf_rule_003.json",
@@ -71769,7 +73380,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-004 — Route-lazy heavy features",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Heavy features and historical datasets must load only when the user opens the relevant route.",
       "source": "registry/performance/rules/perf_rule_004.json",
@@ -71797,7 +73408,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-005 — Generated fallbacks are failure-path assets",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Generated local fallbacks must load dynamically only when authoritative JSON cannot be read; normal hosted runtime must not eagerly parse them.",
       "source": "registry/performance/rules/perf_rule_005.json",
@@ -71825,7 +73436,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-006 — Registry JSON loading",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Load only the Registry data required by the current shell or feature, and avoid duplicating the same authoritative data into unrelated runtime bundles.",
       "source": "registry/performance/rules/perf_rule_006.json",
@@ -71853,7 +73464,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-007 — Public content caching",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Public immutable or versioned content may use cache-friendly policies appropriate to freshness and invalidation requirements.",
       "source": "registry/performance/rules/perf_rule_007.json",
@@ -71881,7 +73492,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-008 — Authenticated cache boundary",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Authenticated, tenant-specific or permission-filtered responses must not be placed into unsafe shared caches.",
       "source": "registry/performance/rules/perf_rule_008.json",
@@ -71909,7 +73520,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-009 — Image optimization",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Customer sites should deliver appropriately compressed images sized for their rendered use.",
       "source": "registry/performance/rules/perf_rule_009.json",
@@ -71937,7 +73548,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-010 — Responsive images",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Use srcset/sizes or equivalent responsive-image delivery when one image asset serves materially different viewport sizes.",
       "source": "registry/performance/rules/perf_rule_010.json",
@@ -71965,7 +73576,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-011 — Modern image formats",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Prefer efficient modern formats when browser and content requirements permit while preserving a compatible delivery path.",
       "source": "registry/performance/rules/perf_rule_011.json",
@@ -71993,7 +73604,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-012 — Lazy non-critical images",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Images below the initial viewport should normally use lazy loading; critical/LCP media must not be lazily delayed without evidence.",
       "source": "registry/performance/rules/perf_rule_012.json",
@@ -72021,7 +73632,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-013 — Font loading discipline",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Prefer system or locally controlled fonts where appropriate; preload only fonts required for initial rendering and avoid unnecessary weights/styles.",
       "source": "registry/performance/rules/perf_rule_013.json",
@@ -72049,7 +73660,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-014 — Third-party scripts are non-blocking",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Optional third-party integrations must not block primary content rendering or core navigation.",
       "source": "registry/performance/rules/perf_rule_014.json",
@@ -72077,7 +73688,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-015 — Consent-gated marketing scripts",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Analytics and advertising scripts that require consent must not load or dispatch before the applicable consent state permits them.",
       "source": "registry/performance/rules/perf_rule_015.json",
@@ -72115,7 +73726,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-016 — No duplicate provider scripts",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Load a provider runtime at most once per page/runtime unless the provider contract explicitly requires otherwise.",
       "source": "registry/performance/rules/perf_rule_016.json",
@@ -72143,7 +73754,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-017 — Enabled connectors only",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Load only connectors enabled by the Site Manifest/configuration for the current Site and environment.",
       "source": "registry/performance/rules/perf_rule_017.json",
@@ -72181,7 +73792,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-018 — Connector failure isolation",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Third-party provider failure must not break primary site content, forms unrelated to that provider, or navigation.",
       "source": "registry/performance/rules/perf_rule_018.json",
@@ -72209,7 +73820,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-019 — API request discipline",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Avoid avoidable request waterfalls and repeated reads of identical resources within one interaction.",
       "source": "registry/performance/rules/perf_rule_019.json",
@@ -72237,7 +73848,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-020 — Batching where safe",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Use batching or aggregate endpoints when it reduces request overhead without weakening authorization, caching or data ownership boundaries.",
       "source": "registry/performance/rules/perf_rule_020.json",
@@ -72270,7 +73881,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-021 — Pagination for unbounded collections",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "APIs and management interfaces must paginate or otherwise bound collections that can grow without a small deterministic maximum.",
       "source": "registry/performance/rules/perf_rule_021.json",
@@ -72303,7 +73914,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-022 — Bounded Global Search rendering",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Global Search must keep palette/page result rendering bounded independently from total index size.",
       "source": "registry/performance/rules/perf_rule_022.json",
@@ -72341,7 +73952,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-023 — Bounded Relationship Explorer",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Relationship traversal, neighbor rendering, path depth and edge-table rows must remain bounded by machine-readable configuration.",
       "source": "registry/performance/rules/perf_rule_023.json",
@@ -72379,7 +73990,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-024 — Lazy Contract Diff history",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Historical Diff snapshots and large release history must not load on ordinary Registry, Search or Overview routes.",
       "source": "registry/performance/rules/perf_rule_024.json",
@@ -72412,7 +74023,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-025 — Lazy raw JSON",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Very large raw JSON should not be eagerly rendered into the DOM; show it on explicit detail/expand actions where practical.",
       "source": "registry/performance/rules/perf_rule_025.json",
@@ -72440,7 +74051,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-026 — Bounded large tables and lists",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Large tables/lists must paginate, virtualize, filter, collapse or otherwise remain usable instead of rendering unbounded rows.",
       "source": "registry/performance/rules/perf_rule_026.json",
@@ -72468,7 +74079,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-027 — Bounded memory use",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Release references to route-only large datasets when no longer needed where the runtime architecture supports it, and avoid unbounded caches.",
       "source": "registry/performance/rules/perf_rule_027.json",
@@ -72496,7 +74107,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-028 — Mobile-first performance review",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Evaluate expensive routes and integrations under constrained mobile CPU/network assumptions rather than desktop-only conditions.",
       "source": "registry/performance/rules/perf_rule_028.json",
@@ -72524,7 +74135,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-029 — Core Web Vitals guidance",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Use LCP, INP and CLS as user-experience signals with environment/context recorded; do not present them as guaranteed search-ranking outcomes.",
       "source": "registry/performance/rules/perf_rule_029.json",
@@ -72552,7 +74163,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-030 — Provider timing observability",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Future Site Runtime connector observability should expose slow/failing integration timing without leaking secret or personal payload data.",
       "source": "registry/performance/rules/perf_rule_030.json",
@@ -72585,7 +74196,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-031 — Measure generated artifact growth",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Search, Relationship, Diff and local fallback artifact sizes must be measured during release validation so growth is visible before packaging.",
       "source": "registry/performance/rules/perf_rule_031.json",
@@ -72613,7 +74224,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-032 — Performance evidence is environment-specific",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Synthetic/static checks and browser profiles must record environment and method; a repository size check is not equivalent to field performance.",
       "source": "registry/performance/rules/perf_rule_032.json",
@@ -72641,7 +74252,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-033 — No ranking guarantee",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Performance improvements may support usability and technical quality, but NEXT F must not claim guaranteed search-engine ranking improvements.",
       "source": "registry/performance/rules/perf_rule_033.json",
@@ -72669,7 +74280,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-034 — Route data isolation",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Heavy route-only data must not be pulled into the main shell merely because a generated fallback exists.",
       "source": "registry/performance/rules/perf_rule_034.json",
@@ -72697,7 +74308,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-035 — Authenticated response cache variation",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Where authenticated caching is used, cache keys and variation must preserve identity, tenant, permission and representation boundaries.",
       "source": "registry/performance/rules/perf_rule_035.json",
@@ -72730,7 +74341,7 @@ export const GENERATED_REGISTRY = {
       "name": "PERF-RULE-036 — Primary content survives marketing failure",
       "domain": "performance",
       "type": "performance-rule",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Analytics, advertising and optional marketing-provider failures must degrade independently from primary content and commerce-critical flows.",
       "source": "registry/performance/rules/perf_rule_036.json",
@@ -72758,7 +74369,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Rule JSON Schema",
       "domain": "performance",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "JSON Schema for machine-readable performance rules.",
       "source": "registry/performance/performance-rule.schema.json",
@@ -72784,7 +74395,7 @@ export const GENERATED_REGISTRY = {
       "name": "Performance Standard",
       "domain": "performance",
       "type": "standard",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Complete Phase 32 performance, loading, caching, media, third-party and measurement standard.",
       "source": "standards/40-performance-standard.md",
@@ -72804,7 +74415,7 @@ export const GENERATED_REGISTRY = {
       "name": "Third-party Performance Rules",
       "domain": "performance",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Explicit non-blocking, consent, deduplication and failure-isolation rules.",
       "source": "registry/performance/third-party-rules.json",
@@ -76473,7 +78084,7 @@ export const GENERATED_REGISTRY = {
       "name": "Primary Data Classifications",
       "domain": "privacy",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Canonical public/internal/personal/sensitive/secret primary classification vocabulary.",
       "source": "registry/privacy/classifications.json",
@@ -76499,7 +78110,7 @@ export const GENERATED_REGISTRY = {
       "name": "Consent Boundaries",
       "domain": "privacy",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Rules separating business-purpose/form consent from optional analytics and marketing consent.",
       "source": "registry/privacy/consent-boundaries.json",
@@ -76525,7 +78136,7 @@ export const GENERATED_REGISTRY = {
       "name": "Consent Boundary Definition",
       "domain": "privacy",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Reusable consent-boundary definition.",
       "source": "registry/privacy/definitions/consentBoundary.json",
@@ -76551,7 +78162,7 @@ export const GENERATED_REGISTRY = {
       "name": "Consent Relevance",
       "domain": "privacy",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Business-purpose/analytics/marketing/functional/multiple consent relevance vocabulary.",
       "source": "registry/privacy/consent-relevance.json",
@@ -76577,7 +78188,7 @@ export const GENERATED_REGISTRY = {
       "name": "High-risk Privacy Coverage",
       "domain": "privacy",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Explicit coverage map for authentication, forms/leads, marketing, integrations, Commerce/payments, Webhooks and audit.",
       "source": "registry/privacy/coverage.json",
@@ -76603,7 +78214,7 @@ export const GENERATED_REGISTRY = {
       "name": "Data Classification",
       "domain": "privacy",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Reusable primary data classification definition.",
       "source": "registry/privacy/definitions/dataClassification.json",
@@ -76629,7 +78240,7 @@ export const GENERATED_REGISTRY = {
       "name": "Data Handling JSON Schema",
       "domain": "privacy",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "JSON Schema for field-level privacy handling records.",
       "source": "registry/privacy/data-handling.schema.json",
@@ -76655,7 +78266,7 @@ export const GENERATED_REGISTRY = {
       "name": "Data Qualifier",
       "domain": "privacy",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Reusable privacy qualifier definition.",
       "source": "registry/privacy/definitions/dataQualifier.json",
@@ -76681,7 +78292,7 @@ export const GENERATED_REGISTRY = {
       "name": "Deletion Behaviors",
       "domain": "privacy",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Canonical delete/anonymize/retain/review behaviors.",
       "source": "registry/privacy/deletion-behaviors.json",
@@ -76707,7 +78318,7 @@ export const GENERATED_REGISTRY = {
       "name": "Data Flow Eligibility",
       "domain": "privacy",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Allowed/conditional/redacted-only/prohibited flow eligibility vocabulary.",
       "source": "registry/privacy/eligibility-values.json",
@@ -76733,7 +78344,7 @@ export const GENERATED_REGISTRY = {
       "name": "Export Sensitivity",
       "domain": "privacy",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Normal/restricted/highly-restricted export sensitivity vocabulary.",
       "source": "registry/privacy/export-sensitivity.json",
@@ -76759,7 +78370,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-001 — permissions.principalReference.fields.principalId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Reference the authenticated/authorized principal.",
       "source": "registry/privacy/field-handling.json",
@@ -76812,7 +78423,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-002 — permissions.principalReference.fields.organizationId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "internal data handling: Scope authorization to the owning Organization.",
       "source": "registry/privacy/field-handling.json",
@@ -76861,7 +78472,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-003 — permissions.authorizationDecision.fields.principalId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Record the principal evaluated by authorization.",
       "source": "registry/privacy/field-handling.json",
@@ -76914,7 +78525,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-004 — permissions.authorizationDecision.fields.matchedRoleIds",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "internal data handling: Preserve authorization-decision evidence.",
       "source": "registry/privacy/field-handling.json",
@@ -76968,7 +78579,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-010 — forms.submission.fields.values",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Process user-submitted form values for the requested business interaction.",
       "source": "registry/privacy/field-handling.json",
@@ -77020,7 +78631,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-011 — forms.submission.fields.files",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Process user-submitted attachments under the form purpose.",
       "source": "registry/privacy/field-handling.json",
@@ -77077,7 +78688,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-012 — forms.submission.fields.consents",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Preserve consent/acknowledgement evidence associated with a submission.",
       "source": "registry/privacy/field-handling.json",
@@ -77125,7 +78736,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-013 — forms.submission.fields.requestContext",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Support request integrity, abuse prevention and operational diagnosis.",
       "source": "registry/privacy/field-handling.json",
@@ -77178,7 +78789,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-014 — forms.submission.fields.spamDecision",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "internal data handling: Record spam/abuse decision metadata.",
       "source": "registry/privacy/field-handling.json",
@@ -77226,7 +78837,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-015 — forms.lead.fields.displayName",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Identify the lead for customer follow-up.",
       "source": "registry/privacy/field-handling.json",
@@ -77273,7 +78884,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-016 — forms.lead.fields.contactPoints",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Contact the lead through customer-authorized business workflows.",
       "source": "registry/privacy/field-handling.json",
@@ -77325,7 +78936,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-017 — forms.lead.fields.organizationName",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Maintain lead business context where supplied.",
       "source": "registry/privacy/field-handling.json",
@@ -77372,7 +78983,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-018 — forms.lead.fields.submissionIds",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Link the Lead to source submissions without merging the entities.",
       "source": "registry/privacy/field-handling.json",
@@ -77420,7 +79031,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-019 — forms.consentRecord.fields.accepted",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Preserve the consent/acknowledgement decision.",
       "source": "registry/privacy/field-handling.json",
@@ -77468,7 +79079,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-020 — forms.consentRecord.fields.textSnapshot",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "internal data handling: Preserve the text shown when consent/acknowledgement was recorded.",
       "source": "registry/privacy/field-handling.json",
@@ -77511,7 +79122,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-021 — forms.consentRecord.fields.recordedAt",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Timestamp consent evidence.",
       "source": "registry/privacy/field-handling.json",
@@ -77554,7 +79165,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-030 — marketing.trackingEvent.fields.context",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Provide bounded measurement context for a canonical tracking observation.",
       "source": "registry/privacy/field-handling.json",
@@ -77602,7 +79213,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-031 — marketing.trackingEvent.fields.properties",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Carry allowlisted event properties without raw form payload dumping.",
       "source": "registry/privacy/field-handling.json",
@@ -77655,7 +79266,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-032 — marketing.trackingConsentRecord.fields.sessionId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Associate consent state with the bounded first-party session.",
       "source": "registry/privacy/field-handling.json",
@@ -77698,7 +79309,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-033 — marketing.trackingConsentRecord.fields.anonymousVisitorId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Associate consent state with a pseudonymous first-party visitor ID.",
       "source": "registry/privacy/field-handling.json",
@@ -77741,7 +79352,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-034 — marketing.trackingConsentRecord.fields.preferences",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Record consent preferences by category.",
       "source": "registry/privacy/field-handling.json",
@@ -77784,7 +79395,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-035 — marketing.sessionContext.fields.sessionId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Correlate bounded first-party session observations.",
       "source": "registry/privacy/field-handling.json",
@@ -77827,7 +79438,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-036 — marketing.sessionContext.fields.landingPage",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Measure landing-page context without treating the URL as a place for sensitive data.",
       "source": "registry/privacy/field-handling.json",
@@ -77875,7 +79486,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-037 — marketing.sessionContext.fields.initialTrafficSource",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Record bounded attribution context.",
       "source": "registry/privacy/field-handling.json",
@@ -77918,7 +79529,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-040 — integrations.credentialReference.fields.credentialId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "internal data handling: Reference credential lifecycle metadata without exposing credential material.",
       "source": "registry/privacy/field-handling.json",
@@ -77967,7 +79578,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-041 — integrations.credentialReference.fields.secretRefs",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "secret data handling: Reference protected secrets used by an authorized connector.",
       "source": "registry/privacy/field-handling.json",
@@ -78020,7 +79631,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-042 — integrations.secretReference.fields.secretRef",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "secret data handling: Reference server-side secret storage without exposing raw material.",
       "source": "registry/privacy/field-handling.json",
@@ -78068,7 +79679,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-043 — integrations.apiKeyConfiguration.fields.secretRef",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "secret data handling: Reference an API key in protected storage.",
       "source": "registry/privacy/field-handling.json",
@@ -78116,7 +79727,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-044 — integrations.oauthConfiguration.fields.clientId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "internal data handling: Identify the OAuth client without treating it as secret material.",
       "source": "registry/privacy/field-handling.json",
@@ -78164,7 +79775,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-045 — integrations.oauthConfiguration.fields.clientSecretRef",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "secret data handling: Reference the OAuth client secret in protected storage.",
       "source": "registry/privacy/field-handling.json",
@@ -78217,7 +79828,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-046 — integrations.oauthConfiguration.fields.accessTokenRef",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "secret data handling: Reference access-token material without browser/public exposure.",
       "source": "registry/privacy/field-handling.json",
@@ -78270,7 +79881,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-047 — integrations.oauthConfiguration.fields.refreshTokenRef",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "secret data handling: Reference refresh-token material without browser/public exposure.",
       "source": "registry/privacy/field-handling.json",
@@ -78323,7 +79934,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-050 — commerce.payment.fields.orderId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Link payment facts to the owning order.",
       "source": "registry/privacy/field-handling.json",
@@ -78372,7 +79983,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-051 — commerce.payment.fields.amount",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Record authoritative payment amount/currency value.",
       "source": "registry/privacy/field-handling.json",
@@ -78420,7 +80031,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-052 — commerce.payment.fields.method",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Reference the safe payment-method representation; raw PAN/CVV remains prohibited.",
       "source": "registry/privacy/field-handling.json",
@@ -78468,7 +80079,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-053 — commerce.payment.fields.providerPaymentId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Correlate the provider-side payment without exposing provider secrets.",
       "source": "registry/privacy/field-handling.json",
@@ -78517,7 +80128,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-054 — commerce.payment.fields.refundedAmount",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Maintain immutable/reconciled refund financial facts.",
       "source": "registry/privacy/field-handling.json",
@@ -78565,7 +80176,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-055 — commerce.paymentMethodReference.fields.providerMethodId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Hold only the opaque provider payment-method reference.",
       "source": "registry/privacy/field-handling.json",
@@ -78613,7 +80224,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-056 — commerce.paymentMethodReference.fields.last4",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Display the contract-approved safe last-four representation only.",
       "source": "registry/privacy/field-handling.json",
@@ -78661,7 +80272,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-060 — webhooks.delivery.fields.eventId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Correlate the authoritative Event to delivery state without treating transport as business truth.",
       "source": "registry/privacy/field-handling.json",
@@ -78709,7 +80320,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-061 — webhooks.delivery.fields.lastFailure",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "internal data handling: Persist sanitized delivery failure diagnostics.",
       "source": "registry/privacy/field-handling.json",
@@ -78757,7 +80368,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-062 — webhooks.deliveryAttempt.fields.request",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Persist only sanitized request metadata for delivery evidence.",
       "source": "registry/privacy/field-handling.json",
@@ -78810,7 +80421,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-063 — webhooks.deliveryAttempt.fields.response",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Persist only sanitized response metadata for delivery evidence.",
       "source": "registry/privacy/field-handling.json",
@@ -78858,7 +80469,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-064 — webhooks.signingKeyReference.fields.secretReference",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "secret data handling: Reference webhook signing material in protected server-side storage.",
       "source": "registry/privacy/field-handling.json",
@@ -78911,7 +80522,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-070 — core.auditRecord.fields.actor",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "personal data handling: Identify the actor responsible for an auditable change.",
       "source": "registry/privacy/field-handling.json",
@@ -78960,7 +80571,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-071 — core.auditRecord.fields.before",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Retain bounded pre-change evidence with secret/personal-field redaction.",
       "source": "registry/privacy/field-handling.json",
@@ -79013,7 +80624,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-072 — core.auditRecord.fields.after",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Retain bounded post-change evidence with secret/personal-field redaction.",
       "source": "registry/privacy/field-handling.json",
@@ -79066,7 +80677,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-073 — core.auditRecord.fields.requestId",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "internal data handling: Correlate audit evidence to an operational request.",
       "source": "registry/privacy/field-handling.json",
@@ -79114,7 +80725,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-074 — core.auditRecord.fields.metadata",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "sensitive data handling: Store bounded audit metadata while excluding secrets and unnecessary personal data.",
       "source": "registry/privacy/field-handling.json",
@@ -79167,7 +80778,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-080 — content.page.fields.title",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "public data handling: Render the customer-managed public page title when the Page is published.",
       "source": "registry/privacy/field-handling.json",
@@ -79210,7 +80821,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-081 — content.page.fields.slug",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "public data handling: Resolve the published Page URL path.",
       "source": "registry/privacy/field-handling.json",
@@ -79253,7 +80864,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-082 — content.page.fields.summary",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "public data handling: Render the published Page summary where the frontend uses it.",
       "source": "registry/privacy/field-handling.json",
@@ -79296,7 +80907,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-083 — content.blogPost.fields.title",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "public data handling: Render the published Blog Post title.",
       "source": "registry/privacy/field-handling.json",
@@ -79339,7 +80950,7 @@ export const GENERATED_REGISTRY = {
       "name": "PRIV-FLD-084 — content.blogPost.fields.excerpt",
       "domain": "privacy",
       "type": "data-handling-record",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "public data handling: Render the published Blog Post excerpt.",
       "source": "registry/privacy/field-handling.json",
@@ -79382,7 +80993,7 @@ export const GENERATED_REGISTRY = {
       "name": "Field Privacy Handling Definition",
       "domain": "privacy",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Reusable field-level privacy handling definition.",
       "source": "registry/privacy/definitions/fieldHandling.json",
@@ -79408,7 +81019,7 @@ export const GENERATED_REGISTRY = {
       "name": "Field Privacy Handling",
       "domain": "privacy",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Field-level classification, purpose and flow rules for high-risk contracts.",
       "source": "registry/privacy/field-handling.json",
@@ -79434,7 +81045,7 @@ export const GENERATED_REGISTRY = {
       "name": "Privacy & Data Registry",
       "domain": "privacy",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Generated index of privacy classifications, field handling, retention, consent and operation metadata.",
       "source": "registry/privacy/index.json",
@@ -79460,7 +81071,7 @@ export const GENERATED_REGISTRY = {
       "name": "Privacy Operation — Anonymization Request",
       "domain": "privacy",
       "type": "privacy-operation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Request anonymization when deletion is not the correct operation.",
       "source": "registry/privacy/operations.json",
@@ -79490,7 +81101,7 @@ export const GENERATED_REGISTRY = {
       "name": "Privacy Operation — Consent History",
       "domain": "privacy",
       "type": "privacy-operation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Existing consent contracts provide evidence primitives; Phase 30 does not claim a complete request portal.",
       "source": "registry/privacy/operations.json",
@@ -79520,7 +81131,7 @@ export const GENERATED_REGISTRY = {
       "name": "Privacy Operation — Deletion Request",
       "domain": "privacy",
       "type": "privacy-operation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Request deletion of eligible data subject to retention/integrity constraints.",
       "source": "registry/privacy/operations.json",
@@ -79550,7 +81161,7 @@ export const GENERATED_REGISTRY = {
       "name": "Privacy Operation — Export",
       "domain": "privacy",
       "type": "privacy-operation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Produce an authorized export of in-scope customer/personal data with classification-aware handling.",
       "source": "registry/privacy/operations.json",
@@ -79580,7 +81191,7 @@ export const GENERATED_REGISTRY = {
       "name": "Privacy Operation — Legal Hold",
       "domain": "privacy",
       "type": "privacy-operation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Represent an authorized hold that blocks normal deletion/expiration.",
       "source": "registry/privacy/operations.json",
@@ -79610,7 +81221,7 @@ export const GENERATED_REGISTRY = {
       "name": "Privacy Operation — Processing Record Reference",
       "domain": "privacy",
       "type": "privacy-operation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Reference future processing-record evidence without embedding a legal-compliance engine in the Registry.",
       "source": "registry/privacy/operations.json",
@@ -79640,7 +81251,7 @@ export const GENERATED_REGISTRY = {
       "name": "Privacy Operation — Retention Expiration",
       "domain": "privacy",
       "type": "privacy-operation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Represent policy-driven expiration without inventing legal durations.",
       "source": "registry/privacy/operations.json",
@@ -79670,7 +81281,7 @@ export const GENERATED_REGISTRY = {
       "name": "Privacy Operations",
       "domain": "privacy",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Future-safe privacy operation primitives with truthful runtime support status.",
       "source": "registry/privacy/operations.json",
@@ -79696,7 +81307,7 @@ export const GENERATED_REGISTRY = {
       "name": "Privacy Operation Definition",
       "domain": "privacy",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Reusable future privacy operation primitive.",
       "source": "registry/privacy/definitions/privacyOperation.json",
@@ -79722,7 +81333,7 @@ export const GENERATED_REGISTRY = {
       "name": "Data Qualifiers",
       "domain": "privacy",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Financial/authentication/tracking/content/system-metadata qualifier vocabulary.",
       "source": "registry/privacy/qualifiers.json",
@@ -79748,7 +81359,7 @@ export const GENERATED_REGISTRY = {
       "name": "Redaction Behaviors",
       "domain": "privacy",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Canonical masking/partial/pseudonymization/removal behavior vocabulary.",
       "source": "registry/privacy/redaction-behaviors.json",
@@ -79774,7 +81385,7 @@ export const GENERATED_REGISTRY = {
       "name": "Retention Class Definition",
       "domain": "privacy",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Reusable retention classification definition.",
       "source": "registry/privacy/definitions/retentionClass.json",
@@ -79800,7 +81411,7 @@ export const GENERATED_REGISTRY = {
       "name": "Retention Classes",
       "domain": "privacy",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Policy-oriented retention classes without fabricated legal durations.",
       "source": "registry/privacy/retention-classes.json",
@@ -79826,7 +81437,7 @@ export const GENERATED_REGISTRY = {
       "name": "Privacy & Data Standard",
       "domain": "privacy",
       "type": "standard",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Complete Phase 30 privacy and data-classification requirements.",
       "source": "standards/38-privacy-data-standard.md",
@@ -79968,7 +81579,7 @@ export const GENERATED_REGISTRY = {
       "source": "registry/qa/check.schema.json",
       "description": "Schema-like definition for stable Registry Health check records.",
       "domain": "validation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 36,
       "introducedIn": "0.37.0",
@@ -79995,7 +81606,7 @@ export const GENERATED_REGISTRY = {
       "source": "registry/qa/report.json",
       "description": "Generated repository-wide acceptance report with blocking and deferred evidence.",
       "domain": "validation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 36,
       "introducedIn": "0.37.0",
@@ -80022,7 +81633,7 @@ export const GENERATED_REGISTRY = {
       "source": "registry/qa/findings.json",
       "description": "Non-PASS QA findings extracted from the current acceptance report.",
       "domain": "validation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 36,
       "introducedIn": "0.37.0",
@@ -80049,7 +81660,7 @@ export const GENERATED_REGISTRY = {
       "source": "registry/qa/index.json",
       "description": "Machine-readable index for Registry Health artifacts.",
       "domain": "validation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 36,
       "introducedIn": "0.37.0",
@@ -80076,7 +81687,7 @@ export const GENERATED_REGISTRY = {
       "source": "standards/44-registry-health-release-candidate-standard.md",
       "description": "Repository-wide QA and release-candidate acceptance rules for Phase 36.",
       "domain": "validation",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 36,
       "introducedIn": "0.37.0",
@@ -80591,7 +82202,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "relationships",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 24,
       "introducedIn": "0.25.0",
@@ -80620,7 +82231,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "relationships",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 24,
       "introducedIn": "0.25.0",
@@ -80653,7 +82264,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "relationships",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 24,
       "introducedIn": "0.25.0",
@@ -80681,7 +82292,7 @@ export const GENERATED_REGISTRY = {
         }
       ],
       "domain": "relationships",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "phase": 24,
       "introducedIn": "0.25.0",
@@ -81241,7 +82852,7 @@ export const GENERATED_REGISTRY = {
       "name": "Global Search Standard",
       "domain": "search",
       "type": "standard",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Canonical discovery, ranking, keyboard, privacy and search-index generation rules for contract.nextf.lk.",
       "source": "standards/31-global-search-standard.md",
@@ -81275,7 +82886,7 @@ export const GENERATED_REGISTRY = {
       "name": "Global Search Configuration",
       "domain": "search",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled result kinds, limits, token behavior and synonym vocabulary for local registry search.",
       "source": "registry/search/search-config.json",
@@ -81303,7 +82914,7 @@ export const GENERATED_REGISTRY = {
       "name": "Global Search Index",
       "domain": "search",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Generated local search snapshot covering registry items, fields, portal routes and documentation.",
       "source": "registry/search/search-index.json",
@@ -81331,7 +82942,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Categories",
       "domain": "security",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled security category vocabulary.",
       "source": "registry/security/categories.json",
@@ -81357,7 +82968,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-ABUSE-001 — Abuse prevention",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Forms, authentication and other abuse-prone surfaces must apply layered controls appropriate to risk without treating one signal as authoritative.",
       "source": "registry/security/controls/sec_abuse_001.json",
@@ -81392,7 +83003,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-AUDIT-001 — Audit privileged changes",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Security-relevant and privileged state changes must produce sufficient audit evidence to identify actor, action, scope, outcome and time.",
       "source": "registry/security/controls/sec_audit_001.json",
@@ -81435,7 +83046,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-AUTH-001 — Authentication required for protected operations",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Protected and privileged operations must require an authenticated principal using an approved authentication mechanism.",
       "source": "registry/security/controls/sec_auth_001.json",
@@ -81470,7 +83081,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-AUTH-002 — Recent authentication for high-risk actions",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "High-risk operations that declare recent-authentication requirements must re-establish sufficiently recent user authentication before execution.",
       "source": "registry/security/controls/sec_auth_002.json",
@@ -81505,7 +83116,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-AUTHZ-001 — Server-side permission enforcement",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Every privileged operation must enforce canonical permissions at the server boundary; UI visibility is never the authorization decision.",
       "source": "registry/security/controls/sec_authz_001.json",
@@ -81545,7 +83156,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-AUTHZ-002 — Privileged operation confirmation",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Destructive or privileged operations must apply the confirmation and recent-authentication requirements declared by their operational metadata.",
       "source": "registry/security/controls/sec_authz_002.json",
@@ -81580,7 +83191,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-BACKUP-001 — Contract-data backup",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Authoritative contract source and critical registry release artifacts must be recoverable from version-controlled or otherwise verified backups.",
       "source": "registry/security/controls/sec_backup_001.json",
@@ -81610,7 +83221,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-BRUTE-001 — Brute-force resistance",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Authentication and sensitive verification flows must limit repeated attempts and support lockout/backoff or equivalent defenses without exposing account-enumeration details.",
       "source": "registry/security/controls/sec_brute_001.json",
@@ -81640,7 +83251,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-CORS-001 — Explicit CORS policy",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "APIs must apply the canonical CORS policy appropriate to their surface and must not use permissive credentialed cross-origin access.",
       "source": "registry/security/controls/sec_cors_001.json",
@@ -81675,7 +83286,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-CSP-001 — Content Security Policy",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Web applications should use a restrictive, deployment-appropriate CSP and integrations must not silently weaken it with uncontrolled script origins.",
       "source": "registry/security/controls/sec_csp_001.json",
@@ -81715,7 +83326,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-CSRF-001 — CSRF protection for browser-authenticated writes",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Browser-authenticated state-changing requests must use CSRF-resistant request patterns and must not rely on ambient credentials alone.",
       "source": "registry/security/controls/sec_csrf_001.json",
@@ -81745,7 +83356,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-DEP-001 — Dependency vulnerability management",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Runtime and build dependencies must be inventoried, reviewed and updated when security risk requires it.",
       "source": "registry/security/controls/sec_dep_001.json",
@@ -81775,7 +83386,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-ENV-001 — Environment isolation",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Development, preview/staging and production environments must keep credentials, data access and integrations appropriately isolated.",
       "source": "registry/security/controls/sec_env_001.json",
@@ -81810,7 +83421,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-ERR-001 — Customer-safe error handling",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Errors returned to untrusted clients must not expose secrets, stack traces, internal credentials, private paths or cross-tenant data.",
       "source": "registry/security/controls/sec_err_001.json",
@@ -81840,7 +83451,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-HDR-001 — Security headers baseline",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Web surfaces must apply security headers appropriate to their runtime, including framing, content-type and referrer protections where applicable.",
       "source": "registry/security/controls/sec_hdr_001.json",
@@ -81870,7 +83481,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-IDEMP-001 — Replay-safe idempotency for sensitive commands",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Sensitive retried commands must use contract-defined idempotency/replay protections where duplicate execution could alter security or financial state.",
       "source": "registry/security/controls/sec_idemp_001.json",
@@ -81910,7 +83521,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-IN-001 — Authoritative server input validation",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "All untrusted input must be validated server-side against the relevant canonical contract before authoritative use.",
       "source": "registry/security/controls/sec_in_001.json",
@@ -81940,7 +83551,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-INT-001 — Integration credential isolation",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Third-party connections must keep provider credentials protected, environment-scoped and separate from customer-visible configuration.",
       "source": "registry/security/controls/sec_int_001.json",
@@ -81990,7 +83601,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-INT-002 — Integration failure containment",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Optional external providers must not become a trust dependency for primary content and must fail without exposing credentials or bypassing canonical validation.",
       "source": "registry/security/controls/sec_int_002.json",
@@ -82025,7 +83636,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-KEY-001 — API key handling",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Private API keys must be stored and transmitted only through protected server-side mechanisms; public identifiers must be distinguished from secret keys.",
       "source": "registry/security/controls/sec_key_001.json",
@@ -82060,7 +83671,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-LOG-001 — Secret-safe logging",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Logs must exclude secrets and credentials and minimize personal data while preserving operational security evidence.",
       "source": "registry/security/controls/sec_log_001.json",
@@ -82090,7 +83701,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-OAUTH-001 — OAuth credential and token handling",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "OAuth client secrets, access tokens and refresh tokens must remain protected; redirect/callback configuration must be explicit and validated.",
       "source": "registry/security/controls/sec_oauth_001.json",
@@ -82130,7 +83741,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-OUT-001 — Context-aware output encoding",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Untrusted values must be encoded for the output context in which they are rendered.",
       "source": "registry/security/controls/sec_out_001.json",
@@ -82160,7 +83771,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-PAY-001 — No PAN/CVV storage",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "NEXT F contracts and implementations must not store raw payment card PAN or CVV; provider tokenization or equivalent provider-hosted handling is required.",
       "source": "registry/security/controls/sec_pay_001.json",
@@ -82200,7 +83811,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-PAY-002 — Server-authoritative payment reconciliation",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Payment, authorization, capture and refund state must be reconciled from trusted server/provider evidence and canonical business invariants; browser-calculated totals or states are never authoritative.",
       "source": "registry/security/controls/sec_pay_002.json",
@@ -82255,7 +83866,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-PAY-003 — Payment/refund authorization",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Payment export/manage and refund creation/management operations must enforce their canonical permissions and business invariants server-side.",
       "source": "registry/security/controls/sec_pay_003.json",
@@ -82304,7 +83915,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-PDATA-001 — Personal-data security minimization",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Personal data must be collected, exposed, logged, emitted and delivered only when the owning contract and purpose require it, with appropriate authorization.",
       "source": "registry/security/controls/sec_pdata_001.json",
@@ -82354,7 +83965,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-PREV-001 — Preview and staging access control",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Non-production environments containing customer data, privileged previews or production-like integrations must be access-controlled and clearly isolated from public production.",
       "source": "registry/security/controls/sec_prev_001.json",
@@ -82384,7 +83995,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-QUERY-001 — Sensitive values excluded from URLs",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Sensitive values must not be placed in query strings or fragments unless an explicit contract permits a narrowly scoped safe token.",
       "source": "registry/security/controls/sec_query_001.json",
@@ -82414,7 +84025,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-RATE-001 — Rate limiting",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Public and authenticated endpoints must apply an appropriate canonical rate-limit class based on abuse and resource risk.",
       "source": "registry/security/controls/sec_rate_001.json",
@@ -82454,7 +84065,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-RECOVERY-001 — Recovery verification",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Recovery procedures for authoritative contract data must preserve integrity, version identity and auditability rather than restoring an unverifiable latest state.",
       "source": "registry/security/controls/sec_recovery_001.json",
@@ -82484,7 +84095,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-REDIR-001 — Safe redirects",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Redirect destinations derived from input must be constrained to explicitly allowed destinations or validated safe origins.",
       "source": "registry/security/controls/sec_redir_001.json",
@@ -82514,7 +84125,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-S2S-001 — Service-to-service authentication",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Internal service calls that can access protected data or perform privileged operations must authenticate the calling service and authorize the requested scope.",
       "source": "registry/security/controls/sec_s2s_001.json",
@@ -82544,7 +84155,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-SAN-001 — Content sanitization",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Rich or user-supplied content that permits markup must be sanitized according to its contract before trusted rendering.",
       "source": "registry/security/controls/sec_san_001.json",
@@ -82579,7 +84190,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-SECRET-001 — No privileged secrets in public delivery",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Secrets, credentials, tokens, signing secrets and encryption keys must never be embedded in public Site Manifests, browser bundles, public events, examples or unauthenticated responses.",
       "source": "registry/security/controls/sec_secret_001.json",
@@ -82624,7 +84235,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-SECRET-002 — Server-side secret references",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Provider and platform secrets must be represented by protected references rather than raw values in canonical public/configuration contracts.",
       "source": "registry/security/controls/sec_secret_002.json",
@@ -82674,7 +84285,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-SESS-001 — Secure session lifecycle",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Sessions must have bounded lifetime, secure invalidation, rotation where appropriate, and server-authoritative revocation.",
       "source": "registry/security/controls/sec_sess_001.json",
@@ -82709,7 +84320,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-SSRF-001 — Server-side outbound request restrictions",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Server-side URL fetching and callback delivery must reject unsafe schemes/targets and apply network policy before connecting.",
       "source": "registry/security/controls/sec_ssrf_001.json",
@@ -82744,7 +84355,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-SUPPLY-001 — Build and generated-artifact integrity",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Generated contract artifacts and release packages must retain integrity evidence and must not silently diverge from authoritative source.",
       "source": "registry/security/controls/sec_supply_001.json",
@@ -82779,7 +84390,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-TENANT-001 — Organization and Site isolation",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Tenant and Site scope must be derived and enforced server-side; browser-supplied tenant identifiers are never proof of authorization.",
       "source": "registry/security/controls/sec_tenant_001.json",
@@ -82814,7 +84425,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-TLS-001 — HTTPS/TLS required",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Production network communication carrying authenticated, personal, secret or webhook data must use HTTPS/TLS with certificate validation.",
       "source": "registry/security/controls/sec_tls_001.json",
@@ -82849,7 +84460,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-TOKEN-001 — Bearer and token exposure prevention",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Bearer/session/access/refresh tokens must not be logged, placed in public content, or exposed in query strings unless an explicit contract safely requires a short-lived token.",
       "source": "registry/security/controls/sec_token_001.json",
@@ -82879,7 +84490,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-UPL-001 — Upload type and size enforcement",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "File uploads must enforce contract-defined allowed media/types and size limits server-side.",
       "source": "registry/security/controls/sec_upl_001.json",
@@ -82924,7 +84535,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-UPL-002 — Upload normalization and quarantine",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Upload handling must normalize filenames, restrict executable content, and support scan/quarantine state before risky content becomes available.",
       "source": "registry/security/controls/sec_upl_002.json",
@@ -82964,7 +84575,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-UPL-003 — Authorized download and safe headers",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Protected uploaded files must require authorization and use safe download/content headers appropriate to the file contract.",
       "source": "registry/security/controls/sec_upl_003.json",
@@ -83004,7 +84615,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-WH-001 — Webhook endpoint validation",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Webhook destinations must satisfy HTTPS/network-policy validation before activation and must not permit unsafe internal targets.",
       "source": "registry/security/controls/sec_wh_001.json",
@@ -83044,7 +84655,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-WH-002 — Webhook signing and secret rotation",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Webhook deliveries requiring authenticity must use the canonical signature policy and protected signing-key references with finite secret-rotation overlap.",
       "source": "registry/security/controls/sec_wh_002.json",
@@ -83089,7 +84700,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-WH-003 — Webhook replay resistance",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Webhook delivery/verification must apply timestamp, signature and replay-protection rules so captured valid requests cannot be reused outside policy.",
       "source": "registry/security/controls/sec_wh_003.json",
@@ -83129,7 +84740,7 @@ export const GENERATED_REGISTRY = {
       "name": "SEC-XSS-001 — No arbitrary script execution from managed content",
       "domain": "security",
       "type": "security-control",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "CMS/content values must not create arbitrary executable script paths in customer websites or management interfaces.",
       "source": "registry/security/controls/sec_xss_001.json",
@@ -83164,7 +84775,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Control JSON Schema",
       "domain": "security",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "JSON Schema for machine-readable security controls.",
       "source": "registry/security/security-control.schema.json",
@@ -83190,7 +84801,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Control Registry",
       "domain": "security",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Generated index of canonical security controls.",
       "source": "registry/security/index.json",
@@ -83216,7 +84827,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Obligations",
       "domain": "security",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Mandatory/recommended security control vocabulary.",
       "source": "registry/security/obligations.json",
@@ -83242,7 +84853,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Value Class",
       "domain": "security",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Reusable protected-value classification definition.",
       "source": "registry/security/definitions/secretClass.json",
@@ -83268,7 +84879,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Value Classes",
       "domain": "security",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Public/configuration/protected/secret credential and key classes.",
       "source": "registry/security/secret-classes.json",
@@ -83294,7 +84905,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Control",
       "domain": "security",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Reusable security-control definition.",
       "source": "registry/security/definitions/securityControl.json",
@@ -83320,7 +84931,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Severity Levels",
       "domain": "security",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Canonical security violation severity vocabulary.",
       "source": "registry/security/severity-levels.json",
@@ -83346,7 +84957,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Standard",
       "domain": "security",
       "type": "standard",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Complete Phase 29 security requirements and verification standard.",
       "source": "standards/37-security-standard.md",
@@ -83366,7 +84977,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Surface Mapping",
       "domain": "security",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Control applicability across platform surfaces.",
       "source": "registry/security/surface-mapping.json",
@@ -83392,7 +85003,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Surface Mapping Definition",
       "domain": "security",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Reusable surface applicability mapping definition.",
       "source": "registry/security/definitions/surfaceMapping.json",
@@ -83418,7 +85029,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Verification Method",
       "domain": "security",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Reusable security verification definition.",
       "source": "registry/security/definitions/verificationMethod.json",
@@ -83444,7 +85055,7 @@ export const GENERATED_REGISTRY = {
       "name": "Security Verification Methods",
       "domain": "security",
       "type": "vocabulary",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Controlled verification-method vocabulary.",
       "source": "registry/security/verification-methods.json",
@@ -85644,6 +87255,2439 @@ export const GENERATED_REGISTRY = {
       "managedBy": "events-sync"
     },
     {
+      "id": "software.activation",
+      "name": "Software Activation",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Normalized installation/site activation associated with a Software License.",
+      "source": "registry/software/definitions/activation.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "licensing",
+        "entity",
+        "activationId",
+        "licenseId",
+        "siteUrlNormalized",
+        "environment",
+        "installationFingerprint"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        },
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Activation consumes capacity from one Software License."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.activation-created",
+      "name": "Software Activation Created",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Activation Created",
+      "source": "registry/events/events/software--activation-created.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.activation",
+          "description": "Event subject may be software.activation."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.activation-created"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.activation-created",
+      "name": "Software Activation Created",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Activation Created",
+      "source": "registry/events/events/software--activation-created.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.activation",
+          "description": "Event subject may be software.activation."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.activation-created"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.activation-deactivated",
+      "name": "Software Activation Deactivated",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Activation Deactivated",
+      "source": "registry/events/events/software--activation-deactivated.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.activation",
+          "description": "Event subject may be software.activation."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.activation-deactivated"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.activation-deactivated",
+      "name": "Software Activation Deactivated",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Activation Deactivated",
+      "source": "registry/events/events/software--activation-deactivated.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.activation",
+          "description": "Event subject may be software.activation."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.activation-deactivated"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.audit.view",
+      "name": "View Software Audit",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Read immutable Software audit evidence.",
+      "source": "registry/permissions/permissions/software.audit.view.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "audit",
+        "view",
+        "sensitive"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.audit.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.auditReference",
+      "name": "Software Audit Reference",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Reference from Software domain mutations to append-oriented immutable audit evidence.",
+      "source": "registry/software/definitions/audit-reference.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "audit",
+        "audit-reference",
+        "auditRef",
+        "subjectType",
+        "subjectId",
+        "action",
+        "actorRef"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.bundleComponent",
+      "name": "Software Bundle Component",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Product and edition grant created by purchasing a bundle.",
+      "source": "registry/software/definitions/bundle-component.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "catalog",
+        "grant-policy",
+        "bundleComponentId",
+        "bundleProductId",
+        "componentProductId",
+        "componentEditionId",
+        "grantPolicy"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        },
+        {
+          "type": "references",
+          "target": "software.product",
+          "description": "Bundle and components resolve to canonical Software Products."
+        },
+        {
+          "type": "references",
+          "target": "software.edition",
+          "description": "Bundle grants resolve to canonical editions."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.catalog.manage",
+      "name": "Manage Software Catalog",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Draft Software catalog and pricing changes.",
+      "source": "registry/permissions/permissions/software.catalog.manage.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "catalog",
+        "manage",
+        "elevated"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.catalog.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.catalog.publish",
+      "name": "Publish Software Catalog",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Publish effective Software commercial changes.",
+      "source": "registry/permissions/permissions/software.catalog.publish.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "catalog",
+        "publish",
+        "privileged"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.catalog.publish"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.catalog.view",
+      "name": "View Software Catalog",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Read Software products, editions, bundles and prices.",
+      "source": "registry/permissions/permissions/software.catalog.view.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "catalog",
+        "view",
+        "standard"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.catalog.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.compatibilityRequirement",
+      "name": "Software Compatibility Requirement",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Structured runtime/version compatibility for a Software Release.",
+      "source": "registry/software/definitions/compatibility-requirement.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "delivery",
+        "requirement",
+        "requirementId",
+        "releaseId",
+        "runtime",
+        "component",
+        "minimumVersion"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.customer",
+      "name": "Software Customer",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software account linked to platform identity and canonical Commerce customer references.",
+      "source": "registry/software/definitions/customer.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "commerce",
+        "entity",
+        "customerId",
+        "identityRef",
+        "commerceCustomerRef",
+        "billingIdentityRef",
+        "supportProfileRef"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        },
+        {
+          "type": "references",
+          "target": "commerce.commerceCustomer",
+          "description": "Generic buyer identity remains a Commerce concept."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.customers.view",
+      "name": "View Software Customers",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Read Software customer records.",
+      "source": "registry/permissions/permissions/software.customers.view.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "customers",
+        "view",
+        "sensitive"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.customers.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.dashboard.view",
+      "name": "View Software Dashboard",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Read aggregate Software operational health.",
+      "source": "registry/permissions/permissions/software.dashboard.view.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "dashboard",
+        "view",
+        "standard"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.dashboard.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.download-grant-issued",
+      "name": "Software Download Grant Issued",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Download Grant Issued",
+      "source": "registry/events/events/software--download-grant-issued.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.downloadGrant",
+          "description": "Event subject may be software.downloadGrant."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.download-grant-issued"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.download-grant-issued",
+      "name": "Software Download Grant Issued",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Download Grant Issued",
+      "source": "registry/events/events/software--download-grant-issued.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.downloadGrant",
+          "description": "Event subject may be software.downloadGrant."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.download-grant-issued"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.downloadGrant",
+      "name": "Software Download Grant",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Short-lived owner/product/release-scoped authorization for private Software package delivery.",
+      "source": "registry/software/definitions/download-grant.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "delivery",
+        "secure-grant",
+        "grantId",
+        "customerId",
+        "licenseId",
+        "productId",
+        "releaseId"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.edition",
+      "name": "Software Edition",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Commercial edition/plan identity and grant policy for a Software Product.",
+      "source": "registry/software/definitions/edition.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "catalog",
+        "entity",
+        "editionId",
+        "productId",
+        "code",
+        "name",
+        "billingMode"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        },
+        {
+          "type": "references",
+          "target": "software.product",
+          "description": "Edition belongs to a Software Product."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.entitlement",
+      "name": "Software Entitlement",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Machine-readable capability grant with source, scope and validity window.",
+      "source": "registry/software/definitions/entitlement.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "entitlements",
+        "capability-grant",
+        "entitlementId",
+        "customerId",
+        "sourceType",
+        "sourceRef",
+        "productId"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.entitlement-granted",
+      "name": "Software Entitlement Granted",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Entitlement Granted",
+      "source": "registry/events/events/software--entitlement-granted.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.entitlement",
+          "description": "Event subject may be software.entitlement."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.entitlement-granted"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.entitlement-granted",
+      "name": "Software Entitlement Granted",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Entitlement Granted",
+      "source": "registry/events/events/software--entitlement-granted.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.entitlement",
+          "description": "Event subject may be software.entitlement."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.entitlement-granted"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.entitlement-revoked",
+      "name": "Software Entitlement Revoked",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Entitlement Revoked",
+      "source": "registry/events/events/software--entitlement-revoked.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.entitlement",
+          "description": "Event subject may be software.entitlement."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.entitlement-revoked"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.entitlement-revoked",
+      "name": "Software Entitlement Revoked",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Entitlement Revoked",
+      "source": "registry/events/events/software--entitlement-revoked.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.entitlement",
+          "description": "Event subject may be software.entitlement."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.entitlement-revoked"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.entitlements.manage",
+      "name": "Manage Software Entitlements",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Create exceptional or grandfather Software grants with approval.",
+      "source": "registry/permissions/permissions/software.entitlements.manage.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "entitlements",
+        "manage",
+        "privileged"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.entitlements.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.grandfatherGrant",
+      "name": "Software Grandfather Grant",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Immutable capability protection for existing pre-commercial installations/users.",
+      "source": "registry/software/definitions/grandfather-grant.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "entitlements",
+        "immutable-grant",
+        "grantId",
+        "customerId",
+        "productId",
+        "sourceVersion",
+        "installationEvidenceRef"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.license",
+      "name": "Software License",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Human-manageable Software license identity and lifecycle without exposing raw license keys in ordinary projections.",
+      "source": "registry/software/definitions/license.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "licensing",
+        "entity",
+        "licenseId",
+        "customerId",
+        "productId",
+        "editionId",
+        "status"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        },
+        {
+          "type": "references",
+          "target": "software.entitlement",
+          "description": "Capabilities are granted through entitlements rather than plan-name checks."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.license-expired",
+      "name": "Software License Expired",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software License Expired",
+      "source": "registry/events/events/software--license-expired.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.license-expired"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.license-expired",
+      "name": "Software License Expired",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software License Expired",
+      "source": "registry/events/events/software--license-expired.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.license-expired"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.license-issued",
+      "name": "Software License Issued",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software License Issued",
+      "source": "registry/events/events/software--license-issued.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.license-issued"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.license-issued",
+      "name": "Software License Issued",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software License Issued",
+      "source": "registry/events/events/software--license-issued.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.license-issued"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.license-restored",
+      "name": "Software License Restored",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software License Restored",
+      "source": "registry/events/events/software--license-restored.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.license-restored"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.license-restored",
+      "name": "Software License Restored",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software License Restored",
+      "source": "registry/events/events/software--license-restored.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.license-restored"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.license-suspended",
+      "name": "Software License Suspended",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software License Suspended",
+      "source": "registry/events/events/software--license-suspended.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.license-suspended"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.license-suspended",
+      "name": "Software License Suspended",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software License Suspended",
+      "source": "registry/events/events/software--license-suspended.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.license",
+          "description": "Event subject may be software.license."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.license-suspended"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.licenses.manage",
+      "name": "Manage Software Licenses",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Suspend, restore or adjust activation limits with audit.",
+      "source": "registry/permissions/permissions/software.licenses.manage.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "licenses",
+        "manage",
+        "privileged"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.licenses.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.licenses.view",
+      "name": "View Software Licenses",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Read masked Software licenses and activations.",
+      "source": "registry/permissions/permissions/software.licenses.view.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "licenses",
+        "view",
+        "sensitive"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.licenses.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.order-created",
+      "name": "Software Order Created",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "A Software order is durably created from server-resolved catalog and price data.",
+      "source": "registry/events/events/software--order-created.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.orderExtension",
+          "description": "Event subject may be software.orderExtension."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.order-created"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.order-created",
+      "name": "Software Order Created",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "A Software order is durably created from server-resolved catalog and price data.",
+      "source": "registry/events/events/software--order-created.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.orderExtension",
+          "description": "Event subject may be software.orderExtension."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.order-created"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.order-paid",
+      "name": "Software Order Paid",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Verified Checkout payment evidence is reconciled and the Software order fulfillment transaction succeeds.",
+      "source": "registry/events/events/software--order-paid.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.orderExtension",
+          "description": "Event subject may be software.orderExtension."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.order-paid"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.order-paid",
+      "name": "Software Order Paid",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Verified Checkout payment evidence is reconciled and the Software order fulfillment transaction succeeds.",
+      "source": "registry/events/events/software--order-paid.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.orderExtension",
+          "description": "Event subject may be software.orderExtension."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.order-paid"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.order-refunded",
+      "name": "Software Order Refunded",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Order Refunded",
+      "source": "registry/events/events/software--order-refunded.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.orderExtension",
+          "description": "Event subject may be software.orderExtension."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.order-refunded"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.order-refunded",
+      "name": "Software Order Refunded",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Order Refunded",
+      "source": "registry/events/events/software--order-refunded.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.orderExtension",
+          "description": "Event subject may be software.orderExtension."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.order-refunded"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.orderExtension",
+      "name": "Software Order Extension",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software-specific immutable commercial snapshot and fulfillment linkage extending a canonical Commerce Order.",
+      "source": "registry/software/definitions/order-extension.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "commerce",
+        "transaction-extension",
+        "softwareOrderId",
+        "commerceOrderId",
+        "publicOrderNumber",
+        "customerId",
+        "lineGrantSnapshots"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        },
+        {
+          "type": "references",
+          "target": "commerce.order",
+          "description": "Software order extension is linked to canonical Commerce Order financial truth."
+        },
+        {
+          "type": "references",
+          "target": "commerce.paymentCapture",
+          "description": "Paid state is derived only from verified payment capture evidence."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.orders.manage",
+      "name": "Manage Software Orders",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Apply approved non-financial Software order corrections.",
+      "source": "registry/permissions/permissions/software.orders.manage.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "orders",
+        "manage",
+        "sensitive"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.orders.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.orders.view",
+      "name": "View Software Orders",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Read Software order snapshots and payment references.",
+      "source": "registry/permissions/permissions/software.orders.view.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "orders",
+        "view",
+        "sensitive"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.orders.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.price",
+      "name": "Software Price",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Immutable effective Software price record by edition, currency, market and time window.",
+      "source": "registry/software/definitions/price.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "catalog",
+        "effective-record",
+        "priceId",
+        "productId",
+        "editionId",
+        "currency",
+        "amount"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        },
+        {
+          "type": "uses",
+          "target": "commerce.moneySnapshot",
+          "description": "Money semantics reuse canonical Commerce money snapshots."
+        },
+        {
+          "type": "references",
+          "target": "software.edition",
+          "description": "Price belongs to a Software Edition."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.product",
+      "name": "Software Product",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Stable downloadable-software product identity used for Documentation, Blog Suite and Publisher Suite.",
+      "source": "registry/software/definitions/product.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "catalog",
+        "entity",
+        "productId",
+        "slug",
+        "name",
+        "productType",
+        "publicDescription"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        },
+        {
+          "type": "uses",
+          "target": "shared.mediaReference",
+          "description": "Product media should use governed Media references."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.refunds.approve",
+      "name": "Approve Software Refunds",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Approve a Software refund under policy.",
+      "source": "registry/permissions/permissions/software.refunds.approve.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "refunds",
+        "approve",
+        "privileged"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.refunds.approve"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.refunds.request",
+      "name": "Request Software Refunds",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Request a Software refund with reason and evidence.",
+      "source": "registry/permissions/permissions/software.refunds.request.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "refunds",
+        "request",
+        "sensitive"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.refunds.request"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.registry",
+      "name": "Software Registry",
+      "domain": "software",
+      "type": "registry-index",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Machine-readable index of canonical Software schemas and customer capabilities.",
+      "source": "registry/software/index.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software",
+        "registry",
+        "schemas"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Indexes definitions governed by Phase 40."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.release",
+      "name": "Software Release",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Versioned plugin release metadata, channel, requirements, changelog, artifact linkage and rollback relationship.",
+      "source": "registry/software/definitions/release.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "delivery",
+        "entity",
+        "releaseId",
+        "productId",
+        "version",
+        "channel",
+        "status"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        },
+        {
+          "type": "references",
+          "target": "software.releaseArtifact",
+          "description": "Package evidence is modeled separately from public release metadata."
+        },
+        {
+          "type": "references",
+          "target": "software.compatibilityRequirement",
+          "description": "Compatibility is structured by runtime/version range."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.release-published",
+      "name": "Software Release Published",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Release Published",
+      "source": "registry/events/events/software--release-published.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.release",
+          "description": "Event subject may be software.release."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.release-published"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.release-published",
+      "name": "Software Release Published",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Release Published",
+      "source": "registry/events/events/software--release-published.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.release",
+          "description": "Event subject may be software.release."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.release-published"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.release-withdrawn",
+      "name": "Software Release Withdrawn",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Release Withdrawn",
+      "source": "registry/events/events/software--release-withdrawn.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.release",
+          "description": "Event subject may be software.release."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.release-withdrawn"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.release-withdrawn",
+      "name": "Software Release Withdrawn",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Release Withdrawn",
+      "source": "registry/events/events/software--release-withdrawn.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.release",
+          "description": "Event subject may be software.release."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.release-withdrawn"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.releaseArtifact",
+      "name": "Software Release Artifact",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Private release-package metadata and server-calculated integrity evidence.",
+      "source": "registry/software/definitions/release-artifact.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "delivery",
+        "secure-record",
+        "artifactId",
+        "releaseId",
+        "packageRef",
+        "sizeBytes",
+        "sha256"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.releases.manage",
+      "name": "Manage Software Releases",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Upload draft packages and edit release metadata.",
+      "source": "registry/permissions/permissions/software.releases.manage.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "releases",
+        "manage",
+        "elevated"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.releases.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.releases.publish",
+      "name": "Publish Software Releases",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Promote, deprecate or withdraw Software releases.",
+      "source": "registry/permissions/permissions/software.releases.publish.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "releases",
+        "publish",
+        "privileged"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.releases.publish"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.releases.view",
+      "name": "View Software Releases",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Read Software release metadata and checks.",
+      "source": "registry/permissions/permissions/software.releases.view.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "releases",
+        "view",
+        "standard"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.releases.view"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.settings.manage",
+      "name": "Manage Software Settings",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Change Software licensing and delivery policy.",
+      "source": "registry/permissions/permissions/software.settings.manage.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "settings",
+        "manage",
+        "privileged"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.settings.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.softwareContractStandard",
+      "name": "Software Contract Standard",
+      "domain": "software",
+      "type": "standard",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Phase 40 Software authority, commerce, licensing, release, update and customer-access rules.",
+      "source": "standards/48-software-contract-standard.md",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software",
+        "licensing",
+        "entitlements",
+        "releases",
+        "standard"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "commerce.order",
+          "description": "Software order extensions reuse Commerce order truth."
+        },
+        {
+          "type": "uses",
+          "target": "commerce.paymentCapture",
+          "description": "Fulfillment uses verified payment capture evidence."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.subscription",
+      "name": "Software Subscription",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Recurring-plan lifecycle owned by Software while each payment attempt remains Checkout/Commerce payment truth.",
+      "source": "registry/software/definitions/subscription.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "commerce",
+        "entity",
+        "subscriptionId",
+        "customerId",
+        "productId",
+        "editionId",
+        "sourceOrderId"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        },
+        {
+          "type": "references",
+          "target": "software.orderExtension",
+          "description": "Subscription originates from a fulfilled Software order."
+        },
+        {
+          "type": "uses",
+          "target": "commerce.moneySnapshot",
+          "description": "Renewal prices use canonical Commerce money semantics."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.subscription-activated",
+      "name": "Software Subscription Activated",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Subscription Activated",
+      "source": "registry/events/events/software--subscription-activated.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.subscription-activated"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.subscription-activated",
+      "name": "Software Subscription Activated",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Subscription Activated",
+      "source": "registry/events/events/software--subscription-activated.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.subscription-activated"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.subscription-cancelled",
+      "name": "Software Subscription Cancelled",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Subscription Cancelled",
+      "source": "registry/events/events/software--subscription-cancelled.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.subscription-cancelled"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.subscription-cancelled",
+      "name": "Software Subscription Cancelled",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Subscription Cancelled",
+      "source": "registry/events/events/software--subscription-cancelled.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.subscription-cancelled"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.subscription-past-due",
+      "name": "Software Subscription Past Due",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Subscription Past Due",
+      "source": "registry/events/events/software--subscription-past-due.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.subscription-past-due"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.subscription-past-due",
+      "name": "Software Subscription Past Due",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Subscription Past Due",
+      "source": "registry/events/events/software--subscription-past-due.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.subscription-past-due"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.subscription-renewed",
+      "name": "Software Subscription Renewed",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Subscription Renewed",
+      "source": "registry/events/events/software--subscription-renewed.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.subscription-renewed"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.subscription-renewed",
+      "name": "Software Subscription Renewed",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Subscription Renewed",
+      "source": "registry/events/events/software--subscription-renewed.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "webhook-eligible"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.subscription",
+          "description": "Event subject may be software.subscription."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.subscription-renewed"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.support.manage",
+      "name": "Manage Software Support",
+      "domain": "software",
+      "type": "permission",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Operate Software support cases.",
+      "source": "registry/permissions/permissions/software.support.manage.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "permission",
+        "software",
+        "support",
+        "manage",
+        "sensitive"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "permissions.permissionRegistryStandard",
+          "description": "Software permission uses canonical permission semantics."
+        }
+      ],
+      "permissions": [
+        "software.support.manage"
+      ],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.supportEntitlement",
+      "name": "Software Support Entitlement",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software support level and validity derived from purchase/grant policy.",
+      "source": "registry/software/definitions/support-entitlement.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "support",
+        "capability-grant",
+        "supportEntitlementId",
+        "customerId",
+        "productId",
+        "sourceRef",
+        "level"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.update-served",
+      "name": "Software Update Served",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Update Served",
+      "source": "registry/events/events/software--update-served.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "internal-only"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.updateResponse",
+          "description": "Event subject may be software.updateResponse."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.update-served"
+      ],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.update-served",
+      "name": "Software Update Served",
+      "domain": "events",
+      "type": "event",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Software Update Served",
+      "source": "registry/events/events/software--update-served.json",
+      "phase": 13,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "event",
+        "software",
+        "software-domain",
+        "internal-only"
+      ],
+      "relationships": [
+        {
+          "type": "references",
+          "target": "software.updateResponse",
+          "description": "Event subject may be software.updateResponse."
+        }
+      ],
+      "permissions": [],
+      "events": [
+        "software.update-served"
+      ],
+      "managedBy": "events-sync"
+    },
+    {
+      "id": "software.updateRequest",
+      "name": "Software Update Request",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Privacy-minimized license-scoped plugin update request.",
+      "source": "registry/software/definitions/update-request.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "delivery",
+        "request",
+        "productId",
+        "licenseCredentialRef",
+        "siteUrlNormalized",
+        "environment",
+        "pluginVersion"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
+      "id": "software.updateResponse",
+      "name": "Software Update Response",
+      "domain": "software",
+      "type": "schema",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "License/entitlement-aware update metadata response without exposing private package credentials.",
+      "source": "registry/software/definitions/update-response.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "software-schema",
+        "delivery",
+        "response",
+        "eligible",
+        "activationStatus",
+        "capabilities",
+        "offlineValidUntil",
+        "releaseId"
+      ],
+      "relationships": [
+        {
+          "type": "implements",
+          "target": "software.softwareContractStandard",
+          "description": "Implements Phase 40 Software contracts."
+        },
+        {
+          "type": "references",
+          "target": "software.entitlement",
+          "description": "Update eligibility follows capability entitlement."
+        },
+        {
+          "type": "references",
+          "target": "software.downloadGrant",
+          "description": "Eligible package delivery uses a short-lived grant."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
       "domain": "developer",
       "version": "1.1.0",
       "status": "stable",
@@ -86288,11 +90332,37 @@ export const GENERATED_REGISTRY = {
       ]
     },
     {
+      "id": "starters.software",
+      "name": "NEXT F Software Site Starter",
+      "domain": "developer",
+      "type": "starter-pack",
+      "version": "1.3.0",
+      "status": "stable",
+      "description": "Framework-neutral starter for software.nextf.lk.",
+      "source": "registry/starters/definitions/software.json",
+      "phase": 40,
+      "introducedIn": "1.3.0",
+      "tags": [
+        "starter-pack",
+        "software"
+      ],
+      "relationships": [
+        {
+          "type": "uses",
+          "target": "modules.software",
+          "description": "Enables Software module."
+        }
+      ],
+      "permissions": [],
+      "events": [],
+      "managedBy": "software-sync"
+    },
+    {
       "id": "validation.browserValidator",
       "name": "Browser Contract Validator",
       "domain": "validation",
       "type": "validation-tool",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Local-only nextf.site.json browser validator.",
       "source": "registry/validation/definitions/browser-validator.json",
@@ -86468,7 +90538,7 @@ export const GENERATED_REGISTRY = {
       "name": "Validation Diagnostic",
       "domain": "validation",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Machine-readable validation diagnostic model.",
       "source": "registry/validation/definitions/diagnostic.json",
@@ -86495,7 +90565,7 @@ export const GENERATED_REGISTRY = {
       "name": "Browser Validation Rule Bundle",
       "domain": "validation",
       "type": "machine-registry",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Generated browser/CLI-shared validation rule bundle.",
       "source": "registry/validation/index.json",
@@ -86522,7 +90592,7 @@ export const GENERATED_REGISTRY = {
       "name": "Validation Result",
       "domain": "validation",
       "type": "schema",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Machine-readable manifest validation result model.",
       "source": "registry/validation/definitions/result.json",
@@ -86549,7 +90619,7 @@ export const GENERATED_REGISTRY = {
       "name": "Browser Contract Validation Standard",
       "domain": "validation",
       "type": "standard",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "status": "stable",
       "description": "Local-only deterministic Site Manifest validation standard.",
       "source": "standards/41-browser-contract-validation-standard.md",

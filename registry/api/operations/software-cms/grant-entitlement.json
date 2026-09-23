@@ -1,0 +1,75 @@
+{
+  "$id": "api.software-cms.grant-entitlement",
+  "operationId": "api.software-cms.grant-entitlement",
+  "name": "Create Exceptional Software Entitlement",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-cms",
+  "method": "POST",
+  "path": "/entitlements",
+  "description": "Create Exceptional Software Entitlement",
+  "authentication": {
+    "mode": "nextf-admin",
+    "permissions": [
+      "software.entitlements.manage"
+    ],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "software.entitlement",
+    "bodyProjection": null
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.entitlement",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "authenticated-read",
+    "cors": "customer-portal"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.entitlement"
+  ],
+  "eventBindings": [
+    "software.entitlement-granted"
+  ],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": []
+}

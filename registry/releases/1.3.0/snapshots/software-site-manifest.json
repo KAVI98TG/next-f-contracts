@@ -1,0 +1,287 @@
+{
+  "manifestVersion": "1.0.0",
+  "contracts": {
+    "contractVersion": "1.3.0",
+    "manifestSpecVersion": "1.0.0",
+    "compatibilityMode": "strict-major"
+  },
+  "site": {
+    "siteId": "site_software_nextf_lk",
+    "name": "NEXT F Software",
+    "siteType": "software",
+    "primaryUrl": "https://software.nextf.lk"
+  },
+  "localization": {
+    "defaultLocale": "en-LK",
+    "supportedLocales": [
+      "en-LK"
+    ],
+    "timeZone": "Asia/Colombo"
+  },
+  "environments": [
+    {
+      "id": "development",
+      "kind": "development",
+      "baseUrl": "http://localhost:5173",
+      "enabled": true
+    },
+    {
+      "id": "production",
+      "kind": "production",
+      "baseUrl": "https://software.nextf.lk",
+      "enabled": true
+    }
+  ],
+  "contentDelivery": {
+    "mode": "runtime",
+    "publishedOnly": true,
+    "previewSupported": true
+  },
+  "modules": [
+    {
+      "moduleId": "core",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "core.audit",
+          "enabled": true
+        },
+        {
+          "capabilityId": "core.identity",
+          "enabled": true
+        },
+        {
+          "capabilityId": "core.publishing",
+          "enabled": true
+        },
+        {
+          "capabilityId": "core.tenant-isolation",
+          "enabled": true
+        },
+        {
+          "capabilityId": "core.versioning",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "media",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "media.contextual-metadata",
+          "enabled": true
+        },
+        {
+          "capabilityId": "media.images",
+          "enabled": true
+        },
+        {
+          "capabilityId": "media.library",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "commerce",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "commerce.catalog",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.customers",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.checkout",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.orders",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.payments",
+          "enabled": true
+        },
+        {
+          "capabilityId": "commerce.refunds",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "integrations",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "integrations.custom-api",
+          "enabled": true
+        },
+        {
+          "capabilityId": "integrations.health",
+          "enabled": true
+        },
+        {
+          "capabilityId": "integrations.webhooks",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "moduleId": "software",
+      "enabled": true,
+      "capabilities": [
+        {
+          "capabilityId": "software.catalog",
+          "enabled": true
+        },
+        {
+          "capabilityId": "software.commerce",
+          "enabled": true
+        },
+        {
+          "capabilityId": "software.subscriptions",
+          "enabled": true
+        },
+        {
+          "capabilityId": "software.licensing",
+          "enabled": true
+        },
+        {
+          "capabilityId": "software.activations",
+          "enabled": true
+        },
+        {
+          "capabilityId": "software.entitlements",
+          "enabled": true
+        },
+        {
+          "capabilityId": "software.releases",
+          "enabled": true
+        },
+        {
+          "capabilityId": "software.downloads",
+          "enabled": true
+        },
+        {
+          "capabilityId": "software.updates",
+          "enabled": true
+        },
+        {
+          "capabilityId": "software.support",
+          "enabled": true
+        },
+        {
+          "capabilityId": "software.customer-workspace",
+          "enabled": true
+        }
+      ]
+    }
+  ],
+  "runtime": {
+    "siteIdentity": true,
+    "contentConnector": true,
+    "eventLayer": true,
+    "consentLayer": true,
+    "integrationLoader": true
+  },
+  "cms": {
+    "enabled": false,
+    "workspaceMode": "site",
+    "editingMode": "structured",
+    "previewEnabled": false,
+    "publishingEnabled": false,
+    "revisionHistoryEnabled": false,
+    "arbitraryCodeEditing": false
+  },
+  "apiBindings": [
+    {
+      "apiId": "api.software-public",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.software-customer",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.software-cms",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    },
+    {
+      "apiId": "api.software-service",
+      "version": "1.0.0",
+      "environments": [
+        "development",
+        "production"
+      ]
+    }
+  ],
+  "events": {
+    "produces": [
+      "software.order-created",
+      "software.order-paid",
+      "software.order-refunded",
+      "software.subscription-activated",
+      "software.subscription-past-due",
+      "software.subscription-renewed",
+      "software.subscription-cancelled",
+      "software.license-issued",
+      "software.license-suspended",
+      "software.license-restored",
+      "software.license-expired",
+      "software.activation-created",
+      "software.activation-deactivated",
+      "software.entitlement-granted",
+      "software.entitlement-revoked",
+      "software.release-published",
+      "software.release-withdrawn",
+      "software.download-grant-issued",
+      "software.update-served"
+    ],
+    "consumes": []
+  },
+  "tracking": {
+    "events": [
+      "page.viewed",
+      "cta.clicked"
+    ]
+  },
+  "integrations": [],
+  "configuration": [
+    {
+      "key": "SOFTWARE_API_ORIGIN",
+      "exposure": "public",
+      "required": true,
+      "environments": [
+        "development",
+        "production"
+      ],
+      "purpose": "Public origin for Software API catalog and customer entry flows; contains no secret."
+    },
+    {
+      "key": "SOFTWARE_CHECKOUT_BUSINESS_ID",
+      "exposure": "server",
+      "required": true,
+      "environments": [
+        "production"
+      ],
+      "purpose": "Server-side Checkout business identifier nextf-software; not a credential."
+    }
+  ],
+  "extensions": []
+}

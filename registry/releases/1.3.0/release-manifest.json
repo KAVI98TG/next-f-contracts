@@ -1,0 +1,24 @@
+{
+  "releaseVersion": "1.3.0",
+  "phase": 40,
+  "status": "STABLE",
+  "previousStableVersion": "1.2.0",
+  "registrySha256": "7de027a8f40e138ae3767de2e8948d6968e21836a20f89a31f266113339717b6",
+  "snapshots": {
+    "index": "registry/releases/1.3.0/snapshot-index.json",
+    "root": "registry/releases/1.3.0/snapshots"
+  },
+  "acceptance": {
+    "report": "registry/releases/1.3.0/acceptance-report.json",
+    "conclusion": "PASS"
+  },
+  "counts": {
+    "softwareSchemas": 19,
+    "softwareCapabilities": 11,
+    "softwareApiOperations": 39,
+    "softwareStaffPermissions": 18,
+    "softwareCustomerCapabilities": 8,
+    "softwareEvents": 19,
+    "adminProfiles": 11
+  }
+}

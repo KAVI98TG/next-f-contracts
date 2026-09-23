@@ -1,0 +1,76 @@
+{
+  "$id": "api.software-public.create-order",
+  "operationId": "api.software-public.create-order",
+  "name": "Create Software Purchase Order",
+  "version": "1.0.0",
+  "status": "stable",
+  "groupId": "api.software-public",
+  "method": "POST",
+  "path": "/orders",
+  "description": "Create Software Purchase Order",
+  "authentication": {
+    "mode": "commerce-customer",
+    "permissions": [],
+    "permissionMode": "all",
+    "scope": "site"
+  },
+  "request": {
+    "pathParameters": [],
+    "query": [],
+    "headers": [
+      "X-Request-Id?",
+      "X-NEXTF-Contract-Version?",
+      "Idempotency-Key"
+    ],
+    "bodyContract": "software.orderExtension",
+    "bodyProjection": "product-edition-coupon-choice-only"
+  },
+  "response": {
+    "successStatus": 200,
+    "envelope": "api.successEnvelope",
+    "dataContract": "software.orderExtension",
+    "errorEnvelope": "api.errorEnvelope",
+    "errors": [
+      "bad_request",
+      "validation_failed",
+      "api_version_unsupported",
+      "contract_version_unsupported",
+      "unauthenticated",
+      "forbidden",
+      "not_found"
+    ],
+    "projection": "authorized-minimal"
+  },
+  "policies": {
+    "idempotency": {
+      "required": true,
+      "header": "Idempotency-Key"
+    },
+    "concurrency": {
+      "required": false,
+      "requestHeader": null,
+      "responseHeader": null
+    },
+    "cache": "no-store",
+    "rateLimit": "commerce-checkout",
+    "cors": "site-origin"
+  },
+  "moduleBindings": [
+    "core",
+    "commerce",
+    "integrations",
+    "software"
+  ],
+  "contractBindings": [
+    "software.orderExtension"
+  ],
+  "eventBindings": [
+    "software.order-created"
+  ],
+  "publicSurface": false,
+  "privacy": "sensitive",
+  "notes": [
+    "Browser submits only product/edition/coupon choices; Software resolves authoritative price and final amount server-side.",
+    "This operation cannot assert paid state."
+  ]
+}

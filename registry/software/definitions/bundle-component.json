@@ -1,0 +1,126 @@
+{
+  "$id": "software.bundleComponent",
+  "name": "Software Bundle Component",
+  "version": "1.3.0",
+  "status": "stable",
+  "domain": "software",
+  "category": "catalog",
+  "description": "Product and edition grant created by purchasing a bundle.",
+  "purpose": "Product and edition grant created by purchasing a bundle.",
+  "softwareModel": {
+    "kind": "grant-policy",
+    "customerOwned": false,
+    "containsPersonalData": false,
+    "publicEligible": false,
+    "immutableSnapshot": false,
+    "dataSensitivity": "internal"
+  },
+  "fields": [
+    {
+      "key": "bundleComponentId",
+      "required": true,
+      "nullable": false,
+      "description": "Bundle component ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "bundleProductId",
+      "required": true,
+      "nullable": false,
+      "description": "Bundle Software Product ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "componentProductId",
+      "required": true,
+      "nullable": false,
+      "description": "Granted component product ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "componentEditionId",
+      "required": true,
+      "nullable": false,
+      "description": "Granted component edition ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "grantPolicy",
+      "required": true,
+      "nullable": false,
+      "description": "Grant behavior.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "exact-edition",
+          "equivalent-tier",
+          "explicit-capabilities"
+        ]
+      }
+    },
+    {
+      "key": "capabilitySet",
+      "required": false,
+      "nullable": true,
+      "description": "Explicit capabilities when grant policy requires them.",
+      "primitive": "fields.json"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "target": "software.product",
+      "description": "Bundle and components resolve to canonical Software Products."
+    },
+    {
+      "type": "references",
+      "target": "software.edition",
+      "description": "Bundle grants resolve to canonical editions."
+    }
+  ],
+  "validationRules": [
+    {
+      "id": "authorityBoundary",
+      "description": "Mutation is accepted only by the declared trusted Software authority."
+    },
+    {
+      "id": "noSecrets",
+      "description": "Contract examples and public projections never contain service credentials, signing keys or raw download tokens."
+    }
+  ],
+  "cms": {
+    "label": "Software Bundle Component",
+    "icon": "fa-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "software-schema",
+    "defaultPlacement": "software",
+    "summaryFields": [
+      "bundleComponentId",
+      "bundleProductId",
+      "componentProductId",
+      "componentEditionId"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Software business truth is served through scoped Software APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-40",
+    "api": "phase-40",
+    "permissions": "phase-40",
+    "events": "phase-40",
+    "webhooks": "phase-40",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

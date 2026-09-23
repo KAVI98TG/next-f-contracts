@@ -1,6 +1,6 @@
 {
-  "registryVersion": "1.2.0",
-  "targetVersion": "1.2.0",
+  "registryVersion": "1.3.0",
+  "targetVersion": "1.3.0",
   "generatedAt": "2026-09-11T00:00:00Z",
   "evidenceMode": "repository-reference-manifests",
   "productionData": false,
@@ -12,10 +12,10 @@
       "manifestSource": "registry/manifests/examples/corporate.json",
       "manifestRoute": "#/development/site-manifest?example=corporate",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.2.0",
+      "targetContractVersion": "1.3.0",
       "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest requires migration before target 1.2.0.",
+      "summary": "Manifest requires migration before target 1.3.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
@@ -97,7 +97,7 @@
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.3.0"
     },
     {
       "id": "site_example_service",
@@ -106,10 +106,10 @@
       "manifestSource": "registry/manifests/examples/service.json",
       "manifestRoute": "#/development/site-manifest?example=service",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.2.0",
+      "targetContractVersion": "1.3.0",
       "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest requires migration before target 1.2.0.",
+      "summary": "Manifest requires migration before target 1.3.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
@@ -191,7 +191,7 @@
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.3.0"
     },
     {
       "id": "site_example_leadgen",
@@ -200,10 +200,10 @@
       "manifestSource": "registry/manifests/examples/lead-generation.json",
       "manifestRoute": "#/development/site-manifest?example=lead-generation",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.2.0",
+      "targetContractVersion": "1.3.0",
       "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest requires migration before target 1.2.0.",
+      "summary": "Manifest requires migration before target 1.3.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
@@ -285,7 +285,7 @@
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.3.0"
     },
     {
       "id": "site_example_commerce",
@@ -294,10 +294,10 @@
       "manifestSource": "registry/manifests/examples/commerce.json",
       "manifestRoute": "#/development/site-manifest?example=commerce",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.2.0",
+      "targetContractVersion": "1.3.0",
       "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest requires migration before target 1.2.0.",
+      "summary": "Manifest requires migration before target 1.3.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
@@ -379,7 +379,7 @@
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.3.0"
     },
     {
       "id": "site_example_docs",
@@ -388,10 +388,10 @@
       "manifestSource": "registry/manifests/examples/documentation.json",
       "manifestRoute": "#/development/site-manifest?example=documentation",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.2.0",
+      "targetContractVersion": "1.3.0",
       "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest requires migration before target 1.2.0.",
+      "summary": "Manifest requires migration before target 1.3.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
@@ -473,7 +473,7 @@
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.3.0"
     },
     {
       "id": "site_example_custom",
@@ -482,10 +482,10 @@
       "manifestSource": "registry/manifests/examples/custom.json",
       "manifestRoute": "#/development/site-manifest?example=custom",
       "sourceContractVersion": "0.23.0",
-      "targetContractVersion": "1.2.0",
+      "targetContractVersion": "1.3.0",
       "overallStatus": "migration-required",
       "productionDecision": "not-approved-runtime-evidence",
-      "summary": "Manifest requires migration before target 1.2.0.",
+      "summary": "Manifest requires migration before target 1.3.0.",
       "dimensions": [
         {
           "dimension": "contract-release",
@@ -567,7 +567,7 @@
         }
       ],
       "findings": [],
-      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.2.0"
+      "diffRoute": "#/lifecycle/diff?from=0.23.0&to=1.3.0"
     }
   ]
 }

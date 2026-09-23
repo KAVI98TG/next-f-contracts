@@ -1,0 +1,131 @@
+{
+  "$id": "software.updateRequest",
+  "name": "Software Update Request",
+  "version": "1.3.0",
+  "status": "stable",
+  "domain": "software",
+  "category": "delivery",
+  "description": "Privacy-minimized license-scoped plugin update request.",
+  "purpose": "Privacy-minimized license-scoped plugin update request.",
+  "softwareModel": {
+    "kind": "request",
+    "customerOwned": false,
+    "containsPersonalData": true,
+    "publicEligible": false,
+    "immutableSnapshot": false,
+    "dataSensitivity": "sensitive"
+  },
+  "fields": [
+    {
+      "key": "productId",
+      "required": true,
+      "nullable": false,
+      "description": "Software Product ID.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "licenseCredentialRef",
+      "required": true,
+      "nullable": false,
+      "description": "License-scoped credential/reference.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "siteUrlNormalized",
+      "required": true,
+      "nullable": false,
+      "description": "Normalized site URL.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "environment",
+      "required": true,
+      "nullable": false,
+      "description": "Installation environment.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "production",
+          "staging",
+          "development",
+          "local"
+        ]
+      }
+    },
+    {
+      "key": "pluginVersion",
+      "required": true,
+      "nullable": false,
+      "description": "Installed plugin version.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "installationFingerprint",
+      "required": true,
+      "nullable": false,
+      "description": "Privacy-minimized installation fingerprint.",
+      "primitive": "fields.text"
+    },
+    {
+      "key": "requestedChannel",
+      "required": true,
+      "nullable": false,
+      "description": "Requested update channel.",
+      "primitive": "fields.select",
+      "config": {
+        "options": [
+          "stable",
+          "beta",
+          "rc",
+          "development"
+        ]
+      }
+    }
+  ],
+  "relationships": [],
+  "validationRules": [
+    {
+      "id": "noContent",
+      "description": "Request does not contain WordPress page/post/document content, visitor queries or unrelated analytics."
+    },
+    {
+      "id": "rateLimited",
+      "description": "Validation/update endpoints are abuse-controlled and rate-limited."
+    }
+  ],
+  "cms": {
+    "label": "Software Update Request",
+    "icon": "fa-code",
+    "customerVisible": false,
+    "adminVisible": true,
+    "editorMode": "software-schema",
+    "defaultPlacement": "software",
+    "summaryFields": [
+      "productId",
+      "licenseCredentialRef",
+      "siteUrlNormalized",
+      "environment"
+    ],
+    "primaryActions": [
+      "view"
+    ]
+  },
+  "delivery": {
+    "publicAllowed": false,
+    "notes": "Software business truth is served through scoped Software APIs."
+  },
+  "futureBindings": {
+    "modules": "phase-40",
+    "api": "phase-40",
+    "permissions": "phase-40",
+    "events": "phase-40",
+    "webhooks": "phase-40",
+    "privacy": "phase-30",
+    "security": "phase-29"
+  },
+  "examples": {
+    "valid": [],
+    "invalid": []
+  },
+  "notes": []
+}

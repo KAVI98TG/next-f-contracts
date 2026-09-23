@@ -469,3 +469,16 @@ Before changing an existing Site pin, inspect Changelog, Compatibility Center, e
 Registry V1 stability does not mean every consumer runtime is deployed. Preserve `unknown`/not-declared runtime compatibility for Site Runtime/SDK, Customer CMS, NEXT F Admin or APIs unless authoritative runtime evidence exists.
 
 Before claiming V1 release integrity, run `npm run validate:phase37`, `npm run smoke:phase37`, and `npm run validate:regression`. Production Acceptance artifacts under `registry/releases/1.0.0/` are release evidence and must not be fabricated or hand-edited to hide failed gates.
+
+
+## Phase 40 Software rules
+
+- Use canonical `software.*` contracts before creating project-local licensing, entitlement, release or subscription models.
+- Software API owns software-business truth; Checkout owns payment sessions/attempts/captures/refunds.
+- Never trust browser price, paid state, entitlement, activation limit or package path.
+- A success redirect is never payment evidence.
+- V1.3.0 annual renewal is customer-initiated; do not label it auto-renewing.
+- Use capability entitlements rather than plan-name checks.
+- Do not remotely disable installed plugin functionality when annual update/support access expires.
+- Never expose raw license keys, download tokens, signing keys, provider secrets or private R2 credentials.
+- License/update requests must not contain WordPress content or unrelated visitor analytics.

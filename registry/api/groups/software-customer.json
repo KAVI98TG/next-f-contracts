@@ -1,0 +1,32 @@
+{
+  "$id": "api.software-customer",
+  "apiId": "api.software-customer",
+  "name": "Software Customer API",
+  "version": "1.0.0",
+  "status": "stable",
+  "domain": "api",
+  "category": "operations",
+  "description": "Authenticated-owner Workspace operations.",
+  "basePath": "/api/v1/software/customer",
+  "defaultAuthMode": "commerce-customer",
+  "defaultCachePolicy": "no-store",
+  "defaultRateLimitClass": "authenticated-read",
+  "defaultCorsPolicy": "customer-portal",
+  "operationIds": [
+    "api.software-customer.account",
+    "api.software-customer.orders",
+    "api.software-customer.order",
+    "api.software-customer.subscriptions",
+    "api.software-customer.cancel-subscription",
+    "api.software-customer.licenses",
+    "api.software-customer.activate",
+    "api.software-customer.deactivate",
+    "api.software-customer.downloads",
+    "api.software-customer.create-download",
+    "api.software-customer.support"
+  ],
+  "moduleBindings": [
+    "software"
+  ],
+  "notes": []
+}

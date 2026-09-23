@@ -1,0 +1,30 @@
+{
+  "$id": "software.settings.manage",
+  "name": "Manage Software Settings",
+  "permissionId": "software.settings.manage",
+  "domain": "software",
+  "resource": "settings",
+  "action": "manage",
+  "scopeKind": "platform",
+  "riskLevel": "privileged",
+  "customerEligible": false,
+  "adminEligible": true,
+  "grantable": true,
+  "requiresRecentAuthentication": true,
+  "requiresExplicitConfirmation": false,
+  "surfaces": [
+    "nextf-admin",
+    "api"
+  ],
+  "description": "Change Software licensing and delivery policy.",
+  "constraints": [
+    "deny-by-default",
+    "exact-permission-match",
+    "staff-binding-required",
+    "audit-required",
+    "service-secrets-hidden"
+  ],
+  "notes": [],
+  "version": "1.3.0",
+  "status": "stable"
+}
