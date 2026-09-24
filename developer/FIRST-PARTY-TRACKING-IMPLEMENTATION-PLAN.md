@@ -1,13 +1,24 @@
 # NEXT F First-Party Tracking Contracts Implementation Plan
 
-**Status:** Ready for staged implementation  
-**Task classification:** `contract-registry-change`  
-**Baseline:** V1.3.0 / Phase 40  
+**Status:** Contract implementation complete; production runtime deployed dormant
+
+**Task classification:** `contract-registry-change`
+
+**Baseline:** V1.3.0 / Phase 40
+
 **Audit:** `developer/FIRST-PARTY-TRACKING-ARCHITECTURE-GAP-AUDIT.md`
+
+**Contract release:** V1.4.0 / Phase 41, published stable on 2026-09-23
+
+**Runtime release:** NEXT F CMS V1.0.63, deployed on 2026-09-24
+
+**Runtime handoff:** `developer/FIRST-PARTY-TRACKING-RUNTIME-DEPLOYMENT-HANDOFF.md`
 
 ## Outcome
 
-Publish an additive, provider-independent first-party tracking contract foundation by extending the existing Marketing/Analytics architecture. The release will define how browser and server consumers communicate with a future NEXT F-controlled SDK, collector, processing pipeline, reporting service, and health surface without claiming those runtimes are deployed.
+Publish an additive, provider-independent first-party tracking contract foundation by extending the existing Marketing/Analytics architecture. V1.4.0 completed that contract work. NEXT F CMS V1.0.63 subsequently implemented and deployed the matching SDK, collector, processing, aggregate reporting and health surfaces as a dormant production runtime.
+
+The runtime deployment does not activate collection for every Site. The main `nextf.lk` Site remains pinned to Contract Registry V1.0.0 and requires an explicit V1.0.0 to V1.4.0 lifecycle review before SDK installation or production event collection.
 
 ## Change boundary
 
@@ -24,9 +35,9 @@ In scope:
 
 Out of scope:
 
-- production SDK or collector implementation;
-- database/storage engine selection;
-- deployment or customer rollout;
+- production SDK or collector implementation within the Contracts repository;
+- runtime database/storage engine selection within the Contracts repository;
+- automatic customer rollout;
 - third-party analytics adapters;
 - session replay, fingerprinting, tag management, or cross-customer identity;
 - removal of existing analytics providers from any Site.
@@ -85,7 +96,22 @@ Acceptance: examples validate and customer access remains the intersection of ca
 - Create an immutable release snapshot.
 - Run phase-specific validation, smoke tests, performance audit where generated portal payloads change, full validation, and current regression validation.
 
-Acceptance: all required checks pass, or failures/unrun checks are explicitly reported; no runtime/deployment claim is made.
+Acceptance: all required checks pass, or failures/unrun checks are explicitly reported. Contract-release evidence must remain distinct from later runtime-deployment evidence.
+
+## Runtime follow-on completed
+
+NEXT F CMS V1.0.63 completed the first runtime consumer on 2026-09-24:
+
+- Cloudflare Worker collector and SDK delivery at `tracking.nextf.lk`;
+- isolated production Queue and dead-letter Queue;
+- D1 deduplication, processing state, hourly aggregates and health counters;
+- supplemental Analytics Engine delivery;
+- permission-controlled CMS reporting and tracking-health queries;
+- Platform Analytics UI;
+- server-side `TRACKING_SERVER_TOKEN` secret handling;
+- production deployment and live health/SDK verification.
+
+The immutable V1.4.0 release snapshot continues to state the runtime status that was true when that contract release was frozen. Current operational evidence is maintained separately in the runtime handoff so historical release evidence is not rewritten.
 
 ## Verification plan
 

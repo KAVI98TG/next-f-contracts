@@ -6,13 +6,15 @@
 **Source requirement:** `NEXT-F-FIRST-PARTY-ANALYTICS-PLATFORM-FULL-PLAN.md`  
 **Audit date:** 2026-09-23
 
+> Post-audit status, 2026-09-24: Phase 41 / V1.4.0 closed the contract gaps identified here. NEXT F CMS V1.0.63 subsequently deployed the first compatible production runtime. This audit remains a point-in-time architecture record; current runtime evidence is in `developer/FIRST-PARTY-TRACKING-RUNTIME-DEPLOYMENT-HANDOFF.md`.
+
 ## 1. Decision
 
 NEXT F already has a substantial canonical Marketing and Analytics foundation. The first-party tracking initiative must extend that foundation; it must not introduce a second tracking domain, a second event envelope, or a parallel analytics module.
 
 The safe implementation direction is an additive release built around the existing `marketing.*` contracts, `analytics` and `marketing` Modules, `api.events` ingestion boundary, Phase 29 Security controls, Phase 30 Privacy handling, and the existing Customer CMS/NEXT F Admin profiles.
 
-The Contracts repository defines the runtime contract but does not implement the high-volume collector, processing pipeline, event store, aggregation service, reporting service, or browser SDK runtime.
+The Contracts repository defines the runtime contract and does not itself host the high-volume runtime. The first consumer implementation now lives in NEXT F CMS V1.0.63; the original gap statement remains historically applicable to the V1.3.0 audit baseline.
 
 ## 2. Existing canonical coverage
 

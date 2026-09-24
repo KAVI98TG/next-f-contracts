@@ -6,7 +6,9 @@ Current stable Contract Registry version: **V1.4.0**
 
 ## Phase 41 - First-Party Tracking Platform Contracts
 
-V1.4.0 adds first-party SDK/collector protocol contracts, browser and server ingestion, Site-scoped identity/session policies, reporting, tracking health, Manifest declarations, privacy mappings, examples and validation. It reuses `marketing.trackingEvent` and does not claim that a production runtime is deployed.
+V1.4.0 adds first-party SDK/collector protocol contracts, browser and server ingestion, Site-scoped identity/session policies, reporting, tracking health, Manifest declarations, privacy mappings, examples and validation. It reuses `marketing.trackingEvent`. The frozen release does not infer deployment from contract publication; the separately evidenced NEXT F CMS V1.0.63 production runtime was deployed on 2026-09-24 and remains dormant for `nextf.lk` pending that Site's explicit V1.4.0 upgrade.
+
+Runtime deployment evidence: `developer/FIRST-PARTY-TRACKING-RUNTIME-DEPLOYMENT-HANDOFF.md`.
 
 Run `npm run generate:tracking`, `npm run validate:phase41`, `npm run smoke:phase41`, `npm run audit:performance` and `npm run validate:regression`.
 

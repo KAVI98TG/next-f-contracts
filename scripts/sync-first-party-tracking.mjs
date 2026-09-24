@@ -90,7 +90,7 @@ Reporting is tenant-scoped, read-only and permission-controlled. Aggregates pres
 
 ## Runtime status
 
-V1.4.0 publishes contracts and compatibility metadata. It does not claim that a production SDK, collector, event store, processor, reporting runtime or customer deployment exists. Runtime availability remains explicit in compatibility and release evidence.
+V1.4.0 publishes contracts and compatibility metadata. Its frozen release evidence records the runtime state at publication and must not be rewritten to fabricate earlier availability. A compatible NEXT F CMS V1.0.63 runtime was subsequently deployed on 2026-09-24; current operational evidence and the still-pending Site activation boundary are recorded in \`developer/FIRST-PARTY-TRACKING-RUNTIME-DEPLOYMENT-HANDOFF.md\`.
 `);
 
 const field = (key, primitive, description, options = {}) => ({

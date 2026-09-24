@@ -15,7 +15,7 @@ for (const rel of fs.readdirSync(path.join(root, "registry/marketing/fixtures/va
 const standard = fs.readFileSync(path.join(root, "standards/49-first-party-tracking-platform-standard.md"), "utf8");
 ok("Standard preserves observation boundary", standard.includes("Domain Events remain authoritative"));
 ok("Standard forbids browser secrets", standard.includes("credentials are prohibited in browser code"));
-ok("Standard makes runtime non-claim", standard.includes("does not claim that a production SDK"));
+ok("Standard separates release-time and current runtime evidence", standard.includes("frozen release evidence") && standard.includes("subsequently deployed"));
 console.log(`NEXT F Contracts Phase 41 smoke\nPasses: ${pass.length}\nFailures: ${fail.length}`);
 if (fail.length) { console.error(fail.map((item) => `- ${item}`).join("\n")); process.exit(1); }
 console.log("PASS");

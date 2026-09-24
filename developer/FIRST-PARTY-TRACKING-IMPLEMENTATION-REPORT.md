@@ -4,7 +4,9 @@
 
 The NEXT F Contracts repository now contains the coordinated Phase 41 / V1.4.0 first-party tracking contract release. This is an implementation in the project registries, schemas, API definitions, generated portal data, release artifacts and validation tooling; it is not only a documentation update.
 
-The release intentionally defines the platform contract boundary without claiming a deployed SDK, collector, event store, processor or reporting runtime. Runtime status is machine-readable as `not-implemented` in the SDK compatibility and release evidence.
+At the time V1.4.0 was frozen, the release intentionally defined the platform contract boundary without claiming a deployed SDK, collector, event store, processor or reporting runtime. Its immutable SDK compatibility snapshot and acceptance evidence correctly retain that release-time `not-implemented` state.
+
+Post-release status: NEXT F CMS V1.0.63 implemented and deployed the compatible production runtime on 2026-09-24. The collector/SDK surface is live at `tracking.nextf.lk`, but the main Site remains uninstrumented until its explicit Contract Registry V1.0.0 to V1.4.0 lifecycle upgrade. See `developer/FIRST-PARTY-TRACKING-RUNTIME-DEPLOYMENT-HANDOFF.md`.
 
 ## Task classification and authority
 
@@ -65,12 +67,25 @@ The coordinated health gate exposed pre-existing cross-registry inconsistencies.
 
 The performance warning is non-blocking repository-budget evidence, not a claimed Core Web Vitals result. Live keyboard/screen-reader review and deployed runtime telemetry remain explicit external/manual evidence rather than fabricated results.
 
+## Post-deployment documentation synchronization
+
+On 2026-09-24 the current implementation plan, implementation report, architecture gap audit, Phase 41 standard, repository README, Global Search projection and original platform plan were synchronized with the verified CMS V1.0.63 production deployment. The immutable V1.4.0 release snapshot was not modified.
+
+| Command | Result |
+| --- | --- |
+| `npm run generate:search` | PASS; 8,388 searchable documents, including the runtime deployment handoff |
+| `npm run validate` | PASS; 89 passes, 0 failures |
+| `npm run smoke:phase41` | PASS; 12 passes, 0 failures |
+| `npm run audit:performance` | PASS with existing non-blocking warning; 16 budgets pass, 1 warning, 0 failures; 18 checks pass |
+| `npm run validate:regression` | PASS; 2,796 passes, 0 failures; 2,451 JSON files and 232 JS/MJS files checked |
+| `git diff --check` | PASS; no whitespace errors |
+
 ## Extensions and deviations
 
 - No project-specific parallel analytics schema, event namespace, permission model or webhook model was introduced.
 - No Contract Extension Proposal is required for the implemented contract scope.
-- Production SDK, collector, storage, processing, reporting runtime and deployment are outside this contracts-repository release and remain explicitly unimplemented.
+- Production SDK, collector, storage, processing and reporting were outside the V1.4.0 contracts-repository release. They were subsequently implemented by NEXT F CMS V1.0.63 and are evidenced separately without rewriting the frozen V1.4.0 snapshot.
 
 ## Handoff
 
-Use `npm run generate:tracking` to reproduce the Phase 41 contract release, then run `npm run validate`, `npm run smoke:phase41`, `npm run audit:performance` and `npm run validate:regression`. A runtime implementation must consume the exact compatibility, consent, privacy, security, environment-isolation and non-blocking contracts published here before claiming production support.
+Use `npm run generate:tracking` to reproduce the Phase 41 contract release, then run `npm run validate`, `npm run smoke:phase41`, `npm run audit:performance` and `npm run validate:regression`. Runtime operators must additionally use `developer/FIRST-PARTY-TRACKING-RUNTIME-DEPLOYMENT-HANDOFF.md` for the deployed evidence, activation boundary and remaining Site-upgrade requirement.
